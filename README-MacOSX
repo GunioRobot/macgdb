@@ -1,0 +1,24 @@
+= BUILDING =
+
+export CFLAGS="-Wno-format $CFLAGS"
+./configure --enable-64-bit-bfd --prefix=$(pwd)/dist
+make
+make install
+
+= CODE SIGNING =
+
+== CREATING A SIGNING IDENTITY ==
+
+See Chapter 2, "Obtaining a Signing Identity" of the Code Signing Guide:
+http://developer.apple.com/mac/library/documentation/Security/Conceptual/CodeSigningGuide/index.html
+
+Add your certificate to the System keychain. Modify the trust settings as follows to "Never Trust" for all uses except for code signing, which should be "Always Trust."
+
+== SIGNING GDB AFTER BUILDING ==
+
+codesign -s "Certificate Common Name" dist/bin/*
+
+= CLEANING =
+
+make distclean
+find . -iname config.cache -print -delete

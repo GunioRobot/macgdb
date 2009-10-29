@@ -44,6 +44,8 @@
 
 #include "xcoffsolib.h"
 
+#include "macosx/macosx-bundle-utils.h"
+
 struct vmap *map_vmap (bfd *, bfd *);
 
 void (*deprecated_file_changed_hook) (char *);
@@ -234,6 +236,24 @@ exec_file_attach (char *filename, int from_tty)
 	     &scratch_pathname);
 	}
 #endif
+	
+	  /* APPLE LOCAL: Look for a wrapped executable of the form
+	     Foo.app/Contents/MacOS/Foo, where the user gave us up to
+	     Foo.app.  The ".app" is optional. */	
+      if (scratch_chan < 0)
+	{
+	  char *wrapped_filename = macosx_filename_in_bundle (filename, 1);
+
+	  if (wrapped_filename != NULL)
+	    {
+	      scratch_chan = openp (getenv ("PATH"), OPF_TRY_CWD_FIRST, wrapped_filename,
+				    write_files ? O_RDWR | O_BINARY : O_RDONLY | O_BINARY,
+				    &scratch_pathname);
+	      xfree (wrapped_filename);
+	    }
+	}
+	  /* END APPLE LOCAL */
+		
       if (scratch_chan < 0)
 	perror_with_name (filename);
       exec_bfd = bfd_fopen (scratch_pathname, gnutarget,

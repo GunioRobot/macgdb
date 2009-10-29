@@ -97,7 +97,7 @@ POSTCOMPILE = @true
 
 # Directory containing source files.
 srcdir = @srcdir@
-VPATH = @srcdir@
+VPATH = @srcdir@:@srcdir@/macosx
 
 YACC=@YACC@
 
@@ -161,6 +161,10 @@ GDB_WARN_CFLAGS_NO_FORMAT = `echo " $(GDB_WARN_CFLAGS) " | sed "s/ -Wformat-nonl
 INTL = @LIBINTL@
 INTL_DEPS = @LIBINTL_DEP@
 INTL_CFLAGS = @INCINTL@
+
+# APPLE LOCAL: We need CoreFoundation for the plist parsing code
+CF_LDFLAGS = -framework CoreFoundation
+# END APPLE LOCAL
 
 # Did the user give us a --with-sysroot option?
 TARGET_SYSTEM_ROOT = @TARGET_SYSTEM_ROOT@
@@ -425,7 +429,7 @@ INSTALLED_LIBS=-lbfd -lreadline -lopcodes -liberty -ldecnumber \
 CLIBS = $(SIM) $(READLINE) $(OPCODES) $(BFD) $(INTL) $(LIBIBERTY) $(LIBDECNUMBER) \
 	$(XM_CLIBS) $(NAT_CLIBS) $(GDBTKLIBS) @LIBS@ \
 	$(LIBEXPAT) \
-	$(LIBIBERTY) $(WIN32LIBS) $(LIBGNU)
+	$(LIBIBERTY) $(WIN32LIBS) $(LIBGNU) $(CF_LDFLAGS)
 CDEPS = $(XM_CDEPS) $(NAT_CDEPS) $(SIM) $(BFD) $(READLINE_DEPS) \
 	$(OPCODES) $(INTL_DEPS) $(LIBIBERTY) $(CONFIG_DEPS) $(LIBGNU)
 

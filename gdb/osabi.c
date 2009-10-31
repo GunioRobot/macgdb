@@ -221,13 +221,23 @@ gdbarch_register_osabi_sniffer (enum bfd_architecture arch,
 enum gdb_osabi
 gdbarch_lookup_osabi (bfd *abfd)
 {
-  struct gdb_osabi_sniffer *sniffer;
-  enum gdb_osabi osabi, match;
-  int match_specific;
-
   /* If we aren't in "auto" mode, return the specified OS ABI.  */
   if (user_osabi_state == osabi_user)
     return user_selected_osabi;
+  return gdbarch_lookup_osabi_from_bfd (abfd);
+}
+
+/* APPLE LOCAL: I factored out the part that just returns 
+   the user selected OSABI because sometimes you actually 
+   want to know what the ABI of THIS bfd is, so you can 
+   see if it matches the one the user requested.  */
+
+enum gdb_osabi
+gdbarch_lookup_osabi_from_bfd (bfd *abfd)
+{
+  struct gdb_osabi_sniffer *sniffer;
+  enum gdb_osabi osabi, match;
+  int match_specific;
 
   /* If we don't have a binary, just return unknown.  The caller may
      have other sources the OSABI can be extracted from, e.g., the

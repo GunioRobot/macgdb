@@ -45,6 +45,7 @@
 #include "xcoffsolib.h"
 
 #include "macosx/macosx-bundle-utils.h"
+#include "macosx/macosx-fat-utils.h"
 
 struct vmap *map_vmap (bfd *, bfd *);
 
@@ -266,6 +267,19 @@ exec_file_attach (char *filename, int from_tty)
 	  error (_("\"%s\": could not open as an executable file: %s"),
 		 scratch_pathname, bfd_errmsg (bfd_get_error ()));
 	}
+		
+	  /* APPLE LOCAL begin fat binaries */
+      /* If the file is an archive file (i.e. fat binary), look for
+	 sub-files that match the current osabi. */
+
+      if (bfd_check_format (exec_bfd, bfd_archive))
+	{
+	  bfd *tmp_bfd;
+	  tmp_bfd = open_bfd_matching_arch (exec_bfd, bfd_object);
+	  if (tmp_bfd != NULL)
+	    exec_bfd = tmp_bfd;
+	}
+      /* APPLE LOCAL end fat binaries */
 
       /* At this point, scratch_pathname and exec_bfd->name both point to the
          same malloc'd string.  However exec_close() will attempt to free it

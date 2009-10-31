@@ -65,6 +65,9 @@
 #include <time.h>
 #include <sys/time.h>
 
+#include "macosx/macosx-bundle-utils.h"
+#include "macosx/macosx-fat-utils.h"
+
 
 int (*deprecated_ui_load_progress_hook) (const char *section, unsigned long num);
 void (*deprecated_show_load_progress) (const char *section,
@@ -1552,6 +1555,10 @@ symfile_bfd_open (char *name)
   bfd *sym_bfd;
   int desc;
   char *absolute_name;
+  
+  /* APPLE LOCAL: This will probably be turned to an additional argument, but
+  for now we'll just assume we're always opening the "mainline" executable. */
+  int mainline = 1;
 
   if (remote_filename_p (name))
     {
@@ -1589,6 +1596,25 @@ symfile_bfd_open (char *name)
 		    O_RDONLY | O_BINARY, &absolute_name);
     }
 #endif
+
+    /* APPLE LOCAL begin symfile bfd open */
+    if (desc < 0)
+      {
+        /* APPLE LOCAL: Look for a wrapped executable of the form
+        Foo.app/Contents/MacOS/Foo, where the user gave us up to
+        Foo.app.  The ".app" is optional. */
+
+        char *wrapped_filename = macosx_filename_in_bundle (name, mainline);
+
+        if (wrapped_filename != NULL)
+        {
+          desc = openp (getenv ("PATH"), OPF_TRY_CWD_FIRST, wrapped_filename,
+            O_RDONLY | O_BINARY, &absolute_name);
+          xfree (wrapped_filename);
+        }
+      }
+    /* APPLE LOCAL end symfile bfd open */
+
   if (desc < 0)
     {
       make_cleanup (xfree, name);
@@ -1606,9 +1632,21 @@ symfile_bfd_open (char *name)
       close (desc);
       make_cleanup (xfree, name);
       error (_("`%s': can't open to read symbols: %s."), name,
-	     bfd_errmsg (bfd_get_error ()));
+        bfd_errmsg (bfd_get_error ()));
     }
   bfd_set_cacheable (sym_bfd, 1);
+  
+  /* APPLE LOCAL: If the file is an archive file (i.e. fat
+     binary), look for sub-files that match the current osabi. */
+
+  if (bfd_check_format (sym_bfd, bfd_archive))
+    {
+      bfd *tmp_bfd;
+      tmp_bfd = open_bfd_matching_arch (sym_bfd, bfd_object);
+      if (tmp_bfd != NULL)
+        sym_bfd = tmp_bfd;
+    }
+  /* APPLE LOCAL end symfile bfd open */
 
   if (!bfd_check_format (sym_bfd, bfd_object))
     {

@@ -1,8 +1,8 @@
 = BUILDING =
 
-export CFLAGS="-Wno-format $CFLAGS"
+export CFLAGS="-Wno-format"
 ./configure --enable-64-bit-bfd --prefix=$(pwd)/dist
-make
+make -j$(sysctl -n hw.activecpu)
 make install
 
 = CODE SIGNING =

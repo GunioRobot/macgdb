@@ -58,6 +58,13 @@ open_bfd_matching_arch (bfd *archive_bfd, bfd_format expected_format)
       if (osabi == gdbarch_lookup_osabi_from_bfd (abfd))
         break;
     }
-
+    
+  // Copy the filename of the archive to the binary bfd.
+  if (abfd)
+  {
+    xfree(abfd->filename);
+    abfd->filename = archive_bfd->filename;
+  }
+  
   return abfd;
 }

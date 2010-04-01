@@ -1,3 +1,90 @@
+2009-12-22  Joel Brobecker  <brobecker@adacore.com>
+
+	* README: Update GDB version number to 7.0.1.
+	* version.in: Likewise.
+
+2009-12-21  Vladimir Prus  <vladimir@codesourcery.com>
+
+	PR gdb/10884
+
+	* value.c (value_primitive_field): Call check_typedef
+	on the type.
+
+2009-12-21  Joel Brobecker  <brobecker@adacore.com>
+
+	* COPYING: Update to GPL version 3.
+
+2009-12-21  Doug Evans  <dje@google.com>
+
+	* dcache.c (dcache_block): Replace member newer with next,prev.
+	(dcache_struct): Delete member newest.
+	(block_func): New typedef.
+	(append_block, remove_block, for_each_block): New functions.
+	(invalidate_block, free_block): New functions.
+	(dcache_invalidate): Update
+	(dcache_invalidate_line, dcache_alloc): Update to use new list
+	accessors.
+	(dcache_free): Ditto.  Fix memory leak.
+
+2009-12-21  Joel Brobecker  <brobecker@adacore.com>
+
+	* completer.c (complete_line_internal): Make sure the command
+	completer is not NULL before calling it.
+
+2009-12-20  Michael Snyder  <msnyder@vmware.com>
+
+	* amd64-tdep.c (amd64_epilogue_frame_cache): Fix buf size.
+
+2009-11-23  Rainer Orth  <ro@CeBiTec.Uni-Bielefeld.DE>
+
+	* dwarf2read.c [HAVE_MMAP] (MAP_FAILED): Define if missing.
+
+2009-11-13  Ramana Radhakrishnan  <ramana.radhakrishnan@arm.com>
+
+        Backport from mainline.
+        2009-07-28  Daniel Jacobowitz  <dan@codesourcery.com>
+
+        * arm-tdep.c (arm_push_dummy_call): Set the low bit of LR for
+        a Thumb entry point.
+	(thumb_get_next_pc): Handle Thumb-2 and ARM v6 instructions.
+	Refuse to single step into IT blocks.
+
+        2009-10-28  Daniel Jacobowitz  <dan@codesourcery.com>
+
+        Reported by Antti Hatala <ahatala@nvidia.com>
+        * arm-tdep.c (thumb_get_next_pc): Limit check to IT instructions
+        correctly.
+
+2009-10-22  Paul Pluzhnikov  <ppluzhnikov@google.com>
+
+	PR gdb/10819
+	* dwarf2-frame.c (find_cie): Don't call bsearch on empty cie_table.
+	* objfiles.c (find_pc_section): Likewise.
+	(update_section_map): Don't allocate empty table.
+	
+2009-10-19  Don Lee  <don.lee@sunplusct.com>
+
+	* score-tdep.c: Delete some simulator dependent codes.
+	* score-tdep.h: Delete some simulator dependent macro definitions.
+
+2008-10-16  Steven G. Kargl  <kargl@gcc.gnu.org>  (tiny patch)
+
+	* amd64fbsd-nat.c (amd64fbsd_supply_pcb): Conditionally compile in
+	support for pcb->pcb_{fs,ds,es,gs} on FreeBSD older than 8.0.
+
+2009-10-08  Paul Pluzhnikov  <ppluzhnikov@google.com>
+
+	PR gdb/10457
+	* elfread.c (elf_symtab_read): Don't use alloca in a loop.
+	
+2009-10-06  Joel Brobecker  <brobecker@adacore.com>
+
+	* version.in: Set version to 7.0.0.20091006-cvs.
+
+2009-10-06  Joel Brobecker  <brobecker@adacore.com>
+
+	GDB 7.0 released.
+
 2009-10-06  Joel Brobecker  <brobecker@adacore.com>
 
 	* NEWS: Change "Changes since GDB 6.8" into "Changes in GDB 7.0".

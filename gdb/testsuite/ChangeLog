@@ -1,3 +1,32 @@
+2009-12-21  Vladimir Prus  <vladimir@codesourcery.com>
+
+	PR gdb/10884
+
+	* gdb.mi/var-cmd.c (do_bitfield_tests): New
+	(main): Call do_bitfield_tests.
+	* gdb.mi/mi-var-cmd.exp: Run the 'bitfield' testcase.
+
+2009-12-21  Jan Kratochvil  <jan.kratochvil@redhat.com>
+
+	* gdb.base/foll-fork.exp (unpatch child, breakpoint at exit call):
+	Force $srcfile file.
+	* gdb.base/foll-fork.c (callee): Comment out the printf call.
+
+2009-12-21  Jan Kratochvil  <jan.kratochvil@redhat.com>
+
+	Fix spurious false FAILs.
+	* gdb.base/structs.c (chartest): New.
+	(main): Fill-in chartest.
+	* gdb.base/structs.exp (anychar_re, first): New.
+	(start_structs_test): Import global anychar_re and first.
+	New gdb_test call "set print elements 300; ${testfile}"
+	(start_structs_test <$first>): New block.
+	(any): Import global anychar_re.  New variable ac.  Use ${ac}.
+
+2009-12-21  Jan Kratochvil  <jan.kratochvil@redhat.com>
+
+	* gdb.base/bigcore.exp (extract_heap): Set $lim limit to 200.
+
 2009-09-29  Jan Kratochvil  <jan.kratochvil@redhat.com>
 
 	* gdb.base/breakpoint-shadow.exp: Move the ia64 part into ...

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-06 16:42+0000\n"
+"POT-Creation-Date: 2009-12-22 13:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1174,21 +1174,21 @@ msgid ""
 "search.  The only need to set it is when debugging a stripped executable."
 msgstr ""
 
-#: amd64fbsd-nat.c:179
+#: amd64fbsd-nat.c:182
 #, possible-c-format
 msgid ""
 "offsetof (struct sigcontext, sc_rip) yields %d instead of %d.\n"
 "Please report this to <bug-gdb@gnu.org>."
 msgstr ""
 
-#: amd64fbsd-nat.c:192
+#: amd64fbsd-nat.c:195
 #, possible-c-format
 msgid ""
 "offsetof (struct sigcontext, sc_rsp) yields %d instead of %d.\n"
 "Please report this to <bug-gdb@gnu.org>."
 msgstr ""
 
-#: amd64fbsd-nat.c:205
+#: amd64fbsd-nat.c:208
 #, possible-c-format
 msgid ""
 "offsetof (struct sigcontext, sc_rbp) yields %d instead of %d.\n"
@@ -1415,7 +1415,7 @@ msgstr ""
 msgid "wrong size of FPA register set in core file"
 msgstr ""
 
-#: armnbsd-tdep.c:65 arm-tdep.c:5847
+#: armnbsd-tdep.c:65 arm-tdep.c:6043
 msgid "arm_gdbarch_init: bad byte order for float format"
 msgstr ""
 
@@ -1434,150 +1434,154 @@ msgstr ""
 msgid "Invalid VFP CPRC type: %d."
 msgstr ""
 
-#: arm-tdep.c:1870
+#: arm-tdep.c:1871
 #, c-format
 msgid "Hardware FPU type %d\n"
 msgstr ""
 
-#: arm-tdep.c:1872
+#: arm-tdep.c:1873
 #, c-format
 msgid "Software FPU type %d\n"
 msgstr ""
 
 #. i18n: [floating point unit] mask
-#: arm-tdep.c:1874
+#: arm-tdep.c:1875
 msgid "mask: "
 msgstr ""
 
 #. i18n: [floating point unit] flags
-#: arm-tdep.c:1877
+#: arm-tdep.c:1878
 msgid "flags: "
 msgstr ""
 
-#: arm-tdep.c:2106
+#: arm-tdep.c:2107
 #, possible-c-format
 msgid "Bad REGNUM %d"
 msgstr ""
 
-#: arm-tdep.c:2280 arm-tdep.c:2312 arm-tdep.c:2350 arm-tdep.c:2392
-#: arm-tdep.c:2475 arm-tdep.c:2519 arm-tdep.c:2557 arm-tdep.c:2569
+#: arm-tdep.c:2286
+msgid "Stepping through Thumb-2 IT blocks is not yet supported"
+msgstr ""
+
+#: arm-tdep.c:2315 arm-tdep.c:2497 arm-tdep.c:2546 arm-tdep.c:2588
+#: arm-tdep.c:2671 arm-tdep.c:2715 arm-tdep.c:2753 arm-tdep.c:2765
 msgid "Infinite loop detected"
 msgstr ""
 
 #. multiply
-#: arm-tdep.c:2358 arm-tdep.c:2379 arm-tdep.c:2493
+#: arm-tdep.c:2554 arm-tdep.c:2575 arm-tdep.c:2689
 msgid "Invalid update to pc in instruction"
 msgstr ""
 
-#: arm-tdep.c:2580
+#: arm-tdep.c:2776
 msgid "Bad bit-field extraction\n"
 msgstr ""
 
 #. Unpredictable behaviour.  Try to do something sensible (switch to ARM
 #. mode, align dest to 4 bytes).
-#: arm-tdep.c:2706
+#: arm-tdep.c:2902
 msgid "Single-stepping BX to non-word-aligned ARM instruction."
 msgstr ""
 
-#: arm-tdep.c:2767
+#: arm-tdep.c:2963
 msgid "Instruction wrote to PC in an unexpected way when single-stepping"
 msgstr ""
 
-#: arm-tdep.c:2773
+#: arm-tdep.c:2969
 msgid "Invalid argument to displaced_write_reg"
 msgstr ""
 
-#: arm-tdep.c:3372
+#: arm-tdep.c:3568
 msgid "copy_extra_ld_st: instruction decode error"
 msgstr ""
 
-#: arm-tdep.c:3563
+#: arm-tdep.c:3759
 msgid "Cannot single-step exception return"
 msgstr ""
 
-#: arm-tdep.c:3685
+#: arm-tdep.c:3881
 #, possible-c-format
 msgid "displaced: LDM: move loaded register r%d to r%d\n"
 msgstr ""
 
-#: arm-tdep.c:3690
+#: arm-tdep.c:3886
 #, possible-c-format
 msgid "displaced: LDM: register r%d already in the right place\n"
 msgstr ""
 
-#: arm-tdep.c:3710
+#: arm-tdep.c:3906
 #, possible-c-format
 msgid "displaced: LDM: restored clobbered register r%d\n"
 msgstr ""
 
-#: arm-tdep.c:3752
+#: arm-tdep.c:3948
 msgid "displaced: Unpredictable LDM or STM with base register r15"
 msgstr ""
 
-#: arm-tdep.c:3820
+#: arm-tdep.c:4016
 #, possible-c-format
 msgid ""
 "displaced: LDM r%d%s, {..., pc}: original reg list %.4x, modified list %.4x\n"
 msgstr ""
 
-#: arm-tdep.c:4349
+#: arm-tdep.c:4545
 msgid "Displaced stepping is only supported in ARM mode"
 msgstr ""
 
-#: arm-tdep.c:4386
+#: arm-tdep.c:4582
 msgid "arm_process_displaced_insn: Instruction decode error"
 msgstr ""
 
-#: arm-tdep.c:4609
+#: arm-tdep.c:4805
 msgid "arm_extract_return_value: Floating point model not supported"
 msgstr ""
 
-#: arm-tdep.c:4798
+#: arm-tdep.c:4994
 msgid "arm_store_return_value: Floating point model not supported"
 msgstr ""
 
-#: arm-tdep.c:5018
+#: arm-tdep.c:5214
 msgid "\"set arm\" must be followed by an apporpriate subcommand.\n"
 msgstr ""
 
-#: arm-tdep.c:5059
+#: arm-tdep.c:5255
 #, possible-c-format
 msgid "Invalid fp model accepted: %s."
 msgstr ""
 
-#: arm-tdep.c:5073
+#: arm-tdep.c:5269
 #, possible-c-format
 msgid "The current ARM floating point model is \"auto\" (currently \"%s\").\n"
 msgstr ""
 
-#: arm-tdep.c:5077
+#: arm-tdep.c:5273
 #, possible-c-format
 msgid "The current ARM floating point model is \"%s\".\n"
 msgstr ""
 
-#: arm-tdep.c:5096
+#: arm-tdep.c:5292
 #, possible-c-format
 msgid "Invalid ABI accepted: %s."
 msgstr ""
 
-#: arm-tdep.c:5110
+#: arm-tdep.c:5306
 #, possible-c-format
 msgid "The current ARM ABI is \"auto\" (currently \"%s\").\n"
 msgstr ""
 
-#: arm-tdep.c:5114
+#: arm-tdep.c:5310
 #, possible-c-format
 msgid "The current ARM ABI is \"%s\".\n"
 msgstr ""
 
-#: arm-tdep.c:5124
+#: arm-tdep.c:5320
 #, possible-c-format
 msgid ""
 "The current execution mode assumed (when symbols are unavailable) is \"%s"
 "\".\n"
 msgstr ""
 
-#: arm-tdep.c:5135
+#: arm-tdep.c:5331
 #, possible-c-format
 msgid ""
 "The current execution mode assumed (even when symbols are available) is \"%s"
@@ -1585,57 +1589,57 @@ msgid ""
 msgstr ""
 
 #. Leave it as "auto".
-#: arm-tdep.c:5744
+#: arm-tdep.c:5940
 #, possible-c-format
 msgid "unknown ARM EABI version 0x%x"
 msgstr ""
 
-#: arm-tdep.c:6012
+#: arm-tdep.c:6208
 #, possible-c-format
 msgid "arm_dump_tdep: Lowest pc = 0x%lx"
 msgstr ""
 
-#: arm-tdep.c:6047 arm-tdep.c:6051
+#: arm-tdep.c:6243 arm-tdep.c:6247
 msgid "Various ARM-specific commands."
 msgstr ""
 
-#: arm-tdep.c:6082
+#: arm-tdep.c:6278
 msgid "The valid values are:\n"
 msgstr ""
 
-#: arm-tdep.c:6084
+#: arm-tdep.c:6280
 msgid "The default is \"std\"."
 msgstr ""
 
-#: arm-tdep.c:6090
+#: arm-tdep.c:6286
 msgid "Set the disassembly style."
 msgstr ""
 
-#: arm-tdep.c:6091
+#: arm-tdep.c:6287
 msgid "Show the disassembly style."
 msgstr ""
 
-#: arm-tdep.c:6098
+#: arm-tdep.c:6294
 msgid "Set usage of ARM 32-bit mode."
 msgstr ""
 
-#: arm-tdep.c:6099
+#: arm-tdep.c:6295
 msgid "Show usage of ARM 32-bit mode."
 msgstr ""
 
-#: arm-tdep.c:6100
+#: arm-tdep.c:6296
 msgid "When off, a 26-bit PC will be used."
 msgstr ""
 
-#: arm-tdep.c:6107
+#: arm-tdep.c:6303
 msgid "Set the floating point type."
 msgstr ""
 
-#: arm-tdep.c:6108
+#: arm-tdep.c:6304
 msgid "Show the floating point type."
 msgstr ""
 
-#: arm-tdep.c:6109
+#: arm-tdep.c:6305
 msgid ""
 "auto - Determine the FP typefrom the OS-ABI.\n"
 "softfpa - Software FP, mixed-endian doubles on little-endian ARMs.\n"
@@ -1644,39 +1648,39 @@ msgid ""
 "vfp - VFP co-processor."
 msgstr ""
 
-#: arm-tdep.c:6119
+#: arm-tdep.c:6315
 msgid "Set the ABI."
 msgstr ""
 
-#: arm-tdep.c:6120
+#: arm-tdep.c:6316
 msgid "Show the ABI."
 msgstr ""
 
-#: arm-tdep.c:6128
+#: arm-tdep.c:6324
 msgid "Set the mode assumed when symbols are unavailable."
 msgstr ""
 
-#: arm-tdep.c:6129
+#: arm-tdep.c:6325
 msgid "Show the mode assumed when symbols are unavailable."
 msgstr ""
 
-#: arm-tdep.c:6134
+#: arm-tdep.c:6330
 msgid "Set the mode assumed even when symbols are available."
 msgstr ""
 
-#: arm-tdep.c:6135
+#: arm-tdep.c:6331
 msgid "Show the mode assumed even when symbols are available."
 msgstr ""
 
-#: arm-tdep.c:6141
+#: arm-tdep.c:6337
 msgid "Set ARM debugging."
 msgstr ""
 
-#: arm-tdep.c:6142
+#: arm-tdep.c:6338
 msgid "Show ARM debugging."
 msgstr ""
 
-#: arm-tdep.c:6143
+#: arm-tdep.c:6339
 msgid "When on, arm-specific debugging is enabled."
 msgstr ""
 
@@ -4613,7 +4617,7 @@ msgstr ""
 msgid "\"%s\": no core file handler recognizes format, using default"
 msgstr ""
 
-#: corelow.c:220 exec.c:117 exec.c:152 objfiles.c:1297 symfile.c:1211
+#: corelow.c:220 exec.c:117 exec.c:152 objfiles.c:1313 symfile.c:1211
 #, possible-c-format
 msgid "cannot close \"%s\": %s"
 msgstr ""
@@ -5904,52 +5908,52 @@ msgstr ""
 msgid "Can't find %s section in symbol file"
 msgstr ""
 
-#: dcache.c:130
+#: dcache.c:136
 #, possible-c-format
 msgid "Deprecated remotecache flag is %s.\n"
 msgstr ""
 
-#: dcache.c:473 dcache.c:533
+#: dcache.c:540 dcache.c:600
 msgid "No data cache available.\n"
 msgstr ""
 
-#: dcache.c:488
+#: dcache.c:555
 msgid "No such cache line exists.\n"
 msgstr ""
 
-#: dcache.c:494 dcache.c:549
+#: dcache.c:561 dcache.c:616
 #, possible-c-format
 msgid "Line %d: address %s [%d hits]\n"
 msgstr ""
 
-#: dcache.c:520
+#: dcache.c:587
 msgid "Usage: info dcache [linenumber]\n"
 msgstr ""
 
-#: dcache.c:528
+#: dcache.c:595
 #, possible-c-format
 msgid "Dcache line width %d, maximum size %d\n"
 msgstr ""
 
-#: dcache.c:537
+#: dcache.c:604
 #, possible-c-format
 msgid "Contains data for %s\n"
 msgstr ""
 
-#: dcache.c:557
+#: dcache.c:624
 #, possible-c-format
 msgid "Cache state: %d active lines, %d hits\n"
 msgstr ""
 
-#: dcache.c:564
+#: dcache.c:631
 msgid "Set cache use for remote targets."
 msgstr ""
 
-#: dcache.c:565
+#: dcache.c:632
 msgid "Show cache use for remote targets."
 msgstr ""
 
-#: dcache.c:566
+#: dcache.c:633
 msgid ""
 "This used to enable the data cache for remote targets.  The cache\n"
 "functionality is now controlled by the memory region system and the\n"
@@ -5957,7 +5961,7 @@ msgid ""
 "exists only for compatibility reasons."
 msgstr ""
 
-#: dcache.c:576
+#: dcache.c:643
 msgid ""
 "Print information on the dcache performance.\n"
 "With no arguments, this command prints the cache configuration and a\n"
@@ -6243,17 +6247,17 @@ msgstr ""
 msgid "Invalid or unsupported encoding"
 msgstr ""
 
-#: dwarf2-frame.c:1966
+#: dwarf2-frame.c:1974
 #, possible-c-format
 msgid "Corrupt data in %s:%s; align 4 workaround apparently succeeded"
 msgstr ""
 
-#: dwarf2-frame.c:1973
+#: dwarf2-frame.c:1981
 #, possible-c-format
 msgid "Corrupt data in %s:%s; align 8 workaround apparently succeeded"
 msgstr ""
 
-#: dwarf2-frame.c:1980
+#: dwarf2-frame.c:1988
 #, possible-c-format
 msgid "Corrupt data in %s:%s"
 msgstr ""
@@ -6296,295 +6300,295 @@ msgstr ""
 msgid "Variable \"%s\" is not available."
 msgstr ""
 
-#: dwarf2read.c:713
+#: dwarf2read.c:716
 #, possible-c-format
 msgid "The upper bound on the age of cached dwarf2 compilation units is %s.\n"
 msgstr ""
 
-#: dwarf2read.c:725
+#: dwarf2read.c:728
 msgid "statement list doesn't fit in .debug_line section"
 msgstr ""
 
-#: dwarf2read.c:732
+#: dwarf2read.c:735
 msgid ".debug_line section has line data without a file"
 msgstr ""
 
-#: dwarf2read.c:739
+#: dwarf2read.c:742
 msgid ".debug_line section has line program sequence without an end"
 msgstr ""
 
-#: dwarf2read.c:745
+#: dwarf2read.c:748
 msgid "location expression too complex"
 msgstr ""
 
-#: dwarf2read.c:753
+#: dwarf2read.c:756
 #, possible-c-format
 msgid "const value length mismatch for '%s', got %d, expected %d"
 msgstr ""
 
-#: dwarf2read.c:761
+#: dwarf2read.c:764
 msgid "macro info runs off end of `.debug_macinfo' section"
 msgstr ""
 
-#: dwarf2read.c:768
+#: dwarf2read.c:771
 #, possible-c-format
 msgid ""
 "macro debug info contains a malformed macro definition:\n"
 "`%s'"
 msgstr ""
 
-#: dwarf2read.c:776
+#: dwarf2read.c:779
 #, possible-c-format
 msgid "invalid attribute class or form for '%s' in '%s'"
 msgstr ""
 
-#: dwarf2read.c:1286
+#: dwarf2read.c:1289
 #, possible-c-format
 msgid ""
 "Support for zlib-compressed DWARF data (from '%s') is disabled in this copy "
 "of GDB"
 msgstr ""
 
-#: dwarf2read.c:1301 dwarf2read.c:1428
+#: dwarf2read.c:1304 dwarf2read.c:1431
 #, possible-c-format
 msgid "Dwarf Error: Can't read DWARF data from '%s'"
 msgstr ""
 
-#: dwarf2read.c:1308
+#: dwarf2read.c:1311
 #, possible-c-format
 msgid "Dwarf Error: Corrupt DWARF ZLIB header from '%s'"
 msgstr ""
 
-#: dwarf2read.c:1333
+#: dwarf2read.c:1336
 #, possible-c-format
 msgid "Dwarf Error: setting up DWARF uncompression in '%s': %d"
 msgstr ""
 
-#: dwarf2read.c:1339
+#: dwarf2read.c:1342
 #, possible-c-format
 msgid "Dwarf Error: zlib error uncompressing from '%s': %d"
 msgstr ""
 
-#: dwarf2read.c:1346
+#: dwarf2read.c:1349
 #, possible-c-format
 msgid "Dwarf Error: concluding DWARF uncompression in '%s': %d"
 msgstr ""
 
-#: dwarf2read.c:1571
+#: dwarf2read.c:1574
 msgid "read_comp_unit_head: dwarf from non elf file"
 msgstr ""
 
-#: dwarf2read.c:1587
+#: dwarf2read.c:1590
 #, possible-c-format
 msgid ""
 "Dwarf Error: wrong version in compilation unit header (is %d, should be %d) "
 "[in module %s]"
 msgstr ""
 
-#: dwarf2read.c:1592
+#: dwarf2read.c:1595
 #, possible-c-format
 msgid ""
 "Dwarf Error: bad offset (0x%lx) in compilation unit header (offset 0x%lx + "
 "6) [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:1600
+#: dwarf2read.c:1603
 #, possible-c-format
 msgid ""
 "Dwarf Error: bad length (0x%lx) in compilation unit header (offset 0x%lx + "
 "0) [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:1757
+#: dwarf2read.c:1760
 msgid "debug type entry runs off end of `.debug_types' section, ignored"
 msgstr ""
 
-#: dwarf2read.c:1804
+#: dwarf2read.c:1807
 msgid "missing `.debug_types' section for DW_FORM_sig8 die"
 msgstr ""
 
-#: dwarf2read.c:2361
+#: dwarf2read.c:2364
 #, possible-c-format
 msgid "unhandled containing DIE tag %d for DIE at %d"
 msgstr ""
 
-#: dwarf2read.c:2742 dwarf2read.c:6525
+#: dwarf2read.c:2745 dwarf2read.c:6528
 msgid "malformed enumerator DIE ignored"
 msgstr ""
 
-#: dwarf2read.c:2770
+#: dwarf2read.c:2773
 #, possible-c-format
 msgid "Dwarf Error: Could not find abbrev number %d [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:2820 dwarf2read.c:6762
+#: dwarf2read.c:2823 dwarf2read.c:6765
 msgid "ignoring absolute DW_AT_sibling"
 msgstr ""
 
-#: dwarf2read.c:2885 dwarf2read.c:7083
+#: dwarf2read.c:2888 dwarf2read.c:7086
 #, possible-c-format
 msgid "Dwarf Error: Cannot handle %s in DWARF reader [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:2931
+#: dwarf2read.c:2934
 #, possible-c-format
 msgid "bug: psymtab for %s is already read in."
 msgstr ""
 
-#: dwarf2read.c:2937 mdebugread.c:279
+#: dwarf2read.c:2940 mdebugread.c:279
 #, possible-c-format
 msgid "Reading in symbols for %s..."
 msgstr ""
 
-#: dwarf2read.c:2962 mdebugread.c:292 symfile.c:1056
+#: dwarf2read.c:2965 mdebugread.c:292 symfile.c:1056
 msgid "done.\n"
 msgstr ""
 
-#: dwarf2read.c:3300
+#: dwarf2read.c:3303
 #, possible-c-format
 msgid "Tag '%s' has unexpected children"
 msgstr ""
 
-#: dwarf2read.c:3363
+#: dwarf2read.c:3366
 #, possible-c-format
 msgid "Tag '%s' has no DW_AT_import"
 msgstr ""
 
-#: dwarf2read.c:3629
+#: dwarf2read.c:3632
 #, possible-c-format
 msgid "Dwarf Error: Missing children for type unit [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:3706
+#: dwarf2read.c:3709
 #, possible-c-format
 msgid "DIE 0x%x and its abstract origin 0x%x have different tags"
 msgstr ""
 
-#: dwarf2read.c:3745
+#: dwarf2read.c:3748
 #, possible-c-format
 msgid "Child DIE 0x%x and its abstract origin 0x%x have different tags"
 msgstr ""
 
-#: dwarf2read.c:3750
+#: dwarf2read.c:3753
 #, possible-c-format
 msgid "Child DIE 0x%x and its abstract origin 0x%x have different parents"
 msgstr ""
 
-#: dwarf2read.c:3762
+#: dwarf2read.c:3765
 #, possible-c-format
 msgid ""
 "Multiple children of DIE 0x%x refer to DIE 0x%x as their abstract origin"
 msgstr ""
 
-#: dwarf2read.c:3976
+#: dwarf2read.c:3979
 #, possible-c-format
 msgid "Offset %d out of bounds for DW_AT_ranges attribute"
 msgstr ""
 
-#: dwarf2read.c:4030 dwarf2read.c:4309
+#: dwarf2read.c:4033 dwarf2read.c:4312
 msgid "Invalid .debug_ranges data (no base address)"
 msgstr ""
 
-#: dwarf2read.c:4277
+#: dwarf2read.c:4280
 #, possible-c-format
 msgid "Offset %lu out of bounds for DW_AT_ranges attribute"
 msgstr ""
 
-#: dwarf2read.c:4579
+#: dwarf2read.c:4582
 #, possible-c-format
 msgid "unsupported accessibility %d"
 msgstr ""
 
-#: dwarf2read.c:4688
+#: dwarf2read.c:4691
 #, possible-c-format
 msgid "member function type missing for '%s'"
 msgstr ""
 
-#: dwarf2read.c:5026
+#: dwarf2read.c:5029
 #, possible-c-format
 msgid "virtual function table pointer not found when defining class '%s'"
 msgstr ""
 
-#: dwarf2read.c:5639
+#: dwarf2read.c:5642
 #, possible-c-format
 msgid "invalid pointer size %d"
 msgstr ""
 
-#: dwarf2read.c:5886
+#: dwarf2read.c:5889
 msgid "DW_AT_name missing from DW_TAG_base_type"
 msgstr ""
 
-#: dwarf2read.c:5928
+#: dwarf2read.c:5931
 #, possible-c-format
 msgid "unsupported DW_AT_encoding: '%s'"
 msgstr ""
 
-#: dwarf2read.c:5960
+#: dwarf2read.c:5963
 msgid "DW_AT_type missing from DW_TAG_subrange_type"
 msgstr ""
 
-#: dwarf2read.c:6213
+#: dwarf2read.c:6216
 #, possible-c-format
 msgid "Dwarf Error: could not find abbrev number %d [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:6911
+#: dwarf2read.c:6914
 #, possible-c-format
 msgid "could not find partial DIE 0x%x in cache [from module %s]\n"
 msgstr ""
 
-#: dwarf2read.c:7100
+#: dwarf2read.c:7103
 #, possible-c-format
 msgid "Suspicious DW_AT_byte_size value treated as zero instead of 0x%lx"
 msgstr ""
 
-#: dwarf2read.c:7184
+#: dwarf2read.c:7187
 #, possible-c-format
 msgid "read_address: bad switch, signed [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:7203
+#: dwarf2read.c:7206
 #, possible-c-format
 msgid "read_address: bad switch, unsigned [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:7296
+#: dwarf2read.c:7299
 msgid "intermixed 32-bit and 64-bit DWARF sections"
 msgstr ""
 
-#: dwarf2read.c:7331
+#: dwarf2read.c:7334
 #, possible-c-format
 msgid "read_offset_1: bad switch [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:7373
+#: dwarf2read.c:7376
 #, possible-c-format
 msgid "DW_FORM_strp used without .debug_str section [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:7379
+#: dwarf2read.c:7382
 #, possible-c-format
 msgid "DW_FORM_strp pointing outside of .debug_str section [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:7699
+#: dwarf2read.c:7702
 msgid "missing .debug_line section"
 msgstr ""
 
-#: dwarf2read.c:7783
+#: dwarf2read.c:7786
 msgid "line number info header doesn't fit in `.debug_line' section"
 msgstr ""
 
-#: dwarf2read.c:7829
+#: dwarf2read.c:7832
 #, possible-c-format
 msgid "misplaced first line number at 0x%lx for '%s'"
 msgstr ""
 
-#: dwarf2read.c:7984 dwarf2read.c:7993
+#: dwarf2read.c:7987 dwarf2read.c:7996
 msgid "mangled .debug_line section"
 msgstr ""
 
-#: dwarf2read.c:8334
+#: dwarf2read.c:8337
 msgid "file index out of range"
 msgstr ""
 
@@ -6592,204 +6596,204 @@ msgstr ""
 #. trash data, but since we must specifically ignore things
 #. we don't recognize, there is nothing else we should do at
 #. this point.
-#: dwarf2read.c:8566
+#: dwarf2read.c:8569
 #, possible-c-format
 msgid "unsupported tag: '%s'"
 msgstr ""
 
-#: dwarf2read.c:8662
+#: dwarf2read.c:8665
 #, possible-c-format
 msgid "unsupported const value attribute form: '%s'"
 msgstr ""
 
-#: dwarf2read.c:8715
+#: dwarf2read.c:8718
 #, possible-c-format
 msgid ""
 "Dwarf Error: Problem turning type die at offset into gdb type [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:8741
+#: dwarf2read.c:8744
 #, possible-c-format
 msgid ""
 "Dwarf Error: Problem turning containing type into gdb type [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:8756
+#: dwarf2read.c:8759
 #, possible-c-format
 msgid "Dwarf Error: Cannot find type of die [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:8827
+#: dwarf2read.c:8830
 #, possible-c-format
 msgid "unexpected tag in read_type_die: '%s'"
 msgstr ""
 
-#: dwarf2read.c:10198
+#: dwarf2read.c:10201
 #, possible-c-format
 msgid "unsupported die ref attribute form: '%s'"
 msgstr ""
 
-#: dwarf2read.c:10219
+#: dwarf2read.c:10222
 #, possible-c-format
 msgid "Attribute value is not a constant (%s)"
 msgstr ""
 
-#: dwarf2read.c:10273
+#: dwarf2read.c:10276
 #, possible-c-format
 msgid "Dwarf Error: Expected reference attribute [in module %s]"
 msgstr ""
 
-#: dwarf2read.c:10328
+#: dwarf2read.c:10331
 #, possible-c-format
 msgid ""
 "Dwarf Error: Cannot find DIE at 0x%x referenced from DIE at 0x%x [in module %"
 "s]"
 msgstr ""
 
-#: dwarf2read.c:10350
+#: dwarf2read.c:10353
 #, possible-c-format
 msgid ""
 "Dwarf Error: Cannot find signatured DIE referenced from DIE at 0x%x [in "
 "module %s]"
 msgstr ""
 
-#: dwarf2read.c:10370
+#: dwarf2read.c:10373
 #, possible-c-format
 msgid ""
 "Dwarf Error: Cannot find signatured DIE at 0x%x referenced from DIE at 0x%x "
 "[in module %s]"
 msgstr ""
 
-#: dwarf2read.c:10701
+#: dwarf2read.c:10704
 #, possible-c-format
 msgid "unsupported stack op: '%s'"
 msgstr ""
 
-#: dwarf2read.c:10798
+#: dwarf2read.c:10801
 #, possible-c-format
 msgid "bad file number in macro information (%d)"
 msgstr ""
 
-#: dwarf2read.c:10853
+#: dwarf2read.c:10856
 #, possible-c-format
 msgid ""
 "macro definition contains spaces in formal argument list:\n"
 "`%s'"
 msgstr ""
 
-#: dwarf2read.c:11017
+#: dwarf2read.c:11020
 msgid "missing .debug_macinfo section"
 msgstr ""
 
-#: dwarf2read.c:11157
+#: dwarf2read.c:11160
 #, possible-c-format
 msgid "debug info with no main source gives macro %s on line %d: %s"
 msgstr ""
 
-#: dwarf2read.c:11160 dwarf2read.c:11170
+#: dwarf2read.c:11163 dwarf2read.c:11173
 msgid "definition"
 msgstr ""
 
-#: dwarf2read.c:11161 dwarf2read.c:11171
+#: dwarf2read.c:11164 dwarf2read.c:11174
 msgid "undefinition"
 msgstr ""
 
-#: dwarf2read.c:11167
+#: dwarf2read.c:11170
 #, possible-c-format
 msgid "debug info gives %s macro %s with %s line %d: %s"
 msgstr ""
 
-#: dwarf2read.c:11168 dwarf2read.c:11196
+#: dwarf2read.c:11171 dwarf2read.c:11199
 msgid "command-line"
 msgstr ""
 
-#: dwarf2read.c:11168
+#: dwarf2read.c:11171
 msgid "in-file"
 msgstr ""
 
-#: dwarf2read.c:11173 dwarf2read.c:11197
+#: dwarf2read.c:11176 dwarf2read.c:11200
 msgid "zero"
 msgstr ""
 
-#: dwarf2read.c:11173 dwarf2read.c:11197
+#: dwarf2read.c:11176 dwarf2read.c:11200
 msgid "non-zero"
 msgstr ""
 
-#: dwarf2read.c:11194
+#: dwarf2read.c:11197
 #, possible-c-format
 msgid "debug info gives source %d included from %s at %s line %d"
 msgstr ""
 
-#: dwarf2read.c:11196
+#: dwarf2read.c:11199
 msgid "file"
 msgstr ""
 
-#: dwarf2read.c:11214
+#: dwarf2read.c:11217
 msgid "macro debug info has an unmatched `close_file' directive"
 msgstr ""
 
-#: dwarf2read.c:11239
+#: dwarf2read.c:11242
 msgid "no terminating 0-type entry for macros in `.debug_macinfo' section"
 msgstr ""
 
-#: dwarf2read.c:11345
+#: dwarf2read.c:11348
 msgid "Location list used without specifying the CU base address."
 msgstr ""
 
-#: dwarf2read.c:11443
+#: dwarf2read.c:11446
 #, possible-c-format
 msgid ""
 "Dwarf Error: could not find partial DIE containing offset 0x%lx [in module %"
 "s]"
 msgstr ""
 
-#: dwarf2read.c:11455
+#: dwarf2read.c:11458
 #, possible-c-format
 msgid "invalid dwarf2 offset %u"
 msgstr ""
 
-#: dwarf2read.c:11470
+#: dwarf2read.c:11473
 #, possible-c-format
 msgid "no compilation unit with offset %u."
 msgstr ""
 
-#: dwarf2read.c:11860
+#: dwarf2read.c:11863
 msgid ""
 "Set DWARF 2 specific variables.\n"
 "Configure DWARF 2 variables such as the cache size"
 msgstr ""
 
 #. allow-unknown
-#: dwarf2read.c:11866
+#: dwarf2read.c:11869
 msgid ""
 "Show DWARF 2 specific variables\n"
 "Show DWARF 2 variables such as the cache size"
 msgstr ""
 
-#: dwarf2read.c:11873
+#: dwarf2read.c:11876
 msgid "Set the upper bound on the age of cached dwarf2 compilation units."
 msgstr ""
 
-#: dwarf2read.c:11874
+#: dwarf2read.c:11877
 msgid "Show the upper bound on the age of cached dwarf2 compilation units."
 msgstr ""
 
-#: dwarf2read.c:11875
+#: dwarf2read.c:11878
 msgid ""
 "A higher limit means that cached compilation units will be stored\n"
 "in memory longer, and more total memory will be used.  Zero disables\n"
 "caching, which can slow down startup."
 msgstr ""
 
-#: dwarf2read.c:11884
+#: dwarf2read.c:11887
 msgid "Set debugging of the dwarf2 DIE reader."
 msgstr ""
 
-#: dwarf2read.c:11885
+#: dwarf2read.c:11888
 msgid "Show debugging of the dwarf2 DIE reader."
 msgstr ""
 
-#: dwarf2read.c:11886
+#: dwarf2read.c:11889
 msgid ""
 "When enabled (non-zero), DIEs are dumped after they are read in.\n"
 "The value is the maximum depth to print."
@@ -6810,17 +6814,17 @@ msgstr ""
 msgid "duplicated elf/stab section information for %s"
 msgstr ""
 
-#: elfread.c:617 elfread.c:627 elfread.c:645 machoread.c:546 machoread.c:560
+#: elfread.c:618 elfread.c:628 elfread.c:646 machoread.c:546 machoread.c:560
 #, possible-c-format
 msgid "Can't read symbols from %s: %s"
 msgstr ""
 
-#: elfread.c:854
+#: elfread.c:855
 #, possible-c-format
 msgid "elf/stab section information questionable for %s"
 msgstr ""
 
-#: elfread.c:873
+#: elfread.c:874
 #, possible-c-format
 msgid "elf/stab section information missing for %s"
 msgstr ""
@@ -20280,25 +20284,25 @@ msgstr ""
 
 #. FIXME: would like to include fieldval in the message, but
 #. we don't have a sprintf_longest.
-#: value.c:2127
+#: value.c:2128
 #, possible-c-format
 msgid "Value does not fit in %d bits."
 msgstr ""
 
-#: value.c:2174
+#: value.c:2175
 #, possible-c-format
 msgid "Unexpected type (%d) encountered for integer constant."
 msgstr ""
 
-#: value.c:2236
+#: value.c:2237
 msgid "Unexpected type encountered for floating constant."
 msgstr ""
 
-#: value.c:2295
+#: value.c:2296
 msgid "Function return type unknown."
 msgstr ""
 
-#: value.c:2327
+#: value.c:2328
 msgid ""
 "Debugger convenience (\"$foo\") variables.\n"
 "These variables are created when you assign them values;\n"
@@ -20309,11 +20313,11 @@ msgid ""
 "\"$__\" holds the contents of the last address examined with \"x\"."
 msgstr ""
 
-#: value.c:2338
+#: value.c:2339
 msgid "Elements of value history around item number IDX (or last ten)."
 msgstr ""
 
-#: value.c:2341
+#: value.c:2342
 msgid ""
 "Initialize a convenience variable if necessary.\n"
 "init-if-undefined VARIABLE = EXPRESSION\n"
@@ -20322,7 +20326,7 @@ msgid ""
 "VARIABLE is already initialized."
 msgstr ""
 
-#: value.c:2348
+#: value.c:2349
 msgid "Placeholder command for showing help on convenience functions."
 msgstr ""
 

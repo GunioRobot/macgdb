@@ -18,7 +18,7 @@
    License for more details.
 
    You should have received a copy of the GNU General Public License along
-   with this program; if not, write to the Free Software Foundation, Inc., 
+   with this program; if not, write to the Free Software Foundation, Inc.,
    51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
 
 #include "sysdep.h"
@@ -281,7 +281,7 @@ check_move (unsigned char insn0, unsigned char insn8)
 		  break;
 		}
 	    }
-	}	
+	}
 
       if (second)
 	{
@@ -544,7 +544,7 @@ get_insn_opcode (const unsigned int insn, group_info *i)
 }
 
 
-/* Print one instruction from MEMADDR on INFO->STREAM. Return the size of the 
+/* Print one instruction from MEMADDR on INFO->STREAM. Return the size of the
    instruction (always 2 on MAXQ20).  */
 
 static int
@@ -707,7 +707,7 @@ print_insn (bfd_vma memaddr, struct disassemble_info *info,
 
   info->fprintf_func (info->stream, "Unable to Decode :  %02x %02x",
 		      insn[0], insn[1]);
-  return 2;			
+  return 2;
 }
 
 int

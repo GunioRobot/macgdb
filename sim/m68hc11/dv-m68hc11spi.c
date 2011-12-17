@@ -5,7 +5,7 @@
     (From a driver model Contributed by Cygnus Solutions.)
 
     This file is part of the program GDB, the GNU debugger.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -18,7 +18,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -32,7 +32,7 @@
 
         m68hc11spi - m68hc11 SPI interface
 
-   
+
    DESCRIPTION
 
         Implements the m68hc11 Synchronous Serial Peripheral Interface
@@ -43,13 +43,13 @@
             - SPI clock emulation
             - Data transfer
             - Write collision detection
-    
+
 
    PROPERTIES
 
         None
 
-   
+
    PORTS
 
    reset (input)
@@ -69,7 +69,7 @@ enum
 };
 
 
-static const struct hw_port_descriptor m68hc11spi_ports[] = 
+static const struct hw_port_descriptor m68hc11spi_ports[] =
 {
   { "reset", RESET_PORT, 0, input_port, },
   { NULL, },
@@ -77,20 +77,20 @@ static const struct hw_port_descriptor m68hc11spi_ports[] =
 
 
 /* SPI */
-struct m68hc11spi 
+struct m68hc11spi
 {
   /* Information about next character to be transmited.  */
   unsigned char tx_char;
   int           tx_bit;
   unsigned char mode;
-  
+
   unsigned char rx_char;
   unsigned char rx_clear_scsr;
   unsigned char clk_pin;
-  
+
   /* SPI clock rate (twice the real clock).  */
   unsigned int clock;
-  
+
   /* Periodic SPI event.  */
   struct hw_event* spi_event;
 };
@@ -159,10 +159,10 @@ m68hc11spi_port_event (struct hw *me,
   struct m68hc11spi *controller;
   sim_cpu* cpu;
   unsigned8 val;
-  
+
   controller = hw_data (me);
   sd         = hw_system (me);
-  cpu        = STATE_CPU (sd, 0);  
+  cpu        = STATE_CPU (sd, 0);
   switch (my_port)
     {
     case RESET_PORT:
@@ -193,7 +193,7 @@ static void
 set_bit_port (struct hw *me, sim_cpu *cpu, int port, int mask, int value)
 {
   uint8 val;
-  
+
   if (value)
     val = cpu->ios[port] | mask;
   else
@@ -242,7 +242,7 @@ m68hc11spi_clock (struct hw *me, void *data)
   struct m68hc11spi* controller;
   sim_cpu *cpu;
   int check_interrupt = 0;
-  
+
   controller = hw_data (me);
   sd         = hw_system (me);
   cpu        = STATE_CPU (sd, 0);
@@ -271,7 +271,7 @@ m68hc11spi_clock (struct hw *me, void *data)
   if (controller->mode == SPI_START_BYTE)
     {
       /* Start a new SPI transfer.  */
-      
+
       /* TBD: clear SS output.  */
       controller->mode = SPI_START_BIT;
       controller->tx_bit = 7;
@@ -283,7 +283,7 @@ m68hc11spi_clock (struct hw *me, void *data)
       controller->clk_pin = ~controller->clk_pin;
       set_bit_port (me, cpu, M6811_PORTD, (1 << 4), controller->clk_pin);
     }
-  
+
   /* Transmit is now complete for this byte.  */
   if (controller->mode == SPI_START_BIT && controller->tx_bit < 0)
     {
@@ -333,11 +333,11 @@ m68hc11spi_info (struct hw *me)
   sim_cpu *cpu;
   struct m68hc11spi *controller;
   uint8 val;
-  
+
   sd = hw_system (me);
   cpu = STATE_CPU (sd, 0);
   controller = hw_data (me);
-  
+
   sim_io_printf (sd, "M68HC11 SPI:\n");
 
   base = cpu_get_io_base (cpu);
@@ -388,7 +388,7 @@ m68hc11spi_io_read_buffer (struct hw *me,
   struct m68hc11spi *controller;
   sim_cpu *cpu;
   unsigned8 val;
-  
+
   HW_TRACE ((me, "read 0x%08lx %d", (long) base, (int) nr_bytes));
 
   sd  = hw_system (me);
@@ -400,11 +400,11 @@ m68hc11spi_io_read_buffer (struct hw *me,
     case M6811_SPSR:
       controller->rx_clear_scsr = cpu->ios[M6811_SCSR]
         & (M6811_SPIF | M6811_WCOL | M6811_MODF);
-      
+
     case M6811_SPCR:
       val = cpu->ios[base];
       break;
-      
+
     case M6811_SPDR:
       if (controller->rx_clear_scsr)
         {
@@ -414,7 +414,7 @@ m68hc11spi_io_read_buffer (struct hw *me,
         }
       val = controller->rx_char;
       break;
-      
+
     default:
       return 0;
     }
@@ -439,7 +439,7 @@ m68hc11spi_io_write_buffer (struct hw *me,
   sd  = hw_system (me);
   cpu = STATE_CPU (sd, 0);
   controller = hw_data (me);
-  
+
   val = *((const unsigned8*) source);
   switch (base)
     {
@@ -477,11 +477,11 @@ m68hc11spi_io_write_buffer (struct hw *me,
 
       set_bit_port (me, cpu, M6811_PORTD, (1 << 4), controller->clk_pin);
       break;
-      
+
       /* Can't write to SPSR.  */
     case M6811_SPSR:
       break;
-      
+
     case M6811_SPDR:
       if (!(cpu->ios[M6811_SPCR] & M6811_SPE))
         {
@@ -525,7 +525,7 @@ m68hc11spi_io_write_buffer (struct hw *me,
       return 0;
     }
   return nr_bytes;
-}     
+}
 
 
 const struct hw_descriptor dv_m68hc11spi_descriptor[] = {

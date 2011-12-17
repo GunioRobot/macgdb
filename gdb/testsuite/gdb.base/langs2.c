@@ -14,7 +14,7 @@ cppsub_ (int * y)
 {
   return foo__Fi (*y);
 }
-#else 
+#else
 #line 1 "langs2.cxx"
 extern int csub ();
 int

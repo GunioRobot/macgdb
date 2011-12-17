@@ -145,16 +145,16 @@ struct IR_FIELDS
 struct	mem_segs
 {
   /* Pointer (returned by calloc) to segment.  */
-  struct mem_wrd *seg;			
+  struct mem_wrd *seg;
 
   /* Base load address from file headers.  */
-  unsigned long baseaddr;			
+  unsigned long baseaddr;
 
   /* Ending address of segment.  */
-  unsigned long endaddr;		
+  unsigned long endaddr;
 
-  /* Segment control flags (none defined).  */	
-  int	      flags;			
+  /* Segment control flags (none defined).  */
+  int	      flags;
 };
 
 #define	MAXSEGS		(10)			/* max number of segment allowed */
@@ -189,12 +189,12 @@ struct PROCESSOR
 {
   unsigned WORD
   /* Execute instruction pointer.  */
-  ip, 
+  ip,
     /* Vector base register.  */
     vbr,
     /* Processor status register.  */
     psr;
-  
+
   /* Source 1.  */
   WORD    S1bus,
     /* Source 2.  */
@@ -209,11 +209,11 @@ struct PROCESSOR
     /* Max clocks before reg is available.  */
     time_left[REGs],
     /* Writeback priority of reg.  */
-    wb_pri[REGs], 
+    wb_pri[REGs],
     /* Integer unit control regs.  */
     SFU0_regs[REGs],
     /* Floating point control regs.  */
-    SFU1_regs[REGs], 
+    SFU1_regs[REGs],
     Scoreboard[REGs],
     Vbr;
   unsigned WORD   scoreboard,

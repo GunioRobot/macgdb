@@ -462,16 +462,16 @@ SAVED_F77_COMMON_PTR tail_common_list = NULL;	/* Ptr to last saved COMMON  */
 SAVED_F77_COMMON_PTR current_common = NULL;	/* Ptr to current COMMON */
 
 #if 0
-static SAVED_BF_PTR saved_bf_list = NULL;	/* Ptr to (.bf,function) 
+static SAVED_BF_PTR saved_bf_list = NULL;	/* Ptr to (.bf,function)
 						   list */
 static SAVED_BF_PTR saved_bf_list_end = NULL;	/* Ptr to above list's end */
 static SAVED_BF_PTR current_head_bf_list = NULL;	/* Current head of above list
 							 */
 
-static SAVED_BF_PTR tmp_bf_ptr;	/* Generic temporary for use 
+static SAVED_BF_PTR tmp_bf_ptr;	/* Generic temporary for use
 				   in macros */
 
-/* The following function simply enters a given common block onto 
+/* The following function simply enters a given common block onto
    the global common block chain */
 
 static void
@@ -480,9 +480,9 @@ add_common_block (char *name, CORE_ADDR offset, int secnum, char *func_stab)
   SAVED_F77_COMMON_PTR tmp;
   char *c, *local_copy_func_stab;
 
-  /* If the COMMON block we are trying to add has a blank 
+  /* If the COMMON block we are trying to add has a blank
      name (i.e. "#BLNK_COM") then we set it to __BLANK
-     because the darn "#" character makes GDB's input 
+     because the darn "#" character makes GDB's input
      parser have fits. */
 
 
@@ -502,7 +502,7 @@ add_common_block (char *name, CORE_ADDR offset, int secnum, char *func_stab)
 
   tmp->name = xmalloc (strlen (name) + 1);
 
-  /* local_copy_func_stab is a stabstring, let us first extract the 
+  /* local_copy_func_stab is a stabstring, let us first extract the
      function name from the stab by NULLing out the ':' character. */
 
 
@@ -539,7 +539,7 @@ add_common_block (char *name, CORE_ADDR offset, int secnum, char *func_stab)
 }
 #endif
 
-/* The following function simply enters a given common entry onto 
+/* The following function simply enters a given common entry onto
    the "current_common" block that has been saved away. */
 
 #if 0
@@ -550,7 +550,7 @@ add_common_entry (struct symbol *entry_sym_ptr)
 
 
 
-  /* The order of this list is important, since 
+  /* The order of this list is important, since
      we expect the entries to appear in decl.
      order when we later issue "info common" calls */
 
@@ -599,7 +599,7 @@ find_first_common_named (char *name)
 }
 #endif
 
-/* This routine finds the first encountred COMMON block named "name" 
+/* This routine finds the first encountred COMMON block named "name"
    that belongs to function funcname */
 
 SAVED_F77_COMMON_PTR
@@ -624,7 +624,7 @@ find_common_for_function (char *name, char *funcname)
 
 #if 0
 
-/* The following function is called to patch up the offsets 
+/* The following function is called to patch up the offsets
    for the statics contained in the COMMON block named
    "name."  */
 
@@ -659,7 +659,7 @@ patch_all_commons_by_name (char *name, CORE_ADDR offset, int secnum)
 
   SAVED_F77_COMMON_PTR tmp;
 
-  /* For blank common blocks, change the canonical reprsentation 
+  /* For blank common blocks, change the canonical reprsentation
      of a blank name */
 
   if (strcmp (name, BLANK_COMMON_NAME_ORIGINAL) == 0
@@ -683,12 +683,12 @@ patch_all_commons_by_name (char *name, CORE_ADDR offset, int secnum)
 }
 #endif
 
-/* This macro adds the symbol-number for the start of the function 
-   (the symbol number of the .bf) referenced by symnum_fcn to a 
-   list.  This list, in reality should be a FIFO queue but since 
-   #line pragmas sometimes cause line ranges to get messed up 
-   we simply create a linear list.  This list can then be searched 
-   first by a queueing algorithm and upon failure fall back to 
+/* This macro adds the symbol-number for the start of the function
+   (the symbol number of the .bf) referenced by symnum_fcn to a
+   list.  This list, in reality should be a FIFO queue but since
+   #line pragmas sometimes cause line ranges to get messed up
+   we simply create a linear list.  This list can then be searched
+   first by a queueing algorithm and upon failure fall back to
    a linear scan. */
 
 #if 0
@@ -748,7 +748,7 @@ get_bf_for_fcn (long the_function)
   SAVED_BF_PTR tmp;
   int nprobes = 0;
 
-  /* First use a simple queuing algorithm (i.e. look and see if the 
+  /* First use a simple queuing algorithm (i.e. look and see if the
      item at the head of the queue is the one you want)  */
 
   if (saved_bf_list == NULL)
@@ -766,7 +766,7 @@ get_bf_for_fcn (long the_function)
 	return (tmp->symnum_bf);
       }
 
-  /* If the above did not work (probably because #line directives were 
+  /* If the above did not work (probably because #line directives were
      used in the sourcefile and they messed up our internal tables) we now do
      the ugly linear scan */
 

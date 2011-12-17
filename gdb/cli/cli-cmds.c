@@ -1095,7 +1095,7 @@ show_user (char *args, int from_tty)
 /* Search through names of commands and documentations for a certain
    regular expression.
 */
-void 
+void
 apropos_command (char *searchstr, int from_tty)
 {
   extern struct cmd_list_element *cmdlist; /*This is the main command list*/

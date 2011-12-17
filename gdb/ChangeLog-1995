@@ -54,7 +54,7 @@ Wed Dec 20 10:54:41 1995  Fred Fish  <fnf@cygnus.com>
 	(dbx_symfile_init, coffstab_build_psymtabs, elfstab_build_psymtabs,
 	stabsect_build_psymtabs): Accumulate string table size.
 	(dbx_next_symbol_text, read_dbx_symtab, read_ofile_symtab):
-	Accumulate number of stabs symbols read. 	
+	Accumulate number of stabs symbols read.
 	* dwarfread.c (new_symbol, symthesize_typedef):
 	Accumulate number of full symbols created.
 	* gdbtypes.c (alloc_type): Accumulate number of types.
@@ -82,7 +82,7 @@ Fri Dec 15 16:15:55 1995  Ian Lance Taylor  <ian@cygnus.com>
 
 Fri Dec 15 12:21:10 1995  Raymond Jou  <rjou@mexican.cygnus.com>
 
-	* mpw-make.sed: Add quotes to RIncludes reference. 
+	* mpw-make.sed: Add quotes to RIncludes reference.
 
 Fri Dec 15 13:18:55 1995  Rob Savoye  <rob@darkstar.cygnus.com>
 
@@ -272,10 +272,10 @@ Wed Nov 29 13:35:18 1995  Per Bothner  <bothner@kalessin.cygnus.com>
 	* eval.c (evaluate_subexp_standard case OP_ARRAY):  Implement
 	support for labelled array tuples and ranges in powerset tuples.
 	(init_array_element):  New function.
-	
+
 	* top.c (command_line_input):  Only strip out an initial #-comment.
 	Looking for internal comments is language-specific (breaks Scheme).
-	
+
 	* expression.h (enum exp_opcode):  Add BINOP_RANGE.
 	* expprint.c (dump_expression):  Support BINOP_RANGE.
 	* eval.c (evaluate_subexp_standard):  Handle BINOP_RANGE (as error).
@@ -596,7 +596,7 @@ Wed Nov  1 20:18:08 1995  Fred Fish  <fnf@cygnus.com>
 	(FRAME_FIND_SAVED_REGS): Moved here from tm-i386v.h.
 	(PUSH_DUMMY_FRAME): Moved here from tm-i386v.h.
 	(POP_FRAME): Moved here from tm-i386v.h.
-	(CALL_DUMMY, CALL_DUMMY_LENGTH, CALL_DUMMY_START_OFFSET, 
+	(CALL_DUMMY, CALL_DUMMY_LENGTH, CALL_DUMMY_START_OFFSET,
 	CALL_DUMMY_BREAKPOINT_OFFSET, FIX_CALL_DUMMY): Moved here from
 	tm-i386v.h
 	(print_387_control_word, print_387_status_word): Declare prototypes.
@@ -651,7 +651,7 @@ Wed Nov  1 20:18:08 1995  Fred Fish  <fnf@cygnus.com>
 	(print_387_status_word): Remove.
 	(SP_ARG0): Remove.
 
-	* config/i386/tm-symmetry.h: 
+	* config/i386/tm-symmetry.h:
 	(TM_SYMMETRY_H): Enclose file in test for define & define if needed.
 	(START_INFERIOR_TRAPS_EXPECTED): Move to after inclusion of
 	tm-i386v4.h or tm-i386v.h, #undef, and #define back to 2.
@@ -663,7 +663,7 @@ Wed Nov  1 20:18:08 1995  Fred Fish  <fnf@cygnus.com>
 	(FRAME_SAVED_PC): Remove.
 	(print_387_control_word, print_387_status_word): Remove prototypes.
 
-	* config/i386/tm-ptx.h: 
+	* config/i386/tm-ptx.h:
 	(TM_PTX_H): Enclose file in test for define & define if needed.
 	(START_INFERIOR_TRAPS_EXPECTED): Move to after inclusion of
 	tm-i386v4.h or tm-i386v.h, #undef, and #define back to 2.
@@ -677,7 +677,7 @@ Wed Nov  1 20:18:08 1995  Fred Fish  <fnf@cygnus.com>
 	(i386/tm-i386.h): Include instead of tm-i386v.h.
 	(START_INFERIOR_TRAPS_EXPECTED): Remove.
 
-	* config/i386/tm-i386v4.h: 
+	* config/i386/tm-i386v4.h:
 	(TM_I386V4_H): Enclose file in test for define & define if needed.
 	(i386/tm-i386.h): Include instead of tm-i386v.h.
 	(START_INFERIOR_TRAPS_EXPECTED): Remove.
@@ -687,7 +687,7 @@ Wed Nov  1 20:18:08 1995  Fred Fish  <fnf@cygnus.com>
 	(sigtramp_saved_pc):  Define as i386v4_sigtramp_saved_pc.
 	(FRAME_NUM_ARGS): Remove.
 
-	* config/i386/tm-i386os9k.h: 
+	* config/i386/tm-i386os9k.h:
 	(TM_I386OS9K_H): Enclose file in test for define & define if needed.
 	(i386/tm-i386.h): Include instead of tm-i386v.h.
 	(START_INFERIOR_TRAPS_EXPECTED): Remove.
@@ -696,7 +696,7 @@ Wed Nov  1 20:18:08 1995  Fred Fish  <fnf@cygnus.com>
 	(FRAMELESS_FUNCTION_INVOCATION): Remove.
 	(FRAME_SAVED_PC): Move to tm-i386.h.
 
-	* config/i386/tm-i386nw.h: 
+	* config/i386/tm-i386nw.h:
 	(TM_I386NW_H): Enclose file in test for define & define if needed.
 	(i386/tm-i386.h): Include instead of tm-i386v.h.
 	(START_INFERIOR_TRAPS_EXPECTED): Remove.
@@ -777,7 +777,7 @@ Wed Nov  1 20:18:08 1995  Fred Fish  <fnf@cygnus.com>
 
 	* i386v-nat.c (i386_register_u_addr):  Enable code to locate
 	floating point regs in user struct.
-	
+
 Wed Nov  1 15:32:57 1995  Fred Fish  <fnf@cygnus.com>
 
 	* breakpoint.c (breakpoint_re_set): Fix typo in comment.
@@ -805,7 +805,7 @@ Sat Oct 28 23:51:48 1995  steve chamberlain  <sac@slash.cygnus.com>
 	* utils.c (initialize_utils): Likewise.
 	* win32-nat.c (child_create_inferiror): Print error code when failing.
 	* config/i386/win32.mh (XM_CLIBS): Need -lkernel32.
-	
+
 Sat Oct 28 04:52:36 1995  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* symtab.h (enum address_class):  Add LOC_UNRESOLVED for
@@ -868,7 +868,7 @@ Thu Oct 26 22:02:27 1995  Stan Shebs  <shebs@andros.cygnus.com>
 	* config/m68k/xm-mpw.h: Move most definitions into generic Mac
 	support.
 	* config/powerpc/xm-mpw.h: New file, PowerMac host support.
-	
+
 Thu Oct 26 15:21:32 1995  Brendan Kehoe  <brendan@lisa.cygnus.com>
 
 	* regex.h: Renamed to gnu-regex.h.
@@ -1070,7 +1070,7 @@ Tue Oct 10 15:26:39 1995  Fred Fish  <fnf@cygnus.com>
 	* Makefile.in (VERSION): Version 4.15 released.
 	* README: Updated for version 4.15.
 	* NEWS: Updated for 4.15 release.
-	
+
 Tue Oct 10 13:18:50 1995  Fred Fish  <fnf@cygnus.com>
 
 	* configure.in:  Add AC_PROG_YACC
@@ -1079,7 +1079,7 @@ Tue Oct 10 13:18:50 1995  Fred Fish  <fnf@cygnus.com>
 	(YACC):  Set from autoconfig.
 	(FLAGS_TO_PASS):  Remove BISON.
 	(TARGET_FLAGS_TO_PASS):  Remove BISON.
-	
+
 Tue Oct 10 12:25:11 1995  steve chamberlain  <sac@slash.cygnus.com>
 
 	* win32-nat.c (child_create_inferior): Pass argv correctly.
@@ -1095,7 +1095,7 @@ Mon Oct  9 14:36:29 1995  steve chamberlain  <sac@slash.cygnus.com>
 	* config/i386/xm-win32.h: Renamed from config/i386/xm-i386win32.h.
 	* configure.in (i[345]86-*-win32): Updated to cope with filename
 	changes.
-	* configure: Regenerated.	
+	* configure: Regenerated.
 
 Sun Oct  8 18:01:04 1995  Per Bothner  <bothner@kalessin.cygnus.com>
 
@@ -1150,7 +1150,7 @@ Thu Oct  5 17:28:09 1995  Per Bothner  <bothner@kalessin.cygnus.com>
  	used.
 	* valprint.c (value_print_array_elemen): Removed never-used
  	function.
-	
+
 Thu Oct  5 15:14:36 1995  Per Bothner  <bothner@kalessin.cygnus.com>
 
 	* parse.c (write_dollar_variable):  New function.
@@ -1187,9 +1187,9 @@ Wed Oct  4 18:41:34 1995  Per Bothner  <bothner@kalessin.cygnus.com>
 	instead unpack_long
 	* scm-lang.c: More Scheme expression parsing from here ...
 	* scm-exp.c:  ... to here.  New file.
-	Also, provide for gdb to evaluate simple constants and names..	
+	Also, provide for gdb to evaluate simple constants and names..
 	* Makefile.in:  Note new scm-exp.{c,o}.
-	
+
 Wed Oct  4 17:23:03 1995  Per Bothner  <bothner@kalessin.cygnus.com>
 
 	* gdbtypes.c (get_discrete_bounds):  New function.
@@ -1431,7 +1431,7 @@ Tue Sep 12 15:46:18 1995  Kung Hsu  <kung@mexican.cygnus.com>
 
 	* stabsread.c: To include language.h and expression.h for the reason
 	above.
-	
+
 	* infcmd.c (attach_command): Add solibs only when
 	auto_solib_add_at_startup is set.
 
@@ -1475,7 +1475,7 @@ Fri Sep  8 12:57:41 1995  Kung Hsu  <kung@mexican.cygnus.com>
 	* inferior.h: Add extern declaration of inferior_environ.
 	* solib.c (solib_map_sections): To get inferior's env instead of
 	gdb's for LD_LIBRARY_PATH, same for PATH.
-	
+
 	* solib.c (solib_map_sections): Copy full path name into so_list
 	structure so that symbol_file_add can find it.
 
@@ -1523,7 +1523,7 @@ Thu Aug 31 12:48:04 1995  Jim Wilson  <wilson@chestnut.cygnus.com>
 
 Wed Aug 30 18:10:57 1995  Kung Hsu  <kung@mexican.cygnus.com>
 
-	* rmote-nindy.c (non_dle, nidy_resume, nindy_wait): Changes to 
+	* rmote-nindy.c (non_dle, nidy_resume, nindy_wait): Changes to
 	conform to GNU coding standards.
 
 	* solib.c (match_main): Modify to follow GNU coding conventions.
@@ -1691,12 +1691,12 @@ Wed Aug  9 14:51:36 1995  Kung Hsu  <kung@mexican.cygnus.com>
 	that got in accidentally with Aug 1 change.
 
 Sat Aug  5 09:07:28 1995  steve chamberlain  <sac@slash.cygnus.com>
- 
+
  	* remote-hms.c (hms_cmds): Get reg term right.
 	* monitor.c (monitor_fetch_register):  If we see
-	a non-hex digit, just stop reading.  
+	a non-hex digit, just stop reading.
  	* remote.c (remote_wait): Change way $O is handled.
- 
+
 Wed Aug  9 11:42:36 1995  Jeffrey A. Law  <law@rtl.cygnus.com>
 
 	 * configure.in (powerpc-*-aix*): Recognize as a new gdb host
@@ -1908,7 +1908,7 @@ Sat Jul 29 01:45:56 1995  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 	read_next_frame_reg to mips_find_saved_regs, handle saved
 	floating point registers.
 	* config/mips/tm-irix3.h, config/mips/tm-irix5.h,
-	config/mips/tm-mipsv4.h (SIGFRAME_FPREGSAVE_OFF):  Define. 
+	config/mips/tm-mipsv4.h (SIGFRAME_FPREGSAVE_OFF):  Define.
 
 	* sparc-tdep.c (sparc_pc_adjust):  Fix check for `unimp'
 	instruction to handle functions returning structures with
@@ -1998,7 +1998,7 @@ Tue Jul 25 10:43:27 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 
 	* config/rs6000/tm-rs6000.h (rs6000_framedata): Rename from
 	aix_framedata.  Change all uses.
-	* rs6000-tdep.c: Change all aix_framedata -> rs6000_framedata.	
+	* rs6000-tdep.c: Change all aix_framedata -> rs6000_framedata.
 
 Sat Jul 22 23:44:18 1995  Jeff Law  (law@snake.cs.utah.edu)
 
@@ -2086,7 +2086,7 @@ Mon Jul 17 21:35:18 1995  Fred Fish  <fnf@cygnus.com>
 	(dcache_peek_byte):  Change ptr from unsigned char* to char*.
 	(dcache_peek_byte):  Remove now unnecessary cast in read_memory call.
 	(dcache_peek):  Change cast of incoming data arg.
-	(dcache_poke):  Change cast of addr of incoming data arg.	
+	(dcache_poke):  Change cast of addr of incoming data arg.
 	(dcache_info):  Mask data passed to printf_filtered to lsbyte only.
 	(dcache_info):  Change printf_filtered arg from "% 2x" to " %2x".
 	* target.c (debug_to_thread_alive): Change return type to int and
@@ -2145,7 +2145,7 @@ Mon Jul 17 21:35:18 1995  Fred Fish  <fnf@cygnus.com>
 	* f-lang.c (saved_function_list_end):  Ifdef out unused variable
 	that may be used someday.
 	* f-valprint.c (f_val_print):  Remove unused local "straddr".
-	
+
 Mon Jul 17 13:08:00 1995  Ian Lance Taylor  <ian@cygnus.com>
 
 	* stabsread.h (struct stab_section_list): Define.
@@ -2328,7 +2328,7 @@ Sat Jun 24 19:27:37 1995  Jeffrey A. Law  <law@rtl.cygnus.com>
 
 Fri Jun 23 11:51:58 1995  Kung Hsu  <kung@mexican.cygnus.com>
 
-	* remote-nindy (nindy_load): Put in target specific load, it's 
+	* remote-nindy (nindy_load): Put in target specific load, it's
 	20 times faster.
 
 Thu Jun 22 20:21:59 1995  Stan Shebs  <shebs@andros.cygnus.com>
@@ -2371,7 +2371,7 @@ Wed Jun 21 05:57:56 1995  Steve Chamberlain  <sac@slash.cygnus.com>
 	* defs.h (error_hook): New.
 	* top.c (error_hook): New definition.
 	* utils.c (error): Use error_hook if initialized.
-	* sparcl-tdep.c (HAVE_SOCKETS): Don't define if GO32 or WIN32. Use 
+	* sparcl-tdep.c (HAVE_SOCKETS): Don't define if GO32 or WIN32. Use
 	HAVE_SOCKETS in place of #ifndef GO32.
 
 Tue Jun 20 22:17:44 1995  Jeff Law  (law@snake.cs.utah.edu)
@@ -2592,7 +2592,7 @@ Sat May 27 23:54:17 1995  J.T. Conklin  <jtc@rtl.cygnus.com>
 
 	* configure.in: Use sed instead of awk to get the values of
 	  hostfile, targetfile and nativefile.  Awk is not a utility
-	  required by the GNU coding standards.  This change also 
+	  required by the GNU coding standards.  This change also
 	  fixes the rigid whitespace requirements that were required
 	  for awk.
 	* configure: regenerated.
@@ -2648,7 +2648,7 @@ Mon May 22 06:47:30 1995  Jim Kingdon  (kingdon@lioth.cygnus.com)
 Fri May 19 14:49:37 1995  J.T. Conklin  <jtc@rtl.cygnus.com>
 
 	* defs.h (ATTR_FORMAT): New macro, expands to gcc's format
-	  attribute when compiled by gcc.  
+	  attribute when compiled by gcc.
 	* defs.h, language.h, monitor.h: Changed many function
 	  declarations to use ATTR_FORMAT.
 
@@ -2679,7 +2679,7 @@ Thu May 18 15:58:46 1995  J.T. Conklin  <jtc@rtl.cygnus.com>
 
 	* utils.c (fprintf_filtered, fprintf_unfiltered, fprintfi_filtered,
 	  printf_filtered, printf_unfiltered, printfi_filtered, query, warning,
-	  error, fatal, fatal_dump_core): Use stdarg.h macros when compiling 
+	  error, fatal, fatal_dump_core): Use stdarg.h macros when compiling
 	  with an ANSI compiler.
 	* complaints.c (complain): Likewise.
 	* language.c (type_error, range_error): Likewise.
@@ -2904,7 +2904,7 @@ Thu Apr 27 20:29:34 1995  Doug Evans  <dje@canuck.cygnus.com>
 	* Makefile.in (RUNTEST): Fix reference of `srcdir'.
 
 Wed Apr 26 19:01:08 1995  Steve Chamberlain  <sac@slash.cygnus.com>
- 
+
  	* remote-hms.c: Rewrite to use new monitor conventions.
 
 Tue Apr 25 11:27:14 1995  Jim Kingdon  (kingdon@lioth.cygnus.com)
@@ -2917,7 +2917,7 @@ Sat Apr 22 01:26:29 1995  Jeff Law  (law@snake.cs.utah.edu)
 	* config/pa/tm-hppa.h (EXTRACT_STRUCT_VALUE_ADDRESS): Fix.
 
 	* config/pa/tm-hppa.h (EXTRACT_RETURN_VALUE): Rewrite to correctly
-	handle "short", "int" and small structures returned in registers. 
+	handle "short", "int" and small structures returned in registers.
 
 Fri Apr 21 12:57:53 1995  Kung Hsu  <kung@mexican.cygnus.com>
 
@@ -3038,7 +3038,7 @@ Thu Apr 13 12:23:31 1995  Kung Hsu  <kung@rtl.cygnus.com>
 	* a29k-tdep.c (get_longjmp_target): Replace SWAP_TARGET_AND_HOST with
 	extract_address.
 	* remote-vxsparc.c: New file, preliminary check in, this configuration
-	not supported yet. 
+	not supported yet.
 	* remote-vxmips.c: ditto.
 
 Thu Apr 13 12:10:14 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
@@ -3125,7 +3125,7 @@ Tue Apr 11 09:35:20 1995  Jim Kingdon  (kingdon@lioth.cygnus.com)
 
 
 Mon Apr 10 18:31:57 1995  Stan Shebs  <shebs@andros.cygnus.com>
-	
+
 	Merge in support for Mac MPW as a host.
 	(Old change descriptions retained for informational value.)
 
@@ -3288,16 +3288,16 @@ Mon Apr 10 18:31:57 1995  Stan Shebs  <shebs@andros.cygnus.com>
 
 Mon Apr 10 16:47:57 1995  Kung Hsu  <kung@mexican.cygnus.com>
 
-	* valprint.c (print_longest): Fix a syntax error in #ifdef 
+	* valprint.c (print_longest): Fix a syntax error in #ifdef
 	PRINTF_HAS_LONG_LONG.
 
-	* config/mips/xm-irix5.h: turn on CC_HAS_LONG_LONG and 
+	* config/mips/xm-irix5.h: turn on CC_HAS_LONG_LONG and
 	PRINTF_HAS_LONG_LONG.
 	* config/mips/tm-irix5.h: turn on FORCE_LONG_LONG.
 
 Sat Apr  8 02:47:45 1995  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
-	* mdebugread.c (parse_symbol):  Use new variable 
+	* mdebugread.c (parse_symbol):  Use new variable
 	nodebug_var_symbol_type as type of variables which don't have any
 	ecoff debug info associated with them.
 	(parse_symbol, parse_procedure):  Use heuristics to determine if
@@ -3641,7 +3641,7 @@ Wed Mar 15 15:18:27 1995  Jim Kingdon  (kingdon@lioth.cygnus.com)
 
 Wed Mar 15 12:22:35 1995  J.T. Conklin  <jtc@rtl.cygnus.com>
 
-	* nlmstub.def: Removed, this was moved to nlm/gdbserve.def 
+	* nlmstub.def: Removed, this was moved to nlm/gdbserve.def
 	  long ago.
 
 	* configure.in (alpha-*-netware*): Removed configuration.
@@ -3736,7 +3736,7 @@ Thu Mar  9 17:19:47 1995  Jim Kingdon  <kingdon@deneb.cygnus.com>
 Wed Mar  8 23:35:10 1995  Jeff Law  (law@snake.cs.utah.edu)
 
 	* somsolib.c (som_solib_section_offsets): Get offset of text
-	section right. 
+	section right.
 
 Wed Mar  8 16:12:21 1995  Stu Grossman  (grossman@cygnus.com)
 
@@ -3947,7 +3947,7 @@ Tue Feb 28 14:38:39 1995  Kung Hsu  <kung@mexican.cygnus.com>
 
 	* defs.h (SWAP_TARGET_AND_HOST): check endianess at runtime not
 	compile time.
-	* arc-tdep.c (_initialize_arc_tdep): set tm_print_insn according to 
+	* arc-tdep.c (_initialize_arc_tdep): set tm_print_insn according to
 	processor.
 
 	* vx-share/ptrace.h: merge in WRS new ptrace requests.
@@ -3955,7 +3955,7 @@ Tue Feb 28 14:38:39 1995  Kung Hsu  <kung@mexican.cygnus.com>
 	* defs.h: fix a syntax error.
 
 	* a29k-tdep.c (get_longjmp_target): add this function, from WRS.
-	* remote-vx.c: move read_register and write_register out to 
+	* remote-vx.c: move read_register and write_register out to
 	target specific files.
 	* remote-vx29k.c (get_fp_contnets): add this function, from WRS.
 
@@ -4443,7 +4443,7 @@ Fri Jan 27 17:08:06 1995  Stan Shebs  <shebs@andros.cygnus.com>
 	* config/arm/tm-arm.h: Remove old refs to first_object_file_end.
 	(XFER_CORE_FILE): Remove.
 	(FRAME_FIND_SAVED_REGS): Call arm_frame_find_saved_regs.
-	
+
 Fri Jan 27 08:48:28 1995  Jim Kingdon  (kingdon@lioth.cygnus.com)
 
 	* Makefile.in (CHILL_LIB): Define as in testsuite/Makefile.in.
@@ -4554,7 +4554,7 @@ Mon Jan 23 00:06:57 1995  Steve Chamberlain  <sac@splat>
 	* remote-e7000.c, remote-z8k.c, remote-nindy.c (target_ops):
         Define memory_insert/remove_breakpoint.
 	* xm-go32.h: Remove redundant SIGs.
-	
+
 Thu Jan 19 20:26:58 1995  Steve Chamberlain  <sac@splat>
 
 	* ser-go32.c: Rewritten by nigel@algor.co.uk.
@@ -4575,7 +4575,7 @@ Fri Jan 20 15:23:55 1995  Per Bothner  <bothner@kalessin.cygnus.com>
 
 	* eval.c (evaluate_subexp):  Handle Chill Powerset tuples.
 	* valarith.c (value_bit_index):  Just treat bitstring as represented
-	by an array of bytes.  Alignment is handled by compiler. 
+	by an array of bytes.  Alignment is handled by compiler.
 
 Wed Jan 18 19:00:29 1995  Stan Shebs  <shebs@andros.cygnus.com>
 
@@ -4699,12 +4699,12 @@ Sun Jan 15 14:36:19 1995  Steve Chamberlain  <sac@splat>
 	(set_breakpoint_sal): New function.
 	* defs.h (registers_changed_hook): New declaration.
 	* infcmd.c (run_stack_dummy): 'delete' is now 'del'.
-	* inflow.c (new_tty): Treat WIN32 in same way as __GO32__	
+	* inflow.c (new_tty): Treat WIN32 in same way as __GO32__
 	* main.c (main): Don't scan options when in WIN32 and exit
 	without entering main loop.
 	* m2-exp.y (m2_elx): Member 'class' is now 'aclass'.
 	* symtab.h (struct symbol, struct partial_symbol): Changed name of
-	member 'class' to 'aclass'. 
+	member 'class' to 'aclass'.
 	(SYMBOL_CLASS, PSYMBOL_CLASS): Reflect change.
 	* top.c (registers_changed_hook): New definition.
 	* utils.c (quit, notice_quit, initialize_utils): Treate WIN32
@@ -4789,9 +4789,9 @@ Thu Jan 12 09:33:24 1995  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 Wed Jan 11 17:53:26 1995  Rob Savoye  <rob@darkstar.cygnus.com>
 
 	* array-rom.c: Add support for most commands.
-	
+
 	* monitor.c: Add GDB remote protocol for the hybrid environment on
-	the Array board. 
+	the Array board.
 
 Wed Jan 11 00:44:01 1995  Jeff Law  (law@snake.cs.utah.edu)
 

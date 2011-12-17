@@ -274,7 +274,7 @@ get_history_event (string, caller_index, delimiting_quote)
 	{
 	  entry = current_history ();
 	  history_offset = history_length;
-	
+
 	  /* If this was a substring search, then remember the
 	     string that we matched for word substitution. */
 	  if (substring_okay)
@@ -572,13 +572,13 @@ history_expand_internal (string, start, end_index_ptr, ret_string, current_line)
 	    quoted_search_delimiter = c;
 	}
       else
-#endif /* HANDLE_MULTIBYTE */	  
+#endif /* HANDLE_MULTIBYTE */
 	if (i && (string[i - 1] == '\'' || string[i - 1] == '"'))
 	  quoted_search_delimiter = string[i - 1];
 
       event = get_history_event (string, &i, quoted_search_delimiter);
     }
-	  
+
   if (event == 0)
     {
       *ret_string = hist_error (string, start, i, EVENT_NOT_FOUND);
@@ -950,7 +950,7 @@ history_expand (hstring, output)
       *output = savestring (hstring);
       return (0);
     }
-    
+
   /* Prepare the buffer for printing error messages. */
   result = (char *)xmalloc (result_len = 256);
   result[0] = '\0';
@@ -1055,9 +1055,9 @@ history_expand (hstring, output)
 	      if (cc == '\'' || cc == history_expansion_char)
 		i++;
 	    }
-	  
+
 	}
-	  
+
       if (string[i] != history_expansion_char)
 	{
 	  free (result);
@@ -1122,7 +1122,7 @@ history_expand (hstring, output)
 	  dquote = 1 - dquote;
 	  ADD_CHAR (tchar);
 	  break;
-	  
+
 	case '\'':
 	  {
 	    /* If history_quotes_inhibit_expansion is set, single quotes

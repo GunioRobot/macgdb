@@ -1,17 +1,17 @@
 /* coff information for Sparc.
-   
+
    Copyright 2001 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -55,7 +55,7 @@
 #define E_FILNMLEN	(14)	/* # characters in a file name		*/
 #define E_DIMNUM	(4)	/* # array dimensions in auxiliary entry */
 
-struct external_syment 
+struct external_syment
 {
   union {
     char e_name[E_SYMNMLEN];
@@ -85,7 +85,7 @@ struct external_syment
 #define N_TMASK		(0x30)
 #define N_BTSHFT	(4)
 #define N_TSHIFT	(2)
-  
+
 union external_auxent
 {
   struct {
@@ -108,7 +108,7 @@ union external_auxent
     } x_fcnary;
     char x_tvndx[2];		/* tv index */
   } x_sym;
-  
+
   union {
     char x_fname[E_FILNMLEN];
     struct {
@@ -116,13 +116,13 @@ union external_auxent
       char x_offset[4];
     } x_n;
   } x_file;
-  
+
   struct {
     char x_scnlen[4];		/* section length */
     char x_nreloc[2];		/* # relocation entries */
     char x_nlinno[2];		/* # line numbers */
   } x_scn;
-  
+
   struct {
     char x_tvfill[4];		/* tv fill value */
     char x_tvlen[2];		/* length of .tv */
@@ -133,7 +133,7 @@ union external_auxent
 };
 
 #define	SYMENT	struct external_syment
-#define	SYMESZ	20	
+#define	SYMESZ	20
 #define	AUXENT	union external_auxent
 #define	AUXESZ	20
 

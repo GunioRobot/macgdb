@@ -53,14 +53,14 @@ gdb_test "" ".*Breakpoint.*1.*callee.*14.*" "run"
 gdb_test "cle" ".*Deleted breakpoints 1 2.*" "clear worked"
 send_gdb "i b\n"
 gdb_expect {
-    -re ".* breakpoint .* breakpoint .*$gdb_prompt $" { 
-	fail "cleared bp at line before routine" 
+    -re ".* breakpoint .* breakpoint .*$gdb_prompt $" {
+	fail "cleared bp at line before routine"
     }
-    -re ".*3.*main.*31.*$gdb_prompt $" { 
-	pass "cleared bp at line before routine" 
+    -re ".*3.*main.*31.*$gdb_prompt $" {
+	pass "cleared bp at line before routine"
     }
-    -re ".*$gdb_prompt $" { 
-	fail "cleared bp at line before routine (info b)" 
+    -re ".*$gdb_prompt $" {
+	fail "cleared bp at line before routine (info b)"
     }
 }
 
@@ -87,7 +87,7 @@ gdb_expect {
 send_gdb "i b\n"
 gdb_expect {
     -re ".* breakpoint .* breakpoint .*$gdb_prompt $" {
-        fail "all set to continue (didn't clear bps)" 
+        fail "all set to continue (didn't clear bps)"
     }
     -re ".*3.*main.*31.*$gdb_prompt $" {
         pass "all set to continue"
@@ -134,13 +134,13 @@ gdb_expect {
 	fail "step out of main"
 	gdb_test "n" ".*" ""
     }
-    -re ".*in.*start.*$gdb_prompt $" { 
+    -re ".*in.*start.*$gdb_prompt $" {
 	pass "step out of main"
     }
-    -re ".*in.*bsp_trap.*$gdb_prompt $" { 
+    -re ".*in.*bsp_trap.*$gdb_prompt $" {
 	pass "step out of main"
     }
-    -re ".*in.*init.*$gdb_prompt $" { 
+    -re ".*in.*init.*$gdb_prompt $" {
 	# This is what happens on sparc64-elf ultra.
 	pass "step out of main"
     }
@@ -177,7 +177,7 @@ gdb_expect {
 	# This is what happens on the ARM RVDS runtime
 	pass "step out of main"
     }
-    -re ".*in.*\\\$START\\\$.*from.*dld.sl.*$gdb_prompt $" { 
+    -re ".*in.*\\\$START\\\$.*from.*dld.sl.*$gdb_prompt $" {
 	pass "step out of main"
     }
     -re ".*in __wrap__?main ().*$gdb_prompt $" {
@@ -188,7 +188,7 @@ gdb_expect {
 	# another `next' is necessary.
 	gdb_test "next" ".*in start_l ().*" "step out of main"
     }
-    -re ".*in.*currently asm.*$gdb_prompt $" { 
+    -re ".*in.*currently asm.*$gdb_prompt $" {
         pass "step out of main"
     }
     -re "_*start\[0-9\]* \\(\[^)\]*\\).*$gdb_prompt $" {
@@ -233,7 +233,7 @@ if {! [target_info exists use_gdb_stub]
 		set program_exited_normally 1
 	    }
 	    -re ".*Single.*in exit.*from.*dld.sl.*$gdb_prompt $" {
-		pass "step to end of run" 
+		pass "step to end of run"
 		set program_in_exit 1
 	    }
 	    -re ".*Single.*_int_reset.*$gdb_prompt $" {
@@ -246,11 +246,11 @@ if {! [target_info exists use_gdb_stub]
 		fail "step to end of run"
 		set program_not_exited 1
 	    }
-	    timeout { 
-		fail "(timeout) step to end of run" 
+	    timeout {
+		fail "(timeout) step to end of run"
 		set program_not_exited 1
 	    }
-	}   
+	}
     }
 
     if {$program_in_exit} {

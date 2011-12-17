@@ -531,7 +531,7 @@ xtensa_pseudo_register_read (struct gdbarch *gdbarch,
 
   /* We have to find out how to deal with priveleged registers.
      Let's treat them as pseudo-registers, but we cannot read/write them.  */
-     
+
   else if (regnum < gdbarch_tdep (gdbarch)->a0_base)
     {
       buffer[0] = (gdb_byte)0;
@@ -736,7 +736,7 @@ xtensa_add_reggroups (struct gdbarch *gdbarch)
     reggroup_add (gdbarch, xtensa_cp[i]);
 }
 
-static int 
+static int
 xtensa_coprocessor_register_group (struct reggroup *group)
 {
   int i;
@@ -915,7 +915,7 @@ typedef struct xtensa_windowed_frame_cache
    A-register where the current content of the reg came from (in terms
    of an original reg and a constant).  Negative values of c0_rt[n].fp_reg
    mean that the orignal content of the register was saved to the stack.
-   c0_rt[n].fr.ofs is NOT the offset from the frame base because we don't 
+   c0_rt[n].fr.ofs is NOT the offset from the frame base because we don't
    know where SP will end up until the entire prologue has been analyzed.  */
 
 #define C0_CONST   -1	/* fr_reg value if register contains a constant.  */
@@ -1016,7 +1016,7 @@ xtensa_unwind_pc (struct gdbarch *gdbarch, struct frame_info *next_frame)
   gdb_byte buf[8];
   CORE_ADDR pc;
 
-  DEBUGTRACE ("xtensa_unwind_pc (next_frame = %s)\n", 
+  DEBUGTRACE ("xtensa_unwind_pc (next_frame = %s)\n",
 		host_address_to_string (next_frame));
 
   frame_unwind_register (next_frame, gdbarch_pc_regnum (gdbarch), buf);
@@ -1096,16 +1096,16 @@ xtensa_scan_prologue (struct gdbarch *gdbarch, CORE_ADDR current_pc)
       islots = xtensa_format_num_slots (isa, ifmt);
       if (islots == XTENSA_UNDEFINED)
 	RETURN_FP;
-      
+
       for (is = 0; is < islots; ++is)
 	{
 	  if (xtensa_format_get_slot (isa, ifmt, is, ins, slot))
 	    RETURN_FP;
-	  
+
 	  opc = xtensa_opcode_decode (isa, ifmt, is, slot);
-	  if (opc == XTENSA_UNDEFINED) 
+	  if (opc == XTENSA_UNDEFINED)
 	    RETURN_FP;
-	  
+
 	  opcname = xtensa_opcode_name (isa, opc);
 
 	  if (strcasecmp (opcname, "mov.n") == 0
@@ -1116,14 +1116,14 @@ xtensa_scan_prologue (struct gdbarch *gdbarch, CORE_ADDR current_pc)
 	      /* Possible candidate for setting frame pointer
 		 from A1. This is what we are looking for.  */
 
-	      if (xtensa_operand_get_field (isa, opc, 1, ifmt, 
+	      if (xtensa_operand_get_field (isa, opc, 1, ifmt,
 					    is, slot, &register_operand) != 0)
 		RETURN_FP;
 	      if (xtensa_operand_decode (isa, opc, 1, &register_operand) != 0)
 		RETURN_FP;
 	      if (register_operand == 1)  /* Mov{.n} FP A1.  */
 		{
-		  if (xtensa_operand_get_field (isa, opc, 0, ifmt, is, slot, 
+		  if (xtensa_operand_get_field (isa, opc, 0, ifmt, is, slot,
 						&register_operand) != 0)
 		    RETURN_FP;
 		  if (xtensa_operand_decode (isa, opc, 0,
@@ -1137,7 +1137,7 @@ xtensa_scan_prologue (struct gdbarch *gdbarch, CORE_ADDR current_pc)
 
 	  if (
 	      /* We have problems decoding the memory.  */
-	      opcname == NULL 
+	      opcname == NULL
 	      || strcasecmp (opcname, "ill") == 0
 	      || strcasecmp (opcname, "ill.n") == 0
 	      /* Hit planted breakpoint.  */
@@ -1160,7 +1160,7 @@ done:
   return fp_regnum;
 }
 
-/* The key values to identify the frame using "cache" are 
+/* The key values to identify the frame using "cache" are
 
 	cache->base    = SP (or best guess about FP) of this frame;
 	cache->pc      = entry-PC (entry point of the frame function);
@@ -1198,7 +1198,7 @@ xtensa_frame_cache (struct frame_info *this_frame, void **this_cache)
   if (windowed)
     {
       /* Get WINDOWBASE, WINDOWSTART, and PS registers.  */
-      wb = get_frame_register_unsigned (this_frame, 
+      wb = get_frame_register_unsigned (this_frame,
 					gdbarch_tdep (gdbarch)->wb_regnum);
       ws = get_frame_register_unsigned (this_frame,
 					gdbarch_tdep (gdbarch)->ws_regnum);
@@ -1209,7 +1209,7 @@ xtensa_frame_cache (struct frame_info *this_frame, void **this_cache)
 	  int callinc = CALLINC (ps);
 	  ra = get_frame_register_unsigned
 	    (this_frame, gdbarch_tdep (gdbarch)->a0_base + callinc * 4);
-	  
+
 	  /* ENTRY hasn't been executed yet, therefore callsize is still 0.  */
 	  cache->wd.callsize = 0;
 	  cache->wd.wb = wb;
@@ -1253,7 +1253,7 @@ xtensa_frame_cache (struct frame_info *this_frame, void **this_cache)
 	  /* Set A0...A3.  */
 	  sp = get_frame_register_unsigned
 	    (this_frame, gdbarch_tdep (gdbarch)->a0_base + 1) - 16;
-	  
+
 	  for (i = 0; i < 4; i++, sp += 4)
 	    {
 	      cache->wd.aregs[i] = sp;
@@ -1517,7 +1517,7 @@ xtensa_store_return_value (struct type *type,
 
   if (gdbarch_tdep (gdbarch)->call_abi != CallAbiCall0Only)
     {
-      regcache_raw_read_unsigned 
+      regcache_raw_read_unsigned
 	(regcache, gdbarch_tdep (gdbarch)->wb_regnum, &wb);
       regcache_raw_read_unsigned (regcache, gdbarch_pc_regnum (gdbarch), &pc);
       callsize = extract_call_winsize (gdbarch, pc);
@@ -1894,7 +1894,7 @@ xtensa_breakpoint_from_pc (struct gdbarch *gdbarch, CORE_ADDR *pcptr,
 
 /* Call0 opcode class.  Opcodes are preclassified according to what they
    mean for Call0 prologue analysis, and their number of significant operands.
-   The purpose of this is to simplify prologue analysis by separating 
+   The purpose of this is to simplify prologue analysis by separating
    instruction decoding (libisa) from the semantics of prologue analysis.  */
 
 typedef enum {
@@ -1928,7 +1928,7 @@ call0_classify_opcode (xtensa_isa isa, xtensa_opcode opc)
 
   opcname = xtensa_opcode_name (isa, opc);
 
-  if (opcname == NULL 
+  if (opcname == NULL
       || strcasecmp (opcname, "ill") == 0
       || strcasecmp (opcname, "ill.n") == 0)
     opclass = c0opc_illegal;
@@ -1946,10 +1946,10 @@ call0_classify_opcode (xtensa_isa isa, xtensa_opcode opc)
     opclass = c0opc_flow;
 
   /* Also, classify specific opcodes that need to be tracked.  */
-  else if (strcasecmp (opcname, "add") == 0 
+  else if (strcasecmp (opcname, "add") == 0
 	   || strcasecmp (opcname, "add.n") == 0)
     opclass = c0opc_add;
-  else if (strcasecmp (opcname, "addi") == 0 
+  else if (strcasecmp (opcname, "addi") == 0
 	   || strcasecmp (opcname, "addi.n") == 0
 	   || strcasecmp (opcname, "addmi") == 0)
     opclass = c0opc_addi;
@@ -1958,12 +1958,12 @@ call0_classify_opcode (xtensa_isa isa, xtensa_opcode opc)
   else if (strcasecmp (opcname, "mov.n") == 0
 	   || strcasecmp (opcname, "or") == 0) /* Could be 'mov' asm macro.  */
     opclass = c0opc_mov;
-  else if (strcasecmp (opcname, "movi") == 0 
+  else if (strcasecmp (opcname, "movi") == 0
 	   || strcasecmp (opcname, "movi.n") == 0)
     opclass = c0opc_movi;
   else if (strcasecmp (opcname, "l32r") == 0)
     opclass = c0opc_l32r;
-  else if (strcasecmp (opcname, "s32i") == 0 
+  else if (strcasecmp (opcname, "s32i") == 0
 	   || strcasecmp (opcname, "s32i.n") == 0)
     opclass = c0opc_s32i;
 
@@ -2059,7 +2059,7 @@ call0_track_op (struct gdbarch *gdbarch,
     }
 }
 
-/* Analyze prologue of the function at start address to determine if it uses 
+/* Analyze prologue of the function at start address to determine if it uses
    the Call0 ABI, and if so track register moves and linear modifications
    in the prologue up to the PC or just beyond the prologue, whichever is first.
    An 'entry' instruction indicates non-Call0 ABI and the end of the prologue.
@@ -2070,7 +2070,7 @@ call0_track_op (struct gdbarch *gdbarch,
    valid only at the point in the function indicated by the PC.
    May be used to skip the prologue or identify the ABI, w/o tracking.
 
-   Returns:   Address of first instruction after prologue, or PC (whichever 
+   Returns:   Address of first instruction after prologue, or PC (whichever
 	      is first), or 0, if decoding failed (in libisa).
    Input args:
       start   Start address of function/prologue.
@@ -2113,7 +2113,7 @@ call0_analyze_prologue (struct gdbarch *gdbarch,
 
   struct symtab_and_line prologue_sal;
 
-  DEBUGTRACE ("call0_analyze_prologue (start = 0x%08x, pc = 0x%08x, ...)\n", 
+  DEBUGTRACE ("call0_analyze_prologue (start = 0x%08x, pc = 0x%08x, ...)\n",
 	      (int)start, (int)pc);
 
   /* Try to limit the scan to the end of the function if a non-zero pc
@@ -2195,7 +2195,7 @@ call0_analyze_prologue (struct gdbarch *gdbarch,
 	  goto done;
 	}
 
-      /* Analyze a bundle or a single instruction, using a snapshot of 
+      /* Analyze a bundle or a single instruction, using a snapshot of
          the register tracking info as input for the entire bundle so that
 	 register changes do not take effect within this bundle.  */
 
@@ -2211,9 +2211,9 @@ call0_analyze_prologue (struct gdbarch *gdbarch,
 	    goto done;
 
 	  opc = xtensa_opcode_decode (isa, ifmt, is, slot);
-	  DEBUGVERB ("[call0_analyze_prologue] instr addr = 0x%08x, opc = %d\n", 
+	  DEBUGVERB ("[call0_analyze_prologue] instr addr = 0x%08x, opc = %d\n",
 		     (unsigned)ia, opc);
-	  if (opc == XTENSA_UNDEFINED) 
+	  if (opc == XTENSA_UNDEFINED)
 	    opclass = c0opc_illegal;
 	  else
 	    opclass = call0_classify_opcode (isa, opc);
@@ -2258,7 +2258,7 @@ call0_analyze_prologue (struct gdbarch *gdbarch,
 
 	  for (j = 0; j < nods && j < C0_MAXOPDS; ++j)
 	    {
-	      fail = xtensa_operand_get_field (isa, opc, j, ifmt, 
+	      fail = xtensa_operand_get_field (isa, opc, j, ifmt,
 					       is, slot, &odv[j]);
 	      if (fail)
 		goto done;
@@ -2305,7 +2305,7 @@ call0_frame_cache (struct frame_info *this_frame,
   CORE_ADDR body_pc=UINT_MAX;	/* PC, where prologue analysis stopped.  */
   CORE_ADDR sp, fp, ra;
   int fp_regnum, c0_hasfp, c0_frmsz, prev_sp, to_stk;
- 
+
   /* Find the beginning of the prologue of the function containing the PC
      and analyze it up to the PC or the end of the prologue.  */
 
@@ -2316,7 +2316,7 @@ call0_frame_cache (struct frame_info *this_frame,
 					&cache->c0.c0_rt[0],
 					&cache->call0);
     }
-  
+
   sp = get_frame_register_unsigned
     (this_frame, gdbarch_tdep (gdbarch)->a0_base + 1);
   fp = sp; /* Assume FP == SP until proven otherwise.  */
@@ -2349,7 +2349,7 @@ call0_frame_cache (struct frame_info *this_frame,
 
   prev_sp = fp + c0_frmsz;
 
-  /* Frame size from debug info or prologue tracking does not account for 
+  /* Frame size from debug info or prologue tracking does not account for
      alloca() and other dynamic allocations.  Adjust frame size by FP - SP.  */
   if (c0_hasfp)
     {
@@ -2366,7 +2366,7 @@ call0_frame_cache (struct frame_info *this_frame,
 
   to_stk = cache->c0.c0_rt[C0_RA].to_stk;
   if (to_stk != C0_NOSTK)
-    ra = (CORE_ADDR) 
+    ra = (CORE_ADDR)
       read_memory_integer (sp + c0_frmsz + cache->c0.c0_rt[C0_RA].to_stk,
 			   4, byte_order);
 
@@ -2390,7 +2390,7 @@ call0_frame_cache (struct frame_info *this_frame,
 	 too bad.  */
 
       int i;
-      for (i = 0; 
+      for (i = 0;
 	   (i < C0_NREGS) &&
 	     (i == C0_RA || cache->c0.c0_rt[i].fr_reg != C0_RA);
 	   ++i);
@@ -2404,7 +2404,7 @@ call0_frame_cache (struct frame_info *this_frame,
 	}
       else ra = 0;
     }
-  
+
   cache->pc = start_pc;
   cache->ra = ra;
   /* RA == 0 marks the outermost frame.  Do not go past it.  */
@@ -2420,19 +2420,19 @@ call0_frame_cache (struct frame_info *this_frame,
 
    Return the pc of the first instruction after prologue.  GDB calls this to
    find the address of the first line of the function or (if there is no line
-   number information) to skip the prologue for planting breakpoints on 
-   function entries.  Use debug info (if present) or prologue analysis to skip 
-   the prologue to achieve reliable debugging behavior.  For windowed ABI, 
-   only the 'entry' instruction is skipped.  It is not strictly necessary to 
+   number information) to skip the prologue for planting breakpoints on
+   function entries.  Use debug info (if present) or prologue analysis to skip
+   the prologue to achieve reliable debugging behavior.  For windowed ABI,
+   only the 'entry' instruction is skipped.  It is not strictly necessary to
    skip the prologue (Call0) or 'entry' (Windowed) because xt-gdb knows how to
-   backtrace at any point in the prologue, however certain potential hazards 
-   are avoided and a more "normal" debugging experience is ensured by 
+   backtrace at any point in the prologue, however certain potential hazards
+   are avoided and a more "normal" debugging experience is ensured by
    skipping the prologue (can be disabled by defining DONT_SKIP_PROLOG).
    For example, if we don't skip the prologue:
    - Some args may not yet have been saved to the stack where the debug
      info expects to find them (true anyway when only 'entry' is skipped);
-   - Software breakpoints ('break' instrs) may not have been unplanted 
-     when the prologue analysis is done on initializing the frame cache, 
+   - Software breakpoints ('break' instrs) may not have been unplanted
+     when the prologue analysis is done on initializing the frame cache,
      and breaks in the prologue will throw off the analysis.
 
    If we have debug info ( line-number info, in particular ) we simply skip

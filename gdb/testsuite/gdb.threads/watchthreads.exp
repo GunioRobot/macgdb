@@ -154,23 +154,23 @@ if { $test_flag == 1 } {
 # Verify that we hit first watchpoint in main thread.
 set message "first watchpoint on args\[0\] hit"
 if { $args_0 > 0 } {
-  pass $message 
+  pass $message
 } else {
-  fail $message 
+  fail $message
 }
 
 # Verify that we hit second watchpoint in main thread.
 set message "first watchpoint on args\[1\] hit"
 if { $args_1 > 0 } {
-  pass $message 
+  pass $message
 } else {
-  fail $message 
+  fail $message
 }
 
 # Verify that we hit first watchpoint in child thread.
 set message "watchpoint on args\[0\] hit in thread"
 if { $args_0 > 1 } {
-  pass $message 
+  pass $message
 } else {
   fail $message
 }
@@ -178,9 +178,9 @@ if { $args_0 > 1 } {
 # Verify that we hit second watchpoint in child thread.
 set message "watchpoint on args\[1\] hit in thread"
 if { $args_1 > 1 } {
-  pass $message 
+  pass $message
 } else {
-  fail $message 
+  fail $message
 }
 
 # Verify that all watchpoint hits are accounted for.
@@ -193,7 +193,7 @@ if { [target_no_stopped_data] } {
     set result [expr $args_0 + $args_1 == 30]
 }
 if { $result } {
-  pass $message 
+  pass $message
 } else {
-  fail $message 
+  fail $message
 }

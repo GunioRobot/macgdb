@@ -395,7 +395,7 @@ foreach target_charset $charset_subset {
 	set param target-charset
 	set L ""
     }
-    send_gdb "set $param $target_charset\n" 
+    send_gdb "set $param $target_charset\n"
     gdb_expect {
         -re "$gdb_prompt $" {
             pass "set $param $target_charset"
@@ -432,7 +432,7 @@ foreach target_charset $charset_subset {
 	set var_name [string tolower "${target_charset}_string"]
 	regsub -all -- "\[^a-z0-9_\]" $var_name "_" var_name
     }
-    
+
     # Compute a regexp matching the results we expect.  This is static,
     # but it's easier than writing it out.
     regsub -all "." "abfnrtv" "(\\\\&|x)" escapes
@@ -533,7 +533,7 @@ foreach target_charset $charset_subset {
         }
     }
 
-    # Try printing a character escape that doesn't exist.  We should 
+    # Try printing a character escape that doesn't exist.  We should
     # get the unescaped character, in the target character set.
     gdb_test "print $L'\\q'" " = \[0-9-\]+ $L'q'" \
              "print escape that doesn't exist in $target_charset"
@@ -615,4 +615,4 @@ gdb_test "print 'a' == 'a' || 'b' == 'b'" \
   ".* = 1" \
   "EVAL_SKIP cleanup handling regression test"
 
-gdb_exit 
+gdb_exit

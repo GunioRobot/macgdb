@@ -36,7 +36,7 @@
    be less than eight parameters if some parameters occupy more than one
    word) are passed in r3..r10 registers.  float and double parameters are
    passed in fpr's, in addition to that. Rest of the parameters if any
-   are passed in user stack. 
+   are passed in user stack.
 
    If the function is returning a structure, then the return address is passed
    in r3, then the first 7 words of the parametes can be passed in registers,

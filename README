@@ -1,6 +1,6 @@
 		   README for GNU development tools
 
-This directory contains various GNU compilers, assemblers, linkers, 
+This directory contains various GNU compilers, assemblers, linkers,
 debuggers, etc., plus their support routines, definitions, and documentation.
 
 If you are receiving this as part of a GDB release, see the file gdb/README.
@@ -12,7 +12,7 @@ It is now possible to automatically configure and build a variety of
 tools with one command.  To build all of the tools contained herein,
 run the ``configure'' script here, e.g.:
 
-	./configure 
+	./configure
 	make
 
 To install them (by default in /usr/local/bin, /usr/local/lib, etc),

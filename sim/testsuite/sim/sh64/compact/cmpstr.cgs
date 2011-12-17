@@ -21,7 +21,7 @@
 # Use multiple "wrong" labels because this program is quite long. It's
 # likely that some instructions will be too far away from the branch
 # target to use PC-relative branches.
-	
+
 match0:
 	# No bytes matching.
 	mov #1, r0
@@ -102,7 +102,7 @@ match2:
 	nop
 wrong2:
 	fail
-	
+
 byte0:
 match3:
 	# One byte matching.
@@ -145,4 +145,4 @@ okay:
 	pass
 wrong3:
 	fail
-	
+

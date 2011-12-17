@@ -1008,7 +1008,7 @@ elfNN_ia64_relax_section (bfd *abfd, asection *sec,
 	    offset = -0x1000000;
 
 	  /* If the branch is in range, no need to do anything.  */
-	  if ((bfd_signed_vma) (symaddr - reladdr) >= offset 
+	  if ((bfd_signed_vma) (symaddr - reladdr) >= offset
 	      && (bfd_signed_vma) (symaddr - reladdr) <= 0x0FFFFF0)
 	    {
 	      /* If the 60-bit branch is in 21-bit range, optimize it. */
@@ -5713,7 +5713,7 @@ elfNN_vms_object_p (bfd *abfd)
 	  nsec->vma = base_vma;
 	  nsec->size = next_vma - base_vma;
 	  nsec->filepos = i_phdr->p_offset + (base_vma - i_phdr->p_vaddr);
-	  
+
 	  base_vma = next_vma;
 	}
     }

@@ -1,6 +1,6 @@
 /* score-datadep.h -- Score Instructions data dependency table
    Copyright 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
-   Contributed by: 
+   Contributed by:
    Brain.lin (brain.lin@sunplusct.com)
    Mei Ligang (ligang@sunnorth.com.cn)
    Pei-Lin Tsai (pltsai@sunplus.com)

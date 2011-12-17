@@ -198,7 +198,7 @@ void
 sim_do_command (sd, cmd)
      SIM_DESC sd;
      char *cmd;
-{ 
+{
   if (sim_args_command (sd, cmd) != SIM_RC_OK)
     sim_io_eprintf (sd, "Unknown command `%s'\n", cmd);
 }

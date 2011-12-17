@@ -57,7 +57,7 @@ struct gdbarch_tdep
 };
 
 /* Linux Core file support (dirty hack)
-  
+
    S+core Linux register set definition, copy from S+core Linux */
 struct pt_regs {
     /* Pad bytes for argument save space on the stack. */

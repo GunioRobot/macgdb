@@ -11,12 +11,12 @@
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 3 of the License, or
    (at your option) any later version.
-  
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-  
+
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
@@ -55,7 +55,7 @@ struct core_regset_section;
 struct syscall;
 
 /* The architecture associated with the connection to the target.
- 
+
    The architecture vector provides some information that is really
    a property of the target: The layout of certain packets, for instance;
    or the solib_ops vector.  Etc.  To differentiate architecture accesses
@@ -96,7 +96,7 @@ extern void set_gdbarch_bits_big_endian (struct gdbarch *gdbarch, int bits_big_e
 /* Number of bits in a char or unsigned char for the target machine.
    Just like CHAR_BIT in <limits.h> but describes the target machine.
    v:TARGET_CHAR_BIT:int:char_bit::::8 * sizeof (char):8::0:
-  
+
    Number of bits in a short or unsigned short for the target machine. */
 
 extern int gdbarch_short_bit (struct gdbarch *gdbarch);
@@ -146,11 +146,11 @@ extern void set_gdbarch_long_double_format (struct gdbarch *gdbarch, const struc
    address in GDB have the same size and "look the same".  For such a
    target, you need only set gdbarch_ptr_bit and gdbarch_addr_bit
    / addr_bit will be set from it.
-  
+
    If gdbarch_ptr_bit and gdbarch_addr_bit are different, you'll probably
    also need to set gdbarch_pointer_to_address and gdbarch_address_to_pointer
    as well.
-  
+
    ptr_bit is the size of a pointer on the target */
 
 extern int gdbarch_ptr_bit (struct gdbarch *gdbarch);
@@ -375,9 +375,9 @@ extern void set_gdbarch_integer_to_address (struct gdbarch *gdbarch, gdbarch_int
 /* Return the return-value convention that will be used by FUNCTYPE
    to return a value of type VALTYPE.  FUNCTYPE may be NULL in which
    case the return convention is computed based only on VALTYPE.
-  
+
    If READBUF is not NULL, extract the return value and save it in this buffer.
-  
+
    If WRITEBUF is not NULL, it contains a return value which will be
    stored into the appropriate register.  This can be used when we want
    to force the value returned by a function (see the "return" command
@@ -515,14 +515,14 @@ extern void set_gdbarch_smash_text_address (struct gdbarch *gdbarch, gdbarch_sma
 /* FIXME/cagney/2001-01-18: This should be split in two.  A target method that
    indicates if the target needs software single step.  An ISA method to
    implement it.
-  
+
    FIXME/cagney/2001-01-18: This should be replaced with something that inserts
    breakpoints using the breakpoint system instead of blatting memory directly
    (as with rs6000).
-  
+
    FIXME/cagney/2001-01-18: The logic is backwards.  It should be asking if the
    target can single step.  If not, then implement single step using breakpoints.
-  
+
    A return value of 1 means that the software_single_step breakpoints
    were inserted; 0 means they were not. */
 
@@ -704,26 +704,26 @@ extern void set_gdbarch_max_insn_length (struct gdbarch *gdbarch, ULONGEST max_i
 
 /* Copy the instruction at FROM to TO, and make any adjustments
    necessary to single-step it at that address.
-  
+
    REGS holds the state the thread's registers will have before
    executing the copied instruction; the PC in REGS will refer to FROM,
    not the copy at TO.  The caller should update it to point at TO later.
-  
+
    Return a pointer to data of the architecture's choice to be passed
    to gdbarch_displaced_step_fixup.  Or, return NULL to indicate that
    the instruction's effects have been completely simulated, with the
    resulting state written back to REGS.
-  
+
    For a general explanation of displaced stepping and how GDB uses it,
    see the comments in infrun.c.
-  
+
    The TO area is only guaranteed to have space for
    gdbarch_max_insn_length (arch) bytes, so this function must not
    write more bytes than that to that area.
-  
+
    If you do not provide this function, GDB assumes that the
    architecture does not support displaced stepping.
-  
+
    If your architecture doesn't need to adjust instructions before
    single-stepping them, consider using simple_displaced_step_copy_insn
    here. */
@@ -740,7 +740,7 @@ extern void set_gdbarch_displaced_step_copy_insn (struct gdbarch *gdbarch, gdbar
    location, and it is up to the target to ensure GDB will receive
    control again (e.g. by placing a software breakpoint instruction
    into the displaced instruction buffer).
-  
+
    The default implementation returns false on all targets that
    provide a gdbarch_software_single_step routine, and true otherwise. */
 
@@ -751,17 +751,17 @@ extern void set_gdbarch_displaced_step_hw_singlestep (struct gdbarch *gdbarch, g
 /* Fix up the state resulting from successfully single-stepping a
    displaced instruction, to give the result we would have gotten from
    stepping the instruction in its original location.
-  
+
    REGS is the register state resulting from single-stepping the
    displaced instruction.
-  
+
    CLOSURE is the result from the matching call to
    gdbarch_displaced_step_copy_insn.
-  
+
    If you provide gdbarch_displaced_step_copy_insn.but not this
    function, then GDB assumes that no fixup is needed after
    single-stepping the instruction.
-  
+
    For a general explanation of displaced stepping and how GDB uses it,
    see the comments in infrun.c. */
 
@@ -772,13 +772,13 @@ extern void gdbarch_displaced_step_fixup (struct gdbarch *gdbarch, struct displa
 extern void set_gdbarch_displaced_step_fixup (struct gdbarch *gdbarch, gdbarch_displaced_step_fixup_ftype *displaced_step_fixup);
 
 /* Free a closure returned by gdbarch_displaced_step_copy_insn.
-  
+
    If you provide gdbarch_displaced_step_copy_insn, you must provide
    this function as well.
-  
+
    If your architecture uses closures that don't need to be freed, then
    you can use simple_displaced_step_free_closure here.
-  
+
    For a general explanation of displaced stepping and how GDB uses it,
    see the comments in infrun.c. */
 
@@ -790,7 +790,7 @@ extern void set_gdbarch_displaced_step_free_closure (struct gdbarch *gdbarch, gd
    instructions while we step over them.  There need only be one such
    place, since we're only stepping one thread over a breakpoint at a
    time.
-  
+
    For a general explanation of displaced stepping and how GDB uses it,
    see the comments in infrun.c. */
 
@@ -860,7 +860,7 @@ extern int gdbarch_target_signal_to_host (struct gdbarch *gdbarch, enum target_s
 extern void set_gdbarch_target_signal_to_host (struct gdbarch *gdbarch, gdbarch_target_signal_to_host_ftype *target_signal_to_host);
 
 /* Extra signal info inspection.
-  
+
    Return a type suitable to inspect extra signal information. */
 
 extern int gdbarch_get_siginfo_type_p (struct gdbarch *gdbarch);

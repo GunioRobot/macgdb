@@ -38,9 +38,9 @@
 typedef struct reg gregset_t;
 #endif
 
-#ifndef HAVE_FPREGSET_T 
-typedef struct fpreg fpregset_t; 
-#endif 
+#ifndef HAVE_FPREGSET_T
+typedef struct fpreg fpregset_t;
+#endif
 
 #include "gregset.h"
 

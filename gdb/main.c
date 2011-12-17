@@ -150,7 +150,7 @@ relocate_directory (const char *progname, const char *initial, int flag)
 }
 
 /* Compute the locations of init files that GDB should source and return
-   them in SYSTEM_GDBINIT, HOME_GDBINIT, LOCAL_GDBINIT.  If there is 
+   them in SYSTEM_GDBINIT, HOME_GDBINIT, LOCAL_GDBINIT.  If there is
    no system gdbinit (resp. home gdbinit and local gdbinit) to be loaded,
    then SYSTEM_GDBINIT (resp. HOME_GDBINIT and LOCAL_GDBINIT) is set to
    NULL.  */
@@ -208,7 +208,7 @@ get_init_files (char **system_gdbinit,
 			 sizeof (struct stat)))
 	    localinit = gdbinit;
 	}
-      
+
       initialized = 1;
     }
 
@@ -333,7 +333,7 @@ captured_main (void *data)
     fprintf_unfiltered (gdb_stderr,
                         _("%s: warning: error finding working directory: %s\n"),
                         argv[0], safe_strerror (errno));
-    
+
   current_directory = gdb_dirbuf;
 
   /* Set the sysroot path.  */
@@ -354,7 +354,7 @@ captured_main (void *data)
 
   /* There will always be an interpreter.  Either the one passed into
      this captured main, or one specified by the user at start up, or
-     the console.  Initialize the interpreter to the one requested by 
+     the console.  Initialize the interpreter to the one requested by
      the application.  */
   interpreter_p = xstrdup (context->interpreter_p);
 

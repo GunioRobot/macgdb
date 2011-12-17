@@ -20,7 +20,7 @@ dec:
 	add #4, r0
 	cmp/eq r0, r7
 	bf wrong
-	
+
 okay:
 	pass
 wrong:

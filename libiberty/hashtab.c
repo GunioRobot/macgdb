@@ -1,4 +1,4 @@
-/* An expandable hash tables datatype.  
+/* An expandable hash tables datatype.
    Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2009
    Free Software Foundation, Inc.
    Contributed by Vladimir Makarov (vmakarov@cygnus.com).
@@ -88,7 +88,7 @@ htab_eq htab_eq_pointer = eq_pointer;
    code to divide by a constant, we want to be able to use the same algorithm
    all the time.  All of these inverses (are implied to) have bit 32 set.
 
-   For the record, here's the function that computed the table; it's a 
+   For the record, here's the function that computed the table; it's a
    vastly simplified version of the function of the same name from gcc.  */
 
 #if 0
@@ -636,7 +636,7 @@ htab_find_slot_with_hash (htab_t htab, const PTR element,
     first_deleted_slot = &htab->entries[index];
   else if ((*htab->eq_f) (entry, element))
     return &htab->entries[index];
-      
+
   hash2 = htab_mod_m2 (hash, htab);
   for (;;)
     {
@@ -644,7 +644,7 @@ htab_find_slot_with_hash (htab_t htab, const PTR element,
       index += hash2;
       if (index >= size)
 	index -= size;
-      
+
       entry = htab->entries[index];
       if (entry == HTAB_EMPTY_ENTRY)
 	goto empty_entry;
@@ -741,7 +741,7 @@ htab_traverse_noresize (htab_t htab, htab_trav callback, PTR info)
 {
   PTR *slot;
   PTR *limit;
-  
+
   slot = htab->entries;
   limit = slot + htab_size (htab);
 
@@ -797,10 +797,10 @@ htab_collisions (htab_t htab)
    prime numbers or the appropriate identity.  This was the best one.
    I don't remember exactly what constituted "best", except I was
    looking at bucket-length distributions mostly.
-   
+
    So it should be very good at hashing identifiers, but might not be
    as good at arbitrary strings.
-   
+
    I'll add that it thoroughly trounces the hash functions recommended
    for this use at http://burtleburtle.net/bob/hash/index.html, both
    on speed and bucket distribution.  I haven't tried it against the
@@ -838,16 +838,16 @@ For every delta with one or two bit set, and the deltas of all three
   have at least 1/4 probability of changing.
 * If mix() is run forward, every bit of c will change between 1/3 and
   2/3 of the time.  (Well, 22/100 and 78/100 for some 2-bit deltas.)
-mix() was built out of 36 single-cycle latency instructions in a 
+mix() was built out of 36 single-cycle latency instructions in a
   structure that could supported 2x parallelism, like so:
-      a -= b; 
+      a -= b;
       a -= c; x = (c>>13);
       b -= c; a ^= x;
       b -= a; x = (a<<8);
       c -= a; b ^= x;
       c -= b; x = (b>>13);
       ...
-  Unfortunately, superscalar Pentiums and Sparcs can't take advantage 
+  Unfortunately, superscalar Pentiums and Sparcs can't take advantage
   of that parallelism.  They've also turned some of those single-cycle
   latency instructions into multi-cycle latency instructions.  Still,
   this is the fastest good hash I could find.  There were about 2^^68

@@ -218,7 +218,7 @@ struct arc_operand {
    (I is the instruction which we are filling in, O is a pointer to
    this structure, and OP is the opcode value; this assumes twos
    complement arithmetic).
-   
+
    If this field is not NULL, then simply call it with the
    instruction and the operand value.  It will return the new value
    of the instruction.  If the ERRMSG argument is not NULL, then if
@@ -234,7 +234,7 @@ struct arc_operand {
 
 /* Extraction function.  This is used by the disassembler.  To
    extract this operand type from an instruction, check this field.
-   
+
    If it is NULL, compute
      op = ((i) >> o->shift) & ((1 << o->bits) - 1);
      if ((o->flags & ARC_OPERAND_SIGNED) != 0
@@ -242,7 +242,7 @@ struct arc_operand {
        op -= 1 << o->bits;
    (I is the instruction, O is a pointer to this structure, and OP
    is the result; this assumes twos complement arithmetic).
-   
+
    If this field is not NULL, then simply call it with the
    instruction value.  It will return the value of the operand.  If
    the INVALID argument is not NULL, *INVALID will be set to

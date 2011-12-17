@@ -828,7 +828,7 @@ ada_print_type (struct type *type0, char *varstring, struct ui_file *stream,
 	else if (ada_is_vax_floating_type (type))
 	  print_vax_floating_point_type (type, stream);
 	else if (ada_is_modular_type (type))
-	  fprintf_filtered (stream, "mod %s", 
+	  fprintf_filtered (stream, "mod %s",
 			    int_string (ada_modulus (type), 10, 0, 0, 1));
 	else
 	  {

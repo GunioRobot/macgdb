@@ -545,7 +545,7 @@ m:CORE_ADDR:smash_text_address:CORE_ADDR addr:addr::core_addr_identity::0
 # FIXME/cagney/2001-01-18: The logic is backwards.  It should be asking if the
 # target can single step.  If not, then implement single step using breakpoints.
 #
-# A return value of 1 means that the software_single_step breakpoints 
+# A return value of 1 means that the software_single_step breakpoints
 # were inserted; 0 means they were not.
 F:int:software_single_step:struct frame_info *frame:frame
 
@@ -817,12 +817,12 @@ cat <<EOF
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 3 of the License, or
    (at your option) any later version.
-  
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-  
+
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
@@ -871,7 +871,7 @@ struct core_regset_section;
 struct syscall;
 
 /* The architecture associated with the connection to the target.
- 
+
    The architecture vector provides some information that is really
    a property of the target: The layout of certain packets, for instance;
    or the solib_ops vector.  Etc.  To differentiate architecture accesses
@@ -1187,7 +1187,7 @@ cat <<EOF
 #include "arch-utils.h"
 
 #include "gdbcmd.h"
-#include "inferior.h" 
+#include "inferior.h"
 #include "symcat.h"
 
 #include "floatformat.h"
@@ -2023,7 +2023,7 @@ gdbarch_find_by_info (struct gdbarch_info info)
 			"New architecture %s (%s) selected\n",
 			host_address_to_string (new_gdbarch),
 			new_gdbarch->bfd_arch_info->printable_name);
-  
+
   /* Insert the new architecture into the front of the architecture
      list (keep the list sorted Most Recently Used).  */
   {
@@ -2031,7 +2031,7 @@ gdbarch_find_by_info (struct gdbarch_info info)
     this->next = rego->arches;
     this->gdbarch = new_gdbarch;
     rego->arches = this;
-  }    
+  }
 
   /* Check that the newly installed architecture is valid.  Plug in
      any post init values.  */

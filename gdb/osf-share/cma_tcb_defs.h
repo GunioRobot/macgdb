@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -65,9 +65,9 @@ struct CMA__T_INT_TCB;
 typedef cma_t_address		*cma__t_context_list;
 
 typedef struct CMA__T_TCB_PAD {
-    /* 
+    /*
      * Adjust to align the tcb prolog at byte 32.
-     * 12 bytes are required as object header is currently 
+     * 12 bytes are required as object header is currently
      * 20 bytes long.
      */
     cma_t_integer	pad1;		/* pad bytes */
@@ -112,7 +112,7 @@ typedef enum CMA__T_DEBEVT {
 #define cma__c_debevt__last  ((cma_t_integer)cma__c_debevt_exc_handled)
 #define cma__c_debevt__dim (cma__c_debevt__last + 1)
 
-/* 
+/*
  * Type defining thread substate, which is used by the debugger.
  * If the state is blocked, substate indicates WHY the thread is blocked.
  */
@@ -144,9 +144,9 @@ typedef struct CMA__T_TCB_DEBUG {
     cma_t_boolean	notify_debugger;/* Notify debugger thread is running */
     cma_t_address	SPARE2;		/* SPARE */
     cma_t_address	SPARE3;		/* SPARE */
-    struct CMA__T_INT_TCB	
+    struct CMA__T_INT_TCB
 			*preempted_tcb;	/* TCB of thread that got preempted */
-    cma_t_boolean	flags[cma__c_debevt__dim]; 	
+    cma_t_boolean	flags[cma__c_debevt__dim];
 					/* Events enabled for this thread */
     } cma__t_tcb_debug;
 
@@ -201,10 +201,10 @@ typedef enum CMA__T_SYSCALL_STATE {
 
 
 typedef struct CMA__T_INT_TCB {
-    /* 
+    /*
      * Fixed part of TCB.
-     *   Modifications to the following three fields must be coordinated.  
-     *   The object header must always be first, and the prolog must always 
+     *   Modifications to the following three fields must be coordinated.
+     *   The object header must always be first, and the prolog must always
      *   remain at the same offset (32) for all time. Thus the object header
      *   must never grow beyond a maximum of 32 bytes.
      */
@@ -212,20 +212,20 @@ typedef struct CMA__T_INT_TCB {
     cma__t_tcb_pad	pad1;		/* Pad required to align prolog */
     cma_t_tcb_prolog	prolog;		/* Standard prolog for tasks, threads */
 
-    /* 
+    /*
      * Floating part of TCB (fields here on are free to be moved and resized).
      */
     cma__t_queue	threads;	/* List of all known threads */
     cma__t_int_attr	*attributes;	/* Backpointer to attr obj */
     cma__t_state	state;		/* Current state of thread */
     cma__t_thkind	kind;		/* Which kind of thread */
-    struct CMA__T_INT_MUTEX 
+    struct CMA__T_INT_MUTEX
 			*mutex;		/* Mutex to control TCB access */
-    struct CMA__T_INT_CV 
+    struct CMA__T_INT_CV
 			*term_cv;	/* CV for join */
-    struct CMA__T_INT_MUTEX 
+    struct CMA__T_INT_MUTEX
 			*tswait_mutex;	/* Mutex for thread-synchronous waits */
-    struct CMA__T_INT_CV 
+    struct CMA__T_INT_CV
 			*tswait_cv;	/* CV for thread-synchronous waits */
     cma_t_start_routine	start_code;	/* Address of start routine */
     cma_t_address	start_arg;	/* Argument to pass to start_code */
@@ -251,9 +251,9 @@ typedef struct CMA__T_INT_TCB {
     cma_t_boolean	terminated;	/* Set if terminated */
     cma_t_integer	joiners;	/* Count of joiners, for zombie frees */
     cma__t_int_alert	alert;		/* Current alert state info */
-    struct CMA__T_INT_CV 
+    struct CMA__T_INT_CV
 			*wait_cv;	/* CV thread is currently waiting on */
-    struct CMA__T_INT_MUTEX 
+    struct CMA__T_INT_MUTEX
 			*wait_mutex;	/* Mutex thread is waiting on */
     struct EXC_CONTEXT_T
 			*exc_stack;	/* Top of exception stack */

@@ -47,5 +47,5 @@ start:
 	.macro _packl v1 v2 reg
 	movi \v1, \reg
 	shlli \reg, 32, \reg
-	addi \reg, \v2, \reg 
+	addi \reg, \v2, \reg
 	.endm

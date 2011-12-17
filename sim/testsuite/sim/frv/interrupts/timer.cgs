@@ -21,7 +21,7 @@ align:
 
 again:	cmp		gr15,gr16,icc0
 	blt		icc0,0,again
-	
+
 	pass
 
 ; exception handler

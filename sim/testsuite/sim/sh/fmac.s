@@ -1,4 +1,4 @@
-# sh testcase for fmac 
+# sh testcase for fmac
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 
@@ -34,7 +34,7 @@ fmac_:
 	fcmp/eq	fr0, fr2
 	bt	.L1
 	fail
-.L1:	
+.L1:
 	# x * 0.0 + y = y.
 
 	fldi1	fr0
@@ -62,7 +62,7 @@ fmac_:
 	fcmp/eq	fr0, fr2
 	bt	.L3
 	fail
-.L3:	
+.L3:
 	# 0.0 * x + 0.0 = 0.0.
 
 	fldi0	fr0

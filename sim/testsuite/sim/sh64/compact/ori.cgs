@@ -35,6 +35,6 @@ ori2:
 
 okay:
 	pass
-	
+
 wrong:
 	fail

@@ -333,7 +333,7 @@ add_stab_to_list (char *stabname, struct pending_stabs **stabvector)
    static foo2()
    40   0x700
    50   0x800
-   60   0x900           
+   60   0x900
 
    and that breaks gdb's binary search on line numbers, if the
    above table is not sorted on line numbers. And that sort
@@ -345,7 +345,7 @@ add_stab_to_list (char *stabname, struct pending_stabs **stabvector)
    30   0x300
    10   0x400   - for the increment part of a for stmt.
 
-   arrange_linetable() will do this sorting.            
+   arrange_linetable() will do this sorting.
 
    2)   aix symbol table might look like:
 
@@ -451,7 +451,7 @@ arrange_linetable (struct linetable *oldLineTb)
   return newLineTb;
 }
 
-/* include file support: C_BINCL/C_EINCL pairs will be kept in the 
+/* include file support: C_BINCL/C_EINCL pairs will be kept in the
    following `IncludeChain'. At the end of each symtab (end_symtab),
    we will determine if we should create additional symtab's to
    represent if (the include files. */
@@ -1368,7 +1368,7 @@ read_xcoff_symtab (struct partial_symtab *pst)
 	  /* beginning of include file */
 	  /* In xlc output, C_BINCL/C_EINCL pair doesn't show up in sorted
 	     order. Thus, when wee see them, we might not know enough info
-	     to process them. Thus, we'll be saving them into a table 
+	     to process them. Thus, we'll be saving them into a table
 	     (inclTable) and postpone their processing. */
 
 	  record_include_begin (cs);
@@ -1973,7 +1973,7 @@ static struct partial_symtab *xcoff_end_psymtab
   (struct partial_symtab *, char **, int, int,
    struct partial_symtab **, int, int);
 
-/* Close off the current usage of PST.  
+/* Close off the current usage of PST.
    Returns PST, or NULL if the partial symtab was empty and thrown away.
 
    CAPPING_SYMBOL_NUMBER is the end of pst (exclusive).
@@ -2274,7 +2274,7 @@ scan_xcoff_symtab (struct objfile *objfile)
 		      }
 		    /* Activate the misc_func_recorded mechanism for
 		       compiler- and linker-generated CSECTs like ".strcmp"
-		       and "@FIX1".  */ 
+		       and "@FIX1".  */
 		    if (namestring && (namestring[0] == '.'
 				       || namestring[0] == '@'))
 		      {
@@ -2862,7 +2862,7 @@ xcoff_get_toc_offset (struct objfile *objfile)
 }
 
 /* Scan and build partial symbols for a symbol file.
-   We have been initialized by a call to dbx_symfile_init, which 
+   We have been initialized by a call to dbx_symfile_init, which
    put all the relevant info into a "struct dbx_symfile_info",
    hung off the objfile structure.
 
@@ -2984,24 +2984,24 @@ xcoff_symfile_offsets (struct objfile *objfile, struct section_addr_info *addrs)
 
   objfile->num_sections = bfd_count_sections (objfile->obfd);
   objfile->section_offsets = (struct section_offsets *)
-    obstack_alloc (&objfile->objfile_obstack, 
+    obstack_alloc (&objfile->objfile_obstack,
 		   SIZEOF_N_SECTION_OFFSETS (objfile->num_sections));
 
   /* Initialize the section indexes for future use. */
   sect = bfd_get_section_by_name (objfile->obfd, ".text");
-  if (sect) 
+  if (sect)
     objfile->sect_index_text = sect->index;
 
   sect = bfd_get_section_by_name (objfile->obfd, ".data");
-  if (sect) 
+  if (sect)
     objfile->sect_index_data = sect->index;
 
   sect = bfd_get_section_by_name (objfile->obfd, ".bss");
-  if (sect) 
+  if (sect)
     objfile->sect_index_bss = sect->index;
 
   sect = bfd_get_section_by_name (objfile->obfd, ".rodata");
-  if (sect) 
+  if (sect)
     objfile->sect_index_rodata = sect->index;
 
   for (i = 0; i < objfile->num_sections; ++i)

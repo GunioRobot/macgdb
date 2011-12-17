@@ -146,15 +146,15 @@ Thu Sep  2 18:15:53 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-05-08  Felix Lee  <flee@cygnus.com>
 
 	* configure: Regenerated to track ../common/aclocal.m4 changes.
-	
+
 1999-03-03  DJ Delorie  <dj@cygnus.com>
 
 	* configure.in: add termcap and -luser32 for host=cygwin
 	* configure: regenerate
-	
+
 1999-02-11  Hugo Tyson  <hmt@cygnus.co.uk>
 
-	* exec.c (dispatch_instruction): 
+	* exec.c (dispatch_instruction):
 	Correct the sense of the
 	          if (!sparclite) {
 		     sregs->trap = TRAP_UNIMP;
@@ -257,7 +257,7 @@ Tue Jun  2 15:20:35 1998  Mark Alexander  <marka@cygnus.com>
 	(get_regi): Handle little-endian data.
 	(bfd_load): Recognize little-endian SPARClite as having
 	little-endian data.
-	
+
 Fri May 22 14:23:16 1998  Mark Alexander  <marka@cygnus.com>
 
 	* erc32.c (port_init): Print messages only if sis_verbose is true.
@@ -272,7 +272,7 @@ Thu May 14 23:10:48 1998  Mark Alexander  <marka@cygnus.com>
 	* (div64): New helper function for 64-bit division.
 	* (dispatch_instruction): Add emulation of SDIV, SDIVCC, UDIV,
 	and UDIVCC.
-	
+
 Wed May 13 14:59:54 1998  Mark Alexander  <marka@cygnus.com>
 
 	* erc32.c (close_port): Don't close stdin; it kills GDB.
@@ -621,9 +621,9 @@ Sun May 19 21:05:31 1996  Rob Savoye  <rob@chinadoll.cygnus.com>
 
 Version 2.1 26-02-96
 --------------------
- 
+
 * Fixed bug in "go" command.
- 
+
 version 2.0 05-02-96
 --------------------
 
@@ -661,22 +661,22 @@ version 1.6.2 25-10-95
 --------------------
 
 * Added -DFAST_UART to Makefile
- 
+
 
 version 1.6.1 24-10-95
 --------------------
- 
+
 * Fixed bug in STDFQ which caused bus error
 
 
 version 1.6 02-10-95
 --------------------
- 
+
 * Modified srt0.s to include code that initiates registers in IU and FPU
   and initializes the data segment. The simulator 'load' command does not
   longer initialize the data segment!
 
-* Corrected MEC timer operation; scalers now divide the frequency by 
+* Corrected MEC timer operation; scalers now divide the frequency by
   (scaler_value + 1).
 
 * MEC breakpoints are not checked during store operation
@@ -700,7 +700,7 @@ version 1.4 22-08-95
 * Added a '-g' switch to enable/disable the GNU readline(), which cause
 some problems on solaris 2.x machines.
 
-* Enabled MEC watchpoint and breakpoint function to mem.c. Performance 
+* Enabled MEC watchpoint and breakpoint function to mem.c. Performance
 may suffer a bit ...
 
 NOTE: The UARTs are now connected to /dev/ttypc and /dev/ttypd.

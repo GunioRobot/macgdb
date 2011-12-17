@@ -156,7 +156,7 @@ libunwind_frame_cache (struct frame_info *this_frame, void **this_cache)
     return NULL;
 
   /* Get a libunwind cursor to the previous frame.
-  
+
      We do this by initializing a cursor.  Libunwind treats a new cursor
      as the top of stack and will get the current register set via the
      libunwind register accessor.  Now, we provide the platform-specific
@@ -256,8 +256,8 @@ libunwind_frame_sniffer (const struct frame_unwind *self,
       return 0;
     }
 
- 
-  /* Check to see if we have libunwind info by checking if we are in a 
+
+  /* Check to see if we have libunwind info by checking if we are in a
      signal frame.  If it doesn't return an error, we have libunwind info
      and can use libunwind.  */
   ret = unw_is_signal_frame_p (&cursor);
@@ -300,7 +300,7 @@ libunwind_frame_prev_register (struct frame_info *this_frame,
 
   if (cache == NULL)
     return frame_unwind_got_constant (this_frame, regnum, 0);
-  
+
   /* Convert from gdb register number to libunwind register number.  */
   descr = libunwind_descr (get_frame_arch (this_frame));
   uw_regnum = descr->gdb2uw (regnum);
@@ -352,7 +352,7 @@ libunwind_frame_prev_register (struct frame_info *this_frame,
     }
 
   return val;
-} 
+}
 
 CORE_ADDR
 libunwind_frame_base_address (struct frame_info *this_frame, void **this_cache)
@@ -366,12 +366,12 @@ libunwind_frame_base_address (struct frame_info *this_frame, void **this_cache)
 }
 
 /* The following is a glue routine to call the libunwind unwind table
-   search function to get unwind information for a specified ip address.  */ 
+   search function to get unwind information for a specified ip address.  */
 int
 libunwind_search_unwind_table (void *as, long ip, void *di,
 			       void *pi, int need_unwind_info, void *args)
 {
-  return unw_search_unwind_table_p (*(unw_addr_space_t *)as, (unw_word_t )ip, 
+  return unw_search_unwind_table_p (*(unw_addr_space_t *)as, (unw_word_t )ip,
 				    di, pi, need_unwind_info, args);
 }
 
@@ -478,7 +478,7 @@ libunwind_get_reg_special (struct gdbarch *gdbarch, struct regcache *regcache,
 
   return 0;
 }
-  
+
 static int
 libunwind_load (void)
 {
@@ -529,7 +529,7 @@ libunwind_load (void)
   unw_find_dyn_list_p = dlsym (handle, find_dyn_list_name);
   if (unw_find_dyn_list_p == NULL)
     return 0;
-   
+
   return 1;
 }
 

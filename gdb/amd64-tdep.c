@@ -51,7 +51,7 @@
 
 /* Register information.  */
 
-static const char *amd64_register_names[] = 
+static const char *amd64_register_names[] =
 {
   "rax", "rbx", "rcx", "rdx", "rsi", "rdi", "rbp", "rsp",
 
@@ -152,7 +152,7 @@ static int amd64_dwarf_regmap[] =
   AMD64_ST0_REGNUM + 2, AMD64_ST0_REGNUM + 3,
   AMD64_ST0_REGNUM + 4, AMD64_ST0_REGNUM + 5,
   AMD64_ST0_REGNUM + 6, AMD64_ST0_REGNUM + 7,
-  
+
   /* Control and Status Flags Register.  */
   AMD64_EFLAGS_REGNUM,
 
@@ -668,7 +668,7 @@ amd64_push_arguments (struct regcache *regcache, int nargs,
      containing ellipsis (...) in the declaration) %al is used as
      hidden argument to specify the number of SSE registers used.  */
   regcache_raw_write_unsigned (regcache, AMD64_RAX_REGNUM, sse_reg);
-  return sp; 
+  return sp;
 }
 
 static CORE_ADDR
@@ -1451,7 +1451,7 @@ amd64_analyze_stack_align (CORE_ADDR pc, CORE_ADDR current_pc,
 		pushq -8(%reg)
 
      "andq $-XXX, %rsp" can be either 4 bytes or 7 bytes:
-     
+
      	0x48 0x83 0xe4 0xf0			andq $-16, %rsp
      	0x48 0x81 0xe4 0x00 0xff 0xff 0xff	andq $-256, %rsp
    */
@@ -1517,7 +1517,7 @@ amd64_analyze_stack_align (CORE_ADDR pc, CORE_ADDR current_pc,
       /* MOD must be binary 10 and R/M must be binary 100.  */
       if ((buf[offset + 2] & 0xc7) != 0x44)
 	return pc;
-      
+
       /* REG has register number.  */
       r = (buf[offset + 2] >> 3) & 7;
 
@@ -1935,7 +1935,7 @@ amd64_epilogue_frame_cache (struct frame_info *this_frame, void **this_cache)
 
   /* Cache base will be %esp plus cache->sp_offset (-8).  */
   get_frame_register (this_frame, AMD64_RSP_REGNUM, buf);
-  cache->base = extract_unsigned_integer (buf, 8, 
+  cache->base = extract_unsigned_integer (buf, 8,
 					  byte_order) + cache->sp_offset;
 
   /* Cache pc will be the frame func.  */
@@ -1966,7 +1966,7 @@ static const struct frame_unwind amd64_epilogue_frame_unwind =
   NORMAL_FRAME,
   amd64_epilogue_frame_this_id,
   amd64_frame_prev_register,
-  NULL, 
+  NULL,
   amd64_epilogue_frame_sniffer
 };
 

@@ -266,8 +266,8 @@ const char *
 get_osdata_column (struct osdata_item *item, const char *name)
 {
   struct osdata_column *col;
-  int ix_cols; 
-  
+  int ix_cols;
+
   for (ix_cols = 0;
        VEC_iterate (osdata_column_s, item->columns,
 		    ix_cols, col);

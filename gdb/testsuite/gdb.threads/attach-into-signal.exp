@@ -122,7 +122,7 @@ proc corefunc { threadtype } {
     }
 
     # Exit and detach the process.
-       
+
     gdb_exit
 
     # Make sure we don't leave a process around to confuse
@@ -133,7 +133,7 @@ proc corefunc { threadtype } {
     # Continue the program - some Linux kernels need it before -9 if the
     # process is stopped.
     remote_exec build "kill -s CONT ${testpid}"
-       
+
     remote_exec build "kill -9 ${testpid}"
 }
 

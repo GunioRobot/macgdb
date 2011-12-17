@@ -23,7 +23,7 @@ int main (int argc, char *argv[])
 	printf ("ENOSYS\n");
       printf ("xyzzy\n");
       exit (0);
-    }      
+    }
 
   /* Don't use an abort in the following; it might cause the printf to
      not make it all the way to output and make debugging more

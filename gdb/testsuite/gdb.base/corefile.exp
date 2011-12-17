@@ -90,10 +90,10 @@ if { $found == 0 } {
     }
 }
 
-# Try to clean up after ourselves. 
+# Try to clean up after ourselves.
 remote_file build delete [file join $coredir coremmap.data]
 remote_exec build "rmdir $coredir"
-    
+
 if { $found == 0  } {
     warning "can't generate a core file - core tests suppressed - check ulimit -c"
     return 0
@@ -108,7 +108,7 @@ if { $found == 0  } {
 # before the first prompt.
 #
 # Another problem is that on some systems (solaris for example), there
-# is apparently a limit on the length of a fully specified path to 
+# is apparently a limit on the length of a fully specified path to
 # the coremaker executable, at about 80 chars.  For this case, consider
 # it a pass, but note that the program name is bad.
 

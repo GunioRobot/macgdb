@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 2003, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 #include "sim-main.h"
@@ -24,16 +24,16 @@
 
 /* DEVICE
 
-   
+
    mn103tim - mn103002 timers (8 and 16 bit)
 
-   
+
    DESCRIPTION
-   
+
    Implements the mn103002 8 and 16 bit timers as described in the mn103002 user guide.
 
 
-   PROPERTIES   
+   PROPERTIES
 
    reg = <8bit-timers-addr> <8bit-timers-size> <16bit-timers-addr> <16bit-timers-size>
 
@@ -110,7 +110,7 @@ struct mn103tim {
   mn10300_timer timer[NR_TIMERS];
 
   /* treat timer 6 registers specially. */
-  unsigned16   tm6md0, tm6md1, tm6bc, tm6ca, tm6cb; 
+  unsigned16   tm6md0, tm6md1, tm6bc, tm6ca, tm6cb;
   unsigned8  tm6mda, tm6mdb;  /* compare/capture mode regs for timer 6 */
 };
 
@@ -269,7 +269,7 @@ decode_addr (struct hw *me,
     case 0xb5: return TM6MDB;
     case 0xc4: return TM6CA;
     case 0xd4: return TM6CB;
-    default: 
+    default:
       {
 	hw_abort (me, "bad address");
 	return -1;
@@ -373,7 +373,7 @@ read_base_reg (struct hw *me,
 	      val16 = (timers->reg[timer_nr].base<<8)
 		| timers->reg[timer_nr+1].base;
 	    }
-	  else 
+	  else
 	    {
 	      val16 = timers->reg[timer_nr].base;
 	    }
@@ -388,7 +388,7 @@ read_base_reg (struct hw *me,
 	    | (timers->reg[2].base << 8) | timers->reg[3].base;
 	  *(unsigned32*)dest = val32;
 	}
-      else if ( timer_nr == 4 ) 
+      else if ( timer_nr == 4 )
 	{
 	  val32 = (timers->reg[4].base << 16) | timers->reg[5].base;
 	  *(unsigned32*)dest = val32;
@@ -401,7 +401,7 @@ read_base_reg (struct hw *me,
 
     default:
       hw_abort (me, "bad read size must of %d bytes to TM%dBR.",
-		nr_bytes, timer_nr); 
+		nr_bytes, timer_nr);
     }
 }
 
@@ -438,7 +438,7 @@ read_counter (struct hw *me,
 	  /* ticks left = start time + div ratio - curr time */
 	  /* Cannot use base register because it can be written during counting and it
 	     doesn't affect counter until underflow occurs. */
-	  
+
 	  val = timers->timer[timer_nr].start + timers->timer[timer_nr].div_ratio
 	    - hw_event_queue_time(me);
 	}
@@ -448,7 +448,7 @@ read_counter (struct hw *me,
   case 1:
     *(unsigned8 *)dest = val;
     break;
-    
+
   case 2:
     *(unsigned16 *)dest = val;
     break;
@@ -460,7 +460,7 @@ read_counter (struct hw *me,
   default:
     hw_abort(me, "bad read size for reading counter");
   }
-      
+
 }
 
 
@@ -480,25 +480,25 @@ read_special_timer6_reg (struct hw *me,
       case TM6MDA:
 	*(unsigned8 *)dest = timers->tm6mda;
 	break;
-    
+
       case TM6MDB:
 	*(unsigned8 *)dest = timers->tm6mdb;
 	break;
-    
+
       case TM6CA:
 	*(unsigned8 *)dest = timers->tm6ca;
 	break;
-    
+
       case TM6CB:
 	*(unsigned8 *)dest = timers->tm6cb;
 	break;
-      
+
       default:
 	break;
       }
       break;
     }
-    
+
   case 2:
     if ( timer_nr == TM6CA )
       {
@@ -517,7 +517,7 @@ read_special_timer6_reg (struct hw *me,
   default:
     hw_abort(me, "bad read size for timer 6 register");
   }
-      
+
 }
 
 
@@ -559,7 +559,7 @@ mn103tim_io_read_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 static void
@@ -668,7 +668,7 @@ write_base_reg (struct hw *me,
 	      timers->reg[timer_nr].base = buf8[0];
 	      timers->reg[timer_nr+1].base = buf8[1];
 	    }
-	  else 
+	  else
 	    {
 	      timers->reg[timer_nr].base = buf16[0];
 	    }
@@ -698,7 +698,7 @@ write_base_reg (struct hw *me,
       hw_abort (me, "bad write size must of %d bytes to TM%dBR.",
 		nr_bytes, timer_nr);
     }
-     
+
 }
 
 static void
@@ -721,7 +721,7 @@ write_mode_reg (struct hw *me,
 
   mode_val = *(unsigned8 *)source;
   timers->reg[timer_nr].mode = mode_val;
-      
+
   if ( ( mode_val & count_and_load_mask ) == count_and_load_mask )
     {
       hw_abort(me, "Cannot load base reg and start counting simultaneously.");
@@ -752,13 +752,13 @@ write_mode_reg (struct hw *me,
 	  /* Check for cascading. */
 	  if ( timer_nr < NR_8BIT_TIMERS )
 	    {
-	      for ( i = timer_nr + 1; i <= 3; ++i ) 
+	      for ( i = timer_nr + 1; i <= 3; ++i )
 		{
 		  next_mode_val = timers->reg[i].mode;
 		  if ( ( next_mode_val & clock_mask ) == clk_cascaded )
 		    {
 		      /* Check that CNE is on. */
-		      if ( ( next_mode_val & count_mask ) == 0 ) 
+		      if ( ( next_mode_val & count_mask ) == 0 )
 			{
 			  hw_abort (me, "cascaded timer not ready for counting");
 			}
@@ -780,7 +780,7 @@ write_mode_reg (struct hw *me,
 	      if ( ( next_mode_val & clock_mask ) == clk_cascaded )
 		{
 		  /* Check that CNE is on. */
-		  if ( ( next_mode_val & count_mask ) == 0 ) 
+		  if ( ( next_mode_val & count_mask ) == 0 )
 		    {
 		      hw_abort (me, "cascaded timer not ready for counting");
 		    }
@@ -805,7 +805,7 @@ write_mode_reg (struct hw *me,
 	      timers->timer[timer_nr].event
 		= hw_event_queue_schedule(me, div_ratio,
 					  do_counter_event,
-					  (void *)(timer_nr)); 
+					  (void *)(timer_nr));
 	    }
 	}
     }
@@ -825,7 +825,7 @@ write_mode_reg (struct hw *me,
 	      ASSERT(timers->timer[timer_nr].event == NULL);
 	    }
 	}
-      
+
     }
 
 }
@@ -842,7 +842,7 @@ write_tm6md (struct hw *me,
   long timer_nr = 6;
 
   unsigned_word offset = address - timers->block[0].base;
-  
+
   if ((offset != 0x84 && nr_bytes > 1) || nr_bytes > 2 )
     {
       hw_abort (me, "Bad write size of %d bytes to TM6MD", nr_bytes);
@@ -853,13 +853,13 @@ write_tm6md (struct hw *me,
       /*  Fill in first byte of mode */
       mode_val0 = *(unsigned8 *)source;
       timers->tm6md0 = mode_val0;
-    
+
       if ( ( mode_val0 & 0x26 ) != 0 )
 	{
 	  hw_abort(me, "Cannot write to bits 5, 3, and 2 of TM6MD");
 	}
     }
-  
+
   if ( offset == 0x85 || nr_bytes == 2 )
     {
       /*  Fill in second byte of mode */
@@ -905,7 +905,7 @@ write_tm6md (struct hw *me,
 	  timers->timer[timer_nr].event
 	    = hw_event_queue_schedule(me, div_ratio,
 				      do_counter6_event,
-				      (void *)(timer_nr)); 
+				      (void *)(timer_nr));
 	}
     }
   else
@@ -937,25 +937,25 @@ write_special_timer6_reg (struct hw *me,
       case TM6MDA:
 	timers->tm6mda = *(unsigned8 *)source;
 	break;
-    
+
       case TM6MDB:
 	timers->tm6mdb = *(unsigned8 *)source;
 	break;
-    
+
       case TM6CA:
 	timers->tm6ca = *(unsigned8 *)source;
 	break;
-    
+
       case TM6CB:
 	timers->tm6cb = *(unsigned8 *)source;
 	break;
-      
+
       default:
 	break;
       }
       break;
     }
-    
+
   case 2:
     if ( timer_nr == TM6CA )
       {
@@ -974,7 +974,7 @@ write_special_timer6_reg (struct hw *me,
   default:
     hw_abort(me, "bad read size for timer 6 register");
   }
-      
+
 }
 
 
@@ -997,7 +997,7 @@ mn103tim_io_write_buffer (struct hw *me,
   /* or a special timer 6 register.  Check in that order. */
   if ( timer_reg <= LAST_MODE_REG )
     {
-      if ( timer_reg == 6 ) 
+      if ( timer_reg == 6 )
 	{
 	  write_tm6md(me, timers, base, source, nr_bytes);
 	}
@@ -1025,7 +1025,7 @@ mn103tim_io_write_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 const struct hw_descriptor dv_mn103tim_descriptor[] = {

@@ -90,12 +90,12 @@ proc test_listsize {} {
     # Show default size
 
     gdb_test "show listsize" "Number of source lines gdb will list by default is 10.*" "show default list size"
-    
+
     # Show the default lines
     # Note that remote targets that have debugging info for _start available will
     # list the lines there instead of main, so we skip this test for remote targets.
     # The second case is for optimized code, it is still correct.
-    
+
     if [is_remote target] {
 	runto_main;
 	unsupported "list default lines around main";
@@ -108,10 +108,10 @@ proc test_listsize {} {
     if [set_listsize 1] {
 	gdb_test "list 1" "1\[ \t\]+#include \"list0.h\"" "list line 1 with listsize 1"
 	gdb_test "list 2" "2\[ \t\]+" "list line 2 with listsize 1"
-    }    
+    }
 
     # Try just two lines
-    
+
     if [ set_listsize 2 ] {
 	gdb_test "list 1" "1\[ \t\]+#include \"list0.h\"\r\n2\[ \t\]+" "list line 1 with listsize 2"
 	gdb_test "list 2" "1\[ \t\]+#include \"list0.h\"\r\n2\[ \t\]+" "list line 2 with listsize 2"
@@ -131,7 +131,7 @@ proc test_listsize {} {
     if [ set_listsize 4 ] then {
 	gdb_test "list 1" "1\[ \t\]+#include \"list0.h\".*4\[ \t\]+\{" "list line 1 with listsize 4"
 	gdb_test "list 2" "1\[ \t\]+#include \"list0.h\".*4\[ \t\]+\{" "list line 2 with listsize 4"
-	
+
 	gdb_test "list 3" "1\[ \t\]+#include \"list0.h\".*4\[ \t\]+\{" "list line 3 with listsize 4"
 	gdb_test "list 4" "2\[ \t\]+\r\n.*5\[ \t\]+int x;.*" "list line 4 with listsize 4"
     }
@@ -140,7 +140,7 @@ proc test_listsize {} {
 
     if [ set_listsize 100 ] then {
 	gdb_test "list 1" "1\[ \t\]+#include \"list0.h\".*\r\n4\[23\]\[ \t\]+\}" "list line 1 with listsize 100"
-	
+
 	gdb_test "list 10" "1\[ \t\]+#include \"list0.h\".*\r\n4\[23\]\[ \t\]+\}" "list line 10 with listsize 100"
     }
 
@@ -182,7 +182,7 @@ proc test_list_filename_and_number {} {
     send_gdb "list list0.c:1\n"
     gdb_expect {
 	-re "1\[ \t\]+#include \"list0.h\".*10\[ \t]+x = 0;\r\n$gdb_prompt $" {
-	    incr testcnt 
+	    incr testcnt
 	}
 	-re ".*$gdb_prompt $" { fail "list list0.c:1" ; gdb_suppress_tests }
 	timeout { fail "list list0.c:1 (timeout)" ; gdb_suppress_tests }
@@ -190,7 +190,7 @@ proc test_list_filename_and_number {} {
     send_gdb "list list0.c:10\n"
     gdb_expect {
 	-re "5\[ \t\]+int x;.*14\[ \t\]+foo .x\[+)\]+;\r\n$gdb_prompt $" {
-	    incr testcnt 
+	    incr testcnt
 	}
 	-re ".*$gdb_prompt $" { fail "list list.c:10" ; gdb_suppress_tests }
 	timeout { fail "list list.c:10 (timeout)" ; gdb_suppress_tests }
@@ -198,7 +198,7 @@ proc test_list_filename_and_number {} {
     send_gdb "list list1.c:1\n"
     gdb_expect {
 	-re "1\[ \t\]+\#include.*4\[ \t\]+.*int oof\[ \t\]*\(.*\);\r\n.*$gdb_prompt $" {
-	    incr testcnt 
+	    incr testcnt
 	}
 	-re ".*$gdb_prompt $" { fail "list list1.c:1" ; gdb_suppress_tests }
 	timeout { fail "list list1.c:1 (timeout)" ; gdb_suppress_tests }
@@ -206,7 +206,7 @@ proc test_list_filename_and_number {} {
     send_gdb "list list1.c:12\n"
     gdb_expect {
 	-re "12\[ \t\]+long_line \[(\]+.*\[)\]+;.*13\[ \t\]+\}\r\n.*$gdb_prompt $" {
-	    incr testcnt 
+	    incr testcnt
 	}
 	-re ".*$gdb_prompt $" { fail "list list1.c:12" ; gdb_suppress_tests }
 	timeout { fail "list list1.c:12 (timeout)" ; gdb_suppress_tests }
@@ -277,7 +277,7 @@ proc test_list_forward {} {
 # Test that repeating the list linenum command doesn't print the same
 # lines over again.  Note that this test makes sure that the argument
 # linenum is dropped, when we repeat the previous command. 'x/5i $pc'
-# works the same way.  
+# works the same way.
 
 proc test_repeat_list_command {} {
     global gdb_prompt
@@ -476,7 +476,7 @@ proc test_list_filename_and_function {} {
     # Test some invalid specs
     # The following test takes the FIXME result on most systems using
     # DWARF.  It fails to notice that main() is not in the file requested.
-   
+
     setup_xfail "*-*-*"
 
 # Does this actually work ANYWHERE?  I believe not, as this is an `aspect' of

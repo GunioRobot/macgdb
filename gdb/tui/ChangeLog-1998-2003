@@ -152,7 +152,7 @@
 
 	* tuiStack.c (tuiShowFrameInfo): Use get_frame_type instead of
 	signal_handler_caller.
-	
+
 2002-11-10  Andrew Cagney  <ac131313@redhat.com>
 
 	* tuiStack.c (tuiShowFrameInfo): Replace frame_in_dummy with
@@ -484,7 +484,7 @@
 
 2002-08-25  Stephane Carrez  <stcarrez@nerim.fr>
 
-	* tuiStack.c (tui_get_function_from_frame): Rename from 
+	* tuiStack.c (tui_get_function_from_frame): Rename from
 	_getFuncNameFromFrame; use print_address_symbolic to get symbolic
 	name of address.
 	(tuiUpdateLocatorInfoFromFrame): Update.
@@ -690,7 +690,7 @@
 	if SIGCONT is defined.
 	(tui_cont_sig): New function when SIGCONT is defined.
 	(tui_setup_io): Save tty setting to restore by SIGCONT.
-	
+
 2001-07-22  Stephane Carrez  <Stephane.Carrez@worldnet.fr>
 
 	* tui.h (tui_show_assembly): Declare.
@@ -874,7 +874,7 @@
 
 	* tuiIO.c (_tuiHandleResizeDuringIO): Call tuiRefreshAll.
 	(tuiRead, tui_vread): Remove.
-	
+
 	* tui.c (va_catch_errors, tuiDo, tuiDoAndReturnToTop): Remove.
 	(vcatch_errors, _tui_vDo): Remove.
 	* tui.h (tuiDo, tuiDoAndReturnToTop): Remove.
@@ -920,7 +920,7 @@
 	(tuiSwitchFilename): Likewise.
 	(tuiUpdateLocatorInfoFromFrame): Likewise.
 	(tuiSetLocatorContent): Likewise.
-	(tuiShowFrameInfo): Likewise.	
+	(tuiShowFrameInfo): Likewise.
 	* tuiDisassem.h: Update prototypes to use CORE_ADDR.
 	* tuiSourceWin.h: Likewise.
 	* tuiStack.h: Likewise.
@@ -971,7 +971,7 @@
 2001-07-16  Stephane Carrez  <Stephane.Carrez@worldnet.fr>
 
 	* tuiStack.c: Add missing includes.
-	(tuiShowFrameInfo): Don't crash when there is no symbol table 
+	(tuiShowFrameInfo): Don't crash when there is no symbol table
 	associated with the pc.
 	* tuiSource.c (_hasBreak): Check for null source file.
 	* tuiWin.c (tuiRefreshAll): Check for null winList[type].
@@ -982,7 +982,7 @@
 
 	* tuiDisassem.c (tuiSetDisassemContent): Use tm_print_insn_info
 	to disassemble in the curses window.
-	
+
 2001-07-16  Stephane Carrez  <Stephane.Carrez@worldnet.fr>
 
 	* tui.h: Cleanup to avoid inclusion of curses includes.
@@ -1082,7 +1082,7 @@ Mon Nov  8 17:47:37 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(tuiSetDisassemContent): Replace gdb_file_init_astring with
  	tui_sfileopen.  Replace gdb_file_get_strbuf with
  	tui_file_get_strbuf.
-	
+
 Mon Nov  8 16:54:51 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* tuiRegs.c (_tuiRegisterFormat), tuiDisassem.c
@@ -1147,7 +1147,7 @@ Thu Dec 31 12:08:32 1998  David Taylor  <taylor@texas.cygnus.com>
 	Integrate its contents into this file:
 	#include <ansidecl.h> here.
 	(Opaque, OpaqueFuncPtr): Typedefs moved to here.
-	     
+
 	* tuiCommand.c: #include "defs.h", so we get the appropriate
 	definition of GDB_FILE.
 
@@ -1168,8 +1168,8 @@ Thu Dec 31 12:08:32 1998  David Taylor  <taylor@texas.cygnus.com>
 	(tui_tputs): fix prototype for 3rd argument.
 
 	* tuiIO.h (tuiPuts_unfiltered): change declaration.
-     
-	* tuiLayout.c 
+
+	* tuiLayout.c
 	(_tuiSetLayoutTo): for displaying registers, hook up the HP code
 	that decides which registers to display (i.e. single precision
 	float, double precision float, general, special). Previously,
@@ -1205,7 +1205,7 @@ Thu Dec 31 12:08:32 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* tuiWin.c: #include <string.h>, to get a declaration for
 	strchr.
- 
+
 	* tui.c, tuiCommand.c, tuiData.c, tuiDataWin.c, tuiDisassem.c,
  	tuiGeneralWin.c, tuiIO.c, tuiLayout.c, tuiRegs.c, tuiSource.c,
  	tuiSourceWin.c, tuiStack.c, tuiWin.c: New files (from HP).  Changed

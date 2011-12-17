@@ -46,7 +46,7 @@ sub4:
 	mov #3, r1
 	sub r1, r0
 	assert r0, #1
-	
+
 	.global sub5
 sub5:
 	# y - y == 0 (where y are in two distinct registers).

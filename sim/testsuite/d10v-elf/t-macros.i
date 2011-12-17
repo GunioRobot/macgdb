@@ -158,12 +158,12 @@ _start:
 	.text
 	ldi r4, #1f
 	ldi r5, \vec
-	;; 	
+	;;
 	ld2w r2, @(0,r4)
 	st2w r2, @(0,r5)
 	ld2w r2, @(4,r4)
 	st2w r2, @(4,r5)
-	;; 	
+	;;
 	bra 9f
 	nop
 ;;; Code that gets patched into the interrupt vector
@@ -185,7 +185,7 @@ _start:
 	exit2
 4:	exit0
 ;;; continue as normal
-9:	
+9:
 	.endm
 
 

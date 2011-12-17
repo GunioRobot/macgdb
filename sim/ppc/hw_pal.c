@@ -1,21 +1,21 @@
 /*  This file is part of the program psim.
-    
+
     Copyright (C) 1994-1996, Andrew Cagney <cagney@highland.com.au>
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-    
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-    
+
     */
 
 
@@ -48,13 +48,13 @@
 
 /* DEVICE
 
-   
+
    pal - glue logic device containing assorted junk
 
-   
+
    DESCRIPTION
 
-   
+
    Typical hardware dependant hack.  This device allows the firmware
    to gain access to all the things the firmware needs (but the OS
    doesn't).
@@ -63,7 +63,7 @@
    level register, each of the below is 8 bytes in size and must be
    accessed using correct alignment.  For 16 and 32 bit accesses the
    bytes not directed to the register are ignored:
-   
+
    |0	reset register (write)
    |4	processor id register (read)
    |8	interrupt port (write)
@@ -76,10 +76,10 @@
 
    Reset register (write) halts the simulator exiting with the
    value written.
-   
+
    Processor id register (read) returns the processor number (0
    .. N-1) of the processor performing the read.
-   
+
    The interrupt registers should be accessed as a pair (using a 16 or
    32 bit store).  The low byte specifies the interrupt port while the
    high byte specifies the level to drive that port at.  By
@@ -102,7 +102,7 @@
 
 
    PROPERTIES
-   
+
 
    reg = <address> <size> (required)
 
@@ -226,7 +226,7 @@ hw_pal_io_write_buffer_callback(device *me,
 {
   hw_pal_device *hw_pal = (hw_pal_device*)device_data(me);
   unsigned_1 *byte = (unsigned_1*)source;
-  
+
   switch (addr & hw_pal_address_mask) {
   case hw_pal_reset_register:
     cpu_halt(processor, cia, was_exited, byte[0]);

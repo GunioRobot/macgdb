@@ -43,7 +43,7 @@ andc3:
 	andc r0, r1, r2
 	bne r0, r2, tr0
 
-okay:	
+okay:
 	pass
 
 wrong:

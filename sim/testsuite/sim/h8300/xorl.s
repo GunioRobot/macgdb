@@ -6,19 +6,19 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
 	start
-	
+
 .if (sim_cpu == h8sx)		; 16-bit immediate is only available on sx.
 xor_l_imm16:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
 
 	;;  xor.l #xx:16,Rd
-	xor.l	#0xffff:16, er0	; Immediate 16-bit operand 
+	xor.l	#0xffff:16, er0	; Immediate 16-bit operand
 
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
 
@@ -71,7 +71,7 @@ xor_l_reg:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 	pass
 
 	exit 0

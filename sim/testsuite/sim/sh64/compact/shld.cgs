@@ -40,9 +40,9 @@ fill:
 	rotr r1
 	shld r1, r0
 	assert r0, #0
-	
+
 okay:
 	pass
 wrong:
 	fail
-	
+

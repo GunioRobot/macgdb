@@ -1,21 +1,21 @@
 /*  This file is part of the program psim.
-    
+
     Copyright (C) 1994-1997, Andrew Cagney <cagney@highland.com.au>
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-    
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-    
+
     */
 
 
@@ -37,54 +37,54 @@
 #endif
 
 /* DEVICE
-   
+
 
    cdrom - read-only removable mass storage device
 
    disk - mass storage device
-   
+
    floppy - removable mass storage device
 
-   
+
    DESCRIPTION
-   
-   
+
+
    Mass storage devices such as a hard-disk or cdrom-drive are not
    normally directly connected to the processor.  Instead, these
    devices are attached to a logical bus, such as SCSI or IDE, and
    then a controller of that bus is made accessible to the processor.
-   
+
    Reflecting this, within a device tree, mass storage devices such as
    a <<cdrom>>, <<disk>> or <<floppy>> are created as children of of a
    logical bus controller node (such as a SCSI or IDE interface).
    That controller, in turn, would be made the child of a physical bus
    node that is directly accessible to the processor.
-   
+
    The above mass storage devices provide two interfaces - a logical
    and a physical.
-   
+
    At the physical level the <<device_io_...>> functions can be used
    perform reads and writes of the raw media.  The address being
    interpreted as an offset from the start of the disk.
-   
+
    At the logical level, it is possible to create an instance of the
    disk that provides access to any of the physical media, a disk
    partition, or even a file within a partition.  The <<disk-label>>
    package, which implements this functionality, is described
    elsewhere.  Both the Open Firmware and Moto BUG rom emulations
    support this interface.
-   
+
    Block devices such as the <<floppy>> and <<cdrom>> have removable
    media.  At the programmer level, the media can be changed using the
    <<change_media>> ioctl.  From within GDB, a <<change-media>>
    operation can be initated by using the command.
 
-   |	(gdb)  sim 
+   |	(gdb)  sim
 
 
    PROPERTIES
-   
-   
+
+
    file = <file-name>  (required)
 
    The name of the file that contains an image of the disk.  For
@@ -93,7 +93,7 @@
    second and later files being opened when <<change-media>> (with a
    NULL file name) being specified.
 
-   
+
    block-size = <nr-bytes>  (optional)
 
    The value is returned by the block-size method.  The default value
@@ -118,49 +118,49 @@
    read-only.
 
    EXAMPLES
-   
-   
+
+
    Enable tracing
-   
+
    | $  psim -t 'disk-device' \
 
-   
+
    Add a CDROM and disk to an IDE bus.  Specify the host operating
    system's cd drive as the CD-ROM image.
-   
+
    |    -o '/pci/ide/disk@0/file "disk-image' \
    |    -o '/pci/ide/cdrom@1/file "/dev/cd0a' \
 
-   
+
    As part of the code implementing a logical bus device (for instance
    the IDE controller), locate the CDROM device and then read block
    47.
-   
+
    |  device *cdrom = device_tree_find_device(me, "cdrom");
    |  char block[512];
    |  device_io_read_buffer(cdrom, buf, 0,
                             0, 47 * sizeof(block), // space, address
                             sizeof(block), NULL, 0);
-   
-   
+
+
    Use the device instance interface to read block 47 of the file
    called <<netbsd.elf>> on the disks default partition.  Similar code
    would be used in an operating systems pre-boot loader.
-   
+
    |  device_instance *netbsd =
    |    device_create_instance(root, "/pci/ide/disk:,\netbsd.elf");
    |  char block[512];
    |  device_instance_seek(netbsd,  0, 47 * sizeof(block));
    |  device_instance_read(netbsd, block, sizeof(block));
-   
-   
+
+
    BUGS
-   
-   
+
+
    The block device specification includes mechanisms for determining
    the physical device characteristics - such as the disks size.
    Currently this mechanism is not implemented.
-   
+
    The functionality of this device (in particular the device instance
    interface) depends on the implementation of <<disk-label>> package.
    That package may not be fully implemented.

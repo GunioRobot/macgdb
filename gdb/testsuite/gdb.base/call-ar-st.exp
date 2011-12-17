@@ -28,7 +28,7 @@ set testfile "call-ar-st"
 set srcfile ${testfile}.c
 set binfile ${objdir}/${subdir}/${testfile}
 
-# Test depends on printf, which the sparclet stub doesn't support.  
+# Test depends on printf, which the sparclet stub doesn't support.
 if { [istarget "sparclet-*-*"] } {
     return 0;
 }
@@ -166,7 +166,7 @@ if ![gdb_skip_stdio_test "continue to 1216"] {
 }
 
 # I am disabling this test, because it takes too long. I verified by
-# hand that it works, feel free to check for yourself. 
+# hand that it works, feel free to check for yourself.
 #call print_all_arrays(integer_array, char_array, float_array, double_array)
 #send_gdb "print print_all_arrays(integer_array, char_array, float_array, double_array)\n"
 #gdb_expect {
@@ -218,10 +218,10 @@ if ![gdb_skip_stdio_test "next over print_int_array in print_all_arrays"] {
 	-re "array_i :.*307.*print_char_array.*$gdb_prompt $" {
 	    pass "next over print_int_array in print-all_arrays"
 	}
-	-re ".*$gdb_prompt $" { 
-	    fail "next over print_int_array in print-all_arrays" 
+	-re ".*$gdb_prompt $" {
+	    fail "next over print_int_array in print-all_arrays"
 	}
-	timeout { 
+	timeout {
 	    fail "next over print_int_array in print-all_arrays (timeout)"
 	}
     }
@@ -297,11 +297,11 @@ if ![gdb_skip_stdio_test "print print_array_rep(...)"] {
 	-re ".*$gdb_prompt $" {
 	    pass "print print_array_rep(*list1, *list2, *list3)"
 	}
-	-re ".*$gdb_prompt $" { 
-	    fail "print print_array_rep(*list1, *list2, *list3)" 
+	-re ".*$gdb_prompt $" {
+	    fail "print print_array_rep(*list1, *list2, *list3)"
 	}
 	timeout               {
-	    fail "(timeout) print print_array_rep(*list1, *list2, *list3)" 
+	    fail "(timeout) print print_array_rep(*list1, *list2, *list3)"
 	}
     }
 }
@@ -362,15 +362,15 @@ if ![gdb_skip_stdio_test "continuing to 1281"] {
 	-re  "Continuing\\..*Sum of 4 arrays.*Contents of linked list1.*Contents of two_floats_t.*main \\(\\) at .*call-ar-st.c:1281.*c = 0.*$gdb_prompt $" {
 	    pass "continue to 1281"
 	}
-	-re ".*$gdb_prompt $" { fail "continue to 1281"}           
+	-re ".*$gdb_prompt $" { fail "continue to 1281"}
 	timeout           { fail "(timeout) continue to 1281"}
     }
 } else {
     gdb_test "continue" "" ""
 }
 
-#call print_small_structs(*struct1, *struct2, *struct3, *struct4, 
-#                         *flags, *flags_combo, *three_char, *five_char, 
+#call print_small_structs(*struct1, *struct2, *struct3, *struct4,
+#                         *flags, *flags_combo, *three_char, *five_char,
 #                         *int_char_combo, *d1, *d2, *d3, *f1, *f2, *f3)
 
 if {![gdb_skip_float_test "print print_small_structs(...)"] && \
@@ -424,7 +424,7 @@ gdb_expect {
   }
 
 
-#call print_ten_doubles(123.456, 123.456, -0.12, -1.23, 343434.8, 89.098, 
+#call print_ten_doubles(123.456, 123.456, -0.12, -1.23, 343434.8, 89.098,
 #                       3.14, -5678.12345, -0.11111111, 216.97065)
 
 if {![gdb_skip_float_test "print print_ten_doubles(...)"] && \
@@ -451,10 +451,10 @@ if { [istarget "hppa*-*-hpux*"] } {
     # NOTE:(FIXME)
     # the aCC demangler cannot demangle the name of a function with >10 args.
     # so I added a .* after the name of the function, to match the
-    # incredibly long mangled name 
+    # incredibly long mangled name
     # (getting aCC's libdemangle.a bundled w/ the system?)
     # DTS CLLbs16994  coulter 990114
-    # 
+    #
     # FIXME: use step for hppa* testing for now
     # guo 990621
     #
@@ -494,8 +494,8 @@ if { [istarget "hppa*-*-hpux*"] } {
 
 set ws "\[\n\r\t \]+"
 
-#call print_small_structs(struct1, struct2, struct3, struct4, flags, 
-#                         flags_combo, three_char, five_char, int_char_combo, 
+#call print_small_structs(struct1, struct2, struct3, struct4, flags,
+#                         flags_combo, three_char, five_char, int_char_combo,
 #                         d1, d2, d3, f1, f2, f3)
 
 if {![gdb_skip_float_test "print_small_structs from print_long_arg_list"] && \
@@ -577,10 +577,10 @@ if ![gdb_skip_stdio_test "continuing to 1300"] {
 	    pass "print print_bit_flags_combo from init_bit_flags_combo"
 	}
 	-re ".*$gdb_prompt $" {
-	    fail "print print_bit_flags_combo from init_bit_flags_combo" 
+	    fail "print print_bit_flags_combo from init_bit_flags_combo"
 	}
 	timeout           {
-	    fail "(timeout) print_bit_flags_combo from init_bit_flags_combo" 
+	    fail "(timeout) print_bit_flags_combo from init_bit_flags_combo"
 	}
     }
 }
@@ -662,11 +662,11 @@ if ![gdb_skip_stdio_test "print sum_struct_print(...)"] {
 	-re ".*Sum of the 4 struct values and seed :\[ \t\n\r\]+218.*$gdb_prompt $" {
 	    pass "print sum_struct_print(10, *struct1, *struct2, *struct3, *struct4)"
 	}
-	-re ".*$gdb_prompt $" { 
-	    fail "print sum_struct_print(10, *struct1, *struct2, *struct3, *struct4)" 
+	-re ".*$gdb_prompt $" {
+	    fail "print sum_struct_print(10, *struct1, *struct2, *struct3, *struct4)"
 	}
-	timeout           { 
-	    fail "(timeout) sum_struct_print(10, *struct1, *struct2, *struct3, *struct4)" 
+	timeout           {
+	    fail "(timeout) sum_struct_print(10, *struct1, *struct2, *struct3, *struct4)"
 	}
     }
 }

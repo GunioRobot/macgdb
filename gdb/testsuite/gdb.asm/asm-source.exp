@@ -1,6 +1,6 @@
 # Copyright 1998, 2000, 2001, 2002, 2003, 2004, 2007, 2008, 2009
 # Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
@@ -353,7 +353,7 @@ gdb_test "f" ".*asmsrc2\[.\]s:$line_foo2.*" "f in foo2"
 # `next' one insn (or macro) to set up our stackframe (for the following bt).
 gdb_test "n" "$line_call_foo3\[ 	\]*.*foo3" "n in foo2"
 
-# See if a simple `bt' prints the right source files and 
+# See if a simple `bt' prints the right source files and
 # doesn't fall off the stack.
 
 gdb_test "bt 10" \
@@ -402,7 +402,7 @@ gdb_expect {
         set seen_asmsrc_2 1
         exp_continue
     }
-    -re ", " { 
+    -re ", " {
         exp_continue
     }
     -re "$gdb_prompt $" {
@@ -416,7 +416,7 @@ gdb_expect {
             fail "info sources (timeout)"
     }
 }
-        
+
 
 # Try 'info line'
 gdb_test "info line" \

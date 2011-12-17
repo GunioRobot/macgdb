@@ -203,7 +203,7 @@ enum avr_opcode
     OP_ld_X,
     OP_ld_X_inc,
     OP_ld_dec_X,
-    
+
     OP_lpm,
     OP_lpm_Z,
     OP_lpm_inc_Z,
@@ -326,7 +326,7 @@ static inline byte get_k6 (word op)
 {
   return (op & 0xf) | ((op >> 2) & 0x30);
 }
- 
+
 /* Extract xxQx_QQxx_xxxx_xQQQ.  */
 static inline byte get_q (word op)
 {
@@ -892,7 +892,7 @@ sim_resume (SIM_DESC sd, int step, int signal)
 	  if (verbose > 0) {
 	    int flags;
 	    int i;
-	    
+
 	    sim_cb_eprintf (callback, "R00-07:");
 	    for (i = 0; i < 8; i++)
 	      sim_cb_eprintf (callback, " %02x", sram[i]);
@@ -996,7 +996,7 @@ sim_resume (SIM_DESC sd, int step, int signal)
 	  }
 	  cycles += 3;
 	  break;
-	  
+
 	case OP_break:
 	  /* Stop on this address.  */
 	  cpu_exception = sim_stopped;
@@ -1192,27 +1192,27 @@ sim_resume (SIM_DESC sd, int step, int signal)
 	  break;
 
 	case OP_muls:
-	  gen_mul((sword)(sbyte)sram[get_r16 (op)] 
+	  gen_mul((sword)(sbyte)sram[get_r16 (op)]
                   * (sword)(sbyte)sram[get_d16 (op)]);
 	  break;
 
 	case OP_mulsu:
-	  gen_mul ((sword)(word)sram[get_r16_23 (op)] 
+	  gen_mul ((sword)(word)sram[get_r16_23 (op)]
                    * (sword)(sbyte)sram[get_d16_23 (op)]);
 	  break;
 
 	case OP_fmul:
-	  gen_mul(((word)sram[get_r16_23 (op)] 
+	  gen_mul(((word)sram[get_r16_23 (op)]
                    * (word)sram[get_d16_23 (op)]) << 1);
 	  break;
 
 	case OP_fmuls:
-	  gen_mul(((sword)(sbyte)sram[get_r16_23 (op)] 
+	  gen_mul(((sword)(sbyte)sram[get_r16_23 (op)]
                    * (sword)(sbyte)sram[get_d16_23 (op)]) << 1);
 	  break;
 
 	case OP_fmulsu:
-	  gen_mul(((sword)(word)sram[get_r16_23 (op)] 
+	  gen_mul(((sword)(word)sram[get_r16_23 (op)]
                    * (sword)(sbyte)sram[get_d16_23 (op)]) << 1);
 	  break;
 
@@ -1547,7 +1547,7 @@ sim_resume (SIM_DESC sd, int step, int signal)
 	    word wk = get_k6 (op);
 	    word wres;
 	    word wr;
-	    
+
 	    d = get_d24 (op);
 	    wr = read_word (d);
 	    wres = wr - wk;
@@ -1573,7 +1573,7 @@ sim_resume (SIM_DESC sd, int step, int signal)
 	    word wk = get_k6 (op);
 	    word wres;
 	    word wr;
-	    
+
 	    d = get_d24 (op);
 	    wr = read_word (d);
 	    wres = wr + wk;
@@ -1613,11 +1613,11 @@ int
 sim_trace (SIM_DESC sd)
 {
   tracing = 1;
-  
+
   sim_resume (sd, 0, 0);
 
   tracing = 0;
-  
+
   return 1;
 }
 
@@ -1710,7 +1710,7 @@ sim_store_register (SIM_DESC sd, int rn, unsigned char *memory, int length)
     }
   if (rn == AVR_PC_REGNUM && length == 4)
     {
-      pc = (memory[0] >> 1) | (memory[1] << 7) 
+      pc = (memory[0] >> 1) | (memory[1] << 7)
 	| (memory[2] << 15) | (memory[3] << 23);
       pc &= PC_MASK;
       return 4;
@@ -1775,7 +1775,7 @@ sim_open (SIM_OPEN_KIND kind, host_callback *cb, struct bfd *abfd, char **argv)
 {
   myname = argv[0];
   callback = cb;
-  
+
   cur_bfd = abfd;
 
   /* Fudge our descriptor for now.  */
@@ -1812,7 +1812,7 @@ sim_create_inferior (SIM_DESC sd, struct bfd *prog_bfd, char **argv, char **env)
 {
   /* Set the initial register set.  */
   pc = 0;
-  
+
   return SIM_RC_OK;
 }
 
@@ -1826,7 +1826,7 @@ void
 sim_do_command (SIM_DESC sd, char *cmd)
 {
   /* Nothing there yet; it's all an error.  */
-  
+
   if (cmd == NULL)
     return;
 
@@ -1843,5 +1843,5 @@ sim_do_command (SIM_DESC sd, char *cmd)
 void
 sim_set_callbacks (host_callback *ptr)
 {
-  callback = ptr; 
+  callback = ptr;
 }

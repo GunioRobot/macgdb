@@ -6396,7 +6396,7 @@ frv_register_control_init (SIM_CPU *cpu)
       return;
     }
 
-  {      
+  {
     IADDR pc = CPU_PC_GET (cpu);
     sim_engine_abort (sd, cpu, pc,
 		      "Register control not defined for bfd machine %d\n",

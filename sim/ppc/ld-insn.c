@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -145,7 +145,7 @@ parse_insn_format(table_entry *entry,
     else {
       new_field->is_string = 1;
     }
-    
+
     /* the pos */
     new_field->pos_string = (char*)zalloc(strlen_pos+1);
     strncpy(new_field->pos_string, start_pos, strlen_pos);
@@ -371,7 +371,7 @@ load_insn_table(const char *file_name,
        [ <function-model> ]
        <code-block>
 #endif
-    }	     
+    }
     else if (it_is("model", file_entry->fields[insn_flags])) {
       model_table_insert(table, file_entry);
     }
@@ -438,7 +438,7 @@ insn_table_traverse_tree(insn_table *table,
 {
   insn_table *entry;
   int entry_nr;
-  
+
   ASSERT(table != NULL
 	 && table->opcode != NULL
 	 && table->nr_entries > 0
@@ -579,7 +579,7 @@ insn_table_find_opcode_field(insn *insns,
 	   || (!string_only
 	       && insn_field_is_constant(fields->bits[new_opcode.first],
 					 rule)));
-  
+
     /* find the end point for the opcode field */
     new_opcode.last = rule->last;
     while (new_opcode.last >= rule->first
@@ -605,7 +605,7 @@ insn_table_find_opcode_field(insn *insns,
     if (new_opcode.last >= rule->first
 	&& curr_opcode->last < new_opcode.last)
       curr_opcode->last = new_opcode.last;
-    
+
   }
 
   /* was any thing interesting found? */
@@ -827,11 +827,11 @@ dump_insn_field(insn_field *field,
 
   if (field->is_string)
     dumpf(indent, "(is_string `%s')\n", field->val_string);
-  
+
   dumpf(indent, "(next 0x%x)\n", field->next);
-  
+
   dumpf(indent, "(prev 0x%x)\n", field->prev);
-  
+
 
 }
 

@@ -535,7 +535,7 @@ i386_region_ok_for_watchpoint (CORE_ADDR addr, int len)
 }
 
 /* If the inferior has some watchpoint that triggered, set the
-   address associated with that watchpoint and return non-zero.  
+   address associated with that watchpoint and return non-zero.
    Otherwise, return zero.  */
 
 static int

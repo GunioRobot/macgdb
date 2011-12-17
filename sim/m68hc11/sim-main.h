@@ -166,7 +166,7 @@ struct _sim_cpu {
 
   /* Pointer to the architecture currently configured in the simulator.  */
   const struct bfd_arch_info  *cpu_configured_arch;
-  
+
   /* CPU absolute cycle time.  The cycle time is updated after
      each instruction, by the number of cycles taken by the instruction.
      It is cleared only when reset occurs.  */
@@ -190,7 +190,7 @@ struct _sim_cpu {
 
   /* The starting address specified in ELF header.  */
   int                   cpu_elf_start;
-  
+
   uint16                cpu_insn_pc;
 
   /* CPU frequency.  This is the quartz frequency.  It is divided by 4 to
@@ -204,11 +204,11 @@ struct _sim_cpu {
 
   /* The cpu being configured.  */
   enum cpu_type         cpu_type;
-  
+
   /* Initial value of the CONFIG register.  */
   uint8                 cpu_config;
   uint8                 cpu_use_local_config;
-  
+
   uint8                 ios[MAX_PORTS];
 
   /* Memory bank parameters which describe how the memory bank window
@@ -217,7 +217,7 @@ struct _sim_cpu {
   uint16                bank_end;
   address_word          bank_virtual;
   unsigned              bank_shift;
-  
+
 
   struct hw            *hw_cpu;
 
@@ -451,7 +451,7 @@ cpu_m68hc11_pop_uint8 (sim_cpu *proc)
 {
   uint16 addr = proc->cpu_regs.sp;
   uint8 val;
-  
+
   val = memory_read8 (proc, addr + 1);
   proc->cpu_regs.sp = addr + 1;
   return val;
@@ -462,7 +462,7 @@ cpu_m68hc11_pop_uint16 (sim_cpu *proc)
 {
   uint16 addr = proc->cpu_regs.sp;
   uint16 val;
-  
+
   val = memory_read16 (proc, addr + 1);
   proc->cpu_regs.sp = addr + 2;
   return val;
@@ -494,7 +494,7 @@ cpu_m68hc12_pop_uint8 (sim_cpu *proc)
 {
   uint16 addr = proc->cpu_regs.sp;
   uint8 val;
-  
+
   val = memory_read8 (proc, addr);
   proc->cpu_regs.sp = addr + 1;
   return val;
@@ -505,7 +505,7 @@ cpu_m68hc12_pop_uint16 (sim_cpu *proc)
 {
   uint16 addr = proc->cpu_regs.sp;
   uint16 val;
-  
+
   val = memory_read16 (proc, addr);
   proc->cpu_regs.sp = addr + 2;
   return val;
@@ -517,7 +517,7 @@ cpu_fetch8 (sim_cpu *proc)
 {
   uint16 addr = proc->cpu_regs.pc;
   uint8 val;
-  
+
   val = memory_read8 (proc, addr);
   proc->cpu_regs.pc = addr + 1;
   return val;
@@ -528,7 +528,7 @@ cpu_fetch16 (sim_cpu *proc)
 {
   uint16 addr = proc->cpu_regs.pc;
   uint16 val;
-  
+
   val = memory_read16 (proc, addr);
   proc->cpu_regs.pc = addr + 2;
   return val;

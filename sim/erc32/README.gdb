@@ -28,7 +28,7 @@ a boot block at address 0x0 if the application is linked to run
 from RAM (0x2000000).
 
 To start debugging a program type 'load <program>' and debug as
-usual. 
+usual.
 
 The native simulator commands can be reached using the GDB 'sim'
 command:
@@ -36,7 +36,7 @@ command:
 sim <sis_command>
 
 Direct simulator commands during a GDB session must be issued
-with care not to disturb GDB's operation ... 
+with care not to disturb GDB's operation ...
 
 For info on supported ERC32 functionality, see README.sis.
 

@@ -62,7 +62,7 @@ if [target_info exists gdb_stub] {
 #
 set main_line 25
 
-# The commands we test here produce many lines of output; disable "press 
+# The commands we test here produce many lines of output; disable "press
 # <return> to continue" prompts.
 send_gdb "set height 0\n"
 gdb_expect -re "$gdb_prompt $"
@@ -85,7 +85,7 @@ gdb_test "break 25" \
 set old_gdb_prompt $gdb_prompt
 set gdb_prompt "\r\n\032\032pre-prompt\r\n$gdb_prompt \r\n\032\032prompt\r\n"
 
-send_gdb "set annotate 2\n" 
+send_gdb "set annotate 2\n"
 gdb_expect {
     -re "set annotate 2\r\n$gdb_prompt$" { pass "annotation set at level 2" }
     -re ".*$gdb_prompt$"       { fail "annotation set at level 2" }
@@ -147,7 +147,7 @@ gdb_expect {
 }
 
 #
-# break at first line of main. 
+# break at first line of main.
 #
 send_gdb "break 22\n"
 gdb_expect {
@@ -175,7 +175,7 @@ send_gdb "run\n"
   }
 
 #
-# set up a watch point on a.x 
+# set up a watch point on a.x
 #
 send_gdb "watch a.x\n"
 gdb_expect {
@@ -201,7 +201,7 @@ gdb_expect {
 
 
 #
-# send ^C to gdb, so that the quit() function gets called 
+# send ^C to gdb, so that the quit() function gets called
 # and annotate-quit is tested
 # test:
 # annotate-quit
@@ -215,9 +215,9 @@ gdb_expect {
 }
 
 #
-# FIXME: the testsuite does not currently have tests for 
+# FIXME: the testsuite does not currently have tests for
 #        annotate_catchpoints and annotate_function_call
-#        and a few variants of the annotations that are 
+#        and a few variants of the annotations that are
 #        tested (marked by FIXME on the annot?.exp files)
 #
 

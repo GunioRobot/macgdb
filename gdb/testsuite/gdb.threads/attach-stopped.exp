@@ -53,7 +53,7 @@ proc corefunc { threadtype } {
     # Avoid some race:
     sleep 2
 
-    # Stop the program 
+    # Stop the program
     remote_exec build "kill -s STOP ${testpid}"
 
     # Start with clean gdb
@@ -63,7 +63,7 @@ proc corefunc { threadtype } {
     gdb_load ${binfile}
 
     # Verify that we can attach to the stopped process.
-       
+
     set test "$threadtype: attach2 to stopped, after setting file"
     gdb_test_multiple "attach $testpid" "$test" {
 	-re "Attaching to program.*`?$escapedbinfile'?, process $testpid.*$gdb_prompt $" {
@@ -133,7 +133,7 @@ proc corefunc { threadtype } {
     # the next test run (and prevent the compile by keeping
     # the text file busy), in case the "set should_exit" didn't
     # work.
-       
+
     remote_exec build "kill -9 ${testpid}"
 }
 

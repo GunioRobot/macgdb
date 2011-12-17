@@ -123,7 +123,7 @@ extern const struct d10v_operand d10v_operands[];
 #define OPERAND_EVEN	(1)
 
 /* the operand must be an odd number */
-#define OPERAND_ODD	(2)	
+#define OPERAND_ODD	(2)
 
 /* this is the destination register; it will be modified */
 /* this is used by the optimizer */

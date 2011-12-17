@@ -56,7 +56,7 @@ gdb_test_multiple "continue" "$test" {
 	kfail gdb/1328 "$test"
     }
 }
-    
+
 
 # See if handle SIG32 helps (a little) with a static multi-threaded
 # program.

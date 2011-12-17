@@ -60,7 +60,7 @@ typedef struct
 } dword;
 typedef uint32 reg_t;
 
-struct simops 
+struct simops
 {
   long opcode;
   long mask;
@@ -264,7 +264,7 @@ INLINE_SIM_MAIN (int) syscall_write_mem (host_callback *cb,
 					 struct cb_syscall *sc,
 					 unsigned long taddr,
 					 const char *buf,
-					 int bytes); 
+					 int bytes);
 INLINE_SIM_MAIN (void) do_syscall (void);
 void program_interrupt (SIM_DESC sd, sim_cpu *cpu, sim_cia cia, SIM_SIGNAL sig);
 

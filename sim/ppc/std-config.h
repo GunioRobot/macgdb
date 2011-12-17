@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -131,7 +131,7 @@ extern int current_environment;
 			     : current_environment)
 
 
-/* Optional VEA/OEA code: 
+/* Optional VEA/OEA code:
 
    The below, required for the OEA model may also be included in the
    VEA model however, as far as I can tell only make things
@@ -383,7 +383,7 @@ extern int current_stdio;
 
 
        EXTERN_<module>
-      
+
        Prefix to any global data structures for the module.  Global
        functions that are not to be inlined shall also be prefixed
        with this.
@@ -413,7 +413,7 @@ extern int current_stdio;
        extern
        #ifndef _INLINE_C_
        #endif
-       
+
        Prefix to any declaration of a global object (function or
        variable) that should not be inlined and should have only one
        definition.  The #ifndef wrapper goes around the definition

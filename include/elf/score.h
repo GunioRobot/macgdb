@@ -1,6 +1,6 @@
 /* Score ELF support for BFD.
    Copyright 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
-   Contributed by 
+   Contributed by
    Brain.lin (brain.lin@sunplusct.com)
    Mei Ligang (ligang@sunnorth.com.cn)
    Pei-Lin Tsai (pltsai@sunplus.com)
@@ -36,8 +36,8 @@
 #define GP_DISP_LABEL           "_gp_disp"
 
 /* Processor specific flags for the ELF header e_flags field:  */
-#define EF_SCORE_MACH           0xffff0000      
-#define EF_OMIT_PIC_FIXDD       0x0fff0000      
+#define EF_SCORE_MACH           0xffff0000
+#define EF_OMIT_PIC_FIXDD       0x0fff0000
 #define E_SCORE_MACH_SCORE3     0x00030000
 #define E_SCORE_MACH_SCORE7     0x00070000
 
@@ -45,7 +45,7 @@
 #define EF_SCORE_PIC            0x80000000
 
 /* Fix data dependency.  */
-#define EF_SCORE_FIXDEP         0x40000000 
+#define EF_SCORE_FIXDEP         0x40000000
 
 /* Defined and allocated common symbol.  Value is virtual address.  If
    relocated, alignment must be preserved.  */
@@ -104,13 +104,13 @@
 /* Relocation types.  */
 START_RELOC_NUMBERS (elf_score_reloc_type)
   RELOC_NUMBER (R_SCORE_NONE,           0)
-  RELOC_NUMBER (R_SCORE_HI16,           1)   
-  RELOC_NUMBER (R_SCORE_LO16,           2)   
+  RELOC_NUMBER (R_SCORE_HI16,           1)
+  RELOC_NUMBER (R_SCORE_LO16,           2)
   RELOC_NUMBER (R_SCORE_BCMP,           3)
-  RELOC_NUMBER (R_SCORE_24,             4)   
-  RELOC_NUMBER (R_SCORE_PC19,           5)  
-  RELOC_NUMBER (R_SCORE16_11,           6)   
-  RELOC_NUMBER (R_SCORE16_PC8,          7)  
+  RELOC_NUMBER (R_SCORE_24,             4)
+  RELOC_NUMBER (R_SCORE_PC19,           5)
+  RELOC_NUMBER (R_SCORE16_11,           6)
+  RELOC_NUMBER (R_SCORE16_PC8,          7)
   RELOC_NUMBER (R_SCORE_ABS32,          8)
   RELOC_NUMBER (R_SCORE_ABS16,          9)
   RELOC_NUMBER (R_SCORE_DUMMY2,         10)

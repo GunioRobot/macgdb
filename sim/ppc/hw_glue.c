@@ -1,21 +1,21 @@
 /*  This file is part of the program psim.
-    
+
     Copyright (C) 1994-1996, Andrew Cagney <cagney@highland.com.au>
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-    
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-    
+
     */
 
 
@@ -26,13 +26,13 @@
 
 
 /* DEVICE
-   
+
 
    glue - glue to interconnect and test interrupts
-   
+
 
    DESCRIPTION
-   
+
 
    The glue device provides two functions.  Firstly, it provides a
    mechanism for inspecting and driving the interrupt net.  Secondly,
@@ -64,7 +64,7 @@
 
 
    PROPERTIES
-   
+
 
    reg = <address> <size> (required)
 
@@ -123,11 +123,11 @@
    |  write_string("AND is ");
    |  write_int(ans);
    |  write_line();
-   
+
 
    BUGS
 
-   
+
    A future implementation of this device may support multiple
    interrupt ranges.
 

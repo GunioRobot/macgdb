@@ -23,7 +23,7 @@
 # computing the value, but just the type
 # of the result. It goes through the evaluate_subexp_standard
 # with the EVAL_AVOID_SIDE_EFFECTS flag rather than EVAL_NORMAL
-# 
+#
 
 if $tracelevel then {
 	strace $tracelevel
@@ -63,7 +63,7 @@ gdb_expect {
         pass "print value of x"
       }
     -re ".*$gdb_prompt $" { fail "print value of x" }
-    timeout           { fail "(timeout) print value of x" }    
+    timeout           { fail "(timeout) print value of x" }
   }
 
 
@@ -73,7 +73,7 @@ gdb_expect {
         pass "print value of y"
       }
     -re ".*$gdb_prompt $" { fail "print value of y" }
-    timeout           { fail "(timeout) print value of y" }    
+    timeout           { fail "(timeout) print value of y" }
   }
 
 send_gdb "print z\n"
@@ -82,7 +82,7 @@ gdb_expect {
         pass "print value of z"
       }
     -re ".*$gdb_prompt $" { fail "print value of z" }
-    timeout           { fail "(timeout) print value of z" }    
+    timeout           { fail "(timeout) print value of z" }
   }
 
 send_gdb "print w\n"
@@ -91,7 +91,7 @@ gdb_expect {
         pass "print value of w"
       }
     -re ".*$gdb_prompt $" { fail "print value of w" }
-    timeout           { fail "(timeout) print value of w" }    
+    timeout           { fail "(timeout) print value of w" }
   }
 
 
@@ -102,7 +102,7 @@ gdb_expect {
         pass "whatis value of x+y"
       }
     -re ".*$gdb_prompt $" { fail "whatis value of x+y" }
-    timeout           { fail "(timeout) whatis value of x+y" }    
+    timeout           { fail "(timeout) whatis value of x+y" }
   }
 
 send_gdb "whatis x-y\n"
@@ -111,7 +111,7 @@ gdb_expect {
         pass "whatis value of x-y"
       }
     -re ".*$gdb_prompt $" { fail "whatis value of x-y" }
-    timeout           { fail "(timeout) whatis value of x-y" }    
+    timeout           { fail "(timeout) whatis value of x-y" }
   }
 
 send_gdb "whatis x*y\n"
@@ -120,7 +120,7 @@ gdb_expect {
         pass "whatis value of x*y"
       }
     -re ".*$gdb_prompt $" { fail "whatis value of x*y" }
-    timeout           { fail "(timeout) whatis value of x*y" }    
+    timeout           { fail "(timeout) whatis value of x*y" }
   }
 
 send_gdb "whatis x/y\n"
@@ -129,7 +129,7 @@ gdb_expect {
         pass "whatis value of x/y"
       }
     -re ".*$gdb_prompt $" { fail "whatis value of x/y" }
-    timeout           { fail "(timeout) whatis value of x/y" }    
+    timeout           { fail "(timeout) whatis value of x/y" }
   }
 
 send_gdb "whatis x%y\n"
@@ -138,7 +138,7 @@ gdb_expect {
         pass "whatis value of x%y"
       }
     -re ".*$gdb_prompt $" { fail "whatis value of x%y" }
-    timeout           { fail "(timeout) whatis value of x%y" }    
+    timeout           { fail "(timeout) whatis value of x%y" }
   }
 
 

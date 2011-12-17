@@ -60,16 +60,16 @@ Wed Feb 21 17:07:27 1996  Andrew Cagney  <cagney@highland.com.au>
 
 	* NOTES: New file.  Ramblings on why things were done they way
  	they were.
-	
+
 	* psim.c (psim_options): Didn't enter the model value into the
  	device tree as a string.
-	
+
   	* cpu.c (cpu_synchronize_context): Wrong test for conditional
  	flush of cache.
 
 	* emul_generic.c (emul_add_tree_hardware): reg value didn't match
  	bus address.
-	
+
 	* ppc-opcode-flat: new file. Generate an instruction decode
  	function like ppc-opcode-complex but use switch statements.
 
@@ -195,7 +195,7 @@ Tue Jan 30 19:12:29 1996  Andrew Cagney  <cagney@highland.com.au>
 	* INSTALL: New file. Describe how to install PSIM
 	* README: New file. Overview PSIM.
 	* BUGS: New file. Briefly discuss bugs and limitations
-	
+
 Wed Jan 24 20:28:08 1996  Andrew Cagney  <cagney@highland.com.au>
 
 	* emul_bugapi.c (OEA_START_ADDRESS): Put it back to 0x100000,
@@ -333,7 +333,7 @@ Tue Jan  2 20:51:19 1996  Andrew Cagney - aka Noid  <cagney@highland.com.au>
 
 	* emul_chirp.c (emul_chirp_instruction_call): Trace failed lookups
  	as well as successful ones.
-	
+
 	* emul_chirp.c (emul_chirp_open): New function - handle open
         client call.
 
@@ -362,7 +362,7 @@ Mon Dec 18 19:58:56 1995  Andrew Cagney  <cagney@highland.com.au>
 	* emul_chrp.c: Change return type of emul functions to int.  Emul
  	functions either return -1 or zero so unsigned was a bit
  	dangerous.
-	
+
 	* inline.h (*), igen.c, dgen.c, *: Update INLINE macros so that
         they are paramaterised with the type of the function.  Gets around
         the problem of `static' needing to come first with `attribute'
@@ -386,7 +386,7 @@ Fri Dec 15 17:06:44 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* vm.c (vm_synchronize_context): Fix wrong test for unsuported
  	change in endian-mode.
-	
+
 	* std-config.h (WITH_REGPARM), inline.h (IDECODE_INLINE,
 	SEMANTICS_INLINE): Add -DWITH_REGPARM=<n> option.  Enables the
 	__attribute__((__regparm(WITH_REGPARM))) for some functions.
@@ -573,13 +573,13 @@ Tue Nov 14 12:27:08 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* os_emul.c, emul_bugapi.h, emul_bugapi.c, Makefile.in: Add
  	preliminary hooks for a kernel mode rom emulation.
-	
+
 	* cap.h (new), cap.c (new): Capability data base.  Some emulations
  	pass object identifiers (capabilities?) to/from the simulated code
  	(for instance the phandle in OpenBoot).  The cap object is able to
  	check/map between internal and external (target program)
  	representations of each identifier.
-	
+
 	* os_emul.c, emul_chirp.h, emul_chirp.c, Makefile.in: Add
  	preliminary hooks for a kernel mode IEEE-1275 emulation.
 
@@ -593,7 +593,7 @@ Tue Nov 14 12:27:08 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* ppc-instructions (instruction_call): Add illegal instruction to
  	call the instruction-call emulation handler.
-	
+
 	* interrupts.c (system_call_interrupt): Call renamed
         os_emul_system_call function().
 
@@ -718,7 +718,7 @@ Fri Nov 24 11:24:34 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	names alphabetically.
 	(mon_print_info): Call qsort with mon_sort_instruction_names to
 	sort instruction names.  Don't abort if WITH_MODEL_ISSUE is 0.
-	
+
 	* debug.h (ITRACE): Make printf_filtered arguments type correct.
 	* idecode_expression.h (CR0_COMPARE): Ditto.
 	* psim.c (psim_read_register): Ditto.
@@ -784,7 +784,7 @@ Fri Nov 17 14:08:08 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	(lf_print_c_semantic): Call model_cleanup at the end of the
 	function to check for instructions that aren't supported yet by
 	the scheduling code.
-	
+
 	* mon.h (count_type): New type for counters.
 	* mon.c: Use count_type instead of unsigned.
 
@@ -936,7 +936,7 @@ Mon Nov 13 17:57:24 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* emul_netbsd.c (write_direntries), psim.c (psim_read_register,
  	psim_write_register): replace bcopy() with memcpy().
-	
+
 Sun Nov 12 20:55:41 1995  Andrew Cagney   <cagneyhighland.com.au>
 
 	* configure.in: for --disable-sim-inline (--enable-sim-inline=no),
@@ -1133,12 +1133,12 @@ Sat Nov 11 07:27:41 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	(model_c_insn): Use <function-unit>_SENTINAL instead of 0 for any
 	instruction not specifing a function unit for the current model.
 	(gen_model_{c,h}): Provide bounds for model_time_mapping.
-	
+
 	* inline.h (STATIC_SEMANTICS): Define to be static if
 	SEMANTICS_INLINE is defined.
 	(STATIC_IDECODE): Define to be static if IDECODE_INLINE is
 	defined.
-	
+
 	* options.c (print_options): Fix typo.
 
 Fri Nov 10 06:39:46 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
@@ -1170,7 +1170,7 @@ Fri Nov 10 06:39:46 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 
 	* ppc-instructions: Add a few model specific information for 603,
 	603e, and 604 for testing purposes.
-	
+
 	* table.h (table_model_entry): New linked list to hold model
 	specific information, one per line.
 	(table_entry): Add model_first, model_last fields.
@@ -1239,7 +1239,7 @@ Wed Nov  8 13:19:47 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	* debug.c (trace_description): Add trace_opts support.
 	* main.c (main): If user requested options, print them.
 	* sim_calls.c (sim_open): Ditto.
-	
+
 	* igen.c (opcode_field_new): Add void to make it a proper prototype.
 
 	* emul_generic.c (emul_enter_call): Make printf_filtered arguments
@@ -1274,10 +1274,10 @@ Wed Nov  8 13:19:47 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	* emul_netbsd.c (do___sysctl): Ditto.
 
 	* emul_netbsd.c (do___sysctl): Fix up printf call.
-	
+
 	* corefile.c (core_translate): Don't do arithmetic with void *
 	pointers.  Cast to char * first.
-	
+
 	* function_unit.c (FUNC_{LOAD,STORE}): Rename from {LOAD,STORE}
 	and change all uses.
 
@@ -1391,7 +1391,7 @@ Wed Nov  8 13:19:47 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	doesn't complain that they're unused.
 
 	* vm_n.h (vm_data_map_read_N): Delete unused variable rval.
-	
+
 Mon Nov  6 23:15:54 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* sim-endian.c (ppc-endian.c), sim-endian.h (ppc-endian.h):
@@ -1425,7 +1425,7 @@ Mon Nov  6 20:49:56 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* psim.c (create_filed_device_tree): Not terminating string device
  	names with a null.
-	
+
 	* psim.c (psim_create): Use `env' instead of
  	`environment-architecture' to be consistent with configure.
   	Reconize user/uea, virtual/vea and operating/oea.
@@ -1457,7 +1457,7 @@ Fri Nov  3 11:37:24 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 Thu Nov  2 08:54:04 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 
 	* Makefile.in: Uncomment built file dependencies.
-	
+
 	* configure.in: Rewrite --enable-sim switch handling to use the
 	autoconf builtins so it works correctly if the configure or
 	Makefile.in files are modified and make decides to rebuild
@@ -1471,7 +1471,7 @@ Thu Nov  2 08:54:04 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 
 	* Makefile.in (clean): make clean now removes all built sources as
 	well.
-	
+
 	* cpu.c: Use HAVE_STRING_H, HAVE_STRINGS_H, HAVE_UNISTD_H,
 	HAVE_TIME_H, HAVE_SYS_TIMES_H, HAVE_SYS_RESOURCE_H defined in
 	the generated config.h.
@@ -1496,7 +1496,7 @@ Thu Nov  2 08:54:04 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	CPU did not execute any of those instructions.  Print out number
 	of reads and writes.  If getrusage is supported, print out number
 	of simulated instructins per second.
-	
+
 	* configure.in: Add support for --enable-sim-opcode=stupid.
 	* configure: Regenerate.
 
@@ -1507,7 +1507,7 @@ Wed Nov  1 23:46:59 1995  Andrew Cagney   <cagney@highland.com.au>
 
 	* configure.in, Makefile.in: add --enable-sim-icache=[0-9]* and
  	IGEN_ICACHE macro.
-	
+
 Wed Nov  1 23:46:59 1995  Andrew Cagney   <cagney@highland.com.au>
 
 	* igen.c (main), misc.h (target_a2i, i2target), misc.c: Add
@@ -1588,7 +1588,7 @@ Wed Nov  1 10:49:48 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	respectively.  Don't rewrite Makefile, just append to it.
 	* configure: Regenerate.
 	* config.{make,hdr}: New shell scripts.
-	
+
 	* Makefile.in: Remove all variables set by configure.in.
 	(psim.o): Depend on $(BUILT_SRC) also.
 
@@ -1626,7 +1626,7 @@ Thu Oct 26 18:31:58 1995  Andrew Cagney  <cagney@highland.com.au>
 	* debug.h (ITRACE), igen.c: Tidy up more tracing flags -
  	trace_semantics is now different to trace_idecode, the former
  	checks the cache.
-	
+
 Tue Oct 24 21:54:13 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* ppc-instructions (mtsrin): Missing instruction
@@ -1645,7 +1645,7 @@ Mon Oct 23 23:48:59 1995  Andrew Cagney  <cagney@highland.com.au>
         Don't use DEFAULT_INLINE to define REGISTERS_INLINE DEVICES_INLINE
         DEVICE_TREE_INLINE or INTERRUPTS_INLINE as none of these are on
         the instruction or data critical paths.
-  	
+
 	* FIXME: devices.c/emul_netbsd.c would benefit (slightly) from
  	the inclusion of device_tree.c/emul_generic.c.
 
@@ -1671,7 +1671,7 @@ Sun Oct 22 21:33:51 1995  Andrew Cagney  <cagney@highland.com.au>
 	FIXME: PSIM sometimes aborts calling error(), it should instead
  	call sim_error() say which takes care of housekeeping such as
  	saving the CIA before calling error.
-	
+
 	* NOTE: cpu_flush_cache() instead of cpu_synchronize_context() is
  	used when restarting a simulation because the latter has the
  	unwanted side effect (well I as a kernel hacker think it is) of
@@ -1708,7 +1708,7 @@ Fri Oct 20 17:26:54 1995  Andrew Cagney  <cagney@highland.com.au>
  	(sigh).
 
 Wed Oct 18 23:02:20 1995  Andrew Cagney  <cagney@highland.com.au>
-	
+
 	* Makefile.in, gen.c(delete), igen.c(new), dgen.c(new),
  	lf.[ch](new), table.[ch](new): Split into two generators - igen
  	that outputs the instruction tables and dgen that outputs the spr
@@ -1719,12 +1719,12 @@ Wed Oct 18 23:02:20 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* NOTE: igen, since it was originally written for the
  	PowerPC/RS6000, things the MSB is 0 and the LSB is 63{31}.
-	
+
 	* Makefile.in, std-config.h, ppc-cache-rules(new),
  	ppc-opcode-complex(new), ppc-opcode-simple(new): (for igen) Create
  	cache-rule and opcode-rule tables from macros found std-config.h.
  	Delete corresponding macro's from std-config.h.
-  	
+
 	* igen.c (gen_itable_c, gen_itable_h), Makefile.in: code to output
  	an table of all the instructions.  Code to output a type
  	enumerating all the instructin names.
@@ -1734,11 +1734,11 @@ Wed Oct 18 23:02:20 1995  Andrew Cagney  <cagney@highland.com.au>
  	validated, was double counting illegal/invalid instructions.  Add
  	conditional so only compiled in when WITH_PROFILE enabled (enabled
  	by default).
-	
+
 	* igen.c, cpu.h, cpu.c(cpu_increment_number_of_insns): Include
  	itable.h, count individual instruction types not just total,
  	adjust reporting functions to output this.
-	
+
 	* ppc-instructions (64 bit Load Doubleword with Update Indexed):
  	Had 32./ instead of 31./
 
@@ -1760,7 +1760,7 @@ Mon Oct 16 00:31:20 1995  Andrew Cagney  <cagney@highland.com.au>
 	* cpu.c(cpu_add_commas), device_tree.h, device_tree.c(scand_*):
  	Add size of buffer argument to functions writing a string into a
  	buffer.  Check for buffer overflow.
-	
+
 Sun Oct 15 22:16:11 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* devices.h, devices.c, debug.h, debug.c: add macro's for tracing
@@ -1845,7 +1845,7 @@ Thu Oct 12 11:35:53 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	* cpu.c (cpu_add_commas): New function to format a long with
 	commas.
 	(cpu_print_info): Use it to print number_of_insns.
-	
+
 	* ppc-endian.c (SWAP_n): New macros to speed up byte swapping for
 	2, 4, and 8 bytes.
 	(ENDIAN_N): If both target and host byte orders are known, don't
@@ -1883,15 +1883,15 @@ Thu Oct 12 11:35:53 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	(DEFAULT_INLINE): If not defined, define as 0.
 	(ENDIAN_INLINE): If not defined, define as DEFAULT_INLINE.
 	({CORE,VM,CPU,EVENTS,REGISTERS,INTERRUPTS}_INLINE): Ditto.
-	({SPREG,IDECODE}_INLINE): Ditto.	
-	
+	({SPREG,IDECODE}_INLINE): Ditto.
+
 Wed Oct 11 17:13:15 1995  Andrew Cagney  <cagney@highland.com.au>
 
         * ppc-instructions: Initial cut of floating point suport added.
   	Of note include - use of host IEEE floating point instructions,
  	use of PowerPC manual pseudo code to handle the FPSCR.  It is not
  	currently a pretty sight.
-	
+
 	* memory_map.h, memory_map.c, memory_map_n.h, core.h, core.c:
  	merge into core.h, core.c, core_n.h. The type memory_map replaced
  	with core_map.  This removes a level of pointer indirection when
@@ -1901,7 +1901,7 @@ Wed Oct 11 17:13:15 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* Makefile.in et.al (sorry): tweek to use new core, core_map and
  	core.h.
-	
+
 Wed Oct 11 12:10:26 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* sim_calls.c, main.c: Add -g (trace_gdb) option, add tracing to
@@ -1912,7 +1912,7 @@ Wed Oct 11 12:10:26 1995  Andrew Cagney  <cagney@highland.com.au>
  	to step through the generic code!
 
 	* vm.c, vm_n.h, Makefile.in: ditto
-	
+
 Tue Oct 10 15:42:59 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* devices.h, devices.c, memory_map.h, memory_map.c: Changed
@@ -1924,7 +1924,7 @@ Tue Oct 10 15:42:59 1995  Andrew Cagney  <cagney@highland.com.au>
 	* devices.h, devices.c, memory_map.h, memory_map.c, vm.h, vm.c:
  	eliminate transfer_mode (raw or cooked) parameter from read/write
  	buffer.
-	
+
 Fri Oct  6 20:23:56 1995  Andrew Cagney  <cagney@highland.com.au>
 
 	* ppc-instructions (fmul, fmuls): correct instruction format - had
@@ -1986,7 +1986,7 @@ Mon Oct  2 11:46:37 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 
 	* psim.c (psim_print_info): New function to iterate over each of
 	the CPU's calling cpu_print_info.
-	
+
 	* psim.h,cpu.h: Add new declarations.
 
 	* sim_calls.c (sim_open): Add argument processing to add the same
@@ -2059,7 +2059,7 @@ Fri Sep  8 13:16:10 1995  Ian Lance Taylor  <ian@cygnus.com>
 	(gen, gen.o): Build with CC_FOR_BUILD, not CC.
 	(ppc-config.h): Rename from old config.h build.
 	* (basics.h,gen.c,ppc-endian.c,psim.c): Include ppc-config.h.
-	
+
 Fri Sep  8 09:51:03 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 
 	* configure{,.in}: Don't include sysdep.h from bfd, since bfd no
@@ -2068,10 +2068,10 @@ Fri Sep  8 09:51:03 1995  Michael Meissner  <meissner@tiktok.cygnus.com>
 	* Makefile.in (BASICS_H): Remove sysdep.h.
 
 Wed Sep  6 13:25:42 1995  Andrew Cagney  <cagney@highland.com.au>
- 
+
  	* core.c (core_add_data): First growth of bss was being put at
         wrong address (0) instead of &end.
- 
+
  	* core.c (core_add_stack, core_add_data): Was not handling case
         where bss/stack is grown across the current end-of-{bss,stack}.
 

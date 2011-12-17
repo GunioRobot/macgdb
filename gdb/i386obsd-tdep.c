@@ -393,7 +393,7 @@ i386obsd_trapframe_this_id (struct frame_info *this_frame,
 {
   struct trad_frame_cache *cache =
     i386obsd_trapframe_cache (this_frame, this_cache);
-  
+
   trad_frame_get_id (cache, this_id);
 }
 
@@ -440,7 +440,7 @@ static const struct frame_unwind i386obsd_trapframe_unwind = {
 };
 
 
-static void 
+static void
 i386obsd_init_abi (struct gdbarch_info info, struct gdbarch *gdbarch)
 {
   struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);

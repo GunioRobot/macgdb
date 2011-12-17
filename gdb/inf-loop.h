@@ -20,7 +20,7 @@
 #ifndef INF_LOOP_H
 #define INF_LOOP_H
 
-extern void inferior_event_handler (enum inferior_event_type event_type, 
+extern void inferior_event_handler (enum inferior_event_type event_type,
 				    void* client_data);
 extern void inferior_event_handler_wrapper (void *client_data);
 

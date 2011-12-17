@@ -489,7 +489,7 @@ call_function_by_hand (struct value *function, int nargs, struct value **args)
 	/* Still aligned?  */
 	gdb_assert (sp == gdbarch_frame_align (gdbarch, sp));
 	/* NOTE: cagney/2002-09-18:
-	   
+
 	   On a RISC architecture, a void parameterless generic dummy
 	   frame (i.e., no parameters, no result) typically does not
 	   need to push anything the stack and hence can leave SP and
@@ -637,7 +637,7 @@ call_function_by_hand (struct value *function, int nargs, struct value **args)
       {
 	int prototyped;
 	struct type *param_type;
-	
+
 	/* FIXME drow/2002-05-31: Should just always mark methods as
 	   prototyped.  Can we respect TYPE_VARARGS?  Probably not.  */
 	if (TYPE_CODE (ftype) == TYPE_CODE_METHOD)

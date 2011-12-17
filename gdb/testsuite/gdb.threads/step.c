@@ -111,7 +111,7 @@ main ()
     pause ();
 }
 
-void 
+void
 thread1 (count)
      int *count;
 {
@@ -155,7 +155,7 @@ thread1 (count)
     }
 }
 
-void 
+void
 thread2 (count)
      int *count;
 {
@@ -200,20 +200,20 @@ thread2 (count)
 }
 
 
-void 
+void
 alarm_handler ()
 {
   printf ("\tcount1 (%d) \n\tcount2 (%d)\n", count1, count2);
   exit (0);
 }
 
-void 
+void
 alarm_handler1 ()
 {
   printf ("ALARM thread 1\n");
 }
 
-void 
+void
 alarm_handler2 ()
 {
   printf ("ALARM thread 2\n");

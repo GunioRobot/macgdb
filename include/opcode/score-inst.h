@@ -1,6 +1,6 @@
 /* score-inst.h -- Score Instructions Table
    Copyright 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
-   Contributed by: 
+   Contributed by:
    Brain.lin (brain.lin@sunplusct.com)
    Mei Ligang (ligang@sunnorth.com.cn)
    Pei-Lin Tsai (pltsai@sunplus.com)
@@ -97,8 +97,8 @@ enum score_insn_type
   Rd_Rs_I14,
   I15,
   Rd_I16,
-  Rd_I30, 
-  Rd_I32, 
+  Rd_I30,
+  Rd_I32,
   Rd_rvalueRs_SI10,
   Rd_lvalueRs_SI10,
   Rd_rvalueRs_preSI12,

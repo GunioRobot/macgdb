@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -214,7 +214,7 @@ hw_sem_io_read_buffer(device *me,
   switch ( (addr - sem->physical_address) / 4 ) {
 
     case 0:  /* OBTAIN CURRENT VALUE */
-      break; 
+      break;
 
     case 1:  /* LOCK */
       sb.sem_num = 0;
@@ -228,7 +228,7 @@ hw_sem_io_read_buffer(device *me,
       }
 
       DTRACE(sem, ("semaphore lock %d\n", sem->count));
-      break; 
+      break;
 
     case 2: /* UNLOCK */
       sb.sem_num = 0;
@@ -241,11 +241,11 @@ hw_sem_io_read_buffer(device *me,
         error("hw_sem_io_read_buffer() sem unlock\n");
       }
       DTRACE(sem, ("semaphore unlock %d\n", sem->count));
-      break; 
+      break;
 
     default:
       error("hw_sem_io_read_buffer() invalid address - unknown error\n");
-      break; 
+      break;
   }
 
   /* assume target is big endian */

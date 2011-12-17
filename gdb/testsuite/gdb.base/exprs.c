@@ -14,7 +14,7 @@ main (argc, argv, envp)
 #endif
     dummy();
     return 0;
-    
+
 }
 
 /* We put main() right up front so its line number doesn't keep changing.  */
@@ -195,16 +195,16 @@ void dummy()
 
   v_short = 3;
   v_signed_short = 4;
-  v_unsigned_short = 5;    
+  v_unsigned_short = 5;
 
   v_int = 6;
   v_signed_int = 7;
-  v_unsigned_int = 8;    
+  v_unsigned_int = 8;
 
   v_long = 9;
   v_signed_long = 10;
-  v_unsigned_long = 11;    
-  
+  v_unsigned_long = 11;
+
   v_float = 100.0;
   v_double = 200.0;
   v_char_array[0] = v_char;

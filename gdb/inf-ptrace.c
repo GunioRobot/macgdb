@@ -713,7 +713,7 @@ inf_ptrace_store_register (const struct regcache *regcache, int regnum)
 
   /* This isn't really an address, but ptrace thinks of it as one.  */
   addr = inf_ptrace_register_u_offset (gdbarch, regnum, 1);
-  if (addr == (CORE_ADDR)-1 
+  if (addr == (CORE_ADDR)-1
       || gdbarch_cannot_store_register (gdbarch, regnum))
     return;
 

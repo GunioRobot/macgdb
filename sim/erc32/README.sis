@@ -7,14 +7,14 @@ SIS - Sparc Instruction Simulator README file  (v2.0, 05-02-1996)
 The SIS is a SPARC V7 architecture simulator. It consist of two parts,
 the simulator core and a user defined memory module. The simulator
 core executes the instructions while the memory module emulates memory
-and peripherals. 
+and peripherals.
 
 2. Usage
 
-The simulator is started as follows: 
+The simulator is started as follows:
 
-sis [-uart1 uart_device1] [-uart2 uart_device2] 
-    [-nfp] [-freq frequency] [-c batch_file] [files] 
+sis [-uart1 uart_device1] [-uart2 uart_device2]
+    [-nfp] [-freq frequency] [-c batch_file] [files]
 
 The default uart devices for SIS are /dev/ptypc and /dev/ptypd. The
 -uart[1,2] switch can be used to connect the uarts to other devices.
@@ -25,7 +25,7 @@ which "frequency" the simulator runs at. This is used by the 'perf'
 command to calculated the MIPS figure for a particular configuration.
 The give frequency must be an integer indicating the frequency in MHz.
 
-The -c option indicates that sis commands should be read from 'batch_file' 
+The -c option indicates that sis commands should be read from 'batch_file'
 at startup.
 
 Files to be loaded must be in one of the supported formats (see INSTALLATION),
@@ -34,7 +34,7 @@ automatically recognised.
 
 The script 'startsim' will start the simulator in one xterm window and
 open a terminal emulator (tip) connected to the UART A in a second
-xterm window. Below is description of commands  that are recognized by 
+xterm window. Below is description of commands  that are recognized by
 the simulator. The command-line is parsed using GNU readline. A command
 history of 64 commands is maintained. Use the up/down arrows to recall
 previous commands. For more details, see the readline documentation.
@@ -53,12 +53,12 @@ Prints all breakpoints
 
 -bp <num>
 
-Deletes breakpoint <num>. Use 'bp' to see which number is assigned to the 
+Deletes breakpoint <num>. Use 'bp' to see which number is assigned to the
 breakpoints.
 
 cont [inst_count]
 
-Continue execution at present position, optionally for [inst_count] 
+Continue execution at present position, optionally for [inst_count]
 instructions.
 
 dis [addr] [count]
@@ -77,7 +77,7 @@ Prints the FPU registers
 go <address> [inst_count]
 
 The go command will set pc to <address> and npc to <address> + 4, and start
-execution. No other initialisation will be done. If inst_count is given, 
+execution. No other initialisation will be done. If inst_count is given,
 execution will stop after the specified number of instructions.
 
 help
@@ -86,14 +86,14 @@ Print a small help menu for the SIS commands.
 
 hist [trace_length]
 
-Enable the instruction trace buffer. The 'trace_length' last executed 
-instructions will be placed in the trace buffer. A 'hist' command without 
-a trace_length will display the trace buffer. Specifying a zero trace 
+Enable the instruction trace buffer. The 'trace_length' last executed
+instructions will be placed in the trace buffer. A 'hist' command without
+a trace_length will display the trace buffer. Specifying a zero trace
 length will disable the trace buffer.
 
 load  <file_name>
 
-Loads a file into simulator memory. 
+Loads a file into simulator memory.
 
 mem [addr] [count]
 
@@ -105,9 +105,9 @@ Exits the simulator.
 
 perf [reset]
 
-The 'perf' command will display various execution statistics. A 'perf reset' 
-command will reset the statistics. This can be used if statistics shall 
-be calculated only over a part of the program. The 'run' and 'reset' 
+The 'perf' command will display various execution statistics. A 'perf reset'
+command will reset the statistics. This can be used if statistics shall
+be calculated only over a part of the program. The 'run' and 'reset'
 command also resets the statistic information.
 
 reg [reg_name] [value]
@@ -124,7 +124,7 @@ Performs a power-on reset. This command is equal to 'run 0'.
 run [inst_count]
 
 Resets the simulator and starts execution from address 0. If an instruction
-count is given (inst_count), the simulator will stop after the specified 
+count is given (inst_count), the simulator will stop after the specified
 number of instructions. The event queue is emptied but any set breakpoints
 remain.
 
@@ -135,13 +135,13 @@ Equal to 'trace 1'
 tra [inst_count]
 
 Starts the simulator at the present position and prints each instruction
-it executes. If an instruction count is given (inst_count), the simulator 
+it executes. If an instruction count is given (inst_count), the simulator
 will stop after the specified number of instructions.
 
-Typing a 'Ctrl-C' will interrupt a running simulator. 
+Typing a 'Ctrl-C' will interrupt a running simulator.
 
 Short forms of the commands are allowed, e.g 'c' 'co' or 'con' are all
-interpreted as 'cont'. 
+interpreted as 'cont'.
 
 
 3. Simulator core
@@ -214,13 +214,13 @@ the least significant in data[1].
 
 sis_memory_write() is used by the simulator during loading of programs.
 The function should copy 'length' bytes from *data to the simulated
-memory starting at 'addr'. sis_memory_write() should return 1 on 
-success and 0 on failure. Failure should only be indicated if access 
-to unimplemented memory is attempted. See erc32.c for more details 
+memory starting at 'addr'. sis_memory_write() should return 1 on
+success and 0 on failure. Failure should only be indicated if access
+to unimplemented memory is attempted. See erc32.c for more details
 on how to define the memory emulation functions.
 
 The 'init_sim' is called once when the simulator is started. This function
-should be used to perform initialisations of user defined memory or 
+should be used to perform initialisations of user defined memory or
 peripherals that only have to be done once, such as opening files etc.
 
 The 'reset' is called every time the simulator is reset, i.e. when a
@@ -256,7 +256,7 @@ int level;
 sim_stop()
 
 The 'event' functions will schedule the execution of the function 'cfunc'
-at time 'now + delta' clock cycles. The parameter 'arg' is passed as a 
+at time 'now + delta' clock cycles. The parameter 'arg' is passed as a
 parameter to 'cfunc'.
 
 The 'set_int' function set the processor interrupt 'level'. When the interrupt
@@ -297,7 +297,7 @@ to produce executables for the simulator. To compile and link the provided
 'hello.c', type 'gccx hello.c'. This will build the executable 'hello'.
 Start the simulator by running 'startsim hello', and issue the command 'run.
 After the program is terminated, the IU will be force to error mode through
-a software trap and halt. 
+a software trap and halt.
 
 The programs are linked with a start-up file, srt0.S. This file includes
 the traptable and window underflow/overflow trap routines.
@@ -345,12 +345,12 @@ command will display the current simulator time in the left column. This
 time indicates when the instruction is fetched. If a dependency is detetected,
 the following fetch will be delayed until the conflict is resolved.
 
-The load dependency in the 90C601E is also modelled - if the destination 
-register of a load instruction is used by the following instruction, an 
+The load dependency in the 90C601E is also modelled - if the destination
+register of a load instruction is used by the following instruction, an
 idle cycle is inserted.
 
 8. FPU implementation
 
 The simulator maps floating-point operations on the hosts floating point
-capabilities. This means that accuracy and generation of IEEE exceptions is 
+capabilities. This means that accuracy and generation of IEEE exceptions is
 host dependent.

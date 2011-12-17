@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -130,7 +130,7 @@
 
    REFERENCES
 
-   
+
    PowerPC Multiprocessor Interrupt Controller (MPIC), January 19,
    1996. Available from IBM.
 
@@ -536,7 +536,7 @@ hw_opic_init_data(device *me)
   }
   DTRACE(opic, ("interrupt destinations - total %d\n",
 		(int)opic->nr_interrupt_destinations));
-  
+
 
   /* verify and print out the ISU's */
   for (isb = 0; isb < opic->nr_isu_blocks; isb++) {
@@ -692,7 +692,7 @@ find_interrupt_for_dest(device *me,
 
 
 static opic_interrupt_destination *
-find_lowest_dest(device *me, 
+find_lowest_dest(device *me,
 		 hw_opic_device *opic,
 		 opic_interrupt_source *src)
 {
@@ -714,7 +714,7 @@ find_lowest_dest(device *me,
 		 && (lowest->current_in_service->priority
 		     > dest->current_in_service->priority))
 	  lowest = dest; /* less urgent */
-	/* FIXME - need to be more fair */	
+	/* FIXME - need to be more fair */
       }
     }
   }
@@ -850,7 +850,7 @@ do_interrupt_acknowledge_register_N_read(device *me,
     /* try for something else */
     dest->current_pending = find_interrupt_for_dest(me, opic, dest, pending_interrupt);
     if (can_deliver(me, dest->current_pending, dest)) {
-      vector = deliver_pending(me, opic, dest);    
+      vector = deliver_pending(me, opic, dest);
       DTRACE(opic, ("interrupt ack %d - entering %d (not pending) - vector %d (%d), priority %d\n",
 		    dest->nr,
 		    dest->current_in_service->nr,
@@ -1244,7 +1244,7 @@ read_destination_register(device *me,
 		reg_name, reg_index, reg));
   return reg;
 }
-			     
+
 static unsigned
 do_interrupt_source_N_destination_register_read(device *me,
 						hw_opic_device *opic,
@@ -1751,8 +1751,8 @@ hw_opic_io_write_buffer(device *me,
   }
   return nr_bytes;
 }
-  
-  
+
+
 static void
 hw_opic_interrupt_event(device *me,
 			int my_port,

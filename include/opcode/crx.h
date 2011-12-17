@@ -124,7 +124,7 @@ typedef enum
     /* N-bit signed displacement.  */
     disps9, disps17, disps25, disps32,
     /* N-bit unsigned displacement.  */
-    dispu5, 
+    dispu5,
     /* N-bit escaped displacement.  */
     dispe9,
     /* N-bit absolute address.  */
@@ -135,11 +135,11 @@ typedef enum
     /* Register index.  */
     rindex_disps6, rindex_disps22,
     /* 4-bit genaral-purpose register specifier.  */
-    regr, 
+    regr,
     /* 8-bit register address space.  */
     regr8,
     /* coprocessor register.  */
-    copregr, 
+    copregr,
     /* coprocessor special register.  */
     copsregr,
     /* Not an operand.  */
@@ -197,7 +197,7 @@ operand_type;
 /* Indicates whether this instruction can be relaxed.  */
 #define RELAXABLE      (1 << 14)
 
-/* Indicates that instruction uses user registers (and not 
+/* Indicates that instruction uses user registers (and not
    general-purpose registers) as operands.  */
 #define USER_REG       (1 << 15)
 

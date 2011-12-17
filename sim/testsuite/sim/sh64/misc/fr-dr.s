@@ -17,6 +17,6 @@
 
 	movi 42, r0
 	fmov.qd r0, dr12
-	
+
 okay:
 	pass

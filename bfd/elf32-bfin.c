@@ -4356,7 +4356,7 @@ elf32_bfinfdpic_always_size_sections (bfd *output_bfd,
 static bfd_boolean
 _bfinfdpic_check_discarded_relocs (bfd *abfd, asection *sec,
 				  struct bfd_link_info *info,
-				  
+
 				  bfd_boolean *changed)
 {
   Elf_Internal_Shdr *symtab_hdr;

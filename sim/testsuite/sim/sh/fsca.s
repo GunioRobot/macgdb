@@ -14,25 +14,25 @@ fsca:
 	fsca	fpul, dr2
 	assert_fpreg_i 0, fr2
 	assert_fpreg_i 1, fr3
-	
+
 	mov.l	plus_90, r0
 	lds	r0, fpul
 	fsca	fpul, dr2
 	assert_fpreg_i 1, fr2
 	assert_fpreg_i 0, fr3
-	
+
 	mov.l	plus_180, r0
 	lds	r0, fpul
 	fsca	fpul, dr2
 	assert_fpreg_i 0, fr2
 	assert_fpreg_i -1, fr3
-	
+
 	mov.l	plus_270, r0
 	lds	r0, fpul
 	fsca	fpul, dr2
 	assert_fpreg_i -1, fr2
 	assert_fpreg_i 0, fr3
-	
+
 	mov.l	plus_360, r0
 	lds	r0, fpul
 	fsca	fpul, dr2
@@ -44,19 +44,19 @@ fsca:
 	fsca	fpul, dr2
 	assert_fpreg_i -1, fr2
 	assert_fpreg_i 0, fr3
-	
+
 	mov.l	minus_180, r0
 	lds	r0, fpul
 	fsca	fpul, dr2
 	assert_fpreg_i 0, fr2
 	assert_fpreg_i -1, fr3
-	
+
 	mov.l	minus_270, r0
 	lds	r0, fpul
 	fsca	fpul, dr2
 	assert_fpreg_i 1, fr2
 	assert_fpreg_i 0, fr3
-	
+
 	mov.l	minus_360, r0
 	lds	r0, fpul
 	fsca	fpul, dr2

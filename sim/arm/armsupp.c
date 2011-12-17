@@ -1,16 +1,16 @@
 /*  armsupp.c -- ARMulator support code:  ARM6 Instruction Emulator.
     Copyright (C) 1994 Advanced RISC Machines Ltd.
- 
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
- 
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA. */
@@ -174,7 +174,7 @@ void
 ARMul_SetSPSR (ARMul_State * state, ARMword mode, ARMword value)
 {
   ARMword bank = ModeToBank (mode & MODEBITS);
-  
+
   if (BANK_CAN_ACCESS_SPSR (bank))
     state->Spsr[bank] = value;
 }
@@ -209,12 +209,12 @@ ARMul_CPSRAltered (ARMul_State * state)
     state->Cpsr &= (CCBITS | INTBITS | R15MODEBITS);
 
   oldmode = state->Mode;
-  
+
   if (state->Mode != (state->Cpsr & MODEBITS))
     {
       state->Mode =
 	ARMul_SwitchMode (state, state->Mode, state->Cpsr & MODEBITS);
-      
+
       state->NtransSig = (state->Mode & 3) ? HIGH : LOW;
     }
   state->Cpsr &= ~MODEBITS;
@@ -292,10 +292,10 @@ ARMul_SwitchMode (ARMul_State * state, ARMword oldmode, ARMword newmode)
   unsigned i;
   ARMword  oldbank;
   ARMword  newbank;
-  
+
   oldbank = ModeToBank (oldmode);
   newbank = state->Bank = ModeToBank (newmode);
-  
+
   /* Do we really need to do it?  */
   if (oldbank != newbank)
     {
@@ -324,7 +324,7 @@ ARMul_SwitchMode (ARMul_State * state, ARMword oldmode, ARMword newmode)
 	default:
 	  abort ();
 	}
-      
+
       /* Restore the new registers.  */
       switch (newbank)
 	{
@@ -351,7 +351,7 @@ ARMul_SwitchMode (ARMul_State * state, ARMword oldmode, ARMword newmode)
 	  abort ();
 	}
     }
-  
+
   return newmode;
 }
 

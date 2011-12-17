@@ -107,10 +107,10 @@
 	* gdbarch.sh: When an int variable, print value using %d instead
 	of %ld.
 	* gdbarch.c: Re-generate.
-	
+
 2001-12-24  Tom Rix  <trix@redhat.com>
 
-	* config/powerpc/aix.mt (TDEPFILES): Add xcoffread.o to fix a build 
+	* config/powerpc/aix.mt (TDEPFILES): Add xcoffread.o to fix a build
 	failure.
 
 2001-12-21  Michael Snyder  <msnyder@redhat.com>
@@ -150,13 +150,13 @@
         * configure.tgt: Delete CRIS from multi-arch targets.
 
 	* config/cris/tm-cris.h: New file.
-	
+
 	* config/cris/cris.mt (TDEPFILES): Add corelow.o solib.o solib-svr4.o.
 	(TM_FILE): New macro.
 
 	* cris-tdep.c (cris_examine): Correct check for srp register.
 	(supply_gregset, fetch_core_registers,
-	cris_linux_svr4_fetch_link_map_offsets, cris_fpless_backtrace): 
+	cris_linux_svr4_fetch_link_map_offsets, cris_fpless_backtrace):
 	New functions.
 	(_initialize_cris_tdep): Add core functions and new command.
 	(cris_gdbarch_init): Define link map offsets.
@@ -333,7 +333,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 
 2001-12-18  Jim Blandy  <jimb@redhat.com>
 
-	* c-lang.c (c_printstr, c_builtin_types, cplus_builtin_types): 
+	* c-lang.c (c_printstr, c_builtin_types, cplus_builtin_types):
 	Fix indentation.
 
 	* Makefile.in (c-exp.tab.o): Delete duplicate build rule.  Fix
@@ -385,7 +385,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 2001-12-15  Andrew Cagney  <ac131313@redhat.com>
 
 	* gdbarch.c: Re-generate.
-	
+
 2001-12-15  Andrew Cagney  <ac131313@redhat.com>
 
 	* MAINTAINERS: Remove powerpcle-eabi and rs6000-ibm-aix3.2 from
@@ -566,7 +566,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 	* arch-utils.c (generic_register_raw_size): New function.
 	* gdbarch.sh (REGISTER_RAW_SIZE): Use generic_register_raw_size as
 	the static default.
-	* gdbarch.c: Regenerate.	
+	* gdbarch.c: Regenerate.
 	* arch-utils.h (generic_register_raw_size): Declare.
 
 	* config/mips/tm-mips.h (REGISTER_RAW_SIZE): Delete macro.
@@ -664,7 +664,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 2001-12-07  Daniel Jacobowitz  <drow@mvista.com>
 
 	* gdbtypes.c (finish_cv_type): New function.
-	(check_typedef): Remove ``register'' keyword from argument. 
+	(check_typedef): Remove ``register'' keyword from argument.
 	Preserve const and volatile attributes across filling in
 	opaque types.
 	* gdbtypes.h (finish_cv_type): Add prototype.
@@ -686,7 +686,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 	* configure: Rebuild.
 	* config.in: Add HAVE_SYS_FILIO_H
 	* ser-tcp.c: Conditionally include sys/filio.h.
-	
+
 2001-12-07  Andrew Cagney  <ac131313@redhat.com>
 
 	* ui-out.c (ui_out_table_begin): Initialize body_flag.
@@ -732,7 +732,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 	* utils.c: Include "mmalloc.h".
 	(mmalloc, mfree, mrealloc, mmalloc): Make static, change PTR to
 	void pointer.
-	
+
 2001-12-06  Andrew Cagney  <ac131313@redhat.com>
 
 	* regcache.c (store_register, fetch_register): Only use
@@ -749,7 +749,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 	predicate.
 	(STORE_PSEUDO_REGISTER): Ditto.
 	* gdbarch.h, gdbarch.c: Re-generate.
-	
+
 2001-12-06  Jim Blandy  <jimb@redhat.com>
 
 	* config/s390/nm-linux.h: Watchpoints are either continuable or
@@ -791,13 +791,13 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 	* MAINTAINERS (write-after-approval): Add self.
 
 	* d10v-tdep.c (d10v_gdbarch_init): Change size of long long to 8 bytes.
-	
+
 	From Andrew Cagney  <cagney@redhat.com>:
         * d10v-tdep.c (d10v_frame_chain_valid): Check if the caller's PC
         is in the entry function.
         (d10v_use_struct_convention): Store multi-field struct and union
         return values on the stack.
-	
+
 2001-12-04  Jim Blandy  <jimb@redhat.com>
 
 	* s390-tdep.c (s390_get_frame_info): Recognize spills of reg
@@ -983,7 +983,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 	* config/ns32k/xm-merlin.h: Delete file.
 	* config/ns32k/xm-ns32km3.h: Delete file.
 	* config/ns32k/xm-umax.h: Delete file.
-	
+
 	* NEWS: Note that m88*-harris-cxux* was deleted.
 	* configure.host: Delete m88*-harris-cxux* host.
 	* configure.tgt: Delete m88*-harris-cxux* target.
@@ -1018,7 +1018,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 	* config/w65/tm-w65.h: Delete file.
 	* config/w65/w65.mt: Delete file.
 	* w65-tdep.c: Delete file.
-	
+
 	* NEWS: Mention deleted tic80-*-*.
 	* configure.tgt: Delete tic80-*-*.
 	* Makefile.in (tic80-tdep.o): Delete.
@@ -1209,7 +1209,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 2001-11-21  GDB Administrator  <gdbadmin@sourceware.cygnus.com>
 
 	* GDB 5.1 was released.
-	
+
 2001-11-21  Tom Tromey  <tromey@redhat.com>
 
 	Fix for PR gdb/209, PR gdb/156:
@@ -1263,7 +1263,7 @@ Wed Dec 19 12:18:57 2001  Jeffrey A Law  (law@redhat.com)
 
 2001-11-19  Elena Zannoni  <ezannoni@redhat.com>
 
-	* config/powerpc/nm-linux.h (ppc_register_u_addr): Add extern 
+	* config/powerpc/nm-linux.h (ppc_register_u_addr): Add extern
         declaration.
 
 2001-11-19  Elena Zannoni  <ezannoni@redhat.com>
@@ -1418,7 +1418,7 @@ Mon Nov 19 14:58:52 2001  Andrew Cagney  <cagney@redhat.com>
 	(remote_async_wait): Ditto.
 	(remote_fetch_registers, remote_store_registers): Ditto.
 	(store_register_using_P): Ditto.
-	
+
 2001-11-15  Andrew Cagney  <ac131313@redhat.com>
 
 	* remote.c (_initialize_remote): Don't multi-arch swap tty_input.
@@ -1491,8 +1491,8 @@ Mon Nov 19 14:58:52 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-11-14  Michael Snyder  <msnyder@redhat.com>
 	Add address space identifiers to expression language for types.
-	* c-exp.y (space_identifier, cv_with_space_id, 
-	const_or_volatile_or_space_identifier_noopt, 
+	* c-exp.y (space_identifier, cv_with_space_id,
+	const_or_volatile_or_space_identifier_noopt,
 	const_or_volatile_or_space_identifier): New terminals.
 	(ptype): Accept const_or_volatile_or_space_identifier.
 	(typebase): Accept const_or_volatile_or_space_identifier.
@@ -1547,13 +1547,13 @@ Mon Nov 19 14:58:52 2001  Andrew Cagney  <cagney@redhat.com>
 	(REGISTER_CONVERT_TO_RAW): Delete.
 	(REGISTER_VIRTUAL_TYPE): Redefine as call to arm_register_type.
 	(arm_register_type): Declare.
-	
+
 2001-11-13  Elena Zannoni  <ezannoni@redhat.com>
 
 	From Andrew Cagney <cagney@redhat.com>:
 	* gdbtypes.h (builtin_type_int128, builtin_type_uint128): Declare.
 	* gdbtypes.c (_initialize_gdbtypes, build_gdbtypes): Initialize
-	new builtin types.  
+	new builtin types.
 
 2001-11-13  Jim Blandy  <jimb@redhat.com>
 
@@ -1581,7 +1581,7 @@ Mon Nov 19 14:58:52 2001  Andrew Cagney  <cagney@redhat.com>
 	standard_coerce_float_to_double): Doc fixes.
 
 	Patch from Peter Schauer:
-	
+
 	* symtab.c (find_pc_sect_line): If we can't find the function
 	containing PC, we certainly won't have line number information for
 	that location, so return zero immediately.
@@ -1655,7 +1655,7 @@ Mon Nov 19 14:58:52 2001  Andrew Cagney  <cagney@redhat.com>
 	* c-valprint.c, ch-lang.c, ch-valprint.c, cp-valprint.c,
 	p-valprint.c, scm-exp.c, scm-lang.c, scm-valprint.c: Replace
 	value_ptr with struct value.
-	
+
 2001-11-10  Andrew Cagney  <ac131313@redhat.com>
 
 	* eval.c: Replace most occurances of value_ptr with struct value.
@@ -1687,10 +1687,10 @@ Mon Nov 19 14:58:52 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-11-06 Pierre Muller  <muller@ics.u-strasbg.fr>
 
-	* p-lang.c (is_pascal_string_type): New function to determine if a 
+	* p-lang.c (is_pascal_string_type): New function to determine if a
 	type is a string type.
 	* p-lang.h: Add prototype for is_pascal_string_type.
-	* p-valprint.c (pascal_val_print) : Use is_pascal_string_type function 
+	* p-valprint.c (pascal_val_print) : Use is_pascal_string_type function
 	to display strings nicely.
 
 2001-11-06 Pierre Muller  <muller@ics.u-strasbg.fr>
@@ -1755,7 +1755,7 @@ Wed Nov  7 20:45:32 2001  Andrew Cagney  <cagney@redhat.com>
 	(HFILES_NO_SRCDIR): Remove partial-stab.h.
 
 	* partial-stab.h: Remove file.
-	
+
 2001-11-07  Andrew Cagney  <ac131313@redhat.com>
 
 	* gdbarch.sh: For multi-arch functions, check there is a
@@ -1800,7 +1800,7 @@ Wed Nov  7 20:45:32 2001  Andrew Cagney  <cagney@redhat.com>
 
 	* MAINTAINERS: Update Andrew Cagney's responsibilities.  Mention
 	David Taylor and Nick Duffek in past maintainers.
-	
+
 2001-11-06  Elena Zannoni  <ezannoni@redhat.com>
 
         * mdebugread.c (CUR_SYMBOL_TYPE, CUR_SYMBOL_VALUE, START_PSYMTAB,
@@ -1841,12 +1841,12 @@ Wed Nov  7 20:45:32 2001  Andrew Cagney  <cagney@redhat.com>
 	* gdbarch.h, gdbarch.c: Re-generate.
 	* valops.c (hand_function_call): Replace #ifdef
 	PUSH_RETURN_ADDRESS with run-time test of PUSH_RETURN_ADDRESS_P.
-	
+
 2001-11-06  Corinna Vinschen  <vinschen@redhat.com>
 
 	* arch-utils.c (generic_in_function_epilogue_p): New function.
 	* arch-utils.h (generic_in_function_epilogue_p): Declare extern.
-	* breakpoint.c (watchpoint_check): Add test whether the pc is   
+	* breakpoint.c (watchpoint_check): Add test whether the pc is
 	currently in the epilogue of a function.
 	* gdbarch.c: Autogenerated from gdbarch.sh.
 	* gdbarch.h: Ditto.
@@ -1862,12 +1862,12 @@ Wed Nov  7 20:45:32 2001  Andrew Cagney  <cagney@redhat.com>
 	* configure.in (AC_OUTPUT): Handle assignments to NATDEPFILES
 	using `+=' as well as `='.
 	* configure: Regenerated.
-	
+
 2001-11-05  Andrew Cagney  <ac131313@redhat.com>
 
 	* gdbarch.sh (init_extra_frame_info): Change to a function with
 	predicate.
-	* gdbarch.h, gdbarch.c: Re-generate.	
+	* gdbarch.h, gdbarch.c: Re-generate.
 	* blockframe.c (create_new_frame): Replace #ifdef
 	INIT_EXTRA_FRAME_INFO with run-time test of
 	INIT_EXTRA_FRAME_INFO_P.
@@ -1927,7 +1927,7 @@ Wed Nov  7 20:45:32 2001  Andrew Cagney  <cagney@redhat.com>
 
 	* utils.c (internal_verror): Restore calls to abort().
 	Fix PR gdb/219.
-	
+
 2001-11-02  Michael Chastain  <mec@shout.net>
 
         * MAINTAINERS: Update my entry.
@@ -2034,11 +2034,11 @@ Wed Nov  7 20:45:32 2001  Andrew Cagney  <cagney@redhat.com>
 	* ppc-tdep.h: Add #ifndef wrapper.  Replace value_ptr with
 	``struct value *''.
 	(struct frame_info, struct value): Add opaque declarations.
-	
+
 2001-10-31  Corinna Vinschen  <vinschen@redhat.com>
 
 	* arch-utils.c (generic_in_solib_call_trampoline): New function.
-	* arch-utils.h (generic_in_solib_call_trampoline): Extern declaration.  
+	* arch-utils.h (generic_in_solib_call_trampoline): Extern declaration.
 	* gdbarch.c: Regenerated from gdbarch.sh.
 	* gdbarch.h: Ditto.
 	* gdbarch.sh (function_list): Add `IN_SOLIB_CALL_TRAMPOLINE' definition.
@@ -2204,7 +2204,7 @@ Wed Nov  7 20:45:32 2001  Andrew Cagney  <cagney@redhat.com>
 	(DebugActiveProcessStop): Ditto for DebugActiveProcessStop().
 	(has_detach_ability): New function.
 	(child_attach): If system has detach ability, enable it.
-	(child_detach): If system has detach ability, actually  
+	(child_detach): If system has detach ability, actually
 	detach from process.
 	Change tty output to Linux format.
 
@@ -2272,7 +2272,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* xcoffsolib.h: Add XCOFFSOLIB_H macro wrapper.
 	* valprint.h: Add VALPRINT_H macro wrapper.
 	* top.h: Add TOP_H macro wrapper.
-	
+
 2001-10-21  Andrew Cagney  <ac131313@redhat.com>
 
 	* config/a29k/tm-vx29k.h, i386-tdep.c: Include "value.h".
@@ -2332,7 +2332,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 2001-10-16  Andrew Cagney  <ac131313@redhat.com>
 
 	Based on code by John Moore <jmore@redhat.com>:
-	
+
 	* utils.c (core_addr_to_string): New function for conversion of
 	CORE_ADDR to string.
 	(string_to_core_addr): New function to convert from string to
@@ -2464,7 +2464,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
         * gdbarch.sh: Fixed CALL_DUMMY_BREAKPOINT_OFFSET to check
 	CALL_DUMMY_BREAKPOINT_OFFSET_P.
 	* gdbarch.c: Regenerate.
-	
+
 2001-10-13  Mark Kettenis  <kettenis@gnu.org>
 
 	* thread-db.c: Fix a few formatting mistakes.
@@ -2754,7 +2754,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 2001-09-20  Michael Snyder  <msnyder@redhat.com>
 	Changes by Daniel Berlin  <dan@cgsoftware.com>, to support
 	better parsing of const and volatile type expressions.
-	* c-exp.y (const_and_volatile, const_or_volatile_noopt, 
+	* c-exp.y (const_and_volatile, const_or_volatile_noopt,
 	const_or_volatile): New non-terminals.
 	(ptype): Use new rule for const_or_volatile.
 	(typebase): Use new rule for const_or_volatile_noopt.
@@ -2817,7 +2817,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 	* monitor.c (monitor_load): Don't delete symtab users, or reset
 	inferior_ptid.
-	
+
 	* monitor.c (monitor_load): Fix indentation.
 
 2001-09-11  Jim Blandy  <jimb@redhat.com>
@@ -2872,7 +2872,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	(is_hex_digit, hex_digit_value, is_whitespace,
 	rom68k_supply_one_register): New static functions.
 	(rom68k_supply_register): Call rom68k_supply_one_register, instead
-	of monitor_supply_register; the latter was incorrectly parsing 
+	of monitor_supply_register; the latter was incorrectly parsing
 	the values.
 	* Makefile.in (rom68k-rom.o): Note that this now #includes value.h.
 
@@ -2890,7 +2890,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* configure: Regenerated.
 
 2001-09-06  Kevin Buettner  <kevinb@redhat.com>
-	
+
 	* dbxread.c (process_one_symbol): Don't use error result from
 	find_stab_function_addr().
 	* partial-stab.h (case 'F'): Likewise.
@@ -2925,7 +2925,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-09-04  Elena Zannoni  <ezannoni@redhat.com>
 
-	From Daniel Jacobowitz  <drow@mvista.com>	
+	From Daniel Jacobowitz  <drow@mvista.com>
 	* dbxread.c (free_header_files): Make global.
 	(init_header_files): Likewise.
 	* stabsread.h (free_header_files): Add prototype.
@@ -2935,7 +2935,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-09-04  Elena Zannoni  <ezannoni@redhat.com>
 
-	From Daniel Jacobowitz  <drow@mvista.com>	
+	From Daniel Jacobowitz  <drow@mvista.com>
 	* dbxread.c (dbx_symfile_read): Only reinitialize
 	the psymbol list if mainline or if both static
 	and global lists are empty.
@@ -2943,10 +2943,10 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* dwarfread.c (dwarf_build_psymtabs): Likewise.
 	* xcoffread.c (xcoff_initial_scan): Likewise.
 	* os9kread.c (os9k_symfile_read): Likewise.
-	
+
 2001-09-04  Elena Zannoni  <ezannoni@redhat.com>
 
-	From Daniel Jacobowitz  <drow@mvista.com>	
+	From Daniel Jacobowitz  <drow@mvista.com>
 	* mdebugread.c (psymtab_to_symtab_1): Handle N_SO stabs without
 	a name specially.
 
@@ -3075,7 +3075,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	(builtin_type_ia64_quad_big)
 	(builtin_type_ia64_quad_little): Define.
 	(_initialize_gdbtypes): Initialize builtin floatformat types.
-	
+
 2001-08-23  Mark Kettenis  <kettenis@gnu.org>
 
 	* tracepoint.c (read_actions): Add FIXME for code depending on
@@ -3383,7 +3383,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* values.c, arm-tdep.c, arm-linux-tdep.c: Ditto.
 	* alpha-tdep.c, ax.h, expression.h: Ditto.
 	* sh-tdep.c, parse.c, top.c, value.h: Ditto.
-	
+
 	* Makefile.in (arm-tdep.o): Add $(doublest_h).
 	(i386-tdep.o, i387-tdep.o, ia64-tdep.o): Ditto.
 	(rs6000-tdep.o, stabsread.o, valarith.o): Ditto.
@@ -3564,7 +3564,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-07-24  Stephen P. Smith <ischis2@home.com>
 
-	* MAINTAINERS (Stephen P. Smith): Added to write after approval 
+	* MAINTAINERS (Stephen P. Smith): Added to write after approval
 	list.
 
 2001-07-23  Andrew Cagney  <ac131313@redhat.com>
@@ -3606,7 +3606,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	allocated segment according to its size, and adjust the limit to
 	be page-aligned if the segment is page-granular.
 
-	* (get_cr3, get_pde, get_pte, display_ptable_entry, go32_pde) 
+	* (get_cr3, get_pde, get_pte, display_ptable_entry, go32_pde)
 	(display_page_table, go32_pte, go32_pte_for_address): New functions.
 	(_initialize_go32_nat): Initialize and document them.
 
@@ -3653,7 +3653,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* config/i386/nm-fbsd.h (CHILD_RESUME): Define.
 	* Makefile.in (ALLDEPFILES): Add i386fbsd-nat.c.
 	(i386fbsd-nat.o): Add dependencies.
-	
+
 2001-07-19  Daniel Jacobowitz  <drow@mvista.com>
 
 	* signals.c: New file.
@@ -3739,7 +3739,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
         * top.c (show_commands): Remove extern decl of history_get, it's
 	already in readline/history.h.
-	
+
 2001-07-16  Elena Zannoni  <ezannoni@redhat.com>
 
         * top.c (is_complete_command, init_cmd_lists, init_cli_cmds,
@@ -3768,14 +3768,14 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* configure.tgt: Recognise the CRIS architecture.
 	* config/cris/cris.mt: New file for CRIS target.
 	* cris-tdep.c: New file for CRIS target.
-	
+
 2001-07-15  Elena Zannoni  <ezannoni@redhat.com>
 
 	* top.c (quit_cover, float_handler): Move definition up before use.
 	(gdb_init): Move to end of file, to avoid calls to not yet defined
-	functions.  
+	functions.
 	Delete prototypes.
-	
+
 2001-07-14  Andrew Cagney  <ac131313@redhat.com>
 
 	* serial.h (SERIAL_ASYNC): Delete.
@@ -3827,7 +3827,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* ocd.c: Update.
 	* nindy-share/nindy.c: Update.
 	* monitor.c: Update.
-	
+
 2001-07-14  Andrew Cagney  <ac131313@redhat.com>
 
 	* mn10200-tdep.c: Replace value_ptr with ``struct value *''.
@@ -3852,13 +3852,13 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* v850-tdep.c: Ditto.
 
 2001-07-15  Elena Zannoni  <ezannoni@redhat.com>
- 
+
 	* top.c (readline_line_completion_function, noop_completer): Move
- 	from here...  
+ 	from here...
 	* completer.c (readline_line_completion_function, noop_completer):
  	...to here.
 	* gdbcmd.h (readline_line_completion_function, noop_completer):
- 	Move declarations from here...  
+ 	Move declarations from here...
 	* completer.h (readline_line_completion_function, noop_completer):
  	...to here.
 	* corefile.c: Include completer.h.
@@ -4038,7 +4038,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	sh3_dsp_show_regs, sh4_show_regs, sh_dsp_show_regs): Update to use
 	gdbarch_tdep->PR_REGNUM.
 	(dr_reg_base_num, fv_reg_base_num): Move to earlier in the file.
-	
+
 2001-07-11  Daniel Jacobowitz  <drow@mvista.com>
 
 	* config/mips/tm-linux.h: Include "tm-linux.h" instead of copying
@@ -4234,7 +4234,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	gdbarch_d10v_make_iaddr, gdbarch_d10v_daddr_p,
 	gdbarch_d10v_iaddr_p, gdbarch_d10v_convert_daddr_to_raw, and
 	gdbarch_d10v_convert_iaddr_to_raw.
-	
+
 	* printcmd.c (print_scalar_formatted): If we are printing an
 	address, remember that TARGET_ADDR_BIT is not always equal to
 	TARGET_PTR_BIT.
@@ -4367,7 +4367,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-06-12  Michael Snyder  <msnyder@redhat.com>
 
-	* lin-lwp.c: Prevent thread starvation by using a monte carlo 
+	* lin-lwp.c: Prevent thread starvation by using a monte carlo
 	method to choose which of several event threads to handle next.
 
 	(stop_wait_callback): Defer pushback of breakpoint events until
@@ -4375,17 +4375,17 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	Keep calling waitpid until SIGSTOP retrieved.  If more than one
 	non-SIGSTOP event is retrieved, push them back onto the process
 	queue using kill.
-	(count_events_callback, select_singlestep_lwp_callback, 
-	select_event_lwp_callback, cancel_breakpoints_callback, 
-	select_event_lwp): New functions.  Implement monte carlo method 
-	for selecting which of several SIGTRAP threads to handle next.  
-	Push back the breakpoint event for all threads other than the 
+	(count_events_callback, select_singlestep_lwp_callback,
+	select_event_lwp_callback, cancel_breakpoints_callback,
+	select_event_lwp): New functions.  Implement monte carlo method
+	for selecting which of several SIGTRAP threads to handle next.
+	Push back the breakpoint event for all threads other than the
 	selected one.
 	(lin_lwp_wait): Call select_event_lwp to decide which of several
 	sigtrapped lwps to handle next.
 	(resume_callback): Disable code that attempts to handle
 	step_resume breakpoints.  Let core gdb handle this.
-	
+
 2001-07-06  Jim Blandy  <jimb@redhat.com>
 
 	* gdbtypes.h (builtin_type_void_func_ptr): New builtin type.
@@ -4504,7 +4504,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-07-03  Michael Snyder  <msnyder@redhat.com>
 
-	* thread_db (find_new_threads_callback, thread_db_thread_alive, 
+	* thread_db (find_new_threads_callback, thread_db_thread_alive,
 	attach_thread): Update comments.
 
 2001-06-29  Ken Whaley  <ken@believe.com>
@@ -4595,7 +4595,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	From Fernando Nasser:
 	* infrun.c (handle_inferior_event): Handle "nexti" inside function
 	prologues.
-	
+
 2001-06-28  Michael Snyder  <msnyder@redhat.com>
 
 	* infrun.c (handle_inferior_event): Replace prev_pc test in all
@@ -4646,7 +4646,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* target.c (struct signals): Add SIG63 to SIG127.
 	(target_signal_from_host): Handle up to 127 signals.
 	(do_target_signal_to_host): Likewise.
-	
+
 2001-06-27  Andrew Cagney  <ac131313@redhat.com>
 
 	* remote-sds.c (sds_start_remote): Change type of ``c'' to int
@@ -4680,7 +4680,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-06-25  Michael Snyder  <msnyder@redhat.com>
 
-	* infrun.c: Eliminate the "thread_step_needed" state variable, 
+	* infrun.c: Eliminate the "thread_step_needed" state variable,
 	and replace it with a relatively simple test in resume.
 	(resume): Replace thread_step_needed logic with a test for
 	stepping, breakpoint_here_p and breakpoints_inserted.
@@ -4763,7 +4763,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	"tm.h".
 	* gdbarch.h, gdbarch.c: Regenerate.
 	* defs.h (GDB_MULTI_ARCH_TM): Rewrite definition.
-	
+
 2001-06-17  Andrew Cagney  <ac131313@redhat.com>
 
 	* config/sparc/tm-sun4sol2.h (GDB_MULTI_ARCH): Down grade to
@@ -4799,7 +4799,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* lynx-nat.c (CANNOT_STORE_REGISTER): Ditto.
 	* arch-utils.h (cannot_register_not): Define.
 	* arch-utils.c (cannot_register_not): Declare.
-	
+
 2001-06-15  Andrew Cagney  <ac131313@redhat.com>
 
 	* gdbarch.sh: Clarify pre/post default
@@ -4819,7 +4819,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 	* infrun.c (context_switch): New function.  Abstract the operation
 	of saving and restoring infrun's state when switching threads.
 	(handle_inferior_event): Normalize the handling of the 'thread hop'
-	event (when the wrong thread hits a thread-specific breakpoint, 
+	event (when the wrong thread hits a thread-specific breakpoint,
 	and we need to solo-step that thread past the breakpoint).
 	Call keep_going, instead of target_resume.  Handle the subsequent
 	singlestep-trap as a normal event instead of just resuming.
@@ -4857,10 +4857,10 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-06-14  Michael Snyder  <msnyder@redhat.com>
 
-	* remote.c (show_remote_protocol_qSymbol_packet_cmd, 
+	* remote.c (show_remote_protocol_qSymbol_packet_cmd,
 	set_remote_protocol_qSymbol_packet_cmd): New functions.
 	(init_all_packet_configs, show_remote_cmd): Add qSymbol packet.
-	(remote_check_symbols): New function.  Implement qSymbol packet, 
+	(remote_check_symbols): New function.  Implement qSymbol packet,
 	allowing target to request symbol lookup service from gdb.
 	(remote_open_1, remote_async_open_1): Call remote_check_symbols,
 	allowing symbol lookup from exec_bfd on connection to target.
@@ -4878,7 +4878,7 @@ Tue Oct 23 14:16:10 2001  Andrew Cagney  <cagney@redhat.com>
 
 2001-06-13  Michael Snyder  <msnyder@redhat.com>
 
-	* gdbthread.h (struct thread_info): Add new fields: 
+	* gdbthread.h (struct thread_info): Add new fields:
 	current_line, current_symtab, step_sp, for saved infrun state.
 	* thread.c (save_infrun_state, load_infrun_state): Save and
 	restore current_line, current_symtab, and step_sp.
@@ -5042,7 +5042,7 @@ Mon Jun 11 17:26:43 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 2001-06-08  Michael Snyder  <msnyder@redhat.com>
 
-	* breakpoint.c (delete_breakpoint): Pass mark_inserted to 
+	* breakpoint.c (delete_breakpoint): Pass mark_inserted to
 	remove_breakpoint, so that the subsequent test for
 	bpt->inserted will succeed, and duplicates will be fixed up.
 
@@ -5055,7 +5055,7 @@ Mon Jun 11 17:26:43 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	* tracepoint.c (tracepoint_opertation): Add ui event
 	notifications.
 	(trace_pass_command): Ditto.
-	
+
 2001-06-07  Andrew Cagney  <ac131313@redhat.com>
 
 	* MAINTAINERS (Write After Approval): Note the entry criteria.
@@ -5255,7 +5255,7 @@ Mon Jun 11 17:26:43 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	a step_resume_breakpoint.
 	* gdbthread.h (delete_step_resume_breakpoint): Export.
 	* breakpoint.c (bpstat_find_step_resume_breakpoint):
-	Make thread-aware: don't return a step_resume_breakpoint 
+	Make thread-aware: don't return a step_resume_breakpoint
 	for the wrong thread.
 	* infrun.c (wait_for_inferior): Call delete_step_resume_breakpoint
 	instead of delete_breakpoint_current_contents.
@@ -5365,7 +5365,7 @@ Mon Jun 11 17:26:43 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 2001-05-22  Michael Snyder  <msnyder@redhat.com>
 
-	* thread-db.c: Allow for defunct zombie threads.	
+	* thread-db.c: Allow for defunct zombie threads.
 	(attach_thread): Do not attempt to attach zombie thread.
 	(thread_db_thread_alive): Return false for defunct zombie thread.
 	(find_new_threads_callback): Don't add defunct zombie thread to list.
@@ -5409,7 +5409,7 @@ Mon Jun 11 17:26:43 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 2001-05-07  Daniel Berlin  <dan@cgsoftware.com>
 
 	Changes by Jim Ingham:
-	
+
 	* values.c (value_change_enclosing_type): New function.  If the
 	new enclosing type is larger than the old one, we need to allocate
 	more space.
@@ -5419,7 +5419,7 @@ Mon Jun 11 17:26:43 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	(value_addr): Use it.
 	(value_ind): Use it.
 	(value_full_object): Use it.
-	
+
 2001-05-07  Daniel Berlin  <dan@cgsoftware.com>
 
 	* values.c (value_static_field): Handle static fields that have a
@@ -5540,7 +5540,7 @@ Mon Jun 11 17:26:43 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 2001-05-14  Michael Snyder  <msnyder@redhat.com>
 
 	* solib.c, solib.h: Add comment for function no_shared_libraries.
-	
+
 2001-05-14  Kevin Buettner  <kevinb@redhat.com>
 
 	* solib.h (no_shared_libraries): Make declaration match definition
@@ -5574,7 +5574,7 @@ Mon Jun 11 17:26:43 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	* Makefile.in (gnu-v2-abi.o): Add $(demangle_h) to list of
 	dependencies.  Reorder dependencies to match #includes in file,
 	for easier verification.
-	
+
 Fri May 11 13:32:50 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* breakpoint.c: Replace ui_out_list_begin, ui_out_list_end and
@@ -5628,7 +5628,7 @@ Fri May 11 13:32:50 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	(clean mostlyclean): Update.
 	* version.in: New file.
 	* NEWS: Update.
-	
+
 2001-05-11  Kevin Buettner  <kevinb@redhat.com>
 
 	* breakpoint.c (set_raw_breakpoint): Add new parameter
@@ -5679,7 +5679,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	(remote_async_open_1): Ditto.
 	* remote.c (bin2hex, hex2bin): New functions.  Factor out these
 	two conversions which are coded for repeatedly in this module.
-	(remote_threads_extra_info, remote_wait, remote_async_wait, 
+	(remote_threads_extra_info, remote_wait, remote_async_wait,
 	store_register_using_P, remote_store_registers, remote_write_bytes,
 	remote_read_bytes, remote_rcmd): Use bin2hex and hex2bin instead
 	of coding the conversions inline.
@@ -5725,11 +5725,11 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 2001-05-10  Fernando Nasser  <fnasser@redhat.com>
 
-	* symfile.c (symbol_file_add_main_1): New static function. 
+	* symfile.c (symbol_file_add_main_1): New static function.
 	Passes the flags arguments to  symbol_file_add() and takes care
 	of any necessary reinitializations.
         (symbol_file_command): Call symbol_file_add_main_1() instead of
-        symbol_file_add().  
+        symbol_file_add().
         (symbol_file_add_main): Ditto.
 
 2001-05-09  Kevin Buettner  <kevinb@redhat.com>
@@ -5755,7 +5755,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* sh-tdep.c: Remove WIN32_WCE conditional. The wince sh target is
  	unmaintaned, and probably on its way to obsolescence.
-	
+
 2001-05-09  Mark Kettenis  <kettenis@gnu.org>
 
 	* i386-tdep.c (i386_frame_saved_pc): New function.
@@ -5785,7 +5785,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mn10300-tdep.c (mn10300_extract_return_value): Mark this as
 	static.  (This was accidentally omitted from the earlier patch.)
-	
+
 	* mn10300-tdep.c (mn10300_dwarf2_reg_to_regnum): New function.
 	(mn10300_gdbarch_init): Register it as the architecture's
 	dwarf2_reg_to_regnum method.
@@ -5830,7 +5830,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* config/mn10300/tm-mn10300.h (mn10300_find_callers_reg): Delete
 	unused declaration.
-	
+
 	* mn10300-tdep.c (mn10300_gdbarch_init): Put the gdbarch methods
 	in some rational order.
 
@@ -5914,7 +5914,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 2001-05-08  Michael Snyder  <msnyder@redhat.com>
 
-	* language.c (longest_local_hex_string_custom): Strlen test is 
+	* language.c (longest_local_hex_string_custom): Strlen test is
 	inverted -- reverse the sense of the test.
 
 2001-05-08  Mark Kettenis  <kettenis@gnu.org>
@@ -5929,10 +5929,10 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	target.
 
 2001-05-04  Andrew Cagney  <ac131313@redhat.com>
- 
+
  	* main.c (captured_main): Delete #ifndef _WIN32 conditional for
  	WinGDB.
- 
+
 2001-05-06  Kevin Buettner  <kevinb@redhat.com>
 
 	* inferior.h (save_inferior_ptid): Declare.
@@ -6465,7 +6465,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 2001-04-27  Don Howard  <dhoward@redhat.com>
 
 	(Changes from Kevin Buettner, with minor update by Don Howard.)
-	
+
 	* i387-nat.c (i387_supply_fxsave, i387_fill_fxsave, i387_tag): Fix
 	typos in which hexadecimal constants were really intended to be
 	binary constants.
@@ -6476,7 +6476,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 2001-04-26  Jim Blandy  <jimb@redhat.com>
 
 	(Changes from Daniel Berlin, with revisions by Jim Blandy.)
-	
+
 	Abstract out operations specific to particular C++ ABI's, and
 	invoke them through a function table.  This removes the C++ ABI
 	dependencies scattered throughout the code, and allows us to
@@ -6491,7 +6491,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	cp-abi.h.
 	* value.h (value_rtti_type, value_virtual_fn_field): Same.
 	* values.c (value_virtual_fn_field): Same, for this definition.
-	* valops.c (value_rtti_type): Same.	
+	* valops.c (value_rtti_type): Same.
 	* c-typeprint.c (c_type_print_base): Use the functions from
 	"cp-abi.h", instead of the old macros, or hard-coded ABI-specific
 	tests.
@@ -6513,7 +6513,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* thread-db.c (_initialize_thread_db): Add set/show command
 	"debug-linux-threads" for debugging output.
-	* lin-lwp.c (various): Use global "debug_linux_threads to 
+	* lin-lwp.c (various): Use global "debug_linux_threads to
 	turn on extra debugging output.
 	* lin-lwp.c: Minor cleanups in comments.
 	* target.c (normal_pid_to_str): Get rid of an ancient hack.
@@ -6585,7 +6585,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	(m68*-est-*, m68*-sony-*, m68*-isi-*):
 	* Makefile.in (xm-news1000.h, tm-news.h, xm-news.h): Obsolete..
 	* config/m68k/xm-news.h: Obsolete.
-	* config/m68k/tm-news.h: 
+	* config/m68k/tm-news.h:
 	* config/m68k/xm-news1000.h: Obsolete.
 	* config/m68k/news.mh: Obsolete.
 	* config/m68k/news.mt: Obsolete.
@@ -6607,14 +6607,14 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	* NEWS: Update.
 
 2001-04-17  Michael Snyder  <msnyder@redhat.com>
-	
+
 	* remote.c (remote_open_1): On opening the remote target, activate
 	the solib_create_inferior_hook, so that it can detect when the
 	target loads shared libraries.
 	(remote_async_open_1): Ditto.
 
 2001-04-17  Michael Snyder  <msnyder@redhat.com>
-	
+
 	* breakpoint.c (print_one_breakpoint): Handle 64-bit addresses.
 	* tracepoint.c (tracepoints_info): Handle 64-bit addresses.
 	* testsuite/gdb.trace/deltrace.exp: Allow for 64-bit addresses.
@@ -6671,7 +6671,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	(i386_frame_chain): New prototype.
 
 2001-04-14  J.T. Conklin  <jtc@redback.com>
-	
+
 	* target.h (target_ops): Removed to_core_file_to_sym_file vector
  	function.
 	* corelow.c (core_ops): Updated for above change.
@@ -6700,7 +6700,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	* corefile.c (core_file_command) [HPUXHPPA]: Removed code that
  	sets symbol file from information obtained from the core file.
 	* corelow.c (core_file_to_sym_file): Removed.
-	
+
 2001-04-13  Fernando Nasser  <fnasser@redhat.com>
 
 	From  Adam Mirowski  <Adam.Mirowski@Sun.COM>
@@ -6758,7 +6758,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 2001-04-08  Kevin Buettner  <kevinb@redhat.com>
 
-	* fork-child.c (fork_inferior, clone_and_follow_inferior): 
+	* fork-child.c (fork_inferior, clone_and_follow_inferior):
 	Document fact that apparent call to vfork() might actually be
 	a call to fork() instead.
 	* ser-pipe.c (pipe_open): Likewise.
@@ -6775,7 +6775,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	* dcache.c (dcache_write_line): Fixed bugs where cache line was
  	not written to target correctly.
 
-	* gdbserver/low-hppabsd.c (read_inferior_memory): Add explicit 
+	* gdbserver/low-hppabsd.c (read_inferior_memory): Add explicit
 	void return value;
 	* gdbserver/low-nbsd.c: Likewise.
 	* gdbserver/low-sparc.c: Likewise.
@@ -6798,7 +6798,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	* inferior.h: Added get_last_target_status() declaration.
 	* infrun.c (get_last_target_status): Added new function.
 	(handle_inferior_event): Saves last pid and waitstatus, which will
-	get returned by get_last_target_status(). 
+	get returned by get_last_target_status().
 
 	* hppa-tdep.c (prepare_to_proceed):  Added comment stating that
 	prepare_to_proceed() is potentially redundant since
@@ -6806,7 +6806,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	* linux-thread.c (prepare_to_proceed): Ditto.
 	* lin-lwp.c (prepare_to_proceed): Ditto.
 	* m3-nat.c (prepare_to_proceed): Ditto.
-	
+
 2001-04-05  Andrew Cagney  <ac131313@redhat.com>
 
 	Obsolete powerpcle-*-cygwin* and powerpcle-*-solaris* platforms
@@ -6835,7 +6835,7 @@ Thu May 10 16:26:47 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 2001-04-06  Fernando Nasser  <fnasser@redhat.com>
 
 	From David Deephanphongs <deephan@telocity.com>
-	* inferior.h:   Fix declarations of get_inferior_args and 
+	* inferior.h:   Fix declarations of get_inferior_args and
 	set_inferior_args, which were missing the trailing 's'.
 
 2001-04-05  Jeff Holcomb  <jeffh@redhat.com>
@@ -6929,9 +6929,9 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	remote_protocol_E.
 	(remote_resume, remote_async_resume): Support e/E command
 	packets.
-	(show_remote_cmd): Show state of remote_protocol_e and 
+	(show_remote_cmd): Show state of remote_protocol_e and
 	remote_protocol_E.
-	(_initialize_remote): Add "set remote step-over-range-packet" 
+	(_initialize_remote): Add "set remote step-over-range-packet"
 	and "set remote step-over-range-w-signal-packet" to CLI.
 
 2001-04-01  Andrew Cagney  <ac131313@redhat.com>
@@ -6986,7 +6986,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	hand_function_call() after the invocation of FIX_CALL_DUMMY().
 
 2001-03-20  Daniel Berlin  <dberlin@redhat.com>
-	
+
 	* symtab.c (completion_list_add_name): Remove duplicate string checks,
 	readline already does this, and it's much faster at it, too.
 
@@ -7011,7 +7011,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	(i386_linux_dr_get_status): Change type of return value to
 	unsigned long.
 	* config/i386/nm-linux.h (i386_linux_dr_set_control,
-	i386_linux_dr_get_status): Adjust prototypes accordingly. 
+	i386_linux_dr_get_status): Adjust prototypes accordingly.
 
 2001-03-31  Kevin Buettner  <kevinb@redhat.com>
 
@@ -7131,7 +7131,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 2001-03-19  J.T. Conklin  <jtc@redback.com>
 
 	* arch-utils.c (#include "gdbthread.h"): Removed.
-	(#include "symfile.h"): Removed. 
+	(#include "symfile.h"): Removed.
 	(XMALLOC): Removed unused macro.
 	* breakpoint.c (tbreak_command): Removed local declaration.
 	(awatch_command, do_enable_breakpoint, set_breakpoint_count):
@@ -7178,7 +7178,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	* values.c (#include "frame.h"): Removed.
 	* varobj.c (#include "valprint.h"): Removed.
 	* wrapper.c (#include "frame.h"): Removed.
-	
+
 	* memattr.c (create_mem_region): Removed unused variable.
 	* remote-nrom.c: Removed spurious semicolon after init_nrom_ops.
 
@@ -7302,7 +7302,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	* ser-go32.c (rawclock): Remove prototype; include time.h instead.
 	(ISR, dos_hookirq, isr_t): Convert K&R definition to ANSI C.
 	(top level) <string.h>: Include gdb_string.h instead.
-	(dos_noop, dos_raw, dos_noflush_set_tty_state) 
+	(dos_noop, dos_raw, dos_noflush_set_tty_state)
 	(dos_print_tty_state, dos_info): Remove ATTRIBUTE_UNUSED.
 
 	* go32-nat.c (go32_create_inferior): Move the declaration of
@@ -7311,13 +7311,13 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	<gdb_string.h>: Include it instead of string.h.
 	(store_register): Call register_buffer instead of accessing
 	registers[] directly.
-	(redir_cmdline_delete, redir_cmdline_parse, redir_to_debugger) 
+	(redir_cmdline_delete, redir_cmdline_parse, redir_to_debugger)
 	(redir_to_debugger, redir_debug_init) [__DJGPP_MINOR__ < 3]: Put
 	the function names at the start of the line.
 	(go32_set_dr): Throw internal_error if the argument is not a valid
 	debug register number.
-	(go32_open, go32_close, go32_attach, go32_detach, go32_resume) 
-	(go32_wait, go32_xfer_memory, go32_files_info) 
+	(go32_open, go32_close, go32_attach, go32_detach, go32_resume)
+	(go32_wait, go32_xfer_memory, go32_files_info)
 	(go32_terminal_info): Remove ATTRIBUTE_UNUSED.
 
 2001-03-25  Jim Blandy  <jimb@redhat.com>
@@ -7335,7 +7335,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 2001-03-25  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	From  Andrew Cagney  <ac131313@redhat.com>
-	
+
         * coffread.c (coff_symtab_read): Initialize
  	``fcn_first_line_addr''.  Check that the ``.bf'' always preceeds
  	the ``.ef'' info.
@@ -7357,11 +7357,11 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 
 	* gdbarch.sh (gdbarch_register_read, gdbarch_register_write): Add.
 	* gdbarch.h, gdbarch.c: Regenerate.
-	
+
 	* regcache.h (regcache_read, regcache_write): Declare.
 	(registers, register_valid, register_buffer): Add note that these
 	interfaces are deprecated.
-	
+
 	* regcache.c: Include "gdb_assert.h".
 	(legacy_write_register_gen): Rename write_register_gen.
 	(legacy_read_register_gen): Rename read_register_gen.
@@ -7392,7 +7392,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	(xmcalloc, xmfree): Declare.
 	(xmmalloc, xmrealoc): Assume ISO-C - use size_t and void* in
 	declaration.
-	
+
 	* utils.c (size_t): Delete #ifdef defining size_t.
 	(mmalloc, mrealloc, mcalloc, mfree): Re-order.
 	(mmalloc, mrealloc, mcalloc): Document as only calls in GDB
@@ -7402,7 +7402,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	(xmcalloc, xmfree): New functions. Copy old xcalloc and xfree
 	function bodies to here.
 	(xcalloc, xfree): Call xmcalloc and xmfree respectfully.
-	
+
 2001-03-23  Andrew Cagney  <ac131313@redhat.com>
 
 	* fork-child.c (fork_inferior): Make ``argv'', ``exec_file'' and
@@ -7410,7 +7410,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 
 	* jv-lang.c (java_link_class_type): Initialize ``field'' and
 	``method''.
-	
+
 	* jv-valprint.c (java_value_print): Initialize ``next_element''.
 
 2001-03-23  Mark Kettenis  <kettenis@gnu.org>
@@ -7489,7 +7489,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 
 	* ia64-tdep.c (fetch_instruction): Warn about slot numbers greater
 	than two instead of generating an error.
-	
+
 2001-03-21  Jim Blandy  <jimb@redhat.com>
 
 	* cp-valprint.c: Reformat to bring into line with GNU coding
@@ -7553,12 +7553,12 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	* config/rs6000/tm-rs6000.h (rs6000_software_single_step): Ditto.
 	* config/sparc/tm-sparc.h (sparc_software_single_step): Ditto.
 	* rs6000-tdep.c (rs6000_software_single_step): Update.
-	
+
 2001-03-20  Andrew Cagney  <ac131313@redhat.com>
 
 	* frame.h (SIZEOF_FRAME_SAVED_REGS): Report an error if macro
 	already defined.
-	
+
 	From 2000-08-25 Stephane Carrez <Stephane.Carrez@worldnet.fr>:
         * stabsread.c (define_symbol): A parameter ('R'), a local ('r'),
         or a reference ('a') can be in a pseudo register.
@@ -7629,7 +7629,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 2001-03-20  Jim Blandy  <jimb@redhat.com>
 
 	Fix from Dan Berlin:
-	
+
 	* Makefile.in: Clean up dependencies on ../include/demangle.h.
 	(demangle_h): New variable.
 	(jv-typeprint.o, jv-valprint.o, linespec.o): Use it.
@@ -7658,7 +7658,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 2001-03-20  Jim Blandy  <jimb@redhat.com>
 
 	Fix from Dan Berlin:
-	
+
 	* linespec.c (find_methods): Just call CHECK_TYPEDEF on t, rather
 	than asking for sym_class's type; that's circuitous.  Remove
 	sym_class, since the last use of it is gone.
@@ -7749,7 +7749,7 @@ Wed Apr  4 21:48:42 2001  Christopher Faylor <cgf@cygnus.com>
 	From Mon Nov 20 13:59:29 2000 Andrew Cagney <cagney@b1.cygnus.com>:
 	* valops.c (hand_function_call): Simplify computation of the
 	address of the pushed argument.
- 
+
 2001-03-17  Andrew Cagney  <ac131313@redhat.com>
 
 	* p-exp.y (parse_number): Avoid shift overflow when ``long''.
@@ -8490,7 +8490,7 @@ Mon Mar  5 11:56:09 2001  Christopher Faylor <cgf@cygnus.com>
 	* gdbtypes.h (builtin_type_f_integer): Removed duplicate declaration.
 	(MAX_OF_TYPE): Wrap macro definition in parenthesis.
 	(MIN_OF_TYPE): Likewise.
-	
+
 	* memattr.h (mem_access_mode): Removed extraneous trailing comma.
 
 2001-03-01  Andrew Cagney  <ac131313@redhat.com>
@@ -8519,7 +8519,7 @@ Mon Mar  5 11:56:09 2001  Christopher Faylor <cgf@cygnus.com>
 	* printcmd.c (print_address_numeric): Update comments to refer
 	to sizeof addr, not sizeof pointer.
 	(x_command): Remove needless whitespace (shorten long line).
-	
+
 	* breakpoint.c (print_one_breakpoint): Formatting clean-up.
 	(read_memory_nobpt): Ditto.
 	(ep_is_catchpoint): Ditto.
@@ -8536,7 +8536,7 @@ Tue Feb 27 23:56:23 2001  Andrew Cagney  <ac131313@redhat.com>
 
 	From Steven Johnson:
 	* regcache.h: New file.
-	
+
 	* value.h (read_register_bytes, read_register_gen)
 	(write_register_gen, write_register_bytes)
 	(read_register, read_register_pid)
@@ -8555,7 +8555,7 @@ Tue Feb 27 23:56:23 2001  Andrew Cagney  <ac131313@redhat.com>
 	write_sp, generic_target_read_fp, read_fp,
 	generic_target_write_fp, write_fp): Add note that these functions
 	will be moved from this file.
-	
+
 	* a29k-tdep.c: Include "regcache.h".
 	* a68v-nat.c: Ditto.
 	* abug-rom.c: Ditto.
@@ -8704,8 +8704,8 @@ Tue Feb 27 23:56:23 2001  Andrew Cagney  <ac131313@redhat.com>
 	* wince.c: Ditto.
 	* z8k-tdep.c: Ditto.
 
-2001-02-28  Matt Hiller  <hiller@redhat.com>	
-	
+2001-02-28  Matt Hiller  <hiller@redhat.com>
+
 	* MAINTAINERS: Add Matt Hiller to Write After Approval list.
 
 2001-02-27  Matt Hiller  <hiller@redhat.com>
@@ -8727,7 +8727,7 @@ Tue Feb 27 16:56:13 2001  David Taylor  <taylor@redhat.com>
 
 	From 2000-03-17 Jakub Jelinek <jakub@redhat.com>:
 	* config/sparc/tm-sp64linux.h: New file.
-	
+
 2001-02-24  Kevin Buettner  <kevinb@redhat.com>
 
 	* buildsym.c (push_subfile, pop_subfile): Replace call to abort()
@@ -8784,7 +8784,7 @@ Tue Feb 27 16:56:13 2001  David Taylor  <taylor@redhat.com>
 
 	* CONTRIBUTE: Mention that patches do not need to include the
 	generated files gdbarch.h and gdbarch.c.
-	
+
 2001-02-21  Andrew Cagney  <ac131313@redhat.com>
 
 	* value.h (get_saved_register): Move from here.
@@ -8818,7 +8818,7 @@ Tue Feb 27 16:56:13 2001  David Taylor  <taylor@redhat.com>
 	config/ia64/xm-aix.h: New files.
 	* ia64-tdep.c (_initialize_ia64_tdep): Remove declaration.
 	(ia64_aix_sigcontext_register_address): New declaration.
-	(ia64_gdbarch_init): Provide for initialization of 
+	(ia64_gdbarch_init): Provide for initialization of
 	sigcontext_register_address member of struct tdep when
 	on target is detected to be running AIX.
 	* config/ia64/linux.mt (TDEPFILES): Add ia64-aix-tdep.o to
@@ -8857,10 +8857,10 @@ Tue Feb 27 16:56:13 2001  David Taylor  <taylor@redhat.com>
 	(COMMON_OBS): Add frame.o .
 	(frame.o): New target.
 
-	* frame.c (find_saved_register): 
-	(default_get_saved_register): 
-	(get_saved_register): 
-	(read_relative_register_raw_bytes_for_frame): 
+	* frame.c (find_saved_register):
+	(default_get_saved_register):
+	(get_saved_register):
+	(read_relative_register_raw_bytes_for_frame):
 	(read_relative_register_raw_bytes): Moved to here.
 	* regcache.c: From here.
 
@@ -8877,8 +8877,8 @@ Tue Feb 27 16:56:13 2001  David Taylor  <taylor@redhat.com>
 	extract_signed_integer() should be called instead of
 	extract_address().
 
-2001-02-20  Martin M. Hunt  <hunt@redhat.com>	
-	
+2001-02-20  Martin M. Hunt  <hunt@redhat.com>
+
 	* MAINTAINERS: Add Martin Hunt to Write After Approval list.
 
 2001-02-19  Andrew Cagney  <ac131313@redhat.com>
@@ -8889,7 +8889,7 @@ Tue Feb 27 16:56:13 2001  David Taylor  <taylor@redhat.com>
 
 2001-02-19  Michael Snyder  <msnyder@mvstp600e.cygnus.com>
 
-	* parse.c (write_exp_msymbol): Make the type CORE_ADDR, to 
+	* parse.c (write_exp_msymbol): Make the type CORE_ADDR, to
 	accomodate 64-bit addresses.
 
 2001-02-19  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
@@ -8981,14 +8981,14 @@ Tue Feb 27 16:56:13 2001  David Taylor  <taylor@redhat.com>
 
 2001-02-16  Michael Snyder  <msnyder@mvstp600e.cygnus.com>
 
-	* remote.c (build_remote_gdbarch_data): Use new TARGET_ADDR_BIT 
+	* remote.c (build_remote_gdbarch_data): Use new TARGET_ADDR_BIT
 	instead of TARGET_PTR_BIT (to support Harvard architectures).
 
 2001-02-16  Andrew Cagney  <ac131313@redhat.com>
 
 	From 2001-02-11 Paul Hilfinger <hilfingr@lisbon.int.act-europe.fr>
-	* hpux-thread.c (hpux_thread_xfer_memory): Add mem_attrib 
-	argument to parameter list and to call in order to conform to 
+	* hpux-thread.c (hpux_thread_xfer_memory): Add mem_attrib
+	argument to parameter list and to call in order to conform to
 	to_xfer_memory field of struct target_ops.
 
 2001-02-12  Michael Chastain  <chastain@redhat.com>
@@ -9182,7 +9182,7 @@ Wed Feb  7 19:41:21 2001  Andrew Cagney  <cagney@redhat.com>
 	* gdb_assert.h: Ditto.
 	* gdbarch.sh: Ditto.
 	* gdbarch.h, gdbarch.c: Re-generate.
-	
+
 2001-02-07  Andrew Cagney  <ac131313@redhat.com>
 
 	From Mark Kettenis <kettenis@gnu.org>:
@@ -9227,16 +9227,16 @@ Wed Feb  7 19:41:21 2001  Andrew Cagney  <cagney@redhat.com>
  	gdbarch_data.
 	(init_gdbarch_data): Use set_gdbarch_data.
 	(set_gdbarch_data): New function.
-	
+
 	* gdbarch.h, gdbarch.c: Re-generate.
-	
+
 2001-02-06  Michael Sokolov  <msokolov@ivan.Harhan.ORG>
 
 	* ser-unix.c (hardware_print_tty_state) [HAVE_SGTTY]: Call
 	fprintf_filtered with correct arguments.
 
 2001-02-06  Michael Snyder  <msnyder@makita.cygnus.com>
-	Submitted by Paul Hilfinger (hilfingr@gnat.com) 
+	Submitted by Paul Hilfinger (hilfingr@gnat.com)
 	and Andrei Petrov (and@genesyslab.com).
 	* findvar.c: Buffers of size MAX_REGISTER_RAW_SIZE or REGISTER_BYTES
 	must be allocated dynamically, since these are no longer constants.
@@ -9340,7 +9340,7 @@ Tue Feb  6 11:58:57 2001  David Taylor  <taylor@redhat.com>
 
 2001-02-02  John Moore  <jmoore@redhat.com>
 
-	* remote-utils.h (sr_set_device): Changed free() to xfree() where 
+	* remote-utils.h (sr_set_device): Changed free() to xfree() where
 	appropriate.  Also changed Copyright to include 2001.
 	* symtab.h (obstack_chunk_free, SYMBOL_INIT_DEMANGLED_NAME): Likewise.
 	* value.h (value_free): Likewise.
@@ -9349,7 +9349,7 @@ Tue Feb  6 11:58:57 2001  David Taylor  <taylor@redhat.com>
 
 2001-02-02  John Moore  <jmoore@redhat.com>
 
-        * cli/cli-cmds.c (apropos_command): Changed occurance of free() to 
+        * cli/cli-cmds.c (apropos_command): Changed occurance of free() to
 	xfree().  Also changed Copyright to include 2001.
 
 2001-02-02  J.T. Conklin  <jtc@redback.com>
@@ -9404,7 +9404,7 @@ Tue Jan 30 15:43:08 2001  Andrew Cagney  <cagney@cygnus.com>
 	* utils.c (putchar_filtered): To here.
 	* cli/cli-utils.h (putchar_filtered): Move declaration from here.
 	* defs.h (putchar_filtered): To here.
-	
+
 Tue Jan 30 17:27:11 2001  Andrew Cagney  <cagney@redhat.com>
 
 	* configure.in (AC_CHECK_FUNCS): Replace vfork test with
@@ -9414,7 +9414,7 @@ Tue Jan 30 17:27:11 2001  Andrew Cagney  <cagney@redhat.com>
 	* gdb_vfork.h: New file.
 	* ser-pipe.c (pipe_open): Update. Include "gdb_vfork.h".
 	* fork-child.c (fork_inferior): Ditto.
-	
+
 Tue Jan 30 17:09:07 2001  Andrew Cagney  <cagney@redhat.com>
 
 	* defs.h (strsave): Delete declaration.
@@ -9510,18 +9510,18 @@ Tue Jan 30 15:14:26 2001  Andrew Cagney  <cagney@skil>
 	symbol_file_command().
 	(reopen_exec_file): Call exec_open() instead of exec_file_command().
 	* infcmd.c: Include "symfile.h".
-	(attach_command): Call symbol_file_add_main() instead of 
+	(attach_command): Call symbol_file_add_main() instead of
         symbol_file_command().
 	* infrun.c: Remove comment about the inclusion of "symfile.h",
 	not any longer appropriate.
-	(follow_exec): Call symbol_file_add_main() instead of 
+	(follow_exec): Call symbol_file_add_main() instead of
         symbol_file_command().
 	* remote-es.c: Include "symfile.h".
-	(es1800_load): Call symbol_file_add_main() instead of 
+	(es1800_load): Call symbol_file_add_main() instead of
         symbol_file_command().
 	* remote-vx.c: Remove comment about the inclusion of "symfile.h",
         not any longer appropriate.
-	(vx-wait): Call symbol_file_add_main() instead of 
+	(vx-wait): Call symbol_file_add_main() instead of
         symbol_file_command().
 	* solib-svr4.c (open_symbol_file_object): Call symbol_file_add_main()
 	instead of symbol_file_command().
@@ -9629,7 +9629,7 @@ Tue Jan 30 15:14:26 2001  Andrew Cagney  <cagney@skil>
 	* wince.c (_initialize_inftarg): Removed call to set_dcache_state.
 	* dcache.h (set_dcache_state): Removed declaration.
 	* dcache.c (set_dcache_state): Removed definition
-	
+
 	* dcache.c: Update module comment, as dcache is now enabled and
  	disabled with memory region attributes instead of by the global
  	variable "remotecache".  Add comment describing the interaction
@@ -9645,7 +9645,7 @@ Tue Jan 30 15:14:26 2001  Andrew Cagney  <cagney@skil>
 	cache lines containing data from those memory regions.
 	(dcache_invalidate): Updated.
 	(dcache_xfer_memory): Updated.
-	
+
 	(dcache_alloc): Don't abort() if dcache_enabled_p is clear.
 	(dcache_xfer_memory): Removed code that called do_xfer_memory() to
  	perform a uncached transfer if dcache_enabled_p was clear.  This
@@ -9670,7 +9670,7 @@ Tue Jan 30 15:14:26 2001  Andrew Cagney  <cagney@skil>
 	* config/tic80/tic80.mt (GDBSERVER_LIBS): Likewise.
 	* gdbserver/low-sim.c (#include "defs.h"): Removed.
 	(mygeneric_load): Rename from generic_load.
-	
+
 	* gdbserver/low-hppabsd.c (#include "server.h"): Added.
 	(#include "defs.h"): Removed.
 	(inferior_pid, perror_with_name): Remove declarations.
@@ -9708,7 +9708,7 @@ Tue Jan 30 15:14:26 2001  Andrew Cagney  <cagney@skil>
         * config/sparc/nbsd.mt: Likewise.
         * config/sparc/nbsdelf.mt: Likewise.
         * config/i386/nbsd.mh: Add solib.o, solib-svr4.o to NATDEPFILES.
-        * config/i386/nbsdelf.mh: Likewise. 
+        * config/i386/nbsdelf.mh: Likewise.
         * config/m68k/nbsd.mh: Likewise.
         * config/ns32k/nbsd.mh: Likewise.
         * config/powerpc/nbsd.mh: Likewise.
@@ -9809,7 +9809,7 @@ Fri Jan 12 18:29:46 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* infcmd.c (print_return_value): Restore space lost by switch to
  	UIOUT. ``$NN='' should be ``$NN =''.
-	
+
 2001-01-08  Nicholas Duffek  <nsd@redhat.com>
 
 	* regcache.c (set_register_cached, register_buffer,
@@ -9884,7 +9884,7 @@ Fri Jan 12 18:29:46 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 	non-float types.
 	* sparc-tdep.c (sparc_frame_chain): Fix typo in comment.
 	Update copyright notice.
-	
+
 For older changes see ChangeLog-2000
 
 Local Variables:

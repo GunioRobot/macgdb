@@ -196,7 +196,7 @@ som_symtab_read (bfd *abfd, struct objfile *objfile,
 	         the nasty habit of placing section symbols from the literal
 	         subspaces in the middle of the program's text.  Filter
 	         those out as best we can.  Check for first and last character
-	         being '$'. 
+	         being '$'.
 
 	         And finally, the newer HP compilers emit crud like $PIC_foo$N
 	         in some circumstance (PIC code I guess).  It's also claimed
@@ -286,7 +286,7 @@ som_symtab_read (bfd *abfd, struct objfile *objfile,
 }
 
 /* Scan and build partial symbols for a symbol file.
-   We have been initialized by a call to som_symfile_init, which 
+   We have been initialized by a call to som_symfile_init, which
    currently does nothing.
 
    SECTION_OFFSETS is a set of offsets to apply to relocate the symbols
@@ -323,7 +323,7 @@ som_symfile_read (struct objfile *objfile, int mainline)
   init_minimal_symbol_collection ();
   back_to = make_cleanup_discard_minimal_symbols ();
 
-  /* Process the normal SOM symbol table first. 
+  /* Process the normal SOM symbol table first.
      This reads in the DNTT and string table, but doesn't
      actually scan the DNTT. It does scan the linker symbol
      table and thus build up a "minimal symbol table". */
@@ -331,7 +331,7 @@ som_symfile_read (struct objfile *objfile, int mainline)
   som_symtab_read (abfd, objfile, objfile->section_offsets);
 
   /* Install any minimal symbols that have been collected as the current
-     minimal symbols for this objfile. 
+     minimal symbols for this objfile.
      Further symbol-reading is done incrementally, file-by-file,
      in a step known as "psymtab-to-symtab" expansion. hp-symtab-read.c
      contains the code to do the actual DNTT scanning and symtab building. */
@@ -394,7 +394,7 @@ som_symfile_offsets (struct objfile *objfile, struct section_addr_info *addrs)
 
   objfile->num_sections = bfd_count_sections (objfile->obfd);
   objfile->section_offsets = (struct section_offsets *)
-    obstack_alloc (&objfile->objfile_obstack, 
+    obstack_alloc (&objfile->objfile_obstack,
 		   SIZEOF_N_SECTION_OFFSETS (objfile->num_sections));
 
   /* FIXME: ezannoni 2000-04-20 The section names in SOM are not

@@ -67,7 +67,7 @@
 	* gdb.base/pie-support.exp: Pass "quiet" flag to gdb_compile.
 
 2009-09-26  Pierre Muller  <muller@ics.u-strasbg.fr>
-	
+
 	New test for two watchpoints, with disabling of
 	the first inserted.
 	* testsuite/gdb.base/watchpoints.c: New file.
@@ -236,7 +236,7 @@
 
 	* gdb.cp/cpcompletion.exp (test_class_complete): New procedure.
 	Add two new C++ completer tests which limit the output to a
-	given class. 
+	given class.
 
 2009-08-24  Michael Snyder  <msnyder@vmware.com>
 
@@ -508,8 +508,8 @@
 2009-06-30  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	gdb/10275
-	* gdb.dwarf2/dw2-restore.{S,exp}: New test.	
-	
+	* gdb.dwarf2/dw2-restore.{S,exp}: New test.
+
 2009-06-30  Daniel Jacobowitz  <dan@codesourcery.com>
 
 	* gdb.opt/inline-locals.exp: Remove XFAIL with duplicated arg1.
@@ -791,7 +791,7 @@
 2009-05-11  Doug Evans  <dje@sebabeach.org>
 
 	* gdb.mi/nsintrall.c (main): Fix off-by-one error.
-	* gdb.threads/pending-step.c (main): Fix off-by-one error. 
+	* gdb.threads/pending-step.c (main): Fix off-by-one error.
 	* gdb.threads/schedlock.c (main): Fix off-by-one error.
 
 2009-05-11  Jan Kratochvil  <jan.kratochvil@redhat.com>

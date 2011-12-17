@@ -40,7 +40,7 @@
 
 /* Function to display source in the source window.  */
 enum tui_status
-tui_set_source_content (struct symtab *s, 
+tui_set_source_content (struct symtab *s,
 			int line_no,
 			int noerror)
 {
@@ -155,7 +155,7 @@ tui_set_source_content (struct symtab *s,
 			  i = strlen (src_line) - 1;
 			  do
 			    {
-			      if ((c != '\n') && (c != '\r') 
+			      if ((c != '\n') && (c != '\r')
 				  && (++i < threshold))
 				{
 				  if (c < 040 && c != '\t')
@@ -196,18 +196,18 @@ tui_set_source_content (struct symtab *s,
 				  while (c != EOF && c != '\n' && c != '\r')
 				    c = fgetc (stream);
 				  /* Handle non-'\n' end-of-line.  */
-				  if (c == '\r' 
-				      && (c = fgetc (stream)) != '\n' 
+				  if (c == '\r'
+				      && (c = fgetc (stream)) != '\n'
 				      && c != EOF)
 				    {
 				       ungetc (c, stream);
 				       c = '\r';
 				    }
-				  
+
 				}
 			    }
-			  while (c != EOF && c != '\n' && c != '\r' 
-				 && i < threshold 
+			  while (c != EOF && c != '\n' && c != '\r'
+				 && i < threshold
 				 && (c = fgetc (stream)));
 			}
 		      /* Now copy the line taking the offset into
@@ -243,7 +243,7 @@ tui_set_source_content (struct symtab *s,
    source files cannot be accessed.  */
 
 void
-tui_set_source_content_nil (struct tui_win_info *win_info, 
+tui_set_source_content_nil (struct tui_win_info *win_info,
 			    char *warning_string)
 {
   int line_width;
@@ -314,7 +314,7 @@ tui_set_source_content_nil (struct tui_win_info *win_info,
    initializes the horizontal scroll to 0.  */
 void
 tui_show_symtab_source (struct gdbarch *gdbarch, struct symtab *s,
-			struct tui_line_or_address line, 
+			struct tui_line_or_address line,
 			int noerror)
 {
   TUI_SRC_WIN->detail.source_info.horizontal_offset = 0;
@@ -327,7 +327,7 @@ tui_show_symtab_source (struct gdbarch *gdbarch, struct symtab *s,
 int
 tui_source_is_displayed (char *fname)
 {
-  return (TUI_SRC_WIN->generic.content_in_use 
+  return (TUI_SRC_WIN->generic.content_in_use
 	  && (strcmp (((struct tui_win_element *) (tui_locator_win_info_ptr ())->
 		       content[0])->which_element.locator.file_name, fname) == 0));
 }

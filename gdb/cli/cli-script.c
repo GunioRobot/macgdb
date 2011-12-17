@@ -39,7 +39,7 @@
 /* Prototypes for local functions */
 
 static enum command_control_type
-recurse_read_control_structure (char * (*read_next_line_func) (), 
+recurse_read_control_structure (char * (*read_next_line_func) (),
 				struct command_line *current_cmd);
 
 static char *insert_args (char *line);
@@ -283,7 +283,7 @@ execute_cmd_post_hook (struct cmd_list_element *c)
 /* Execute the command in CMD.  */
 static void
 do_restore_user_call_depth (void * call_depth)
-{	
+{
   int * depth = call_depth;
   (*depth)--;
   if ((*depth) == 0)
@@ -985,14 +985,14 @@ process_next_line (char *p, struct command_line **command, int parse_commands)
   return ok_command;
 }
 
-/* Recursively read in the control structures and create a command_line 
+/* Recursively read in the control structures and create a command_line
    structure from them.  Use read_next_line_func to obtain lines of
    the command.
 
 */
 
 static enum command_control_type
-recurse_read_control_structure (char * (*read_next_line_func) (), 
+recurse_read_control_structure (char * (*read_next_line_func) (),
 				struct command_line *current_cmd)
 {
   int current_body, i;
@@ -1017,7 +1017,7 @@ recurse_read_control_structure (char * (*read_next_line_func) (),
       dont_repeat ();
 
       next = NULL;
-      val = process_next_line (read_next_line_func (), &next, 
+      val = process_next_line (read_next_line_func (), &next,
 			       current_cmd->control_type != python_control);
 
       /* Just skip blanks and comments.  */
@@ -1342,7 +1342,7 @@ user_defined_command (char *ignore, int from_tty)
 void
 define_command (char *comname, int from_tty)
 {
-#define MAX_TMPBUF 128   
+#define MAX_TMPBUF 128
   enum cmd_hook_type
     {
       CMD_NO_HOOK = 0,
@@ -1355,7 +1355,7 @@ define_command (char *comname, int from_tty)
   char tmpbuf[MAX_TMPBUF];
   int  hook_type      = CMD_NO_HOOK;
   int  hook_name_size = 0;
-   
+
 #define	HOOK_STRING	"hook-"
 #define	HOOK_LEN 5
 #define HOOK_POST_STRING "hookpost-"
@@ -1395,7 +1395,7 @@ define_command (char *comname, int from_tty)
       hook_type      = CMD_POST_HOOK;
       hook_name_size = HOOK_POST_LEN;
     }
-   
+
   if (hook_type != CMD_NO_HOOK)
     {
       /* Look up cmd it hooks, and verify that we got an exact match.  */

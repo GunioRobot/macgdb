@@ -10,7 +10,7 @@
 # serial 8
 
 # Based on depend.m4 from automake 1.9, modified for standalone use in
-# an environment where GNU make is required. 
+# an environment where GNU make is required.
 
 # ZW_PROG_COMPILER_DEPENDENCIES
 # -----------------------------

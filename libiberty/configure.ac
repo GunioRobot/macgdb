@@ -499,16 +499,16 @@ if test -n "${with_target_subdir}"; then
   [  --enable-install-libiberty       Install headers for end users],
   enable_install_libiberty=$enableval,
   enable_install_libiberty=no)dnl
-  
+
   # Option parsed, now set things appropriately.
   case x"$enable_install_libiberty" in
     xyes|x)
       target_header_dir=libiberty
       ;;
-    xno)   
+    xno)
       target_header_dir=
       ;;
-    *) 
+    *)
       # This could be sanity-checked in various ways...
       target_header_dir="${enable_install_libiberty}"
       ;;
@@ -591,19 +591,19 @@ if test -z "${setobjs}"; then
     ;;
 
   *-*-uwin*)
-    # Under some versions of uwin, vfork is notoriously buggy and the test 
+    # Under some versions of uwin, vfork is notoriously buggy and the test
     # can hang configure; on other versions, vfork exists just as a stub.
     # FIXME: This should be removed once vfork in uwin's runtime is fixed.
     ac_cv_func_vfork_works=no
     # Under uwin 2.0+, sys_nerr and sys_errlist exist, but they are
-    # macros (actually, these are imported from a DLL, but the end effect 
+    # macros (actually, these are imported from a DLL, but the end effect
     # is the same), so the test below won't find them.
     libiberty_cv_var_sys_nerr=yes
     libiberty_cv_var_sys_errlist=yes
     ;;
 
   *-*-*vms*)
-    # Under VMS, vfork works very different than on Unix. The standard test 
+    # Under VMS, vfork works very different than on Unix. The standard test
     # won't work, and it isn't easily adaptable. It makes more sense to
     # just force it.
     ac_cv_func_vfork_works=yes

@@ -34,5 +34,5 @@ gdb_start
 gdb_test "source ${srcdir}/${subdir}/source-error.gdb" \
     "source-error.gdb:22: Error in sourced command file:\[\r\n\]*Cannot access memory at address 0x0.*" \
     "script contains error"
-    
+
 gdb_exit

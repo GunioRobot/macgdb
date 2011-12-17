@@ -8,7 +8,7 @@ int w;
 
 int main ()
 {
-   
+
 #ifdef usestubs
     set_debug_traps();
     breakpoint();
@@ -20,6 +20,6 @@ int main ()
     w = 2;
 
     return 0;
-    
+
 }
 

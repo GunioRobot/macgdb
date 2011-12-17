@@ -256,7 +256,7 @@ do_setshow_command (char *arg, int from_tty, struct cmd_list_element *c)
 		msg = xmalloc (msg_len);
 		*msg = '\0';
 		make_cleanup (xfree, msg);
-		
+
 		for (i = 0; c->enums[i]; i++)
 		  {
 		    if (i != 0)

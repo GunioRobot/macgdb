@@ -126,7 +126,7 @@ gdb_expect {
     timeout { fail "(timeout) set var foo.cloth" }
 }
 
-# Now print out anon union again to see if the right member was set 
+# Now print out anon union again to see if the right member was set
 send_gdb "print foo\n"
 gdb_expect {
    -re "\\$\[0-9\]* = \{num1 = \{zero = 0, one = 0\}, \{pebble = 0, x = \{rock = 0, rock2 = 0\}, \{qux = 0, mux = 0\}, boulder = 0\}, \{paper = 35, cloth = 35\}, num2 = \{two = 0, three = 0\}\}\r\n$gdb_prompt $" {
@@ -148,7 +148,7 @@ gdb_expect {
     timeout { fail "(timeout) next 2" }
 }
 
-# Now print out anon union again 
+# Now print out anon union again
 send_gdb "print foo\n"
 gdb_expect {
    -re "\\$\[0-9\]* = \{num1 = \{zero = 0, one = 0\}, \{pebble = 44, x = \{rock = 44, rock2 = 0\}, \{qux = 44, mux = 44\}, boulder = 44\}, \{paper = 35, cloth = 35\}, num2 = \{two = 0, three = 0\}\}\r\n$gdb_prompt $" {
@@ -167,7 +167,7 @@ gdb_expect {
     timeout { fail "(timeout) set var foo.pebble" }
 }
 
-# Now print out anon union again to see if the right member was set 
+# Now print out anon union again to see if the right member was set
 send_gdb "print foo\n"
 gdb_expect {
    -re "\\$\[0-9\]* = \{num1 = \{zero = 0, one = 0\}, \{pebble = 45, x = \{rock = 45, rock2 = 0\}, \{qux = 45, mux = 45\}, boulder = 45\}, \{paper = 35, cloth = 35\}, num2 = \{two = 0, three = 0\}\}\r\n$gdb_prompt $" {
@@ -186,7 +186,7 @@ gdb_expect {
     timeout { fail "(timeout) set var foo.qux" }
 }
 
-# Now print out anon union again to see if the right member was set 
+# Now print out anon union again to see if the right member was set
 send_gdb "print foo\n"
 gdb_expect {
    -re "\\$\[0-9\]* = \{num1 = \{zero = 0, one = 0\}, \{pebble = 46, x = \{rock = 46, rock2 = 0\}, \{qux = 46, mux = 46\}, boulder = 46\}, \{paper = 35, cloth = 35\}, num2 = \{two = 0, three = 0\}\}\r\n$gdb_prompt $" {
@@ -315,7 +315,7 @@ gdb_expect {
     timeout { fail "(timeout) print z 2" }
 }
 
-# Set the anon union member 
+# Set the anon union member
 send_gdb "set var z = 27\n"
 gdb_expect {
    -re "\r\n$gdb_prompt $" {

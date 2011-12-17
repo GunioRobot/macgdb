@@ -4,8 +4,8 @@
 # as(h8300h):	--defsym sim_cpu=1
 # as(h8300s):	--defsym sim_cpu=2
 # as(h8sx):	--defsym sim_cpu=3
-# ld(h8300h):	-m h8300helf	
-# ld(h8300s):	-m h8300self	
+# ld(h8300h):	-m h8300helf
+# ld(h8300s):	-m h8300self
 # ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
@@ -17,13 +17,13 @@
 	# bset xx:3, @erd	; 7 d 0rd ????      7 0 ?xxx ????
 	# bclr xx:3, @erd	; 7 d 0rd ????      7 2 ?xxx ????
 	# bset xx:3, @abs16	; 6 a 1 1??? aa:16  7 0 ?xxx ????
-	# bclr xx:3, @abs16	; 6 a 1 1??? aa:16  7 2 ?xxx ???? 
+	# bclr xx:3, @abs16	; 6 a 1 1??? aa:16  7 2 ?xxx ????
 	# bset reg8, rd8	;                   6 0 rs8  rd8
 	# bclr reg8, rd8	;                   6 2 rs8  rd8
 	# bset reg8, @erd	; 7 d 0rd ????      6 0 rs8  ????
 	# bclr reg8, @erd	; 7 d 0rd ????      6 2 rs8  ????
 	# bset reg8, @abs32	; 6 a 3 1??? aa:32  6 0 rs8  ????
-	# bclr reg8, @abs32	; 6 a 3 1??? aa:32  6 2 rs8  ???? 
+	# bclr reg8, @abs32	; 6 a 3 1??? aa:32  6 2 rs8  ????
 	#
 	# bset/eq xx:3, rd8
 	# bclr/eq xx:3, rd8
@@ -86,7 +86,7 @@ bset_imm3_reg8:
 	test_h_gr32  0xa5a5a5ff er1
 .endif
 
-bclr_imm3_reg8:	
+bclr_imm3_reg8:
 	set_ccr_zero
 	bclr	#7, r1l
 	test_cc_clear
@@ -200,7 +200,7 @@ bset_imm3_ind:
 	test_h_gr32  0xa5a5a5ff er2
 .endif
 
-bclr_imm3_ind:	
+bclr_imm3_ind:
 	set_ccr_zero
 	bclr	#7, @er1
 	test_cc_clear
@@ -322,7 +322,7 @@ bset_imm3_abs16:
 	test_h_gr32  0xa5a5a5ff er2
 .endif
 
-bclr_imm3_abs16:	
+bclr_imm3_abs16:
 	set_ccr_zero
 	bclr	#7, @byte_dst:16
 	test_cc_clear
@@ -445,7 +445,7 @@ bset_rs8_rd8:
 	test_h_gr32  0xa5a507ff er1
 .endif
 
-bclr_rs8_rd8:	
+bclr_rs8_rd8:
 	mov	#7, r1h
 	set_ccr_zero
 	bclr	r1h, r1l
@@ -575,7 +575,7 @@ bset_rs8_ind:
 	test_h_gr32  0xa5a507ff er2
 .endif
 
-bclr_rs8_ind:	
+bclr_rs8_ind:
 	mov	#7, r2h
 	set_ccr_zero
 	bclr	r2h, @er1
@@ -713,7 +713,7 @@ bset_rs8_abs32:
 	test_h_gr32  0xa5a507ff er2
 .endif
 
-bclr_rs8_abs32:	
+bclr_rs8_abs32:
 	mov	#7, r2h
 	set_ccr_zero
 	bclr	r2h, @byte_dst:32

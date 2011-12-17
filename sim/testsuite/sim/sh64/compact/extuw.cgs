@@ -12,7 +12,7 @@ extuw:
 	mov #42, r1
 	extu.w r1, r2
 	assert r2, #42
-	
+
 another:
 	mov #0, r0
 	or #255, r0

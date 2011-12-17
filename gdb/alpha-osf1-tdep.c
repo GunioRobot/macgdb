@@ -40,7 +40,7 @@ alpha_osf1_sigcontext_addr (struct frame_info *this_frame)
   enum bfd_endian byte_order = gdbarch_byte_order (gdbarch);
   struct frame_info *next_frame = get_next_frame (this_frame);
   struct frame_id next_id = null_frame_id;
-  
+
   if (next_frame != NULL)
     next_id = get_frame_id (next_frame);
 

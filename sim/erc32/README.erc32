@@ -14,8 +14,8 @@ The following registers are implemeted:
 - UART B RX and TX register	(0x01f800e4)
 - UART status register		(0x01f800e8)
 
-To speed up simulation, the UARTs operate at approximately 115200 baud. 
-The UARTs generate interrupt 4 and 5 after each received or transmitted 
+To speed up simulation, the UARTs operate at approximately 115200 baud.
+The UARTs generate interrupt 4 and 5 after each received or transmitted
 character.  The error interrupt is generated if overflow occurs - other
 errors cannot occure.
 
@@ -38,7 +38,7 @@ The following registers are implemeted:
 The interrupt controller is implemented as in the MEC specification with
 the exception of the interrupt shape register. Since external interrupts
 are not possible, the interrupt shape register is not implemented. The
-only internal interrupts that are generated are the real-time clock, 
+only internal interrupts that are generated are the real-time clock,
 the general purpose timer and UARTs. However, all 15 interrupts
 can be tested via the interrupt force register.
 
@@ -74,16 +74,16 @@ Access to unimplemented MEC registers or non-existing memory will result
 in a memory exception trap. However, access to unimplemented MEC registers
 in the area 0x01f80000 - 0x01f80100 will not cause a memory exception trap.
 The written value will be stored in a register and can be read back. It
-does however not affect the function in any way. 
+does however not affect the function in any way.
 
 The memory configuartion register is used to define available memory
 in the system. The fields RSIZ and PSIZ are used to set RAM and ROM
-size, the remaining fields are not used.  NOTE: after reset, the MEC 
-is set to decode 4 Kbyte of ROM and 256 Kbyte of RAM. The memory 
-configuration register has to be updated to reflect the available memory. 
+size, the remaining fields are not used.  NOTE: after reset, the MEC
+is set to decode 4 Kbyte of ROM and 256 Kbyte of RAM. The memory
+configuration register has to be updated to reflect the available memory.
 
-The waitstate configuration register is used to generate waitstates. 
-This register must also be updated with the correct configuration after 
+The waitstate configuration register is used to generate waitstates.
+This register must also be updated with the correct configuration after
 reset.
 
 The memory protection scheme is implemented - it is enabled through bit 3
@@ -100,11 +100,11 @@ The following registers are implemeted:
 1.6 Watchdog
 
 The watchdog is implemented as in the specification. The input clock is
-always the system clock regardsless of WDCS bit in mec configuration 
+always the system clock regardsless of WDCS bit in mec configuration
 register.
 
 The following registers are implemeted:
- 
+
 - Watchdog program and acknowledge register	(0x01f80060, write-only)
 - Watchdog trap door set register		(0x01f80064, write-only)
 

@@ -425,7 +425,7 @@ thumb_analyze_prologue (struct gdbarch *gdbarch,
 		pv_area_store (stack, regs[ARM_SP_REGNUM], 4, regs[regno]);
 	      }
 	}
-      else if ((insn & 0xff00) == 0xb000)	/* add sp, #simm  OR  
+      else if ((insn & 0xff00) == 0xb000)	/* add sp, #simm  OR
 						   sub sp, #simm */
 	{
 	  offset = (insn & 0x7f) << 2;		/* get scaled offset */
@@ -643,8 +643,8 @@ arm_skip_prologue (struct gdbarch *gdbarch, CORE_ADDR pc)
      R7 ->       0  local variables (16 bytes)
      SP ->     -12  additional stack space (12 bytes)
    The frame size would thus be 36 bytes, and the frame offset would be
-   12 bytes.  The frame register is R7. 
-   
+   12 bytes.  The frame register is R7.
+
    The comments for thumb_skip_prolog() describe the algorithm we use
    to detect the end of the prolog.  */
 /* *INDENT-ON* */
@@ -798,16 +798,16 @@ arm_scan_prologue (struct frame_info *this_frame,
 	 may scan more than necessary.  To help compensate for this
 	 lack of accuracy, the prologue scanning loop below contains
 	 several clauses which'll cause the loop to terminate early if
-	 an implausible prologue instruction is encountered.  
-	 
+	 an implausible prologue instruction is encountered.
+
 	 The expression
-	 
+
 	      prologue_start + 64
-	    
+
 	 is a suitable endpoint since it accounts for the largest
 	 possible prologue plus up to five instructions inserted by
 	 the scheduler.  */
-         
+
       if (prologue_end > prologue_start + 64)
 	{
 	  prologue_end = prologue_start + 64;	/* See above.  */
@@ -828,7 +828,7 @@ arm_scan_prologue (struct frame_info *this_frame,
         return;
       else
         {
-          prologue_start = gdbarch_addr_bits_remove 
+          prologue_start = gdbarch_addr_bits_remove
 			     (gdbarch, return_value) - 8;
           prologue_end = prologue_start + 64;	/* See above.  */
         }
@@ -843,12 +843,12 @@ arm_scan_prologue (struct frame_info *this_frame,
      Be careful, however, and if it doesn't look like a prologue,
      don't try to scan it.  If, for instance, a frameless function
      begins with stmfd sp!, then we will tell ourselves there is
-     a frame, which will confuse stack traceback, as well as "finish" 
+     a frame, which will confuse stack traceback, as well as "finish"
      and other operations that rely on a knowledge of the stack
      traceback.
 
      In the APCS, the prologue should start with  "mov ip, sp" so
-     if we don't see this as the first insn, we will stop.  
+     if we don't see this as the first insn, we will stop.
 
      [Note: This doesn't seem to be true any longer, so it's now an
      optional part of the prologue.  - Kevin Buettner, 2001-11-20]
@@ -1750,7 +1750,7 @@ arm_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
 	  si = push_stack_item (si, val, INT_REGISTER_SIZE);
 	  nstack += INT_REGISTER_SIZE;
 	}
-      
+
       /* Doubleword aligned quantities must go in even register pairs.  */
       if (may_use_core_reg
 	  && argreg <= ARM_LAST_ARG_REGNUM
@@ -1807,7 +1807,7 @@ arm_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
 	      si = push_stack_item (si, val, INT_REGISTER_SIZE);
 	      nstack += INT_REGISTER_SIZE;
 	    }
-	      
+
 	  len -= partial_len;
 	  val += partial_len;
 	}
@@ -4669,7 +4669,7 @@ gdb_print_insn_arm (bfd_vma memaddr, disassemble_info *info)
       if (csym.native == NULL)
 	{
 	  /* Create a fake symbol vector containing a Thumb symbol.
-	     This is solely so that the code in print_insn_little_arm() 
+	     This is solely so that the code in print_insn_little_arm()
 	     and print_insn_big_arm() in opcodes/arm-dis.c will detect
 	     the presence of a Thumb symbol and switch to decoding
 	     Thumb instructions.  */
@@ -4698,12 +4698,12 @@ gdb_print_insn_arm (bfd_vma memaddr, disassemble_info *info)
 /* The following define instruction sequences that will cause ARM
    cpu's to take an undefined instruction trap.  These are used to
    signal a breakpoint to GDB.
-   
+
    The newer ARMv4T cpu's are capable of operating in ARM or Thumb
    modes.  A different instruction is required for each mode.  The ARM
    cpu's can also be big or little endian.  Thus four different
    instructions are needed to support all cases.
-   
+
    Note: ARMv4 defines several new instructions that will take the
    undefined instruction trap.  ARM7TDMI is nominally ARMv4T, but does
    not in fact add the new instructions.  The new undefined
@@ -4711,14 +4711,14 @@ gdb_print_insn_arm (bfd_vma memaddr, disassemble_info *info)
    behaviour in earlier chips.  There is no guarantee that they will
    raise an exception, but may be treated as NOP's.  In practice, it
    may only safe to rely on instructions matching:
-   
-   3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 
+
+   3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1
    1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0
    C C C C 0 1 1 x x x x x x x x x x x x x x x x x x x x 1 x x x x
-   
+
    Even this may only true if the condition predicate is true. The
    following use a condition predicate of ALWAYS so it is always TRUE.
-   
+
    There are other ways of forcing a breakpoint.  GNU/Linux, RISC iX,
    and NetBSD all use a software interrupt rather than an undefined
    instruction to force a trap.  This can be handled by by the
@@ -4824,7 +4824,7 @@ arm_extract_return_value (struct type *type, struct regcache *regs,
 	  /* By using store_unsigned_integer we avoid having to do
 	     anything special for small big-endian values.  */
 	  regcache_cooked_read_unsigned (regs, regno++, &tmp);
-	  store_unsigned_integer (valbuf, 
+	  store_unsigned_integer (valbuf,
 				  (len > INT_REGISTER_SIZE
 				   ? INT_REGISTER_SIZE : len),
 				  byte_order, tmp);
@@ -4835,7 +4835,7 @@ arm_extract_return_value (struct type *type, struct regcache *regs,
   else
     {
       /* For a structure or union the behaviour is as if the value had
-         been stored to word-aligned memory and then loaded into 
+         been stored to word-aligned memory and then loaded into
          registers with 32-bit load instruction(s).  */
       int len = TYPE_LENGTH (type);
       int regno = ARM_A1_REGNUM;
@@ -4921,7 +4921,7 @@ arm_return_in_memory (struct gdbarch *gdbarch, struct type *type)
          1) Is it FP? --> yes, nRc = 1;
          2) Is it addressable (bitpos != 0) and
          not packed (bitsize == 0)?
-         --> yes, nRc = 1  
+         --> yes, nRc = 1
        */
 
       for (i = 0; i < TYPE_NFIELDS (type); i++)
@@ -4939,7 +4939,7 @@ arm_return_in_memory (struct gdbarch *gdbarch, struct type *type)
 	  /* If bitpos != 0, then we have to care about it.  */
 	  if (TYPE_FIELD_BITPOS (type, i) != 0)
 	    {
-	      /* Bitfields are not addressable.  If the field bitsize is 
+	      /* Bitfields are not addressable.  If the field bitsize is
 	         zero, then the field is not packed.  Hence it cannot be
 	         a bitfield or any other packed type.  */
 	      if (TYPE_FIELD_BITSIZE (type, i) == 0)
@@ -4984,7 +4984,7 @@ arm_store_return_value (struct type *type, struct regcache *regs,
 	case ARM_FLOAT_VFP:
 	  regcache_cooked_write (regs, ARM_A1_REGNUM, valbuf);
 	  if (TYPE_LENGTH (type) > 4)
-	    regcache_cooked_write (regs, ARM_A1_REGNUM + 1, 
+	    regcache_cooked_write (regs, ARM_A1_REGNUM + 1,
 				   valbuf + INT_REGISTER_SIZE);
 	  break;
 
@@ -5031,7 +5031,7 @@ arm_store_return_value (struct type *type, struct regcache *regs,
   else
     {
       /* For a structure or union the behaviour is as if the value had
-         been stored to word-aligned memory and then loaded into 
+         been stored to word-aligned memory and then loaded into
          registers with 32-bit load instruction(s).  */
       int len = TYPE_LENGTH (type);
       int regno = ARM_A1_REGNUM;
@@ -5124,7 +5124,7 @@ arm_get_longjmp_target (struct frame_info *frame, CORE_ADDR *pc)
   enum bfd_endian byte_order = gdbarch_byte_order (gdbarch);
   CORE_ADDR jb_addr;
   char buf[INT_REGISTER_SIZE];
-  
+
   jb_addr = get_frame_register_unsigned (frame, ARM_A1_REGNUM);
 
   if (target_read_memory (jb_addr + tdep->jb_pc * tdep->jb_elt_size, buf,
@@ -5413,11 +5413,11 @@ coff_sym_is_thumb (int val)
 
 /* arm_coff_make_msymbol_special()
    arm_elf_make_msymbol_special()
-   
+
    These functions test whether the COFF or ELF symbol corresponds to
    an address in thumb code, and set a "special" bit in a minimal
    symbol to indicate that it does.  */
-   
+
 static void
 arm_elf_make_msymbol_special(asymbol *sym, struct minimal_symbol *msym)
 {
@@ -5665,7 +5665,7 @@ arm_elf_osabi_sniffer (bfd *abfd)
     /* GNU tools use this value.  Check note sections in this case,
        as well.  */
     bfd_map_over_sections (abfd,
-			   generic_elf_osabi_sniff_abi_tag_sections, 
+			   generic_elf_osabi_sniff_abi_tag_sections,
 			   &osabi);
 
   /* Anything else will be handled by the generic ELF sniffer.  */

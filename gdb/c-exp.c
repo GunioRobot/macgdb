@@ -189,13 +189,13 @@
 #define	yylval	c_lval
 #define	yychar	c_char
 #define	yydebug	c_debug
-#define	yypact	c_pact	
-#define	yyr1	c_r1			
-#define	yyr2	c_r2			
-#define	yydef	c_def		
-#define	yychk	c_chk		
-#define	yypgo	c_pgo		
-#define	yyact	c_act		
+#define	yypact	c_pact
+#define	yyr1	c_r1
+#define	yyr2	c_r2
+#define	yydef	c_def
+#define	yychk	c_chk
+#define	yypgo	c_pgo
+#define	yyact	c_act
 #define	yyexca	c_exca
 #define yyerrflag c_errflag
 #define yynerrs	c_nerrs
@@ -1304,7 +1304,7 @@ yyparse ()
 #endif
 #endif
 {
-  
+
   register int yystate;
   register int yyn;
   int yyresult;
@@ -2137,7 +2137,7 @@ yyreduce:
 			      if (symbol_read_needs_frame (sym))
 				{
 				  if (innermost_block == 0 ||
-				      contained_in (block_found, 
+				      contained_in (block_found,
 						    innermost_block))
 				    innermost_block = block_found;
 				}
@@ -2155,7 +2155,7 @@ yyreduce:
 			      /* C++: it hangs off of `this'.  Must
 			         not inadvertently convert from a method call
 				 to data ref.  */
-			      if (innermost_block == 0 || 
+			      if (innermost_block == 0 ||
 				  contained_in (block_found, innermost_block))
 				innermost_block = block_found;
 			      write_exp_elt_opcode (OP_THIS);
@@ -2492,7 +2492,7 @@ yyreduce:
 		  if (new_type == NULL)
 		    error ("No type \"%s\" within class or namespace \"%s\".",
 			   ncopy, TYPE_NAME (type));
-		  
+
 		  yyval.tval = new_type;
 		}
     break;
@@ -2548,7 +2548,7 @@ yyreduce:
   case 159:
 #line 1111 "c-exp.y"
     { push_type (tp_const);
-			  push_type (tp_volatile); 
+			  push_type (tp_volatile);
 			}
     break;
 
@@ -2895,18 +2895,18 @@ parse_number (char *p, int len, int parsed_float, YYSTYPE *putithere)
       p[len] = saved_char;	/* restore the input stream */
 
       if (num == 1)
-	putithere->typed_val_float.type = 
+	putithere->typed_val_float.type =
 	  parse_type->builtin_double;
 
       if (num == 2 )
 	{
-	  /* See if it has any float suffix: 'f' for float, 'l' for long 
+	  /* See if it has any float suffix: 'f' for float, 'l' for long
 	     double.  */
 	  if (!strcasecmp (s, "f"))
-	    putithere->typed_val_float.type = 
+	    putithere->typed_val_float.type =
 	      parse_type->builtin_float;
 	  else if (!strcasecmp (s, "l"))
-	    putithere->typed_val_float.type = 
+	    putithere->typed_val_float.type =
 	      parse_type->builtin_long_double;
 	  else
 	    {
@@ -2997,7 +2997,7 @@ parse_number (char *p, int len, int parsed_float, YYSTYPE *putithere)
 	 FIXME: This check is wrong; for example it doesn't find overflow
 	 on 0x123456789 when LONGEST is 32 bits.  */
       if (c != 'l' && c != 'u' && n != 0)
-	{	
+	{
 	  if ((unsigned_p && (ULONGEST) prevn >= (ULONGEST) n))
 	    error ("Numeric constant too large.");
 	}
@@ -3041,7 +3041,7 @@ parse_number (char *p, int len, int parsed_float, YYSTYPE *putithere)
   else
     {
       int shift;
-      if (sizeof (ULONGEST) * HOST_CHAR_BIT 
+      if (sizeof (ULONGEST) * HOST_CHAR_BIT
 	  < gdbarch_long_long_bit (parse_gdbarch))
 	/* A long long does not fit in a LONGEST.  */
 	shift = (sizeof (ULONGEST) * HOST_CHAR_BIT - 1);
@@ -3057,11 +3057,11 @@ parse_number (char *p, int len, int parsed_float, YYSTYPE *putithere)
    /* If the high bit of the worked out type is set then this number
       has to be unsigned. */
 
-   if (unsigned_p || (n & high_bit)) 
+   if (unsigned_p || (n & high_bit))
      {
        putithere->typed_val_int.type = unsigned_type;
      }
-   else 
+   else
      {
        putithere->typed_val_int.type = signed_type;
      }
@@ -3460,7 +3460,7 @@ scanning_macro_expansion (void)
 }
 
 
-static void 
+static void
 finished_macro_expansion (void)
 {
   /* There'd better be something to pop back to.  */
@@ -3744,12 +3744,12 @@ yylex (void)
 	 FIXME: This mishandles `print $a<4&&$a>3'.  */
 
       if (c == '<')
-	{ 
+	{
                /* Scan ahead to get rest of the template specification.  Note
                   that we look ahead only when the '<' adjoins non-whitespace
                   characters; for comparison expressions, e.g. "a < b > c",
                   there must be spaces before the '<', etc. */
-               
+
                char * p = find_template_name_end (tokstart + namelen);
                if (p)
                  namelen = p - tokstart;
@@ -3796,7 +3796,7 @@ yylex (void)
       write_dollar_variable (yylval.sval);
       return VARIABLE;
     }
-  
+
   /* Use token-type BLOCKNAME for symbols that happen to be defined as
      functions or symtabs.  If this is not so, then ...
      Use token-type TYPENAME for symbols that happen to be defined
@@ -3850,7 +3850,7 @@ yylex (void)
     /* Input names that aren't symbols but ARE valid hex numbers,
        when the input radix permits them, can be names or numbers
        depending on the parse.  Note we support radixes > 16 here.  */
-    if (!sym && 
+    if (!sym &&
         ((tokstart[0] >= 'a' && tokstart[0] < 'a' + input_radix - 10) ||
          (tokstart[0] >= 'A' && tokstart[0] < 'A' + input_radix - 10)))
       {

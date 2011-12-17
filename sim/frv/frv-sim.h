@@ -879,9 +879,9 @@ extern int insns_in_slot[];
   if (WITH_PROFILE_MODEL_P)       \
     ++insns_in_slot[slot];        \
 }
-    
+
 #define INSNS_IN_SLOT(slot) (insns_in_slot[slot])
-    
+
 /* Multiple loads and stores.  */
 void frvbf_load_multiple_GR (SIM_CPU *, PCADDR, SI, SI, int);
 void frvbf_load_multiple_FRint (SIM_CPU *, PCADDR, SI, SI, int);

@@ -104,7 +104,7 @@ struct d30v_opcode
 #define SHORT_A1      42      /* special form of SHORT_A for MACa opcodes where a=1 */
 #define SHORT_AA      44      /* SHORT_A with the first register an accumulator */
 #define SHORT_RA      46      /* SHORT_A with the second register an accumulator */
-#define SHORT_MODINC  48      
+#define SHORT_MODINC  48
 #define SHORT_MODDEC  49
 #define SHORT_C1      50
 #define SHORT_C2      51
@@ -154,7 +154,7 @@ struct d30v_opcode
 #define FLAG_JSR	(1L<<14)	/* subroutine call.  must be aligned */
 #define FLAG_MEM	(1L<<15)	/* reads/writes memory */
 #define FLAG_NOT_WITH_ADDSUBppp	 (1L<<16) /* Old meaning: a 2 word 4 byter operation
-					   New meaning: operation cannot be 
+					   New meaning: operation cannot be
 					   combined in parallel with ADD/SUBppp. */
 #define FLAG_MUL16	(1L<<17)	/* 16 bit multiply */
 #define FLAG_MUL32	(1L<<18)	/* 32 bit multiply */

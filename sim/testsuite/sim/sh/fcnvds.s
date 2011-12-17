@@ -1,4 +1,4 @@
-# sh testcase for fcnvds 
+# sh testcase for fcnvds
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 

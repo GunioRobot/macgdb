@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -49,7 +49,7 @@ print_icache_function_header(lf *file,
 		      basename,
 		      expanded_bits,
 		      function_name_prefix_icache);
-  lf_printf(file, "\n(%s)", ICACHE_FUNCTION_FORMAL); 
+  lf_printf(file, "\n(%s)", ICACHE_FUNCTION_FORMAL);
   if (!is_function_definition)
     lf_printf(file, ";");
   lf_printf(file, "\n");
@@ -215,7 +215,7 @@ print_icache_body(lf *file,
 		  icache_body_type what_to_do)
 {
   insn_field *cur_field;
-  
+
   /* extract instruction fields */
   lf_printf(file, "/* extraction: %s ",
 	    instruction->file_entry->fields[insn_format]);
@@ -246,7 +246,7 @@ print_icache_body(lf *file,
     break;
   }
   lf_printf(file, " */\n");
-  
+
   for (cur_field = instruction->fields->first;
        cur_field->first < insn_bit_size;
        cur_field = cur_field->next) {
@@ -431,12 +431,12 @@ print_icache_struct(insn_table *instructions,
 		    lf *file)
 {
   icache_tree *tree = insn_table_cache_fields(instructions);
-  
+
   lf_printf(file, "\n");
   lf_printf(file, "#define WITH_IDECODE_CACHE_SIZE %d\n",
 	    (code & generate_with_icache) ? icache_size : 0);
   lf_printf(file, "\n");
-  
+
   /* create an instruction cache if being used */
   if ((code & generate_with_icache)) {
     icache_tree *form;
@@ -464,7 +464,7 @@ print_icache_struct(insn_table *instructions,
 	    if (cache_rule->derived_name != NULL)
 	      lf_printf(file, "      %s %s; /* %s */\n",
 			(cache_rule->type_def == NULL
-			 ? "unsigned" 
+			 ? "unsigned"
 			 : cache_rule->type_def),
 			cache_rule->derived_name,
 			cache_rule->field_name);
@@ -507,16 +507,16 @@ print_icache_function(lf *file,
   lf_indent(file, +indent);
   lf_printf(file, "(%s)\n", ICACHE_FUNCTION_FORMAL);
   lf_indent(file, -indent);
-  
+
   /* function header */
   lf_printf(file, "{\n");
   lf_indent(file, +2);
-  
+
   print_my_defines(file, expanded_bits, instruction->file_entry);
   print_itrace(file, instruction->file_entry, 1/*putting-value-in-cache*/);
-  
+
   print_idecode_validate(file, instruction, opcodes);
-  
+
   lf_printf(file, "\n");
   lf_printf(file, "{\n");
   lf_indent(file, +2);
@@ -532,7 +532,7 @@ print_icache_function(lf *file,
 		    ((code & generate_with_semantic_icache)
 		     ? both_values_and_icache
 		     : put_values_in_icache));
-  
+
   lf_printf(file, "\n");
   lf_printf(file, "cache_entry->address = cia;\n");
   lf_printf(file, "cache_entry->semantic = ");
@@ -551,7 +551,7 @@ print_icache_function(lf *file,
 			opcodes);
     lf_printf(file, "return nia;\n");
   }
-  
+
   if (!(code & generate_with_semantic_icache)) {
     lf_printf(file, "/* return the function proper */\n");
     lf_printf(file, "return ");
@@ -561,7 +561,7 @@ print_icache_function(lf *file,
 			function_name_prefix_semantics);
     lf_printf(file, ";\n");
   }
-  
+
   if ((code & generate_with_direct_access))
     print_icache_body(file,
 		      instruction,
@@ -667,7 +667,7 @@ print_icache_internal_function_definition(insn_table *table,
 			  function_name_prefix_semantics);
       lf_printf(file, ";\n");
     }
-    
+
     lf_print__internal_reference(file);
     lf_indent(file, -2);
     lf_printf(file, "}\n");

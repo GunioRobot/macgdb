@@ -42,7 +42,7 @@ L7:	pdmsb	x0, x1
 	set_sreg 0xff, x0
 L8:	pdmsb	x0, x1
 	assert_sreg 23<<16, x1
-	
+
 	set_sreg 0x1ff, x0
 L9:	pdmsb	x0, x1
 	assert_sreg 22<<16, x1

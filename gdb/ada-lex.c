@@ -2266,7 +2266,7 @@ processReal (const char *num0)
 /* Store a canonicalized version of NAME0[0..LEN-1] in yylval.ssym.  The
    resulting string is valid until the next call to ada_parse.  It differs
    from NAME0 in that:
-    + Characters between '...' or <...> are transfered verbatim to 
+    + Characters between '...' or <...> are transfered verbatim to
       yylval.ssym.
     + <, >, and trailing "'" characters in quoted sequences are removed
       (a leading quote is preserved to indicate that the name is not to be
@@ -2331,7 +2331,7 @@ processId (const char *name0, int len)
 }
 
 /* Return TEXT[0..LEN-1], a string literal without surrounding quotes,
-   with special hex character notations replaced with characters. 
+   with special hex character notations replaced with characters.
    Result valid until the next call to ada_parse.  */
 
 static struct stoken
@@ -2468,7 +2468,7 @@ yywrap(void)
 
 /* Dummy definition to suppress warnings about unused static definitions. */
 typedef void (*dummy_function) ();
-dummy_function ada_flex_use[] = 
-{ 
+dummy_function ada_flex_use[] =
+{
   (dummy_function) yyunput
 };

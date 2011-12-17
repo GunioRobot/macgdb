@@ -63,23 +63,23 @@ if ![info exists gdb_prompt] then {
     set gdb_prompt "\[(\]gdb\[)\]"
 }
 
-# The variable fullname_syntax_POSIX is a regexp which matches a POSIX 
-# absolute path ie. /foo/ 
+# The variable fullname_syntax_POSIX is a regexp which matches a POSIX
+# absolute path ie. /foo/
 set fullname_syntax_POSIX {/[^\n]*/}
-# The variable fullname_syntax_UNC is a regexp which matches a Windows 
-# UNC path ie. \\D\foo\ 
+# The variable fullname_syntax_UNC is a regexp which matches a Windows
+# UNC path ie. \\D\foo\
 set fullname_syntax_UNC {\\\\[^\\]+\\[^\n]+\\}
-# The variable fullname_syntax_DOS_CASE is a regexp which matches a 
+# The variable fullname_syntax_DOS_CASE is a regexp which matches a
 # particular DOS case that GDB most likely will output
-# ie. \foo\, but don't match \\.*\ 
+# ie. \foo\, but don't match \\.*\
 set fullname_syntax_DOS_CASE {\\[^\\][^\n]*\\}
 # The variable fullname_syntax_DOS is a regexp which matches a DOS path
-# ie. a:\foo\ && a:foo\ 
+# ie. a:\foo\ && a:foo\
 set fullname_syntax_DOS {[a-zA-Z]:[^\n]*\\}
 # The variable fullname_syntax is a regexp which matches what GDB considers
-# an absolute path. It is currently debatable if the Windows style paths 
+# an absolute path. It is currently debatable if the Windows style paths
 # d:foo and \abc should be considered valid as an absolute path.
-# Also, the purpse of this regexp is not to recognize a well formed 
+# Also, the purpse of this regexp is not to recognize a well formed
 # absolute path, but to say with certainty that a path is absolute.
 set fullname_syntax "($fullname_syntax_POSIX|$fullname_syntax_UNC|$fullname_syntax_DOS_CASE|$fullname_syntax_DOS)"
 
@@ -156,7 +156,7 @@ proc gdb_unload {} {
 
 # Many of the tests depend on setting breakpoints at various places and
 # running until that breakpoint is reached.  At times, we want to start
-# with a clean-slate with respect to breakpoints, so this utility proc 
+# with a clean-slate with respect to breakpoints, so this utility proc
 # lets us do this without duplicating this code everywhere.
 #
 
@@ -263,7 +263,7 @@ proc gdb_run_cmd {args} {
 		    send_gdb "jump *$start\n";
 		}
 		timeout {
-		    perror "Jump to start() failed (timeout)"; 
+		    perror "Jump to start() failed (timeout)";
 		    return
 		}
 	    }
@@ -371,7 +371,7 @@ proc gdb_breakpoint { function args } {
 			return 0
 		}
 	}
-	-re "Make breakpoint pending.*y or \\\[n\\\]. $" { 
+	-re "Make breakpoint pending.*y or \\\[n\\\]. $" {
 		send_gdb "$pending_response\n"
 		exp_continue
 	}
@@ -389,7 +389,7 @@ proc gdb_breakpoint { function args } {
 	}
     }
     return 1;
-}    
+}
 
 # Set breakpoint at function and run gdb until it breaks there.
 # Since this is the only breakpoint that will be set, if it stops
@@ -409,25 +409,25 @@ proc runto { function args } {
     }
 
     gdb_run_cmd
-    
+
     # the "at foo.c:36" output we get with -g.
     # the "in func" output we get without -g.
     gdb_expect 30 {
 	-re "Break.* at .*:$decimal.*$gdb_prompt $" {
 	    return 1
 	}
-	-re "Breakpoint \[0-9\]*, \[0-9xa-f\]* in .*$gdb_prompt $" { 
+	-re "Breakpoint \[0-9\]*, \[0-9xa-f\]* in .*$gdb_prompt $" {
 	    return 1
 	}
-	-re "$gdb_prompt $" { 
+	-re "$gdb_prompt $" {
 	    fail "running to $function in runto"
 	    return 0
 	}
-	eof { 
+	eof {
 	    fail "running to $function in runto (end of file)"
 	    return 0
 	}
-	timeout { 
+	timeout {
 	    fail "running to $function in runto (timeout)"
 	    return 0
 	}
@@ -447,7 +447,7 @@ proc runto_main { } {
 
     if ![target_info exists gdb_stub] {
 	return [runto main]
-    }			
+    }
 
     delete_breakpoints
 
@@ -474,7 +474,7 @@ proc gdb_continue_to_breakpoint {name {location_pattern .*}} {
 	-re ".*$gdb_prompt $" {
 	    fail $full_name
 	}
-	timeout { 
+	timeout {
 	    fail "$full_name (timeout)"
 	}
     }
@@ -550,7 +550,7 @@ proc gdb_internal_error_resync {} {
 #    1 if the test failed, according to a built-in failure pattern
 #    0 if only user-supplied patterns matched
 #   -1 if there was an internal error.
-#  
+#
 # You can use this function thus:
 #
 # gdb_test_multiple "print foo" "test foo" {
@@ -829,7 +829,7 @@ proc gdb_test_multiple { command message user_code } {
 #    1 if the test failed,
 #    0 if the test passes,
 #   -1 if there was an internal error.
-#  
+#
 proc gdb_test { args } {
     global verbose
     global gdb_prompt
@@ -1221,7 +1221,7 @@ proc default_gdb_start { } {
 
     send_gdb "set height 0\n"
     gdb_expect 10 {
-	-re "$gdb_prompt $" { 
+	-re "$gdb_prompt $" {
 	    verbose "Setting height to 0." 2
 	}
 	timeout {
@@ -1289,7 +1289,7 @@ proc skip_shlib_tests {} {
     return 1
 }
 
-# Run a test on the target to see if it supports vmx hardware.  Return 0 if so, 
+# Run a test on the target to see if it supports vmx hardware.  Return 0 if so,
 # 1 if it does not.  Based on 'check_vmx_hw_available' from the GCC testsuite.
 
 proc skip_altivec_tests {} {
@@ -1358,11 +1358,11 @@ proc skip_altivec_tests {} {
     gdb_run_cmd
     gdb_expect {
         -re ".*Illegal instruction.*${gdb_prompt} $" {
-            verbose -log "\n$me altivec hardware not detected" 
+            verbose -log "\n$me altivec hardware not detected"
             set skip_vmx_tests_saved 1
         }
         -re ".*Program exited normally.*${gdb_prompt} $" {
-            verbose -log "\n$me: altivec hardware detected" 
+            verbose -log "\n$me: altivec hardware detected"
             set skip_vmx_tests_saved 0
         }
         default {
@@ -1527,7 +1527,7 @@ set hp_aCC_compiler		0
 #
 # [ catch "exec $compiler -E $ifile > $binfile.ci" exec_output ]
 # source $binfile.ci
-# 
+#
 #   This avoids the problem with -E and -o together.  This almost works
 #   if the build machine is the same as the host machine, which is
 #   usually true of the targets which are not gcc.  But this code does
@@ -1552,7 +1552,7 @@ set hp_aCC_compiler		0
 #   Unfortunately, expect logs the output of the command as it goes by,
 #   and dejagnu helpfully prints a second copy of it right afterwards.
 #   So I turn off expect logging for a moment.
-#   
+#
 # [ gdb_compile $ifile $ciexe_file executable $args ]
 # [ remote_exec $ciexe_file ]
 # [ source $ci_file.out ]
@@ -1598,7 +1598,7 @@ proc get_compiler_info {binfile args} {
     } else {
 	set cppout [ gdb_compile "${ifile}" "" preprocess [list "$args" quiet] ]
     }
-    log_file -a "$outdir/$tool.log" 
+    log_file -a "$outdir/$tool.log"
 
     # Eval the output.
     set unknown 0
@@ -1905,7 +1905,7 @@ proc gdb_compile_shlib {sources dest options} {
                 "mips-sgi-irix*" {
                     # Disable SGI compiler's implicit -Dsgi
                     lappend obj_options "additional_flags=-Usgi"
-                } 
+                }
                 default {
                     # don't know what the compiler is...
                 }
@@ -2160,7 +2160,7 @@ proc gdb_suppress_entire_file { reason } {
 
 #
 # Set suppress_flag, which will cause all subsequent calls to send_gdb and
-# gdb_expect to fail immediately (until the next call to 
+# gdb_expect to fail immediately (until the next call to
 # gdb_stop_suppressing_tests).
 #
 proc gdb_suppress_tests { args } {
@@ -2313,7 +2313,7 @@ proc gdb_continue { function } {
 proc default_gdb_init { args } {
     global gdb_wrapper_initialized
     global cleanfiles
-    
+
     set cleanfiles {}
 
     gdb_clear_suppressed;
@@ -2321,7 +2321,7 @@ proc default_gdb_init { args } {
     # Make sure that the wrapper is rebuilt
     # with the appropriate multilib option.
     set gdb_wrapper_initialized 0
-    
+
     # Unlike most tests, we have a small number of tests that generate
     # a very large amount of output.  We therefore increase the expect
     # buffer size to be able to contain the entire test output.
@@ -2484,7 +2484,7 @@ proc gdb_step_for_stub { } {
 #
 # Search the source file FILE, and return the line number of the
 # first line containing TEXT.  If no match is found, return -1.
-# 
+#
 # TEXT is a string literal, not a regular expression.
 #
 # The default value of FILE is "$srcdir/$subdir/$srcfile".  If FILE is
@@ -2496,18 +2496,18 @@ proc gdb_step_for_stub { } {
 #
 # Use this function to keep your test scripts independent of the
 # exact line numbering of the source file.  Don't write:
-# 
+#
 #   send_gdb "break 20"
-# 
-# This means that if anyone ever edits your test's source file, 
+#
+# This means that if anyone ever edits your test's source file,
 # your test could break.  Instead, put a comment like this on the
 # source file line you want to break at:
-# 
+#
 #   /* breakpoint spot: frotz.exp: test name */
-# 
+#
 # and then write, in your test script (which we assume is named
 # frotz.exp):
-# 
+#
 #   send_gdb "break [gdb_get_line_number "frotz.exp: test name"]\n"
 #
 # (Yes, Tcl knows how to handle the nested quotes and brackets.
@@ -2515,7 +2515,7 @@ proc gdb_step_for_stub { } {
 # 	$ tclsh
 # 	% puts "foo [lindex "bar baz" 1]"
 # 	foo baz
-# 	% 
+# 	%
 # Tcl is quite clever, for a little stringy language.)
 #
 # ===
@@ -2587,7 +2587,7 @@ proc gdb_get_line_number { text { file "" } } {
 #	The case where the target uses stubs has to be handled specially. If a
 #       stub is used, we set a breakpoint at exit because we cannot rely on
 #       exit() behavior of a remote target.
-# 
+#
 # mssg is the error message that gets printed.
 
 proc gdb_continue_to_end {mssg} {
@@ -2688,7 +2688,7 @@ proc gdb_skip_xml_test { } {
 # Note: the procedure gdb_gnu_strip_debug will produce an executable called
 # ${binfile}.dbglnk, which is just like the executable ($binfile) but without
 # the debuginfo. Instead $binfile has a .gnu_debuglink section which contains
-# the name of a debuginfo only file. This file will be stored in the 
+# the name of a debuginfo only file. This file will be stored in the
 # gdb.base/.debug subdirectory.
 
 # Functions for separate debug info testing
@@ -2825,21 +2825,21 @@ proc help_test_raw { gdb_command expected_lines args } {
     set message $gdb_command
     if [llength $args]>0 then {
 	set message [lindex $args 0]
-    } 
+    }
     set expected_output [join $expected_lines ""]
     gdb_test "${gdb_command}" "${expected_output}" $message
 }
 
 # Test the output of "help COMMNAD_CLASS". EXPECTED_INITIAL_LINES
 # are regular expressions that should match the beginning of output,
-# before the list of commands in that class.  The presence of 
+# before the list of commands in that class.  The presence of
 # command list and standard epilogue will be tested automatically.
 proc test_class_help { command_class expected_initial_lines args } {
     set l_stock_body {
         "List of commands\:.*\[\r\n\]+"
         "Type \"help\" followed by command name for full documentation\.\[\r\n\]+"
         "Type \"apropos word\" to search for commands related to \"word\"\.[\r\n\]+"
-        "Command name abbreviations are allowed if unambiguous\." 
+        "Command name abbreviations are allowed if unambiguous\."
     }
     set l_entire_body [concat $expected_initial_lines $l_stock_body]
 
@@ -2851,11 +2851,11 @@ proc test_class_help { command_class expected_initial_lines args } {
 # element is abbreviation of.
 # The command must be a prefix command.  EXPECTED_INITIAL_LINES
 # are regular expressions that should match the beginning of output,
-# before the list of subcommands.  The presence of 
+# before the list of subcommands.  The presence of
 # subcommand list and standard epilogue will be tested automatically.
 proc test_prefix_command_help { command_list expected_initial_lines args } {
-    set command [lindex $command_list 0]   
-    if {[llength $command_list]>1} {        
+    set command [lindex $command_list 0]
+    if {[llength $command_list]>1} {
         set full_command [lindex $command_list 1]
     } else {
         set full_command $command
@@ -2899,7 +2899,7 @@ proc build_executable { testname executable {sources ""} {options {debug}} } {
         }
         lappend objects "${binfile}${i}.o"
     }
-    
+
     if  { [gdb_compile $objects "${binfile}" executable $options] != "" } {
         untested $testname
         return -1
@@ -2926,7 +2926,7 @@ proc clean_restart { executable } {
 
     if [target_info exists gdb_stub] {
         gdb_step_for_stub;
-    }    
+    }
 }
 
 # Prepares for testing, by calling build_executable, and then clean_restart.

@@ -68,7 +68,7 @@ python_string_to_unicode (PyObject *obj)
       unicode_str = obj;
       Py_INCREF (obj);
     }
-  
+
   else if (PyString_Check (obj))
     unicode_str = PyUnicode_FromEncodedObject (obj, host_charset (), NULL);
   else
@@ -193,7 +193,7 @@ python_string_to_host_string (PyObject *obj)
   if (str == NULL)
     return NULL;
 
-  result = unicode_to_encoded_string (str, host_charset ()); 
+  result = unicode_to_encoded_string (str, host_charset ());
   Py_DECREF (str);
   return result;
 }

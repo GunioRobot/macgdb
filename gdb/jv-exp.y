@@ -33,7 +33,7 @@
    with include files (<malloc.h> and <stdlib.h> for example) just became
    too messy, particularly when such includes can be inserted at random
    times by the parser generator.  */
-  
+
 %{
 
 #include "defs.h"
@@ -66,13 +66,13 @@
 #define	yylval	java_lval
 #define	yychar	java_char
 #define	yydebug	java_debug
-#define	yypact	java_pact	
-#define	yyr1	java_r1			
-#define	yyr2	java_r2			
-#define	yydef	java_def		
-#define	yychk	java_chk		
-#define	yypgo	java_pgo		
-#define	yyact	java_act		
+#define	yypact	java_pact
+#define	yyr1	java_r1
+#define	yyr2	java_r2
+#define	yydef	java_def
+#define	yychk	java_chk
+#define	yypgo	java_pgo
+#define	yyact	java_act
 #define	yyexca	java_exca
 #define yyerrflag java_errflag
 #define yynerrs	java_nerrs
@@ -170,7 +170,7 @@ static int parse_number (char *, int, int, YYSTYPE *);
    E.g. "c" when input_radix==16.  Depending on the parse, it will be
    turned into a name or into a number.  */
 
-%token <sval> NAME_OR_INT 
+%token <sval> NAME_OR_INT
 
 %token ERROR
 
@@ -516,7 +516,7 @@ UnaryExpression:
 |	'+' UnaryExpression
 |	'-' UnaryExpression
 		{ write_exp_elt_opcode (UNOP_NEG); }
-|	'*' UnaryExpression 
+|	'*' UnaryExpression
 		{ write_exp_elt_opcode (UNOP_IND); } /*FIXME not in Java  */
 |	UnaryExpressionNotPlusMinus
 ;
@@ -660,7 +660,7 @@ AssignmentExpression:
 	ConditionalExpression
 |	Assignment
 ;
-			  
+
 Assignment:
 	LeftHandSide '=' ConditionalExpression
 		{ write_exp_elt_opcode (BINOP_ASSIGN); }
@@ -856,7 +856,7 @@ yylex (void)
   int tempbufindex;
   static char *tempbuf;
   static int tempbufsize;
-  
+
  retry:
 
   prev_lexptr = lexptr;
@@ -1110,7 +1110,7 @@ yylex (void)
        c = tokstart[++namelen];
      }
 
-  /* The token "if" terminates the expression and is NOT 
+  /* The token "if" terminates the expression and is NOT
      removed from the input stream.  */
   if (namelen == 2 && tokstart[0] == 'i' && tokstart[1] == 'f')
     {
@@ -1129,7 +1129,7 @@ yylex (void)
 	return BOOLEAN;
       break;
     case 6:
-      if (strncmp (tokstart, "double", 6) == 0)      
+      if (strncmp (tokstart, "double", 6) == 0)
 	return DOUBLE;
       break;
     case 5:
@@ -1245,7 +1245,7 @@ push_variable (struct stoken name)
     {
       /* it hangs off of `this'.  Must not inadvertently convert from a
 	 method call to data ref.  */
-      if (innermost_block == 0 || 
+      if (innermost_block == 0 ||
 	  contained_in (block_found, innermost_block))
 	innermost_block = block_found;
       write_exp_elt_opcode (OP_THIS);
@@ -1324,14 +1324,14 @@ push_qualified_expression_name (struct stoken name, int dot_index)
 	  name.ptr += dot_index;
 	  name.length -= dot_index;
 	  dot_index = 0;
-	  while (dot_index < name.length && name.ptr[dot_index] != '.') 
+	  while (dot_index < name.length && name.ptr[dot_index] != '.')
 	    dot_index++;
 	  token.ptr = name.ptr;
 	  token.length = dot_index;
 	  write_exp_elt_opcode (OP_SCOPE);
 	  write_exp_elt_type (typ);
 	  write_exp_string (token);
-	  write_exp_elt_opcode (OP_SCOPE); 
+	  write_exp_elt_opcode (OP_SCOPE);
 	  if (dot_index < name.length)
 	    {
 	      dot_index++;
@@ -1372,7 +1372,7 @@ push_expression_name (struct stoken name)
     }
 
   /* It's a Simple Expression Name. */
-  
+
   if (push_variable (name))
     return;
   tmp = copy_name (name);
@@ -1442,7 +1442,7 @@ insert_exp (int pos, struct expression *new)
     for (i = expout_ptr - 1; i >= pos; i--)
       expout->elts[i + newlen] = expout->elts[i];
   }
-  
+
   memcpy (expout->elts + pos, new->elts, EXP_ELEM_TO_BYTES (newlen));
   expout_ptr += newlen;
 }

@@ -119,8 +119,8 @@ gdb_test "info break" \
 "pending plus real breakpoint info"
 
 
-# 
-# Test not setting a pending breakpoint 
+#
+# Test not setting a pending breakpoint
 #
 gdb_test_multiple "break pendfunc2" "Don't set pending breakpoint" {
      -re ".*Make breakpoint pending.*y or \\\[n\\\]. $" {
@@ -129,7 +129,7 @@ gdb_test_multiple "break pendfunc2" "Don't set pending breakpoint" {
 }
 
 #
-# Add condition to pending breakpoint 
+# Add condition to pending breakpoint
 #
 
 gdb_test "condition 1 k == 1" ""

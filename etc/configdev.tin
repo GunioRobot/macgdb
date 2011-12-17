@@ -4,9 +4,9 @@
        |  |             |                     |     |
        v  v             |    acinclude.m4     |     |
    *autoheader*         |         |           v     v
-       |                |         v      --->*automake* 
-       v                |--->*aclocal*   |       |      
-   config.in            |         |      |       v      
+       |                |         v      --->*automake*
+       v                |--->*aclocal*   |       |
+   config.in            |         |      |       v
                         |         v      |   Makefile.in
                         |    aclocal.m4---
                         |     |

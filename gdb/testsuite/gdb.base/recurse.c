@@ -1,11 +1,11 @@
-/* Trivial code used to test watchpoints in recursive code and 
+/* Trivial code used to test watchpoints in recursive code and
    auto-deletion of watchpoints as they go out of scope.  */
 
 #ifdef PROTOTYPES
 static int
 recurse (int a)
 #else
-static int 
+static int
 recurse (a)
      int a;
 #endif

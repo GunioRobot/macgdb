@@ -3,7 +3,7 @@
     Free Software Foundation, Inc.
     Written by Stephane Carrez (stcarrez@nerim.fr)
     (From a driver model Contributed by Cygnus Solutions.)
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -16,7 +16,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -35,7 +35,7 @@
 
         m68hc11eepr - m68hc11 EEPROM
 
-   
+
    DESCRIPTION
 
         Implements the 68HC11 eeprom device described in the m68hc11
@@ -72,7 +72,7 @@ enum
 };
 
 
-static const struct hw_port_descriptor m68hc11eepr_ports[] = 
+static const struct hw_port_descriptor m68hc11eepr_ports[] =
 {
   { "reset", RESET_PORT, 0, input_port, },
   { NULL, },
@@ -83,13 +83,13 @@ static const struct hw_port_descriptor m68hc11eepr_ports[] =
 /* The timer/counter register internal state.  Note that we store
    state using the control register images, in host endian order.  */
 
-struct m68hc11eepr 
+struct m68hc11eepr
 {
   address_word  base_address; /* control register base */
   int           attach_space;
   unsigned      size;
   int           mapped;
-  
+
   /* Current state of the eeprom programing:
      - eeprom_wmode indicates whether the EEPROM address and byte have
        been latched.
@@ -97,7 +97,7 @@ struct m68hc11eepr
        and eeprom_wbyte is the byte that was latched.
      - eeprom_wcycle indicates the CPU absolute cycle type when
        the high voltage was applied (successfully) on the EEPROM.
-   
+
      These data members are setup only when we detect good EEPROM programing
      conditions (see Motorola EEPROM Programming and PPROG register usage).
      When the high voltage is switched off, we look at the CPU absolute
@@ -105,7 +105,7 @@ struct m68hc11eepr
      The EEPROM content is updated and saved only at that time.
      (EEPROM command is: byte zero bits program, byte erase, row erase
      and bulk erase).
-    
+
      The CONFIG register is programmed in the same way.  It is physically
      located at the end of the EEPROM (eeprom size + 1).  It is not mapped
      in memory but it's saved in the EEPROM file.  */
@@ -115,7 +115,7 @@ struct m68hc11eepr
   uint8			eeprom_wmode;
 
   uint8*		eeprom;
-  
+
   /* Minimum time in CPU cycles for programming the EEPROM.  */
   unsigned long         eeprom_min_cycles;
 
@@ -139,7 +139,7 @@ m6811eepr_memory_rw (struct m68hc11eepr *controller, int mode)
   const char *name = controller->file_name;
   int fd;
   size_t size;
-  
+
   size = controller->size;
   fd = open (name, mode, 0644);
   if (fd < 0)
@@ -215,14 +215,14 @@ attach_m68hc11eepr_regs (struct hw *me,
     controller->file_name = "m6811.eeprom";
   else
     controller->file_name = hw_find_string_property (me, "file");
-  
+
   controller->attach_space = attach_space;
   controller->base_address = attach_address;
   controller->eeprom = (char*) hw_malloc (me, attach_size + 1);
   controller->eeprom_min_cycles = 10000;
   controller->size = attach_size + 1;
   controller->mapped = 0;
-  
+
   m6811eepr_memory_rw (controller, O_RDONLY);
 }
 
@@ -239,7 +239,7 @@ m68hc11eepr_port_event (struct hw *me,
   SIM_DESC sd;
   struct m68hc11eepr *controller;
   sim_cpu *cpu;
-  
+
   controller = hw_data (me);
   sd         = hw_system (me);
   cpu        = STATE_CPU (sd, 0);
@@ -318,7 +318,7 @@ m68hc11eepr_finish (struct hw *me)
 
   attach_m68hc11eepr_regs (me, controller);
 }
- 
+
 
 
 static io_reg_desc pprog_desc[] = {
@@ -341,12 +341,12 @@ m68hc11eepr_info (struct hw *me)
   sim_cpu *cpu;
   struct m68hc11eepr *controller;
   uint8 val;
-  
+
   sd         = hw_system (me);
   cpu        = STATE_CPU (sd, 0);
   controller = hw_data (me);
   base       = cpu_get_io_base (cpu);
-  
+
   sim_io_printf (sd, "M68HC11 EEprom:\n");
 
   val = cpu->ios[M6811_PPROG];
@@ -360,7 +360,7 @@ m68hc11eepr_info (struct hw *me)
   val = controller->eeprom[controller->size - 1];
   print_io_byte (sd, "(*NEXT*) ", config_desc, val, base + M6811_CONFIG);
   sim_io_printf (sd, "\n");
-  
+
   /* Describe internal state of EEPROM.  */
   if (controller->eeprom_wmode)
     {
@@ -399,7 +399,7 @@ m68hc11eepr_io_read_buffer (struct hw *me,
   SIM_DESC sd;
   struct m68hc11eepr *controller;
   sim_cpu *cpu;
-  
+
   HW_TRACE ((me, "read 0x%08lx %d", (long) base, (int) nr_bytes));
 
   sd         = hw_system (me);
@@ -409,7 +409,7 @@ m68hc11eepr_io_read_buffer (struct hw *me,
   if (space == io_map)
     {
       unsigned cnt = 0;
-      
+
       while (nr_bytes != 0)
         {
           switch (base)
@@ -469,7 +469,7 @@ m68hc11eepr_io_write_buffer (struct hw *me,
 			"EEprom write error (only 1 byte can be programmed)");
       return 0;
     }
-  
+
   if (nr_bytes != 1)
     hw_abort (me, "Cannot write more than 1 byte to EEPROM device at a time");
 
@@ -480,7 +480,7 @@ m68hc11eepr_io_write_buffer (struct hw *me,
     {
       uint8 wrong_bits;
       uint16 addr;
-      
+
       addr = base + cpu_get_io_base (cpu);
 
       /* Setting EELAT and EEPGM at the same time is an error.
@@ -616,7 +616,7 @@ m68hc11eepr_io_write_buffer (struct hw *me,
       controller->eeprom[base] = val;
       m6811eepr_memory_rw (controller, O_WRONLY);
     }
-  
+
   return 1;
 }
 

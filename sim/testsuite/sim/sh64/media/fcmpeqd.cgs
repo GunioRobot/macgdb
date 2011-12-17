@@ -17,7 +17,7 @@ fcmpeq1:
 	float.ld fr0, dr2
 	float.ld fr1, dr4
 	fcmpeq.d dr2, dr2, r7
-	bnei r7, 1, tr0 
+	bnei r7, 1, tr0
 
 fcmpeq2:
 	movi 1, r0

@@ -971,8 +971,8 @@ frvbf_model_insn_after (SIM_CPU *cpu, int last_p, int cycles)
       struct frv_interrupt_timer *timer = & frv_interrupt_state.timer;
 
       activate_cache_requests (cpu); /* before advancing cycles.  */
-      apply_latency_adjustments (cpu); /* must go first.  */ 
-      update_target_latencies (cpu); /* must go next.  */ 
+      apply_latency_adjustments (cpu); /* must go first.  */
+      update_target_latencies (cpu); /* must go next.  */
       frv_model_advance_cycles (cpu, ps->vliw_cycles);
 
       PROFILE_MODEL_LOAD_STALL_CYCLES (p) += ps->vliw_load_stall;
@@ -1161,7 +1161,7 @@ update_FRdouble_latency_for_load (SIM_CPU *cpu, INT out_FR, int cycles)
     {
       FRV_PROFILE_STATE *ps = CPU_PROFILE_STATE (cpu);
       int *fr = ps->fr_latency;
-	  
+
       /* The latency of the FR will be at least the number of cycles used
 	 by the insn.  */
       if (fr[out_FR] < cycles)

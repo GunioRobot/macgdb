@@ -108,7 +108,7 @@ nto_set_thread (ptid_t ptid)
 
 /* This function will determine all alive threads.  Note that we do not list
    dead but unjoined threads even though they are still in the process' thread
-   list.  
+   list.
 
    NTO_INFERIOR must not be NULL.  */
 
@@ -250,7 +250,7 @@ nto_xfer_memory (off_t memaddr, unsigned char *myaddr, int len,
 
 /* Insert or remove breakpoint or watchpoint at address ADDR.
    TYPE can be one of Neutrino breakpoint types.  SIZE must be 0 for
-   inserting the point, -1 for removing it.  
+   inserting the point, -1 for removing it.
 
    Return 0 on success, 1 otherwise.  */
 
@@ -269,7 +269,7 @@ nto_breakpoint (CORE_ADDR addr, int type, int size)
 }
 
 /* Read auxiliary vector from inferior's initial stack into gdbserver's
-   MYADDR buffer, up to LEN bytes.  
+   MYADDR buffer, up to LEN bytes.
 
    Return number of bytes read.  */
 
@@ -407,7 +407,7 @@ nto_detach (int pid)
   return 0;
 }
 
-/* Check if the given thread is alive.  
+/* Check if the given thread is alive.
 
    Return 1 if alive, 0 otherwise.  */
 
@@ -492,7 +492,7 @@ nto_resume (struct thread_resume *resume_info, size_t n)
     TRACE ("Error: %d \"%s\"\n", err, strerror (err));
 }
 
-/* Wait for inferior's event.  
+/* Wait for inferior's event.
 
    Return ptid of thread that caused the event.  */
 
@@ -646,7 +646,7 @@ nto_fetch_registers (int regno)
     TRACE ("ERROR reading registers from inferior.\n");
 }
 
-/* Store registers for currently selected thread (CURRENT_INFERIOR).  
+/* Store registers for currently selected thread (CURRENT_INFERIOR).
    We always store all registers, regardless of REGNO.  */
 
 static void
@@ -681,7 +681,7 @@ nto_store_registers (int regno)
 }
 
 /* Read LEN bytes from inferior's memory address MEMADDR into
-   gdbserver's MYADDR buffer.  
+   gdbserver's MYADDR buffer.
 
    Return 0 on success -1 otherwise.  */
 
@@ -700,7 +700,7 @@ nto_read_memory (CORE_ADDR memaddr, unsigned char *myaddr, int len)
 }
 
 /* Write LEN bytes from gdbserver's buffer MYADDR into inferior's
-   memory at address MEMADDR.  
+   memory at address MEMADDR.
 
    Return 0 on success -1 otherwise.  */
 
@@ -733,8 +733,8 @@ nto_request_interrupt (void)
 }
 
 /* Read auxiliary vector from inferior's memory into gdbserver's buffer
-   MYADDR.  We always read whole auxv.  
-   
+   MYADDR.  We always read whole auxv.
+
    Return number of bytes stored in MYADDR buffer, 0 if OFFSET > 0
    or -1 on error.  */
 
@@ -856,9 +856,9 @@ nto_stopped_by_watchpoint (void)
   return ret;
 }
 
-/* Get instruction pointer for CURRENT_INFERIOR thread.  
+/* Get instruction pointer for CURRENT_INFERIOR thread.
 
-   Return inferior's instruction pointer value, or 0 on error.  */ 
+   Return inferior's instruction pointer value, or 0 on error.  */
 
 static CORE_ADDR
 nto_stopped_data_address (void)

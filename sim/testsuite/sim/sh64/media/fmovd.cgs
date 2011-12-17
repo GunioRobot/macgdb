@@ -9,7 +9,7 @@
 init:
 	pta wrong, tr0
 
-fmovd:	
+fmovd:
 	movi 4, r0
 	fmov.qd r0, dr0
 	float.qd dr0, dr2
@@ -19,6 +19,6 @@ fmovd:
 
 okay:
 	pass
-	
-wrong:	
-	fail	
+
+wrong:
+	fail

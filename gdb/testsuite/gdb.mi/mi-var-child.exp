@@ -980,7 +980,7 @@ mi_create_varobj "psnp->ptrs" "psnp->ptrs" \
 
 # Test: c_variable-5.31
 # Desc: children of psnp->ptrs
-mi_list_varobj_children "psnp->ptrs" {    
+mi_list_varobj_children "psnp->ptrs" {
     {psnp->ptrs.0 0 4 {struct _struct_n_pointer \*}}
     {psnp->ptrs.1 1 4 {struct _struct_n_pointer \*}}
     {psnp->ptrs.2 2 4 {struct _struct_n_pointer \*}}

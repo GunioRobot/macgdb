@@ -63,7 +63,7 @@ proc test_mi_interpreter_selection {} {
     send_gdb "-gdb-version\n"
     gdb_expect {
            -re "GNU gdb .*\r\n$mi_gdb_prompt$" \
-               { pass "acceptance of MI operations" 
+               { pass "acceptance of MI operations"
                  return 1}
            -re ".*\r\n$mi_gdb_prompt$" \
                { fail "acceptance of MI operations"
@@ -153,7 +153,7 @@ proc test_dir_specification {} {
     # Add to the search directories, display, then reset back to default
     # Tests:
     # -environment-directory arg
-    # -environment-directory 
+    # -environment-directory
     # -environment-directory -r
 
     mi_gdb_test "202-environment-directory ${objdir}/${subdir}" \
@@ -201,21 +201,21 @@ proc test_path_specification {} {
     global escapedobjdir
     global envirodir
 
-    # Add to the path, display, then reset 
+    # Add to the path, display, then reset
     # Tests:
-    # -environment-path 
+    # -environment-path
     # -environment-path dir1 dir2
     # -environment-path -r dir
     # -environment-path -r
 
     send_gdb "-environment-path\n"
     gdb_expect 20 {
-	-re "\\\^done,path=\"\(.*\)\"\r\n$mi_gdb_prompt" { 
-	  set orig_path $expect_out(1,string); 
+	-re "\\\^done,path=\"\(.*\)\"\r\n$mi_gdb_prompt" {
+	  set orig_path $expect_out(1,string);
 	}
-	timeout { 
-	  perror "-environment-path (timeout)" ; 
-	  return 
+	timeout {
+	  perror "-environment-path (timeout)" ;
+	  return
 	}
     }
 
@@ -238,7 +238,7 @@ proc test_path_specification {} {
              "210\\\^done,path=\"$orig_path\"" \
              "environment-path -r operation"
 
-} 
+}
 
 proc test_setshow_inferior_tty {} {
     global mi_gdb_prompt

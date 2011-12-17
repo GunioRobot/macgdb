@@ -585,12 +585,12 @@ const struct powerpc_operand powerpc_operands[] =
 #define FCRT_MASK (0x1f << 21)
   { 0x1f, 21, 0, 0, PPC_OPERAND_FCR },
 
-  /* Xilinx FSL related masks and macros */  
+  /* Xilinx FSL related masks and macros */
 #define FSL FCRT + 1
 #define FSL_MASK (0x1f << 11)
-  { 0x1f, 11, 0, 0, PPC_OPERAND_FSL },  
+  { 0x1f, 11, 0, 0, PPC_OPERAND_FSL },
 
-  /* Xilinx UDI related masks and macros */  
+  /* Xilinx UDI related masks and macros */
 #define URT FSL + 1
   { 0x1f, 21, 0, 0, PPC_OPERAND_UDI },
 
@@ -2401,7 +2401,7 @@ const struct powerpc_opcode powerpc_opcodes[] = {
 {"vandc",	VX (4,1092),	VX_MASK,     PPCVEC,	PPCNONE,	{VD, VA, VB}},
 {"vcmpequh.",	VXR(4,	70,1),	VXR_MASK,    PPCVEC,	PPCNONE,	{VD, VA, VB}},
 {"udi1fcm.",	APU(4, 547,0), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},
-{"udi1fcm",	APU(4, 547,1), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},   
+{"udi1fcm",	APU(4, 547,1), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},
 {"evmwhssf",	VX (4,1095),	VX_MASK,     PPCSPE,	PPCNONE,	{RS, RA, RB}},
 {"evmwlumi",	VX (4,1096),	VX_MASK,     PPCSPE,	PPCNONE,	{RS, RA, RB}},
 {"vminfp",	VX (4,1098),	VX_MASK,     PPCVEC,	PPCNONE,	{VD, VA, VB}},
@@ -2433,7 +2433,7 @@ const struct powerpc_opcode powerpc_opcodes[] = {
 {"vor",		VX (4,1156),	VX_MASK,     PPCVEC,	PPCNONE,	{VD, VA, VB}},
 {"vcmpequw.",	VXR(4, 134,1),	VXR_MASK,    PPCVEC,	PPCNONE,	{VD, VA, VB}},
 {"udi2fcm.",	APU(4, 579,0), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},
-{"udi2fcm",	APU(4, 579,1), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},   
+{"udi2fcm",	APU(4, 579,1), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},
 {"machhwsuo",	XO (4,	76,1,0),XO_MASK, PPC405|PPC440,	PPCNONE,	{RT, RA, RB}},
 {"machhwsuo.",	XO (4,	76,1,1),XO_MASK, PPC405|PPC440,	PPCNONE,	{RT, RA, RB}},
 {"ps_merge10",	XOPS(4,592,0),	XOPS_MASK,   PPCPS,	PPCNONE,	{FRT, FRA, FRB}},
@@ -2447,7 +2447,7 @@ const struct powerpc_opcode powerpc_opcodes[] = {
 {"evdivws",	VX (4,1222),	VX_MASK,     PPCSPE,	PPCNONE,	{RS, RA, RB}},
 {"vcmpeqfp.",	VXR(4, 198,1),	VXR_MASK,    PPCVEC,	PPCNONE,	{VD, VA, VB}},
 {"udi3fcm.",	APU(4, 611,0), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},
-{"udi3fcm",	APU(4, 611,1), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},   
+{"udi3fcm",	APU(4, 611,1), APU_MASK, PPC405|PPC440, PPCNONE,	{URT, URA, URB}},
 {"evdivwu",	VX (4,1223),	VX_MASK,     PPCSPE,	PPCNONE,	{RS, RA, RB}},
 {"evaddumiaaw",	VX (4,1224),	VX_MASK,     PPCSPE,	PPCNONE,	{RS, RA}},
 {"evaddsmiaaw",	VX (4,1225),	VX_MASK,     PPCSPE,	PPCNONE,	{RS, RA}},
@@ -4883,8 +4883,8 @@ const struct powerpc_opcode powerpc_opcodes[] = {
 {"dctfix",	XRC(59,290,0),	X_MASK,      POWER6,	PPCNONE,	{FRT, FRB}},
 {"dctfix.",	XRC(59,290,1),	X_MASK,      POWER6,	PPCNONE,	{FRT, FRB}},
 
-{"ddedpd",	XRC(59,322,0),	X_MASK,      POWER6,	PPCNONE,	{SP, FRT, FRB}}, 
-{"ddedpd.",	XRC(59,322,1),	X_MASK,      POWER6,	PPCNONE,	{SP, FRT, FRB}}, 
+{"ddedpd",	XRC(59,322,0),	X_MASK,      POWER6,	PPCNONE,	{SP, FRT, FRB}},
+{"ddedpd.",	XRC(59,322,1),	X_MASK,      POWER6,	PPCNONE,	{SP, FRT, FRB}},
 
 {"dxex",	XRC(59,354,0),	X_MASK,      POWER6,	PPCNONE,	{FRT, FRB}},
 {"dxex.",	XRC(59,354,1),	X_MASK,      POWER6,	PPCNONE,	{FRT, FRB}},

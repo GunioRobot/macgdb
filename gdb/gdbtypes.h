@@ -213,7 +213,7 @@ enum type_instance_flag_value
 
 #define TYPE_TARGET_STUB(t)	(TYPE_MAIN_TYPE (t)->flag_target_stub)
 
-/* Static type.  If this is set, the corresponding type had 
+/* Static type.  If this is set, the corresponding type had
  * a static modifier.
  * Note: This may be unnecessary, since static data members
  * are indicated by other means (bitpos == -1)
@@ -251,9 +251,9 @@ enum type_instance_flag_value
    to represent all Ada types---especially those whose size depends on
    dynamic quantities.  Therefore, the GNAT Ada compiler includes
    extra information in the form of additional type definitions
-   connected by naming conventions.  This flag indicates that the 
-   type is an ordinary (unencoded) GDB type that has been created from 
-   the necessary run-time information, and does not need further 
+   connected by naming conventions.  This flag indicates that the
+   type is an ordinary (unencoded) GDB type that has been created from
+   the necessary run-time information, and does not need further
    interpretation. Optionally marks ordinary, fixed-size GDB type. */
 
 #define TYPE_FIXED_INSTANCE(t) (TYPE_MAIN_TYPE (t)->flag_fixed_instance)
@@ -302,7 +302,7 @@ enum type_instance_flag_value
    resides in instruction memory, even if its address (in the extended
    flat address space) does not reflect this.
 
-   Similarly, if TYPE_FLAG_DATA is set, then an object of the 
+   Similarly, if TYPE_FLAG_DATA is set, then an object of the
    corresponding type resides in the data memory space, even if
    this is not indicated by its (flat address space) address.
 
@@ -504,7 +504,7 @@ struct main_type
   } *fields;
 
   /* For types with virtual functions (TYPE_CODE_STRUCT), VPTR_BASETYPE
-     is the base class which defined the virtual function table pointer.  
+     is the base class which defined the virtual function table pointer.
 
      For types that are pointer to member types (TYPE_CODE_METHODPTR,
      TYPE_CODE_MEMBERPTR), VPTR_BASETYPE is the type that this pointer
@@ -590,7 +590,7 @@ struct type
      the other choice would be to make it consistently in units of
      HOST_CHAR_BIT.  However, this would still fail to address
      machines based on a ternary or decimal representation.  */
-  
+
   unsigned length;
 
   /* Core type, shared by a group of qualified types.  */
@@ -624,7 +624,7 @@ struct cplus_struct_type
     /* The "declared_type" field contains a code saying how the
        user really declared this type, e.g., "class s", "union s",
        "struct s".
-       The 3 above things come out from the C++ compiler looking like classes, 
+       The 3 above things come out from the C++ compiler looking like classes,
        but we keep track of the real declaration so we can give
        the correct information on "ptype". (Note: TEMPLATE may not
        belong in this list...)  */
@@ -706,7 +706,7 @@ struct cplus_struct_type
 
 	    /* The function type for the method.
 	       (This comment used to say "The return value of the method",
-	       but that's wrong. The function type 
+	       but that's wrong. The function type
 	       is expected here, i.e. something with TYPE_CODE_FUNC,
 	       and *not* the return-value type). */
 
@@ -751,7 +751,7 @@ struct cplus_struct_type
       }
      *fn_fieldlists;
 
-    /* If this "struct type" describes a template, then it 
+    /* If this "struct type" describes a template, then it
      * has arguments. "template_args" points to an array of
      * template arg descriptors, of length "ntemplate_args".
      * The only real information in each of these template arg descriptors
@@ -1082,7 +1082,7 @@ struct objfile_type
 /* Return the type table for the specified objfile.  */
 extern const struct objfile_type *objfile_type (struct objfile *objfile);
 
- 
+
 /* Explicit floating-point formats.  See "floatformat.h".  */
 extern const struct floatformat *floatformats_ieee_single[BFD_ENDIAN_UNKNOWN];
 extern const struct floatformat *floatformats_ieee_double[BFD_ENDIAN_UNKNOWN];
@@ -1191,7 +1191,7 @@ extern int address_space_name_to_int (struct gdbarch *, char *);
 
 extern const char *address_space_int_to_name (struct gdbarch *, int);
 
-extern struct type *make_type_with_address_space (struct type *type, 
+extern struct type *make_type_with_address_space (struct type *type,
 						  int space_identifier);
 
 extern struct type *lookup_memberptr_type (struct type *, struct type *);

@@ -308,9 +308,9 @@ pex_run_in_environment (struct pex_obj *obj, int flags, const char *executable,
 	      errmsg = "pipe";
 	      goto error_exit;
 	    }
-	  
+
 	  errdes = p[WRITE_PORT];
-	  obj->stderr_pipe = p[READ_PORT];	  
+	  obj->stderr_pipe = p[READ_PORT];
 	}
       else
 	{
@@ -319,7 +319,7 @@ pex_run_in_environment (struct pex_obj *obj, int flags, const char *executable,
     }
   else
     {
-      errdes = obj->funcs->open_write (obj, errname, 
+      errdes = obj->funcs->open_write (obj, errname,
 				       (flags & PEX_BINARY_ERROR) != 0);
       if (errdes < 0)
 	{
@@ -500,12 +500,12 @@ FILE *
 pex_read_err (struct pex_obj *obj, int binary)
 {
   int o;
-  
+
   o = obj->stderr_pipe;
   if (o < 0 || o == STDIN_FILE_NO)
     return NULL;
   obj->read_err = obj->funcs->fdopenr (obj, o, binary);
-  return obj->read_err;    
+  return obj->read_err;
 }
 
 /* Get the exit status and, if requested, the resource time for all

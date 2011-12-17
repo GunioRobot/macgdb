@@ -1,7 +1,7 @@
 /* pyramid.opcode.h -- gdb initial attempt.
 
    Copyright 2001 Free Software Foundation, Inc.
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2, or (at your option)
@@ -16,7 +16,7 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor,
    Boston, MA 02110-1301, USA.  */
-   
+
 /* pyramid opcode table: wot to do with this
    particular opcode */
 
@@ -38,7 +38,7 @@ typedef struct pyr_insn_format
     unsigned int operand_1 :6;
     unsigned int operand_2:6;
 } pyr_insn_format;
-	
+
 
 /* We store four bytes of opcode for all opcodes.
    Pyramid is sufficiently RISCy that:
@@ -47,7 +47,7 @@ typedef struct pyr_insn_format
         the insn. (ie, if there are zero, one, or two words of
 	immediate operand/offset).
 
-   
+
    The args component is a string containing two characters for each
    operand of the instruction.  The first specifies the kind of operand;
    the second, the place it is stored. */
@@ -62,11 +62,11 @@ typedef struct pyr_insn_format
    0x0010:  movw I(Rn),Rn	offset register indirect to register
    	    movw I(Rn)[x],Rn	offset register indirect, indexed, to register
 
-   0x0020:  movw Rn,(Rn)	register to register indirect                
-   0x0040:  movw K,(Rn)		quick immediate to register indirect         
-   0x0080:  movw I,(Rn)		long immediate to register indirect          
-   0x0100:  movw (Rn),(Rn)	register indirect to-register indirect       
-   0x0100:  movw (Rn),(Rn)	register indirect to-register indirect       
+   0x0020:  movw Rn,(Rn)	register to register indirect
+   0x0040:  movw K,(Rn)		quick immediate to register indirect
+   0x0080:  movw I,(Rn)		long immediate to register indirect
+   0x0100:  movw (Rn),(Rn)	register indirect to-register indirect
+   0x0100:  movw (Rn),(Rn)	register indirect to-register indirect
    0x0200:  movw I(Rn),(Rn)	register indirect+offset to register indirect
    0x0200:  movw I(Rn),(Rn)	register indirect+offset to register indirect
 
@@ -77,7 +77,7 @@ typedef struct pyr_insn_format
    0x1000:  movw I(Rn),I(Rn)	register indirect+offset to register indirect
    					+offset
    0x0000:  (irregular)		???
-   
+
 
    Each insn has a four-bit field encoding the type(s) of its operands.
 */
@@ -246,7 +246,7 @@ struct pyr_opcode pyr_opcodes[] =
    would not be surprising.
    They are unlikely to be a packed bcd string: 64 bits of long give
    is only 15 digits+sign, which isn't enough for COBOL.
- */ 
+ */
 #if 0
   {"wcsp",	{ 2, "", UNKNOWN,		0x00} }, /*write csp?*/
   /* The OSx Operating System Porting Guide claims SSL does things

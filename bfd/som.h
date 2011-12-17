@@ -166,7 +166,7 @@ struct som_subspace_dictionary_record
   unsigned int initialization_length;
   unsigned int subspace_start;
   unsigned int subspace_length;
-  unsigned int reserved2 : 5;   
+  unsigned int reserved2 : 5;
   unsigned int alignment :27;
   union name_pt name;
   int fixup_request_index;

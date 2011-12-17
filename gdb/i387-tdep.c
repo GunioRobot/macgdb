@@ -99,7 +99,7 @@ print_i387_ext (struct gdbarch *gdbarch,
     {
       /* Denormal or zero.  */
       print_i387_value (gdbarch, raw, file);
-      
+
       if (integer)
 	/* Pseudo-denormal.  */
 	fputs_filtered (" Pseudo-denormal", file);
@@ -175,7 +175,7 @@ print_i387_control_word (unsigned int control, struct ui_file *file)
       fputs_filtered ("Extended Precision (64-bits)\n", file);
       break;
     }
-      
+
   fputs_filtered ("                       RC: ", file);
   switch ((control >> 10) & 3)
     {
@@ -584,7 +584,7 @@ i387_supply_fxsave (struct regcache *regcache, int regnum, const void *fxsave)
 
 		    if (val[0] & (1 << fpreg))
 		      {
-			int regnum = (fpreg + 8 - top) % 8 
+			int regnum = (fpreg + 8 - top) % 8
 				       + I387_ST0_REGNUM (tdep);
 			tag = i387_tag (FXSAVE_ADDR (tdep, regs, regnum));
 		      }

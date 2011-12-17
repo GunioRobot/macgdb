@@ -39,7 +39,7 @@ set binfile ${objdir}/${subdir}/${testfile}
 # To build a pa 2.0 executable
 #
 #     as -o reg reg.s
-# or 
+# or
 #     cc -g -o reg reg.s
 #
 # The +DA2.0N flag doesn't seem to be needed.

@@ -11,7 +11,7 @@ mhdseth:
 	mhdseth		0,fr1
 	test_fr_iimmed	0,fr1
 	mhdseth		1,fr1
-	test_fr_iimmed	0x08000800,fr1 
+	test_fr_iimmed	0x08000800,fr1
 	mhdseth		0xf,fr1
 	test_fr_iimmed	0x78007800,fr1
 	mhdseth		-16,fr1

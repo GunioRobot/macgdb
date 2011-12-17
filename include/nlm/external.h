@@ -29,7 +29,7 @@ Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA. 
    Note that an NLM header consists of three parts:
 
    (1)	A fixed length header that has specific fields of known length,
-	at specific offsets in the file. 
+	at specific offsets in the file.
 
    (2)  A variable length header that has specific fields in a specific
         order, but some fields may be variable length.
@@ -43,7 +43,7 @@ Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA. 
    defines the correct external format in a separate header file.
 
 */
-   
+
 /* NLM Header */
 
 /* The version header is one of the optional auxiliary headers and

@@ -33,7 +33,7 @@ typedef unsigned64 insn_uint;
        ":" <filter-flags>
        ":" <filter-models>
        ":" ...
-   
+
  */
 
 enum
@@ -405,7 +405,7 @@ struct _model_table
    <insn-field> ::=
        ( <binary-value-implying-width>
        | <field-name-implying-width>
-       | [ <start-or-width> "." ] <field> 
+       | [ <start-or-width> "." ] <field>
        )
        { [ "!" | "=" ] [ <value> | <field-name> ] }
        ;

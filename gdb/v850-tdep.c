@@ -117,15 +117,15 @@ enum
 };
 
 struct v850_frame_cache
-{ 
+{
   /* Base address.  */
   CORE_ADDR base;
   LONGEST sp_offset;
   CORE_ADDR pc;
-  
+
   /* Flag showing that a frame has been created in the prologue code.  */
   int uses_fp;
-  
+
   /* Saved registers.  */
   struct trad_frame_saved_reg *saved_regs;
 };
@@ -142,9 +142,9 @@ static const char *
 v850_register_name (struct gdbarch *gdbarch, int regnum)
 {
   static const char *v850_reg_names[] =
-  { "r0", "r1", "r2", "r3", "r4", "r5", "r6", "r7", 
-    "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15", 
-    "r16", "r17", "r18", "r19", "r20", "r21", "r22", "r23", 
+  { "r0", "r1", "r2", "r3", "r4", "r5", "r6", "r7",
+    "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15",
+    "r16", "r17", "r18", "r19", "r20", "r21", "r22", "r23",
     "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31",
     "eipc", "eipsw", "fepc", "fepsw", "ecr", "psw", "sr6", "sr7",
     "sr8", "sr9", "sr10", "sr11", "sr12", "sr13", "sr14", "sr15",
@@ -249,7 +249,7 @@ v850_use_struct_convention (struct type *type)
 	}
       return 0;
     }
-    
+
   /* The value is a union which contains at least one field which would be
      returned in registers according to these rules -> returned in register.  */
   if (TYPE_CODE (type) == TYPE_CODE_UNION)
@@ -585,7 +585,7 @@ v850_analyze_prologue (struct gdbarch *gdbarch,
       else if (insn == ((E_EP_REGNUM << 11) | 0x0000 | E_R1_REGNUM))
         /* mov r1,ep */
 	ep_used = 0;
-      else if (((insn & 0x07ff) == (0x0760 | E_SP_REGNUM)	
+      else if (((insn & 0x07ff) == (0x0760 | E_SP_REGNUM)
 		|| (pi->uses_fp
 		    && (insn & 0x07ff) == (0x0760 | E_FP_REGNUM)))
 	       && pifsr
@@ -944,7 +944,7 @@ v850_unwind_sp (struct gdbarch *gdbarch, struct frame_info *next_frame)
 {
   return frame_unwind_register_unsigned (next_frame,
 					 gdbarch_sp_regnum (gdbarch));
-} 
+}
 
 static CORE_ADDR
 v850_unwind_pc (struct gdbarch *gdbarch, struct frame_info *next_frame)
@@ -960,7 +960,7 @@ v850_dummy_id (struct gdbarch *gdbarch, struct frame_info *this_frame)
 					      gdbarch_sp_regnum (gdbarch));
   return frame_id_build (sp, get_frame_pc (this_frame));
 }
-  
+
 static CORE_ADDR
 v850_frame_base_address (struct frame_info *this_frame, void **this_cache)
 {

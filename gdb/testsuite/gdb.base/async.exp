@@ -77,21 +77,21 @@ gdb_test "break baz" "" ""
 gdb_test "set display-exec-done on" "" ""
 
 
-send_gdb "next&\n" 
+send_gdb "next&\n"
 gdb_expect {
     -re "^next&\r\n$gdb_prompt.*z = 9.*completed\.\r\n" { pass "next &" }
     -re "$gdb_prompt.*completed\.$" { fail "next &" }
     timeout  { fail "(timeout) next &" }
 }
 
-send_gdb "step&\n" 
+send_gdb "step&\n"
 gdb_expect {
     -re "^step&\r\n$gdb_prompt.*y = foo \\(\\).*completed\.\r\n" { pass "step &" }
     -re "$gdb_prompt.*completed\.$" { fail "step &" }
     timeout  { fail "(timeout) step &" }
 }
 
-send_gdb "step&\n" 
+send_gdb "step&\n"
 gdb_expect {
     -re "^step&\r\n$gdb_prompt foo \\(\\) at .*async.c.*x = 5.*completed\.\r\n" \
 	    { pass "step &" }
@@ -99,21 +99,21 @@ gdb_expect {
     timeout  { fail "(timeout) step &" }
 }
 
-send_gdb "stepi&\n" 
+send_gdb "stepi&\n"
 gdb_expect {
     -re "^stepi&\r\n$gdb_prompt.*$hex.*x = 5.*completed\.\r\n" { pass "stepi &" }
     -re "$gdb_prompt.*completed\.$" { fail "stepi &" }
     timeout  { fail "(timeout) stepi &" }
 }
 
-send_gdb "nexti&\n" 
+send_gdb "nexti&\n"
 gdb_expect {
     -re "^nexti&\r\n$gdb_prompt.*y = 3.*completed\.\r\n" { pass "nexti &" }
     -re "$gdb_prompt.*completed\.$" { fail "nexti &" }
     timeout  { fail "(timeout) nexti &" }
 }
 
-send_gdb "finish&\n" 
+send_gdb "finish&\n"
 gdb_expect {
     -re "^finish&\r\nRun till exit from #0  foo \\(\\) at.*async.c.*\r\n$gdb_prompt.*$hex in main \\(\\) at.*async.c.*y = foo \\(\\).*Value returned is.*= 8.*completed\.\r\n" \
 	    { pass "finish &" }
@@ -121,7 +121,7 @@ gdb_expect {
     timeout  { fail "(timeout) finish &" }
 }
 
-send_gdb "jump 33&\n" 
+send_gdb "jump 33&\n"
 gdb_expect {
     -re "^jump 33&.*Continuing at $hex.*$gdb_prompt.*Breakpoint 2, baz \\(\\) at.*async.c.*return 5.*completed\.\r\n" \
 	    { pass "jump &" }
@@ -129,7 +129,7 @@ gdb_expect {
     timeout  { fail "(timeout) jump &" }
 }
 
-send_gdb "until 35&\n" 
+send_gdb "until 35&\n"
 gdb_expect {
     -re "^until 35&.*$gdb_prompt.*$hex in main \\(\\) at.*async.c.*y = baz \\(\\).*completed\.\r\n" \
 	    { pass "until &" }

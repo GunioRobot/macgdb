@@ -8,7 +8,7 @@
 	.macro _load val, fpreg
 	# This macro clobbers r0.
 	movi \val, r0
-	fmov.ls r0, \fpreg 
+	fmov.ls r0, \fpreg
 	float.ls \fpreg, \fpreg
 	.endm
 
@@ -50,7 +50,7 @@ check:
 
 	fcmpeq.s fr0, fr20, r0
 	bnei r0, 1, tr0
-	
+
 	fcmpeq.s fr1, fr21, r0
 	bnei r0, 1, tr0
 
@@ -59,7 +59,7 @@ check:
 
 	fcmpeq.s fr3, fr23, r0
 	bnei r0, 1, tr0
-	
+
 okay:
 	pass
 

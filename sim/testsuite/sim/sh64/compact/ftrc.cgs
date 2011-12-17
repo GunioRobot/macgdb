@@ -15,7 +15,7 @@
 	sts fpul, r1
 	cmp/eq r0, r1
 	bf wrong
-	
+
 	# ftrc(1.5) = 1.
 	fldi1 fr0
 	fldi1 fr1
@@ -71,7 +71,7 @@ double:
 	mov #0, r0
 	sts fpul, r1
 	cmp/eq r0, r1
-foo:	
+foo:
 	bf wrong2
 
 	# ftrc(1.5) = 1.
@@ -91,7 +91,7 @@ foo:
 	_setpr
 	ftrc dr0, fpul
 	_clrpr
-	
+
 	# check results.
 	mov #1, r0
 	sts fpul, r1
@@ -118,7 +118,7 @@ foo:
 	_setpr
 	ftrc dr0, fpul
 	_clrpr
-	
+
 	# check results.
 	mov #1, r0
 	neg r0, r0

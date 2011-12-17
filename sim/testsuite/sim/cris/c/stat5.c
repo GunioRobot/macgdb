@@ -12,7 +12,7 @@
 int main (void)
 {
   struct stat buf;
-  
+
   if (lstat ("nonexistent", &buf) == 0 || errno != ENOENT)
     abort ();
   printf ("pass\n");

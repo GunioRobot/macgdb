@@ -1,6 +1,6 @@
 # sh testcase for loop control
 # mach:	 shdsp
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -32,7 +32,7 @@ loop2:
 	ldrs	Loop2_start0+6
 	ldre	Loop2_start0+4
 	setrc	#5
-Loop2_start0:	
+Loop2_start0:
 	add	#1, r1	! Before loop
 	# Loop should execute two instructions five times.
 Loop2_begin:

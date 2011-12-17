@@ -22,7 +22,7 @@
 	fsub fr2, fr1
 	fcmp/eq fr0, fr1
 	bf wrong
-	
+
 	# neg(neg(1.0)) = 1.0.
 	fldi1 fr0
 	fldi1 fr1
@@ -63,7 +63,7 @@ double:
 	fcmp/eq fr0, fr2
 	bf wrong2
 	_clrpr
-	
+
 	# neg(neg(1.0)) = 1.0.
 	fldi1 fr0
 	_s2d fr0, dr0
@@ -75,9 +75,9 @@ double:
 	fcmp/eq dr0, dr2
 	bf wrong2
 	_clrpr
-		
+
 okay:
 	pass
 
-wrong2:	
+wrong2:
 	fail

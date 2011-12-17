@@ -414,7 +414,7 @@ invalid_float (bfd_byte *p, int len)
 #else
 /* Assumes the bytes have been swapped to local order.  */
 typedef union
-{ 
+{
   double d;
   float f;
   struct { unsigned m:23, e:8, :1;} sf;
@@ -796,7 +796,7 @@ print_insn_ns32k (bfd_vma memaddr, disassemble_info *info)
 
       /* 0 for operand A, 1 for operand B, greater for other args.  */
       int whicharg = 0;
-      
+
       (*dis_info->fprintf_func)(dis_info->stream, "\t");
 
       maxarg = 0;

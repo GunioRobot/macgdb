@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -24,20 +24,20 @@
 
 /* DEVICE
 
-   
+
    mn103cpu - mn10300 cpu virtual device
 
-   
+
    DESCRIPTION
 
-   
+
    Implements the external mn10300 functionality.  This includes the
    delivery of interrupts generated from other devices and the
    handling of device specific registers.
 
 
    PROPERTIES
-   
+
 
    reg = <address> <size>
 
@@ -118,7 +118,7 @@ struct mn103cpu {
 
 
 
-/* input port ID's */ 
+/* input port ID's */
 
 enum {
   RESET_PORT,
@@ -288,22 +288,22 @@ mn103cpu_port_event (struct hw *me,
 
   switch (my_port)
     {
-      
+
     case RESET_PORT:
       controller->pending_reset = 1;
       HW_TRACE ((me, "port-in reset"));
       break;
-      
+
     case NMI_PORT:
       controller->pending_nmi = 1;
       HW_TRACE ((me, "port-in nmi"));
       break;
-      
+
     case LEVEL_PORT:
       controller->pending_level = level;
       HW_TRACE ((me, "port-in level=%d", level));
       break;
-      
+
     default:
       hw_abort (me, "bad switch");
       break;
@@ -384,7 +384,7 @@ mn103cpu_io_read_buffer (struct hw *me,
     *(unsigned16*) dest = H2LE_2 (val);
 
   return nr_bytes;
-}     
+}
 
 static unsigned
 mn103cpu_io_write_buffer (struct hw *me,
@@ -421,7 +421,7 @@ mn103cpu_io_write_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 const struct hw_descriptor dv_mn103cpu_descriptor[] = {

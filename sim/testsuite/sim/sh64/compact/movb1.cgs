@@ -20,7 +20,7 @@
 	cmp/eq r1, r3
 	bf wrong
 
-okay:	
+okay:
 	pass
 
 wrong:

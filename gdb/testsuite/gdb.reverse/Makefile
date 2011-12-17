@@ -5,7 +5,7 @@ EXECUTABLES   = break-reverse consecutive-reverse finish-reverse \
 	machinestate solib-reverse step-reverse until-reverse \
 	watch-reverse i386-reverse
 
-MISCELLANEOUS = 
+MISCELLANEOUS =
 
 all info install-info dvi install uninstall installcheck check:
 	@echo "Nothing to be done for $@..."

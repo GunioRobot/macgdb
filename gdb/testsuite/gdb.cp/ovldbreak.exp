@@ -178,7 +178,7 @@ gdb_test "info break" \
 # Test choice "cancel".
 # This is copy-and-paste from set_bp_overloaded.
 
-send_gdb "break foo::overload1arg\n" 
+send_gdb "break foo::overload1arg\n"
 gdb_expect {
     -re "$menu_overload1arg" {
         pass "bp menu for foo::overload1arg choice cancel"
@@ -260,7 +260,7 @@ gdb_test "info breakpoints" "No breakpoints or watchpoints." "breakpoint info (a
 # Test choice "all".
 # This is copy-and-paste from set_bp_overloaded.
 
-send_gdb "break foo::overload1arg\n" 
+send_gdb "break foo::overload1arg\n"
 gdb_expect {
     -re "$menu_overload1arg" {
         pass "bp menu for foo::overload1arg choice all"
@@ -317,7 +317,7 @@ gdb_test "info break" \
 # failures at times, too, albeit fewer than I do.
 
 proc continue_to_bp_overloaded {might_kfail bpnumber argtype actuals} {
-    global gdb_prompt hex decimal srcfile 
+    global gdb_prompt hex decimal srcfile
 
     send_gdb "continue\n"
     gdb_expect {
@@ -332,7 +332,7 @@ proc continue_to_bp_overloaded {might_kfail bpnumber argtype actuals} {
 	    }
 	}
         -re ".*$gdb_prompt $" {
-	    fail "continue to bp overloaded : ${argtype}" 
+	    fail "continue to bp overloaded : ${argtype}"
 	}
         timeout {
 	    fail "continue to bp overloaded : ${argtype} (timeout)"

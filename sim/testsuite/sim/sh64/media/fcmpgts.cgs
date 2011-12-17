@@ -18,7 +18,7 @@ fcmpgt1:
 	float.ls fr0, fr2
 	float.ls fr1, fr3
 	fcmpgt.s fr2, fr3, r7
-	bnei r7, 1, tr0 
+	bnei r7, 1, tr0
 
 fcmpgt2:
 	movi 1, r0

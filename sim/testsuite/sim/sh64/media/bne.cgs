@@ -11,7 +11,7 @@ init:
 	pta wrong, tr0
 	pta okay, tr1
 
-bne1:	
+bne1:
 	bne r63, r63, tr0
 bne2:
 	bne r0, r63, tr1

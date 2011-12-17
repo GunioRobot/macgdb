@@ -19,7 +19,7 @@
 #
 # tests for all the assignemnt operators
 # with mixed types and with int type variables
-# 
+#
 
 if $tracelevel then {
 	strace $tracelevel
@@ -68,11 +68,11 @@ gdb_expect {
                 pass "v_int=57"
               }
             -re ".*$gdb_prompt $" { fail "v_int=57" }
-            timeout           { fail "(timeout) v_int=57" }    
+            timeout           { fail "(timeout) v_int=57" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int=57" }
-    timeout           { fail "(timeout) v_int=57" }    
+    timeout           { fail "(timeout) v_int=57" }
   }
 
 
@@ -88,11 +88,11 @@ gdb_expect {
                 pass "v_int+=57"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=57" }
-            timeout           { fail "(timeout) v_int+=57" }    
+            timeout           { fail "(timeout) v_int+=57" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=57" }
-    timeout           { fail "(timeout) v_int+=57" }    
+    timeout           { fail "(timeout) v_int+=57" }
   }
 
 gdb_test "set variable v_int = 6" "" "set v_int to 6 (2)"
@@ -106,11 +106,11 @@ gdb_expect {
                 pass "v_int-=57"
               }
             -re ".*$gdb_prompt $" { fail "v_int-=57" }
-            timeout           { fail "(timeout) v_int-=57" }    
+            timeout           { fail "(timeout) v_int-=57" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int-=57" }
-    timeout           { fail "(timeout) v_int-=57" }    
+    timeout           { fail "(timeout) v_int-=57" }
   }
 
 gdb_test "set variable v_int = 6" "" "set v_int to 6 (3)"
@@ -124,11 +124,11 @@ gdb_expect {
                 pass "v_int*=5"
               }
             -re ".*$gdb_prompt $" { fail "v_int*=5" }
-            timeout           { fail "(timeout) v_int*=5" }    
+            timeout           { fail "(timeout) v_int*=5" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int*=5" }
-    timeout           { fail "(timeout) v_int*=5" }    
+    timeout           { fail "(timeout) v_int*=5" }
   }
 
 gdb_test "set variable v_int = 6" "" "set v_int to 6 (4)"
@@ -142,11 +142,11 @@ gdb_expect {
                 pass "v_int/=4"
               }
             -re ".*$gdb_prompt $" { fail "v_int/=4" }
-            timeout           { fail "(timeout) v_int/=4" }    
+            timeout           { fail "(timeout) v_int/=4" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int/=4" }
-    timeout           { fail "(timeout) v_int/=4" }    
+    timeout           { fail "(timeout) v_int/=4" }
   }
 
 
@@ -162,11 +162,11 @@ gdb_expect {
                 pass "v_int%=4"
               }
             -re ".*$gdb_prompt $" { fail "v_int%=4" }
-            timeout           { fail "(timeout) v_int%=4" }    
+            timeout           { fail "(timeout) v_int%=4" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int%=4" }
-    timeout           { fail "(timeout) v_int%=4" }    
+    timeout           { fail "(timeout) v_int%=4" }
   }
 
 
@@ -184,11 +184,11 @@ gdb_expect {
                 pass "v_int+=char"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_char" }
-            timeout           { fail "(timeout) v_int+=v_char" }    
+            timeout           { fail "(timeout) v_int+=v_char" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_char" }
-    timeout           { fail "(timeout) v_int+=v_char" }    
+    timeout           { fail "(timeout) v_int+=v_char" }
   }
 
 
@@ -205,11 +205,11 @@ gdb_expect {
                 pass "v_int+=signed_char"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_signed_char" }
-            timeout           { fail "(timeout) v_int+=v_signed_char" }    
+            timeout           { fail "(timeout) v_int+=v_signed_char" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_signed_char" }
-    timeout           { fail "(timeout) v_int+=v_signed_char" }    
+    timeout           { fail "(timeout) v_int+=v_signed_char" }
   }
 
 
@@ -226,11 +226,11 @@ gdb_expect {
                 pass "v_int+=unsigned_char"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_unsigned_char" }
-            timeout           { fail "(timeout) v_int+=v_unsigned_char" }    
+            timeout           { fail "(timeout) v_int+=v_unsigned_char" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_unsigned_char" }
-    timeout           { fail "(timeout) v_int+=v_unsigned_char" }    
+    timeout           { fail "(timeout) v_int+=v_unsigned_char" }
   }
 
 
@@ -247,11 +247,11 @@ gdb_expect {
                 pass "v_int+=short"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_short" }
-            timeout           { fail "(timeout) v_int+=v_short" }    
+            timeout           { fail "(timeout) v_int+=v_short" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_short" }
-    timeout           { fail "(timeout) v_int+=v_short" }    
+    timeout           { fail "(timeout) v_int+=v_short" }
   }
 
 
@@ -268,11 +268,11 @@ gdb_expect {
                 pass "v_int+=signed_short"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_signed_short" }
-            timeout           { fail "(timeout) v_int+=v_signed_short" }    
+            timeout           { fail "(timeout) v_int+=v_signed_short" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_signed_short" }
-    timeout           { fail "(timeout) v_int+=v_signed_short" }    
+    timeout           { fail "(timeout) v_int+=v_signed_short" }
   }
 
 
@@ -289,11 +289,11 @@ gdb_expect {
                 pass "v_int=+unsigned_short"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_unsigned_short" }
-            timeout           { fail "(timeout) v_int+=v_unsigned_short" }    
+            timeout           { fail "(timeout) v_int+=v_unsigned_short" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_unsigned_short" }
-    timeout           { fail "(timeout) v_int+=v_unsigned_short" }    
+    timeout           { fail "(timeout) v_int+=v_unsigned_short" }
   }
 
 
@@ -310,11 +310,11 @@ gdb_expect {
                 pass "v_int+=signed_int"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_signed_int" }
-            timeout           { fail "(timeout) v_int+=v_signed_int" }    
+            timeout           { fail "(timeout) v_int+=v_signed_int" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_signed_int" }
-    timeout           { fail "(timeout) v_int+=v_signed_int" }    
+    timeout           { fail "(timeout) v_int+=v_signed_int" }
   }
 
 
@@ -331,11 +331,11 @@ gdb_expect {
                 pass "v_int+=unsigned_int"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_unsigned_int" }
-            timeout           { fail "(timeout) v_int+=v_unsigned_int" }    
+            timeout           { fail "(timeout) v_int+=v_unsigned_int" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_unsigned_int" }
-    timeout           { fail "(timeout) v_int+=v_unsigned_int" }    
+    timeout           { fail "(timeout) v_int+=v_unsigned_int" }
   }
 
 
@@ -352,11 +352,11 @@ gdb_expect {
                 pass "v_int+=long"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_long" }
-            timeout           { fail "(timeout) v_int+=v_long" }    
+            timeout           { fail "(timeout) v_int+=v_long" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_long" }
-    timeout           { fail "(timeout) v_int+=v_long" }    
+    timeout           { fail "(timeout) v_int+=v_long" }
   }
 
 
@@ -373,11 +373,11 @@ gdb_expect {
                 pass "v_int+=signed_long"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_signed_long" }
-            timeout           { fail "(timeout) v_int+=v_signed_long" }    
+            timeout           { fail "(timeout) v_int+=v_signed_long" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_signed_long" }
-    timeout           { fail "(timeout) v_int+=v_signed_long" }    
+    timeout           { fail "(timeout) v_int+=v_signed_long" }
   }
 
 
@@ -393,11 +393,11 @@ gdb_expect {
                 pass "v_int+=unsigned_long"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_unsigned_long" }
-            timeout           { fail "(timeout) v_int+=v_unsigned_long" }    
+            timeout           { fail "(timeout) v_int+=v_unsigned_long" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_unsigned_long" }
-    timeout           { fail "(timeout) v_int+=v_unsigned_long" }    
+    timeout           { fail "(timeout) v_int+=v_unsigned_long" }
   }
 
 
@@ -413,11 +413,11 @@ gdb_expect {
                 pass "v_int+=v_float"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_float" }
-            timeout           { fail "(timeout) v_int+=v_float" }    
+            timeout           { fail "(timeout) v_int+=v_float" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_float" }
-    timeout           { fail "(timeout) v_int+=v_float" }    
+    timeout           { fail "(timeout) v_int+=v_float" }
   }
 
 
@@ -433,11 +433,11 @@ gdb_expect {
                 pass "v_int+=double"
               }
             -re ".*$gdb_prompt $" { fail "v_int+=v_double" }
-            timeout           { fail "(timeout) v_int+=v_double" }    
+            timeout           { fail "(timeout) v_int+=v_double" }
          }
          }
     -re ".*$gdb_prompt $" { fail "v_int+=v_double" }
-    timeout           { fail "(timeout) v_int+=v_double" }    
+    timeout           { fail "(timeout) v_int+=v_double" }
   }
 
 

@@ -1,4 +1,4 @@
-# sh testcase for flds 
+# sh testcase for flds
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 

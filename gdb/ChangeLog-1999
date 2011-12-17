@@ -57,10 +57,10 @@ Wed Dec 29 17:41:11 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* config/alpha/alpha-osf3.mh: ditto.
 	* testsuite/gdb.base/callfuncs.exp: make "next" test match the
 	next source line, in case the "next" runs away.
-	* acconfig.h: remove obsolete def HAVE_MULTIPLE_PROC_FDS, 
+	* acconfig.h: remove obsolete def HAVE_MULTIPLE_PROC_FDS,
 	add new def NEW_PROC_API
 	* config.in; ditto.
-	* configure.in: Detect sparc solaris 7 and all versions of 
+	* configure.in: Detect sparc solaris 7 and all versions of
 	UnixWare, and define NEW_PROC_API.
 	* configure: auto-generate.
 	* infrun.c (MAY_SWITCH_FROM_INFERIOR_PID): remove define, make it
@@ -68,20 +68,20 @@ Wed Dec 29 17:41:11 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	previous_inferior_pid.  (handle_inferior_event): remove the
 	[Switching to thread...] message.  (normal_stop): move the
 	[Switching to thread...] message to here.
-	* sol-thread.c (sol_find_new_threads): add a call to 
+	* sol-thread.c (sol_find_new_threads): add a call to
 	procfs_find_new_threads, so that new LWPs are found too.
-	* config/mips/nm-irix5.h (TARGET_CAN_USE_HARDWARE_WATCHPOINT): 
+	* config/mips/nm-irix5.h (TARGET_CAN_USE_HARDWARE_WATCHPOINT):
 	define to always use.  (target_insert_watchpoint) define to use
 	new procfs call (one additional parameter).
 	(target_remove_watchpoint): ditto.
 	(TARGET_REGION_SIZE_OK_FOR_HW_WATCHPOINT) define always true.
 	* config/mips/nm-irix4.h: ditto.
-	
+
 1999-12-21  Jim Blandy  <jimb@cygnus.com>
 
 	* Makefile.in (elf_bfd_h): Look for elf-bfd.h in BFD_SRC, not
 	BFD_DIR.  Unlike bfd.h, it is not a generated file.
-	
+
 Fri Dec 17 18:24:58 1999  David Taylor  <taylor@texas.cygnus.com>
 
 	* language.c (_initialize_language): move settings of language,
@@ -99,7 +99,7 @@ Fri Dec 17 18:24:58 1999  David Taylor  <taylor@texas.cygnus.com>
 	* config.in: define HAVE_STDINT_H if it's present.
 	* configure: autoconfiscate.
 	* lin-thread.c: if not HAVE_STDINT_H, stub out the entire module.
-	
+
 Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* target.c (find_target_beneath): Change ``='' in if to ``==''.
@@ -118,13 +118,13 @@ Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	varobjs was not decremented if the first one in the list was deleted.
 
 1999-12-16  Michael Snyder  <msnyder@cleaver.cygnus.com>
-	
+
 	* linux-thread.c: Remove printf-debugging code.
 	* lin-thread.c: ditto.
 	* config/alpha/nm-linux.h: protect with NM_LINUX_H.
 	* testsuite/gdb.threads/linux-dp.exp: Make test for "New Thread"
 	message more forgiving.  Ditto test for "info threads".
-	
+
 1999-12-16  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* lin-thread.c: new file.  Implements multi-thread debugging on
@@ -141,14 +141,14 @@ Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	and HAVE_PROC_SERVICE_H
 	* gdb_thread_db.h: new file, used when the system doesn't have it.
 	* gdb_proc_service.h: ditto.
-	
+
 1999-12-16  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* linux-thread.c: changes to accomodate the new lin-thread.c
 	module based on the thread_db API.  These changes make parts of
 	linux-thread.c shareable with lin-thread.c.
 	(linuxthreads_wait_mask): replace with linuxthreads_block_mask.
-	(using_thread_db): new variable.  Allows linux-thread module to 
+	(using_thread_db): new variable.  Allows linux-thread module to
 	detect when lin-thread (thread_db API) module is in use.
 	(save_inferior_pid, restore_inferior_pid): make 32/64 bit safe.
 	(check_all_signal_numbers) make extern, shared with lin-thead.c.
@@ -168,7 +168,7 @@ Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	SIGCHLD exactly ONCE, and leave it blocked!  Then linux_child_wait
 	will call sigsuspend when it wants to wait for this signal.
 	(thread_attach): abstract out ptrace attach to share with lin-thread.c
-	
+
 1999-12-16  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	Make target_pid_to_str a target_ops vector.
@@ -176,7 +176,7 @@ Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(target_tid_to_str): default to using target_pid_to_str.
 	(target_pid_or_tid_to_str): ditto.
 	* target.c (update_current_target): inherit to_pid_to_str method.
-	(find_target_beneath): new function.  Find target stratum below 
+	(find_target_beneath): new function.  Find target stratum below
 	the given one.
 	* config/nm-gnu.h: don't define target_pid_to_str.
 	* config/i386/tm-i386sol2.h: ditto.
@@ -193,17 +193,17 @@ Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	Derivative modules may substitute their own child_pid_to_str func
 	by defining CHILD_PID_TO_STR.
 	* lynx-nat.c (lynx_pid_to_str): rename to child_pid_to_str.
-	* config/nm-lynx.h: define CHILD_PID_TO_STR.  
+	* config/nm-lynx.h: define CHILD_PID_TO_STR.
 	Don't define target_pid_to_str.
 	* hppah-nat.c (hppa_pid_to_str): rename to child_pid_to_str.
-	* infttrace.c (hppa_pid_or_tid_to_str): call child_pid_to str 
+	* infttrace.c (hppa_pid_or_tid_to_str): call child_pid_to str
 	instead of hppa_pid_to_str.
 	* config/pa/nm-hppah.h: define CHILD_PID_TO_STR.
 	Don't define target_pid_to_str.
-	
+
 1999-12-16  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* i386-linux-nat.c: introduce PIDGET/TIDGET macros as on Solaris, 
+	* i386-linux-nat.c: introduce PIDGET/TIDGET macros as on Solaris,
 	preparatory to using the thread_db debugging API for Linux.
 	(fill_gregset): guard against invalid input.
 	(fetch_regs): add a pid/thread_id argument, so we can fetch regs
@@ -211,7 +211,7 @@ Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(fetch_fpregs): ditto.  (store_fpregs): ditto.
 	(fetch_xfpregs): ditto.  (store_xfpregs): ditto.
 	(fetch_inferior_registers): use TIDGET to extract an appropriate
-	thread/clone/process id from inferior_pid, if there's one there, 
+	thread/clone/process id from inferior_pid, if there's one there,
 	and pass it to fetch_regs etc.  (store_inferior_registers): ditto.
 
 	* infptrace.c: include every available version of wait.h.
@@ -293,7 +293,7 @@ Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	target_is_async_p call.
 	(remote_async_resume): Change SERIAL_CAN_ASYNC_P call to
  	target_can_async_p call.
-	
+
 	* target.c (update_current_target): Inherit to_async_mask_value.
 	(target_async_mask): New function. To temporarily turn the target
  	into a synchronous one for inferior function calls, and back to
@@ -303,7 +303,7 @@ Fri Dec 17 20:45:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	vector.
 	(target_async_mask): Export.
 	(target_async_mask_value): Define.
- 	
+
 Wed Dec 15 11:24:32 1999  Jeffrey A Law  (law@cygnus.com)
 
 	* hp-psymtab-read.c (trans_lang): Use HP_LANGUAGE_FORTRAN instead
@@ -347,21 +347,21 @@ Tue Dec 14 23:29:19 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-12-13  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* breakpoint.h (enum bptype): add new BP type bp_thread_event.
-	This will be used when a target needs to set an invisible 
+	This will be used when a target needs to set an invisible
 	breakpoint to detect events such as thread creation.
 	* breakpoint.c (interlan_breakpoint_number): remove ifdefs.
 	(create_thread_event_breakpoint): new function.
 	(remove_thread_event_breakpoints): new function.
 	(bpstat_what): don't stop at invisible thread_event breakpoints.
 	(update_breakpoints_after_exec): if bp_thread_event breakpoins
-	still exist after an exec, delete them.  They'll need to be 
+	still exist after an exec, delete them.  They'll need to be
 	found and installed anew anyway.
 	(print_it_typical): don't announce bp_thread_event breakpoints.
 	(print_one_breakpoint): account for new breakpoint type.
 	(mention): don't mention invisible bp_thread_event breakpoints.
 	(delete_command): don't delete invisible bp_thread_event bp's.
 	(breakpoint_re_set_one): don't touch bp_thread_event bp's.
-	
+
 Mon Dec 13 11:10:59 1999  Jimmy Guo	<guo@cup.hp.com>
 
 	* language.h (longest_raw_hex_string, longest_local_hex_string,
@@ -524,7 +524,7 @@ Wed Dec  8 19:56:48 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	config/m68k/tm-monitor.h, config/i386/tm-i386nw.h,
  	config/i386/tm-i386v4.h, config/h8300/tm-h8300.h: Update.
 	* mips-tdep.c (mips_gdbarch_init): Update.
-	
+
 Wed Dec  8 19:12:17 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* blockframe.c (generic_file_frame_chain_valid): Rename
@@ -600,7 +600,7 @@ Sat Dec  4 01:16:47 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* tracepoint.c (remote_get_noisy_reply): Add parameter sizeof_buf.
 	(finish_tfind_command): Add parameter sizeof_msg.
-	
+
 	* remote.c (remote_threads_info): Move assignment operator to
  	outside of function call.
 	(remote_send): Add parameter sizeof_buf.
@@ -608,7 +608,7 @@ Sat Dec  4 01:16:47 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	sizeof_buf.
 
 	* remote.h (getpkt): Update.
-	
+
 	* tracepoint.c (remote_set_transparent_ranges,
  	remote_get_noisy_reply, trace_start_command, trace_stop_command,
  	trace_status_command, finish_tfind_command, trace_find_pc_command,
@@ -654,7 +654,7 @@ Thu Dec  2 17:14:53 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(build_gdbtypes): Initialize them.
 	(_initialize_gdbtypes): Gdbarch_swap them.
 	* gdbtypes.h (builtin_type_v4si, builtin_type_v8qi,
-	builtin_type_v4hi, builtin_type_v2si): Declare them. 
+	builtin_type_v4hi, builtin_type_v2si): Declare them.
 
 	* findvar.c (read_register_bytes, write_register_bytes): Correctly
 	determine how the region the caller is writing overlaps with each
@@ -733,7 +733,7 @@ Thu Dec  2 17:14:53 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	means to continue ALL threads but to only send the signal to one
 	(and not, as I had assumed, to continue only the specified thread).
 	* i386-linux-nat.c (fill_gregset): guard against invalid input.
-	
+
 1999-11-30  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* infcmd.c (step_once): New function. Used to do just one step
@@ -764,21 +764,21 @@ Thu Dec  2 17:14:53 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-11-29  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* infrun.c (handle_inferior_pid): If a child thread stops on a 
-	signal that we are ignoring, and GDB silently resumes the child, 
+	* infrun.c (handle_inferior_pid): If a child thread stops on a
+	signal that we are ignoring, and GDB silently resumes the child,
 	resume ALL threads (not just the one that got the signal).  All
 	threads are stopped, so all must be resumed.
-	(handle_inferior_event): on detecting a thread context switch, 
+	(handle_inferior_event): on detecting a thread context switch,
 	swap infrun_state ONLY if both the old thread and the new one
 	are in the thread list.  Otherwise state information will be lost!
 	Problem may arise with flaky back-ends.
-	
+
 1999-11-29  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* infrun.c (print_stop_reason): Don't print end of stepping reason
  	if we are in the middle of a multistep command (same condition as
  	in normal_stop).
-	
+
 	* breakpoint.c (bpstat_stop_status): Don't decrease hit_count
 	in case of a wp that has not changed.
 
@@ -821,7 +821,7 @@ Mon Nov 29 11:28:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* coffread.c (coff_symfile_read): Treat "epoc-pe" targets as "pe"
 	targets.
 	* dbxread.c (dbx_read_symfile): Treat "epoc-pe" targets as "pe"
-	targets. 
+	targets.
 
 Wed Nov 24 17:07:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
@@ -841,7 +841,7 @@ Wed Nov 24 11:41:01 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* defs.h (show_load_progress): Export.
 
 	* symfile.c (show_load_progress): New hook for download.
-	(generic_load): Collect total size of executable to load. 
+	(generic_load): Collect total size of executable to load.
 	Call progress hook when downloading.
         Add output for ui case.
 	(print_transfer_performance): Add output for ui case.
@@ -883,11 +883,11 @@ Mon Nov 22 21:39:27 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(target_signal_to_host): Rewrite.  Use do_target_signal_to_host.
 	* target.h (target_signal_to_host_p): Add declaration. Document
  	target_singal vs host signal vs target OS signal confusion.
-	
+
 	From 1999-11-08 Jimmy Guo <guo@cup.hp.com>:
 	* hppah-nat.c (require_notification_of_events): Start by ignoring
  	all signals and then adding back in ones we're interested in.
-	
+
 Thu Nov 18 18:12:48 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* jv-typeprint.c (java_type_print_base), kod-cisco.c
@@ -924,7 +924,7 @@ Mon Nov 22 12:02:47 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	is constant any more.
 	(BSTRING_SIZE): Moved down to just above 'bcache' function, where
 	it's used.
-	* objfiles.c (free_objfile): Call free_bcache, instead of just 
+	* objfiles.c (free_objfile): Call free_bcache, instead of just
 	freeing the bcache's obstack directly.
 	* symfile.c (reread_symbols): Same.
 
@@ -978,10 +978,10 @@ Wed Nov 17 17:40:30 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-11-15  Eli Zaretskii  <eliz@is.elta.co.il>
 
 	(Patches applied by Jim Blandy <jimb@zwingli.cygnus.com>)
-	
+
 	Change DJGPP target use the common register layout in
 	config/i386/tm-i386.h.
-	* config/i386/tm-go32.h: #include "i386/tm-i386.h", not 
+	* config/i386/tm-go32.h: #include "i386/tm-i386.h", not
 	"i386/tm-i386v.h".
 	(HAVE_I387_REGS): Define.
 	(HAVE_SSE_REGS): Undefine.
@@ -997,7 +997,7 @@ Wed Nov 17 17:40:30 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(REGISTER_CONVERT_TO_VIRTUAL, REGISTER_CONVERT_TO_RAW,
 	REGISTER_VIRTUAL_TYPE): Use definitions from
 	config/i386/tm-i386.h, unless LD_I387 is #defined.
-	
+
 	* go32-nat.c (go32_fetch_registers, store_register)
 	(go32_create_inferior, init_go32_ops): Replace fatal with
 	internal_error.
@@ -1102,7 +1102,7 @@ Sat Oct 23 19:08:39 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* config/d10v/tm-d10v.h: Delete pre multi-arch code.
   	(REGISTER_SIM_REGNO): Define.
 	(d10v_register_sim_regno): Declare.
-	
+
 Sat Oct 23 16:39:34 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbarch.c (initialize_current_architecture): Make ``choice''
@@ -1152,14 +1152,14 @@ Wed Nov 10 14:21:43 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* stabsread.c (read_range_type): Make n2 and n3 LONGEST.  Adjust
 	the various tests that check for maximum values, bit counts, etc.
 	In the long run, it might have been simpler just to give GDB bignums.
-	
+
 Tue Nov  9 18:34:13 1999  Andrew Cagney  <cagney@amy.cygnus.com>
 
 	* defs.h (gdb_file_put): Add parameter write.
 	(gdb_file_put_method_ftype): New typedef.
 	* utils.c (gdb_file_put, mem_file_put, tui_file_put,
  	null_file_put): Update.
-	
+
 	* utils.c (struct gdb_file): Add field magic.
 	(gdb_file_new): Initialize.
 	(gdb_file_data): Verify.
@@ -1167,7 +1167,7 @@ Tue Nov  9 18:34:13 1999  Andrew Cagney  <cagney@amy.cygnus.com>
 	* utils.c (mem_file_fputs): Delete.  Replaced by.
 	(mem_file_write): New function. Rewrite mem_file.
 	(mem_file_new): Update.
-	
+
 Tue Nov  9 17:51:12 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* remote-sim.c (gdb_os_write_stdout): Use gdb_file_write.
@@ -1228,7 +1228,7 @@ Mon Nov  8 18:18:07 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* utils.c (error_stream, error_last_message): Update.
 	* varobj.c (varobj_get_type, c_value_of_variable): Update.
 	* ui-out.c (ui_out_field_stream): Update.
-	
+
 Mon Nov  8 16:28:00 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* defs.h, utils.c (gdb_fclose): Delete.
@@ -1295,7 +1295,7 @@ Sun Nov  7 18:09:54 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(do_captured_command, catch_command_errors): New functions. Call
  	the command function via catch_errors.
 	(catch_errors): Add more comments.
-	
+
 	* main.c (struct captured_main_args): Define.
  	(captured_main): New.  Rewrite main.  Replace SET_TOP_LEVEL with
  	calls to catch_command_errors. Delete calls to do_cleanups which
@@ -1348,7 +1348,7 @@ Fri Nov  5 16:32:04 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-11-04  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* breakpoint.c (commands_command): remove unprotected ref to 
+	* breakpoint.c (commands_command): remove unprotected ref to
 	args pointer (which may be null).
 
 1999-11-04  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
@@ -1372,7 +1372,7 @@ Fri Nov  5 16:32:04 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* breakpoint.c (print_it_typical): Add printing of stop reason for
  	bp_breakpoint case.
-	
+
 Thu Nov  4 17:46:36 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* event-loop.c (gdb_do_one_event): Delete SET_TOP_LEVEL call.
@@ -1413,7 +1413,7 @@ Thu Nov  4 17:36:27 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* config/pa/nm-hppah.h: ditto.
 	* config/i386/nm-i386sol2.h: ditto.
 	* config/i386/nm-linux.h: ditto.
-	
+
 1999-11-02  Tom Tromey  <tromey@cygnus.com>
 
 	* NEWS: Mention breakpoint ranges.
@@ -1607,7 +1607,7 @@ Thu Nov  4 17:36:27 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-10-29  Jim Blandy  <jimb@zwingli.cygnus.com>
 
 	Hardware watchpoint fix from Eli Zaretskii <eliz@gnu.org>:
-	
+
 	* breakpoint.c (insert_breakpoints): Fetch the value of the
  	expression we need to watch.  If it's a lazy memory lvalue, then
 	we need to fetch it now, before we start the inferior again.
@@ -1625,7 +1625,7 @@ Thu Nov  4 17:36:27 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* acconfig.h: Fix entries for HAVE_STRUCT_SAVE_STATE_T,
  	HAVE_STRUCT_MEMBER_SS_WIDE, and HAVE_PTRACE_GETXFPREGS.
 	* config.h.in: Regenerated.
-	
+
 1999-10-28  Jim Blandy  <jimb@zwingli.cygnus.com>
 
 	Fixes for warnings from Andreas Jaeger <aj@suse.de>.
@@ -1666,7 +1666,7 @@ Thu Nov  4 17:36:27 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* config/i386/tm-linux.h (HAVE_SSE_REGS): #define, iff the
 	configure script #defined HAVE_PTRACE_GETXFPREGS.
 	(REGISTER_VIRTUAL_TYPE): Provide the proper types for the pointer
-	registers and the SSE registers. 
+	registers and the SSE registers.
 	* i386-linux-nat.c (GETREGS_SUPPLIES, GETFPREGS_SUPPLIES,
 	GETXFPREGS_SUPPLIES): New macros.
 	(have_ptrace_getxfpregs): New variable.
@@ -1794,7 +1794,7 @@ Sat Oct 23 16:39:34 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(bpstat_print): Call print_bp_stop_message instead of using the
  	print_it function pointer.
 	(print_it_done, print_it_noop): Delete these functions.
-	
+
 1999-10-21  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* breakpoint.c (print_it_normal): Reorganize into a switch
@@ -1837,7 +1837,7 @@ Sat Oct 23 16:39:34 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	print_stop_action.
 	(print_it_done): Ditto.
 	(print_it_noop): Ditto.
-	
+
 	* infrun.c (is_internal_shlib_eventpoint): Delete this function.
 	(stopped_for_internal_shlib_event): Delete.
 	(normal_stop): Move logic to handle bp_shlib_event from here to
@@ -1871,7 +1871,7 @@ Mon Oct 18 17:32:51 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	fill_fpregset, fetch_fpregs, store_fpregs, fetch_regs,
 	store_regs, fetch_inferior_registers, store_inferior_registers):
 	Adjusted to use new macros from tm-i386.h.
-	
+
 	* config/i386/tm-i386.h: Provide a decent x86 FPU description here,
 	so that the various i386 targets can share more FPU handling code.
 	(NUM_GREGS): New macro.
@@ -1914,7 +1914,7 @@ Mon Oct 18 23:36:58 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* symfile.c (generic_load): Cleanup the validate code - remove
  	#ifdef, use paddr to print address.
 	(validate_download): Static, replace VALIDATE_DOWNLOAD
-	
+
 	* symfile.c (generic_load): Use strtoul to scan the optional load
  	offset.  Allocate a filename of the correct size.
 
@@ -1940,7 +1940,7 @@ Sun Oct 17 15:09:00 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* remote.c (remote_console_output): Flush gdb_stdtarg after
  	processing an ``O'' packet.
 	* remote.h (remote_console_output): Strip PARAMS.
-	
+
 Sun Oct 17 15:12:33 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* target.c (target_xfer_memory_partial): New function. Simple
@@ -1959,7 +1959,7 @@ Sun Oct 17 13:58:56 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* defs.h (ui_load_progress_hook): Add declaration.
 	* dsrec.c (ui_load_progress_hook): Delete extern declaration.
-	
+
 	* symfile.c (ui_load_progress_hook): Make first argument const.
 	(generic_load): Don't cast the result of bfd_get_section_name.
   	Replace ``sect'' with ``sect_name'', use consistently.
@@ -2006,7 +2006,7 @@ Wed Oct 13 20:53:42 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* utils.c (mem_fileopen, mem_file_delete, mem_file_new,
  	mem_file_rewind, mem_file_put, mem_file_fputs): New functions.
 	* defs.h (mem_fileopen): Declare.
-	
+
 1999-10-13  Kevin Buettner  <kevinb@cygnus.com>
 
 	* mem-break.c (default_memory_insert_breakpoint): Renamed from
@@ -2238,7 +2238,7 @@ Thu Oct  7 19:24:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-10-04  James Ingham  <jingham@leda.cygnus.com>
 
 	* remote-rdi.c (arm_rdi_open): If the angel_RDI_Open fails, close
-	the serial port and raise an error.  If you try to go on, you will 
+	the serial port and raise an error.  If you try to go on, you will
 	stall forever down in the rdi-share code.
 
 1999-10-04  Fernando Nasser  <fnasser@totem.to.cygnus.com>
@@ -2259,7 +2259,7 @@ Thu Oct  7 19:24:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* top.c: Ditto.
 
 	* infrun.c (fetch_inferior_event): Call inferior_event_handler
- 	when inferior stops, instead of doing work ourselves.  
+ 	when inferior stops, instead of doing work ourselves.
 	(fetch_inferior_event): Use void* instead of gdb_client_data.
 	Remove includes of event-top.h and event-loop.h. Add include of
  	inf-loop.h.
@@ -2269,10 +2269,10 @@ Thu Oct  7 19:24:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(inferior_event_handler): Handle inferior's execution completion
  	case as well.
 	* inf-loop.h: Add def of INF_LOOP_H.
-	
+
 	* event-top.h: Don't use gdb_client_data, use void*, to avoid
  	dependency on event-loop.h.
-	
+
 	* remote.c (remote_async_resume): Set target_executing only after we
 	actually register the inferior with the event loop.
 
@@ -2314,7 +2314,7 @@ Mon Oct  4 19:25:55 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* target.c (cleanup_target): Type of to_async param is now
  	function with enum inferior_event_type param.
-	
+
 	* target.h (target_ops): Adjust to_async accordingly. Move enum
  	inferior_event_type to this file.  Don't have a typedef for
  	inferior_event_type. Add more enumeration constants INF_QUIT_REQ,
@@ -2322,17 +2322,17 @@ Mon Oct  4 19:25:55 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* inf-loop.c (inferior_event_handler): Change first param to tell
  	the type of event we are dealing with. Deal with INF_ERROR and
- 	INF_REG_EVENT, for the moment. 
+ 	INF_REG_EVENT, for the moment.
 	Include target.h.
 
 	* inf-loop.h (inferior_event_handler): Adjust prototype. Remove
  	enum inferior_event_type from here.
-	
+
 	* remote.c (remote_async_serial_handler): Pass INF_REG_EVENT to
  	the client callback.
 	(remote_async): Change callback's param type to inferior_event_type.
 	(async_client_callback): Change type as above.
-	
+
 1999-10-01  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* event-top.c (stdin_event_handler): Delete fd parameter, use
@@ -2341,7 +2341,7 @@ Mon Oct  4 19:25:55 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* inf-loop.c (inferior_event_handler): Delete fd parameter.  Use
  	target_async() to unregister the inferior fd in case of errors.
-	* inf-loop.h(inferior_event_handler): Delete fd parameter. 
+	* inf-loop.h(inferior_event_handler): Delete fd parameter.
 
 	* ser-unix.c (fd_event): Delete fd parameter. Use scb->fd,
  	instead.
@@ -2357,20 +2357,20 @@ Mon Oct  4 19:25:55 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* event-loop.h (handler_func): Delete fd parameter.
 	* event-loop.c (handle_file_event): Delete fd param from call to
  	proc. Do not include inferior.h.
-	
+
 1999-10-01  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* event-loop.c (inferior_event_handler,
  	inferior_event_handler_wrapper): Move from here.
 	* inf-loop.c: To here. New file.
-	
+
 	* event-loop.h (inferior_event_handler): Move from here.
 	* inf-loop.h: To here. New file.
 
 	* remote.c: Include inf-loop.h.
 	(set_extende_protocol): Remove unused prototpye.
 
-	* Makefile.in (SFILES): Add inf-loop.c. 
+	* Makefile.in (SFILES): Add inf-loop.c.
 	(inf_loop_h): Define.
 	(COMMON_OBS): Add inf-loop.o.
 	(inf-loop.o): Add rule.
@@ -2555,7 +2555,7 @@ Thu Sep 30 10:36:19 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* ser-unix.h (ser_unix_flush_input): Update.
 	ser-tcp.c (_initialize_ser_tcp), ser-pipe.c
  	(_initialize_ser_pipe): Update.
-	
+
 	* ser-unix.c (hardwire_write): Delete.
 	(_initialize_ser_hardwire): Update, use ser_unix_write.
 
@@ -2563,7 +2563,7 @@ Thu Sep 30 10:16:50 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* ser-pipe.c (pipe_open): Don't make the FD non-blocking.  Already
  	being handled in ser_unix_wait_for by a select.
-	
+
 Thu Sep 30 10:00:32 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* serial.h (struct _serial_t): Add field debug_p.
@@ -2592,7 +2592,7 @@ Thu Sep 30 00:02:03 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* configure.in (AC_CHECK_FUNCS): Test for sigprocmask.
 	* configure, config.in: Re-generate.
-	* event-top.c (async_stop_sig): Use sigprocmask when available.  
+	* event-top.c (async_stop_sig): Use sigprocmask when available.
 
 1999-09-29  Doug Evans  <devans@casey.cygnus.com>
 
@@ -2682,7 +2682,7 @@ Tue Sep 28 11:08:34 1999  Jeffrey A Law  (law@cygnus.com)
 	* breakpoint.c, defs.h, event-top.c, infcmd.c, infrun.c, main.c,
  	remote.c, top.c, tracepoint.c, utils.c (async_p): Change var name
  	to event_loop_p.
-	
+
 1999-09-28  Jim Blandy  <jimb@cygnus.com>
 
 	* hppa-tdep.c (skip_prologue_hard_way): Recognize ldo insns
@@ -2830,7 +2830,7 @@ Thu Sep 23 20:48:22 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	interrupt_query.
 	(async_interrupt_query): New function. Async case of
  	interrupt_query().
-	
+
 	* event-top.c (async_enable_stdin): New function. Reinstate stdin
  	with the event loop.
 	* event-top.h (async_enable_stdin): Export.
@@ -2851,7 +2851,7 @@ Thu Sep 23 20:48:22 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* event-loop.c (fetch_inferior_event_wrapper): New
  	function. Wrapper to pass to catch_errors.
 	(inferior_event_handler): Pop the target if things go bad with it.
-	Call fetch_inferior_event() from within catch_errors(). 
+	Call fetch_inferior_event() from within catch_errors().
 
 1999-09-24  Jim Blandy  <jimb@zwingli.cygnus.com>
 
@@ -2862,7 +2862,7 @@ Thu Sep 23 20:48:22 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* target.c (target_resize_to_sections): New function.  Gather the
 	resizing code for the to_sections field into one place, and make
-	sure you update the other targets that are sharing the to_sections 
+	sure you update the other targets that are sharing the to_sections
 	structure.
 	* target.h: Declare the target_resize_to_sections function.
 	* solib.c (solib_add): use target_resize_to_sections.
@@ -2878,7 +2878,7 @@ Thu Sep 23 20:48:22 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* complaints.c (complain): Send the complaints to stderr rather
 	than stdout, so they don't get mixed into the result stream from
-	commands. 
+	commands.
 
 1999-09-23  Fernando Nasser  <fnasser@totem.to.cygnus.com>
 
@@ -3104,7 +3104,7 @@ Fri Sep 17 19:28:17 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* breakpoints.c (delete_command): Move declaration from here.
 	* breakpoints.h (delete_command): To here.
-	
+
 1999-09-18  Jim Blandy  <jimb@cygnus.com>
 
 	* hppa-tdep.c (in_solib_call_trampoline): If we can't recognize
@@ -3121,7 +3121,7 @@ Sat Sep 18 07:13:03 1999  Jeffrey A Law  (law@cygnus.com)
  	handle inferior events.
 	(extended_remote_async_create_inferior): Ditto.
 
-	* serial.h (serial_event_ftype): Add two pars. 
+	* serial.h (serial_event_ftype): Add two pars.
 
 	* ser-unix.c (ser_unix_event): Add two parameters, error and fd.
 	Pass those into the call to the actual inferior event handler.
@@ -3211,7 +3211,7 @@ Sat Sep 18 07:13:03 1999  Jeffrey A Law  (law@cygnus.com)
 	* Makefile.in: Add entries for varobj.[cho] and wrapper.[cho].
 	gdbtk-varobj.[co].  gdbtk-varobj.o is not yet on the COMMON_OBS
 	list because it conflicts with the older gdbtk-variable.o which
-	is still the default. 
+	is still the default.
 
 1999-09-17  Fernando Nasser  <fnasser@totem.to.cygnus.com>
 
@@ -3255,7 +3255,7 @@ Thu Sep 16 17:33:35 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* valops.c: Remove prototype for search_struct_field_aux(). THe
  	function was nowhere in the file.
 	(value_ind): Remove unused var real_val.
-	(value_find_oload_method_list): Remove unused var v. 
+	(value_find_oload_method_list): Remove unused var v.
 	(find_overload_match): Remove extra declaration of var jj.
 
 	* Makefile.in (event_top_h): Define. Add dependency on this for
@@ -3298,7 +3298,7 @@ Thu Sep 16 12:20:11 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	"async-hardwire" device can be explicitly selected.  Work in
  	progress.
 	* ser-unix.c: Register "async-hardwire" device.
-  
+
 Thu Sep 16 09:04:53 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* ser-unix.h: New file.  Declare generic ser_unix functions.
@@ -3312,13 +3312,13 @@ Thu Sep 16 09:04:53 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	functions.
 	* ser-unix.c: Include <sys/wait.h>, <sys/socket.h>,
  	"gdb_string.h".
-	
+
  	* ser-tcp.c (_initialize_ser_tcp), ser-unix.c
  	(_initialize_ser_hardwire), ser-pipe.c (_initialize_ser_tcp):
  	Initialize ops vector using assignment.
 
 	* ser-pipe.c, ser-tcp.c, ser-unix.c: Include ser-unix.h.
-	
+
 	* ser-pipe.c (pipe_get_tty_state, pipe_set_tty_state,
  	pipe_return_0, pipe_raw, wait_for, pipe_readchar,
  	pipe_noflush_set_tty_state, pipe_print_tty_state,
@@ -3425,7 +3425,7 @@ Tue Sep 14 14:34:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* hppa-tdep.c (hppa_skip_permanent_breakpoint): New function.
 	* config/pa/tm-hppa.h (hppa_skip_permanent_breakpoint): Declare.
 	(SKIP_PERMANENT_BREAKPOINT): Define.
-	
+
 1999-09-14  Kevin Buettner  <kevinb@cygnus.com>
 
 	* symtab.h, minsyms.c (find_stab_function_addr): Changed
@@ -3549,7 +3549,7 @@ Mon Sep 13 18:39:31 1999  Jeffrey A Law  (law@cygnus.com)
  	FD_SETSIZE, howmany, NFDBITS, MASK_SIZE): Move to here from
  	event-loop.h.
 	Include event-top.h. Remove use of PARAMS. ANSIfy functions headers.
-		
+
 	* event-top.c: Include event-top.h. Include "signals.h", not
  	<signals.h>.
 	Remove use of PARAMS. ANSIfy functions headers.
@@ -3561,11 +3561,11 @@ Mon Sep 13 18:39:31 1999  Jeffrey A Law  (law@cygnus.com)
 	* mi-main.c: Ditto.
 	* top.c Ditto.
 	* utils.c: Ditto.
-	
+
 Mon Sep 13 18:54:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbarch.sh: Describe each of the fields.
-	
+
 Mon Sep 13 17:51:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	From 1999-09-12 Jim Blandy <jimb@cygnus.com>:
@@ -3599,7 +3599,7 @@ Mon Sep 13 17:51:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* event-loop.c (create_file_event): New function. Creates a gdb
  	event for a given fd.
-	(gdb_wait_for_event): Use create_file_event().  
+	(gdb_wait_for_event): Use create_file_event().
 	* event-loop.h: export create_file_event().
 
 	* event-loop.c (delete_file_handler): Move the clearing of the
@@ -3623,13 +3623,13 @@ Mon Sep 13 17:51:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 Tue Sep  7 14:06:22 1999  Kevin Buettner  <kevinb@cygnus.com>
 
-	* config/i386/tm-linux.h (SOFUN_ADDRESS_MAYBE_MISSING): 
+	* config/i386/tm-linux.h (SOFUN_ADDRESS_MAYBE_MISSING):
 	Define.
 
 Tue Sep  7 08:18:01 1999  Kevin Buettner  <kevinb@cygnus.com>
 
 	From Jim Blandy <jimb@cygnus.com>:
-	
+
 	Step into calls to functions in shared libraries properly.  See
 	the comments for SKIP_SOLIB_RESOLVER atop infrun.c for details.
 	* infrun.c (SKIP_SOLIB_RESOLVER): New macro.
@@ -3755,7 +3755,7 @@ Thu Sep  2 18:26:04 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* configure.in (WERROR_CFLAGS, WARN_CFLAGS): Sync with
  	../sim/common/aclocal.m4.
 	* configure: Re-generate.
-	
+
 Thu Sep  2 00:27:36 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* Makefile.in (z8k-tdep.o): For moment, don't try to compile with
@@ -3810,7 +3810,7 @@ Tue Aug 31 00:48:27 1999  Andrew Cagney  <cagney@amy.cygnus.com>
 	* thread.c (prune_threads): Ditto.
 	* symtab.c (lookup_transparent_type): Ditto.
 	(decode_line_1): Ditto.
-	(make_symbol_overload_list): Ditto. 
+	(make_symbol_overload_list): Ditto.
 	* rs6000-tdep.c (frame_get_saved_regs): Ditto.
 	(set_processor): Ditto.
 	* remote.c (remote_remove_breakpoint): Ditto.
@@ -3870,7 +3870,7 @@ Wed Sep  1 15:07:25 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* mips-tdep.c (mips_print_extra_frame_info, print_unpack),
  	m32r-rom.c (m32r_load_section), m32r-tdep.c (m32r_frame_chain),
  	dsrec.c (load_srec): Fix printf problems.
-	
+
 Wed Sep  1 13:16:49 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* Makefile.in (monitor.o): For moment, don't try to compile with
@@ -3885,8 +3885,8 @@ Tue Aug 31 21:23:38 1999  Jeffrey A Law  (law@cygnus.com)
 
 Wed Sep  1 09:22:50 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
-	* d30v-tdep.c (d30v_print_register): 
-	(tdisassemble_command): 
+	* d30v-tdep.c (d30v_print_register):
+	(tdisassemble_command):
 
 	* d10v-tdep.c (show_regs, trace_info, tdisassemble_command): Fix
  	printf problems.
@@ -3968,7 +3968,7 @@ Wed Sep  1 09:22:50 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	text addr and size.  Let read_dbx_symtab find them.
 	(read_dbx_symtab): Get text addr and size from objfile.
 	(dbx_symfile_read): Remove dead code (call to strlen);
-	
+
 1999-08-31  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* Makefile.in: add rule for sol-thread.o.
@@ -3993,10 +3993,10 @@ Wed Sep  1 09:22:50 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* target.c (signals, target_signal_from_host,
 	target_signal_to_host): Add clauses for
 	TARGET_SIGNAL_REALTIME_32.
-	
+
 1999-08-31  Neil Schellenberger <neil.schellenberger@crosskeys.com>
 
-	* sol-thread.c (sol_thread_detach): strip thread-id out of 
+	* sol-thread.c (sol_thread_detach): strip thread-id out of
 	inferior_pid, so that procfs_detach can't choke on it.
 
 1999-08-31  J.T. Conklin  <jtc@redback.com>
@@ -4053,7 +4053,7 @@ Sat Aug 28 14:23:29 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	paddr_d to print addresses. Change ``d'' to ``ld''.
 
 	* utils.c (strlen_paddr): New function.
-	
+
 Tue Aug 31 01:36:44 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* config/d30v/tm-d30v.h (d30v_frame_chain,
@@ -4062,10 +4062,10 @@ Tue Aug 31 01:36:44 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* arc-tdep.c (arc_pop_frame): Rename pop_frame.
 	(arc_push_dummy_frame): Rename push_dummy_frame.
 	(arc_set_cpu_type_command): Add declaration.
-	
+
 	* config/arc/tm-arc.h (arc_pop_frame, arc_push_dummy_frame): Add
  	declaration.
-	
+
 1999-08-30  Stan Shebs  <shebs@andros.cygnus.com>
 
 	* infrun.c (prepare_to_wait): New function, broken out from the
@@ -4074,13 +4074,13 @@ Tue Aug 31 01:36:44 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-08-30  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* tracepoint.c: -Wall warning cleanup. 
+	* tracepoint.c: -Wall warning cleanup.
 	(parse_and_eval_memrange): remove (unused).
 	(output_command, args_info, locals_info, registers_info): add decls.
 	(getpkt, putpkt, remote_console_output): add decls.
 	(isalnum, isspace): cast arg to avoid warning.
 	(printf, fprintf, sprintf): use [fs]printf_vma for printing addrs.
-	
+
 Mon Aug 30 21:47:58 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* d10v-tdep.c: #include "language.h".
@@ -4122,7 +4122,7 @@ Mon Aug 30 17:52:17 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* event-top.c (mark_async_signal_handler_wrapper,
  	async_request_quit): Move declaration from here.
 	* event-loop.h: To here.
-	
+
 	* defs.h: Add declaration of exec.c:exec_set_section_offsets.
 
 	* event-top.c: #include "gdbcmd.h" which includes "command.h" and
@@ -4158,7 +4158,7 @@ Sun Aug 29 10:03:32 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	symbol file.  Attempts to locate the executable file for the
 	attached process and load symbols from it.
 	(solib_add): Call open_symbol_file_object if attaching to a
-	new process and no open symbol file.	
+	new process and no open symbol file.
 
 1999-08-27  Jason Molenda  (jsm@bugshack.cygnus.com)
 
@@ -4204,7 +4204,7 @@ Tue Aug 24 21:30:36 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* i386-stub.c, m32r-stub.c, m68k-stub.c, sh-stub.c, sh-stub.c,
 	sparc-stub, sparcl-stub.c sparclet-stub.c (getpacket): If '$',
-	the packet start character is received in the 'middle' of a 
+	the packet start character is received in the 'middle' of a
 	packet, assume that packet end character has been lost and
 	start a new packet.
 
@@ -4256,7 +4256,7 @@ Wed Aug 25 10:45:33 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* top.c (DEFAULT_PROMPT): Add space after "(gdb)" at end of prompt.
 
-	From: J.T. Conklin  <jtc@redback.com> 
+	From: J.T. Conklin  <jtc@redback.com>
 	* top.c (DEFAULT_PROMPT): Set to "(gdb)" if not already defined.
 	(init_main): Always use DEFAULT_PROMPT.
 
@@ -4284,7 +4284,7 @@ Tue Aug 24 14:59:23 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 Tue Aug 24 14:26:34 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbarch.c, gdbarch.h: Convert to pure ISO-C.
-	
+
 	* gdbarch.sh: New file.
 	* gdbarch.c, gdbarch.h: Add note describing gdbarch.sh
 
@@ -4313,7 +4313,7 @@ Sun Aug 22 14:49:40 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* defs.h (enum lval_type): To here.
 	* frame.h, gdbarch.h: Delete incomplete declaration of ``enum
  	lval_type''.
-	
+
 1999-08-20  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* breakpoint.c (can_use_hardware_watchpoint): reject expressions
@@ -4344,7 +4344,7 @@ Fri Aug 20 10:53:38 1999  Jeffrey A Law  (law@cygnus.com)
 	(remove_breakpoint): use enum instead of consts.
 	(throughout): use "warning" instead of "fprintf(stderr, ..."
 	[Also clean up a bunch of excessively long lines.]
-	
+
 1999-08-19  J.T. Conklin  <jtc@redback.com>
 
 	* i386-stub.c (waitabit): Removed.
@@ -4361,16 +4361,16 @@ Fri Aug 20 10:53:38 1999  Jeffrey A Law  (law@cygnus.com)
 	* breakpoint.c (bpstat_stop_status): Accept triggered addresses
 	anywhere inside the region occupied by a watched variable as a
 	sign that the watchpoint fired.  Don't stop if some watchpoint
-	was triggered, but its address doesn't match the address of this 
+	was triggered, but its address doesn't match the address of this
 	watchpoint.
 	(TARGET_REGION_OK_FOR_HW_WATCHPOINT): New macro.
 	Default definition is to call TARGET_REGION_SIZE_OK_FOR_HW_WATCHPOINT.
 	(can_use_hardware_watchpoint): Call TARGET_REGION_OK_FOR_HW_WATCHPOINT;
-	if it returns zero, return zero immediately. 
+	if it returns zero, return zero immediately.
 	(insert_breakpoints): Try to insert watchpoints for all the values
 	on the value chain, even if some of them fail to insert.  Remove
 	the breakpoint if parts of its value chain couldn't be inserted.
-	
+
 1999-08-19  Eli Zaretskii  <eliz@is.elta.co.il>
 
 	* go32-nat.c (go32_stopped_by_watchpoint): Remove unused code.
@@ -4544,7 +4544,7 @@ Mon Aug 16 14:29:30 1999  Jeffrey A Law  (law@cygnus.com)
 	* hppa-tdep.c (hppa_push_arguments): Handle arguments growing in
 	both directions depending ARGS_GROW_DOWNWARD.
 	(hppa_find_saved_regs): Update for 64bit wide registers & pointers
-	and PA64 ABI. 
+	and PA64 ABI.
 
 	* hppa-tdep.c (hppa_pop_frame): Various fixes for 64bit wide
 	registers and pointers.
@@ -4567,7 +4567,7 @@ Mon Aug 16 14:29:30 1999  Jeffrey A Law  (law@cygnus.com)
 	pointers are 64bits wide.
 
 	* hppa-tdep.c (record_text_segment_lowaddr): New function.
-	(internalize_unwinds): Use it if addressess are 8 bytes wide. 
+	(internalize_unwinds): Use it if addressess are 8 bytes wide.
 
 	* symfile.c (syms_from_objfile): No longer warn if the lowest
 	section does not have SEC_CODE set.
@@ -4595,7 +4595,7 @@ Mon Aug 16 19:08:19 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-08-13  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	From Christopher Faylor <cgf@cygnus.com>:
-	
+
 	* event-loop.c (gdb_wait_for_event): Before going to wait for
  	another event with select or poll, flush the error and the output
  	streams.
@@ -4713,7 +4713,7 @@ Tue Aug 10 13:59:45 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-08-10  James Ingham  <jingham@leda.cygnus.com>
 
 	* top.c: Remove the disassembly_flavor_hook, use the new set_hook
-	instead. 
+	instead.
 	* defs.h: Ditto.
 	* arm-tdep.c (set_disassembly_flavor_sfunc):  Ditto.
 
@@ -4721,7 +4721,7 @@ Tue Aug 10 13:59:45 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* config/i386/nm-i386sol2.h (FIND_NEW_THREADS): remove, obsolete.
 	* config/sparc/nm-sun4sol2.h (FIND_NEW_THREADS): remove, obsolete.
-		
+
 1999-08-10  J.T. Conklin  <jtc@redback.com>
 
 	* configure.tgt (i[3456]86-*-aout*, i[3456]86-*-coff*,
@@ -4836,7 +4836,7 @@ Sun Aug  8 12:06:47 1999  Fred Fish  <fnf@cygnus.com>
 
 1999-08-08  James Ingham  <jingham@leda.cygnus.com>
 
-	* remote.c (remote_insert_breakpoint): Fix typo in Z packet support. 
+	* remote.c (remote_insert_breakpoint): Fix typo in Z packet support.
 	Also move Z packet support OUTSIDE of REMOTE_BREAKPOINT ifdef,
 	since this is not set for all targets that support the Z packet.
 
@@ -4857,7 +4857,7 @@ Fri Aug  6 17:17:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(malloc_botch): Print message direct to stderr.
 	(fatal): Delete definition.
 	* utils.c (internal_error): Define.
-	
+
 	* gdbarch.h, gdbarch.c, hppah-nat.c, ch-exp.c, dsrec.c, sh-tdep.c,
  	infptrace.c, f-lang.c, symm-nat.c, top.c, m3-nat.c, v850-tdep.c,
  	remote-vx.c, remote-sim.c, remote-mips.c, source.c, infcmd.c,
@@ -4868,7 +4868,7 @@ Sun Aug  8 15:28:33 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* ser-pipe.c (STDIN_FILENO, STDOUT_FILENO, STDERR_FILENO): Move
  	definition from here.
 	* defs.h: To here.
-	
+
 Sat Aug  7 21:44:59 1999  Fred Fish  <fnf@cygnus.com>
 
 	* remote.c (remote_insert_breakpoint): Fix typo, missing ';'.
@@ -4898,10 +4898,10 @@ Fri Aug  6 19:26:03 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-08-06  James Ingham  <jingham@leda.cygnus.com>
 
-	* configure.in, configure: add the --enable-multi-ice to determine 
+	* configure.in, configure: add the --enable-multi-ice to determine
 	whether to configure and build the multi-ice-gdb-server.  Note,
 	for now this only builds on cygwin, so don't enable it for other
-	platforms... 
+	platforms...
 
 1999-08-06  Tom Tromey  <tromey@cygnus.com>
 
@@ -4916,7 +4916,7 @@ Fri Aug  6 19:26:03 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	These are some fixups for the Arm, and support for the
 	disassembly-flavor for the ARM.
-	
+
 	* defs.h: Declare the disassembly_flavor_hook
 	* top.c: Define the disassembly_flavor_hook
 	* i386-tdep.c: Remove unnecessary declaration of the
@@ -4930,19 +4930,19 @@ Fri Aug  6 19:26:03 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(set_disassembly_flavor_sfunc): New Function.
 	(set_disassembly_flavor): New Function.
 	(arm_othernames): Use the set_disassembly_flavor.
-	(_initialize_arm_tdep): Setup the disassembly flavor commands, and 
+	(_initialize_arm_tdep): Setup the disassembly flavor commands, and
 	initialize the flavor.
 	(arm_frameless_function_invocation): Adjust for
 	frameless functions that have 1 or 2 instructions that mimic the
 	standard APCS form.
 	(arm_scan_prologue): Be more careful about scanning the function
-	prologue.  Don't match things that just have a few of the prologue 
+	prologue.  Don't match things that just have a few of the prologue
 	instructions out of order, and don't get thrown by the scheduler
 	migrating instructions into the prologue.
 
 	Add support for the "Z" and "z" packets to request the stub
 	to set a breakpoint.
-	
+
 	* remote.c (set_remote_protocol_Z_packet_cmd): New function.
 	(show_remote_protocol_Z_packet_cmd): New Function.
 	(remote_open_1): Init the Z packet config.
@@ -4950,7 +4950,7 @@ Fri Aug  6 19:26:03 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(remote_insert_breakpoint): Use the "Z" packet if supported.
 	(remote_remove_breakpoint): Use the "z" packet if supported.
 	(remote_insert_watchpoint): New Function - currently wired to
-	nothing. 
+	nothing.
 	(remote_remove_watchpoint): Ditto.
 	(remote_insert_hw_breakpoint): Ditto.
 	(remote_remove_hw_breakpoint): Ditto.
@@ -5044,7 +5044,7 @@ Thu Aug  5 14:24:07 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* remote.c: Replace comment describing remote protocol with
  	pointer to official document.
-	
+
 Thu Aug  5 11:59:06 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* remote.c (remote_protocol_binary_download): New variable.
@@ -5117,9 +5117,9 @@ Wed Aug  4 19:58:15 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-07-29  Jim Blandy  <jimb@cygnus.com>
 
 	* config/pa/nm-hppah.h (PTRACE_ARG3_TYPE): After more
-	consideration, make this a CORE_ADDR, like WDB did. 
+	consideration, make this a CORE_ADDR, like WDB did.
 
-	Rather than casting every single use of really_free_pendings to 
+	Rather than casting every single use of really_free_pendings to
 	make_cleanup_func, why not actually make it have that type?  Golly!
 	* buildsym.c (really_free_pendings): Change argument type to PTR.
 	buildsym.h (really_free_pendings): Fix declaration.
@@ -5136,7 +5136,7 @@ Wed Aug  4 19:58:15 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	match catch_errors.  Save return value of find_stub_with_shl_get
 	in *args.
 	(initialize_hp_cxx_exception_support): Collect value of
-	eh_notify_callback_addr from args. 
+	eh_notify_callback_addr from args.
 
 	Get rid of some noise.  It would be nice to get helpful warnings
 	from the compiler about lossy conversions.
@@ -5229,7 +5229,7 @@ Mon Jul 26 17:13:39 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	From Ian Lance Taylor <ian@airs.com>:
 	(remote_prepare_to_store): Only read registers when ``P'' packet
  	is in state unsupported or support-unknown.
-	
+
 1999-07-24  Fred Fish  <fnf@cygnus.com>
 
 	* symfile.c (default_symfile_offsets): Clear section_offsets
@@ -5240,7 +5240,7 @@ Mon Jul 26 17:13:39 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* remote.c (_initialize_remote): "remotebreak" should be a var_boolean.
 
 1999-07-15  Jim Blandy  <jimb@cygnus.com>
-	
+
 	Make the output from "info registers" fit withinin 80 columns.
 	* hppa-tdep.c (pa_print_registers): Make it easy to change row and
 	column counts.  Switch to three columns, instead of four, and
@@ -5496,7 +5496,7 @@ Fri Jul  2 19:38:43 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(struct continuation): New structure. Continuation for an
  	execution command.
 	(ALL_CLEANUPS): Move here from top.h.
-	
+
 	* remote.c (remote_async_open_1): Set things up for telling the
  	target we are running the extended protocol, only after the target
  	has stopped.
@@ -5532,7 +5532,7 @@ Fri Jul  2 19:38:43 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	before displaying the prompt.
 	(start_remote): Set target_executing to 1.
 	(normal_stop): Don't call complete_execution from here.
-	
+
 Thu Jul  1 19:14:30 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* blockframe.c (struct dummy_frame): Add member ``top''.
@@ -5553,7 +5553,7 @@ Wed Jun 30 15:45:48 1999  Jeffrey A Law  (law@cygnus.com)
 
 1999-06-30  Fernando Nasser  <fnasser@totem.to.cygnus.com>
 
-	* source.c (directory_command): Add missing test for from_tty. 
+	* source.c (directory_command): Add missing test for from_tty.
 
 1999-06-29  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
@@ -5612,7 +5612,7 @@ Wed Jun 30 15:45:48 1999  Jeffrey A Law  (law@cygnus.com)
 	(interrupt_target_command): New function. Interrupt the
  	target execution.
 	(_initialize_infcmd): Add new command 'interrupt'.
-	
+
 	* top.c (target_executing): New global variable.
 	(execute_command): Reject commands that cannot be executed while
 	the target is running asynchronously.
@@ -5658,7 +5658,7 @@ Wed Jun 30 15:45:48 1999  Jeffrey A Law  (law@cygnus.com)
 	* event-loop.h: Adjust exported functions accordingly.
 
 	* top.c (init_main): Move setting of async_command_editing_p from
- 	here.  
+ 	here.
 	* event-top.c (_initialize_event_loop): To here.
 	(change_line_handler): Revert previous change. Add comment.
 	(_initialize_event_loop): Revert previous change.
@@ -5672,16 +5672,16 @@ Wed Jun 30 15:45:48 1999  Jeffrey A Law  (law@cygnus.com)
 	* event-top.c (change_line_handler): Get rid of the global
  	variable input_fd, use `fileno (instream)' instead.
 	(_initialize_event_loop): Ditto
-	
+
 	* event-loop.c (add_file_handler): New function. Wrapper for
  	create_file_handler.
- 	(create_file_handler): Make static.  
+ 	(create_file_handler): Make static.
 	* event-top.c (_initialize_event_loop): Call add_file_handler,
  	instead of create_file_handler.
-	(change_line_handler): Ditto.  
+	(change_line_handler): Ditto.
 	Remove poll.h include.
 	* event-loop.h: Export add_file_handler instead of
- 	create_file_handler.	
+ 	create_file_handler.
 
 1999-06-24  Stan Shebs  <shebs@andros.cygnus.com>
 
@@ -5726,7 +5726,7 @@ Wed Jun 23 20:39:24 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* main.c (main): Recognize --ui.  Will eventually replace
  	--interpreter.
-	
+
 Wed Jun 23 15:44:39 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	From Jimmy Guo <guo@cup.hp.com>:
@@ -5760,7 +5760,7 @@ Wed Jun 23 15:30:46 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* event-loop.c (create_file_handler): Do not do a realloc of the
  	pollfd structure of the notifier, unless there is already one.
 	Include <sys/types.h> for platforms that have no poll.
-	
+
 	* event-top.c: Fix prototype for _initialize_event_loop.
 	(_initialize_event_loop): Do something only if running in async
  	mode.
@@ -5787,12 +5787,12 @@ Wed Jun 23 15:30:46 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* event-loop.c: Get rid of #include <readline.h>.
 
-	* event-loop.h: Get rid of nested #include's. 
+	* event-loop.h: Get rid of nested #include's.
 	* event-loop.c: Rearrange includes to accomodate change in
  	event-loop.h. Include poll.h, not sys/poll.h.
 	* event-top.c: Ditto.
 	* main.c: Ditto.
-	
+
 1999-06-16  David Taylor  <taylor@louisiana.cygnus.com>
 
 	* alpha-tdep.c (alpha_pop_frame): if frame->proc_desc
@@ -5844,13 +5844,13 @@ Wed Jun 23 15:30:46 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(simplified_command_loop): ditto.
 	(gdb_prompt_escape): New variable.  Esc char for prompt parameters.
 	(get_prompt_1): New function, workhorse for get_prompt.
-	(get_prompt): Completely rewrite.  Add functionality for a 
+	(get_prompt): Completely rewrite.  Add functionality for a
 	parameterized prompt, ie. the displayed prompt can change according
 	to the value of one or more expressions given as parameters in the
 	prompt string.
 	(init_main): use renamed variable gdb_prompt_string.  Add new
 	command "set prompt-escape-char" to set gdb_prompt_escape.
-	
+
 Sun Jun 13 10:44:13 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* defs.h (gdb_stdlog), main.c: Declare.
@@ -5894,7 +5894,7 @@ Fri Jun 11 18:34:33 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* defs.h (gdb_file_rewind_ftype, gdb_file_rewind,
  	set_gdb_file_rewind, gdb_file_put_ftype, gdb_file_put,
  	set_gdb_file_put): Declare.
-	
+
 	* utils.c (gdb_file_new): Initialize ``rewind'' and ``put''.
 	(struct gdb_file): Add to_rewind and to_put.
 	(null_file_put, null_file_rewind, gdb_file_put, gdb_file_rewind,
@@ -5918,7 +5918,7 @@ Fri Jun 11 16:08:37 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* ui-out.c (ui_out_new, ui_out_data), ui-out.h: New functions.
  	(struct ui_out): Add field data.
 	(ui_out_new): Replace init_ui_out_state.
-	
+
 	* ui-out.c (XMALLOC): Define.
 	(ui_out_stream_new, append_header_to_list): Use XMALLOC instead of
  	xmalloc.
@@ -5946,13 +5946,13 @@ Fri Jun 11 10:31:29 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	verify_field_proper_position, verify_field_alignment,
  	clear_header_list, append_header_to_list, _initialize_ui_out):
  	Update.
-	
+
 	* ui-out.h (typedef streambuf): Delete.
 	(struct _streambuf): Rename to struct ui_stream.
 	* breakpoint.c (breakpoint_1), stack.c (print_frame_info_base),
  	printcmd.c (print_frame_args): Rename streambuf to struct
  	ui_stream.
-	
+
 Fri Jun 11 15:10:32 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* d10v-tdep.c (d10v_push_arguments): Fix order of arguments passed
@@ -6022,7 +6022,7 @@ Fri Jun 11 10:31:29 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(set_prompt): Set the top of the prompt stack if running
  	asynchronously.
 	(init_main): Move ``extern'' vars from here to event-loop.h.
-	
+
 1999-06-10  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* values.c (value_from_string): new function.  Make a value_ptr
@@ -6030,12 +6030,12 @@ Fri Jun 11 10:31:29 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* value.h (value_from_string): add prototype.
 	* remote.c (remote_cisco_ops): New remote target, "target cisco".
 	(init_remote_cisco_ops): New function, initialize new target.
-	(remote_cisco_mourn, remote_cisco_wait, remote_cisco_open, 
+	(remote_cisco_mourn, remote_cisco_wait, remote_cisco_open,
 	remote_cisco_close): New functions, implement new target cisco.
 	(minitelnet, readtty, readsocket) New functions, implement the
 	I/O pass-through mode for target cisco.
 	(remote_wait): Detect special enhanced version of the 'S' packet
-	for target cisco.  
+	for target cisco.
 	(remote_cisco_expand): Perform Cisco variant of RLL decoding.
 
 1999-06-10  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
@@ -6087,7 +6087,7 @@ Wed Jun  9 16:42:16 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* main.c (main): Delete call to call_interp_loop. Interpreters
  	hook in using command_loop_hook.
 	* top.c (call_interp_loop): Delete function.
-	
+
 1999-06-10  Keith Seitz  <keiths@cygnus.com>
 
 	* mcore-rom.c (picobug_dumpregs): Return a value. Any value, it
@@ -6100,8 +6100,8 @@ Wed Jun  9 16:42:16 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-06-09  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
-        * rs6000-tdep.c (skip_prologue): Don't mistake a branch for a     
-        subroutine call.        
+        * rs6000-tdep.c (skip_prologue): Don't mistake a branch for a
+        subroutine call.
 
 1999-06-08  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
@@ -6109,14 +6109,14 @@ Wed Jun  9 16:42:16 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	stop with signal number plus section offsets for .text, .data and
 	.bss.  This is used by Cisco to indicate relocation offsets.
 	(remote_cisco_section_offsets, remote_cisco_objfile_relocate):
-	new files to support 'N' packet.  
-	(remote_info_process): New function.  Implements the 
-	"info remote-process" command, by means of which the remote target 
-	can report anything it wants to about the remote process/app being 
-	debugged.  
-	(_initialize_remote): add info remote-proc command.  
-	(remote_threads_info): New function for "info threads" command.  
-	Attempts to use new query "qfThreadInfo" instead of the old 
+	new files to support 'N' packet.
+	(remote_info_process): New function.  Implements the
+	"info remote-process" command, by means of which the remote target
+	can report anything it wants to about the remote process/app being
+	debugged.
+	(_initialize_remote): add info remote-proc command.
+	(remote_threads_info): New function for "info threads" command.
+	Attempts to use new query "qfThreadInfo" instead of the old
 	undocumented query.
 	* exec.c (exec_set_section_offsets) new files to support 'N' packet.
 
@@ -6258,7 +6258,7 @@ Fri Jun  4 17:10:36 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* gdbarch.h, gdbarch.c: Add multi-arch support for SP_REGNUM,
  	FP_REGNUM, PC_REGNUM, NUM_REGS, REGISTER_NAME.
 	* d10v-tdep.c, config/d10v/tm-d10v.h: Update.
-	
+
 1999-06-03  Fernando Nasser  <fnasser@totem.to.cygnus.com>
 
 	* printcmd.c (print_frame_args): Convert some of the output to use
@@ -6277,7 +6277,7 @@ Fri Jun  4 17:10:36 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	with the target vector table.  (cont_thread): rename continue_thread.
 	(record_currthread): remove dead code.  (remote_thread_alive):
 	clean up and simplify.  (threadref etc.): move definitions to here
-	from gdbthread.h.  
+	from gdbthread.h.
 
 1999-06-02  Jason Molenda  (jsm@bugshack.cygnus.com)
 
@@ -6320,7 +6320,7 @@ Thu Jun  3 10:12:38 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* gdbarch.h: To here.
 	* config/d10v/tm-d10v.h (struct frame_info, struct
  	frame_saved_regs, struct type): Delete declarations.
-	
+
 1999-06-02  Robert Hoehne  <robert.hoehne@gmx.net>
 
 	* go32-nat.c: go32_terminal_init, go32_terminal_inferior and
@@ -6438,7 +6438,7 @@ Tue Jun  1 20:06:38 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* d10v-tdep.c (d10v_gdbarch_init): Set get_saved_register.
 	* config/d10v/tm-d10v.h: Update.
-	
+
 Tue Jun  1 19:50:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbarch.h, gdbarch.c: Add multi-arch support for TARGET_READ_PC,
@@ -6459,7 +6459,7 @@ Tue Jun  1 19:19:02 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	TARGET_CHAR_BIT, TARGET_SHORT_BIT, TARGET_FLOAT_BIT,
  	TARGET_DOUBLE_BIT and TARGET_LONG_DOUBLE_BIT.
 	* config/d10v/tm-d10v.h, d10v-tdep.c (d10v_gdbarch_init): Update.
-	
+
 Tue Jun  1 18:47:54 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* parse.c (build_parse): New function.  Initialize
@@ -6558,7 +6558,7 @@ Wed May 26 13:51:25 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	to access the tui_stream.
 	(tui_file_flush): Rename gdb_flush. Call gdb_file_data to access
  	the tui_stream. Pass FILE and not STREAM down.
-	
+
 	* utils.c (struct stdio_file, stdio_file_flush, stdio_file_fputs,
  	stdio_file_isatty, stdio_file_delete, stdio_file_new,
  	stdio_fileopen): Define type and functions.  Implement a simple
@@ -6575,19 +6575,19 @@ Wed May 26 13:51:25 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(gdb_file_flush_ftype, gdb_file_fputs_ftype,
  	gdb_file_isatty_ftype, gdb_file_delete_ftype): Add function type
  	declarations.
-	
+
 	* defs.h (set_gdb_file_flush, set_gdb_file_fputs,
  	set_gdb_file_isatty, set_gdb_file_data, gdb_file_new,
  	gdb_file_delete, gdb_file_data, stdio_fileopen, tui_fileopen): Add
  	function declarations.
 	(gdb_fopen): Re-implement. Call stdio_file_new.
 	(gdb_fclose): Re-implement. Call gdb_file_delete.
-	
+
 	* main.c (tui_file_fputs): Rename fputs_unfiltered.  Use
  	gdb_file_data to gain access to the tui_stream data.  Use FILE
  	instead of STREAM where applicable.
 	(main): Create gdb_stdout and gdb_stderr using tui_fileopen.
-	
+
 	* defs.h (struct tui_stream): Add field ts_magic.
 	* utils.c (tui_file_magic): Local variable.
 	(tui_file_new): Set field ts_magic.
@@ -6652,7 +6652,7 @@ Tue May 25 13:01:43 1999  Andrew Cagney  <cagney@amy.cygnus.com>
 
 	* main.c (gdb_init): Move declaration from here.
 	* top.h: To here.
-	
+
 	* main.c (call_interp_loop): Move declaration from here.
 	* top.h: To here.
 
@@ -6679,7 +6679,7 @@ Tue May 25 13:53:23 1999  Andrew Cagney  <cagney@amy.cygnus.com>
  	set_async_prompt), event-loop.c (display_gdb_prompt): Move
  	declarations from here.
 	* event-loop.h: To here.
-	
+
 	* event-loop.h (delete_async_signal_handler): Add function
  	declaration.
 
@@ -6707,7 +6707,7 @@ Tue May 25 12:23:39 1999  Andrew Cagney  <cagney@amy.cygnus.com>
  	java_value_string): Add declaration. Make static.
 	(java_rerun_cleanup): Add extern declaration for this stub
  	function.
-	
+
 Tue May 25 12:06:29 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbarch.h: When multi-arch, check that REGISTER_NAMES was not
@@ -6770,7 +6770,7 @@ Mon May 24 11:57:04 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	REMOTE_TRANSLATE_XFER_ADDRESS is defined.  Pass targ_addr and
  	targ_len by reference.
 	(REMOTE_TRANSLATE_XFER_ADDRESS): Provide default definition.
-	
+
 	* remote-d10v.c (remote_d10v_translate_xfer_address): Update.
 	* config/d10v/tm-d10v.h (REMOTE_TRANSLATE_XFER_ADDRESS): Update.
 
@@ -6806,7 +6806,7 @@ Mon May 24 08:36:18 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	d10v_extract_struct_value_address, d10v_frame_saved_pc,
  	d10v_frame_args_address, d10v_frame_locals_address,
  	d10v_saved_pc_after_call): New functions.
-	
+
 	* config/d10v/tm-d10v.h (REGISTER_BYTE, REGISTER_RAW_SIZE,
  	REGISTER_VIRTUAL_SIZE, REGISTER_VIRTUAL_TYPE, STORE_STRUCT_RETURN,
  	D10V_MAKE_DADDR, D10V_MAKE_IADDR, D10V_DADDR_P, D10V_IADDR_P,
@@ -6821,7 +6821,7 @@ Mon May 24 08:36:18 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* utils.c (core_addr_lessthan, core_addr_greaterthan): New
  	functions.
 	* defs.h (core_addr_lessthan, core_addr_greaterthan): Declare.
-	
+
 Sat May 22 16:44:06 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* utils.c (n_spaces): Handle case where first call has N equal to
@@ -6874,7 +6874,7 @@ Fri May 21 11:23:54 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* top.c (simplified_command_loop): Reformat using GNU style.
 	(call_interp_loop): Ditto.
-	
+
 Thu May 20 12:18:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* blockframe.c (get_prev_frame): Remove #ifdef around test for
@@ -6905,7 +6905,7 @@ Thu May 20 12:18:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* event-top.c: Ditto.
 	* event-loop.c: Ditto.
 	* main.c: Ditto.
-	
+
 1999-05-20  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* top.c (simplified_command_loop): New function.  It is just a
@@ -6913,11 +6913,11 @@ Thu May 20 12:18:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(call_interp_loop): New function. Call the correct version of the
  	command loop, with the appropriate input reading function,
  	depending on which interpreter gdb was invoked with.
-	
+
 	* main.c (main): Recognize and handle the new command line option
  	--interpreter. If an interpreter is specified, call the appropriate
 	command handling function.
-	
+
 1999-05-19  Keith Seitz  <keiths@cygnus.com>
 
 	* config/mcore/tm-mcore.h (BELIEVE_PCC_PROMOTION): Define. We
@@ -6952,7 +6952,7 @@ Thu May 20 12:18:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	From Philippe De Muyter  <phdm@macqel.be>:
 	* event-loop.h: Include sys/wait.h only if HAVE_SYS_WAIT_H.
-	
+
 1999-05-17  Keith Seitz  <keiths@cygnus.com>
 
 	* configure.tgt: Add MCore target.
@@ -6992,7 +6992,7 @@ Thu May 20 12:18:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* infrun.c (_initialize_infrun): Handle TARGET_SIGNAL_LWP,
 	TARGET_SIGNAL_WAITING, and TARGET_SIGNAL_CANCEL like SIGALRM or
-	SIGIO --- pass them through to the inferior silently. 
+	SIGIO --- pass them through to the inferior silently.
 	* target.h (enum target_signals): Add TARGET_SIGNAL_CANCEL, for
 	Solaris's SIGCANCEL.
 	* target.c (target_signal_from_host, target_signal_to_host): Add
@@ -7038,12 +7038,12 @@ Thu May  6 15:25:32 1999  Philippe De Muyter  <phdm@macqel.be>
 	message about hitting the "heuristic fence post" with something
 	that actually gives the user a fighting chance of figuring out
 	why GDB is unhappy.
-	
+
 1999-05-06  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* top.c: Include event-loop.h.
 	(init_main): Add async version of 'set prompt' command.
-	If in async mode define the editing and annotate set 
+	If in async mode define the editing and annotate set
 	commands in a different way.
 	Initialize new variable asyn_command_editing_p to 1.
 	Initialize the gdb prompt for async mode.
@@ -7054,15 +7054,15 @@ Thu May  6 15:25:32 1999  Philippe De Muyter  <phdm@macqel.be>
 	event-top.c can use them.
 	(command_loop_marker): Make non-static, for use in event-top.c.
 	Include event-loop.h.
-	
+
 	* top.h: Add prototype for async_init_signals.
 	(SET_TOP_LEVEL): Move here from main.c.
 	Add setup_event_loop to exported functions.
 
 	* defs.h: Add async_hook to exported variables.
 
-	* main.c (SET_TOP_LEVEL): Move to top.h, so that it is visible in 
-	event-loop.c.  Add new global variable async to determine whether 
+	* main.c (SET_TOP_LEVEL): Move to top.h, so that it is visible in
+	event-loop.c.  Add new global variable async to determine whether
 	we are running in async mode or not.
 	(main): Add support for --async switch. Use async_hook to call
 	setup_event_loop, when running in async mode.
@@ -7070,22 +7070,22 @@ Thu May  6 15:25:32 1999  Philippe De Muyter  <phdm@macqel.be>
 	* event-top.c: New file. Gdb input line handler and command line
 	handler for the event loop. Initialization of signal handlers.
 	All the handled	signals have handlers called handle_<signalname>.
-	Set up all the appropriate tokens for asynchronous signal 
+	Set up all the appropriate tokens for asynchronous signal
 	handling.
-		
+
 	* event-loop.h: New file. Data structures and definitions for the
 	event loop.
 
-	* event-loop.c: New file. Functions for the event loop 
+	* event-loop.c: New file. Functions for the event loop
 	implementation.
 
 	* config.in: Regenerate with autoheader.
 
-	* configure.in (AC_CHECK_FUNCS): Add poll to list of functions 
-	to be checked for. 
+	* configure.in (AC_CHECK_FUNCS): Add poll to list of functions
+	to be checked for.
 
 	* configure: Regenerate.
-                                                        
+
 	* Makefile.in (SFILES): Add new source files.
 	(eventloop_h): Define.
 	(COMMON_OBS): Add new object files.
@@ -7151,7 +7151,7 @@ Fri Apr 30 11:16:09 1999  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	as a target ops vector, rather than previous macro definition method.
 	* infcmd.c (go_command): define only if in xdb mode.
 	* procfs.c: fix typo in comment.
-	
+
 Fri Apr 30 01:02:05 1999  Jeffrey A Law  (law@cygnus.com)
 
 	* hppah-nat.c: Fix various coding convention violations introduced
@@ -7292,7 +7292,7 @@ Thu Apr 22 13:32:23 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* gdbarch.c: Cleanup.  Re-order the definition of the ``struct
  	gdbarch'' initialization functions so that maintenance is more
  	straightforward.
-	
+
 Thu Apr 22 11:07:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbarch.h, gdbarch.c (use_generic_dummy_frames,
@@ -7336,13 +7336,13 @@ Wed Apr 21 15:39:27 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(CALL_DUMMY): Check for CALL_DUMMY definition when multi-arch. Are
  	incompatible.
 	* gdbarch.c (verify_gdbarch): Check call_dummy_stack_adjust.
-	
+
 Wed Apr 21 14:45:44 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbarch.c (gdbarch_update): Move dump-arch code from here.
 	(gdbarch_dump): To here.  Make more robust.
 	* gdbarch.h (gdbarch_dump): Add prototype.
-	
+
 	* gdbarch.c (enum set_arch): Declare.
 	(set_arch): Add type parameter.  Only disable
  	``target_architecture_auto'' when set_arch_manual.
@@ -7449,7 +7449,7 @@ Wed Apr 14 08:23:32 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	dbarch_call_dummy_p, dbarch_call_dummy_words,
  	dbarch_sizeof_call_dummy_words, dbarch_call_dummy_stack_adjust,
  	dbarch_call_dummy_stack_adjust_p): Define using new macros.
-	
+
 1999-04-13  Jason Molenda  (jsm@bugshack.cygnus.com)
 
 	* rom68k-rom.c (init_rom68k_cmds): Fix an accidental substitution
@@ -7544,12 +7544,12 @@ Thu Apr  8 16:04:34 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-04-08  Jason Molenda  (jsm@bugshack.cygnus.com)
 
-	* monitor.c (monitor_read_memory): If a MO_GETMEM_NEEDS_RANGE 
+	* monitor.c (monitor_read_memory): If a MO_GETMEM_NEEDS_RANGE
 	monitor, increase the end address by one byte.
 
 1999-04-08  Jason Molenda  (jsm@bugshack.cygnus.com)
 
-	* dbug-rom.c (init_dbug_cmds): Fix strings in 
+	* dbug-rom.c (init_dbug_cmds): Fix strings in
         dbug_cmds.{step,clr_break,clr_all_break,fill} to send correct
 	commands to the monitor.
 
@@ -7597,7 +7597,7 @@ Thu Apr  8 14:13:19 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* annotate.h: Declare annotate_signal_hook.
 
-	* annotate.c (annotate_signal): Add a call to 
+	* annotate.c (annotate_signal): Add a call to
 	annotate_signal_hook().
 
 1999-04-06  Jim Blandy  <jimb@zwingli.cygnus.com>
@@ -7630,14 +7630,14 @@ Mon Apr  5 14:56:59 1999  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	* blockframe.c (get_prev_frame): Remove the redundant
 	get_prev_frame_info.  It is now exactly the same as
 	get_prev_frame, so there is no reason to have both functions.
- 	
-	* rs6000-tdep.c (rs6000_init_extra_frame_info): 
-	  frame.h: 
-	  a29k-tdep.c (init_extra_frame_info): 
-	  config/a29k/tm-a29k.h: 
+
+	* rs6000-tdep.c (rs6000_init_extra_frame_info):
+	  frame.h:
+	  a29k-tdep.c (init_extra_frame_info):
+	  config/a29k/tm-a29k.h:
 	  i386-tdep.c:
         Change all references to get_prev_frame_info to get_prev_frame.
-	
+
 1999-04-02  Stan Shebs  <shebs@andros.cygnus.com>
 
 	* bcache.c, bcache.h, breakpoint.c, defs.h, expprint.c,
@@ -7652,7 +7652,7 @@ Mon Apr  5 14:56:59 1999  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	* config/arm/tm-arm.h: (EXTRACT_STRUCT_VALUE_ADDRESS): This needs
 	to call extract_address, not just cast the first 4 bytes, since
 	the result will be passed to value_at which expects host-byte
-	order. 
+	order.
 
 	* arm-tdep.c (arm_scan_prologue): The prologue_start address was
 	directly &'ed with 0x03fffffc, rather than using
@@ -7811,7 +7811,7 @@ Wed Mar 24 01:01:27 1999  Andrew Cagney  <cagney@sludge.cygnus.com>
 	* target.h (enum thread_control_capabilities), breakpoint.h (enum
  	bptype), breakpoint.c (enum insertion_state_t): Strict ISO-C
  	doesn't allow trailing comma in enum definition.
-	
+
 Mon Mar 22 15:56:04 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* blockframe.c (inside_entry_file, inside_entry_func): Convert #if
@@ -7824,7 +7824,7 @@ Mon Mar 22 15:56:04 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-03-23  Jason Molenda  (jsm@bugshack.cygnus.com)
 
 	* hppa-tdep.c (pa_register_look_aside): Remove CPU_HPPA_RISC_20
-	check, test for presence of struct save_state_t and the ss_wide 
+	check, test for presence of struct save_state_t and the ss_wide
 	member directly.
 	* configure.in:  Remove CPU_HPPA_RISC_20 test.  Add tests for
 	HAVE_STRUCT_SAVE_STATE_T and HAVE_STRUCT_MEMBER_SS_WIDE.
@@ -7883,7 +7883,7 @@ Tue Mar 16 01:11:33 1999  Andrew Cagney  <cagney@rhino.cygnus.com>
 	* target.h (struct target_ops), target.c (debug_to_query),
  	remote.c (pack_hex_byte, remote_query): Promote char parameters to
  	int.  Stops compile problems with pedantic ISO-C compilers.
-	
+
 Tue Mar 16 15:29:04 1999  Stan Shebs  <shebs@andros.cygnus.com>
 
 	* go32-xdep.c: Remove, no longer used by anything.
@@ -7896,7 +7896,7 @@ Mon Mar 15 11:42:43 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* d10v-tdep.c (push_stack_item, pop_stack_item): New function.
  	(d10v_push_arguments): Use.
-	
+
 	From Martin M. Hunt  <hunt@cygnus.com>:
 	* d10v-tdep.c (d10v_push_arguments): When arguments
 	must be pushed onto the stack, they go on in
@@ -8018,7 +8018,7 @@ Wed Mar 10 21:20:25 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(_initialize_findvar): Call build_findvar.
 	(_initialize_findvar): Register REGISTERS and REGISTER_VALID as
  	arch dependant.
-	
+
 	* inferior.h (registers, register_valid): Replace array with
  	pointer.
 
@@ -8032,7 +8032,7 @@ Wed Mar 10 21:20:25 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(save_inferior_status): Call xmalloc_inferior_status.
 	(discard_inferior_status): New function, discard inf_status
  	buffer.  Call free_inferior_status.
-	
+
 	* inferior.h (stop_registers): Replace array with pointer.
 	* infrun.c (stop_registers): Update.
 	(build_infrun): Initialize stop_registers.
@@ -8174,7 +8174,7 @@ Tue Mar  9 16:29:24 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* hppah-nat.c (hppa_get_process_events): Ditto.
 	(child_pid_to_exec_file): Only call ptrace with
  	PT_GET_PROCESS_PATHNAME if that symbol has been defined.
-	* config/pa/nm-hppah.h: Don't set up prototypes et al for 
+	* config/pa/nm-hppah.h: Don't set up prototypes et al for
 	hppa_get_process_events.
 
 	* config/pa/hppahpux.mh (TERM_LIB): Do not initialize, let autoconf
@@ -8209,7 +8209,7 @@ Thu Mar  4 08:37:35 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	(parse_symbol), top.c (source_command), utils.c
  	(floatformat_to_doublest): GCC suggest explicit braces to avoid
  	ambiguous `else'.
-	
+
 	* tracepoint.c (map_args_over_tracepoints, trace_actions_command),
  	m32r-rom.c (m32r_supply_register), win32-nat.c
  	(handle_output_debug_string, child_continue), i960-tdep.c
@@ -8282,7 +8282,7 @@ Wed Mar  3 18:10:55 1999  Andrew Cagney  <cagney@chook.cygnus.com>
 1999-03-02  Nick Clifton  <nickc@cygnus.com>
 
 	* findvar.c (store_address): Delete incorrect big endian
-        code. 
+        code.
 
 Tue Mar  2 18:02:42 1999  Andrew Cagney  <cagney@chook>
 
@@ -8317,17 +8317,17 @@ Tue Mar  2 18:02:42 1999  Andrew Cagney  <cagney@chook>
 
 1999-02-24  Jason Molenda  (jsm@bugshack.cygnus.com)
 
-        * configure.in: Set CPU_HPPA_RISC_20 if the host CPU is a PA 2.0 
+        * configure.in: Set CPU_HPPA_RISC_20 if the host CPU is a PA 2.0
         processor.
         * acconfig.h: Add CPU_HPPA_RISC_20
         * config.in, configure: Regenerated.
-        * hppa-tdep.c (pa_register_look_aside): Only refer to new 
+        * hppa-tdep.c (pa_register_look_aside): Only refer to new
         structure elements if we are on a PA2.0 system.
         * defs.h: Include limits.h.
 
 Tue Feb 23 14:37:08 1999  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* infrun.c (wait_for_inferior): Check scheduler_locking state 
+	* infrun.c (wait_for_inferior): Check scheduler_locking state
 	before resuming after a thread-specific breakpoint.
 
 1999-02-23  Jim Blandy  <jimb@zwingli.cygnus.com>
@@ -8401,7 +8401,7 @@ Fri Jan 29 16:51:11 1999  Andrew Cagney  <cagney@chook.cygnus.com>
 	(mips_extract_return_value, mips_store_return_value): Call
  	return_value_location.  For store, ensure that remainder of
  	register is zero.
-	
+
 Thu Jan 28 18:58:02 1999  Andrew Cagney  <cagney@chook.cygnus.com>
 
 	From John Metzler <jmetzler@cygnus.com>:
@@ -8429,7 +8429,7 @@ Wed Feb 17 10:10:27 1999  Stu Grossman  <grossman@babylon-5.cygnus.com>
 	* gdbtypes.h (get_discrete_bounds):  Remove duplicate decl.
 
 	* jv-typeprint.c (java_type_print_base):  Change fputs => fputs_filtered.
-	
+
 Mon Jan 25 18:30:57 1999  Per Bothner  <bothner@cygnus.com>
 
 	* jv-lang.h (JAVA_OBJECT_SIZE):  Change from hard-wired constant.
@@ -8469,7 +8469,7 @@ Fri Jan  8 16:58:22 1999  Stu Grossman  <grossman@babylon-5.cygnus.com>
 	not needed.
 	* values.c (value_virtual_fn_field):  Fixes code to handle new vtable
 	debug info format.  Patch from marka.
-	
+
 Wed Dec 16 23:11:25 1998  Stu Grossman  <grossman@fencer.cygnus.com>
 
 	* jv-lang.c (java_class_from_object java_class_is_primitive
@@ -8477,7 +8477,7 @@ Wed Dec 16 23:11:25 1998  Stu Grossman  <grossman@fencer.cygnus.com>
 	* (java_primitive_type):  Change arg to type char.
 	* (_initialize_java_language):  Make java_char_type be unsigned.
 	* jv-lang.h:  Fixup prototypes.
-	
+
 Mon Dec  7 19:02:15 1998  Stu Grossman  <grossman@babylon-5.cygnus.com>
 
 	* jv-valprint.c (java_value_print):  Fix printing of values where
@@ -8503,7 +8503,7 @@ Fri Dec  4 15:23:38 1998  Stu Grossman  <grossman@fencer.cygnus.com>
 	* jv-valprint.c (java_val_print):  Minor formatting.
 	* m2-lang.c (m2_language_d):  Change m2_print_type to c_print_type.
 	* stabsread.c (read_member_functions):  Save public and static attributes.
-	
+
 Wed Feb 17 15:32:57 1999  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* breakpoint.c (watch_command_1): Reformat comment.
@@ -8515,16 +8515,16 @@ Wed Feb 17 15:32:57 1999  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 	* Makefile.in (VERSION): Bump version to 4.17.2.
 
 Tue Feb 16 15:48:20 1999  Edith Epstein  <eepstein@sophia.cygnus.com>
- 
+
         * config/pa/nm-hppah.h: Added prototype declarations for
-        hppa_enable_page_protection_events and 
+        hppa_enable_page_protection_events and
         hppa_disable_page_protection_events.
- 
+
         * inftarg.c (child_wait): Fixed code that checks whether
-        or not the target program has done a fork/vfork. 
-        related_pid  does not have a value unless the target 
+        or not the target program has done a fork/vfork.
+        related_pid  does not have a value unless the target
         program has forked/vforked.
- 
+
         * infttrace.c (hppa_insert_hw_watchpoint): Make sure that
         function always returns a value.
         (hppa_remove_hw_watchpoint): Make sure that function always
@@ -8616,7 +8616,7 @@ Wed Feb  3 14:16:38 1999  Christopher Faylor <cgf@cygnus.com>
 	* configure: Regenerate.
 
 1999-02-03  Keith Seitz  <keiths@cygnus.com>
- 
+
         * remote.c (remote_binary_download, remote_binary_length): New
         static globals for dealing with binary transmissions.
         (remote_write_bytes): Add support for binary downloads
@@ -8641,8 +8641,8 @@ Tue Feb  2 18:40:29 1999  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* hp-psymtab-read.c (hpread_build_psymtabs): Coerce first arg
 	passed to make_cleanup to the correct type.
-	(hpread_quick_traverse): Change fifth arg to call to 
-	hpread_end_psymtab to be 0. 
+	(hpread_quick_traverse): Change fifth arg to call to
+	hpread_end_psymtab to be 0.
 	Compare CURR_MODULE_END to 0 rather than NULL.
 	Get rid of ifdef'ed out code.
 	(scan_procs): Get rid of ifdef'ed out code.
@@ -8658,7 +8658,7 @@ Tue Feb  2 17:36:29 1999  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 	(hpread_build_psymtabs): Initialize scan_start to 0 and
 	simplify flow of control.
 
-	* somread.c (som_symfile_read): Add call to do_pxdb (), 
+	* somread.c (som_symfile_read): Add call to do_pxdb (),
 	in hp-psymtab-read.c.
 
 	* symfile.c (symbol_file_add): Remove ifdef'ed out HPUX specific
@@ -8697,7 +8697,7 @@ Tue Feb  2 17:36:29 1999  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 	#include "gdbcmd.h", so we can define commands here.
 	(struct variant): New structure.
 	(COMMON_UISA_REG_NAMES, PPC_UISA_SPR_NAMES, PPC_SEGMENT_REG_NAMES,
-	PPC_32_OEA_SPR_NAMES, num_registers): New macros. 
+	PPC_32_OEA_SPR_NAMES, num_registers): New macros.
 	(register_names_rs6000, register_names_uisa, register_names_403,
  	register_names_403GC, register_names_505, register_names_860,
  	register_names_601, register_names_602, register_names_603,
@@ -8891,18 +8891,18 @@ Wed Jan 20 15:45:15 1999  Mark Alexander  <marka@cygnus.com>
 
 1999-01-19  Fernando Nasser  <fnasser@totem.to.cygnus.com>
 
-	* sol-thread.c abug-rom.c cpu32bug-rom.c dbug-rom.c m32r-rom.c 
-	mac-nat.c mon960-rom.c op50-rom.c ppc-bdm.c remote-adapt.c 
-	remote-array.c remote-bug.c remote-e7000.c remote-eb.c remote-es.c 
-	remote-est.c remote-hms.c remote-mm.c remote-nindy.c remote-nrom.c 
-	remote-os9k.c remote-rdp.c remote-sds.c remote-sim.c remote-st.c 
-	remote-udi.c rom68k-rom.c sh3-rom.c sparcl-tdep.c sparclet-rom.c 
+	* sol-thread.c abug-rom.c cpu32bug-rom.c dbug-rom.c m32r-rom.c
+	mac-nat.c mon960-rom.c op50-rom.c ppc-bdm.c remote-adapt.c
+	remote-array.c remote-bug.c remote-e7000.c remote-eb.c remote-es.c
+	remote-est.c remote-hms.c remote-mm.c remote-nindy.c remote-nrom.c
+	remote-os9k.c remote-rdp.c remote-sds.c remote-sim.c remote-st.c
+	remote-udi.c rom68k-rom.c sh3-rom.c sparcl-tdep.c sparclet-rom.c
 	v850ice.c win32-nat.c: cosmetic changes to conform to coding
-	standards. 
+	standards.
 
 1999-01-19  Jim Blandy  <jimb@zwingli.cygnus.com>
 
-	Use aclocal to generate GDB's aclocal.m4 script.  
+	Use aclocal to generate GDB's aclocal.m4 script.
 	* acinclude.m4: New file, containing the hand-written local macro
  	definitions that used to be in aclocal.m4.  Don't sinclude
  	../bfd/aclocal.m4 any more; running aclocal in this directory will
@@ -9020,7 +9020,7 @@ Mon Jan 18 10:46:12 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* remote.c (remote_kill): Cast putpkt arg to catch_errors_ftype.
 
 Mon Jan 18 08:47:02 1999  Andrew Cagney  <cagney@b1.cygnus.com>
-	
+
 	* defs.h (catch_errors_ftype): Define.
 	(catch_errors): Replace char* arg with PTR arg.
 	* top.c (catch_errors): Update
@@ -9031,7 +9031,7 @@ Mon Jan 18 08:47:02 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	(breakpoint_cond_eval, watchpoint_check,
  	cover_target_enable_exception_callback, breakpoint_re_set_one):
  	Arg is PTR not char*.
-	
+
 	* breakpoint.c (cover_target_enable_exception_callback): Change
  	type to int. Check for cast values of 0 and -1.  Return a result!
 	(insert_breakpoints): Move declaration of SAL and ARGS to where
@@ -9040,7 +9040,7 @@ Mon Jan 18 08:47:02 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-01-16  Fernando Nasser  <fnasser@totem.to.cygnus.com>
 
 	* remote.c (remote_query): new function - creates proper interface
-	to the remote protocol "q" command.	
+	to the remote protocol "q" command.
 
 Fri Jan 15 17:11:48 EST 1999  Zdenek Radouch   (radouch@cygnus.com)
 
@@ -9060,7 +9060,7 @@ Thu Jan 14 18:29:17 1999  David Taylor  <taylor@texas.cygnus.com>
 	* remote-udi.c (udi_wait): fix stream arg to fwrite.
 	* symmisc.c (maintenance_check_symtabs): fix stream argument to
 	print_address_numeric.
-	
+
 Wed Jan 13 19:33:16 1999  David Taylor  <taylor@texas.cygnus.com>
 
 	* breakpoint.c (insert_breakpoints): insert cast to eliminate
@@ -9082,7 +9082,7 @@ Wed Jan 13 14:59:02 1999  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	* thread.c: cull duplicate prototypes.  Move prototypes to top.
 	* serial.c: indentation cleanup.
 	* breakpoint.c: add casts to eliminate compiler warnings.
-	
+
 Tue Jan 12 17:00:00 1999  Edith Epstein  <eepstein@sophia.cygnus.com>
 
 	* inftarg.c (child_create_inferior): fixed HPUXHPPA specific
@@ -9131,7 +9131,7 @@ Mon Jan 11 13:45:57 1999  Stu Grossman  <grossman@babylon-5.cygnus.com>
 	* symfile.c (list_overlays_command):  stdout => gdb_stdout.
 	* symmisc.c (maintenance_check_symtabs):  stdout => gdb_stdout.
 	* utils.c (print_spaces):  Make more efficient.
-	
+
 Mon Jan 11 13:55:51 1999  David Taylor  <taylor@texas.cygnus.com>
 
 	* utils (print_spaces): fix arg to strcat; fix formatting.
@@ -9147,7 +9147,7 @@ Thu Jan  7 17:50:15 EST 1999  Zdenek Radouch   (radouch@cygnus.com)
 	Beta FR30 port.
 	* fr30-tdep.c
 	* config/fr30/tm-fr30.h
-	
+
 Wed Jan  6 12:28:35 1999  David Taylor  <taylor@texas.cygnus.com>
 
 	* configure.in: Add an --enable-tui argument.  Construct
@@ -9155,7 +9155,7 @@ Wed Jan  6 12:28:35 1999  David Taylor  <taylor@texas.cygnus.com>
  	have the GUI, then we need this to process libgui.h.
 	(ENABLE_CFLAGS): define and export BUILD_TUI.
 	(AC_CHECK_HEADERS): Add check for term.h.
-	
+
 	* configure.host (hppa-*-hpux10.20, hppa-*-hpux11.0*): New configs.
 
 	* config.in, configure : regenerated.
@@ -9217,7 +9217,7 @@ Wed Jan  6 11:43:32 1999  David Taylor  <taylor@texas.cygnus.com>
         (yylex): check for template name is done differently for the
  	HP/aCC compiler case.  Change some of the template processing code
  	for handling HP aCC templates.  Handle true and false tokens.
-	
+
 Tue Jan  5 11:13:36 1999  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* remote.c (record_curthread): Must not modify inferior_pid when
@@ -9231,13 +9231,13 @@ Tue Jan  5 11:13:36 1999  Michael Snyder  <msnyder@cleaver.cygnus.com>
  	thread id for inferior_pid.
 	(remote_resume): If pid == -1, then resume any-thread (not the
  	current thread specifically).  Also some cosmetic fixups.
-	
-	* thread.c (info_threads_command): don't initialize current_pid 
+
+	* thread.c (info_threads_command): don't initialize current_pid
 	until after call to FIND_NEW_THREADS (which may change inferior_pid).
 	Also some cosmetic fixups.
 	* infrun.c: cosmetic fixups and casts to avoid warnings.
 	* infcmd.c: cosmetic fixups, mainly long lines.
-	
+
 Tue Jan  5 11:55:57 1999  David Taylor  <taylor@texas.cygnus.com>
 
 	* target.c (noprocess): terminate sentence with a period.

@@ -468,7 +468,7 @@ BUILT_SRC_WO_CONFIG = \
 BUILT_SRC = \
 	$(BUILT_SRC_WO_CONFIG) \
 	config.h \
-	ppc-config.h 
+	ppc-config.h
 
 LIB_INLINE_SRC = \
 	psim.c \
@@ -659,7 +659,7 @@ callback.o: ../common/callback.c $(TARG_VALS_H) $(CONFIG_H)
 targ-map.o: targ-map.c $(ANSIDECL_H) $(GDB_CALLBACK_H) $(TARG_VALS_H)
 
 sim-fpu.o: $(srcdir)/../common/sim-fpu.c $(CONFIG_H) $(TCONFIG_H)
-	$(CC) -c $(STD_CFLAGS) -DHAVE_CONFIG_H $(srcdir)/../common/sim-fpu.c 
+	$(CC) -c $(STD_CFLAGS) -DHAVE_CONFIG_H $(srcdir)/../common/sim-fpu.c
 
 tconfig.h:
 	rm -f tconfig.h
@@ -754,12 +754,12 @@ tmp-filter: filter.c $(MISC_H) misc.o
 
 ld-decode.o: ld-decode.c $(MISC_H) $(LF_H) $(TABLE_H) $(LD_DECODE_H)
 	$(CC_FOR_BUILD) $(BUILD_CFLAGS) -c $(srcdir)/ld-decode.c
-tmp-ld-decode: ld-decode.c misc.o lf.o table.o filter_host.o 
+tmp-ld-decode: ld-decode.c misc.o lf.o table.o filter_host.o
 	$(CC_FOR_BUILD) $(BUILD_CFLAGS) $(BUILD_LDFLAGS) -o tmp-ld-decode -DMAIN $(srcdir)/ld-decode.c misc.o lf.o table.o filter_host.o $(BUILD_LIBS)
 
 ld-cache.o: ld-cache.c $(MISC_H) $(LF_H) $(TABLE_H) $(LD_CACHE_H)
 	$(CC_FOR_BUILD) $(BUILD_CFLAGS) -c $(srcdir)/ld-cache.c
-tmp-ld-cache: ld-cache.c misc.o lf.o table.o filter_host.o 
+tmp-ld-cache: ld-cache.c misc.o lf.o table.o filter_host.o
 	$(CC_FOR_BUILD) $(BUILD_CFLAGS) $(BUILD_LDFLAGS) -o tmp-ld-cache -DMAIN $(srcdir)/ld-cache.c misc.o lf.o table.o filter_host.o $(BUILD_LIBS)
 
 ld-insn.o: ld-insn.c $(MISC_H) $(LF_H) $(TABLE_H) $(FILTER_H) $(LD_DECODE_H) $(LD_CACHE_H) $(LD_INSN_H) $(IGEN_H)

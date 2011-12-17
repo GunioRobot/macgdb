@@ -63,10 +63,10 @@ gdb_expect 30 {
     -re "Breakpoint 2.*sub1 .*$gdb_prompt $" {
 	kfail "gdb/1558" "Hits breakpoint at main after function called from main"
     }
-    -re "$gdb_prompt $" { 
+    -re "$gdb_prompt $" {
 	fail "Hits breakpoint at main after function called from main"
     }
-    timeout { 
+    timeout {
 	fail "Hits breakpoint at main after function called from main (timeout)"
     }
 }

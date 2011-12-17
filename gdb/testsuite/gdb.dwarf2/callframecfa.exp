@@ -23,11 +23,11 @@ if {![istarget *-*-linux*]
     && ![istarget *-*-openbsd*]
     && ![istarget arm-*-eabi*]
     && ![istarget powerpc-*-eabi*]} {
-    return 0  
+    return 0
 }
 # This test can only be run on x86 targets.
 if {![istarget i?86-*]} {
-    return 0  
+    return 0
 }
 
 set testfile "callframecfa"

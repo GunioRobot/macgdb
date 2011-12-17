@@ -330,11 +330,11 @@ find_thread_ptid (ptid_t ptid)
  * Calls a callback function once for each thread, so long as
  * the callback function returns false.  If the callback function
  * returns true, the iteration will end and the current thread
- * will be returned.  This can be useful for implementing a 
+ * will be returned.  This can be useful for implementing a
  * search for a thread with arbitrary attributes, or for applying
  * some operation to every thread.
  *
- * FIXME: some of the existing functionality, such as 
+ * FIXME: some of the existing functionality, such as
  * "Thread apply all", might be rewritten using this functionality.
  */
 
@@ -363,7 +363,7 @@ thread_count (void)
   for (tp = thread_list; tp; tp = tp->next)
     ++result;
 
-  return result;  
+  return result;
 }
 
 int
@@ -534,8 +534,8 @@ set_running (ptid_t ptid, int running)
   struct thread_info *tp;
   int all = ptid_equal (ptid, minus_one_ptid);
 
-  /* We try not to notify the observer if no thread has actually changed 
-     the running state -- merely to reduce the number of messages to 
+  /* We try not to notify the observer if no thread has actually changed
+     the running state -- merely to reduce the number of messages to
      frontend.  Frontend is supposed to handle multiple *running just fine.  */
   if (all || ptid_is_pid (ptid))
     {
@@ -712,12 +712,12 @@ finish_thread_state_cleanup (void *arg)
 
 /* Prints the list of threads and their details on UIOUT.
    This is a version of 'info_thread_command' suitable for
-   use from MI.  
+   use from MI.
    If REQUESTED_THREAD is not -1, it's the GDB id of the thread
    that should be printed.  Otherwise, all threads are
-   printed.  
+   printed.
    If PID is not -1, only print threads from the process PID.
-   Otherwise, threads from all attached PIDs are printed.   
+   Otherwise, threads from all attached PIDs are printed.
    If both REQUESTED_THREAD and PID are not -1, then the thread
    is printed if it belongs to the specified process.  Otherwise,
    an error is raised.  */
@@ -827,7 +827,7 @@ No selected thread.  See `help thread'.\n");
 }
 
 
-/* Print information about currently known threads 
+/* Print information about currently known threads
 
  * Note: this has the drawback that it _really_ switches
  *       threads, which frees the frame cache.  A no-side

@@ -969,7 +969,7 @@ gdb.z:gdb.1
 # source file and doesn't care about rebuilding or just wants to save the
 # time it takes for make to check that all is up to date.
 # install-only is intended to address that need.
-install: all install-only 
+install: all install-only
 
 # The "install-only" target also installs the syscalls' XML files in
 # the system.

@@ -1,6 +1,6 @@
 # sh testcase for pswap
 # mach: shdsp
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -23,7 +23,7 @@ pswapx:
 	assert_sreg	0x7777a5a5, y0
 
 	set_greg	0xa5a5a5a5, r0
-	test_grs_a5a5 
+	test_grs_a5a5
 	assert_sreg	0xa5a57777, x0
 	assert_sreg	0xa5a5a5a5, x1
 	assert_sreg	0xa5a5a5a5, y1
@@ -134,7 +134,7 @@ dct_pswapx:
 	assert_sreg	0x7777a5a5, y0
 
 	set_greg	0xa5a5a5a5, r0
-	test_grs_a5a5 
+	test_grs_a5a5
 	assert_sreg	0xa5a57777, x0
 	assert_sreg	0xa5a5a5a5, x1
 	assert_sreg	0xa5a5a5a5, y1
@@ -164,7 +164,7 @@ dcf_pswapy:
 	assert_sreg	0x7777a5a5, y0
 
 	set_greg	0xa5a5a5a5, r0
-	test_grs_a5a5 
+	test_grs_a5a5
 	assert_sreg	0xa5a57777, x0
 	assert_sreg	0xa5a5a5a5, x1
 	assert_sreg	0xa5a5a5a5, y1

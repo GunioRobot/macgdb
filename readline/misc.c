@@ -154,7 +154,7 @@ _rl_arg_dispatch (cxt, c)
 
   if (_rl_digit_p (c))
     {
-      r = _rl_digit_value (c);    	
+      r = _rl_digit_value (c);
       rl_numeric_arg = rl_explicit_arg ? (rl_numeric_arg * 10) +  r : r;
       rl_explicit_arg = 1;
       _rl_argcxt |= NUM_SAWDIGITS;
@@ -427,7 +427,7 @@ rl_replace_from_history (entry, flags)
       rl_mark = rl_end;
     }
 #endif
-}  
+}
 
 /* **************************************************************** */
 /*								    */

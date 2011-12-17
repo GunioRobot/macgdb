@@ -107,7 +107,7 @@ tui_make_status_line (struct tui_locator_element *loc)
 		  pc_out);
   pc_buf = tui_file_get_strbuf (pc_out);
   pc_width = strlen (pc_buf);
-  
+
   /* First determine the amount of proc name width we have available.
      The +1 are for a space separator between fields.
      The -1 are to take into account the \0 counted by sizeof.  */
@@ -167,7 +167,7 @@ tui_make_status_line (struct tui_locator_element *loc)
                -pid_width, pid_width, pid_name);
       strcat_to_buf (string, status_size, buf);
     }
-  
+
   /* Show whether we are in SingleKey mode.  */
   if (tui_current_key_mode == TUI_SINGLE_KEY_MODE)
     {
@@ -198,8 +198,8 @@ tui_make_status_line (struct tui_locator_element *loc)
       strcat_to_buf (string, status_size, PC_PREFIX);
       strcat_to_buf (string, status_size, pc_buf);
     }
-  
-  
+
+
   for (i = strlen (string); i < status_size; i++)
     string[i] = ' ';
   string[status_size] = (char) 0;
@@ -289,7 +289,7 @@ tui_set_locator_filename (const char *filename)
 static void
 tui_set_locator_info (struct gdbarch *gdbarch,
 		      const char *filename,
-		      const char *procname, 
+		      const char *procname,
 		      int lineno,
                       CORE_ADDR addr)
 {

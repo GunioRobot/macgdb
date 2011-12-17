@@ -118,14 +118,14 @@ extern int lin_lwp_attach_lwp (ptid_t ptid);
 /* Iterator function for lin-lwp's lwp list.  */
 struct lwp_info *iterate_over_lwps (ptid_t filter,
 				    int (*callback) (struct lwp_info *,
-						     void *), 
+						     void *),
 				    void *data);
 
 /* Create a prototype generic GNU/Linux target.  The client can
    override it with local methods.  */
 struct target_ops * linux_target (void);
 
-/* Create a generic GNU/Linux target using traditional 
+/* Create a generic GNU/Linux target using traditional
    ptrace register access.  */
 struct target_ops *
 linux_trad_target (CORE_ADDR (*register_u_offset)(struct gdbarch *, int, int));

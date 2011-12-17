@@ -70,19 +70,19 @@ mi_cmd_env_pwd (char *command, char **argv, int argc)
 {
   if (argc > 0)
     error (_("mi_cmd_env_pwd: No arguments required"));
-          
+
   if (mi_version (uiout) < 2)
     {
       env_execute_cli_command ("pwd", NULL);
       return;
     }
-     
+
   /* Otherwise the mi level is 2 or higher.  */
 
   if (! getcwd (gdb_dirbuf, sizeof (gdb_dirbuf)))
     error (_("mi_cmd_env_pwd: error finding name of working directory: %s"),
            safe_strerror (errno));
-    
+
   ui_out_field_string (uiout, "cwd", gdb_dirbuf);
 }
 
@@ -92,7 +92,7 @@ mi_cmd_env_cd (char *command, char **argv, int argc)
 {
   if (argc == 0 || argc > 1)
     error (_("mi_cmd_env_cd: Usage DIRECTORY"));
-          
+
   env_execute_cli_command ("cd", argv[0]);
 }
 
@@ -102,7 +102,7 @@ env_mod_path (char *dirname, char **which_path)
   if (dirname == 0 || dirname[0] == '\0')
     return;
 
-  /* Call add_path with last arg 0 to indicate not to parse for 
+  /* Call add_path with last arg 0 to indicate not to parse for
      separator characters.  */
   add_path (dirname, which_path, 0);
 }
@@ -249,7 +249,7 @@ void
 mi_cmd_inferior_tty_show (char *command, char **argv, int argc)
 {
   const char *inferior_io_terminal = get_inferior_io_terminal ();
-  
+
   if ( !mi_valid_noargs ("mi_cmd_inferior_tty_show", argc, argv))
     error (_("mi_cmd_inferior_tty_show: Usage: No args"));
 
@@ -257,7 +257,7 @@ mi_cmd_inferior_tty_show (char *command, char **argv, int argc)
     ui_out_field_string (uiout, "inferior_tty_terminal", inferior_io_terminal);
 }
 
-void 
+void
 _initialize_mi_cmd_env (void)
 {
   char *env;

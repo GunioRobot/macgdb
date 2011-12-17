@@ -25,7 +25,7 @@ Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA. 
    I.E. it describes the in-memory representation of NLM.  It requires
    the nlm/common.h file which contains the portions that are common to
    both the internal and external representations. */
-   
+
 #if 0
 
 /* Types used by various structures, functions, etc. */
@@ -152,14 +152,14 @@ typedef struct nlm_internal_variable_header
      field contains the NLM description obtained from the DESCRIPTION
      keyword in NLMLINK plus the null byte terminator.  The descriptionText
      can be up to NLM_MAX_DESCRIPTION_LENGTH characters. */
-     
+
   unsigned char descriptionLength;
   char descriptionText[NLM_MAX_DESCRIPTION_LENGTH + 1];
 
   /* The stackSize field contains the size of the stack in bytes, as
      specified by the STACK or STACKSIZE keyword in NLMLINK.  If no size
      is specified, the default is NLM_DEFAULT_STACKSIZE. */
-     
+
   long stackSize;
 
   /* The reserved field is included only for completeness.  It should contain

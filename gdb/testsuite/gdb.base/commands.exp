@@ -64,7 +64,7 @@ proc gdbvar_complex_if_while_test {} {
 proc progvar_simple_if_test {} {
     global gdb_prompt
 
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping progvar_simple_if_test because of noargs."
         return
     }
@@ -87,7 +87,7 @@ proc progvar_simple_if_test {} {
 proc progvar_simple_while_test {} {
     global gdb_prompt
 
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping progvar_simple_while_test because of noargs."
         return
     }
@@ -107,7 +107,7 @@ proc progvar_simple_while_test {} {
 proc progvar_complex_if_while_test {} {
     global gdb_prompt
 
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping progvar_simple_if_while_test because of noargs."
         return
     }
@@ -125,7 +125,7 @@ proc progvar_complex_if_while_test {} {
 }
 
 proc if_while_breakpoint_command_test {} {
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping if_while_breakpoint_command_test because of noargs."
         return
     }
@@ -167,7 +167,7 @@ proc if_while_breakpoint_command_test {} {
 # subsection "Breakpoint command lists".
 
 proc infrun_breakpoint_command_test {} {
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping infrun_breakpoint_command_test because of noargs."
         return
     }
@@ -180,7 +180,7 @@ proc infrun_breakpoint_command_test {} {
     delete_breakpoints
     gdb_test "break factorial if value == 5" "Breakpoint.*at.*"
 
-# infrun_breakpoint_command_test - This test was broken into two parts 
+# infrun_breakpoint_command_test - This test was broken into two parts
 # to get around a synchronization problem in expect.
 # part1: issue the gdb command "commands"
 # part2: send the list of commands
@@ -204,7 +204,7 @@ proc infrun_breakpoint_command_test {} {
 }
 
 proc breakpoint_command_test {} {
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping breakpoint_command_test because of noargs."
         return
     }
@@ -257,7 +257,7 @@ proc watchpoint_command_test {} {
     global noargs
     global gdb_prompt
 
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping watchpoint_command_test because of noargs."
         return
     }
@@ -335,7 +335,7 @@ proc watchpoint_command_test {} {
 proc test_command_prompt_position {} {
     global gdb_prompt
 
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping test_command_prompt_position because of noargs."
         return
     }
@@ -350,44 +350,44 @@ proc test_command_prompt_position {} {
     gdb_test "if value == 1\np/x 0xfeedface\nelse\np/x 0xdeadbeef\nend" \
 	    "\\\$\[0-9\]* = 0xdeadbeef" \
 	    "if test in test_command_prompt_position"
-    
+
     # Now let's test for the correct position of the '>' in gdb's
     # prompt for commands.  It should be at the beginning of the line,
     # and not after one space.
 
     send_gdb "commands\n"
     gdb_expect {
-	-re "Type commands.*End with.*\[\r\n\]>$" { 
+	-re "Type commands.*End with.*\[\r\n\]>$" {
 	    send_gdb "printf \"Now the value is %d\\n\", value\n"
 	    gdb_expect {
 		-re "^printf.*value\r\n>$" {
 		    send_gdb "end\n"
 		    gdb_expect {
-			-re "^end\r\n$gdb_prompt $" { 
-			    pass "> OK in test_command_prompt_position" 
+			-re "^end\r\n$gdb_prompt $" {
+			    pass "> OK in test_command_prompt_position"
 			}
-			-re ".*$gdb_prompt $" { 
-			    fail "some other message in test_command_prompt_position" 
+			-re ".*$gdb_prompt $" {
+			    fail "some other message in test_command_prompt_position"
 			}
-			timeout  { 
+			timeout  {
 			    fail "(timeout) 1 in test_command_prompt_position"
 			}
 		    }
 		}
 		-re "^ >$" { fail "> not OK in test_command_prompt_position" }
-		-re ".*$gdb_prompt $"   { 
-		    fail "wrong message in test_command_prompt_position" 
+		-re ".*$gdb_prompt $"   {
+		    fail "wrong message in test_command_prompt_position"
 		}
-		timeout    { 
-		    fail "(timeout) 2 in test_command_prompt_position " 
+		timeout    {
+		    fail "(timeout) 2 in test_command_prompt_position "
 		}
 	    }
 	}
-	-re "Type commands.*End with.*\[\r\n\] >$" { 
-	    fail "prompt not OK in test_command_prompt_position" 
+	-re "Type commands.*End with.*\[\r\n\] >$" {
+	    fail "prompt not OK in test_command_prompt_position"
 	}
-	-re ".*$gdb_prompt $" { 
-	    fail "commands in test_command_prompt_position" 
+	-re ".*$gdb_prompt $" {
+	    fail "commands in test_command_prompt_position"
 	}
 	timeout { fail "(timeout) 3 commands in test_command_prompt_position" }
     }
@@ -435,8 +435,8 @@ proc deprecated_command_test {} {
 
 proc bp_deleted_in_command_test {} {
     global gdb_prompt
-    
-    if [target_info exists noargs] { 
+
+    if [target_info exists noargs] {
         verbose "Skipping bp_deleted_in_command_test because of noargs."
         return
     }
@@ -449,7 +449,7 @@ proc bp_deleted_in_command_test {} {
     gdb_test "break factorial" \
              "Breakpoint \[0-9\]+ at .*: file .*/run.c, line \[0-9\]+\." \
              "breakpoint in bp_deleted_in_command_test"
-    
+
     send_gdb "commands\n"
     gdb_expect {
       -re "Type commands for when breakpoint .* is hit, one per line.*>" {
@@ -501,8 +501,8 @@ proc bp_deleted_in_command_test {} {
 
 proc temporary_breakpoint_commands {} {
     global gdb_prompt
-    
-    if [target_info exists noargs] { 
+
+    if [target_info exists noargs] {
         verbose "Skipping temporary_breakpoint_commands because of noargs."
         return
     }
@@ -516,7 +516,7 @@ proc temporary_breakpoint_commands {} {
     gdb_test "tbreak factorial" \
 	    "Temporary breakpoint \[0-9\]+ at .*: file .*/run.c, line \[0-9\]+\." \
 	    "breakpoint in temporary_breakpoint_commands"
-    
+
     send_gdb "commands\n"
     gdb_expect {
 	-re "Type commands for when breakpoint .* is hit, one per line.*>" {

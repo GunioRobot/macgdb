@@ -211,12 +211,12 @@ int _rl_horizontal_scroll_mode = 0;
 
 /* Non-zero means to display an asterisk at the starts of history lines
    which have been modified. */
-int _rl_mark_modified_lines = 0;  
+int _rl_mark_modified_lines = 0;
 
 /* The style of `bell' notification preferred.  This can be set to NO_BELL,
    AUDIBLE_BELL, or VISIBLE_BELL. */
 int _rl_bell_preference = AUDIBLE_BELL;
-     
+
 /* String inserted into the line by rl_insert_comment (). */
 char *_rl_comment_begin;
 
@@ -287,7 +287,7 @@ rl_set_prompt (prompt)
   rl_visible_prompt_length = rl_expand_prompt (rl_prompt);
   return 0;
 }
-  
+
 /* Read a line of input.  Prompt with PROMPT.  An empty PROMPT means
    none.  A return value of NULL means that EOF was encountered. */
 char *
@@ -655,7 +655,7 @@ _rl_dispatch_callback (cxt)
   return r;
 }
 #endif /* READLINE_CALLBACKS */
-  
+
 /* Do the command associated with KEY in MAP.
    If the associated command is really a keymap, then read
    another key, and dispatch into that map. */
@@ -842,7 +842,7 @@ _rl_subseq_result (r, map, key, got_subseq)
   Keymap m;
   int type, nt;
   rl_command_func_t *func, *nf;
-  
+
   if (r == -2)
     /* We didn't match anything, and the keymap we're indexed into
        shadowed a function previously bound to that prefix.  Call
@@ -1015,7 +1015,7 @@ readline_initialize_everything ()
 
   /* Decide whether we should automatically go into eight-bit mode. */
   _rl_init_eightbit ();
-      
+
   /* Read in the init file. */
   rl_read_init_file ((char *)NULL);
 

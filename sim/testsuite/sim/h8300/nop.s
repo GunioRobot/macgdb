@@ -11,7 +11,7 @@
 	.include "testutils.inc"
 
 	start
-	
+
 nop:	set_grs_a5a5
 	set_ccr_zero
 
@@ -19,8 +19,8 @@ nop:	set_grs_a5a5
 
 	test_cc_clear
 	test_grs_a5a5
-	
-	
+
+
 	pass
 
 	exit 0

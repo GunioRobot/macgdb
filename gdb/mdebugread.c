@@ -70,9 +70,9 @@
 
 extern void _initialize_mdebugread (void);
 
-/* Provide a way to test if we have both ECOFF and ELF symbol tables.  
-   We use this define in order to know whether we should override a 
-   symbol's ECOFF section with its ELF section.  This is necessary in 
+/* Provide a way to test if we have both ECOFF and ELF symbol tables.
+   We use this define in order to know whether we should override a
+   symbol's ECOFF section with its ELF section.  This is necessary in
    case the symbol's ELF section could not be represented in ECOFF.  */
 #define ECOFF_IN_ELF(bfd) (bfd_get_flavour (bfd) == bfd_target_elf_flavour \
 			   && bfd_get_section_by_name (bfd, ".mdebug") != NULL)
@@ -345,7 +345,7 @@ mdebug_build_psymtabs (struct objfile *objfile,
   buildsym_new_init ();
   free_header_files ();
   init_header_files ();
-        
+
   /* Make sure all the FDR information is swapped in.  */
   if (info->fdr == (FDR *) NULL)
     {
@@ -857,7 +857,7 @@ parse_symbol (SYMR *sh, union aux_ext *ax, char *ext_sh, int bigend,
                    (in particular constructor method names are different
                    from the class name).  There is therefore no risk that
                    this check stops the count on the StEnd of a method.
-		   
+
 		   Also, assume that we're really at the end when tsym.iss
 		   is 0 (issNull).  */
                 if (tsym.iss == issNull
@@ -2021,7 +2021,7 @@ parse_procedure (PDR *pr, struct symtab *search_symtab,
   if (i)
     {
       struct mdebug_extra_func_info *e;
-      
+
       e = (struct mdebug_extra_func_info *) SYMBOL_VALUE_BYTES (i);
       e->pdr = *pr;
 
@@ -2451,32 +2451,32 @@ parse_partial_symbols (struct objfile *objfile)
   /* ECOFF in ELF:
 
      For ECOFF in ELF, we skip the creation of the minimal symbols.
-     The ECOFF symbols should be a subset of the Elf symbols, and the 
+     The ECOFF symbols should be a subset of the Elf symbols, and the
      section information of the elf symbols will be more accurate.
      FIXME!  What about Irix 5's native linker?
 
-     By default, Elf sections which don't exist in ECOFF 
+     By default, Elf sections which don't exist in ECOFF
      get put in ECOFF's absolute section by the gnu linker.
-     Since absolute sections don't get relocated, we 
-     end up calculating an address different from that of 
+     Since absolute sections don't get relocated, we
+     end up calculating an address different from that of
      the symbol's minimal symbol (created earlier from the
-     Elf symtab).  
+     Elf symtab).
 
      To fix this, either :
      1) don't create the duplicate symbol
      (assumes ECOFF symtab is a subset of the ELF symtab;
      assumes no side-effects result from ignoring ECOFF symbol)
-     2) create it, only if lookup for existing symbol in ELF's minimal 
+     2) create it, only if lookup for existing symbol in ELF's minimal
      symbols fails
-     (inefficient; 
+     (inefficient;
      assumes no side-effects result from ignoring ECOFF symbol)
      3) create it, but lookup ELF's minimal symbol and use it's section
-     during relocation, then modify "uniqify" phase to merge and 
+     during relocation, then modify "uniqify" phase to merge and
      eliminate the duplicate symbol
      (highly inefficient)
 
      I've implemented #1 here...
-     Skip the creation of the minimal symbols based on the ECOFF 
+     Skip the creation of the minimal symbols based on the ECOFF
      symbol table. */
 
   /* Pass 2 over external syms: fill in external symbols */
@@ -2548,7 +2548,7 @@ parse_partial_symbols (struct objfile *objfile)
           else if (SC_IS_SBSS (ext_in->asym.sc))
             {
               ms_type = mst_bss;
-              svalue += ANOFFSET (objfile->section_offsets, 
+              svalue += ANOFFSET (objfile->section_offsets,
                                   get_section_index (objfile, ".sbss"));
             }
 	  else
@@ -2576,12 +2576,12 @@ parse_partial_symbols (struct objfile *objfile)
              usually useless for the debugger user anyway, we just
              discard these symbols.
            */
-          
+
 	  if (SC_IS_TEXT (ext_in->asym.sc))
 	    {
               if (objfile->sect_index_text == -1)
                 continue;
-                
+
 	      ms_type = mst_file_text;
 	      svalue += ANOFFSET (objfile->section_offsets, SECT_OFF_TEXT (objfile));
 	    }
@@ -2797,7 +2797,7 @@ parse_partial_symbols (struct objfile *objfile)
 			  break;
 
 			default:
-			  /* FIXME!  Shouldn't this use cases for bss, 
+			  /* FIXME!  Shouldn't this use cases for bss,
 			     then have the default be abs? */
 			  namestring = debug_info->ss + fh->issBase + sh.iss;
 			  sh.value += ANOFFSET (objfile->section_offsets, SECT_OFF_BSS (objfile));

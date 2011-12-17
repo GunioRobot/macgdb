@@ -66,11 +66,11 @@ mn10300_option_handler (SIM_DESC sd,
 	return SIM_RC_OK;
       }
     }
-  
+
   return SIM_RC_OK;
 }
 
-static const OPTION mn10300_options[] = 
+static const OPTION mn10300_options[] =
 {
 #define BOARD_AM32 "stdeval1"
   { {"board", required_argument, NULL, OPTION_BOARD},
@@ -146,16 +146,16 @@ sim_open (SIM_OPEN_KIND kind,
       sim_hw_parse (sd, "/glue@0x30000000 > int0 nmirq /mn103int");
       sim_hw_parse (sd, "/glue@0x30000000 > int1 watchdog /mn103int");
       sim_hw_parse (sd, "/glue@0x30000000 > int2 syserr /mn103int");
-      
+
       /* DEBUG: ACK input */
       sim_hw_parse (sd, "/glue@0x30002000/reg 0x30002000 4");
       sim_hw_parse (sd, "/glue@0x30002000 > int ack /mn103int");
-      
+
       /* DEBUG: LEVEL output */
       sim_hw_parse (sd, "/glue@0x30004000/reg 0x30004000 8");
       sim_hw_parse (sd, "/mn103int > nmi int0 /glue@0x30004000");
       sim_hw_parse (sd, "/mn103int > level int1 /glue@0x30004000");
-      
+
       /* DEBUG: A bunch of interrupt inputs */
       sim_hw_parse (sd, "/glue@0x30006000/reg 0x30006000 32");
       sim_hw_parse (sd, "/glue@0x30006000 > int0 irq-0 /mn103int");
@@ -166,38 +166,38 @@ sim_open (SIM_OPEN_KIND kind,
       sim_hw_parse (sd, "/glue@0x30006000 > int5 irq-5 /mn103int");
       sim_hw_parse (sd, "/glue@0x30006000 > int6 irq-6 /mn103int");
       sim_hw_parse (sd, "/glue@0x30006000 > int7 irq-7 /mn103int");
-      
+
       /* processor interrupt device */
-      
+
       /* the device */
       sim_hw_parse (sd, "/mn103cpu@0x20000000");
       sim_hw_parse (sd, "/mn103cpu@0x20000000/reg 0x20000000 0x42");
-      
+
       /* DEBUG: ACK output wired upto a glue device */
       sim_hw_parse (sd, "/glue@0x20002000");
       sim_hw_parse (sd, "/glue@0x20002000/reg 0x20002000 4");
       sim_hw_parse (sd, "/mn103cpu > ack int0 /glue@0x20002000");
-      
+
       /* DEBUG: RESET/NMI/LEVEL wired up to a glue device */
       sim_hw_parse (sd, "/glue@0x20004000");
       sim_hw_parse (sd, "/glue@0x20004000/reg 0x20004000 12");
       sim_hw_parse (sd, "/glue@0x20004000 > int0 reset /mn103cpu");
       sim_hw_parse (sd, "/glue@0x20004000 > int1 nmi /mn103cpu");
       sim_hw_parse (sd, "/glue@0x20004000 > int2 level /mn103cpu");
-      
+
       /* REAL: The processor wired up to the real interrupt controller */
       sim_hw_parse (sd, "/mn103cpu > ack ack /mn103int");
       sim_hw_parse (sd, "/mn103int > level level /mn103cpu");
       sim_hw_parse (sd, "/mn103int > nmi nmi /mn103cpu");
-      
-      
+
+
       /* PAL */
-      
+
       /* the device */
       sim_hw_parse (sd, "/pal@0x31000000");
       sim_hw_parse (sd, "/pal@0x31000000/reg 0x31000000 64");
       sim_hw_parse (sd, "/pal@0x31000000/poll? true");
-      
+
       /* DEBUG: PAL wired up to a glue device */
       sim_hw_parse (sd, "/glue@0x31002000");
       sim_hw_parse (sd, "/glue@0x31002000/reg 0x31002000 16");
@@ -207,12 +207,12 @@ sim_open (SIM_OPEN_KIND kind,
       sim_hw_parse (sd, "/glue@0x31002000 > int0 int3 /glue@0x31002000");
       sim_hw_parse (sd, "/glue@0x31002000 > int1 int3 /glue@0x31002000");
       sim_hw_parse (sd, "/glue@0x31002000 > int2 int3 /glue@0x31002000");
-      
+
       /* REAL: The PAL wired up to the real interrupt controller */
       sim_hw_parse (sd, "/pal@0x31000000 > countdown irq-0 /mn103int");
       sim_hw_parse (sd, "/pal@0x31000000 > timer irq-1 /mn103int");
       sim_hw_parse (sd, "/pal@0x31000000 > int irq-2 /mn103int");
-      
+
       /* 8 and 16 bit timers */
       sim_hw_parse (sd, "/mn103tim@0x34001000/reg 0x34001000 36 0x34001080 100 0x34004000 16");
 
@@ -226,12 +226,12 @@ sim_open (SIM_OPEN_KIND kind,
       sim_hw_parse (sd, "/mn103tim > timer-6-underflow timer-6-underflow /mn103int");
       sim_hw_parse (sd, "/mn103tim > timer-6-compare-a timer-6-compare-a /mn103int");
       sim_hw_parse (sd, "/mn103tim > timer-6-compare-b timer-6-compare-b /mn103int");
-      
-      
+
+
       /* Serial devices 0,1,2 */
       sim_hw_parse (sd, "/mn103ser@0x34000800/reg 0x34000800 48");
       sim_hw_parse (sd, "/mn103ser@0x34000800/poll? true");
-      
+
       /* Hook serial interrupts up to interrupt controller */
       sim_hw_parse (sd, "/mn103ser > serial-0-receive serial-0-receive /mn103int");
       sim_hw_parse (sd, "/mn103ser > serial-0-transmit serial-0-transmit /mn103int");
@@ -239,7 +239,7 @@ sim_open (SIM_OPEN_KIND kind,
       sim_hw_parse (sd, "/mn103ser > serial-1-transmit serial-1-transmit /mn103int");
       sim_hw_parse (sd, "/mn103ser > serial-2-receive serial-2-receive /mn103int");
       sim_hw_parse (sd, "/mn103ser > serial-2-transmit serial-2-transmit /mn103int");
-      
+
       sim_hw_parse (sd, "/mn103iop@0x36008000/reg 0x36008000 8 0x36008020 8 0x36008040 0xc 0x36008060 8 0x36008080 8");
 
       /* Memory control registers */
@@ -263,8 +263,8 @@ sim_open (SIM_OPEN_KIND kind,
           return 0;
 	}
     }
-  
-  
+
+
 
   /* check for/establish the a reference program image */
   if (sim_analyze_program (sd,
@@ -402,7 +402,7 @@ sim_fetch_register (SIM_DESC sd,
   put_word (memory, State.regs[rn]);
   return -1;
 }
- 
+
 int
 sim_store_register (SIM_DESC sd,
 		    int rn,
@@ -431,14 +431,14 @@ mn10300_core_signal (SIM_DESC sd,
     {
     case sim_core_unmapped_signal:
       sim_io_eprintf (sd, "mn10300-core: %d byte %s to unmapped address 0x%lx at 0x%lx\n",
-                      nr_bytes, copy, 
+                      nr_bytes, copy,
                       (unsigned long) addr, (unsigned long) ip);
       program_interrupt(sd, cpu, cia, SIM_SIGSEGV);
       break;
 
     case sim_core_unaligned_signal:
       sim_io_eprintf (sd, "mn10300-core: %d byte %s to unaligned address 0x%lx at 0x%lx\n",
-                      nr_bytes, copy, 
+                      nr_bytes, copy,
                       (unsigned long) addr, (unsigned long) ip);
       program_interrupt(sd, cpu, cia, SIM_SIGBUS);
       break;
@@ -467,7 +467,7 @@ program_interrupt (SIM_DESC sd,
   /* avoid infinite recursion */
   if (in_interrupt)
     {
-      (*mn10300_callback->printf_filtered) (mn10300_callback, 
+      (*mn10300_callback->printf_filtered) (mn10300_callback,
 					    "ERROR: recursion in program_interrupt during software exception dispatch.");
     }
   else
@@ -501,7 +501,7 @@ mn10300_cpu_exception_trigger(SIM_DESC sd, sim_cpu* cpu, address_word cia)
   ASSERT(cpu != NULL);
 
   if(State.exc_suspended > 0)
-    sim_io_eprintf(sd, "Warning, nested exception triggered (%d)\n", State.exc_suspended); 
+    sim_io_eprintf(sd, "Warning, nested exception triggered (%d)\n", State.exc_suspended);
 
   CIA_SET (cpu, cia);
   memcpy(State.exc_trigger_regs, State.regs, sizeof(State.exc_trigger_regs));
@@ -514,8 +514,8 @@ mn10300_cpu_exception_suspend(SIM_DESC sd, sim_cpu* cpu, int exception)
   ASSERT(cpu != NULL);
 
   if(State.exc_suspended > 0)
-    sim_io_eprintf(sd, "Warning, nested exception signal (%d then %d)\n", 
-		   State.exc_suspended, exception); 
+    sim_io_eprintf(sd, "Warning, nested exception signal (%d then %d)\n",
+		   State.exc_suspended, exception);
 
   memcpy(State.exc_suspend_regs, State.regs, sizeof(State.exc_suspend_regs));
   memcpy(State.regs, State.exc_trigger_regs, sizeof(State.regs));
@@ -532,22 +532,22 @@ mn10300_cpu_exception_resume(SIM_DESC sd, sim_cpu* cpu, int exception)
     {
       if(State.exc_suspended != SIGTRAP) /* warn not for breakpoints */
          sim_io_eprintf(sd, "Warning, resuming but ignoring pending exception signal (%d)\n",
-  		       State.exc_suspended); 
+  		       State.exc_suspended);
     }
   else if(exception != 0 && State.exc_suspended > 0)
     {
-      if(exception != State.exc_suspended) 
+      if(exception != State.exc_suspended)
 	sim_io_eprintf(sd, "Warning, resuming with mismatched exception signal (%d vs %d)\n",
-		       State.exc_suspended, exception); 
-      
-      memcpy(State.regs, State.exc_suspend_regs, sizeof(State.regs)); 
+		       State.exc_suspended, exception);
+
+      memcpy(State.regs, State.exc_suspend_regs, sizeof(State.regs));
       CIA_SET (cpu, PC); /* copy PC back from new State.regs */
     }
   else if(exception != 0 && State.exc_suspended == 0)
     {
-      sim_io_eprintf(sd, "Warning, ignoring spontanous exception signal (%d)\n", exception); 
+      sim_io_eprintf(sd, "Warning, ignoring spontanous exception signal (%d)\n", exception);
     }
-  State.exc_suspended = 0; 
+  State.exc_suspended = 0;
 }
 
 /* This is called when an FP instruction is issued when the FP unit is
@@ -702,7 +702,7 @@ fpu_rsqrt (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       else
 	VAL2REG (&sim_fpu_qnan, reg_out);
       break;
-	    
+
     case SIM_FPU_IS_QNAN:
       VAL2REG (&sim_fpu_qnan, reg_out);
       break;
@@ -751,21 +751,21 @@ cmp2fcc (int res)
     case SIM_FPU_IS_SNAN:
     case SIM_FPU_IS_QNAN:
       return FCC_U;
-      
+
     case SIM_FPU_IS_NINF:
     case SIM_FPU_IS_NNUMBER:
     case SIM_FPU_IS_NDENORM:
       return FCC_L;
-      
+
     case SIM_FPU_IS_PINF:
     case SIM_FPU_IS_PNUMBER:
     case SIM_FPU_IS_PDENORM:
       return FCC_G;
-      
+
     case SIM_FPU_IS_NZERO:
     case SIM_FPU_IS_PZERO:
       return FCC_E;
-      
+
     default:
       abort ();
     }
@@ -831,7 +831,7 @@ fpu_add (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       if (fpu_status_ok (stat))
 	VAL2REG (&r, reg_out);
     }
-  
+
   fpu_check_signal_exception (sd, cpu, cia);
 }
 
@@ -867,7 +867,7 @@ fpu_sub (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       if (fpu_status_ok (stat))
 	VAL2REG (&r, reg_out);
     }
-  
+
   fpu_check_signal_exception (sd, cpu, cia);
 }
 
@@ -901,7 +901,7 @@ fpu_mul (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       if (fpu_status_ok (stat))
 	VAL2REG (&r, reg_out);
     }
-  
+
   fpu_check_signal_exception (sd, cpu, cia);
 }
 
@@ -938,7 +938,7 @@ fpu_div (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       if (fpu_status_ok (stat))
 	VAL2REG (&r, reg_out);
     }
-  
+
   fpu_check_signal_exception (sd, cpu, cia);
 }
 
@@ -981,7 +981,7 @@ fpu_fmadd (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       if (fpu_status_ok (stat))
 	VAL2REG (&r, reg_out);
     }
-  
+
   fpu_check_signal_exception (sd, cpu, cia);
 }
 
@@ -1024,7 +1024,7 @@ fpu_fmsub (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       if (fpu_status_ok (stat))
 	VAL2REG (&r, reg_out);
     }
-  
+
   fpu_check_signal_exception (sd, cpu, cia);
 }
 
@@ -1068,7 +1068,7 @@ fpu_fnmadd (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       if (fpu_status_ok (stat))
 	VAL2REG (&r, reg_out);
     }
-  
+
   fpu_check_signal_exception (sd, cpu, cia);
 }
 
@@ -1112,6 +1112,6 @@ fpu_fnmsub (SIM_DESC sd, sim_cpu *cpu, sim_cia cia,
       if (fpu_status_ok (stat))
 	VAL2REG (&r, reg_out);
     }
-  
+
   fpu_check_signal_exception (sd, cpu, cia);
 }

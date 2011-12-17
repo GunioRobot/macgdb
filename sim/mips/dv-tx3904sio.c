@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 1999, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -27,20 +27,20 @@
 
 /* DEVICE
 
-   
+
    tx3904sio - tx3904 serial I/O
 
-   
+
    DESCRIPTION
 
-   
+
    Implements one tx3904 serial I/O controller described in the tx3904
    user guide.  Three instances are required for SIO0 and SIO1 within
    the tx3904, at different base addresses.
 
    Both internal and system clocks are synthesized as divided versions
    of the simulator clock.
-   
+
    There is no support for:
     - CTS/RTS flow control
     - baud rate emulation - use infinite speed instead
@@ -100,7 +100,7 @@ static void tx3904sio_poll(struct hw*, void* data);
 
 
 /* register numbers; each is one word long */
-enum 
+enum
 {
   SLCR_REG = 0,
   SLSR_REG = 1,
@@ -123,7 +123,7 @@ enum
 };
 
 
-static const struct hw_port_descriptor tx3904sio_ports[] = 
+static const struct hw_port_descriptor tx3904sio_ports[] =
 {
   { "int", INT_PORT, 0, output_port, },
   { "reset", RESET_PORT, 0, input_port, },
@@ -133,7 +133,7 @@ static const struct hw_port_descriptor tx3904sio_ports[] =
 
 
 /* Generic FIFO */
-struct tx3904sio_fifo 
+struct tx3904sio_fifo
 {
   int size, used;
   unsigned_1 *buffer;
@@ -144,7 +144,7 @@ struct tx3904sio_fifo
 /* The timer/counter register internal state.  Note that we store
    state using the control register images, in host endian order. */
 
-struct tx3904sio 
+struct tx3904sio
 {
   address_word base_address; /* control register base */
   enum {sio_tcp, sio_stdio} backend; /* backend */
@@ -355,7 +355,7 @@ tx3904sio_io_read_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 
@@ -391,7 +391,7 @@ tx3904sio_io_write_buffer (struct hw *me,
 	case SDICR_REG:
 	  {
 	    unsigned_4 last_int, next_int;
-	    
+
 	    /* deassert interrupt upon clear */
 	    last_int = controller->sdisr & controller->sdicr;
 	    /* HW_TRACE ((me, "sdicr - sdisr %08x sdicr %08x",
@@ -400,7 +400,7 @@ tx3904sio_io_write_buffer (struct hw *me,
 	    /* HW_TRACE ((me, "sdicr + sdisr %08x sdicr %08x",
 	       controller->sdisr, controller->sdicr)); */
 	    next_int = controller->sdisr & controller->sdicr;
-	    
+
 	    if(SDICR_GET_SDMAE(controller))
 	      hw_abort(me, "Cannot support DMA-driven sio.");
 
@@ -417,10 +417,10 @@ tx3904sio_io_write_buffer (struct hw *me,
 
 	    /* deassert interrupt upon clear */
 	    last_int = controller->sdisr & controller->sdicr;
-	    /* HW_TRACE ((me, "sdisr - sdisr %08x sdicr %08x", 
+	    /* HW_TRACE ((me, "sdisr - sdisr %08x sdicr %08x",
 	       controller->sdisr, controller->sdicr)); */
 	    SDISR_CLEAR_FLAG_BYTE(controller, reg_offset, write_byte);
-	    /* HW_TRACE ((me, "sdisr + sdisr %08x sdicr %08x", 
+	    /* HW_TRACE ((me, "sdisr + sdisr %08x sdicr %08x",
 	       controller->sdisr, controller->sdicr)); */
 	    next_int = controller->sdisr & controller->sdicr;
 
@@ -430,7 +430,7 @@ tx3904sio_io_write_buffer (struct hw *me,
 	      hw_port_event(me, INT_PORT, 0);
 	  }
 	break;
-	
+
 	case SFCR_REG:
 	  SFCR_SET_BYTE(controller, reg_offset, write_byte);
 	  if(SFCR_GET_FRSTE(controller))
@@ -439,19 +439,19 @@ tx3904sio_io_write_buffer (struct hw *me,
 	      if(SFCR_GET_RFRST(controller)) tx3904sio_fifo_reset(me, & controller->rx_fifo);
 	    }
 	  break;
-	  
+
 	case SBGR_REG:
 	  SBGR_SET_BYTE(controller, reg_offset, write_byte);
 	  break;
-	  
+
 	case SFIFO_REG: /* unwriteable */ break;
-	  
-	case TFIFO_REG: 
+
+	case TFIFO_REG:
 	  if(reg_offset == 3) /* first byte */
 	    tx3904sio_fifo_push(me, & controller->tx_fifo, write_byte);
 	  break;
 
-	default: 
+	default:
 	  HW_TRACE ((me, "write to illegal register %d", reg_number));
 	}
     } /* loop over bytes */
@@ -460,7 +460,7 @@ tx3904sio_io_write_buffer (struct hw *me,
   tx3904sio_tickle(me);
 
   return nr_bytes;
-}     
+}
 
 
 
@@ -478,7 +478,7 @@ tx3904sio_tickle(struct hw *me)
   unsigned_4 last_int, next_int;
 
   /* HW_TRACE ((me, "tickle backend: %02x", controller->backend)); */
-  switch(controller->backend) 
+  switch(controller->backend)
     {
     case sio_tcp:
 

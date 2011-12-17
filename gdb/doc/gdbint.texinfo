@@ -767,7 +767,7 @@ set if there is a temporary disable bit which allows the processor
 to step over the interesting instruction without raising the
 watchpoint exception again.
 
-@findex gdbarch_have_nonsteppable_watchpoint 
+@findex gdbarch_have_nonsteppable_watchpoint
 @item int gdbarch_have_nonsteppable_watchpoint (@var{gdbarch})
 If it returns a non-zero value, @value{GDBN} should disable a
 watchpoint to step the inferior over it.  This is usually set when
@@ -1029,7 +1029,7 @@ the program, which the user may wish to return to at some later time.
 
 Internally, a checkpoint is a saved copy of the program state, including
 whatever information is required in order to restore the program to that
-state at a later time.  This can be expected to include the state of 
+state at a later time.  This can be expected to include the state of
 registers and memory, and may include external state such as the state
 of open files and devices.
 
@@ -1039,15 +1039,15 @@ method implemented on the target side.
 
 A corefile can be used to save an image of target memory and register
 state, which can in principle be restored later --- but corefiles do
-not typically include information about external entities such as 
+not typically include information about external entities such as
 open files.  Currently this method is not implemented in gdb.
 
-A forked process can save the state of user memory and registers, 
-as well as some subset of external (kernel) state.  This method 
+A forked process can save the state of user memory and registers,
+as well as some subset of external (kernel) state.  This method
 is used to implement checkpoints on Linux, and in principle might
 be used on other systems.
 
-Some targets, e.g.@: simulators, might have their own built-in 
+Some targets, e.g.@: simulators, might have their own built-in
 method for saving checkpoints, and gdb might be able to take
 advantage of that capability without necessarily knowing any
 details of how it is done.
@@ -1775,7 +1775,7 @@ evolving.  The following components have so far been identified:
 
 @itemize @bullet
 @item
-Observer - @file{gdb-events.h}.  
+Observer - @file{gdb-events.h}.
 @item
 Builder - @file{ui-out.h}
 @item
@@ -2573,13 +2573,13 @@ various parsers from defining the same global names:
 #define yylval          @var{lang}_lval
 #define yychar          @var{lang}_char
 #define yydebug         @var{lang}_debug
-#define yypact          @var{lang}_pact 
-#define yyr1            @var{lang}_r1   
-#define yyr2            @var{lang}_r2   
-#define yydef           @var{lang}_def  
-#define yychk           @var{lang}_chk  
-#define yypgo           @var{lang}_pgo  
-#define yyact           @var{lang}_act  
+#define yypact          @var{lang}_pact
+#define yyr1            @var{lang}_r1
+#define yyr2            @var{lang}_r2
+#define yydef           @var{lang}_def
+#define yychk           @var{lang}_chk
+#define yypgo           @var{lang}_pgo
+#define yyact           @var{lang}_act
 #define yyexca          @var{lang}_exca
 #define yyerrflag       @var{lang}_errflag
 #define yynerrs         @var{lang}_nerrs
@@ -3146,7 +3146,7 @@ information in a @code{struct gdbarch_tdep}.  The prototype for
 
 @smallexample
 struct gdbarch *gdbarch_alloc (const struct gdbarch_info *@var{info},
-                               struct gdbarch_tdep       *@var{tdep}); 
+                               struct gdbarch_tdep       *@var{tdep});
 @end smallexample
 
 @cindex @code{set_gdbarch} functions
@@ -4374,7 +4374,7 @@ call functions within the target being debugged.
 
 @end deftypefn
 
-@deftypefn {Architecture Function} {struct frame_id} unwind_dummy_id (struct gdbarch *@var{gdbarch}, struct frame_info *@var{next_frame}) 
+@deftypefn {Architecture Function} {struct frame_id} unwind_dummy_id (struct gdbarch *@var{gdbarch}, struct frame_info *@var{next_frame})
 
 This is the inverse of @code{push_dummy_call} which restores the stack
 pointer and program counter after a call to evaluate a function using
@@ -4435,8 +4435,8 @@ Once BFD support is available, writing the apropriate
 @code{regset_from_core_section} architecture function should be all
 that is needed in order to add support for core files in @value{GDBN}.
 
-@node Defining Other Architecture Features 
-@section Defining Other Architecture Features 
+@node Defining Other Architecture Features
+@section Defining Other Architecture Features
 
 This section describes other functions and values in @code{gdbarch},
 together with some useful macros, that you can use to define the
@@ -5829,9 +5829,9 @@ later cleanups appended to the chain (but not yet discarded or
 performed).  E.g.:
 
 @smallexample
-make_cleanup (a, 0); 
+make_cleanup (a, 0);
 @{
-  struct cleanup *old = make_cleanup (b, 0); 
+  struct cleanup *old = make_cleanup (b, 0);
   make_cleanup (c, 0)
   ...
   do_cleanups (old);
@@ -6723,7 +6723,7 @@ merge.
 @noindent
 For further information on @sc{cvs}, see
 @uref{http://www.gnu.org/software/cvs/, Concurrent Versions System}.
- 
+
 @node Start of New Year Procedure
 @chapter Start of New Year Procedure
 @cindex new year procedure
@@ -7128,8 +7128,8 @@ $  emacs gdb/src/gdb/NEWS
 c-x 4 a
 ...
 c-x c-s c-x c-c
-$  cp gdb/src/gdb/NEWS insight/src/gdb/NEWS 
-$  cp gdb/src/gdb/ChangeLog insight/src/gdb/ChangeLog 
+$  cp gdb/src/gdb/NEWS insight/src/gdb/NEWS
+$  cp gdb/src/gdb/ChangeLog insight/src/gdb/ChangeLog
 @end smallexample
 
 @item gdb/README
@@ -7151,8 +7151,8 @@ $  emacs gdb/src/gdb/README
 c-x 4 a
 ...
 c-x c-s c-x c-c
-$  cp gdb/src/gdb/README insight/src/gdb/README 
-$  cp gdb/src/gdb/ChangeLog insight/src/gdb/ChangeLog 
+$  cp gdb/src/gdb/README insight/src/gdb/README
+$  cp gdb/src/gdb/ChangeLog insight/src/gdb/ChangeLog
 @end smallexample
 
 @emph{Maintainer note: Hopefully the @file{README} file was reviewed
@@ -7174,8 +7174,8 @@ $  emacs gdb/src/gdb/version.in
 c-x 4 a
 ... Bump to version ...
 c-x c-s c-x c-c
-$  cp gdb/src/gdb/version.in insight/src/gdb/version.in 
-$  cp gdb/src/gdb/ChangeLog insight/src/gdb/ChangeLog 
+$  cp gdb/src/gdb/version.in insight/src/gdb/version.in
+$  cp gdb/src/gdb/ChangeLog insight/src/gdb/ChangeLog
 @end smallexample
 
 @end table
@@ -7260,7 +7260,7 @@ Pick a popular machine (Solaris/PPC?) and try the build on that.
 @smallexample
 $  bunzip2 < gdb-5.2.tar.bz2 | tar xpf -
 $  cd gdb-5.2
-$  ./configure 
+$  ./configure
 $  make
 @dots{}
 $  ./gdb/gdb ./gdb/gdb
@@ -7269,7 +7269,7 @@ GNU gdb 5.2
 (gdb)  b main
 Breakpoint 1 at 0x80732bc: file main.c, line 734.
 (gdb)  run
-Starting program: /tmp/gdb-5.2/gdb/gdb 
+Starting program: /tmp/gdb-5.2/gdb/gdb
 
 Breakpoint 1, main (argc=1, argv=0xbffff8b4) at main.c:734
 734       catch_errors (captured_main, &args, "", RETURN_MASK_ALL);

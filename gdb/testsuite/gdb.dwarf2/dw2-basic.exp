@@ -23,7 +23,7 @@ if {![istarget *-*-linux*]
     && ![istarget *-*-openbsd*]
     && ![istarget arm-*-eabi*]
     && ![istarget powerpc-*-eabi*]} {
-    return 0  
+    return 0
 }
 
 set testfile "dw2-basic"

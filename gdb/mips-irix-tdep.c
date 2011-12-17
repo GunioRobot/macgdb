@@ -64,14 +64,14 @@ mips_irix_elf_osabi_sniffer (bfd *abfd)
   if (elfosabi == ELFOSABI_NONE)
     {
       /* When elfosabi is ELFOSABI_NONE (0), then the ELF structures in the
-	 file are conforming to the base specification for that machine 
-	 (there are no OS-specific extensions).  In order to determine the 
-	 real OS in use we must look for OS notes that have been added.  
-	 
+	 file are conforming to the base specification for that machine
+	 (there are no OS-specific extensions).  In order to determine the
+	 real OS in use we must look for OS notes that have been added.
+
 	 For IRIX, we simply look for sections named with .MIPS. as
 	 prefixes.  */
       bfd_map_over_sections (abfd,
-			     mips_irix_elf_osabi_sniff_abi_tag_sections, 
+			     mips_irix_elf_osabi_sniff_abi_tag_sections,
 			     &osabi);
     }
   return osabi;

@@ -758,16 +758,16 @@ OP_17001200 ()
     {
       tmp = (MAX32);
       SET_PSW_F0 (1);
-    }      
+    }
   else if (tmp < SEXT40(MIN32))
     {
       tmp = (MIN32);
       SET_PSW_F0 (1);
-    }      
+    }
   else
     {
       SET_PSW_F0 (0);
-    }      
+    }
   SET_GPR (OP[0] + 0, (tmp >> 16) & 0xffff);
   SET_GPR (OP[0] + 1, (tmp & 0xffff));
   trace_output_32 (tmp);
@@ -786,16 +786,16 @@ OP_17001202 ()
     {
       tmp = (MAX32);
       SET_PSW_F0 (1);
-    }      
+    }
   else if (tmp < SEXT40(MIN32))
     {
       tmp = (MIN32);
       SET_PSW_F0 (1);
-    }      
+    }
   else
     {
       SET_PSW_F0 (0);
-    }      
+    }
   SET_GPR (OP[0] + 0, (tmp >> 16) & 0xffff);
   SET_GPR (OP[0] + 1, (tmp & 0xffff));
   trace_output_32 (tmp);
@@ -1014,7 +1014,7 @@ OP_401 ()
 {
   trace_input ("cmpeqi.s", OP_REG, OP_CONSTANT4, OP_VOID);
   SET_PSW_F1 (PSW_F0);
-  SET_PSW_F0 ((GPR (OP[0]) == (reg_t) SEXT4 (OP[1])) ? 1 : 0);  
+  SET_PSW_F0 ((GPR (OP[0]) == (reg_t) SEXT4 (OP[1])) ? 1 : 0);
   trace_output_flag ();
 }
 
@@ -1024,7 +1024,7 @@ OP_2000000 ()
 {
   trace_input ("cmpeqi.l", OP_REG, OP_CONSTANT16, OP_VOID);
   SET_PSW_F1 (PSW_F0);
-  SET_PSW_F0 ((GPR (OP[0]) == (reg_t)OP[1]) ? 1 : 0);  
+  SET_PSW_F0 ((GPR (OP[0]) == (reg_t)OP[1]) ? 1 : 0);
   trace_output_flag ();
 }
 
@@ -1034,7 +1034,7 @@ OP_601 ()
 {
   trace_input ("cmpi.s", OP_REG, OP_CONSTANT4, OP_VOID);
   SET_PSW_F1 (PSW_F0);
-  SET_PSW_F0 (((int16)(GPR (OP[0])) < (int16)SEXT4(OP[1])) ? 1 : 0);  
+  SET_PSW_F0 (((int16)(GPR (OP[0])) < (int16)SEXT4(OP[1])) ? 1 : 0);
   trace_output_flag ();
 }
 
@@ -1044,7 +1044,7 @@ OP_3000000 ()
 {
   trace_input ("cmpi.l", OP_REG, OP_CONSTANT16, OP_VOID);
   SET_PSW_F1 (PSW_F0);
-  SET_PSW_F0 (((int16)(GPR (OP[0])) < (int16)(OP[1])) ? 1 : 0);  
+  SET_PSW_F0 (((int16)(GPR (OP[0])) < (int16)(OP[1])) ? 1 : 0);
   trace_output_flag ();
 }
 
@@ -1054,7 +1054,7 @@ OP_4600 ()
 {
   trace_input ("cmpu", OP_REG, OP_REG, OP_VOID);
   SET_PSW_F1 (PSW_F0);
-  SET_PSW_F0 ((GPR (OP[0]) < GPR (OP[1])) ? 1 : 0);  
+  SET_PSW_F0 ((GPR (OP[0]) < GPR (OP[1])) ? 1 : 0);
   trace_output_flag ();
 }
 
@@ -1064,7 +1064,7 @@ OP_23000000 ()
 {
   trace_input ("cmpui", OP_REG, OP_CONSTANT16, OP_VOID);
   SET_PSW_F1 (PSW_F0);
-  SET_PSW_F0 ((GPR (OP[0]) < (reg_t)OP[1]) ? 1 : 0);  
+  SET_PSW_F0 ((GPR (OP[0]) < (reg_t)OP[1]) ? 1 : 0);
   trace_output_flag ();
 }
 
@@ -1073,9 +1073,9 @@ void
 OP_4E09 ()
 {
   uint8 val;
-  
+
   trace_input ("cpfg", OP_FLAG_OUTPUT, OP_FLAG, OP_VOID);
-  
+
   if (OP[1] == 0)
     val = PSW_F0;
   else if (OP[1] == 1)
@@ -1095,9 +1095,9 @@ void
 OP_4E0F ()
 {
   uint8 val;
-  
+
   trace_input ("cpfg", OP_FLAG_OUTPUT, OP_FLAG, OP_VOID);
-  
+
   if (OP[1] == 0)
     val = PSW_F0;
   else if (OP[1] == 1)
@@ -1246,7 +1246,7 @@ OP_15002A00 ()
     tmp = (GPR (OP[1]) << 16) | GPR (OP[1] + 1);
   else
     tmp = ~((GPR (OP[1]) << 16) | GPR (OP[1] + 1));
-  
+
   foo = 0x40000000;
   for (i=1;i<17;i++)
     {
@@ -1273,7 +1273,7 @@ OP_15002A02 ()
   tmp = SEXT40(ACC (OP[1]));
   if (tmp < 0)
     tmp = ~tmp & MASK40;
-  
+
   foo = 0x4000000000LL;
   for (i=1;i<25;i++)
     {
@@ -1655,7 +1655,7 @@ OP_2600 ()
   else
     {
       tmp = GPR (OP[0]);
-      SET_PSW_F0 (0);    
+      SET_PSW_F0 (0);
     }
   SET_GPR (OP[0], tmp);
   trace_output_16 (tmp);
@@ -1721,7 +1721,7 @@ OP_2601 ()
   else
     {
       tmp = GPR (OP[0]);
-      SET_PSW_F0 (0);    
+      SET_PSW_F0 (0);
     }
   SET_GPR (OP[0], tmp);
   trace_output_16 (tmp);
@@ -2019,8 +2019,8 @@ OP_1E00 ()
 {
   int16 tmp;
   trace_input ("mvfachi", OP_REG_OUTPUT, OP_ACCUM, OP_VOID);
-  tmp = (ACC (OP[1]) >> 16);  
-  SET_GPR (OP[0], tmp);  
+  tmp = (ACC (OP[1]) >> 16);
+  SET_GPR (OP[0], tmp);
   trace_output_16 (tmp);
 }
 
@@ -2185,8 +2185,8 @@ OP_4603 ()
 {
   int16 tmp;
   trace_input ("not", OP_REG, OP_VOID, OP_VOID);
-  tmp = ~GPR (OP[0]);  
-  SET_GPR (OP[0], tmp);  
+  tmp = ~GPR (OP[0]);
+  SET_GPR (OP[0], tmp);
   trace_output_16 (tmp);
 }
 
@@ -2240,12 +2240,12 @@ OP_5201 ()
     {
       tmp = 0x7fffffff;
       SET_PSW_F0 (1);
-    } 
+    }
   else if (tmp < SEXT44 (SIGNED64 (0xfff80000000)))
     {
       tmp = 0x80000000;
       SET_PSW_F0 (1);
-    } 
+    }
   else
     {
       SET_PSW_F0 (0);
@@ -3122,16 +3122,16 @@ OP_17001000 ()
     {
       tmp = (MAX32);
       SET_PSW_F0 (1);
-    }      
+    }
   else if (tmp < SEXT40(MIN32))
     {
       tmp = (MIN32);
       SET_PSW_F0 (1);
-    }      
+    }
   else
     {
       SET_PSW_F0 (0);
-    }      
+    }
   SET_GPR32 (OP[0], tmp);
   trace_output_32 (tmp);
 }
@@ -3149,16 +3149,16 @@ OP_17001002 ()
     {
       tmp = (MAX32);
       SET_PSW_F0 (1);
-    }      
+    }
   else if (tmp < SEXT40(MIN32))
     {
       tmp = (MIN32);
       SET_PSW_F0 (1);
-    }      
+    }
   else
     {
       SET_PSW_F0 (0);
-    }      
+    }
   SET_GPR32 (OP[0], tmp);
   trace_output_32 (tmp);
 }
@@ -3566,7 +3566,7 @@ OP_5F00 ()
 	    break;
 #endif
 #endif
-	    
+
 	  default:
 	    d10v_callback->error (d10v_callback, "Unknown syscall %d", FUNC);
 	  }

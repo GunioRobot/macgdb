@@ -16,7 +16,7 @@
  ba _start
  nop
 
-; 
+;
  start
 x:
 

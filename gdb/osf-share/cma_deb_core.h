@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -14,7 +14,7 @@
  * any purpose.
  */
 /*
- *	This file defines the internal interface to the core of CMA 
+ *	This file defines the internal interface to the core of CMA
  * 	debugging services. (The client interface to debugging services
  *	is provided by cma_debug_client.h).
  */
@@ -64,13 +64,13 @@ typedef struct CMA__T_DEB_REGISTRY {
 
 #define cma__c_deb_max_clients	10
 
-/* 
+/*
  * Type defining the global debugging state for all threads.
  */
 typedef struct CMA__T_DEBUG_STATE {
-    /* 
+    /*
      * The following flag is set if changes were made while in the
-     * debugger that may make the ready lists inconsistent.  For 
+     * debugger that may make the ready lists inconsistent.  For
      * example, if a thread priority is changed in the debugger, the
      * thread is not moved between queues.  Making things consistent
      * is deferred to when the dispatcher is next invoked -- which we
@@ -80,9 +80,9 @@ typedef struct CMA__T_DEBUG_STATE {
 
 
     cma_t_boolean 	events_enabled;	    /* Set if _any_ event is enabled */
-    cma_t_boolean	flags[cma__c_debevt__dim]; 	
+    cma_t_boolean	flags[cma__c_debevt__dim];
 					    /* Which events are enabled */
-    cma__t_int_tcb	*next_to_run;	    /* TCB of thread to run next */ 
+    cma__t_int_tcb	*next_to_run;	    /* TCB of thread to run next */
 
     cma__t_int_mutex	*mutex;		    /* Mutex for registering clients */
     cma_t_integer	client_count;	    /* Count of debug clients */
@@ -91,7 +91,7 @@ typedef struct CMA__T_DEBUG_STATE {
     } cma__t_debug_state;
 
 
-/* 
+/*
  * Routine that will symbolize and address and print it.
  */
 typedef void	(*cma__t_print_symbol) (cma_t_address);
@@ -101,15 +101,15 @@ typedef void	(*cma__t_print_symbol) (cma_t_address);
  *  GLOBAL DATA
  */
 
-/* 
- * Variable holding the global debugging state 
+/*
+ * Variable holding the global debugging state
  *
  * (This is primarily written by the debugger interface and read
  * by the thread dispatcher).
  */
 extern cma__t_debug_state	cma__g_debug_state;
 
-/* 
+/*
  * Known object queues
  */
 extern cma__t_known_object	cma__g_known_atts;
@@ -122,7 +122,7 @@ extern cma__t_known_object	cma__g_known_threads;
  */
 
 /* Get information while in debugger context */
-extern void cma__deb_get 
+extern void cma__deb_get
            (cma__t_int_tcb *,cma_t_debug_get,cma_t_address,cma_t_integer,cma_t_integer);
 
 /* Set information while in debugger context */
@@ -144,18 +144,18 @@ extern cma__t_int_tcb *cma__deb_get_self_tcb (void);
 
 extern void cma__deb_get_time_slice (cma_t_interval *);
 
-extern cma__t_int_tcb *cma__deb_next_tcb 
+extern cma__t_int_tcb *cma__deb_next_tcb
             (cma__t_int_tcb *,cma_t_integer *,cma_t_integer *,cma_t_boolean *);
 
 extern cma_t_boolean cma__deb_set_alert (cma__t_int_tcb *);
 
 extern void cma__deb_set_next_thread (cma__t_int_tcb *);
-	
+
 extern void cma__deb_set_force_dispatch (cma_t_address );
 
 extern void cma__deb_set_time_slice (cma_t_interval);
 
-extern void cma__deb_show_thread 
+extern void cma__deb_show_thread
      (cma__t_int_tcb *,cma_t_boolean,cma_t_boolean,cma___t_debug_ctx,cma__t_eol_routine,
                 cma__t_eol_routine,cma__t_print_symbol);
 

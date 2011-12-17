@@ -239,7 +239,7 @@ sh64_compact_pbb_begin (SIM_CPU *current_cpu, int FAST_P)
  while (max_insns > 0)
     {
       UHI insn = GETIMEMUHI (current_cpu, pc);
-      
+
       idesc = extract (current_cpu, pc, insn, &sc->argbuf, FAST_P);
       SEM_SKIP_COMPILE (current_cpu, sc, 1);
       ++sc;
@@ -262,12 +262,12 @@ sh64_compact_pbb_begin (SIM_CPU *current_cpu, int FAST_P)
 		  SIM_DESC sd = CPU_STATE (current_cpu);
                   sim_io_eprintf (CPU_STATE (current_cpu),
 		    "malformed program, `%s' insn in delay slot\n",
-                    CGEN_INSN_NAME (idesc->idata));    
+                    CGEN_INSN_NAME (idesc->idata));
 		  sim_engine_halt (sd, current_cpu, NULL, pc,
   				   sim_stopped, SIM_SIGILL);
                 }
 	      else
-                { 
+                {
                   ++sc;
 	          --max_insns;
 	          ++icount;

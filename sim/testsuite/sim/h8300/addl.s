@@ -5,7 +5,7 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
@@ -78,7 +78,7 @@ long_dst:
 
 	;;
 	;; Add long from immediate source
-	;; 
+	;;
 
 .if (sim_cpu == h8sx)
 add_l_imm3_to_reg32:
@@ -824,7 +824,7 @@ add_l_imm32_to_abs32:
 
 	;;
 	;; Add long from register source
-	;; 
+	;;
 
 add_l_reg32_to_reg32:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -840,7 +840,7 @@ add_l_reg32_to_reg32:
 	test_zero_clear
 	test_ovf_clear
 	test_carry_clear
-	
+
 	test_h_gr32 0xb7d9fc1d er0	; add result
 	test_h_gr32 0x12345678 er1	; add src unchanged
 
@@ -1157,7 +1157,7 @@ add_l_reg32_to_abs32:
 	test_zero_clear
 	test_ovf_set
 	test_carry_set
-	
+
 	test_gr_a5a5 0		; Make sure _ALL_ general regs not disturbed
 	test_gr_a5a5 1		; (first, because on h8/300 we must use one
 	test_gr_a5a5 2		; to examine the destination memory).
@@ -1176,7 +1176,7 @@ add_l_reg32_to_abs32:
 
 	;;
 	;; Add long to register destination.
-	;; 
+	;;
 
 add_l_indirect_to_reg32:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -1308,7 +1308,7 @@ add_l_predec_to_reg32:		; pre-decrement from mem to register
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 
-	
+
 add_l_disp2_to_reg32:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -1444,7 +1444,7 @@ add_l_abs32_to_reg32:
 
 	;;
 	;; Add long from memory to memory
-	;; 
+	;;
 
 add_l_indirect_to_indirect:	; reg indirect, memory to memory
 	set_grs_a5a5		; Fill all general regs with a fixed pattern

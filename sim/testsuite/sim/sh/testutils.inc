@@ -8,7 +8,7 @@
 _pass:	.string	"pass\n"
 _fail:	.string "fail\n"
 _stack:	.fill	128, 4, 0
-stackt:	
+stackt:
 
 	.macro	push reg
 	mov.l	\reg, @-r15
@@ -247,7 +247,7 @@ main:
 .Laz\@:	pop	r1
 	.endm
 
-	# Assert value of system register 
+	# Assert value of system register
 	# [mach, macl, pr, dsr, a0, x0, x1, y0, y1, ...]
 	.macro assert_sreg val reg
 	push	r0
@@ -270,7 +270,7 @@ main:
 	pop	r0
 	.endm
 
-	# Assert value of control register 
+	# Assert value of control register
 	# [gbr, vbr, ssr, spc, sgr, dbr, r[0-7]_bank, sr, mod, re, rs, ...]
 	.macro assert_creg val reg
 	push	r0
@@ -437,7 +437,7 @@ set_greg\@:
 	nop
 	.endm
 
-	.macro test_fprs_a5a5	
+	.macro test_fprs_a5a5
 	bsr	mtesta5_fp
 	nop
 	.endm

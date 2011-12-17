@@ -16,9 +16,9 @@ shlldl1:
 	movi 1, r1
 	shlli r1, 7, r1
 	ori r1, 3, r1
-	
+
 	shlld.l r0, r1, r2
-	
+
 check1:
 	bnei r2, 8, tr0
 

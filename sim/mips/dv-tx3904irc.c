@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -25,13 +25,13 @@
 
 /* DEVICE
 
-   
+
    tx3904irc - tx3904 interrupt controller
 
-   
+
    DESCRIPTION
 
-   
+
    Implements the tx3904 interrupt controller described in the tx3904
    user guide.  It does not include the interrupt detection circuit
    that preprocesses the eight external interrupts, so assumes that
@@ -77,7 +77,7 @@
 
    External interrupts.  Level = 0 -> level interrupt cleared.
 
-   
+
    dmac0-3 (input)
 
    DMA internal interrupts, correspond to DMA channels 0-3.  Level = 0 -> level interrupt cleared.
@@ -271,7 +271,7 @@ tx3904irc_port_event (struct hw *me,
 
   switch (my_port)
     {
-    case INT0_PORT: 
+    case INT0_PORT:
       {
 	int ip_number = 32; /* compute IP[5:0] */
 	HW_TRACE ((me, "port-event INT[0]"));
@@ -358,7 +358,7 @@ tx3904irc_io_read_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 
@@ -403,7 +403,7 @@ tx3904irc_io_write_buffer (struct hw *me,
       /* HW_TRACE ((me, "post: %08lx", (long) *register_ptr)); */
     }
   return nr_bytes;
-}     
+}
 
 
 const struct hw_descriptor dv_tx3904irc_descriptor[] = {

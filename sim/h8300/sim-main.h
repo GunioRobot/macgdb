@@ -24,11 +24,11 @@
 
 #define H8300_MSIZE (1 << 16)
 
-/* avolkov: 
+/* avolkov:
    Next 2 macros are ugly for any workstation, but while they're work.
    Memory size MUST be configurable.  */
-#define H8300H_MSIZE (1 << 24) 
-#define H8300S_MSIZE (1 << 24) 
+#define H8300H_MSIZE (1 << 24)
+#define H8300S_MSIZE (1 << 24)
 
 #define CSIZE 1024
 
@@ -131,7 +131,7 @@ struct _sim_cpu {
   unsigned char *memory;
   unsigned char *eightbit;
   int mask;
-  
+
   sim_cpu_base base;
 };
 
@@ -159,9 +159,9 @@ struct sim_state {
 #define cpu_get_pc(CPU)		(((CPU)->pc))
 
 /* Magic numbers used to distinguish an exit from a breakpoint.  */
-#define LIBC_EXIT_MAGIC1 0xdead	
-#define LIBC_EXIT_MAGIC2 0xbeef	
-/* Local version of macros for decoding exit status.  
+#define LIBC_EXIT_MAGIC1 0xdead
+#define LIBC_EXIT_MAGIC2 0xbeef
+/* Local version of macros for decoding exit status.
    (included here rather than try to find target version of wait.h)
 */
 #define SIM_WIFEXITED(V)	(((V) & 0xff) == 0)

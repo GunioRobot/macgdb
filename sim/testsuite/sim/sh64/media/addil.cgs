@@ -41,8 +41,8 @@ addil5:
 	addi r0, 10, r0
 	addi.l r0, 10, r2
 	bnei r2, 20, tr0
-	
-okay:	
+
+okay:
 	pass
 
 wrong:

@@ -1,4 +1,4 @@
-/* pe.h  -  PE COFF header information 
+/* pe.h  -  PE COFF header information
 
    Copyright 1999, 2000, 2001, 2003, 2004, 2005, 2006, 2007, 2009
    Free Software Foundation, Inc.
@@ -164,9 +164,9 @@
 #define IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER	12
 #define IMAGE_SUBSYSTEM_SAL_RUNTIME_DRIVER	13
 #define IMAGE_SUBSYSTEM_XBOX			14
-  
+
 /* Magic values that are true for all dos/nt implementations.  */
-#define DOSMAGIC       0x5a4d  
+#define DOSMAGIC       0x5a4d
 #define NT_SIGNATURE   0x00004550
 
 /* NT allows long filenames, we want to accommodate this.
@@ -265,7 +265,7 @@ struct external_PEI_filehdr
 
 /* 32-bit PE a.out header: */
 
-typedef struct 
+typedef struct
 {
   AOUTHDR standard;
 
@@ -301,7 +301,7 @@ typedef struct
 /* Like PEAOUTHDR, except that the "standard" member has no BaseOfData
    (aka data_start) member and that some of the members are 8 instead
    of just 4 bytes long.  */
-typedef struct 
+typedef struct
 {
 #ifdef AOUTHDRSZ64
   AOUTHDR64 standard;
@@ -339,7 +339,7 @@ typedef struct
 #else
 #define PEPAOUTSZ	240
 #endif
-  
+
 #undef  E_FILNMLEN
 #define E_FILNMLEN	18	/* # characters in a file name.  */
 

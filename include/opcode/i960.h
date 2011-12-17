@@ -1,7 +1,7 @@
 /* Basic 80960 instruction formats.
 
    Copyright 2001 Free Software Foundation, Inc.
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2, or (at your option)
@@ -16,23 +16,23 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor,
    Boston, MA 02110-1301, USA.
- 
+
   The 'COJ' instructions are actually COBR instructions with the 'b' in
   the mnemonic replaced by a 'j';  they are ALWAYS "de-optimized" if necessary:
   if the displacement will not fit in 13 bits, the assembler will replace them
   with the corresponding compare and branch instructions.
- 
+
   All of the 'MEMn' instructions are the same format; the 'n' in the name
   indicates the default index scale factor (the size of the datum operated on).
- 
+
   The FBRA formats are not actually an instruction format.  They are the
   "convenience directives" for branching on floating-point comparisons,
   each of which generates 2 instructions (a 'bno' and one other branch).
- 
+
   The CALLJ format is not actually an instruction format.  It indicates that
   the instruction generated (a CTRL-format 'call') should have its relocation
   specially flagged for link-time replacement with a 'bal' or 'calls' if
-  appropriate.  */ 
+  appropriate.  */
 
 #define CTRL	0
 #define COBR	1
@@ -52,7 +52,7 @@
 #define M2		0x1000
 #define M3		0x2000
 
-/* Generate the 12-bit opcode for a REG format instruction by placing the 
+/* Generate the 12-bit opcode for a REG format instruction by placing the
  * high 8 bits in instruction bits 24-31, the low 4 bits in instruction bits
  * 7-10.
  */

@@ -35,7 +35,7 @@
    with include files (<malloc.h> and <stdlib.h> for example) just became
    too messy, particularly when such includes can be inserted at random
    times by the parser generator. */
-   
+
 %{
 
 #include "defs.h"
@@ -154,8 +154,8 @@ static struct block *modblock=0;
 %type <voidval> exp type_exp start set
 %type <voidval> variable
 %type <tval> type
-%type <bval> block 
-%type <sym> fblock 
+%type <bval> block
+%type <sym> fblock
 
 %token <lval> INT HEX ERROR
 %token <ulval> UINT M2_TRUE M2_FALSE CHAR
@@ -197,7 +197,7 @@ static struct block *modblock=0;
 %right '^' DOT '[' '('
 %right NOT '~'
 %left COLONCOLON QID
-/* This is not an actual token ; it is used for precedence. 
+/* This is not an actual token ; it is used for precedence.
 %right QID
 */
 
@@ -544,7 +544,7 @@ exp	:	STRING
 	;
 
 /* This will be used for extensions later.  Like adding modules. */
-block	:	fblock	
+block	:	fblock
 			{ $$ = SYMBOL_BLOCK_VALUE($1); }
 	;
 
@@ -554,7 +554,7 @@ fblock	:	BLOCKNAME
 					     VAR_DOMAIN, 0);
 			  $$ = sym;}
 	;
-			     
+
 
 /* GDB scope operator */
 fblock	:	block COLONCOLON BLOCKNAME
@@ -610,7 +610,7 @@ variable:	NAME
 			      if (symbol_read_needs_frame (sym))
 				{
 				  if (innermost_block == 0 ||
-				      contained_in (block_found, 
+				      contained_in (block_found,
 						    innermost_block))
 				    innermost_block = block_found;
 				}

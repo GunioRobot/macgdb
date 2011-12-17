@@ -178,7 +178,7 @@ struct alpha_mdebug_unwind_cache
    and store the resulting register save locations in the structure.  */
 
 static struct alpha_mdebug_unwind_cache *
-alpha_mdebug_frame_unwind_cache (struct frame_info *this_frame, 
+alpha_mdebug_frame_unwind_cache (struct frame_info *this_frame,
 				 void **this_prologue_cache)
 {
   struct alpha_mdebug_unwind_cache *info;
@@ -279,7 +279,7 @@ alpha_mdebug_frame_prev_register (struct frame_info *this_frame,
      the correct place.  */
   if (regnum == ALPHA_PC_REGNUM)
     regnum = PROC_PC_REG (info->proc_desc);
-  
+
   return trad_frame_get_prev_register (this_frame, info->saved_regs, regnum);
 }
 

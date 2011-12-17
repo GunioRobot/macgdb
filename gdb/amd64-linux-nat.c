@@ -351,14 +351,14 @@ ps_get_thread_area (const struct ps_prochandle *ph,
 
       /* This code assumes that "int" is 32 bits and that
 	 GET_THREAD_AREA returns no more than 4 int values.  */
-      gdb_assert (sizeof (int) == 4);	
+      gdb_assert (sizeof (int) == 4);
 #ifndef PTRACE_GET_THREAD_AREA
 #define PTRACE_GET_THREAD_AREA 25
 #endif
-      if  (ptrace (PTRACE_GET_THREAD_AREA, 
+      if  (ptrace (PTRACE_GET_THREAD_AREA,
 		   lwpid, (void *) (long) idx, (unsigned long) &desc) < 0)
 	return PS_ERR;
-      
+
       /* Extend the value to 64 bits.  Here it's assumed that a "long"
 	 and a "void *" are the same.  */
       (*base) = (void *) (long) desc[1];

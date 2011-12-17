@@ -25,12 +25,12 @@
 #define  _MAXQ20_H_
 
 /* This file contains the opcode table for the MAXQ10/20 processor. The table
-   has been designed on the lines of the SH processor with the following 
+   has been designed on the lines of the SH processor with the following
    fields:
    (1) Instruction Name
    (2) Instruction arguments description
    (3) Description of the breakup of the opcode (1+7+8|8+8|1+4+4|1+7+1+3+4
-       |1+3+4+1+3+4|1+3+4+8|1+1+2+4+8)  
+       |1+3+4+1+3+4|1+3+4+8|1+1+2+4+8)
    (4) Architecture supported
 
    The Register table is also defined. It contains the following fields
@@ -40,7 +40,7 @@
    (4) Opcode
    (5) Regtype
 
-   The Memory access table is defined containing the various opcodes for 
+   The Memory access table is defined containing the various opcodes for
    memory access containing the following fields
    (1) Memory access Operand Name
    (2) Memory access Operand opcode.  */
@@ -1002,7 +1002,7 @@ bit_name bit_table[] =
   {
    "WBS2", "DPC.4"},
 
-   /* For SCON */  
+   /* For SCON */
   {
    "TI", "SCON.1"},
   {

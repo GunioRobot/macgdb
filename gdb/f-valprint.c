@@ -51,7 +51,7 @@ int f77_array_offset_tbl[MAX_FORTRAN_DIMS + 1][2];
 /* Array which holds offsets to be applied to get a row's elements
    for a given array. Array also holds the size of each subarray.  */
 
-/* The following macro gives us the size of the nth dimension, Where 
+/* The following macro gives us the size of the nth dimension, Where
    n is 1 based. */
 
 #define F77_DIM_SIZE(n) (f77_array_offset_tbl[n][1])
@@ -96,11 +96,11 @@ f77_get_dynamic_length_of_aggregate (struct type *type)
 
   /* Recursively go all the way down into a possibly multi-dimensional
      F77 array and get the bounds.  For simple arrays, this is pretty
-     easy but when the bounds are dynamic, we must be very careful 
-     to add up all the lengths correctly.  Not doing this right 
+     easy but when the bounds are dynamic, we must be very careful
+     to add up all the lengths correctly.  Not doing this right
      will lead to horrendous-looking arrays in parameter lists.
 
-     This function also works for strings which behave very 
+     This function also works for strings which behave very
      similarly to arrays.  */
 
   if (TYPE_CODE (TYPE_TARGET_TYPE (type)) == TYPE_CODE_ARRAY
@@ -117,7 +117,7 @@ f77_get_dynamic_length_of_aggregate (struct type *type)
     (upper_bound - lower_bound + 1) * TYPE_LENGTH (check_typedef (TYPE_TARGET_TYPE (type)));
 }
 
-/* Function that sets up the array offset,size table for the array 
+/* Function that sets up the array offset,size table for the array
    type "type".  */
 
 static void
@@ -141,9 +141,9 @@ f77_create_arrayprint_offset_tbl (struct type *type, struct ui_file *stream)
       ndimen++;
     }
 
-  /* Now we multiply eltlen by all the offsets, so that later we 
-     can print out array elements correctly.  Up till now we 
-     know an offset to apply to get the item but we also 
+  /* Now we multiply eltlen by all the offsets, so that later we
+     can print out array elements correctly.  Up till now we
+     know an offset to apply to get the item but we also
      have to know how much to add to get to the next item */
 
   ndimen--;
@@ -158,7 +158,7 @@ f77_create_arrayprint_offset_tbl (struct type *type, struct ui_file *stream)
 
 
 
-/* Actual function which prints out F77 arrays, Valaddr == address in 
+/* Actual function which prints out F77 arrays, Valaddr == address in
    the superior.  Address == the address in the inferior.  */
 
 static void
@@ -181,7 +181,7 @@ f77_print_array_1 (int nss, int ndimensions, struct type *type,
 			     stream, recurse, options, elts);
 	  fprintf_filtered (stream, ") ");
 	}
-      if (*elts >= options->print_max && i < F77_DIM_SIZE (nss)) 
+      if (*elts >= options->print_max && i < F77_DIM_SIZE (nss))
 	fprintf_filtered (stream, "...");
     }
   else
@@ -205,7 +205,7 @@ f77_print_array_1 (int nss, int ndimensions, struct type *type,
     }
 }
 
-/* This function gets called to print an F77 array, we set up some 
+/* This function gets called to print an F77 array, we set up some
    stuff and then immediately call f77_print_array_1() */
 
 static void
@@ -222,8 +222,8 @@ f77_print_array (struct type *type, const gdb_byte *valaddr,
     error (_("Type node corrupt! F77 arrays cannot have %d subscripts (%d Max)"),
 	   ndimensions, MAX_FORTRAN_DIMS);
 
-  /* Since F77 arrays are stored column-major, we set up an 
-     offset table to get at the various row's elements. The 
+  /* Since F77 arrays are stored column-major, we set up an
+     offset table to get at the various row's elements. The
      offset table contains entries for both offset and subarray size. */
 
   f77_create_arrayprint_offset_tbl (type, stream);
@@ -458,7 +458,7 @@ f_val_print (struct type *type, const gdb_byte *valaddr, int embedded_offset,
             fputs_filtered (", ", stream);
         }
       fprintf_filtered (stream, " )");
-      break;     
+      break;
 
     default:
       error (_("Invalid F77 type code %d in symbol table."), TYPE_CODE (type));
@@ -485,8 +485,8 @@ list_all_visible_commons (char *funname)
     }
 }
 
-/* This function is used to print out the values in a given COMMON 
-   block. It will always use the most local common block of the 
+/* This function is used to print out the values in a given COMMON
+   block. It will always use the most local common block of the
    given name */
 
 static void
@@ -498,14 +498,14 @@ info_common_command (char *comname, int from_tty)
   char *funname = 0;
   struct symbol *func;
 
-  /* We have been told to display the contents of F77 COMMON 
-     block supposedly visible in this function.  Let us 
-     first make sure that it is visible and if so, let 
+  /* We have been told to display the contents of F77 COMMON
+     block supposedly visible in this function.  Let us
+     first make sure that it is visible and if so, let
      us display its contents */
 
   fi = get_selected_frame (_("No frame selected"));
 
-  /* The following is generally ripped off from stack.c's routine 
+  /* The following is generally ripped off from stack.c's routine
      print_frame_info() */
 
   func = find_pc_function (get_frame_pc (fi));
@@ -525,7 +525,7 @@ info_common_command (char *comname, int from_tty)
          be any minimal symbols in the middle of a function.
          FIXME:  (Not necessarily true.  What about text labels) */
 
-      struct minimal_symbol *msymbol = 
+      struct minimal_symbol *msymbol =
 	lookup_minimal_symbol_by_pc (get_frame_pc (fi));
 
       if (msymbol != NULL
@@ -546,7 +546,7 @@ info_common_command (char *comname, int from_tty)
 	error (_("No function found for frame."));
     }
 
-  /* If comname is NULL, we assume the user wishes to see the 
+  /* If comname is NULL, we assume the user wishes to see the
      which COMMON blocks are visible here and then return */
 
   if (comname == 0)
@@ -595,7 +595,7 @@ there_is_a_visible_common_named (char *comname)
 
   fi = get_selected_frame (_("No frame selected"));
 
-  /* The following is generally ripped off from stack.c's routine 
+  /* The following is generally ripped off from stack.c's routine
      print_frame_info() */
 
   func = find_pc_function (fi->pc);

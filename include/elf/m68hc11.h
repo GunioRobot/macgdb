@@ -91,5 +91,5 @@ END_RELOC_NUMBERS (R_M68HC11_max)
 /* Identify interrupt handlers.  This is used by the debugger to
    correctly compute the stack frame.  */
 #define STO_M68HC12_INTERRUPT 0x40
-     
+
 #endif

@@ -808,7 +808,7 @@ record_wait (struct target_ops *ops,
 		               paddress (gdbarch, record_list->u.mem.addr),
 		               record_list->u.mem.len);
 		      else
-			/* Read failed -- 
+			/* Read failed --
 			   flag entry as not_accessible.  */
 		        record_list->u.mem.mem_entry_not_accessible = 1;
 		    }
@@ -824,7 +824,7 @@ record_wait (struct target_ops *ops,
 		                   paddress (gdbarch, record_list->u.mem.addr),
 		                   record_list->u.mem.len);
 			  else
-			    /* Write failed -- 
+			    /* Write failed --
 			       flag entry as not_accessible.  */
 			    record_list->u.mem.mem_entry_not_accessible = 1;
 			}

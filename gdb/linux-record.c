@@ -222,7 +222,7 @@ record_linux_msghdr (struct regcache *regcache,
    Return -1 if something wrong.  */
 
 int
-record_linux_system_call (enum gdb_syscall syscall, 
+record_linux_system_call (enum gdb_syscall syscall,
 			  struct regcache *regcache,
                           struct linux_record_tdep *tdep)
 {
@@ -1201,7 +1201,7 @@ record_linux_system_call (enum gdb_syscall syscall,
         default:
 	  /* XXX RECORD_SEMCTL still not supported.  */
           printf_unfiltered (_("Process record and replay target doesn't "
-                               "support ipc number %s\n"), 
+                               "support ipc number %s\n"),
 			     pulongest (tmpulongest));
           break;
         }

@@ -83,7 +83,7 @@ struct mi_cmd mi_cmds[] =
   { "interpreter-exec", { NULL, 0 }, mi_cmd_interpreter_exec},
   { "list-features", { NULL, 0 }, mi_cmd_list_features},
   { "list-target-features", { NULL, 0 }, mi_cmd_list_target_features},
-  { "list-thread-groups", { NULL, 0 }, mi_cmd_list_thread_groups },  
+  { "list-thread-groups", { NULL, 0 }, mi_cmd_list_thread_groups },
   { "stack-info-depth", { NULL, 0 }, mi_cmd_stack_info_depth},
   { "stack-info-frame", { NULL, 0 }, mi_cmd_stack_info_frame},
   { "stack-list-arguments", { NULL, 0 }, mi_cmd_stack_list_args},

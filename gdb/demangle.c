@@ -91,8 +91,8 @@ set_demangling_command (char *ignore, int from_tty, struct cmd_list_element *c)
      name, we just treat it as any other style name that doesn't match.
      If we match, update the current demangling style enum. */
 
-  for (dem = libiberty_demanglers; 
-       dem->demangling_style != unknown_demangling; 
+  for (dem = libiberty_demanglers;
+       dem->demangling_style != unknown_demangling;
        dem++)
     {
       if (strcmp (current_demangling_style_string,
@@ -115,8 +115,8 @@ set_demangling_command (char *ignore, int from_tty, struct cmd_list_element *c)
 			     current_demangling_style_string);
 	}
       printf_unfiltered (_("The currently understood settings are:\n\n"));
-      for (dem = libiberty_demanglers; 
-	   dem->demangling_style != unknown_demangling; 
+      for (dem = libiberty_demanglers;
+	   dem->demangling_style != unknown_demangling;
 	   dem++)
 	{
 	  printf_unfiltered ("%-10s %s\n", dem->demangling_style_name,
@@ -182,12 +182,12 @@ _initialize_demangler (void)
 
   /* Fill the demangling_style_names[] array.  */
   for (ndems = 0;
-       libiberty_demanglers[ndems].demangling_style != unknown_demangling; 
+       libiberty_demanglers[ndems].demangling_style != unknown_demangling;
        ndems++)
     ;
   demangling_style_names = xcalloc (ndems + 1, sizeof (char *));
   for (i = 0;
-       libiberty_demanglers[i].demangling_style != unknown_demangling; 
+       libiberty_demanglers[i].demangling_style != unknown_demangling;
        i++)
     demangling_style_names[i] =
       xstrdup (libiberty_demanglers[i].demangling_style_name);

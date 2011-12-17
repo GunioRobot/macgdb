@@ -232,7 +232,7 @@ configuration).
 	CPU #1 executed     83,988 Subtract From Immediate Carrying instructions.
 	CPU #1 executed          1 System Call instruction.
 	CPU #1 executed    207,746 XOR instructions.
-	
+
 	CPU #1 executed 23,740,856 cycles.
 	CPU #1 executed 10,242,780 stalls waiting for data.
 	CPU #1 executed          1 stall waiting for a function unit.
@@ -255,7 +255,7 @@ configuration).
 	CPU #1 executed    971,926 data writes.
 	CPU #1 executed        221 icache misses.
 	CPU #1 executed 16,949,396 instructions in total.
-	
+
 	Simulator speed was 250,731 instructions/second
 
 
@@ -389,7 +389,7 @@ programs compiled using this library on PSIM.
 The only confusing part about building a development environment based
 around newlib/binutils/gcc is a chicken/egg problem with include
 files:
-		
+
 	For GCC to build, a fairly complete set of include
 	files must be installed but newlib won't install its
 	include files until it has been built with gcc ...
@@ -486,7 +486,7 @@ considered as a guideline only.
 		$ cd newlib-1.7.0
 		$ gunzip < ../newlib-1.7.0+float+ppc-asm.tar.gz | tar xvf -
 		$ gunzip < ../newlib-1.7.0+ppc-fix.diff.gz | patch -p1
-		
+
 		Finally copy the include files to where GCC will see them:
 
 		$ cd .../scratch
@@ -796,7 +796,7 @@ considered as a guideline only.
 
 		$ cd .../scratch
 		$ cd bsd-src
-		
+
 		Diffs are applied using something like:
 
 		$ gunzip < ../clayton-include-960312.diff.gz | patch -p1
@@ -832,7 +832,7 @@ considered as a guideline only.
 		$ cd bsd-src/include
 		$ powerpc-unknown-eabi-make install
 		$ cd ../..
-		
+
 
 	o	Install a few other include files.
 

@@ -549,7 +549,7 @@ _bfd_XXi_swap_aouthdr_out (bfd * abfd, void * in, void * out)
   PEAOUTHDR *aouthdr_out = (PEAOUTHDR *) out;
   bfd_vma sa, fa, ib;
   IMAGE_DATA_DIRECTORY idata2, idata5, tls;
-  
+
   sa = extra->SectionAlignment;
   fa = extra->FileAlignment;
   ib = extra->ImageBase;
@@ -557,7 +557,7 @@ _bfd_XXi_swap_aouthdr_out (bfd * abfd, void * in, void * out)
   idata2 = pe->pe_opthdr.DataDirectory[PE_IMPORT_TABLE];
   idata5 = pe->pe_opthdr.DataDirectory[PE_IMPORT_ADDRESS_TABLE];
   tls = pe->pe_opthdr.DataDirectory[PE_TLS_TABLE];
-  
+
   if (aouthdr_in->tsize)
     {
       aouthdr_in->text_start -= ib;
@@ -614,7 +614,7 @@ _bfd_XXi_swap_aouthdr_out (bfd * abfd, void * in, void * out)
     /* Until other .idata fixes are made (pending patch), the entry for
        .idata is needed for backwards compatibility.  FIXME.  */
     add_data_entry (abfd, extra, 1, ".idata", ib);
-    
+
   /* For some reason, the virtual size (which is what's set by
      add_data_entry) for .reloc is not the same as the size recorded
      in this slot by MSVC; it doesn't seem to cause problems (so far),
@@ -923,7 +923,7 @@ _bfd_XXi_swap_scnhdr_out (bfd * abfd, void * in, void * out)
        (0x02000000).  Also, the resource data should also be read and
        writable.  */
 
-    /* FIXME: Alignment is also encoded in this field, at least on PPC and 
+    /* FIXME: Alignment is also encoded in this field, at least on PPC and
        ARM-WINCE.  Although - how do we get the original alignment field
        back ?  */
 
@@ -933,7 +933,7 @@ _bfd_XXi_swap_scnhdr_out (bfd * abfd, void * in, void * out)
       unsigned long	must_have;
     }
     pe_required_section_flags;
-    
+
     pe_required_section_flags known_sections [] =
       {
 	{ ".arch",  IMAGE_SCN_MEM_READ | IMAGE_SCN_CNT_INITIALIZED_DATA | IMAGE_SCN_MEM_DISCARDABLE | IMAGE_SCN_ALIGN_8BYTES },
@@ -1227,11 +1227,11 @@ pe_print_idata (bfd * abfd, void * vfile)
 	  fprintf (file, _("\tvma:  Hint/Ord Member-Name Bound-To\n"));
 
 	  idx = hint_addr - adj;
-	  
+
 	  ft_addr = first_thunk + extra->ImageBase;
 	  ft_data = data;
 	  ft_idx = first_thunk - adj;
-	  ft_allocated = 0; 
+	  ft_allocated = 0;
 
 	  if (first_thunk != hint_addr)
 	    {
@@ -1317,7 +1317,7 @@ pe_print_idata (bfd * abfd, void * vfile)
 	    {
 	      unsigned long member = bfd_get_32 (abfd, data + idx + j);
 
-	      /* Print single IMAGE_IMPORT_BY_NAME vector.  */ 
+	      /* Print single IMAGE_IMPORT_BY_NAME vector.  */
 	      if (member == 0)
 		break;
 
@@ -1580,7 +1580,7 @@ pe_print_edata (bfd * abfd, void * vfile)
 /* This really is architecture dependent.  On IA-64, a .pdata entry
    consists of three dwords containing relative virtual addresses that
    specify the start and end address of the code range the entry
-   covers and the address of the corresponding unwind info data. 
+   covers and the address of the corresponding unwind info data.
 
    On ARM and SH-4, a compressed PDATA structure is used :
    _IMAGE_CE_RUNTIME_FUNCTION_ENTRY, whereas MIPS is documented to use
@@ -2189,7 +2189,7 @@ _bfd_XX_bfd_copy_private_bfd_data_common (bfd * ibfd, bfd * obfd)
 
   ipe = pe_data (ibfd);
   ope = pe_data (obfd);
- 
+
   /* pe_opthdr is copied in copy_object.  */
   ope->dll = ipe->dll;
 
@@ -2275,7 +2275,7 @@ _bfd_XXi_final_link_postscript (bfd * abfd, struct coff_final_link_info *pfinfo)
 			      ".idata$2", FALSE, FALSE, TRUE);
   if (h1 != NULL)
     {
-      /* PR ld/2729: We cannot rely upon all the output sections having been 
+      /* PR ld/2729: We cannot rely upon all the output sections having been
 	 created properly, so check before referencing them.  Issue a warning
 	 message for any sections tht could not be found.  */
       if ((h1->root.type == bfd_link_hash_defined
@@ -2289,7 +2289,7 @@ _bfd_XXi_final_link_postscript (bfd * abfd, struct coff_final_link_info *pfinfo)
       else
 	{
 	  _bfd_error_handler
-	    (_("%B: unable to fill in DataDictionary[1] because .idata$2 is missing"), 
+	    (_("%B: unable to fill in DataDictionary[1] because .idata$2 is missing"),
 	     abfd);
 	  result = FALSE;
 	}
@@ -2309,7 +2309,7 @@ _bfd_XXi_final_link_postscript (bfd * abfd, struct coff_final_link_info *pfinfo)
       else
 	{
 	  _bfd_error_handler
-	    (_("%B: unable to fill in DataDictionary[1] because .idata$4 is missing"), 
+	    (_("%B: unable to fill in DataDictionary[1] because .idata$4 is missing"),
 	     abfd);
 	  result = FALSE;
 	}
@@ -2330,7 +2330,7 @@ _bfd_XXi_final_link_postscript (bfd * abfd, struct coff_final_link_info *pfinfo)
       else
 	{
 	  _bfd_error_handler
-	    (_("%B: unable to fill in DataDictionary[12] because .idata$5 is missing"), 
+	    (_("%B: unable to fill in DataDictionary[12] because .idata$5 is missing"),
 	     abfd);
 	  result = FALSE;
 	}
@@ -2346,11 +2346,11 @@ _bfd_XXi_final_link_postscript (bfd * abfd, struct coff_final_link_info *pfinfo)
 	  ((h1->root.u.def.value
 	    + h1->root.u.def.section->output_section->vma
 	    + h1->root.u.def.section->output_offset)
-	   - pe_data (abfd)->pe_opthdr.DataDirectory[PE_IMPORT_ADDRESS_TABLE].VirtualAddress);      
+	   - pe_data (abfd)->pe_opthdr.DataDirectory[PE_IMPORT_ADDRESS_TABLE].VirtualAddress);
       else
 	{
 	  _bfd_error_handler
-	    (_("%B: unable to fill in DataDictionary[PE_IMPORT_ADDRESS_TABLE (12)] because .idata$6 is missing"), 
+	    (_("%B: unable to fill in DataDictionary[PE_IMPORT_ADDRESS_TABLE (12)] because .idata$6 is missing"),
 	     abfd);
 	  result = FALSE;
 	}
@@ -2372,7 +2372,7 @@ _bfd_XXi_final_link_postscript (bfd * abfd, struct coff_final_link_info *pfinfo)
       else
 	{
 	  _bfd_error_handler
-	    (_("%B: unable to fill in DataDictionary[9] because __tls_used is missing"), 
+	    (_("%B: unable to fill in DataDictionary[9] because __tls_used is missing"),
 	     abfd);
 	  result = FALSE;
 	}

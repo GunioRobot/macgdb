@@ -40,15 +40,15 @@ another:
 	mov #0, r0
 	not r0, r0
 	shlr r0
-	
+
 	# Put -3 into R1.
 	mov #3, r1
 	neg r1, r1
-	
+
 	# Subtract them and overflow.
 	subv r1, r0
 	bf wrong
-		
+
 okay:
 	pass
 wrong:

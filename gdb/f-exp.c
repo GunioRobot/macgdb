@@ -167,13 +167,13 @@
 #define	yylval	f_lval
 #define	yychar	f_char
 #define	yydebug	f_debug
-#define	yypact	f_pact	
-#define	yyr1	f_r1			
-#define	yyr2	f_r2			
-#define	yydef	f_def		
-#define	yychk	f_chk		
-#define	yypgo	f_pgo		
-#define	yyact	f_act		
+#define	yypact	f_pact
+#define	yyr1	f_r1
+#define	yyr2	f_r2
+#define	yydef	f_def
+#define	yychk	f_chk
+#define	yypgo	f_pgo
+#define	yyact	f_act
 #define	yyexca	f_exca
 #define yyerrflag f_errflag
 #define yynerrs	f_nerrs
@@ -1115,7 +1115,7 @@ yyparse ()
 #endif
 #endif
 {
-  
+
   register int yystate;
   register int yyn;
   int yyresult;
@@ -1428,7 +1428,7 @@ yyreduce:
 
   case 18:
 #line 302 "f-exp.y"
-    { write_exp_elt_opcode (OP_F90_RANGE); 
+    { write_exp_elt_opcode (OP_F90_RANGE);
 			  write_exp_elt_longcst (NONE_BOUND_DEFAULT);
 			  write_exp_elt_opcode (OP_F90_RANGE); }
     break;
@@ -1648,7 +1648,7 @@ yyreduce:
 			      if (symbol_read_needs_frame (sym))
 				{
 				  if (innermost_block == 0 ||
-				      contained_in (block_found, 
+				      contained_in (block_found,
 						    innermost_block))
 				    innermost_block = block_found;
 				}
@@ -1687,7 +1687,7 @@ yyreduce:
 		  int array_size;
 		  struct type *follow_type = yyvsp[-1].tval;
 		  struct type *range_type;
-		  
+
 		  while (!done)
 		    switch (pop_type ())
 		      {
@@ -2137,7 +2137,7 @@ parse_number (p, len, parsed_float, putithere)
 	    len -= 2;
 	  }
 	break;
-	
+
       case 't':
       case 'T':
       case 'd':
@@ -2149,12 +2149,12 @@ parse_number (p, len, parsed_float, putithere)
 	    len -= 2;
 	  }
 	break;
-	
+
       default:
 	base = 8;
 	break;
       }
-  
+
   while (len-- > 0)
     {
       c = *p++;
@@ -2186,23 +2186,23 @@ parse_number (p, len, parsed_float, putithere)
       if (RANGE_CHECK && n != 0)
 	{
 	  if ((unsigned_p && (unsigned)prevn >= (unsigned)n))
-	    range_error("Overflow on numeric constant.");	 
+	    range_error("Overflow on numeric constant.");
 	}
       prevn = n;
     }
-  
+
   /* If the number is too big to be an int, or it's got an l suffix
      then it's a long.  Work out if this has to be a long by
      shifting right and and seeing if anything remains, and the
      target int size is different to the target long size.
-     
+
      In the expression below, we could have tested
      (n >> gdbarch_int_bit (parse_gdbarch))
      to see if it was zero,
      but too many compilers warn about that, when ints and longs
      are the same size.  So we shift it twice, with fewer bits
      each time, for the same result.  */
-  
+
   if ((gdbarch_int_bit (parse_gdbarch) != gdbarch_long_bit (parse_gdbarch)
        && ((n >> 2)
 	   >> (gdbarch_int_bit (parse_gdbarch)-2))) /* Avoid shift warning */
@@ -2212,23 +2212,23 @@ parse_number (p, len, parsed_float, putithere)
       unsigned_type = parse_type->builtin_unsigned_long;
       signed_type = parse_type->builtin_long;
     }
-  else 
+  else
     {
       high_bit = ((ULONGEST)1) << (gdbarch_int_bit (parse_gdbarch)-1);
       unsigned_type = parse_type->builtin_unsigned_int;
       signed_type = parse_type->builtin_int;
-    }    
-  
+    }
+
   putithere->typed_val.val = n;
-  
+
   /* If the high bit of the worked out type is set then this number
      has to be unsigned. */
-  
-  if (unsigned_p || (n & high_bit)) 
+
+  if (unsigned_p || (n & high_bit))
     putithere->typed_val.type = unsigned_type;
-  else 
+  else
     putithere->typed_val.type = signed_type;
-  
+
   return INT;
 }
 
@@ -2266,13 +2266,13 @@ static const struct token dot_ops[] =
   { NULL, 0, 0 }
 };
 
-struct f77_boolean_val 
+struct f77_boolean_val
 {
   char *name;
   int value;
-}; 
+};
 
-static const struct f77_boolean_val boolean_values[]  = 
+static const struct f77_boolean_val boolean_values[]  =
 {
   { ".true.", 1 },
   { ".TRUE.", 1 },
@@ -2281,7 +2281,7 @@ static const struct f77_boolean_val boolean_values[]  =
   { NULL, 0 }
 };
 
-static const struct token f77_keywords[] = 
+static const struct token f77_keywords[] =
 {
   { "complex_16", COMPLEX_S16_KEYWORD, BINOP_END },
   { "complex_32", COMPLEX_S32_KEYWORD, BINOP_END },
@@ -2298,11 +2298,11 @@ static const struct token f77_keywords[] =
   { "real_8", REAL_S8_KEYWORD, BINOP_END },
   { "real", REAL_KEYWORD, BINOP_END },
   { NULL, 0, 0 }
-}; 
+};
 
 /* Implementation of a dynamically expandable buffer for processing input
    characters acquired through lexptr and building a value to return in
-   yylval. Ripped off from ch-exp.y */ 
+   yylval. Ripped off from ch-exp.y */
 
 static char *tempbuf;		/* Current buffer contents */
 static int tempbufsize;		/* Size of allocated buffer */
@@ -2336,9 +2336,9 @@ growbuf_by_size (count)
     tempbuf = (char *) xrealloc (tempbuf, tempbufsize);
 }
 
-/* Blatantly ripped off from ch-exp.y. This routine recognizes F77 
-   string-literals. 
-   
+/* Blatantly ripped off from ch-exp.y. This routine recognizes F77
+   string-literals.
+
    Recognize a string literal.  A string literal is a nonzero sequence
    of characters enclosed in matching single quotes, except that
    a single character inside single quotes is a character literal, which
@@ -2384,32 +2384,32 @@ yylex ()
   int namelen;
   unsigned int i,token;
   char *tokstart;
-  
+
  retry:
- 
+
   prev_lexptr = lexptr;
- 
+
   tokstart = lexptr;
-  
-  /* First of all, let us make sure we are not dealing with the 
+
+  /* First of all, let us make sure we are not dealing with the
      special tokens .true. and .false. which evaluate to 1 and 0.  */
-  
+
   if (*lexptr == '.')
-    { 
+    {
       for (i = 0; boolean_values[i].name != NULL; i++)
 	{
 	  if (strncmp (tokstart, boolean_values[i].name,
 		       strlen (boolean_values[i].name)) == 0)
 	    {
-	      lexptr += strlen (boolean_values[i].name); 
-	      yylval.lval = boolean_values[i].value; 
+	      lexptr += strlen (boolean_values[i].name);
+	      yylval.lval = boolean_values[i].value;
 	      return BOOLEAN_LITERAL;
 	    }
 	}
     }
-  
+
   /* See if it is a special .foo. operator.  */
-  
+
   for (i = 0; dot_ops[i].operator != NULL; i++)
     if (strncmp (tokstart, dot_ops[i].operator, strlen (dot_ops[i].operator)) == 0)
       {
@@ -2417,7 +2417,7 @@ yylex ()
 	yylval.opcode = dot_ops[i].opcode;
 	return dot_ops[i].token;
       }
-  
+
   /* See if it is an exponentiation operator.  */
 
   if (strncmp (tokstart, "**", 2) == 0)
@@ -2431,43 +2431,43 @@ yylex ()
     {
     case 0:
       return 0;
-      
+
     case ' ':
     case '\t':
     case '\n':
       lexptr++;
       goto retry;
-      
+
     case '\'':
       token = match_string_literal ();
       if (token != 0)
 	return (token);
       break;
-      
+
     case '(':
       paren_depth++;
       lexptr++;
       return c;
-      
+
     case ')':
       if (paren_depth == 0)
 	return 0;
       paren_depth--;
       lexptr++;
       return c;
-      
+
     case ',':
       if (comma_terminates && paren_depth == 0)
 	return 0;
       lexptr++;
       return c;
-      
+
     case '.':
       /* Might be a floating point number.  */
       if (lexptr[1] < '0' || lexptr[1] > '9')
 	goto symbol;		/* Nope, must be a symbol. */
       /* FALL THRU into number case.  */
-      
+
     case '0':
     case '1':
     case '2':
@@ -2483,7 +2483,7 @@ yylex ()
 	int got_dot = 0, got_e = 0, got_d = 0, toktype;
 	char *p = tokstart;
 	int hex = input_radix > 10;
-	
+
 	if (c == '0' && (p[1] == 'x' || p[1] == 'X'))
 	  {
 	    p += 2;
@@ -2494,7 +2494,7 @@ yylex ()
 	    p += 2;
 	    hex = 0;
 	  }
-	
+
 	for (;; ++p)
 	  {
 	    if (!hex && !got_e && (*p == 'e' || *p == 'E'))
@@ -2521,7 +2521,7 @@ yylex ()
         if (toktype == ERROR)
           {
 	    char *err_copy = (char *) alloca (p - tokstart + 1);
-	    
+
 	    memcpy (err_copy, tokstart, p - tokstart);
 	    err_copy[p - tokstart] = 0;
 	    error ("Invalid number \"%s\".", err_copy);
@@ -2529,7 +2529,7 @@ yylex ()
 	lexptr = p;
 	return toktype;
       }
-      
+
     case '+':
     case '-':
     case '*':
@@ -2554,46 +2554,46 @@ yylex ()
       lexptr++;
       return c;
     }
-  
+
   if (!(c == '_' || c == '$'
 	|| (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
     /* We must have come across a bad character (e.g. ';').  */
     error ("Invalid character '%c' in expression.", c);
-  
+
   namelen = 0;
   for (c = tokstart[namelen];
-       (c == '_' || c == '$' || (c >= '0' && c <= '9') 
-	|| (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')); 
+       (c == '_' || c == '$' || (c >= '0' && c <= '9')
+	|| (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
        c = tokstart[++namelen]);
-  
-  /* The token "if" terminates the expression and is NOT 
+
+  /* The token "if" terminates the expression and is NOT
      removed from the input stream.  */
-  
+
   if (namelen == 2 && tokstart[0] == 'i' && tokstart[1] == 'f')
     return 0;
-  
+
   lexptr += namelen;
-  
+
   /* Catch specific keywords.  */
-  
+
   for (i = 0; f77_keywords[i].operator != NULL; i++)
     if (strncmp (tokstart, f77_keywords[i].operator,
 		 strlen(f77_keywords[i].operator)) == 0)
       {
-	/* 	lexptr += strlen(f77_keywords[i].operator); */ 
+	/* 	lexptr += strlen(f77_keywords[i].operator); */
 	yylval.opcode = f77_keywords[i].opcode;
 	return f77_keywords[i].token;
       }
-  
+
   yylval.sval.ptr = tokstart;
   yylval.sval.length = namelen;
-  
+
   if (*tokstart == '$')
     {
       write_dollar_variable (yylval.sval);
       return VARIABLE;
     }
-  
+
   /* Use token-type TYPENAME for symbols that happen to be defined
      currently as names of types; NAME for other symbols.
      The caller is not constrained to care about the distinction.  */
@@ -2602,7 +2602,7 @@ yylex ()
     struct symbol *sym;
     int is_a_field_of_this = 0;
     int hextype;
-    
+
     sym = lookup_symbol (tmp, expression_context_block,
 			 VAR_DOMAIN,
 			 parse_language->la_language == language_cplus
@@ -2617,7 +2617,7 @@ yylex ()
 						parse_gdbarch, tmp);
     if (yylval.tsym.type != NULL)
       return TYPENAME;
-    
+
     /* Input names that aren't symbols but ARE valid hex numbers,
        when the input radix permits them, can be names or numbers
        depending on the parse.  Note we support radixes > 16 here.  */
@@ -2634,7 +2634,7 @@ yylex ()
 	    return NAME_OR_INT;
 	  }
       }
-    
+
     /* Any other kind of symbol */
     yylval.ssym.sym = sym;
     yylval.ssym.is_a_field_of_this = is_a_field_of_this;

@@ -5,7 +5,7 @@
 // Contributed by David Ung, of MIPS Technologies.
 //
 // This file is part of GDB, the GNU debugger.
-// 
+//
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation; either version 3 of the License, or
@@ -168,7 +168,7 @@
   else
     {
       if (STATE_VERBOSE_P(SD))
-	sim_io_eprintf (SD, 
+	sim_io_eprintf (SD,
 	         "Warning: PC 0x%lx: MFHC1 32-bit use of odd FPR number\n",
 			(long) CIA);
       GPR[RT] = EXTEND32 (0xBADF00D);
@@ -181,7 +181,7 @@
 *mips32r2:
 *mips64r2:
 {
-  check_fpu (SD_); 
+  check_fpu (SD_);
   if (SizeFGR() == 64)
     StoreFPR (FS, fmt_uninterpreted_64, SET64HI (GPR[RT]) | VL4_8 (FGR[FS]));
   else if ((FS & 0x1) == 0)
@@ -189,7 +189,7 @@
   else
     {
       if (STATE_VERBOSE_P(SD))
-	sim_io_eprintf (SD, 
+	sim_io_eprintf (SD,
 	         "Warning: PC 0x%lx: MTHC1 32-bit use of odd FPR number\n",
 			(long) CIA);
       StoreFPR (FS, fmt_uninterpreted_32, 0xDEADC0DE);

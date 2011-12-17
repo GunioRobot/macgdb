@@ -165,7 +165,7 @@ struct target_waitstatus
 /* The structure below stores information about a system call.
    It is basically used in the "catch syscall" command, and in
    every function that gives information about a system call.
-   
+
    It's also good to mention that its fields represent everything
    that we currently know about a syscall in GDB.  */
 struct syscall
@@ -269,7 +269,7 @@ extern LONGEST target_read_until_error (struct target_ops *ops,
 					enum target_object object,
 					const char *annex, gdb_byte *buf,
 					ULONGEST offset, LONGEST len);
-  
+
 extern LONGEST target_write (struct target_ops *ops,
 			     enum target_object object,
 			     const char *annex, const gdb_byte *buf,
@@ -411,7 +411,7 @@ struct target_ops
     void (*to_kill) (struct target_ops *);
     void (*to_load) (char *, int);
     int (*to_lookup_symbol) (char *, CORE_ADDR *);
-    void (*to_create_inferior) (struct target_ops *, 
+    void (*to_create_inferior) (struct target_ops *,
 				char *, char *, char **, int);
     void (*to_post_startup_inferior) (ptid_t);
     void (*to_acknowledge_created_inferior) (int);
@@ -1343,7 +1343,7 @@ extern void store_waitstatus (struct target_waitstatus *, int);
 /* These are in common/signals.c, but they're only used by gdb.  */
 extern enum target_signal default_target_signal_from_host (struct gdbarch *,
 							   int);
-extern int default_target_signal_to_host (struct gdbarch *, 
+extern int default_target_signal_to_host (struct gdbarch *,
 					  enum target_signal);
 
 /* Convert from a number used in a GDB command to an enum target_signal.  */

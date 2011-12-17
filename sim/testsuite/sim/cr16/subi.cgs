@@ -10,7 +10,7 @@ addi:
 
 	movb $1, r4
 	addb $2, r4
-	
+
         cmpb $3,r4
 	bne not_ok
 

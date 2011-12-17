@@ -33,7 +33,7 @@ if [get_compiler_info ${binfile}] {
 
 if [test_compiler_info "xlc-*"] {
     # By default, IBM'x xlc compiler doesn't add static variables into the symtab.
-    # Use "-qstatsym" to do so. 
+    # Use "-qstatsym" to do so.
     set exec_opts additional_flags=-qstatsym
 } else {
     set exec_opts ""
@@ -52,9 +52,9 @@ gdb_reinitialize_dir $srcdir/$subdir
 gdb_load $binfile
 
 if [runto inner] then {
-    
+
     # Expect to find global/local symbols in each of text/data/bss.
-    
+
     # The exact format for some of this output is not necessarily
     # ideal, particularly interpreting "p top" requires a fair bit of
     # savvy about gdb's workings and the meaning of the "{}"
@@ -66,7 +66,7 @@ if [runto inner] then {
     # to detect that gdb does not know the type, rather than just
     # being told they are ints or functions returning int like old
     # versions of gdb used to do.
-    
+
     # On alpha (and other ecoff systems) the native compilers put
     # out debugging info for non-aggregate return values of functions
     # even without -g, which should be accepted.
@@ -74,7 +74,7 @@ if [runto inner] then {
     # encapsulates ecoff debugging info in a .mdebug section.
     # Irix6 gcc emits no debug info at all for static functions and
     # variables, so all tests involving statics fail.
-    
+
     if {![test_compiler_info "gcc-*"]} then { setup_xfail "mips-sgi-irix5*" "mips-sgi-irix6*" }
     gdb_test "p top" \
 	"\{(<(text variable|function), no debug info>|short \\(int\\)|short \\(\\))\} \[0-9a-fx]* <top(\\(int\\)|)>"
@@ -83,7 +83,7 @@ if [runto inner] then {
 	"(<(text variable|function), no debug info>|short \\(int\\)|short \\(\\))"
     if {![test_compiler_info "gcc-*"]} then { setup_xfail "mips-sgi-irix6*" }
     gdb_test "ptype top" "(short|int) \\((|void|int|<non-float parameter>|<non-float parameter>, <non-float parameter>)\\)"
-    
+
     if {![test_compiler_info "gcc-*"]} then { setup_xfail "mips-sgi-irix5*" }
     setup_xfail "mips-sgi-irix6*"
     gdb_test "p middle" \
@@ -94,12 +94,12 @@ if [runto inner] then {
 	"(<(text variable|function), no debug info>|short \\(int\\)|short \\(\\))"
     setup_xfail "mips-sgi-irix6*"
     gdb_test "ptype middle" "(short|int) \\((|void|int|<non-float parameter>|<non-float parameter>, <non-float parameter>)\\)"
-    
+
     gdb_test "p dataglobal" "= 3"
     gdb_test "whatis dataglobal" \
 	"<(data variable|variable), no debug info>|int"
     gdb_test "ptype dataglobal" "<(data variable|variable), no debug info>|int"
-    
+
     # The only symbol xcoff puts out for statics is for the TOC entry.
     # Possible, but hairy, for gdb to deal.  Right now it doesn't, it
     # doesn't know the variables exist at all.
@@ -135,7 +135,7 @@ if [runto inner] then {
     gdb_test "p bssglobal" "= 0"
     gdb_test "whatis bssglobal" "<(data variable|variable), no debug info>|int"
     gdb_test "ptype bssglobal" "<(data variable|variable), no debug info>|int"
-    
+
     setup_xfail "rs6000*-*-aix*"
     setup_xfail "powerpc*-*-aix*"
     if [test_compiler_info "gcc-*"] {
@@ -164,9 +164,9 @@ if [runto inner] then {
         setup_xfail "hppa*-*-hpux*"
     }
     gdb_test "ptype bsslocal" "<(data variable|variable), no debug info>"
-    
+
     if [test_compiler_info "gcc-*"] {
-        setup_xfail "mips-sgi-irix6*" 
+        setup_xfail "mips-sgi-irix6*"
     }
 
     gdb_test "backtrace 10" "#0.*inner.*#1.*middle.*#2.*top.*#3.*main.*" \
@@ -176,11 +176,11 @@ if [runto inner] then {
     # ever, why bother with a weaker test?
     #gdb_test "backtrace 10" "#0.*inner.*#1.*#2.*top.*#3.*main.*" \
 	#    "backtrace from inner in nodebug.exp for externals"
-    
+
     # This test is not as obscure as it might look.  `p getenv ("TERM")'
     # is a real-world example, at least on many systems.
     if { ! [test_compiler_info "gcc-*"]} {
-        setup_xfail "mips-sgi-irix6*" 
+        setup_xfail "mips-sgi-irix6*"
     }
     if [target_info exists gdb,cannot_call_functions] {
 	setup_xfail "*-*-*" 2416
@@ -202,11 +202,11 @@ if [runto inner] then {
 	} else {
 	    # We need to up this because this can be really slow on some boards.
 	    # (malloc() is called as part of the test).
-	    set timeout 60;    
+	    set timeout 60;
 	    gdb_test {p/c array_index("abcdef",2)} " = 99 'c'"
 	}
     }
-    
+
     # Now, try that we can give names of file-local symbols which happen
     # to be unique, and have it still work
     if [test_compiler_info "gcc-*"] {

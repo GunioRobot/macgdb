@@ -12,13 +12,13 @@
 	# Store something there first.
 	mov #170, r3
 	mov.l r3, @(r0, r1)
-check:	
+check:
 	# Load it back.
 	mov.l @(r0, r1), r2
 	cmp/eq r2, r3
 	bf wrong
 
-okay:	
+okay:
 	pass
-wrong:	
+wrong:
 	fail

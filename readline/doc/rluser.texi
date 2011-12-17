@@ -410,7 +410,7 @@ the terminal's bell.
 
 @item bind-tty-special-chars
 @vindex bind-tty-special-chars
-If set to @samp{on}, Readline attempts to bind the control characters  
+If set to @samp{on}, Readline attempts to bind the control characters
 treated specially by the kernel's terminal driver to their Readline
 equivalents.
 
@@ -559,7 +559,7 @@ The default is @samp{off}.
 @item show-all-if-ambiguous
 @vindex show-all-if-ambiguous
 This alters the default behavior of the completion functions.  If
-set to @samp{on}, 
+set to @samp{on},
 words which have more than one possible completion cause the
 matches to be listed immediately instead of ringing the bell.
 The default value is @samp{off}.
@@ -568,7 +568,7 @@ The default value is @samp{off}.
 @vindex show-all-if-unmodified
 This alters the default behavior of the completion functions in
 a fashion similar to @var{show-all-if-ambiguous}.
-If set to @samp{on}, 
+If set to @samp{on},
 words which have more than one possible completion without any
 possible partial completion (the possible completions don't share
 a common prefix) cause the matches to be listed immediately instead
@@ -755,7 +755,7 @@ for instance.
 The @var{application} construct is used to include
 application-specific settings.  Each program using the Readline
 library sets the @var{application name}, and you can test for
-a particular value. 
+a particular value.
 This could be used to bind key sequences to functions useful for
 a specific program.  For instance, the following command adds a
 key sequence that quotes the current or previous word in Bash:
@@ -806,7 +806,7 @@ $include /etc/Inputrc
 #
 # Set various bindings for emacs mode.
 
-set editing-mode emacs 
+set editing-mode emacs
 
 $if mode=emacs
 
@@ -1210,7 +1210,7 @@ The actual completion performed is application-specific.
 Bash attempts completion treating the text as a variable (if the
 text begins with @samp{$}), username (if the text begins with
 @samp{~}), hostname (if the text begins with @samp{@@}), or
-command (including aliases and functions) in turn.  If none 
+command (including aliases and functions) in turn.  If none
 of these produces a match, filename completion is attempted.
 @end ifset
 @ifclear BashFeatures
@@ -1510,7 +1510,7 @@ so forth.
 When word completion is attempted for an argument to a command for
 which a completion specification (a @var{compspec}) has been defined
 using the @code{complete} builtin (@pxref{Programmable Completion Builtins}),
-the programmable completion facilities are invoked. 
+the programmable completion facilities are invoked.
 
 First, the command name is identified.
 If a compspec has been defined for that command, the
@@ -1598,7 +1598,7 @@ completions.
 
 If the previously-applied actions do not generate any matches, and the
 @option{-o dirnames} option was supplied to @code{complete} when the
-compspec was defined, directory name completion is attempted. 
+compspec was defined, directory name completion is attempted.
 
 If the @option{-o plusdirs} option was supplied to @code{complete} when
 the compspec was defined, directory name completion is attempted and any
@@ -1685,7 +1685,7 @@ should be quoted to protect them from expansion before the
 @item -o @var{comp-option}
 The @var{comp-option} controls several aspects of the compspec's behavior
 beyond the simple generation of completions.
-@var{comp-option} may be one of: 
+@var{comp-option} may be one of:
 
 @table @code
 
@@ -1711,7 +1711,7 @@ Tell Readline not to append a space (the default) to words completed at
 the end of the line.
 
 @item plusdirs
-After any matches defined by the compspec are generated, 
+After any matches defined by the compspec are generated,
 directory name completion is attempted and any
 matches are added to the results of the other actions.
 

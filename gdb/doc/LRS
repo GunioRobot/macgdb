@@ -40,33 +40,33 @@ range symbols:
     values of symbols which would normally appear in the symbol table,
     a new symbol will be added to the table whose value is that address.
 
-    The three new symbol types described below have been added for this 
+    The three new symbol types described below have been added for this
     purpose.
 
     For efficiency, the compiler should use existing symbols as range
     symbols whenever possible; this reduces the number of additional
     symbols which need to be added to the symbol table.
 
-    
+
 New debug symbol type for defining ranges:
 ------------------------------------------
 
     range_off - contains PC function offset for start/end of a live range.
-		Its location is relative to the function start and therefore 
+		Its location is relative to the function start and therefore
 		eliminates the need for additional relocation.
 
     This symbol has a values in the text section, and does not have a name.
 
-	    NOTE: the following may not be needed but are included here just 
+	    NOTE: the following may not be needed but are included here just
 		in case.
 	    range - contains PC value of beginning or end of a live range
 		(relocs required).
 
 	    NOTE: the following will be required if we desire LRS debugging
 		to work with old style a.out stabs.
-	    range_abs - contains absolute PC value of start/end of a live 
-		range.  The range_abs debug symbol is provided for 
-		completeness, in case there is a need to describe addresses 
+	    range_abs - contains absolute PC value of start/end of a live
+		range.  The range_abs debug symbol is provided for
+		completeness, in case there is a need to describe addresses
 		in ROM, etc.
 
 
@@ -84,11 +84,11 @@ Live range:
     the actual end of the range will be one less than the value of the
     range_end symbol.
 
-    Ranges do not have to be nested. Eg. Two ranges may intersect while 
+    Ranges do not have to be nested. Eg. Two ranges may intersect while
         each range contains subranges which are not in the other range.
 
     There does not have to be a 1-1 mapping from range_start to
-        range_end symbols.  Eg. Two range_starts can share the same 
+        range_end symbols.  Eg. Two range_starts can share the same
         range_end, while one symbol's range_start can be another symbol's
         range_end.
 
@@ -106,7 +106,7 @@ Live range:
 	will be treated as an error by the debugger, and the overlapping
 	range will be ignored.
 
-    If no live range information is given, the live range will be assumed to 
+    If no live range information is given, the live range will be assumed to
 	span the symbol's entire lexical scope.
 
 
@@ -115,16 +115,16 @@ New stabs string identifiers:
 
   "id" in "#id" in the following section refers to a numeric value.
 
-  New stab syntax for live range:  l(<ref_from>,<ref_to>) 
+  New stab syntax for live range:  l(<ref_from>,<ref_to>)
 
     <ref_from> - "#id" where #id identifies the text symbol (range symbol) to
-		use as the start of live range (range_start).  The value for 
-		the referenced text symbol is the starting address of the 
+		use as the start of live range (range_start).  The value for
+		the referenced text symbol is the starting address of the
 		live range.
 
     <ref_to> - "#id" where #id identifies the text symbol (range symbol) to
-		use as the end of live range (range_end).  The value for 
-		the referenced text symbol is ONE BYTE PAST the ending 
+		use as the end of live range (range_end).  The value for
+		the referenced text symbol is ONE BYTE PAST the ending
 		address of the live range.
 
 
@@ -139,22 +139,22 @@ New stabs string identifiers:
 		  number can be used later when defining aliases for this
 		  symbol.
 	      <def>
-		  When used as the entire stab string, "#id=" identifies this 
+		  When used as the entire stab string, "#id=" identifies this
 		  nameless symbol as being the symbol for which "#id" refers to.
 
 
-    <ref> - "#id" where "#id" refers to the symbol for which the string 
+    <ref> - "#id" where "#id" refers to the symbol for which the string
 		"#id=" identifies.
 	    Uses:
 	      <ref>:<typedef2>;<liverange>;<liverange>...
 		  Defines an alias for the symbol identified by the reference
 		  number ID.
 	      l(<ref1>,<ref2>)
-		  When used within a live range, "#id" refers to the text 
+		  When used within a live range, "#id" refers to the text
 		  symbol identified by "#id=" to use as the range symbol.
 
-    <liverange> - "l(<ref_from>,<ref_to>)" - specifies a live range for a 
-		symbol.  Multiple "l" specifiers can be combined to represent 
+    <liverange> - "l(<ref_from>,<ref_to>)" - specifies a live range for a
+		symbol.  Multiple "l" specifiers can be combined to represent
 		mutiple live ranges, separated by semicolons.
 
 

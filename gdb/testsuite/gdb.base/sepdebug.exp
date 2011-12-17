@@ -656,7 +656,7 @@ gdb_expect {
 
 # Verify that GDB responds gracefully to a request to "finish" from
 # the outermost frame.  On a stub that never exits, this will just
-# run to the stubs routine, so we don't get this error...  Thus the 
+# run to the stubs routine, so we don't get this error...  Thus the
 # second condition.
 #
 
@@ -742,7 +742,7 @@ if [istarget "hppa*-*-hpux*"] then {
 # Test "next" over recursive function call.
 #
 
-proc test_next_with_recursion {} { 
+proc test_next_with_recursion {} {
     global gdb_prompt
     global decimal
     global binfile
@@ -895,7 +895,7 @@ proc test_different_dir {type test_different_dir xfail} {
     #
     # Add a second pass pattern.  The behavior differs here between stabs
     # and dwarf for one-line functions.  Stabs preserves two line symbols
-    # (one before the prologue and one after) with the same line number, 
+    # (one before the prologue and one after) with the same line number,
     # but dwarf regards these as duplicates and discards one of them.
     # Therefore the address after the prologue (where the breakpoint is)
     # has no exactly matching line symbol, and GDB reports the breakpoint
@@ -942,7 +942,7 @@ proc test_different_dir {type test_different_dir xfail} {
 
 # now move the .debug file to a different location so that we can test
 # the "set debug-file-directory" command.
-  
+
 remote_exec build "mv ${objdir}/${subdir}/.debug/${testfile}.debug ${objdir}/${subdir}"
 set debugfile "${objdir}/${subdir}/${testfile}.debug"
 

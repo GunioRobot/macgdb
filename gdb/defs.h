@@ -78,7 +78,7 @@
 /* The O_BINARY flag is defined in fcntl.h on some non-Posix platforms.
    It is used as an access modifier in calls to open(), where it acts
    similarly to the "b" character in fopen()'s MODE argument. On Posix
-   platforms it should be a no-op, so it is defined as 0 here. This 
+   platforms it should be a no-op, so it is defined as 0 here. This
    ensures that the symbol may be used freely elsewhere in gdb. */
 
 #ifndef O_BINARY
@@ -250,7 +250,7 @@ enum return_value_convention
    Use make_cleanup to add an element to the cleanup chain.
    Use do_cleanups to do all cleanup actions back to a given
    point in the chain.  Use discard_cleanups to remove cleanups
-   from the chain back to a given point, not doing them.  
+   from the chain back to a given point, not doing them.
 
    If the argument is pointer to allocated memory, then you need to
    to additionally set the 'free_arg' member to a function that will
@@ -362,7 +362,7 @@ struct ui_file;
 extern struct cleanup *make_cleanup_ui_file_delete (struct ui_file *);
 
 struct section_addr_info;
-extern struct cleanup *(make_cleanup_free_section_addr_info 
+extern struct cleanup *(make_cleanup_free_section_addr_info
                         (struct section_addr_info *));
 
 extern struct cleanup *make_cleanup_close (int fd);
@@ -561,7 +561,7 @@ extern void symbol_file_command (char *, int);
 extern void generic_load (char *name, int from_tty);
 
 /* Report on STREAM the performance of memory transfer operation,
-   such as 'load'. 
+   such as 'load'.
    DATA_COUNT is the number of bytes transferred.
    WRITE_COUNT is the number of separate write operations, or 0,
    if that information is not available.
@@ -600,11 +600,11 @@ extern void print_address_symbolic (CORE_ADDR, struct ui_file *, int,
 				    char *);
 
 extern int build_address_symbolic (CORE_ADDR addr,
-				   int do_demangle, 
-				   char **name, 
-				   int *offset, 
-				   char **filename, 
-				   int *line, 	
+				   int do_demangle,
+				   char **name,
+				   int *offset,
+				   char **filename,
+				   int *line,
 				   int *unmapped);
 
 extern void print_address (struct gdbarch *, CORE_ADDR, struct ui_file *);
@@ -633,9 +633,9 @@ extern void init_source_path (void);
 /* From exec.c */
 
 /* Take over the 'find_mapped_memory' vector from exec.c. */
-extern void exec_set_find_memory_regions (int (*) (int (*) (CORE_ADDR, 
-							    unsigned long, 
-							    int, int, int, 
+extern void exec_set_find_memory_regions (int (*) (int (*) (CORE_ADDR,
+							    unsigned long,
+							    int, int, int,
 							    void *),
 						   void *));
 
@@ -698,8 +698,8 @@ extern struct command_line *read_command_lines_1 (char * (*) (), int);
 
 extern void free_command_lines (struct command_line **);
 
-/* To continue the execution commands when running gdb asynchronously. 
-   A continuation structure contains a pointer to a function to be called 
+/* To continue the execution commands when running gdb asynchronously.
+   A continuation structure contains a pointer to a function to be called
    to finish the command, once the target has stopped. Such mechanism is
    used by the finish and until commands, and in the remote protocol
    when opening an extended-remote connection. */
@@ -851,7 +851,7 @@ typedef struct ptid ptid_t;
 
 extern int longest_to_int (LONGEST);
 
-/* Assorted functions we can declare, now that const and volatile are 
+/* Assorted functions we can declare, now that const and volatile are
    defined.  */
 
 extern char *savestring (const char *, size_t);
@@ -1089,9 +1089,9 @@ extern int (*deprecated_ui_loop_hook) (int signo);
 extern void (*deprecated_init_ui_hook) (char *argv0);
 extern void (*deprecated_command_loop_hook) (void);
 extern void (*deprecated_show_load_progress) (const char *section,
-					      unsigned long section_sent, 
-					      unsigned long section_size, 
-					      unsigned long total_sent, 
+					      unsigned long section_sent,
+					      unsigned long section_size,
+					      unsigned long total_sent,
 					      unsigned long total_size);
 extern void (*deprecated_print_frame_info_listing_hook) (struct symtab * s,
 							 int line, int stopline,

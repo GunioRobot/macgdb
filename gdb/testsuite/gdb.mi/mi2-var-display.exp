@@ -607,9 +607,9 @@ mi_gdb_test "-var-list-children anone" \
 
 send_gdb "p/x \$fp\n"
 gdb_expect {
-    -re ".*($hex).*\\^done\r\n$mi_gdb_prompt$" { 
+    -re ".*($hex).*\\^done\r\n$mi_gdb_prompt$" {
 	pass "print FP register"
-	set fp $expect_out(1,string) 
+	set fp $expect_out(1,string)
     }
 #    -re ".*" { fail "print FP register"}
     timeout { fail "print FP register (timeout)"}

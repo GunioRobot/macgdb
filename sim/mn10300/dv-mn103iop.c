@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 #include "sim-main.h"
@@ -23,16 +23,16 @@
 
 /* DEVICE
 
-   
+
    mn103iop - mn103002 I/O ports 0-3.
 
-   
+
    DESCRIPTION
-   
+
    Implements the mn103002 i/o ports as described in the mn103002 user guide.
 
 
-   PROPERTIES   
+   PROPERTIES
 
    reg = <ioport-addr> <ioport-size> ...
 
@@ -194,7 +194,7 @@ decode_addr (struct hw *me,
     case 0x81: return P1IN;
     case 0x84: return P2IN;
     case 0x85: return P3IN;
-    default: 
+    default:
       {
 	hw_abort (me, "bad address");
 	return -1;
@@ -216,7 +216,7 @@ read_output_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes from P%dOUT.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes from P%dOUT.", nr_bytes,
 		io_port_reg);
     }
 }
@@ -237,7 +237,7 @@ read_output_mode_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes to P%dMD.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes to P%dMD.", nr_bytes,
 		io_port_reg);
     }
 }
@@ -256,7 +256,7 @@ read_control_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes to P%dDIR.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes to P%dDIR.", nr_bytes,
 		io_port_reg);
     }
 }
@@ -275,7 +275,7 @@ read_pin_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes to P%dIN.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes to P%dIN.", nr_bytes,
 		io_port_reg);
     }
 }
@@ -302,7 +302,7 @@ read_dedicated_control_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes to PSS.", nr_bytes); 
+      hw_abort (me, "bad read size of %d bytes to PSS.", nr_bytes);
     }
 }
 
@@ -362,7 +362,7 @@ mn103iop_io_read_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 static void
@@ -386,7 +386,7 @@ write_output_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes from P%dOUT.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes from P%dOUT.", nr_bytes,
 		io_port_reg);
     }
 }
@@ -416,7 +416,7 @@ write_output_mode_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad write size of %d bytes to P%dMD.", nr_bytes, 
+      hw_abort (me, "bad write size of %d bytes to P%dMD.", nr_bytes,
 		io_port_reg);
     }
 }
@@ -443,7 +443,7 @@ write_control_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad write size of %d bytes to P%dDIR.", nr_bytes, 
+      hw_abort (me, "bad write size of %d bytes to P%dDIR.", nr_bytes,
 		io_port_reg);
     }
 }
@@ -485,7 +485,7 @@ write_dedicated_control_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad write size of %d bytes to PSS.", nr_bytes); 
+      hw_abort (me, "bad write size of %d bytes to PSS.", nr_bytes);
     }
 }
 
@@ -545,7 +545,7 @@ mn103iop_io_write_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 const struct hw_descriptor dv_mn103iop_descriptor[] = {

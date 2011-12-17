@@ -1977,7 +1977,7 @@ prompt_for_continue (void)
     strcat (cont_prompt, "\n\032\032prompt-for-continue\n");
 
   /* We must do this *before* we call gdb_readline, else it will eventually
-     call us -- thinking that we're trying to print beyond the end of the 
+     call us -- thinking that we're trying to print beyond the end of the
      screen.  */
   reinitialize_more_filter ();
 
@@ -2025,7 +2025,7 @@ reinitialize_more_filter (void)
 }
 
 /* Indicate that if the next sequence of characters overflows the line,
-   a newline should be inserted here rather than when it hits the end. 
+   a newline should be inserted here rather than when it hits the end.
    If INDENT is non-null, it is a string to be printed to indent the
    wrapped part on the next line.  INDENT must remain accessible until
    the next call to wrap_here() or until a newline is printed through
@@ -2080,11 +2080,11 @@ wrap_here (char *indent)
     }
 }
 
-/* Print input string to gdb_stdout, filtered, with wrap, 
+/* Print input string to gdb_stdout, filtered, with wrap,
    arranging strings in columns of n chars. String can be
-   right or left justified in the column.  Never prints 
+   right or left justified in the column.  Never prints
    trailing spaces.  String should never be longer than
-   width.  FIXME: this could be useful for the EXAMINE 
+   width.  FIXME: this could be useful for the EXAMINE
    command, which currently doesn't tabulate very well */
 
 void
@@ -2231,7 +2231,7 @@ fputs_maybe_filtered (const char *linebuffer, struct ui_file *stream,
 		  /* FIXME, this strlen is what prevents wrap_indent from
 		     containing tabs.  However, if we recurse to print it
 		     and count its chars, we risk trouble if wrap_indent is
-		     longer than (the user settable) chars_per_line. 
+		     longer than (the user settable) chars_per_line.
 		     Note also that this can set chars_printed > chars_per_line
 		     if we are printing a long string.  */
 		  chars_printed = strlen (wrap_indent)
@@ -3078,16 +3078,16 @@ hex_string_custom (LONGEST num, int width)
 
 /* Convert VAL to a numeral in the given radix.  For
  * radix 10, IS_SIGNED may be true, indicating a signed quantity;
- * otherwise VAL is interpreted as unsigned.  If WIDTH is supplied, 
+ * otherwise VAL is interpreted as unsigned.  If WIDTH is supplied,
  * it is the minimum width (0-padded if needed).  USE_C_FORMAT means
- * to use C format in all cases.  If it is false, then 'x' 
+ * to use C format in all cases.  If it is false, then 'x'
  * and 'o' formats do not include a prefix (0x or leading 0). */
 
 char *
-int_string (LONGEST val, int radix, int is_signed, int width, 
+int_string (LONGEST val, int radix, int is_signed, int width,
 	    int use_c_format)
 {
-  switch (radix) 
+  switch (radix)
     {
     case 16:
       {
@@ -3119,7 +3119,7 @@ int_string (LONGEST val, int radix, int is_signed, int width,
       internal_error (__FILE__, __LINE__,
 		      _("failed internal consistency check"));
     }
-}	
+}
 
 /* Convert a CORE_ADDR into a string.  */
 const char *
@@ -3268,7 +3268,7 @@ xfullpath (const char *filename)
   char *real_path;
   char *result;
 
-  /* Extract the basename of filename, and return immediately 
+  /* Extract the basename of filename, and return immediately
      a copy of filename if it does not contain any directory prefix. */
   if (base_name == filename)
     return xstrdup (filename);

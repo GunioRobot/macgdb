@@ -59,7 +59,7 @@
 /* Standard set of definitions for printing, dumping, prefixifying,
  * and evaluating expressions.  */
 
-const struct exp_descriptor exp_descriptor_standard = 
+const struct exp_descriptor exp_descriptor_standard =
   {
     print_subexp_standard,
     operator_length_standard,
@@ -117,7 +117,7 @@ static int prefixify_expression (struct expression *);
 static int prefixify_subexp (struct expression *, struct expression *, int,
 			     int);
 
-static struct expression *parse_exp_in_context (char **, struct block *, int, 
+static struct expression *parse_exp_in_context (char **, struct block *, int,
 						int, int *);
 
 void _initialize_parse (void);
@@ -301,7 +301,7 @@ write_exp_elt_intern (struct internalvar *expelt)
    constant itself into however many expression elements are needed
    to hold it, and then writing another expression element that contains
    the length of the string.  I.E. an expression element at each end of
-   the string records the string length, so you can skip over the 
+   the string records the string length, so you can skip over the
    expression elements containing the actual string bytes from either
    end of the string.  Note that this also allows gdb to handle
    strings with embedded null bytes, as is required for some languages.
@@ -358,11 +358,11 @@ write_exp_string (struct stoken str)
    This adds an OP_STRING operation, but encodes the contents
    differently from write_exp_string.  The language is expected to
    handle evaluation of this expression itself.
-   
+
    After the usual OP_STRING header, TYPE is written into the
    expression as a long constant.  The interpretation of this field is
    up to the language evaluator.
-   
+
    Next, each string in VEC is written.  The length is written as a
    long constant, followed by the contents of the string.  */
 
@@ -614,7 +614,7 @@ write_dollar_variable (struct stoken str)
       return;
     }
 
-  /* On some systems, such as HP-UX and hppa-linux, certain system routines 
+  /* On some systems, such as HP-UX and hppa-linux, certain system routines
      have names beginning with $ or $$.  Check for those, first. */
 
   sym = lookup_symbol (copy_name (str), (struct block *) NULL,
@@ -729,7 +729,7 @@ copy_name (struct stoken token)
       namecopy_size = token.length + 1;
       namecopy = xrealloc (namecopy, token.length + 1);
     }
-      
+
   memcpy (namecopy, token.ptr, token.length);
   namecopy[token.length] = 0;
 
@@ -758,7 +758,7 @@ prefixify_expression (struct expression *expr)
   return prefixify_subexp (temp, expr, inpos, outpos);
 }
 
-/* Return the number of exp_elements in the postfix subexpression 
+/* Return the number of exp_elements in the postfix subexpression
    of EXPR whose operator is at index ENDPOS - 1 in EXPR.  */
 
 int
@@ -777,7 +777,7 @@ length_of_subexp (struct expression *expr, int endpos)
   return oplen;
 }
 
-/* Sets *OPLENP to the length of the operator whose (last) index is 
+/* Sets *OPLENP to the length of the operator whose (last) index is
    ENDPOS - 1 in EXPR, and sets *ARGSP to the number of arguments that
    operator takes.  */
 
@@ -1040,7 +1040,7 @@ parse_exp_1 (char **stringptr, struct block *block, int comma)
    is left untouched.  */
 
 static struct expression *
-parse_exp_in_context (char **stringptr, struct block *block, int comma, 
+parse_exp_in_context (char **stringptr, struct block *block, int comma,
 		      int void_context_p, int *out_subexp)
 {
   volatile struct gdb_exception except;
@@ -1265,15 +1265,15 @@ follow_types (struct type *follow_type)
       case tp_end:
 	done = 1;
 	if (make_const)
-	  follow_type = make_cv_type (make_const, 
-				      TYPE_VOLATILE (follow_type), 
+	  follow_type = make_cv_type (make_const,
+				      TYPE_VOLATILE (follow_type),
 				      follow_type, 0);
 	if (make_volatile)
-	  follow_type = make_cv_type (TYPE_CONST (follow_type), 
-				      make_volatile, 
+	  follow_type = make_cv_type (TYPE_CONST (follow_type),
+				      make_volatile,
 				      follow_type, 0);
 	if (make_addr_space)
-	  follow_type = make_type_with_address_space (follow_type, 
+	  follow_type = make_type_with_address_space (follow_type,
 						      make_addr_space);
 	make_const = make_volatile = 0;
 	make_addr_space = 0;
@@ -1290,15 +1290,15 @@ follow_types (struct type *follow_type)
       case tp_pointer:
 	follow_type = lookup_pointer_type (follow_type);
 	if (make_const)
-	  follow_type = make_cv_type (make_const, 
-				      TYPE_VOLATILE (follow_type), 
+	  follow_type = make_cv_type (make_const,
+				      TYPE_VOLATILE (follow_type),
 				      follow_type, 0);
 	if (make_volatile)
-	  follow_type = make_cv_type (TYPE_CONST (follow_type), 
-				      make_volatile, 
+	  follow_type = make_cv_type (TYPE_CONST (follow_type),
+				      make_volatile,
 				      follow_type, 0);
 	if (make_addr_space)
-	  follow_type = make_type_with_address_space (follow_type, 
+	  follow_type = make_type_with_address_space (follow_type,
 						      make_addr_space);
 	make_const = make_volatile = 0;
 	make_addr_space = 0;
@@ -1306,15 +1306,15 @@ follow_types (struct type *follow_type)
       case tp_reference:
 	follow_type = lookup_reference_type (follow_type);
 	if (make_const)
-	  follow_type = make_cv_type (make_const, 
-				      TYPE_VOLATILE (follow_type), 
+	  follow_type = make_cv_type (make_const,
+				      TYPE_VOLATILE (follow_type),
 				      follow_type, 0);
 	if (make_volatile)
-	  follow_type = make_cv_type (TYPE_CONST (follow_type), 
-				      make_volatile, 
+	  follow_type = make_cv_type (TYPE_CONST (follow_type),
+				      make_volatile,
 				      follow_type, 0);
 	if (make_addr_space)
-	  follow_type = make_type_with_address_space (follow_type, 
+	  follow_type = make_type_with_address_space (follow_type,
 						      make_addr_space);
 	make_const = make_volatile = 0;
 	make_addr_space = 0;
@@ -1338,15 +1338,15 @@ follow_types (struct type *follow_type)
   return follow_type;
 }
 
-/* This function avoids direct calls to fprintf 
+/* This function avoids direct calls to fprintf
    in the parser generated debug code.  */
 void
 parser_fprintf (FILE *x, const char *y, ...)
-{ 
+{
   va_list args;
   va_start (args, y);
   if (x == stderr)
-    vfprintf_unfiltered (gdb_stderr, y, args); 
+    vfprintf_unfiltered (gdb_stderr, y, args);
   else
     {
       fprintf_unfiltered (gdb_stderr, " Unknown FILE used.\n");

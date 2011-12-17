@@ -177,20 +177,20 @@ mt_register_name (struct gdbarch *gdbarch, int regnum)
     return register_names[regnum];
   if (array_names[regnum - MT_COPRO_PSEUDOREG_ARRAY])
     return array_names[regnum - MT_COPRO_PSEUDOREG_ARRAY];
-  
+
   {
     char *name;
     const char *stub;
     unsigned dim_1;
     unsigned dim_2;
     unsigned index;
-    
+
     regnum -= MT_COPRO_PSEUDOREG_ARRAY;
     index = regnum % MT_COPRO_PSEUDOREG_REGS;
     dim_2 = (regnum / MT_COPRO_PSEUDOREG_REGS) % MT_COPRO_PSEUDOREG_DIM_2;
     dim_1 = ((regnum / MT_COPRO_PSEUDOREG_REGS / MT_COPRO_PSEUDOREG_DIM_2)
 	     %  MT_COPRO_PSEUDOREG_DIM_1);
-    
+
     if (index == MT_COPRO_PSEUDOREG_MAC_REGNUM)
       stub = register_names[MT_MAC_PSEUDOREG_REGNUM];
     else if (index >= MT_NUM_REGS - MT_CPR0_REGNUM)
@@ -343,7 +343,7 @@ mt_return_value (struct gdbarch *gdbarch, struct type *func_type,
 
   if (TYPE_LENGTH (type) > 4)
     {
-      /* Return values > 4 bytes are returned in memory, 
+      /* Return values > 4 bytes are returned in memory,
          pointed to by R11.  */
       if (readbuf)
 	{
@@ -467,7 +467,7 @@ mt_breakpoint_from_pc (struct gdbarch *gdbarch, CORE_ADDR *bp_addr,
   *bp_size = 4;
   if (gdbarch_bfd_arch_info (gdbarch)->mach == bfd_mach_ms2)
     return ms2_breakpoint;
-  
+
   return ms1_breakpoint;
 }
 
@@ -502,19 +502,19 @@ mt_select_coprocessor (struct gdbarch *gdbarch,
       store_signed_integer (&copro[2], 2, byte_order,
 			    regno % MT_COPRO_PSEUDOREG_DIM_2);
       regcache_raw_write (regcache, MT_COPRO_REGNUM, copro);
-      
+
       /* We must flush the cache, as it is now invalid.  */
       for (ix = MT_NUM_CPU_REGS; ix != MT_NUM_REGS; ix++)
 	regcache_invalidate (regcache, ix);
     }
-  
+
   return index;
 }
 
 /* Fetch the pseudo registers:
 
    There are two regular pseudo-registers:
-   1) The 'coprocessor' pseudo-register (which mirrors the 
+   1) The 'coprocessor' pseudo-register (which mirrors the
    "real" coprocessor register sent by the target), and
    2) The 'MAC' pseudo-register (which represents the union
    of the original 32 bit target MAC register and the new
@@ -555,7 +555,7 @@ mt_pseudo_register_read (struct gdbarch *gdbarch,
     default:
       {
 	unsigned index = mt_select_coprocessor (gdbarch, regcache, regno);
-	
+
 	if (index == MT_COPRO_PSEUDOREG_MAC_REGNUM)
 	  mt_pseudo_register_read (gdbarch, regcache,
 				   MT_MAC_PSEUDOREG_REGNUM, buf);
@@ -610,7 +610,7 @@ mt_pseudo_register_write (struct gdbarch *gdbarch,
     default:
       {
 	unsigned index = mt_select_coprocessor (gdbarch, regcache, regno);
-	
+
 	if (index == MT_COPRO_PSEUDOREG_MAC_REGNUM)
 	  mt_pseudo_register_write (gdbarch, regcache,
 				    MT_MAC_PSEUDOREG_REGNUM, buf);
@@ -834,7 +834,7 @@ mt_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
   for (j = nargs - 1; j >= i; j--)
     {
       gdb_byte *val;
-      
+
       /* Right-justify the value in an aligned-length buffer.  */
       typelen = TYPE_LENGTH (value_type (args[j]));
       slacklen = (wordsize - (typelen % wordsize)) % wordsize;
@@ -846,7 +846,7 @@ mt_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
       write_memory (stack_dest, val, typelen + slacklen);
     }
 
-  /* Finally, if a param needs to be split between registers and stack, 
+  /* Finally, if a param needs to be split between registers and stack,
      write the second half to the stack now.  */
   if (split_param_len != 0)
     {
@@ -876,7 +876,7 @@ mt_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
 
 struct mt_unwind_cache
 {
-  /* The previous frame's inner most stack address.  
+  /* The previous frame's inner most stack address.
      Used as this frame ID's stack_addr.  */
   CORE_ADDR prev_sp;
   CORE_ADDR frame_base;
@@ -914,7 +914,7 @@ mt_frame_unwind_cache (struct frame_info *this_frame,
   info->frameless_p = 1;
   info->saved_regs = trad_frame_alloc_saved_regs (this_frame);
 
-  /* Grab the frame-relative values of SP and FP, needed below. 
+  /* Grab the frame-relative values of SP and FP, needed below.
      The frame_saved_register function will find them on the
      stack or in the registers as appropriate.  */
   sp = get_frame_register_unsigned (this_frame, MT_SP_REGNUM);
@@ -970,7 +970,7 @@ mt_frame_unwind_cache (struct frame_info *this_frame,
 	  if ((upper_half & 0xfff0) == 0x43c0 ||	/* frame push */
 	      (upper_half & 0xfff0) == 0x43d0)	/* stack push */
 	    {
-	      /* Save this instruction, but don't record the 
+	      /* Save this instruction, but don't record the
 	         pushed register as 'saved' until we see the
 	         next instruction.  That's because of deferred stores
 	         on this target -- GDB won't be able to read the register
@@ -979,13 +979,13 @@ mt_frame_unwind_cache (struct frame_info *this_frame,
 	      continue;
 	    }
 	  /* Not a prologue instruction.  Is this the end of the prologue?
-	     This is the most difficult decision; when to stop scanning. 
+	     This is the most difficult decision; when to stop scanning.
 
 	     If we have no line symbol, then the best thing we can do
 	     is to stop scanning when we encounter an instruction that
-	     is not likely to be a part of the prologue. 
+	     is not likely to be a part of the prologue.
 
-	     But if we do have a line symbol, then we should 
+	     But if we do have a line symbol, then we should
 	     keep scanning until we reach it (or we reach end_addr).  */
 
 	  if (prologue_end_addr && (prologue_end_addr > (next_addr + 4)))
@@ -997,7 +997,7 @@ mt_frame_unwind_cache (struct frame_info *this_frame,
 
   /* Special handling for the "saved" address of the SP:
      The SP is of course never saved on the stack at all, so
-     by convention what we put here is simply the previous 
+     by convention what we put here is simply the previous
      _value_ of the SP (as opposed to an address where the
      previous value would have been pushed).  This will also
      give us the frame base address.  */
@@ -1184,7 +1184,7 @@ mt_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
   set_gdbarch_unwind_pc (gdbarch, mt_unwind_pc);
   set_gdbarch_unwind_sp (gdbarch, mt_unwind_sp);
 
-  /* Methods for saving / extracting a dummy frame's ID.  
+  /* Methods for saving / extracting a dummy frame's ID.
      The ID's stack address must match the SP value returned by
      PUSH_DUMMY_CALL, and saved by generic_save_dummy_frame_tos.  */
   set_gdbarch_dummy_id (gdbarch, mt_dummy_id);

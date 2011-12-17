@@ -5,7 +5,7 @@
     (From a driver model Contributed by Cygnus Solutions.)
 
     This file is part of the program GDB, the GNU debugger.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -18,7 +18,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -31,18 +31,18 @@
 
         m68hc11tim - m68hc11 timer devices
 
-   
+
    DESCRIPTION
-   
+
         Implements the m68hc11 timer as described in Chapter 10
         of the pink book.
 
-   
+
    PROPERTIES
 
         none
 
-   
+
    PORTS
 
    reset (input)
@@ -69,7 +69,7 @@ enum
 };
 
 
-static const struct hw_port_descriptor m68hc11tim_ports[] = 
+static const struct hw_port_descriptor m68hc11tim_ports[] =
 {
   { "reset",   RESET_PORT, 0, input_port, },
   { "capture", CAPTURE,    0, input_port, },
@@ -78,7 +78,7 @@ static const struct hw_port_descriptor m68hc11tim_ports[] =
 
 
 /* Timer Controller information.  */
-struct m68hc11tim 
+struct m68hc11tim
 {
   unsigned long cop_delay;
   unsigned long rti_delay;
@@ -135,11 +135,11 @@ m68hc11tim_finish (struct hw *me)
 #else
   me->to_ioctl = m68hc11tim_ioctl;
 #endif
-  
+
   /* Preset defaults.  */
   controller->clock_prescaler = 1;
   controller->tcnt_adjust = 0;
-  
+
   /* Attach ourself to our parent bus.  */
   attach_m68hc11tim_regs (me, controller);
 }
@@ -255,7 +255,7 @@ m68hc11tim_timer_event (struct hw *me, void *data)
   signed64 tcnt_insn_start;
   int i;
   sim_events *events;
-  
+
   controller = hw_data (me);
   sd         = hw_system (me);
   cpu        = STATE_CPU (sd, 0);
@@ -278,7 +278,7 @@ m68hc11tim_timer_event (struct hw *me, void *data)
     case RTI_EVENT:
       eventp = &controller->rti_timer_event;
       delay  = controller->rti_prev_interrupt + controller->rti_delay;
-      
+
       if (((long) (data) & 0x0100) == 0)
         {
           cpu->ios[M6811_TFLG2] |= M6811_RTIF;
@@ -513,7 +513,7 @@ m68hc11tim_print_timer (struct hw *me, const char *name,
                         struct hw_event *event)
 {
   SIM_DESC sd;
-  
+
   sd = hw_system (me);
   if (event == 0)
     {
@@ -541,11 +541,11 @@ m68hc11tim_info (struct hw *me)
   struct m68hc11tim *controller;
   uint8 val;
   uint16 val16;
-  
+
   sd = hw_system (me);
   cpu = STATE_CPU (sd, 0);
   controller = hw_data (me);
-  
+
   sim_io_printf (sd, "M68HC11 Timer:\n");
 
   base = cpu_get_io_base (cpu);
@@ -646,7 +646,7 @@ m68hc11tim_io_read_buffer (struct hw *me,
   sim_cpu *cpu;
   unsigned8 val;
   unsigned cnt = 0;
-  
+
   HW_TRACE ((me, "read 0x%08lx %d", (long) base, (int) nr_bytes));
 
   sd  = hw_system (me);
@@ -698,7 +698,7 @@ m68hc11tim_io_write_buffer (struct hw *me,
   int reset_compare = 0;
   int reset_overflow = 0;
   int cnt = 0;
-  
+
   HW_TRACE ((me, "write 0x%08lx %d", (long) base, (int) nr_bytes));
 
   sd  = hw_system (me);
@@ -776,7 +776,7 @@ m68hc11tim_io_write_buffer (struct hw *me,
           controller->rti_delay = (long) (n) * 8192;
           m68hc11tim_timer_event (me, (void*) (RTI_EVENT| 0x100));
           break;
-      
+
         case M6811_TFLG2:
           val &= cpu->ios[M6811_TFLG2];
           cpu->ios[M6811_TFLG2] &= ~val;
@@ -792,7 +792,7 @@ m68hc11tim_io_write_buffer (struct hw *me,
         case M6811_TFLG1:
           val &= cpu->ios[M6811_TFLG1];
           cpu->ios[M6811_TFLG1] &= ~val;
-          interrupts_update_pending (&cpu->cpu_interrupts);          
+          interrupts_update_pending (&cpu->cpu_interrupts);
           break;
 
         case M6811_TOC1:
@@ -830,7 +830,7 @@ m68hc11tim_io_write_buffer (struct hw *me,
       m68hc11tim_timer_event (me, (void*) (OVERFLOW_EVENT| 0x100));
     }
   return cnt;
-}     
+}
 
 
 const struct hw_descriptor dv_m68hc11tim_descriptor[] = {

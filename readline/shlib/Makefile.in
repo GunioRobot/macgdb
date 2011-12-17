@@ -113,7 +113,7 @@ CCFLAGS = $(DEFS) $(LOCAL_DEFS) $(CPPFLAGS) $(INCLUDES) $(LOCAL_CFLAGS) $(CFLAGS
 
 .c.so:
 	${RM} $@
-	$(SHOBJ_CC) -c $(CCFLAGS) $(SHOBJ_CFLAGS) -o $*.o $< 
+	$(SHOBJ_CC) -c $(CCFLAGS) $(SHOBJ_CFLAGS) -o $*.o $<
 	$(MV) $*.o $@
 
 # The name of the main library target.
@@ -178,7 +178,7 @@ wcwidth.o: $(srcdir)/support/wcwidth.c
 	$(RM) $@
 	$(SHOBJ_CC) -c $(CCFLAGS) $(SHOBJ_FLAGS) $(srcdir)/support/wcwidth.c
 
-# Since tilde.c is shared between readline and bash, make sure we compile 
+# Since tilde.c is shared between readline and bash, make sure we compile
 # it with the right flags when it's built as part of readline
 tilde.so:        tilde.c
 	${RM} $@
@@ -282,7 +282,7 @@ nls.so: $(topdir)/ansi_stdlib.h
 nls.so: $(topdir)/rldefs.h ${BUILD_DIR}/config.h $(topdir)/rlconf.h
 nls.o: $(topdir)/readline.h $(topdir)/keymaps.h $(topdir)/chardefs.h
 nls.o: $(topdir)/rltypedefs.h
-nls.o: $(topdir)/tilde.h $(topdir)/history.h $(topdir)/rlstdc.h  
+nls.o: $(topdir)/tilde.h $(topdir)/history.h $(topdir)/rlstdc.h
 parens.so: $(topdir)/rlconf.h ${BUILD_DIR}/config.h
 parens.so: $(topdir)/readline.h $(topdir)/keymaps.h $(topdir)/chardefs.h
 parens.so: $(topdir)/rltypedefs.h
@@ -343,10 +343,10 @@ kill.so: $(topdir)/rlprivate.h
 macro.so: $(topdir)/rlprivate.h
 mbutil.so: $(topdir)/rlprivate.h
 misc.so: $(topdir)/rlprivate.h
-nls.so: $(topdir)/rlprivate.h   
+nls.so: $(topdir)/rlprivate.h
 parens.so: $(topdir)/rlprivate.h
 readline.so: $(topdir)/rlprivate.h
-rltty.so: $(topdir)/rlprivate.h 
+rltty.so: $(topdir)/rlprivate.h
 search.so: $(topdir)/rlprivate.h
 signals.so: $(topdir)/rlprivate.h
 terminal.so: $(topdir)/rlprivate.h

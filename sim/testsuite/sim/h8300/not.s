@@ -4,8 +4,8 @@
 # as(h8300h):	--defsym sim_cpu=1
 # as(h8300s):	--defsym sim_cpu=2
 # as(h8sx):	--defsym sim_cpu=3
-# ld(h8300h):	-m h8300helf	
-# ld(h8300s):	-m h8300self	
+# ld(h8300h):	-m h8300helf
+# ld(h8300s):	-m h8300self
 # ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
@@ -38,7 +38,7 @@ long_dest:	.long 0xa5a5a5a5
 	start
 
 	#
-	# 8-bit byte operations 
+	# 8-bit byte operations
 	#
 
 not_b_reg8:
@@ -48,15 +48,15 @@ not_b_reg8:
 	;;  not.b Rd
 	not	r0l		; 8-bit register
 ;;;	.word	0x1708
-	
+
 	cmp.b	#0x5a, r0l	; result of "not 0xa5"
 	beq	.Lbrd
 	fail
-.Lbrd:	
+.Lbrd:
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
 	test_h_gr16 0xa55a r0	; r0 changed by 'not'
 .if (sim_cpu)			; non-zero means h8300h, s, or sx
-	test_h_gr32 0xa5a5a55a er0	; er0 changed by 'not' 
+	test_h_gr32 0xa5a5a55a er0	; er0 changed by 'not'
 .endif
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -81,7 +81,7 @@ not_b_rdind:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32 byte_dest er0	; er0 still contains address
 	cmp.b	#0x5a:8, @er0	; memory contents changed
 	beq	.Lbind
@@ -176,7 +176,7 @@ not_b_rdpreinc:
 	beq	.Lbpreinc
 	fail
 .Lbpreinc:
-	test_h_gr32 byte_dest er0	; er0 contains destination address 
+	test_h_gr32 byte_dest er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -205,7 +205,7 @@ not_b_rdpredec:
 	beq	.Lbpredec
 	fail
 .Lbpredec:
-	test_h_gr32 byte_dest er0	; er0 contains destination address 
+	test_h_gr32 byte_dest er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -234,7 +234,7 @@ not_b_disp2dst:
 	beq	.Lbdisp2
 	fail
 .Lbdisp2:
-	test_h_gr32 byte_dest er0	; er0 contains destination address 
+	test_h_gr32 byte_dest er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -264,7 +264,7 @@ not_b_disp16dst:
 	beq	.Lbdisp16
 	fail
 .Lbdisp16:
-	test_h_gr32 byte_dest+100 er0	; er0 contains destination address 
+	test_h_gr32 byte_dest+100 er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -372,13 +372,13 @@ not_w_reg16:
 	;;  not.w Rd
 	not	r1		; 16-bit register operand
 ;;;	.word	0x1711
-	
+
 	cmp.w	#0x5a5a, r1	; result of "not 0xa5a5"
 	beq	.Lwrd
 	fail
-.Lwrd:	
+.Lwrd:
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
-	test_h_gr32 0xa5a55a5a er1	; er1 changed by 'not' 
+	test_h_gr32 0xa5a55a5a er1	; er1 changed by 'not'
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -495,7 +495,7 @@ not_w_rdpreinc:
 	beq	.Lwpreinc
 	fail
 .Lwpreinc:
-	test_h_gr32 word_dest er1	; er1 contains destination address 
+	test_h_gr32 word_dest er1	; er1 contains destination address
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -524,7 +524,7 @@ not_w_rdpredec:
 	beq	.Lwpredec
 	fail
 .Lwpredec:
-	test_h_gr32 word_dest er1	; er1 contains destination address 
+	test_h_gr32 word_dest er1	; er1 contains destination address
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -583,7 +583,7 @@ not_w_disp16dst:
 	beq	.Lwdisp16
 	fail
 .Lwdisp16:
-	test_h_gr32 word_dest+100 er1	; er1 contains destination address 
+	test_h_gr32 word_dest+100 er1	; er1 contains destination address
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -697,9 +697,9 @@ not_l_reg16:
 	cmp.l	#0x5a5a5a5a, er1	; result of "not 0xa5a5a5a5"
 	beq	.Llrd
 	fail
-.Llrd:	
+.Llrd:
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
-	test_h_gr32 0x5a5a5a5a er1	; er1 changed by 'not' 
+	test_h_gr32 0x5a5a5a5a er1	; er1 changed by 'not'
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -816,7 +816,7 @@ not_l_rdpreinc:
 	beq	.Llpreinc
 	fail
 .Llpreinc:
-	test_h_gr32 long_dest er1	; er1 contains destination address 
+	test_h_gr32 long_dest er1	; er1 contains destination address
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -845,7 +845,7 @@ not_l_rdpredec:
 	beq	.Llpredec
 	fail
 .Llpredec:
-	test_h_gr32 long_dest er1	; er1 contains destination address 
+	test_h_gr32 long_dest er1	; er1 contains destination address
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -904,7 +904,7 @@ not_l_disp16dst:
 	beq	.Lldisp16
 	fail
 .Lldisp16:
-	test_h_gr32 long_dest+100 er1	; er1 contains destination address 
+	test_h_gr32 long_dest+100 er1	; er1 contains destination address
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3

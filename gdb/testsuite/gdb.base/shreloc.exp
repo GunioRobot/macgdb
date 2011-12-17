@@ -58,9 +58,9 @@ if {([istarget "*pc-cygwin"] || [istarget "*pc-mingw32"]) } {
 
 if [test_compiler_info "xlc-*"] {
 
-    # IBM's xlc compiler does not add static variables to the ELF symbol 
-    # table by default.  We need this option to make the variables show 
-    # up in "maint print msymbols". 
+    # IBM's xlc compiler does not add static variables to the ELF symbol
+    # table by default.  We need this option to make the variables show
+    # up in "maint print msymbols".
 
     lappend lib_opts "additional_flags=-qstatsym"
 

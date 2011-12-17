@@ -14,13 +14,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Test Machine interface (MI) operations 
+# Test Machine interface (MI) operations
 # Verify that, using the MI, we can run a simple program and perform
-# exec-step-instruction and exec-next-instruction.  
+# exec-step-instruction and exec-next-instruction.
 
 # The goal is not to
 # test gdb functionality, which is done by other tests, but to verify
-# the correct output response to MI operations.  
+# the correct output response to MI operations.
 #
 
 load_lib mi-support.exp
@@ -53,7 +53,7 @@ proc test_stepi_nexti {} {
  		pass "step-instruction at main (line check)"
     } else {
         fail "step-instruction at main (line check)"
-    }    
+    }
 
     set line [mi_execute_to "exec-next-instruction" "end-stepping-range" "main" "" \
                   ".*basics.c" "\[0-9\]+" "" "next-instruction at main"]

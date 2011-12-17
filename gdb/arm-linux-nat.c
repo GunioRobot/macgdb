@@ -96,7 +96,7 @@ fetch_fpregister (struct regcache *regcache, int regno)
 {
   int ret, tid;
   gdb_byte fp[ARM_LINUX_SIZEOF_NWFPE];
-  
+
   /* Get the thread id for the ptrace call.  */
   tid = GET_THREAD_ID (inferior_ptid);
 
@@ -129,7 +129,7 @@ fetch_fpregs (struct regcache *regcache)
 
   /* Get the thread id for the ptrace call.  */
   tid = GET_THREAD_ID (inferior_ptid);
-  
+
   /* Read the floating point state.  */
   ret = ptrace (PT_GETFPREGS, tid, 0, fp);
   if (ret < 0)
@@ -158,7 +158,7 @@ store_fpregister (const struct regcache *regcache, int regno)
 
   /* Get the thread id for the ptrace call.  */
   tid = GET_THREAD_ID (inferior_ptid);
-  
+
   /* Read the floating point state.  */
   ret = ptrace (PT_GETFPREGS, tid, 0, fp);
   if (ret < 0)
@@ -194,7 +194,7 @@ store_fpregs (const struct regcache *regcache)
 
   /* Get the thread id for the ptrace call.  */
   tid = GET_THREAD_ID (inferior_ptid);
-  
+
   /* Read the floating point state.  */
   ret = ptrace (PT_GETFPREGS, tid, 0, fp);
   if (ret < 0)
@@ -231,7 +231,7 @@ fetch_register (struct regcache *regcache, int regno)
 
   /* Get the thread id for the ptrace call.  */
   tid = GET_THREAD_ID (inferior_ptid);
-  
+
   ret = ptrace (PTRACE_GETREGS, tid, 0, &regs);
   if (ret < 0)
     {
@@ -251,9 +251,9 @@ fetch_register (struct regcache *regcache, int regno)
         regcache_raw_supply (regcache, ARM_PS_REGNUM,
 			     (char *) &regs[ARM_PC_REGNUM]);
     }
-    
+
   if (ARM_PC_REGNUM == regno)
-    { 
+    {
       regs[ARM_PC_REGNUM] = gdbarch_addr_bits_remove
 			      (get_regcache_arch (regcache),
 			       regs[ARM_PC_REGNUM]);
@@ -273,7 +273,7 @@ fetch_regs (struct regcache *regcache)
 
   /* Get the thread id for the ptrace call.  */
   tid = GET_THREAD_ID (inferior_ptid);
-  
+
   ret = ptrace (PTRACE_GETREGS, tid, 0, &regs);
   if (ret < 0)
     {
@@ -305,13 +305,13 @@ store_register (const struct regcache *regcache, int regno)
 {
   int ret, tid;
   elf_gregset_t regs;
-  
+
   if (!regcache_valid_p (regcache, regno))
     return;
 
   /* Get the thread id for the ptrace call.  */
   tid = GET_THREAD_ID (inferior_ptid);
-  
+
   /* Get the general registers from the process.  */
   ret = ptrace (PTRACE_GETREGS, tid, 0, &regs);
   if (ret < 0)
@@ -345,7 +345,7 @@ store_regs (const struct regcache *regcache)
 
   /* Get the thread id for the ptrace call.  */
   tid = GET_THREAD_ID (inferior_ptid);
-  
+
   /* Fetch the general registers.  */
   ret = ptrace (PTRACE_GETREGS, tid, 0, &regs);
   if (ret < 0)
@@ -462,7 +462,7 @@ arm_linux_fetch_inferior_registers (struct target_ops *ops,
       if (arm_linux_has_wmmx_registers)
 	fetch_wmmx_regs (regcache);
     }
-  else 
+  else
     {
       if (regno < ARM_F0_REGNUM || regno == ARM_PS_REGNUM)
         fetch_register (regcache, regno);
@@ -505,7 +505,7 @@ arm_linux_store_inferior_registers (struct target_ops *ops,
    thread debugging.  */
 
 void
-fill_gregset (const struct regcache *regcache,	
+fill_gregset (const struct regcache *regcache,
 	      gdb_gregset_t *gregsetp, int regno)
 {
   arm_linux_collect_gregset (NULL, regcache, regno, gregsetp, 0);

@@ -93,7 +93,7 @@ Kinds of operands:
 /* The order of the opcodes in this table is significant. The assembler
    requires that all instances of the same mnemonic must be consecutive.
    If they aren't, the assembler will not function properly.
- 
+
    The order of opcodes does not affect the disassembler.  */
 
 static const struct i860_opcode i860_opcodes[] =

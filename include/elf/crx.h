@@ -49,5 +49,5 @@ START_RELOC_NUMBERS(elf_crx_reloc_type)
   RELOC_NUMBER (R_CRX_SWITCH16,	      19)
   RELOC_NUMBER (R_CRX_SWITCH32,	      20)
 END_RELOC_NUMBERS(R_CRX_MAX)
-	
+
 #endif /* _ELF_CRX_H */

@@ -253,7 +253,7 @@ different object directory is highly recommended:
 @item
 It keeps the files generated during the build from cluttering up your
 sources.
-@item 
+@item
 It permits you to remove the built files by simply removing the entire
 build directory.
 @item

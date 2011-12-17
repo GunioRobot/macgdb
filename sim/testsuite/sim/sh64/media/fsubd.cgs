@@ -21,10 +21,10 @@ fsubd:
 	float.qd dr2, dr2
 
 	fsub.d dr0, dr2, dr4
-	
+
 	movi 6, r0
 	fmov.qd r0, dr6
-	float.qd dr6, dr6 
+	float.qd dr6, dr6
 
 	fcmpeq.d dr4, dr6, r7
 	bnei r7, 1, tr0

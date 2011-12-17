@@ -889,319 +889,319 @@ const CGEN_OPERAND sh_cgen_operand_table[] =
 {
 /* pc: program counter */
   { "pc", SH_OPERAND_PC, HW_H_PC, 0, 0,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_NIL] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_NIL] } },
     { 0|A(SEM_ONLY), { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* endian: Endian mode */
   { "endian", SH_OPERAND_ENDIAN, HW_H_ENDIAN, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\xc0" } } } }  },
 /* ism: Instruction set mode */
   { "ism", SH_OPERAND_ISM, HW_H_ISM, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\xc0" } } } }  },
 /* rm: Left general purpose register */
   { "rm", SH_OPERAND_RM, HW_H_GRC, 8, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* rn: Right general purpose register */
   { "rn", SH_OPERAND_RN, HW_H_GRC, 4, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* r0: Register 0 */
   { "r0", SH_OPERAND_R0, HW_H_GRC, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* frn: Single precision register */
   { "frn", SH_OPERAND_FRN, HW_H_FRC, 4, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* frm: Single precision register */
   { "frm", SH_OPERAND_FRM, HW_H_FRC, 8, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* fr0: Single precision register 0 */
   { "fr0", SH_OPERAND_FR0, HW_H_FRC, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* fmovn: Register for fmov */
   { "fmovn", SH_OPERAND_FMOVN, HW_H_FMOV, 4, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } },
     { 0, { { { (1<<MACH_SH2E)|(1<<MACH_SH2A_FPU)|(1<<MACH_SH3E)|(1<<MACH_SH4)|(1<<MACH_SH4A)|(1<<MACH_SH5), 0 } }, { { 1, "\x80" } } } }  },
 /* fmovm: Register for fmov */
   { "fmovm", SH_OPERAND_FMOVM, HW_H_FMOV, 8, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } },
     { 0, { { { (1<<MACH_SH2E)|(1<<MACH_SH2A_FPU)|(1<<MACH_SH3E)|(1<<MACH_SH4)|(1<<MACH_SH4A)|(1<<MACH_SH5), 0 } }, { { 1, "\x80" } } } }  },
 /* fvn: Left floating point vector */
   { "fvn", SH_OPERAND_FVN, HW_H_FVC, 4, 2,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_VN] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_VN] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* fvm: Right floating point vector */
   { "fvm", SH_OPERAND_FVM, HW_H_FVC, 6, 2,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_VM] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_VM] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* drn: Left double precision register */
   { "drn", SH_OPERAND_DRN, HW_H_DRC, 4, 3,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DN] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DN] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* drm: Right double precision register */
   { "drm", SH_OPERAND_DRM, HW_H_DRC, 8, 3,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DM] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DM] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm4: Immediate value (4 bits) */
   { "imm4", SH_OPERAND_IMM4, HW_H_SINT, 12, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM4] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM4] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm8: Immediate value (8 bits) */
   { "imm8", SH_OPERAND_IMM8, HW_H_SINT, 8, 8,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM8] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM8] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* uimm8: Immediate value (8 bits unsigned) */
   { "uimm8", SH_OPERAND_UIMM8, HW_H_UINT, 8, 8,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM8] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM8] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm20: Immediate value (20 bits) */
   { "imm20", SH_OPERAND_IMM20, HW_H_SINT, 8, 20,
-    { 2, { (const PTR) &SH_F_IMM20_MULTI_IFIELD[0] } }, 
+    { 2, { (const PTR) &SH_F_IMM20_MULTI_IFIELD[0] } },
     { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm4x2: Immediate value (4 bits, 2x scale) */
   { "imm4x2", SH_OPERAND_IMM4X2, HW_H_UINT, 12, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM4X2] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM4X2] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm4x4: Immediate value (4 bits, 4x scale) */
   { "imm4x4", SH_OPERAND_IMM4X4, HW_H_UINT, 12, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM4X4] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM4X4] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm8x2: Immediate value (8 bits, 2x scale) */
   { "imm8x2", SH_OPERAND_IMM8X2, HW_H_UINT, 8, 8,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM8X2] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM8X2] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm8x4: Immediate value (8 bits, 4x scale) */
   { "imm8x4", SH_OPERAND_IMM8X4, HW_H_UINT, 8, 8,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM8X4] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM8X4] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* disp8: Displacement (8 bits) */
   { "disp8", SH_OPERAND_DISP8, HW_H_IADDR, 8, 8,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP8] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP8] } },
     { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* disp12: Displacement (12 bits) */
   { "disp12", SH_OPERAND_DISP12, HW_H_IADDR, 4, 12,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP12] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP12] } },
     { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm12x4: Displacement (12 bits) */
   { "imm12x4", SH_OPERAND_IMM12X4, HW_H_SINT, 20, 12,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM12X4] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM12X4] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* imm12x8: Displacement (12 bits) */
   { "imm12x8", SH_OPERAND_IMM12X8, HW_H_SINT, 20, 12,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM12X8] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM12X8] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* rm64: Register m (64 bits) */
   { "rm64", SH_OPERAND_RM64, HW_H_GR, 8, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* rn64: Register n (64 bits) */
   { "rn64", SH_OPERAND_RN64, HW_H_GR, 4, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* gbr: Global base register */
   { "gbr", SH_OPERAND_GBR, HW_H_GBR, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* vbr: Vector base register */
   { "vbr", SH_OPERAND_VBR, HW_H_VBR, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* pr: Procedure link register */
   { "pr", SH_OPERAND_PR, HW_H_PR, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* fpscr: Floating point status/control register */
   { "fpscr", SH_OPERAND_FPSCR, HW_H_FPSCR, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* tbit: Condition code flag */
   { "tbit", SH_OPERAND_TBIT, HW_H_TBIT, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* sbit: Multiply-accumulate saturation flag */
   { "sbit", SH_OPERAND_SBIT, HW_H_SBIT, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* mbit: Divide-step M flag */
   { "mbit", SH_OPERAND_MBIT, HW_H_MBIT, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* qbit: Divide-step Q flag */
   { "qbit", SH_OPERAND_QBIT, HW_H_QBIT, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* fpul: Floating point ??? */
   { "fpul", SH_OPERAND_FPUL, HW_H_FR, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* frbit: Floating point register bank bit */
   { "frbit", SH_OPERAND_FRBIT, HW_H_FRBIT, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* szbit: Floating point transfer size bit */
   { "szbit", SH_OPERAND_SZBIT, HW_H_SZBIT, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* prbit: Floating point precision bit */
   { "prbit", SH_OPERAND_PRBIT, HW_H_PRBIT, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* macl: Multiply-accumulate low register */
   { "macl", SH_OPERAND_MACL, HW_H_MACL, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* mach: Multiply-accumulate high register */
   { "mach", SH_OPERAND_MACH, HW_H_MACH, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x80" } } } }  },
 /* fsdm: bar */
   { "fsdm", SH_OPERAND_FSDM, HW_H_FSD, 8, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RM] } },
     { 0, { { { (1<<MACH_SH2E)|(1<<MACH_SH2A_FPU)|(1<<MACH_SH3E)|(1<<MACH_SH4)|(1<<MACH_SH4A)|(1<<MACH_SH5), 0 } }, { { 1, "\x80" } } } }  },
 /* fsdn: bar */
   { "fsdn", SH_OPERAND_FSDN, HW_H_FSD, 4, 4,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RN] } },
     { 0, { { { (1<<MACH_SH2E)|(1<<MACH_SH2A_FPU)|(1<<MACH_SH3E)|(1<<MACH_SH4)|(1<<MACH_SH4A)|(1<<MACH_SH5), 0 } }, { { 1, "\x80" } } } }  },
 /* rm: Left general purpose reg */
   { "rm", SH_OPERAND_RM, HW_H_GR, 6, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* rn: Right general purpose reg */
   { "rn", SH_OPERAND_RN, HW_H_GR, 16, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RIGHT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RIGHT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* rd: Destination general purpose reg */
   { "rd", SH_OPERAND_RD, HW_H_GR, 22, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* frg: Left single precision register */
   { "frg", SH_OPERAND_FRG, HW_H_FR, 6, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* frh: Right single precision register */
   { "frh", SH_OPERAND_FRH, HW_H_FR, 16, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RIGHT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RIGHT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* frf: Destination single precision reg */
   { "frf", SH_OPERAND_FRF, HW_H_FR, 22, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* frgh: Single precision register pair */
   { "frgh", SH_OPERAND_FRGH, HW_H_FR, 6, 12,
-    { 2, { (const PTR) &SH_F_LEFT_RIGHT_MULTI_IFIELD[0] } }, 
+    { 2, { (const PTR) &SH_F_LEFT_RIGHT_MULTI_IFIELD[0] } },
     { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* fpf: Pair of single precision registers */
   { "fpf", SH_OPERAND_FPF, HW_H_FP, 22, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* fvg: Left single precision vector */
   { "fvg", SH_OPERAND_FVG, HW_H_FV, 6, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* fvh: Right single precision vector */
   { "fvh", SH_OPERAND_FVH, HW_H_FV, 16, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RIGHT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RIGHT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* fvf: Destination single precision vector */
   { "fvf", SH_OPERAND_FVF, HW_H_FV, 22, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* mtrxg: Left single precision matrix */
   { "mtrxg", SH_OPERAND_MTRXG, HW_H_FMTX, 6, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* drg: Left double precision register */
   { "drg", SH_OPERAND_DRG, HW_H_DR, 6, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* drh: Right double precision register */
   { "drh", SH_OPERAND_DRH, HW_H_DR, 16, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RIGHT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_RIGHT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* drf: Destination double precision reg */
   { "drf", SH_OPERAND_DRF, HW_H_DR, 22, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* drgh: Double precision register pair */
   { "drgh", SH_OPERAND_DRGH, HW_H_DR, 6, 12,
-    { 2, { (const PTR) &SH_F_LEFT_RIGHT_MULTI_IFIELD[0] } }, 
+    { 2, { (const PTR) &SH_F_LEFT_RIGHT_MULTI_IFIELD[0] } },
     { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* fpscr: Floating point status register */
   { "fpscr", SH_OPERAND_FPSCR, HW_H_FPSCR, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* crj: Control register j */
   { "crj", SH_OPERAND_CRJ, HW_H_CR, 22, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DEST] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* crk: Control register k */
   { "crk", SH_OPERAND_CRK, HW_H_CR, 6, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LEFT] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* tra: Target register a */
   { "tra", SH_OPERAND_TRA, HW_H_TR, 25, 3,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_TRA] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_TRA] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* trb: Target register b */
   { "trb", SH_OPERAND_TRB, HW_H_TR, 9, 3,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_TRB] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_TRB] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* disp6: Displacement (6 bits) */
   { "disp6", SH_OPERAND_DISP6, HW_H_SINT, 16, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP6] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP6] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* disp6x32: Displacement (6 bits, scale 32) */
   { "disp6x32", SH_OPERAND_DISP6X32, HW_H_SINT, 16, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP6X32] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP6X32] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* disp10: Displacement (10 bits) */
   { "disp10", SH_OPERAND_DISP10, HW_H_SINT, 12, 10,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP10] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP10] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* disp10x2: Displacement (10 bits, scale 2) */
   { "disp10x2", SH_OPERAND_DISP10X2, HW_H_SINT, 12, 10,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP10X2] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP10X2] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* disp10x4: Displacement (10 bits, scale 4) */
   { "disp10x4", SH_OPERAND_DISP10X4, HW_H_SINT, 12, 10,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP10X4] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP10X4] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* disp10x8: Displacement (10 bits, scale 8) */
   { "disp10x8", SH_OPERAND_DISP10X8, HW_H_SINT, 12, 10,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP10X8] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP10X8] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* disp16: Displacement (16 bits) */
   { "disp16", SH_OPERAND_DISP16, HW_H_SINT, 6, 16,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP16] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_DISP16] } },
     { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* imm6: Immediate (6 bits) */
   { "imm6", SH_OPERAND_IMM6, HW_H_SINT, 16, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM6] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM6] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* imm10: Immediate (10 bits) */
   { "imm10", SH_OPERAND_IMM10, HW_H_SINT, 12, 10,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM10] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM10] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* imm16: Immediate (16 bits) */
   { "imm16", SH_OPERAND_IMM16, HW_H_SINT, 6, 16,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM16] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_IMM16] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* uimm6: Immediate (6 bits) */
   { "uimm6", SH_OPERAND_UIMM6, HW_H_UINT, 16, 6,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_UIMM6] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_UIMM6] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* uimm16: Unsigned immediate (16 bits) */
   { "uimm16", SH_OPERAND_UIMM16, HW_H_UINT, 6, 16,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_UIMM16] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_UIMM16] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* likely: Likely branch? */
   { "likely", SH_OPERAND_LIKELY, HW_H_UINT, 22, 1,
-    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LIKELY] } }, 
+    { 0, { (const PTR) &sh_cgen_ifld_table[SH_F_LIKELY] } },
     { 0, { { { (1<<MACH_BASE), 0 } }, { { 1, "\x40" } } } }  },
 /* sentinel */
   { 0, 0, 0, 0, 0,
@@ -3527,7 +3527,7 @@ sh_cgen_cpu_open (enum cgen_cpu_open_arg arg_type, ...)
 
   /* Default to not allowing signed overflow.  */
   cd->signed_overflow_ok_p = 0;
-  
+
   return (CGEN_CPU_DESC) cd;
 }
 
@@ -3567,7 +3567,7 @@ sh_cgen_cpu_close (CGEN_CPU_DESC cd)
       for (i = 0; i < cd->insn_table.num_init_entries; ++i, ++insns)
 	if (CGEN_INSN_RX (insns))
 	  regfree (CGEN_INSN_RX (insns));
-    }  
+    }
 
   if (cd->macro_insn_table.init_entries)
     free ((CGEN_INSN *) cd->macro_insn_table.init_entries);

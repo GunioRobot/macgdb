@@ -95,7 +95,7 @@ gdb_expect {
     -re "$gdb_prompt $" {
       if [istarget hppa*-*-hpux*] {
         pass "Didn't call pxdb"
-      } else { 
+      } else {
         fail "Didn't call pxdb"
       }
     }

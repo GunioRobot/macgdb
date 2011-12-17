@@ -1561,14 +1561,14 @@ alpha_relocate_section (output_bfd, info, input_bfd, input_section,
 	     input_bfd);
 	  bfd_set_error (bfd_error_bad_value);
 	  continue;
-	  
+
 	case ALPHA_R_GPRELLOW:
 	  (*_bfd_error_handler)
 	    (_("%B: unsupported relocation: ALPHA_R_GPRELLOW"),
 	     input_bfd);
 	  bfd_set_error (bfd_error_bad_value);
 	  continue;
-	  
+
 	default:
 	  (*_bfd_error_handler)
 	    (_("%B: unknown relocation type %d"),
@@ -2297,7 +2297,7 @@ static const struct ecoff_backend_data alpha_ecoff_backend_data =
     (unsigned (*) PARAMS ((bfd *,PTR,PTR))) bfd_void, /* reloc_out */
     alpha_ecoff_swap_filehdr_out, alpha_ecoff_swap_aouthdr_out,
     alpha_ecoff_swap_scnhdr_out,
-    FILHSZ, AOUTSZ, SCNHSZ, 0, 0, 0, 0, FILNMLEN, TRUE, 
+    FILHSZ, AOUTSZ, SCNHSZ, 0, 0, 0, 0, FILNMLEN, TRUE,
     ECOFF_NO_LONG_SECTION_NAMES, 4, FALSE, 2,
     alpha_ecoff_swap_filehdr_in, alpha_ecoff_swap_aouthdr_in,
     alpha_ecoff_swap_scnhdr_in, NULL,

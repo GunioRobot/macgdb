@@ -39,7 +39,7 @@
 #define E_AVR_MACH_AVR4 4
 #define E_AVR_MACH_AVR5 5
 #define E_AVR_MACH_AVR51 51
-#define E_AVR_MACH_AVR6 6 
+#define E_AVR_MACH_AVR6 6
 
 /* Relocations.  */
 START_RELOC_NUMBERS (elf_avr_reloc_type)

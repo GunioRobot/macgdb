@@ -1,4 +1,4 @@
-# sh testcase for float 
+# sh testcase for float
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 
@@ -23,7 +23,7 @@ float_pos:
 	bt	float_neg
 	fail
 
-float_neg:	
+float_neg:
 	mov	#3, r0
 	neg	r0, r0
 	lds	r0, fpul
@@ -57,7 +57,7 @@ float_neg:
 
 	assert_fpreg_i	 1, fr0
 	assert_fpreg_i	-3, fr1
-	assert_fpreg_i	-3, fr2	
+	assert_fpreg_i	-3, fr2
 	test_fpr_a5a5	fr3
 	test_fpr_a5a5	fr4
 	test_fpr_a5a5	fr5

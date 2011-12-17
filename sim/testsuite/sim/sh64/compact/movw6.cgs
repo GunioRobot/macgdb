@@ -6,7 +6,7 @@
 	.include "compact/testutils.inc"
 
 	start
-	
+
 	mov #30, r0
 	shll8 r0
 
@@ -27,4 +27,4 @@ okay:
 	pass
 wrong:
 	fail
-	
+

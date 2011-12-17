@@ -686,7 +686,7 @@ lookup_minimal_symbol_by_pc_section (CORE_ADDR pc, struct obj_section *section)
   return lookup_minimal_symbol_by_pc_section_1 (pc, section, 0);
 }
 
-/* Backward compatibility: search through the minimal symbol table 
+/* Backward compatibility: search through the minimal symbol table
    for a matching PC (no section given) */
 
 struct minimal_symbol *
@@ -829,7 +829,7 @@ prim_record_minimal_symbol_and_info (const char *name, CORE_ADDR address,
 }
 
 /* Compare two minimal symbols by address and return a signed result based
-   on unsigned comparisons, so that we sort into unsigned numeric order.  
+   on unsigned comparisons, so that we sort into unsigned numeric order.
    Within groups with the same address, sort by name.  */
 
 static int
@@ -966,7 +966,7 @@ compact_minimal_symbols (struct minimal_symbol *msymbol, int mcount,
 /* Build (or rebuild) the minimal symbol hash tables.  This is necessary
    after compacting or sorting the table since the entries move around
    thus causing the internal minimal_symbol pointers to become jumbled. */
-  
+
 static void
 build_minimal_symbol_hash_tables (struct objfile *objfile)
 {
@@ -1099,7 +1099,7 @@ install_minimal_symbols (struct objfile *objfile)
       objfile->minimal_symbol_count = mcount;
       objfile->msymbols = msymbols;
 
-      /* Try to guess the appropriate C++ ABI by looking at the names 
+      /* Try to guess the appropriate C++ ABI by looking at the names
 	 of the minimal symbols in the table.  */
       {
 	int i;

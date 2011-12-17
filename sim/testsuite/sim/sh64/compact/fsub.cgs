@@ -39,7 +39,7 @@
 	fcmp/eq fr1, fr2
 	bf wrong
 
-	bra double	
+	bra double
 	nop
 
 wrong:
@@ -61,7 +61,7 @@ double:
 	bf wrong
 	_clrpr
 
-onezero:	
+onezero:
 	# 1.0 - 0.0 = 1.0.
 	fldi0 fr0
 	fldi1 fr2
@@ -77,7 +77,7 @@ onezero:
 	bf wrong2
 	_clrpr
 
-oneone:	
+oneone:
 	# 1.0 - 1.0 = 0.0.
 	fldi1 fr0
 	fldi1 fr2
@@ -99,7 +99,7 @@ oneone:
 wrong2:
 	fail
 
-zeroone:	
+zeroone:
 	# 0.0 - 1.0 = -1.0.
 	fldi1 fr0
 	fldi0 fr2
@@ -115,6 +115,6 @@ zeroone:
 	fcmp/eq dr2, dr4
 	bf wrong2
 	_clrpr
-		
+
 okay:
 	pass

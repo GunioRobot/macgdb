@@ -23,14 +23,14 @@ check:
 	cmp/eq r2, r3
 	bf wrong
 
-inc:	
+inc:
 	# Ensure address is post-incremented.
 	add #2, r7
 	cmp/eq r0, r7
 	bf wrong
-	
-okay:	
+
+okay:
 	pass
 wrong:
 	fail
-	
+

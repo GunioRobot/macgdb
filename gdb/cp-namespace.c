@@ -361,7 +361,7 @@ cp_lookup_symbol_namespace (const char *namespace,
   /* We didn't find anything by applying any of the using directives
      that are still applicable; so let's see if we've got a match
      using the current namespace.  */
-  
+
   if (namespace[0] == '\0')
     {
       return lookup_symbol_file (name, linkage_name, block,
@@ -375,7 +375,7 @@ cp_lookup_symbol_namespace (const char *namespace,
       strcat (concatenated_name, "::");
       strcat (concatenated_name, name);
       sym = lookup_symbol_file (concatenated_name, linkage_name,
-				block, domain, 
+				block, domain,
 				cp_is_anonymous (namespace));
       return sym;
     }
@@ -406,7 +406,7 @@ lookup_symbol_file (const char *name,
 	 So we only search the current file's global block.  */
 
       const struct block *global_block = block_global_block (block);
-      
+
       if (global_block != NULL)
 	sym = lookup_symbol_aux_block (name, linkage_name, global_block,
 				       domain);
@@ -581,7 +581,7 @@ initialize_namespace_symtab (struct objfile *objfile)
 		      + FIRST_LOCAL_BLOCK * sizeof (struct block *));
   BLOCKVECTOR_NBLOCKS (bv) = FIRST_LOCAL_BLOCK + 1;
   BLOCKVECTOR (namespace_symtab) = bv;
-  
+
   /* Allocate empty GLOBAL_BLOCK and STATIC_BLOCK. */
 
   bl = allocate_block (&objfile->objfile_obstack);

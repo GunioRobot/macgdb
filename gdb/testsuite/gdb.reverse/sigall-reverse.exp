@@ -167,7 +167,7 @@ proc test_one_sig_reverse {prevsig} {
 	    } else {
 		xfail "$testmsg (handled)"
 	    }
-	}	    
+	}
     }
 }
 

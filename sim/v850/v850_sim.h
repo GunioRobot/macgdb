@@ -1,4 +1,4 @@
-struct simops 
+struct simops
 {
   unsigned long   opcode;
   unsigned long   mask;

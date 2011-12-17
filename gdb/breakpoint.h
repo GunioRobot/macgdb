@@ -93,7 +93,7 @@ enum bptype
        dynamic libraries.  */
     bp_shlib_event,
 
-    /* Some multi-threaded systems can arrange for a location in the 
+    /* Some multi-threaded systems can arrange for a location in the
        inferior to be executed when certain thread-related events occur
        (such as thread creation or thread death).
 
@@ -106,10 +106,10 @@ enum bptype
     /* On the same principal, an overlay manager can arrange to call a
        magic location in the inferior whenever there is an interesting
        change in overlay status.  GDB can update its overlay tables
-       and fiddle with breakpoints in overlays when this breakpoint 
+       and fiddle with breakpoints in overlays when this breakpoint
        is hit.  */
 
-    bp_overlay_event, 
+    bp_overlay_event,
 
     /* Master copies of longjmp breakpoints.  These are always installed
        as soon as an objfile containing longjmp is loaded, but they are
@@ -132,12 +132,12 @@ enum enable_state
   {
     bp_disabled,	/* The eventpoint is inactive, and cannot trigger. */
     bp_enabled,		/* The eventpoint is active, and can trigger. */
-    bp_call_disabled,	/* The eventpoint has been disabled while a call 
-			   into the inferior is "in flight", because some 
-			   eventpoints interfere with the implementation of 
-			   a call on some targets.  The eventpoint will be 
-			   automatically enabled and reset when the call 
-			   "lands" (either completes, or stops at another 
+    bp_call_disabled,	/* The eventpoint has been disabled while a call
+			   into the inferior is "in flight", because some
+			   eventpoints interfere with the implementation of
+			   a call on some targets.  The eventpoint will be
+			   automatically enabled and reset when the call
+			   "lands" (either completes, or stops at another
 			   eventpoint). */
     bp_startup_disabled,/* The eventpoint has been disabled during inferior
 			   startup.  This is necessary on some targets where
@@ -231,7 +231,7 @@ struct bp_location
   /* Pointer to the next breakpoint location, in a global
      list of all breakpoint locations.  */
   struct bp_location *global_next;
- 
+
   /* Type of this breakpoint location.  */
   enum bp_loc_type loc_type;
 
@@ -240,7 +240,7 @@ struct bp_location
      than reference counting.  */
   struct breakpoint *owner;
 
-  /* Conditional.  Break only if this expression's value is nonzero.  
+  /* Conditional.  Break only if this expression's value is nonzero.
      Unlike string form of condition, which is associated with breakpoint,
      this is associated with location, since if breakpoint has several
      locations,  the evaluation of expression can be different for
@@ -250,11 +250,11 @@ struct bp_location
   /* This location's address is in an unloaded solib, and so this
      location should not be inserted.  It will be automatically
      enabled when that solib is loaded.  */
-  char shlib_disabled; 
+  char shlib_disabled;
 
   /* Is this particular location enabled.  */
   char enabled;
-  
+
   /* Nonzero if this breakpoint is now inserted.  */
   char inserted;
 
@@ -320,7 +320,7 @@ struct bp_location
    will be called instead of the performing the default action for this
    bptype.  */
 
-struct breakpoint_ops 
+struct breakpoint_ops
 {
   /* Insert the breakpoint or activate the catchpoint.  Should raise
      an exception if the operation failed.  */
@@ -357,7 +357,7 @@ enum watchpoint_triggered
   watch_triggered_unknown,
 
   /* This hardware watchpoint definitely did trigger.  */
-  watch_triggered_yes  
+  watch_triggered_yes
 };
 
 /* This is used to declare the VEC syscalls_to_be_caught.  */
@@ -487,11 +487,11 @@ struct breakpoint
        the condition in.  */
     int condition_not_parsed;
 
-    /* Number of times this tracepoint should single-step 
+    /* Number of times this tracepoint should single-step
        and collect additional data.  */
     long step_count;
 
-    /* Number of times this tracepoint should be hit before 
+    /* Number of times this tracepoint should be hit before
        disabling/ending.  */
     int pass_count;
 
@@ -873,7 +873,7 @@ extern void disable_breakpoint (struct breakpoint *);
 
 extern void enable_breakpoint (struct breakpoint *);
 
-extern void breakpoint_set_commands (struct breakpoint *b, 
+extern void breakpoint_set_commands (struct breakpoint *b,
 				     struct command_line *commands);
 
 /* Clear the "inserted" flag in all breakpoints.  */
@@ -924,7 +924,7 @@ int watchpoints_triggered (struct target_waitstatus *);
 
 /* Update BUF, which is LEN bytes read from the target address MEMADDR,
    by replacing any memory breakpoints with their shadowed contents.  */
-void breakpoint_restore_shadows (gdb_byte *buf, ULONGEST memaddr, 
+void breakpoint_restore_shadows (gdb_byte *buf, ULONGEST memaddr,
 				 LONGEST len);
 
 extern int breakpoints_always_inserted_mode (void);

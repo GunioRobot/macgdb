@@ -27,7 +27,7 @@ fnegd1:
 	fneg.d dr2, dr4
 	fcmpeq.d dr0, dr4, r7
 	bnei r7, 1, tr0
-	
+
 okay:
 	pass
 

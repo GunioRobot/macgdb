@@ -46,7 +46,7 @@ static initializer cpu_flag_init[] =
     "~CpuL1OM" },
   { "CPU_GENERIC32_FLAGS",
     "Cpu186|Cpu286|Cpu386" },
-  { "CPU_GENERIC64_FLAGS", 
+  { "CPU_GENERIC64_FLAGS",
     "Cpu186|Cpu286|Cpu386|Cpu486|Cpu586|Cpu686|CpuClflush|Cpu387|Cpu687|CpuMMX|CpuSSE|CpuSSE2|CpuLM" },
   { "CPU_NONE_FLAGS",
    "0" },
@@ -295,7 +295,7 @@ static bitfield cpu_flags[] =
   BITFIELD (CpuAES),
   BITFIELD (CpuPCLMUL),
   BITFIELD (CpuFMA),
-  BITFIELD (CpuFMA4),  
+  BITFIELD (CpuFMA4),
   BITFIELD (CpuLM),
   BITFIELD (CpuMovbe),
   BITFIELD (CpuEPT),
@@ -430,7 +430,7 @@ static void
 fail (const char *message, ...)
 {
   va_list args;
-  
+
   va_start (args, message);
   fprintf (stderr, _("%s: Error: "), program_name);
   vfprintf (stderr, message, args);
@@ -508,7 +508,7 @@ next_field (char *str, char sep, char **next, char *last)
   *str = '\0';
   remove_trailing_whitespaces (p);
 
-  *next = str + 1; 
+  *next = str + 1;
 
   if (p >= last)
     abort ();
@@ -974,7 +974,7 @@ process_i386_opcodes (FILE *table)
   process_i386_cpu_flag (table, "0", 0, ",", "    ", -1);
 
   process_i386_opcode_modifier (table, "0", -1);
- 
+
   fprintf (table, "    { ");
   process_i386_operand_type (table, "0", 0, "\t  ", -1);
   fprintf (table, " } }\n");
@@ -1100,7 +1100,7 @@ process_i386_initializers (void)
 /* Program options.  */
 #define OPTION_SRCDIR	200
 
-struct option long_options[] = 
+struct option long_options[] =
 {
   {"srcdir",  required_argument, NULL, OPTION_SRCDIR},
   {"debug",   no_argument,       NULL, 'd'},
@@ -1131,7 +1131,7 @@ main (int argc, char **argv)
   char *srcdir = NULL;
   int c;
   FILE *table;
-  
+
   program_name = *argv;
   xmalloc_set_program_name (program_name);
 
@@ -1159,7 +1159,7 @@ main (int argc, char **argv)
   if (optind != argc)
     usage (stdout, 1);
 
-  if (srcdir != NULL) 
+  if (srcdir != NULL)
     if (chdir (srcdir) != 0)
       fail (_("unable to change directory to \"%s\", errno = %s\n"),
 	    srcdir, xstrerror (errno));

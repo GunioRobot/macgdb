@@ -9,7 +9,7 @@
 	.macro gdbasm_leave
 	ai	$sp, $sp, 32
 	lqd     $lr, 16($sp)
-	bi	$lr	
+	bi	$lr
 	.endm
 
 	.macro gdbasm_call subr
@@ -26,9 +26,9 @@
 	comment "exit (0)"
 	.macro gdbasm_exit0
 	stop	0x2000
-	stop 
-	stop 
-	stop 
+	stop
+	stop
+	stop
 	.endm
 
 	comment "startup"

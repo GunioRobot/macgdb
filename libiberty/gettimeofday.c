@@ -7,7 +7,7 @@
 #include <sys/time.h>
 #endif
 
-/* 
+/*
 
 @deftypefn Supplemental int gettimeofday (struct timeval *@var{tp}, void *@var{tz})
 
@@ -16,7 +16,7 @@ that @var{tz} be NULL.  Returns 0 on success, -1 on failure.
 
 @end deftypefn
 
-*/ 
+*/
 
 int
 gettimeofday (struct timeval *tp, void *tz)

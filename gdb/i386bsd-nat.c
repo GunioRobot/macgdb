@@ -372,7 +372,7 @@ _initialize_i386bsd_nat (void)
     {
       warning (_("\
 offsetof (struct sigcontext, sc_pc) yields %d instead of %d.\n\
-Please report this to <bug-gdb@gnu.org>."), 
+Please report this to <bug-gdb@gnu.org>."),
 	       offset, SC_PC_OFFSET);
     }
 

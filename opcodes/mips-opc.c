@@ -175,7 +175,7 @@
 
    Because of the lookup algorithm used, entries with the same opcode
    name must be contiguous.
- 
+
    Many instructions are short hand for other instructions (i.e., The
    jal <register> instruction is short for jalr <register>).  */
 
@@ -1523,7 +1523,7 @@ const struct mips_opcode mips_builtin_opcodes[] =
 {"mthc2",   "t,G,H",	0x48e00000, 0xffe007f8,	COD|RD_t|WR_C2|WR_CC,	0,		I33	},
 {"mthc2",   "t,i",	0x48e00000, 0xffe00000,	COD|RD_t|WR_C2|WR_CC,	0,		I33	},
 
-/* Coprocessor 3 move/branch operations overlap with MIPS IV COP1X 
+/* Coprocessor 3 move/branch operations overlap with MIPS IV COP1X
    instructions, so they are here for the latters to take precedence.  */
 {"bc3f",    "p",	0x4d000000, 0xffff0000,	CBD|RD_CC,		0,		I1	},
 {"bc3fl",   "p",	0x4d020000, 0xffff0000,	CBL|RD_CC,		0,		I2|T3	},

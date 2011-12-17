@@ -1,4 +1,4 @@
-# sh testcase for fsqrt 
+# sh testcase for fsqrt
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 

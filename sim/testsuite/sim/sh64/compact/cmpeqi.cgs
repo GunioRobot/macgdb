@@ -11,27 +11,27 @@ zeroes:
 	mov #0, r0
 	cmp/eq #0, r0
 	bf wrong
-	
+
 zero1:
 	mov #0, r0
 	cmp/eq #1, r0
 	bt wrong
-	
+
 zero2:
 	mov #1, r0
 	cmp/eq #0, r0
 	bt wrong
-	
+
 equal:
 	mov #192, r0
 	cmp/eq #192, r0
 	bf wrong
-	
+
 sign:
 	mov #255, r0
 	cmp/eq #255, r0
 	bf wrong
-	
+
 okay:
 	pass
 

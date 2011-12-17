@@ -112,7 +112,7 @@ add_free_pendings (struct pending *list)
       free_pendings = list;
     }
 }
-      
+
 /* Add a symbol to one of the lists of symbols.  While we're at it, if
    we're in the C++ case and don't have full namespace debugging info,
    check to see if it references an anonymous namespace; if so, add an
@@ -344,8 +344,8 @@ finish_block (struct symbol *symbol, struct pending **listhead,
      start of this scope that don't have superblocks yet.  */
 
   opblock = NULL;
-  for (pblock = pending_blocks; 
-       pblock && pblock != old_blocks; 
+  for (pblock = pending_blocks;
+       pblock && pblock != old_blocks;
        pblock = pblock->next)
     {
       if (BLOCK_SUPERBLOCK (pblock->block) == NULL)
@@ -493,7 +493,7 @@ make_blockvector (struct objfile *objfile)
       = addrmap_create_fixed (pending_addrmap, &objfile->objfile_obstack);
   else
     BLOCKVECTOR_MAP (blockvector) = 0;
-        
+
   /* Some compilers output blocks in the wrong order, but we depend on
      their being in the right order so we can binary search. Check the
      order and moan about it.  */
@@ -1131,7 +1131,7 @@ end_symtab (CORE_ADDR end_addr, struct objfile *objfile, int section)
                  Otherwise, we can into trouble because various parts
                  such as the block-vector are uninitialized whereas
                  the rest of the code assumes that they are.
-                 
+
                  We can only unlink the symtab because it was allocated
                  on the objfile obstack.  */
               struct symtab *s;

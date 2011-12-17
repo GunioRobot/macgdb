@@ -45,7 +45,7 @@ gdb_load ${binfile}
 if ![runto marker] then {
     perror "couldn't run to breakpoint"
     continue
-} 
+}
 gdb_test "up" ".*foo.*" "up from marker"
 
 send_gdb "print s24\n"

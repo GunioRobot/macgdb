@@ -53,7 +53,7 @@ typedef struct  __rl_search_context
   int search_string_size;
 
   char **lines;
-  char *allocated_line;    
+  char *allocated_line;
   int hlen;
   int hindex;
 
@@ -108,7 +108,7 @@ typedef struct __rl_keyseq_context
 
   /* fill in more as needed */
 /* `Generic' callback data and functions */
-typedef struct __rl_callback_generic_arg 
+typedef struct __rl_callback_generic_arg
 {
   int count;
   int i1, i2;
@@ -196,7 +196,7 @@ extern void _rl_keyseq_cxt_dispose PARAMS((_rl_keyseq_cxt *));
 extern void _rl_keyseq_chain_dispose PARAMS((void));
 
 extern int _rl_dispatch_callback PARAMS((_rl_keyseq_cxt *));
-     
+
 /* callback.c */
 extern _rl_callback_generic_arg *_rl_callback_data_alloc PARAMS((int));
 extern void _rl_callback_data_dispose PARAMS((_rl_callback_generic_arg *));

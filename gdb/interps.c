@@ -126,7 +126,7 @@ interp_add (struct interp *interp)
    init proc is successful, return 1, if it fails, set the old
    interpreter back in place and return 0.  If we can't restore the
    old interpreter, then raise an internal error, since we are in
-   pretty bad shape at this point. 
+   pretty bad shape at this point.
 
    The TOP_LEVEL parameter tells if this new interpreter is
    the top-level one.  The top-level is what is requested
@@ -204,7 +204,7 @@ interp_set (struct interp *interp, int top_level)
       return 0;
     }
 
-  /* Finally, put up the new prompt to show that we are indeed here. 
+  /* Finally, put up the new prompt to show that we are indeed here.
      Also, display_gdb_prompt for the console does some readline magic
      which is needed for the console interpreter, at least... */
 
@@ -310,7 +310,7 @@ interp_set_quiet (struct interp *interp, int quiet)
   return old_val;
 }
 
-/* interp_exec - This executes COMMAND_STR in the current 
+/* interp_exec - This executes COMMAND_STR in the current
    interpreter. */
 int
 interp_exec_p (struct interp *interp)
@@ -470,14 +470,14 @@ interpreter_completer (struct cmd_list_element *ignore, char *text, char *word)
 struct interp *
 top_level_interpreter (void)
 {
-  return top_level_interpreter_ptr;  
+  return top_level_interpreter_ptr;
 }
 
 void *
 top_level_interpreter_data (void)
 {
   gdb_assert (top_level_interpreter_ptr);
-  return top_level_interpreter_ptr->data;  
+  return top_level_interpreter_ptr->data;
 }
 
 /* This just adds the "interpreter-exec" command.  */

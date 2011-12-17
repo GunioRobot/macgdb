@@ -5,8 +5,8 @@ gdb/MAINTAINERS for general information about maintaining these files.
 
 If you are considering contributing a patch, please see the file
 gdb/CONTRIBUTE.  Patches to these files should be posted to:
-gdb-patches@sources.redhat.com 
-	
+gdb-patches@sources.redhat.com
+
 	Maintainers for particular sims:
 
 arm	        Nick Clifton <nickc@redhat.com>

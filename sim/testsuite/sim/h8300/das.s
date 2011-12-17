@@ -11,7 +11,7 @@
 	.include "testutils.inc"
 
 	start
-	
+
 das_8:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr

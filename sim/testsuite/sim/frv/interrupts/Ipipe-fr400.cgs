@@ -1,5 +1,5 @@
 # frv testcase
-# mach: fr400 
+# mach: fr400
 
 	.include "testutils.inc"
 

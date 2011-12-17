@@ -11,7 +11,7 @@ Uses @code{malloc} to allocate storage for @var{nelem} objects of
 @end deftypefn
 
 */
- 
+
 #include "ansidecl.h"
 #include <stddef.h>
 
@@ -22,13 +22,13 @@ void bzero (PTR, size_t);
 PTR
 calloc (size_t nelem, size_t elsize)
 {
-  register PTR ptr;  
+  register PTR ptr;
 
   if (nelem == 0 || elsize == 0)
     nelem = elsize = 1;
-  
+
   ptr = malloc (nelem * elsize);
   if (ptr) bzero (ptr, nelem * elsize);
-  
+
   return ptr;
 }

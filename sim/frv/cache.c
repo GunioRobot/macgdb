@@ -158,7 +158,7 @@ frv_cache_enabled (FRV_CACHE *cache)
 /* Determine whether the given address is RAM access, assuming that HSR0.RME
    is set.  */
 static int
-ram_access (FRV_CACHE *cache, USI address) 
+ram_access (FRV_CACHE *cache, USI address)
 {
   int ihsr8;
   int cwe;
@@ -196,7 +196,7 @@ ram_access (FRV_CACHE *cache, USI address)
 /* Determine whether the given address should be accessed without using
    the cache.  */
 static int
-non_cache_access (FRV_CACHE *cache, USI address) 
+non_cache_access (FRV_CACHE *cache, USI address)
 {
   int hsr0;
   SIM_DESC sd;
@@ -269,7 +269,7 @@ get_tag (FRV_CACHE *cache, SI address, FRV_CACHE_TAG **return_tag)
   for (bits = cache->line_size - 1; bits != 0; bits >>= 1)
     set >>= 1;
   set &= (cache->sets - 1);
-  
+
   /* Now search the set for a valid tag which matches this address.  At the
      same time make note of the least recently used tag, which we will return
      if no match is found.  */
@@ -493,7 +493,7 @@ frv_cache_read (FRV_CACHE *cache, int pipe, SI address)
       copy_memory_to_return_buffer (cache, pipe, address);
       return 1;
     }
-	
+
   tag = find_or_retrieve_cache_line (cache, address);
 
   if (tag == NULL)
@@ -726,7 +726,7 @@ allocate_new_cache_requests (void)
   for (i = 0; i < FREE_CHAIN_SIZE - 1; ++i)
     {
       frv_cache_request_free_chain[i].next
-	= & frv_cache_request_free_chain[i + 1]; 
+	= & frv_cache_request_free_chain[i + 1];
     }
 
   frv_cache_request_free_chain[FREE_CHAIN_SIZE - 1].next = NULL;
@@ -880,10 +880,10 @@ next_priority (FRV_CACHE *cache, FRV_CACHE_PIPELINE *pipeline)
   /* Check the priorities of any BARS or NARS associated with this pipeline.
      These are one higher than the request that spawned them.  */
   pipe = pipeline - cache->pipeline;
-  if (cache->BARS.valid && cache->BARS.pipe == pipe 
+  if (cache->BARS.valid && cache->BARS.pipe == pipe
       && cache->BARS.priority > lowest)
     lowest = cache->BARS.priority + 1;
-  if (cache->NARS.valid && cache->NARS.pipe == pipe 
+  if (cache->NARS.valid && cache->NARS.pipe == pipe
       && cache->NARS.priority > lowest)
     lowest = cache->NARS.priority + 1;
 
@@ -1108,7 +1108,7 @@ address_interference (FRV_CACHE *cache, SI address, FRV_CACHE_REQUEST *req,
 	{
 	  FRV_CACHE_WAR *war = & cache->pipeline[i].WAR[j];
 	  if (war->valid
-	      && (address == (war->address & line_mask) 
+	      && (address == (war->address & line_mask)
 		  || address == all_address)
 	      && priority > war->priority)
 	    return 1;
@@ -1126,7 +1126,7 @@ address_interference (FRV_CACHE *cache, SI address, FRV_CACHE_REQUEST *req,
 		  if (other_req->kind == req_WAR)
 		    return 1;
 		  if (i == pipe
-		      && (address == (other_req->address & line_mask) 
+		      && (address == (other_req->address & line_mask)
 			  || address == all_address)
 		      && priority > other_req->priority)
 		    return 1;
@@ -1383,7 +1383,7 @@ handle_req_store (FRV_CACHE *cache, int pipe, FRV_CACHE_REQUEST *req)
       /* Load the line from memory first, if it was a miss.  */
       if (! found)
 	{
-	  /* We need to wait for the memory unit to fetch the data.  
+	  /* We need to wait for the memory unit to fetch the data.
 	     Store this request in the WAR and requeue the store request.  */
 	  wait_in_WAR (cache, pipe, req);
 	  pipeline_requeue_request (& cache->pipeline[pipe]);
@@ -1480,7 +1480,7 @@ handle_req_WAR (FRV_CACHE *cache, int pipe, FRV_CACHE_REQUEST *req)
 	      copy_line_to_return_buffer (cache, pipe, tag, address);
 	      set_return_buffer_reqno (cache, pipe, req->reqno);
 	    }
-	  else 
+	  else
 	    {
 	      invalidate_return_buffer (cache, address);
 	      if (req->u.WAR.lock)

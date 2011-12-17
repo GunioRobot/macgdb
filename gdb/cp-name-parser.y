@@ -138,13 +138,13 @@ static struct demangle_component *d_binary (const char *,
 #define	yylval	cpname_lval
 #define	yychar	cpname_char
 #define	yydebug	cpname_debug
-#define	yypact	cpname_pact	
-#define	yyr1	cpname_r1			
-#define	yyr2	cpname_r2			
-#define	yydef	cpname_def		
-#define	yychk	cpname_chk		
-#define	yypgo	cpname_pgo		
-#define	yyact	cpname_act		
+#define	yypact	cpname_pact
+#define	yyr1	cpname_r1
+#define	yyr2	cpname_r2
+#define	yydef	cpname_def
+#define	yychk	cpname_chk
+#define	yypgo	cpname_pgo
+#define	yyact	cpname_act
 #define	yyexca	cpname_exca
 #define yyerrflag cpname_errflag
 #define yynerrs	cpname_nerrs
@@ -936,7 +936,7 @@ declarator_1	:	ptr_operator declarator_1
 		|	direct_declarator_1
 
 			/* Function local variable or type.  The typespec to
-			   our left is the type of the containing function. 
+			   our left is the type of the containing function.
 			   This should be OK, because function local types
 			   can not be templates, so the return types of their
 			   members will not be mangled.  If they are hopefully
@@ -1149,7 +1149,7 @@ exp	:	exp '?' exp ':' exp	%prec '?'
 						 fill_comp (DEMANGLE_COMPONENT_TRINARY_ARG2, $3, $5)));
 		}
 	;
-			  
+
 exp	:	INT
 	;
 
@@ -1162,7 +1162,7 @@ exp	:	SIZEOF '(' type ')'	%prec UNARY
 	;
 
 /* C++.  */
-exp     :       TRUEKEYWORD    
+exp     :       TRUEKEYWORD
 		{ struct demangle_component *i;
 		  i = make_name ("1", 1);
 		  $$ = fill_comp (DEMANGLE_COMPONENT_LITERAL,
@@ -1171,7 +1171,7 @@ exp     :       TRUEKEYWORD
 		}
 	;
 
-exp     :       FALSEKEYWORD   
+exp     :       FALSEKEYWORD
 		{ struct demangle_component *i;
 		  i = make_name ("0", 1);
 		  $$ = fill_comp (DEMANGLE_COMPONENT_LITERAL,
@@ -1524,7 +1524,7 @@ cp_parse_escape (const char **string_ptr)
       lexptr += 2;					\
       yylval.opname = string;				\
       return token;					\
-    }      
+    }
 
 #define HANDLE_TOKEN3(string, token)			\
   if (lexptr[1] == string[1] && lexptr[2] == string[2])	\
@@ -1532,7 +1532,7 @@ cp_parse_escape (const char **string_ptr)
       lexptr += 3;					\
       yylval.opname = string;				\
       return token;					\
-    }      
+    }
 
 /* Read one token, getting characters through LEXPTR.  */
 

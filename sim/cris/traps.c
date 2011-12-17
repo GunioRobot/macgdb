@@ -2353,7 +2353,7 @@ cris_break_13_handler (SIM_CPU *current_cpu, USI callnum, USI arg1,
 		USI iov_len
 		  = sim_core_read_unaligned_4 (current_cpu, pc, 0,
 					       iov + 8*i + 4);
-		
+
 		s.func = TARGET_SYS_write;
 		s.arg1 = fd;
 		s.arg2 = iov_base;

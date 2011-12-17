@@ -45,7 +45,7 @@ perm5:
 	div0s r3, r3
 	bt wrong
 
-okay:	
+okay:
 	pass
 
 wrong:

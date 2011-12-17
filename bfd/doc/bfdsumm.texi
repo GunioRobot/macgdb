@@ -19,7 +19,7 @@ created symbol table and convert it into the chosen output format.
 
 @menu
 * BFD information loss::	Information Loss
-* Canonical format::		The BFD	canonical object-file format 
+* Canonical format::		The BFD	canonical object-file format
 @end menu
 
 @node BFD information loss

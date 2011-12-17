@@ -9,7 +9,7 @@
 
 init:
 	pta wrong, tr0
-	
+
 andi0:
 	# 0 and 0 is 0.
 	movi 0, r0

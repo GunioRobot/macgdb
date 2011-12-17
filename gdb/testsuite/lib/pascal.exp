@@ -26,11 +26,11 @@ set pascal_init_done 0
 # Second, environment variable FPC is checked
 # if present, Free Pascal compiler is assumed to be the value of
 # that environment variable.
-# Third, gpc executable is searched using `which gpc`  
-# Lastly, fpc executable is searched using `which fpc` 
+# Third, gpc executable is searched using `which gpc`
+# Lastly, fpc executable is searched using `which fpc`
 # Using environment variable allows to force
 # which compiler is used in testsuite
- 
+
 proc pascal_init {} {
     global pascal_init_done
     global pascal_compiler_is_gpc
@@ -38,7 +38,7 @@ proc pascal_init {} {
     global gpc_compiler
     global fpc_compiler
     global env
- 
+
     if { $pascal_init_done == 1 } {
 	return
     }
@@ -66,7 +66,7 @@ proc pascal_init {} {
 	}
     }
     set pascal_init_done 1
-}   
+}
 
 proc gpc_compile {source dest type options} {
     global gpc_compiler
@@ -78,7 +78,7 @@ proc gpc_compile {source dest type options} {
     if { $type == "preprocess" } {
 	append add_flags " -E"
     }
-    
+
     if { $type == "assembly" } {
 	append add_flags " -S"
     }
@@ -107,7 +107,7 @@ proc fpc_compile {source dest type options} {
     if { $type == "preprocess" } {
 	return "Free Pascal can not preprocess"
     }
-    
+
     if { $type == "assembly" } {
 	append add_flags " -al"
     }
@@ -131,7 +131,7 @@ proc gdb_compile_pascal {source dest type options} {
     global pascal_compiler_is_gpc
     global pascal_compiler_is_fpc
 
-    if { $pascal_init_done == 0 } { 
+    if { $pascal_init_done == 0 } {
 	pascal_init
     }
 

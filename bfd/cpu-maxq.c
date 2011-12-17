@@ -2,7 +2,7 @@
    Copyright 2004, 2005, 2007 Free Software Foundation, Inc.
 
    Written by Vineet Sharma(vineets@noida.hcltech.com)
-	      Inderpreet Singh(inderpreetb@noida.hcltech.com)		
+	      Inderpreet Singh(inderpreetb@noida.hcltech.com)
 
    This file is part of BFD, the Binary File Descriptor library.
 

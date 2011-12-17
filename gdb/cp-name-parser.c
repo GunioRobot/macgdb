@@ -271,13 +271,13 @@ static struct demangle_component *d_binary (const char *,
 #define	yylval	cpname_lval
 #define	yychar	cpname_char
 #define	yydebug	cpname_debug
-#define	yypact	cpname_pact	
-#define	yyr1	cpname_r1			
-#define	yyr2	cpname_r2			
-#define	yydef	cpname_def		
-#define	yychk	cpname_chk		
-#define	yypgo	cpname_pgo		
-#define	yyact	cpname_act		
+#define	yypact	cpname_pact
+#define	yyr1	cpname_r1
+#define	yyr2	cpname_r2
+#define	yydef	cpname_def
+#define	yychk	cpname_chk
+#define	yypgo	cpname_pgo
+#define	yyact	cpname_act
 #define	yyexca	cpname_exca
 #define yyerrflag cpname_errflag
 #define yynerrs	cpname_nerrs
@@ -1527,7 +1527,7 @@ yyparse ()
 #endif
 #endif
 {
-  
+
   register int yystate;
   register int yyn;
   int yyresult;
@@ -3398,7 +3398,7 @@ cp_parse_escape (const char **string_ptr)
       lexptr += 2;					\
       yylval.opname = string;				\
       return token;					\
-    }      
+    }
 
 #define HANDLE_TOKEN3(string, token)			\
   if (lexptr[1] == string[1] && lexptr[2] == string[2])	\
@@ -3406,7 +3406,7 @@ cp_parse_escape (const char **string_ptr)
       lexptr += 3;					\
       yylval.opname = string;				\
       return token;					\
-    }      
+    }
 
 /* Read one token, getting characters through LEXPTR.  */
 

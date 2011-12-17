@@ -14,7 +14,7 @@ dir @srcdir@/../libiberty
 dir @srcdir@/../bfd
 dir @srcdir@
 dir .
-set prompt (top-gdb) 
+set prompt (top-gdb)
 
 define pdie
   if $argc == 1

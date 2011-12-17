@@ -28,7 +28,7 @@
 #           const volatile pointers to const vars
 #           const volatile pointers to volatile vars
 #           ... etc.  (you get the idea)
-# Mostly with char and unsigned char.                    
+# Mostly with char and unsigned char.
 
 if $tracelevel then {
         strace $tracelevel
@@ -69,7 +69,7 @@ proc local_compiler_xfail_check { } {
     if { [test_compiler_info gcc-2-*] } then {
 	if { ![test_debug_format "HP"] \
 		&& ![test_debug_format "DWARF 2"] } then {
-	    setup_xfail "*-*-*" 
+	    setup_xfail "*-*-*"
 	}
     }
 
@@ -257,4 +257,4 @@ gdb_expect {
     }
     -re ".*$gdb_prompt $" { fail "ptype qux2" }
     timeout           { fail "(timeout) ptype qux2" }
-  }   
+  }

@@ -168,7 +168,7 @@ do_interrupt (sd, data)
 	}
       sim_engine_restart (sd, NULL, NULL, NULL_CIA);
     }
-  
+
   /* some other interrupt? */
   sim_engine_abort (sd, NULL, NULL_CIA,
 		    "do_interrupt - internal error - interrupt %d unknown",
@@ -318,7 +318,7 @@ sim_fetch_register (sd, rn, memory, length)
   *(unsigned32*)memory = H2T_4 (State.regs[rn]);
   return -1;
 }
- 
+
 int
 sim_store_register (sd, rn, memory, length)
      SIM_DESC sd;

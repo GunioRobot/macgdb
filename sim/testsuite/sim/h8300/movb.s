@@ -5,7 +5,7 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
@@ -22,7 +22,7 @@ byte_dst:
 
 	;;
 	;; Move byte from immediate source
-	;; 
+	;;
 
 .if (sim_cpu == h8sx)
 mov_b_imm8_to_reg8:
@@ -601,7 +601,7 @@ mov_b_imm8_to_abs32:
 
 	;;
 	;; Move byte from register source
-	;; 
+	;;
 
 mov_b_reg8_to_reg8:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -1161,7 +1161,7 @@ mov_b_reg8_to_abs32:
 
 	;;
 	;; Move byte to register destination.
-	;; 
+	;;
 
 mov_b_indirect_to_reg8:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -1296,7 +1296,7 @@ mov_b_predec_to_reg8:		; pre-decrement from mem to register
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 
-	
+
 mov_b_disp2_to_reg8:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -1598,7 +1598,7 @@ mov_b_abs32_to_reg8:
 
 	;;
 	;; Move byte from memory to memory
-	;; 
+	;;
 
 mov_b_indirect_to_indirect:	; reg indirect, memory to memory
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -2218,4 +2218,3 @@ mov_b_abs32_to_abs32:		; 32-bit absolute addr, memory to memory
 
 fail1:
 	fail
-	

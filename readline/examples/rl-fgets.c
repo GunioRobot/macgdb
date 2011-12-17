@@ -19,29 +19,29 @@ Best Regards,
 
 /******************************************************************************
 *******************************************************************************
-  
+
   FILE NAME:    fgets.c                  TARGET:   libfgets.so
   AUTHOR:       Harold Levy              VERSION:  1.0
                 hlevy@synopsys.com
-  
+
   ABSTRACT:  Customize fgets() behavior via LD_PRELOAD in the following ways:
-  
+
     -- If fgets(stdin) is called, redirect to GNU readline() to obtain
        command-line editing, file-name completion, history, etc.
-  
+
     -- A list of commands for command-name completion can be configured by
        setting the environment-variable FGETS_COMMAND_FILE to a file containing
        the list of commands to be used.
-  
+
     -- Command-line editing with readline() works best when the prompt string
        is known; you can set this with the FGETS_PROMPT environment variable.
-  
+
     -- There special strings that libfgets will interpret as internal commands:
-  
+
            _fgets_reset_    reset the command list
-  
+
            _fgets_dump_     dump status
-  
+
            _fgets_debug_    toggle debug messages
 
   HOW TO BUILD:  Here are examples of how to build libfgets.so on various
@@ -57,7 +57,7 @@ Best Regards,
   (64-bit builds without gcc)
   SunOS: SUNWspro/bin/cc -D_LARGEFILE64_SOURCE=1 -xtarget=ultra -xarch=v9 \
            -KPIC fgets.c -Bdynamic -lc -ldl -lgen -ltermcap -lreadline
-  
+
   HOW TO USE:  Different operating systems have different levels of support
   for the LD_PRELOAD concept.  The generic method for 32-bit platforms is to
   put libtermcap.so, libfgets.so, and libreadline.so (with absolute paths)
@@ -68,7 +68,7 @@ Best Regards,
   use the LD_FLAGS_32 and LD_FLAGS_64 environment variables with preload and
   library_path configurations (a mix of 32-bit and 64-bit calls are made under
   64-bit SunOS).
-  
+
   EXAMPLE WRAPPER:  Here is an example shell script wrapper around the
   program "foo" that uses fgets() for command-line input:
 
@@ -95,23 +95,23 @@ Best Regards,
       setenv FGETS_COMMAND_FILE "${dir2}/foo.commands"
       setenv FGETS_PROMPT       "foo> "
       exec "foo" $*
-  
+
   Copyright (C)©2003-2004 Harold Levy.
-  
+
   This code links to the GNU readline library, and as such is bound by the
   terms of the GNU General Public License as published by the Free Software
   Foundation, either version 2 or (at your option) any later version.
-  
+
   The GNU General Public License is often shipped with GNU software, and is
   generally kept in a file called COPYING or LICENSE.  If you do not have a
   copy of the license, write to the Free Software Foundation, 59 Temple Place,
   Suite 330, Boston, MA 02111 USA.
-  
+
   This program is distributed in the hope that it will be useful, but WITHOUT
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
   details.
-  
+
 *******************************************************************************
 ******************************************************************************/
 

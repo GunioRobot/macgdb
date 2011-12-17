@@ -20,7 +20,7 @@ char *s1;
 
 #ifdef PROTOTYPES
 char * str_func(
-char * s1, 
+char * s1,
 char * s2,
 char * s3,
 char * s4,
@@ -28,14 +28,14 @@ char * s5,
 char * s6,
 char * s7)
 #else
-char * str_func(s1, 
+char * str_func(s1,
                 s2,
                s3,
                s4,
                s5,
                s6,
                s7)
-char * s1; 
+char * s1;
 char * s2;
 char * s3;
 char * s4;

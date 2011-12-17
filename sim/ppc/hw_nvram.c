@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -109,7 +109,7 @@ static void
 hw_nvram_init_address(device *me)
 {
   hw_nvram_device *nvram = (hw_nvram_device*)device_data(me);
-  
+
   /* use the generic init code to attach this device to its parent bus */
   generic_device_init_address(me);
 
@@ -141,12 +141,12 @@ hw_nvram_init_address(device *me)
   }
   else
     memset(nvram->memory, 0, nvram->sizeof_memory);
-  
+
   if (device_find_property(me, "timezone") == NULL)
     nvram->timezone = 0;
   else
     nvram->timezone = device_find_integer_property(me, "timezone");
-  
+
   nvram->addr_year = nvram->sizeof_memory - 1;
   nvram->addr_month = nvram->sizeof_memory - 2;
   nvram->addr_date = nvram->sizeof_memory - 3;
@@ -155,7 +155,7 @@ hw_nvram_init_address(device *me)
   nvram->addr_minutes = nvram->sizeof_memory - 6;
   nvram->addr_seconds = nvram->sizeof_memory - 7;
   nvram->addr_control = nvram->sizeof_memory - 8;
-  
+
 }
 
 static int

@@ -210,7 +210,7 @@ gdb_expect {
 
 gdb_test "info tracepoints" \
     "No tracepoints." \
-			"3.3c: verify delete three tracepoints" 
+			"3.3c: verify delete three tracepoints"
 
 # 3.4 delete invalid tracepoint number
 gdb_test "delete tracepoint [expr $trcpt2 + $trcpt3]" \

@@ -96,7 +96,7 @@
  move.d 0x85649222,r3
  move.d 0x77445622,r4
  cmp.b r4,r3
- test_cc 0 1 0 0 
+ test_cc 0 1 0 0
  dumpr3 ; 85649222
 
  quit

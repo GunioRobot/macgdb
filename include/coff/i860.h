@@ -1,17 +1,17 @@
 /* COFF information for the Intel i860.
-   
+
    Copyright 2001, 2003 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -59,8 +59,8 @@ struct external_reloc
 /* The relocation directory entry types.
      PAIR   : The low half that follows relates to the preceeding HIGH[ADJ].
      HIGH   : The high half of a 32-bit constant.
-     LOWn   : The low half, insn bits 15..(n-1), 2^n-byte aligned. 
-     SPLITn : The low half, insn bits 20..16 and 10..(n-1), 2^n-byte aligned. 
+     LOWn   : The low half, insn bits 15..(n-1), 2^n-byte aligned.
+     SPLITn : The low half, insn bits 20..16 and 10..(n-1), 2^n-byte aligned.
      HIGHADJ: Similar to HIGH, but with adjustment.
      BRADDR : 26-bit branch displacement.
 

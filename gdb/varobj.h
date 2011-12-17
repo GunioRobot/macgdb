@@ -43,7 +43,7 @@ enum varobj_type
 enum varobj_scope_status
   {
     VAROBJ_IN_SCOPE = 0,        /* Varobj is scope, value available.  */
-    VAROBJ_NOT_IN_SCOPE = 1,    /* Varobj is not in scope, value not available, 
+    VAROBJ_NOT_IN_SCOPE = 1,    /* Varobj is not in scope, value not available,
 				   but varobj can become in scope later.  */
     VAROBJ_INVALID = 2,         /* Varobj no longer has any value, and never
 				   will.  */
@@ -77,7 +77,7 @@ typedef struct varobj_update_result_t
   /* This variable is used internally by varobj_update to indicate if the
      new value of varobj is already computed and installed, or has to
      be yet installed.  Don't use this outside varobj.c */
-  int value_installed;  
+  int value_installed;
 
   /* This will be non-NULL when new children were added to the varobj.
      It lists the new children (which must necessarily come at the end
@@ -157,7 +157,7 @@ extern int varobj_set_value (struct varobj *var, char *expression);
 extern void all_root_varobjs (void (*func) (struct varobj *var, void *data),
 			      void *data);
 
-extern VEC(varobj_update_result) *varobj_update (struct varobj **varp, 
+extern VEC(varobj_update_result) *varobj_update (struct varobj **varp,
 						 int explicit);
 
 extern void varobj_invalidate (void);
@@ -166,7 +166,7 @@ extern int varobj_editable_p (struct varobj *var);
 
 extern int varobj_floating_p (struct varobj *var);
 
-extern void 
+extern void
 varobj_set_visualizer (struct varobj *var, const char *visualizer);
 
 extern void varobj_enable_pretty_printing (void);

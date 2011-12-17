@@ -45,15 +45,15 @@ struct external_filehdr
 #define SIPFBOMAGIC     0572    /* Am29000 (Byte 0 is MSB).  */
 #define SIPRBOMAGIC     0573    /* Am29000 (Byte 0 is LSB).  */
 
-#define OR32_MAGIC_BIG 		SIPFBOMAGIC	
-#define OR32_MAGIC_LITTLE	SIPRBOMAGIC	
+#define OR32_MAGIC_BIG 		SIPFBOMAGIC
+#define OR32_MAGIC_LITTLE	SIPRBOMAGIC
 #define OR32BADMAG(x)     (((x).f_magic!=OR32_MAGIC_BIG) && \
 			                      ((x).f_magic!=OR32_MAGIC_LITTLE))
 
 #define OMAGIC OR32_MAGIC_BIG
 
 /* Optional (a.out) header.  */
-typedef	struct external_aouthdr 
+typedef	struct external_aouthdr
 {
   char  magic[2];         /* type of file                     */
   char  vstamp[2];	  /* version stamp                    */
@@ -70,13 +70,13 @@ typedef	struct external_aouthdr
 
 /* aouthdr magic numbers.  */
 #define NMAGIC    0410	  /* separate i/d executable.  */
-#define SHMAGIC   0406	  /* NYU/Ultra3 shared data executable 
+#define SHMAGIC   0406	  /* NYU/Ultra3 shared data executable
                              (writable text).  */
 
 #define _ETEXT   	"_etext"
 
 /* Section header and related definitions.  */
-struct external_scnhdr 
+struct external_scnhdr
 {
   char	    s_name[8];      /* section name                   */
   char	    s_paddr[4];     /* physical address, aliased s_nlib */
@@ -99,7 +99,7 @@ struct external_scnhdr
 #define _BSS    ".bss"
 #define _LIT    ".lit"
 
-/* Section types - with additional section type for global 
+/* Section types - with additional section type for global
    registers which will be relocatable for the OpenRISC 1000.
 
    In instances where it is necessary for a linker to produce an
@@ -120,7 +120,7 @@ struct external_reloc
 };
 
 #define	RELOC		struct external_reloc
-#define	RELSZ		10		/* sizeof (RELOC) */ 
+#define	RELSZ		10		/* sizeof (RELOC) */
 
 /* Relocation types for the OpenRISC 1000: */
 
@@ -138,24 +138,24 @@ struct external_reloc
 #define	R_IGLBLRC 040	/* instruction global register RC */
 #define	R_IGLBLRA 041	/* instruction global register RA */
 #define	R_IGLBLRB 042	/* instruction global register RB */
- 
+
 /*
   NOTE:
-  All the "I" forms refer to 29000 instruction formats.  The linker is 
+  All the "I" forms refer to 29000 instruction formats.  The linker is
   expected to know how the numeric information is split and/or aligned
   within the instruction word(s).  R_BYTE works for instructions, too.
 
-  If the parameter to a CONSTH instruction is a relocatable type, two 
-  relocation records are written.  The first has an r_type of R_IHIHALF 
-  (33 octal) and a normal r_vaddr and r_symndx.  The second relocation 
-  record has an r_type of R_IHCONST (34 octal), a normal r_vaddr (which 
-  is redundant), and an r_symndx containing the 32-bit constant offset 
-  to the relocation instead of the actual symbol table index.  This 
+  If the parameter to a CONSTH instruction is a relocatable type, two
+  relocation records are written.  The first has an r_type of R_IHIHALF
+  (33 octal) and a normal r_vaddr and r_symndx.  The second relocation
+  record has an r_type of R_IHCONST (34 octal), a normal r_vaddr (which
+  is redundant), and an r_symndx containing the 32-bit constant offset
+  to the relocation instead of the actual symbol table index.  This
   second record is always written, even if the constant offset is zero.
   The constant fields of the instruction are set to zero.  */
 
 /* Line number entry declaration and related definitions:  */
-struct external_lineno 
+struct external_lineno
 {
   union
   {
@@ -208,7 +208,7 @@ struct external_syment
 #define N_TMASK		(0x30)
 #define N_TSHIFT	(2)
 
-/* Auxiliary symbol table entry declaration and related 
+/* Auxiliary symbol table entry declaration and related
    definitions.  */
 #define E_FILNMLEN  14  /* # characters in a file name	  */
 #define E_DIMNUM    4   /* # array dimensions in auxiliary entry */
@@ -279,9 +279,9 @@ union external_auxent
     char x_tvlen[2];        /* length of .tv */
     char x_tvran[2][2];     /* tv range */
   }
-  x_tv;                   /* info about .tv section 
+  x_tv;                   /* info about .tv section
 			     (in auxent of symbol .tv)) */
 };
 
 #define	AUXENT		union external_auxent
-#define	AUXESZ		18	
+#define	AUXESZ		18

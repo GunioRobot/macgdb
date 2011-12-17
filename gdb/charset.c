@@ -63,7 +63,7 @@
      conversions),
 
      and so on.
-     
+
    To avoid excessive code duplication and maintenance efforts,
    GDB simply requires a capable iconv function.  Users on platforms
    without a suitable iconv can use the GNU iconv library.  */

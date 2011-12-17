@@ -154,7 +154,7 @@ sim_board_reset (SIM_DESC sd)
       cpu->cpu_type = CPU_M6812;
       cpu_type = "/m68hc12";
     }
-  
+
   hw_cpu = sim_hw_parse (sd, cpu_type);
   if (hw_cpu == 0)
     {
@@ -173,7 +173,7 @@ sim_hw_configure (SIM_DESC sd)
   const struct bfd_arch_info *arch;
   struct hw *device_tree;
   sim_cpu *cpu;
-  
+
   arch = STATE_ARCHITECTURE (sd);
   if (arch == 0)
     return 0;
@@ -380,7 +380,7 @@ sim_prepare_for_program (SIM_DESC sd, bfd* abfd)
       cpu->cpu_elf_start = bfd_get_start_address (abfd);
       /* See if any section sets the reset address */
       cpu->cpu_use_elf_start = 1;
-      for (s = abfd->sections; s && cpu->cpu_use_elf_start; s = s->next) 
+      for (s = abfd->sections; s && cpu->cpu_use_elf_start; s = s->next)
         {
           if (s->flags & SEC_LOAD)
             {
@@ -481,7 +481,7 @@ sim_open (SIM_OPEN_KIND kind, host_callback *callback,
     {
       free_state (sd);
       return 0;
-    }      
+    }
 
   /* Fudge our descriptor.  */
   return sd;

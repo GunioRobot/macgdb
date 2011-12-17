@@ -273,7 +273,7 @@ frvbf_read_mem_QI (SIM_CPU *current_cpu, IADDR pc, SI address)
   /* Check for access exceptions.  */
   address = check_data_read_address (current_cpu, address, 0);
   address = check_readwrite_address (current_cpu, address, 0);
-  
+
   /* If we need to count cycles, then the cache operation will be
      initiated from the model profiling functions.
      See frvbf_model_....  */
@@ -305,7 +305,7 @@ frvbf_read_mem_UQI (SIM_CPU *current_cpu, IADDR pc, SI address)
   /* Check for access exceptions.  */
   address = check_data_read_address (current_cpu, address, 0);
   address = check_readwrite_address (current_cpu, address, 0);
-  
+
   /* If we need to count cycles, then the cache operation will be
      initiated from the model profiling functions.
      See frvbf_model_....  */
@@ -347,7 +347,7 @@ frvbf_read_mem_HI (SIM_CPU *current_cpu, IADDR pc, SI address)
   /* Check for access exceptions.  */
   address = check_data_read_address (current_cpu, address, 1);
   address = check_readwrite_address (current_cpu, address, 1);
-  
+
   /* If we need to count cycles, then the cache operation will be
      initiated from the model profiling functions.
      See frvbf_model_....  */
@@ -369,7 +369,7 @@ frvbf_read_mem_HI (SIM_CPU *current_cpu, IADDR pc, SI address)
       if (STATE_ARCHITECTURE (sd)->mach == bfd_mach_fr550)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 2))
-	    return read_mem_unaligned_HI (current_cpu, pc, address); 
+	    return read_mem_unaligned_HI (current_cpu, pc, address);
 	}
       cycles = frv_cache_read (cache, 0, address);
       if (cycles != 0)
@@ -388,7 +388,7 @@ frvbf_read_mem_UHI (SIM_CPU *current_cpu, IADDR pc, SI address)
   /* Check for access exceptions.  */
   address = check_data_read_address (current_cpu, address, 1);
   address = check_readwrite_address (current_cpu, address, 1);
-  
+
   /* If we need to count cycles, then the cache operation will be
      initiated from the model profiling functions.
      See frvbf_model_....  */
@@ -410,7 +410,7 @@ frvbf_read_mem_UHI (SIM_CPU *current_cpu, IADDR pc, SI address)
       if (STATE_ARCHITECTURE (sd)->mach == bfd_mach_fr550)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 2))
-	    return read_mem_unaligned_HI (current_cpu, pc, address); 
+	    return read_mem_unaligned_HI (current_cpu, pc, address);
 	}
       cycles = frv_cache_read (cache, 0, address);
       if (cycles != 0)
@@ -467,7 +467,7 @@ frvbf_read_mem_SI (SIM_CPU *current_cpu, IADDR pc, SI address)
   /* Check for access exceptions.  */
   address = check_data_read_address (current_cpu, address, 3);
   address = check_readwrite_address (current_cpu, address, 3);
-  
+
   hsr0 = GET_HSR0 ();
   cache = CPU_DATA_CACHE (current_cpu);
   /* If we need to count cycles, then the cache operation will be
@@ -488,7 +488,7 @@ frvbf_read_mem_SI (SIM_CPU *current_cpu, IADDR pc, SI address)
       if (STATE_ARCHITECTURE (sd)->mach == bfd_mach_fr550)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 4))
-	    return read_mem_unaligned_SI (current_cpu, pc, address); 
+	    return read_mem_unaligned_SI (current_cpu, pc, address);
 	}
       cycles = frv_cache_read (cache, 0, address);
       if (cycles != 0)
@@ -586,7 +586,7 @@ frvbf_read_mem_DI (SIM_CPU *current_cpu, IADDR pc, SI address)
   /* Check for access exceptions.  */
   address = check_data_read_address (current_cpu, address, 7);
   address = check_readwrite_address (current_cpu, address, 7);
-  
+
   /* If we need to count cycles, then the cache operation will be
      initiated from the model profiling functions.
      See frvbf_model_....  */
@@ -607,7 +607,7 @@ frvbf_read_mem_DI (SIM_CPU *current_cpu, IADDR pc, SI address)
       if (STATE_ARCHITECTURE (sd)->mach == bfd_mach_fr550)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 8))
-	    return read_mem_unaligned_DI (current_cpu, pc, address); 
+	    return read_mem_unaligned_DI (current_cpu, pc, address);
 	}
       cycles = frv_cache_read (cache, 0, address);
       if (cycles != 0)
@@ -626,7 +626,7 @@ frvbf_read_mem_DF (SIM_CPU *current_cpu, IADDR pc, SI address)
   /* Check for access exceptions.  */
   address = check_data_read_address (current_cpu, address, 7);
   address = check_readwrite_address (current_cpu, address, 7);
-  
+
   /* If we need to count cycles, then the cache operation will be
      initiated from the model profiling functions.
      See frvbf_model_....  */
@@ -647,7 +647,7 @@ frvbf_read_mem_DF (SIM_CPU *current_cpu, IADDR pc, SI address)
       if (STATE_ARCHITECTURE (sd)->mach == bfd_mach_fr550)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 8))
-	    return read_mem_unaligned_DI (current_cpu, pc, address); 
+	    return read_mem_unaligned_DI (current_cpu, pc, address);
 	}
       cycles = frv_cache_read (cache, 0, address);
       if (cycles != 0)
@@ -880,7 +880,7 @@ frvbf_mem_set_HI (SIM_CPU *current_cpu, IADDR pc, SI address, HI value)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 2))
 	    {
-	      mem_set_unaligned_HI (current_cpu, pc, address, value); 
+	      mem_set_unaligned_HI (current_cpu, pc, address, value);
 	      return;
 	    }
 	}
@@ -926,7 +926,7 @@ frvbf_mem_set_SI (SIM_CPU *current_cpu, IADDR pc, SI address, SI value)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 4))
 	    {
-	      mem_set_unaligned_SI (current_cpu, pc, address, value); 
+	      mem_set_unaligned_SI (current_cpu, pc, address, value);
 	      return;
 	    }
 	}
@@ -972,7 +972,7 @@ frvbf_mem_set_DI (SIM_CPU *current_cpu, IADDR pc, SI address, DI value)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 8))
 	    {
-	      mem_set_unaligned_DI (current_cpu, pc, address, value); 
+	      mem_set_unaligned_DI (current_cpu, pc, address, value);
 	      return;
 	    }
 	}
@@ -1007,7 +1007,7 @@ frvbf_mem_set_DF (SIM_CPU *current_cpu, IADDR pc, SI address, DF value)
 	{
 	  if (DATA_CROSSES_CACHE_LINE (cache, address, 8))
 	    {
-	      mem_set_unaligned_DI (current_cpu, pc, address, value); 
+	      mem_set_unaligned_DI (current_cpu, pc, address, value);
 	      return;
 	    }
 	}

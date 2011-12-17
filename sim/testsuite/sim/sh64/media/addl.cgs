@@ -53,8 +53,8 @@ addl5:
 	add.l r0, r1, r2
 	movi 20, r3
 	bne r2, r3, tr0
-	
-okay:	
+
+okay:
 	pass
 
 wrong:

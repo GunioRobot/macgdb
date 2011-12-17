@@ -109,7 +109,7 @@ typedef __uint64_t fio_ulong_t;
 #define FIO_LONG_LEN  8
 #define FIO_ULONG_LEN 8
 
-typedef char fio_int_t[FIO_INT_LEN];   
+typedef char fio_int_t[FIO_INT_LEN];
 typedef char fio_uint_t[FIO_UINT_LEN];
 typedef char fio_mode_t[FIO_MODE_LEN];
 typedef char fio_time_t[FIO_TIME_LEN];

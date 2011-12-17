@@ -25,11 +25,11 @@ stm_2reg:
 	mov	#_stack_top, er7
 	mov	#2, er2
 	mov	#3, er3
-	
+
 	set_ccr_zero
 	stm	er2-er3, @-sp
 	test_cc_clear
-	
+
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
 	test_h_gr32  2	er2
@@ -57,11 +57,11 @@ stm_3reg:
 	mov	#4, er4
 	mov	#5, er5
 	mov	#6, er6
-	
+
 	set_ccr_zero
 	stm	er4-er6, @-sp
 	test_cc_clear
-	
+
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
 	test_gr_a5a5 2
@@ -94,11 +94,11 @@ stm_4reg:
 	mov	#2, er1
 	mov	#3, er2
 	mov	#4, er3
-	
+
 	set_ccr_zero
 	stm	er0-er3, @-sp
 	test_cc_clear
-	
+
 	test_h_gr32  1	er0
 	test_h_gr32  2	er1
 	test_h_gr32  3	er2
@@ -131,11 +131,11 @@ stm_4reg:
 ldm_2reg:
 	set_grs_a5a5
 	mov	#_stack, er7
-	
+
 	set_ccr_zero
 	ldm	@sp+, er2-er3
 	test_cc_clear
-	
+
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
 	test_h_gr32  1	er2
@@ -148,11 +148,11 @@ ldm_2reg:
 ldm_3reg:
 	set_grs_a5a5
 	mov	#_stack+4, er7
-	
+
 	set_ccr_zero
 	ldm	@sp+, er4-er6
 	test_cc_clear
-	
+
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
 	test_gr_a5a5 2
@@ -165,11 +165,11 @@ ldm_3reg:
 ldm_4reg:
 	set_grs_a5a5
 	mov	#_stack+4, er7
-	
+
 	set_ccr_zero
 	ldm	@sp+, er0-er3
 	test_cc_clear
-	
+
 	test_h_gr32  4	er0
 	test_h_gr32  3	er1
 	test_h_gr32  2	er2
@@ -225,7 +225,7 @@ pushpop:
 	test_h_gr32  12	er6
 	test_h_gr32  _stack_top, er7
 .endif
-		
+
 	pass
 
 	exit 0

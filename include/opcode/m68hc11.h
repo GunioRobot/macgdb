@@ -405,7 +405,7 @@ struct m68hc11_opcode {
 };
 
 /* Alias definition for 68HC12.  */
-struct m68hc12_opcode_alias 
+struct m68hc12_opcode_alias
 {
   const char*   name;
   const char*   translation;

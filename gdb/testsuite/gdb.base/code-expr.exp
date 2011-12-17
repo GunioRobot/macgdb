@@ -289,7 +289,7 @@ gdb_test "whatis (enum misordered @data) v_misordered" \
 	"type = @data enum misordered" \
 	"(enum misordered @data)"
 
-# 
+#
 # Pointers
 #
 

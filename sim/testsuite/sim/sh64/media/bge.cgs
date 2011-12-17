@@ -13,7 +13,7 @@ init:
 	pta bge3, tr1
 	pta wrong, tr2
 	movi 0, r0
-	
+
 bge1:
 	# Compare r0 with itself.
 	bge/l r0, r0, tr0

@@ -263,7 +263,7 @@ struct captured_read_memory_integer_arguments
 };
 
 /* Helper function for gdb_read_memory_integer().  DATA must be a
-   pointer to a captured_read_memory_integer_arguments struct. 
+   pointer to a captured_read_memory_integer_arguments struct.
    Return 1 if successful.  Note that the catch_errors() interface
    will return 0 if an error occurred while reading memory.  This
    choice of return code is so that we can distinguish between
@@ -431,7 +431,7 @@ No arg means have no core file.  This command has been superseded by the\n\
 `target core' and `detach' commands."), &cmdlist);
   set_cmd_completer (c, filename_completer);
 
-  
+
   add_setshow_string_noescape_cmd ("gnutarget", class_files,
 				   &gnutarget_string, _("\
 Set the current BFD target."), _("\

@@ -1,23 +1,23 @@
 /*
  * This file is part of SIS.
- * 
+ *
  * SIS, SPARC instruction simulator V2.5 Copyright (C) 1995 Jiri Gaisler,
  * European Space Agency
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
  * more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 675
  * Mass Ave, Cambridge, MA 02139, USA.
- * 
+ *
  */
 
 /* The control space devices */
@@ -359,7 +359,7 @@ decode_ersr()
 	} else
 	    mec_irq(1);
     }
-    if (mec_ersr & 0x20) { 
+    if (mec_ersr & 0x20) {
 	if (!(mec_mcr & 0x2000)) {
 	    if (mec_mcr & 0x4000) {
 	        sys_reset();
@@ -589,7 +589,7 @@ chk_irq()
     if (itmp != 0) {
 	for (i = 15; i > 0; i--) {
 	    if (((itmp >> i) & 1) != 0) {
-		if ((sis_verbose) && (i > old_irl)) 
+		if ((sis_verbose) && (i > old_irl))
 		    printf("IU irl: %d\n", i);
 		ext_irl = i;
 	        set_int(i, mec_intack, i);
@@ -714,7 +714,7 @@ mec_read(addr, asi, data)
 	if (find == 0)
 	    strcpy(fname, "simload");
 	find = bfd_load(fname);
- 	if (find == -1) 
+ 	if (find == -1)
 	    *data = 0;
 	else
 	    *data = 1;
@@ -1553,7 +1553,7 @@ fetch_bytes (asi, mem, data, sz)
 	case 0:
 	    data[0] = mem[0] & 0xff;
 	    break;
-	    
+
 	}
     } else {
 	switch (sz) {
@@ -1632,7 +1632,7 @@ store_bytes (mem, data, sz)
 	case 0:
 	    mem[0] = data[0] & 0xff;
 	    break;
-	    
+
 	}
     }
 }
@@ -1679,18 +1679,18 @@ memory_read(asi, addr, data, sz, ws)
 #ifdef ERA
 
     } else if (era) {
-    	if ((addr < 0x100000) || 
+    	if ((addr < 0x100000) ||
 	    ((addr>= 0x80000000) && (addr < 0x80100000))) {
 	    fetch_bytes (asi, &romb[addr & ROM_MASK], data, sz);
 	    *ws = 4;
 	    return (0);
-	} else if ((addr >= 0x10000000) && 
+	} else if ((addr >= 0x10000000) &&
 		   (addr < (0x10000000 + (512 << (mec_iocr & 0x0f)))) &&
 		   (mec_iocr & 0x10))  {
 	    *data = erareg;
 	    return (0);
 	}
-	
+
     } else  if (addr < mem_romsz) {
 	    fetch_bytes (asi, &romb[addr], data, sz);
 	    *ws = mem_romr_ws;
@@ -1794,13 +1794,13 @@ memory_write(asi, addr, data, sz, ws)
 #ifdef ERA
 
     } else if (era) {
-    	if ((erareg & 2) && 
+    	if ((erareg & 2) &&
 	((addr < 0x100000) || ((addr >= 0x80000000) && (addr < 0x80100000)))) {
 	    addr &= ROM_MASK;
 	    *ws = sz == 3 ? 8 : 4;
 	    store_bytes (&romb[addr], data, sz);
             return (0);
-	} else if ((addr >= 0x10000000) && 
+	} else if ((addr >= 0x10000000) &&
 		   (addr < (0x10000000 + (512 << (mec_iocr & 0x0f)))) &&
 		   (mec_iocr & 0x10))  {
 	    erareg = *data & 0x0e;
@@ -1808,7 +1808,7 @@ memory_write(asi, addr, data, sz, ws)
 	}
 
     } else if ((addr < mem_romsz) && (mec_memcfg & 0x10000) && (wrp) &&
-               (((mec_memcfg & 0x20000) && (sz > 1)) || 
+               (((mec_memcfg & 0x20000) && (sz > 1)) ||
 		(!(mec_memcfg & 0x20000) && (sz == 0)))) {
 
 	*ws = mem_romw_ws + 1;
@@ -1819,7 +1819,7 @@ memory_write(asi, addr, data, sz, ws)
 
 #else
     } else if ((addr < mem_romsz) && (mec_memcfg & 0x10000) && (wrp) &&
-               (((mec_memcfg & 0x20000) && (sz > 1)) || 
+               (((mec_memcfg & 0x20000) && (sz > 1)) ||
 		(!(mec_memcfg & 0x20000) && (sz == 0)))) {
 
 	*ws = mem_romw_ws + 1;
@@ -1831,7 +1831,7 @@ memory_write(asi, addr, data, sz, ws)
 #endif
 
     }
-	
+
     *ws = MEM_EX_WS;
     set_sfsr(UIMP_ACC, addr, asi, 0);
     return (1);
@@ -1849,7 +1849,7 @@ get_mem_ptr(addr, size)
     }
 
 #ifdef ERA
-      else if ((era) && ((addr <0x100000) || 
+      else if ((era) && ((addr <0x100000) ||
 	((addr >= (unsigned) 0x80000000) && ((addr + size) < (unsigned) 0x80100000)))) {
 	return (&romb[addr & ROM_MASK]);
     }

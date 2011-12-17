@@ -42,7 +42,7 @@ set binfile ${objdir}/${subdir}/${testfile}
 set additional_flags ""
 if [istarget "i?86-*-cygwin*"] then {
   set additional_flags "additional_flags=-DSYMBOL_PREFIX=\"_\""
-}   
+}
 
 # Don't use "debug", so that we don't have line information for the assembly
 # fragments.

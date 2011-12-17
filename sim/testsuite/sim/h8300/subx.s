@@ -6,24 +6,24 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
 	# Instructions tested:
 	# subx.b #xx:8, rd8	; b rd8 xxxxxxxx
-	# subx.b #xx:8, @erd	; 7 d erd ???? b ???? xxxxxxxx 
+	# subx.b #xx:8, @erd	; 7 d erd ???? b ???? xxxxxxxx
 	# subx.b #xx:8, @erd-	; 0 1 7 6 6 c erd 1??? b ???? xxxxxxxx
 	# subx.b rs8, rd8	; 1 e rs8 rd8
 	# subx.b rs8, @erd	; 7 d erd ???? 1 e rs8 ????
 	# subx.b rs8, @erd-	; 0 1 7 6 6 c erd 1??? 1 e rs8 ????
 	# subx.b @ers, rd8	; 7 c ers ???? 1 e ???? rd8
 	# subx.b @ers-, rd8	; 0 1 7 6 6 c ers 00?? 1 e ???? rd8
-	# subx.b @ers, @erd	; 0 1 7 4 6 8 ers d 0 erd 3 ???? 
+	# subx.b @ers, @erd	; 0 1 7 4 6 8 ers d 0 erd 3 ????
 	# subx.b @ers-, @erd-	; 0 1 7 6 6 c ers d a erd 3 ????
 	#
 	# word ops
-	# long ops	
+	# long ops
 
 .data
 byte_src:	.byte 0x5
@@ -63,7 +63,7 @@ subx_b_imm8_0:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 subx_b_imm8_1:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -88,7 +88,7 @@ subx_b_imm8_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .if (sim_cpu == h8sx)
 subx_b_imm8_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -201,7 +201,7 @@ subx_b_reg8_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .if (sim_cpu == h8sx)
 subx_b_reg8_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -392,7 +392,7 @@ subx_w_imm16_0:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 subx_w_imm16_1:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -415,7 +415,7 @@ subx_w_imm16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 subx_w_imm16_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 
@@ -520,7 +520,7 @@ subx_w_reg16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 subx_w_reg16_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 
@@ -709,7 +709,7 @@ subx_l_imm32_0:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 subx_l_imm32_1:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -731,7 +731,7 @@ subx_l_imm32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 subx_l_imm32_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 
@@ -836,7 +836,7 @@ subx_l_reg32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 subx_l_reg32_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 

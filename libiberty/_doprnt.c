@@ -80,7 +80,7 @@ _doprnt (const char *format, va_list ap, FILE *stream)
   const char * ptr = format;
   char specifier[128];
   int total_printed = 0;
-  
+
   while (*ptr != '\0')
     {
       if (*ptr != '%') /* While we have regular characters, print them.  */
@@ -89,7 +89,7 @@ _doprnt (const char *format, va_list ap, FILE *stream)
 	{
 	  char * sptr = specifier;
 	  int wide_width = 0, short_width = 0;
-	  
+
 	  *sptr++ = *ptr++; /* Copy the % and move forward.  */
 
 	  while (strchr ("-+ #0", *ptr)) /* Move past flags.  */
@@ -100,7 +100,7 @@ _doprnt (const char *format, va_list ap, FILE *stream)
 	  else
 	    while (ISDIGIT(*ptr)) /* Handle explicit numeric value.  */
 	      *sptr++ = *ptr++;
-	  
+
 	  if (*ptr == '.')
 	    {
 	      *sptr++ = *ptr++; /* Copy and go past the period.  */

@@ -1,5 +1,5 @@
 /* Routines for name->symbol lookups in GDB.
-   
+
    Copyright (C) 2003, 2007, 2008, 2009 Free Software Foundation, Inc.
 
    Contributed by David Carlton <carlton@bactrian.org> and by Kealia,
@@ -43,7 +43,7 @@
    is:
 
    * Add a new element DICT_<IMPL> to dict_type.
-   
+
    * Create a new structure dictionary_<impl>.  If your new
    implementation is a variant of an existing one, make sure that
    their structs have the same initial data members.  Define accessor
@@ -82,7 +82,7 @@
    * Define a function dict_<op> that looks up <op> in the dict_vector
    and calls the appropriate function.  Add a declaration for
    dict_<op> to dictionary.h.
-   
+
 */
 
 /* An enum representing the various implementations of dictionaries.
@@ -531,7 +531,7 @@ dict_size (const struct dictionary *dict)
 {
   return (DICT_VECTOR (dict))->size (dict);
 }
- 
+
 /* Now come functions (well, one function, currently) that are
    implemented generically by means of the vtable.  Typically, they're
    rarely used.  */
@@ -582,7 +582,7 @@ iterator_next_hashed (struct dict_iterator *iterator)
   struct symbol *next;
 
   next = DICT_ITERATOR_CURRENT (iterator)->hash_next;
-  
+
   if (next == NULL)
     return iterator_hashed_advance (iterator);
   else
@@ -602,7 +602,7 @@ iterator_hashed_advance (struct dict_iterator *iterator)
   for (i = DICT_ITERATOR_INDEX (iterator) + 1; i < nbuckets; ++i)
     {
       struct symbol *sym = DICT_HASHED_BUCKET (dict, i);
-      
+
       if (sym != NULL)
 	{
 	  DICT_ITERATOR_INDEX (iterator) = i;
@@ -628,7 +628,7 @@ iter_name_first_hashed (const struct dictionary *dict,
   /* Loop through the symbols in the given bucket, breaking when SYM
      first matches.  If SYM never matches, it will be set to NULL;
      either way, we have the right return value.  */
-  
+
   for (sym = DICT_HASHED_BUCKET (dict, hash_index);
        sym != NULL;
        sym = sym->hash_next)
@@ -638,7 +638,7 @@ iter_name_first_hashed (const struct dictionary *dict,
 	{
 	  break;
 	}
-	
+
     }
 
   DICT_ITERATOR_CURRENT (iterator) = sym;
@@ -795,7 +795,7 @@ iter_name_next_linear (const char *name, struct dict_iterator *iterator)
     }
 
   DICT_ITERATOR_INDEX (iterator) = i;
-  
+
   return retval;
 }
 

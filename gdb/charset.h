@@ -87,7 +87,7 @@ struct wchar_iterator;
    buffer.  CHARSET is the name of the character set in which INPUT is
    encoded.  WIDTH is the number of bytes in a base character of
    CHARSET.
-   
+
    This function either returns a new character set iterator, or calls
    error.  The result can be freed using a cleanup; see
    make_cleanup_wchar_iterator.  */
@@ -100,7 +100,7 @@ struct wchar_iterator *make_wchar_iterator (const gdb_byte *input, size_t bytes,
 struct cleanup *make_cleanup_wchar_iterator (struct wchar_iterator *iter);
 
 /* Perform a single iteration of a wchar_t iterator.
-   
+
    Returns the number of characters converted.  A negative result
    means that EOF has been reached.  A positive result indicates the
    number of valid wchar_ts in the result; *OUT_CHARS is updated to
@@ -119,7 +119,7 @@ struct cleanup *make_cleanup_wchar_iterator (struct wchar_iterator *iter);
 
    wchar_iterate_incomplete means that an incomplete character was
    seen at the end of the input sequence.
-   
+
    wchar_iterate_eof means that all bytes were successfully
    converted.  The other output arguments are not set.  */
 int wchar_iterate (struct wchar_iterator *iter,

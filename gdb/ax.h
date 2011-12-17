@@ -274,7 +274,7 @@ struct agent_reqs
        enough to hold bits for all the registers of the machine; the
        agent expression code has no idea how many registers the machine
        has.  However, the bitmask is reg_mask_len bytes long, so the
-       valid register numbers run from 0 to reg_mask_len * 8 - 1.  
+       valid register numbers run from 0 to reg_mask_len * 8 - 1.
 
        We're assuming eight-bit bytes.  So sue me.
 

@@ -404,13 +404,13 @@ select_thread_wait (struct ser_console_state *state)
      the started state, or that we exit this thread.  */
   wait_events[0] = state->start_select;
   wait_events[1] = state->exit_select;
-  if (WaitForMultipleObjects (2, wait_events, FALSE, INFINITE) 
+  if (WaitForMultipleObjects (2, wait_events, FALSE, INFINITE)
       != WAIT_OBJECT_0)
     /* Either the EXIT_SELECT event was signaled (requesting that the
        thread exit) or an error has occurred.  In either case, we exit
        the thread.  */
     ExitThread (0);
-  
+
   /* We are now in the started state.  */
   SetEvent (state->have_started);
 }
@@ -993,7 +993,7 @@ pipe_avail (struct serial *scb, int fd)
 struct net_windows_state
 {
   struct ser_console_state base;
-  
+
   HANDLE sock_event;
 };
 
@@ -1031,12 +1031,12 @@ net_windows_select_thread (void *arg)
 	  /* Enumerate the internal network events, and reset the
 	     object that signalled us to catch the next event.  */
 	  WSAEnumNetworkEvents (scb->fd, state->sock_event, &events);
-	  
+
 	  gdb_assert (events.lNetworkEvents & (FD_READ | FD_CLOSE));
-	  
+
 	  if (events.lNetworkEvents & FD_READ)
 	    SetEvent (state->base.read_event);
-	  
+
 	  if (events.lNetworkEvents & FD_CLOSE)
 	    SetEvent (state->base.except_event);
 	}

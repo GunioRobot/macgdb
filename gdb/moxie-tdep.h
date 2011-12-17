@@ -1,5 +1,5 @@
 /* Target-dependent code for Moxie
- 
+
    Copyright (C) 2009 Free Software Foundation, Inc.
 
    This file is part of GDB.

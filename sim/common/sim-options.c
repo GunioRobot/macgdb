@@ -522,7 +522,7 @@ dup_arg_p (arg)
   arg_table[hash] = arg;
   return 0;
 }
-     
+
 /* Called by sim_open to parse the arguments.  */
 
 SIM_RC
@@ -641,7 +641,7 @@ sim_parse_args (sd, argv)
 	      }
 	  }
     }
-	    
+
   /* Terminate the short and long option lists.  */
   *p = 0;
   lp->name = NULL;
@@ -738,7 +738,7 @@ print_help (SIM_DESC sd, sim_cpu *cpu, const struct option_list *ol, int is_comm
 	      }
 	    while (OPTION_VALID_P (o) && o->doc == NULL);
 	  }
-	
+
 	/* list any long options (aliases) for the current OPT */
 	o = opt;
 	do
@@ -927,7 +927,7 @@ sim_args_command (SIM_DESC sd, char *cmd)
   /* something to do? */
   if (cmd == NULL)
     return SIM_RC_OK; /* FIXME - perhaps help would be better */
-  
+
   if (cmd [0] == '-')
     {
       /* user specified -<opt> ... form? */
@@ -1018,7 +1018,7 @@ sim_args_command (SIM_DESC sd, char *cmd)
 
       freeargv (argv);
     }
-      
+
   /* didn't find anything that remotly matched */
   return SIM_RC_FAIL;
 }

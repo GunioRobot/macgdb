@@ -11,13 +11,13 @@ vector_fun (vector unsigned int a, vector unsigned int b)
   c = vec_add (a, b);
   return c;
 }
- 
+
 int
 main ()
 {
-  vector unsigned int y; 
-  vector unsigned int x; 
-  vector unsigned int z; 
+  vector unsigned int y;
+  vector unsigned int x;
+  vector unsigned int z;
   int a;
 
   /* This line may look unnecessary but we do need it, because we want to
@@ -28,7 +28,7 @@ main ()
   a = 9;
   x = ((vector unsigned int) vec_splat_u8 (-2));
   y = ((vector unsigned int) vec_splat_u8 (1));
-	
+
   z = vector_fun (x, y);
   x = vec_sld (x,y,2);
 

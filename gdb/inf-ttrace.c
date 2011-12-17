@@ -186,7 +186,7 @@ inf_ttrace_add_page (pid_t pid, CORE_ADDR addr)
       prev = page;
       page = page->next;
     }
-  
+
   if (!page)
     {
       int prot;
@@ -194,7 +194,7 @@ inf_ttrace_add_page (pid_t pid, CORE_ADDR addr)
       if (ttrace (TT_PROC_GET_MPROTECT, pid, 0,
 		  addr, 0, (uintptr_t)&prot) == -1)
 	perror_with_name (("ttrace"));
-      
+
       page = XMALLOC (struct inf_ttrace_page);
       page->addr = addr;
       page->prot = prot;
@@ -639,7 +639,7 @@ inf_ttrace_him (struct target_ops *ops, int pid)
 }
 
 static void
-inf_ttrace_create_inferior (struct target_ops *ops, char *exec_file, 
+inf_ttrace_create_inferior (struct target_ops *ops, char *exec_file,
 			    char *allargs, char **env, int from_tty)
 {
   int pid;
@@ -1114,7 +1114,7 @@ inf_ttrace_wait (struct target_ops *ops,
 	     would be a logical place to re-enable the page
 	     protections, but that doesn't work.  We can't re-enable
 	     them until we've done another wait.  */
-	  inf_ttrace_reenable_page_protections = 
+	  inf_ttrace_reenable_page_protections =
 	    (inf_ttrace_num_lwps_in_syscall == 1);
 	  inf_ttrace_num_lwps_in_syscall--;
 	}

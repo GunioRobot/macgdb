@@ -38,7 +38,7 @@ set bp_location [gdb_get_line_number "STOP" ${testdir}/foo.adb]
 if ![runto "foo.adb:$bp_location" ] then {
   perror "Couldn't run ${testfile}"
   return
-} 
+}
 
 gdb_test "print string_p" \
          "= \\(foo\\.string_access\\) 0x\[0-9a-zA-Z\]+" \

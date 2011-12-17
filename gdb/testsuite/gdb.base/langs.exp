@@ -103,7 +103,7 @@ if [runto csub] then {
     # the following regexps are kludged to accept foo__Fi as well as foo,
     # even though only the latter is correct.  I haven't tried to xfail it
     # because it depends on details of the compiler.
-    
+
     # Take out xfail. This test has been passing for some time now.
     #if {!$gcc_compiled} then { setup_xfail "hppa*-*-hpux*" }
     gdb_test "bt" "#0.*csub.*#1.*(foo|$foo_func) \\(.*#2.*cppsub_ .*#3.*fsub.*#4.*$do_func \\(.*#5  \[0-9a-fx\]* in main.*" "backtrace in langs.exp"
@@ -163,7 +163,7 @@ if [runto csub] then {
     gdb_test "set lang minimal" \
              "Warning: the current language does not match this frame." \
              "set lang to minimal"
-    
+
     gdb_test "print x" " = 5000" "print parameter value"
 }
 

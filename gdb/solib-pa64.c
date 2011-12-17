@@ -16,7 +16,7 @@
 
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-   
+
    HP in their infinite stupidity choose not to use standard ELF dynamic
    linker interfaces.  They also choose not to make their ELF dymamic
    linker interfaces compatible with the SOM dynamic linker.  The
@@ -137,14 +137,14 @@ read_dld_descriptor (void)
 
   /* If necessary call read_dynamic_info to extract the contents of the
      .dynamic section from the shared library.  */
-  if (!dld_cache.is_valid) 
+  if (!dld_cache.is_valid)
     {
       if (symfile_objfile == NULL)
 	error (_("No object file symbols."));
 
-      dyninfo_sect = bfd_get_section_by_name (symfile_objfile->obfd, 
+      dyninfo_sect = bfd_get_section_by_name (symfile_objfile->obfd,
 					      ".dynamic");
-      if (!dyninfo_sect) 
+      if (!dyninfo_sect)
 	{
 	  return 0;
 	}
@@ -166,11 +166,11 @@ read_dld_descriptor (void)
     return 0;
 
   /* Read in the dld load module descriptor */
-  if (dlgetmodinfo (-1, 
+  if (dlgetmodinfo (-1,
 		    &dld_cache.dld_desc,
-		    sizeof (dld_cache.dld_desc), 
-		    pa64_target_read_memory, 
-		    0, 
+		    sizeof (dld_cache.dld_desc),
+		    pa64_target_read_memory,
+		    0,
 		    dld_cache.load_map)
       == 0)
     {
@@ -185,7 +185,7 @@ read_dld_descriptor (void)
 
 
 /* Read the .dynamic section and extract the information of interest,
-   which is stored in dld_cache.  The routine elf_locate_base in solib.c 
+   which is stored in dld_cache.  The routine elf_locate_base in solib.c
    was used as a model for this.  */
 
 static int
@@ -204,7 +204,7 @@ read_dynamic_info (asection *dyninfo_sect, dld_cache_t *dld_cache_p)
   if (target_read_memory (dyninfo_addr, buf, dyninfo_sect_size))
     return 0;
 
-  /* Scan the .dynamic section and record the items of interest. 
+  /* Scan the .dynamic section and record the items of interest.
      In particular, DT_HP_DLD_FLAGS */
   for (bufend = buf + dyninfo_sect_size, entry_addr = dyninfo_addr;
        buf < bufend;
@@ -214,7 +214,7 @@ read_dynamic_info (asection *dyninfo_sect, dld_cache_t *dld_cache_p)
       Elf64_Sxword dyn_tag;
       CORE_ADDR	dyn_ptr;
 
-      dyn_tag = bfd_h_get_64 (symfile_objfile->obfd, 
+      dyn_tag = bfd_h_get_64 (symfile_objfile->obfd,
 			      (bfd_byte*) &x_dynp->d_tag);
 
       /* We can't use a switch here because dyn_tag is 64 bits and HP's
@@ -226,7 +226,7 @@ read_dynamic_info (asection *dyninfo_sect, dld_cache_t *dld_cache_p)
 	  /* Set dld_flags_addr and dld_flags in *dld_cache_p */
 	  dld_cache_p->dld_flags_addr = entry_addr + offsetof(Elf64_Dyn, d_un);
 	  if (target_read_memory (dld_cache_p->dld_flags_addr,
-	  			  (char*) &dld_cache_p->dld_flags, 
+	  			  (char*) &dld_cache_p->dld_flags,
 				  sizeof (dld_cache_p->dld_flags))
 	      != 0)
 	    {
@@ -237,7 +237,7 @@ read_dynamic_info (asection *dyninfo_sect, dld_cache_t *dld_cache_p)
 	{
 	  /* Dld will place the address of the load map at load_map_addr
 	     after it starts running.  */
-	  if (target_read_memory (entry_addr + offsetof(Elf64_Dyn, 
+	  if (target_read_memory (entry_addr + offsetof(Elf64_Dyn,
 							d_un.d_ptr),
 				  (char*) &dld_cache_p->load_map_addr,
 				  sizeof (dld_cache_p->load_map_addr))
@@ -246,7 +246,7 @@ read_dynamic_info (asection *dyninfo_sect, dld_cache_t *dld_cache_p)
 	      error (_("Error while reading in .dynamic section of the program."));
 	    }
 	}
-      else 
+      else
 	{
 	  /* tag is not of interest */
 	}
@@ -258,9 +258,9 @@ read_dynamic_info (asection *dyninfo_sect, dld_cache_t *dld_cache_p)
   /* Verify that we read in required info.  These fields are re-set to zero
      in pa64_solib_restart.  */
 
-  if (dld_cache_p->dld_flags_addr != 0 && dld_cache_p->load_map_addr != 0) 
+  if (dld_cache_p->dld_flags_addr != 0 && dld_cache_p->load_map_addr != 0)
     dld_cache_p->is_valid = 1;
-  else 
+  else
     return 0;
 
   return 1;
@@ -416,7 +416,7 @@ pa64_solib_create_inferior_hook (void)
 
       /* We find the dynamic linker's base address by examining the
 	 current pc (which point at the entry point for the dynamic
-	 linker) and subtracting the offset of the entry point. 
+	 linker) and subtracting the offset of the entry point.
 
 	 Also note the breakpoint is the second instruction in the
 	 routine.  */
@@ -424,7 +424,7 @@ pa64_solib_create_inferior_hook (void)
 		  - tmp_bfd->start_address;
       sym_addr = bfd_lookup_symbol (tmp_bfd, "__dld_break");
       sym_addr = load_addr + sym_addr + 4;
-      
+
       /* Create the shared library breakpoint.  */
       {
 	struct breakpoint *b
@@ -495,19 +495,19 @@ pa64_current_sos (void)
 #ifdef SOLIB_PA64_DBG
       {
         struct load_module_desc *d = &new->lm_info->desc;
-	printf ("\n+ library \"%s\" is described at index %d\n", new->so_name, 
+	printf ("\n+ library \"%s\" is described at index %d\n", new->so_name,
 		dll_index);
-	printf ("    text_base = 0x%llx\n", d->text_base); 
-	printf ("    text_size = 0x%llx\n", d->text_size); 
-	printf ("    data_base = 0x%llx\n", d->data_base); 
-	printf ("    data_size = 0x%llx\n", d->data_size); 
-	printf ("    unwind_base = 0x%llx\n", d->unwind_base); 
-	printf ("    linkage_ptr = 0x%llx\n", d->linkage_ptr); 
-	printf ("    phdr_base = 0x%llx\n", d->phdr_base); 
-	printf ("    tls_size = 0x%llx\n", d->tls_size); 
-	printf ("    tls_start_addr = 0x%llx\n", d->tls_start_addr); 
-	printf ("    unwind_size = 0x%llx\n", d->unwind_size); 
-	printf ("    tls_index = 0x%llx\n", d->tls_index); 
+	printf ("    text_base = 0x%llx\n", d->text_base);
+	printf ("    text_size = 0x%llx\n", d->text_size);
+	printf ("    data_base = 0x%llx\n", d->data_base);
+	printf ("    data_size = 0x%llx\n", d->data_size);
+	printf ("    unwind_base = 0x%llx\n", d->unwind_base);
+	printf ("    linkage_ptr = 0x%llx\n", d->linkage_ptr);
+	printf ("    phdr_base = 0x%llx\n", d->phdr_base);
+	printf ("    tls_size = 0x%llx\n", d->tls_size);
+	printf ("    tls_start_addr = 0x%llx\n", d->tls_start_addr);
+	printf ("    unwind_size = 0x%llx\n", d->unwind_size);
+	printf ("    tls_index = 0x%llx\n", d->tls_index);
       }
 #endif
 
@@ -627,7 +627,7 @@ pa64_solib_get_solib_by_pc (CORE_ADDR addr)
   return retval;
 }
 
-/* pa64 libraries do not seem to set the section offsets in a standard (i.e. 
+/* pa64 libraries do not seem to set the section offsets in a standard (i.e.
    SVr4) way; the text section offset stored in the file doesn't correspond
    to the place where the library is actually loaded into memory.  Instead,
    we rely on the dll descriptor to tell us where things were loaded.  */
@@ -639,7 +639,7 @@ pa64_solib_get_text_base (struct objfile *objfile)
   for (so = master_so_list (); so; so = so->next)
     if (so->objfile == objfile)
       return so->lm_info->desc.text_base;
-  
+
   return 0;
 }
 

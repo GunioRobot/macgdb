@@ -11,10 +11,10 @@
 	.include "testutils.inc"
 
 	start
-.if (sim_cpu == h8sx)	
+.if (sim_cpu == h8sx)
 	.data
 	.align 4
-disp8:	.long	tgt_reg8 
+disp8:	.long	tgt_reg8
 disp16:	.long	tgt_reg16
 disp32:	.long	tgt_reg32
 dslot:	.byte	0
@@ -30,7 +30,7 @@ bra_8:
 ;;;	.word	0x40xx		; where "xx" is tgt_8 - '.'.
 	fail
 
-tgt_8:	
+tgt_8:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
@@ -52,7 +52,7 @@ bra_16:
 ;;; 	.word tgt_24 - .
 	fail
 
-tgt_24:	
+tgt_24:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
@@ -75,7 +75,7 @@ bra_reg8:
 	bra	r5l.b
 ;;; 	.word	0x5955
 src8:	fail
-	
+
 tgt_reg8:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
@@ -97,7 +97,7 @@ bra_reg16:
 	bra	r5.w
 ;;; 	.word	0x5956
 src16:	fail
-	
+
 tgt_reg16:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
@@ -120,7 +120,7 @@ bra_reg32:
 ;;; 	.word	0x5957
 src32:	fail
 
-tgt_reg32:	
+tgt_reg32:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
@@ -140,7 +140,7 @@ bra_s:	set_grs_a5a5
 	mov.b	#1, @dslot
 	;; After this, the next instructions should not execute.
 	fail
-	
+
 tgt_post_delay:
 	test_cc_clear
 	cmp.b	#0, @dslot	; Should be non-zero if delay slot executed.
@@ -156,10 +156,9 @@ dslot_ok:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .endif
 
 	pass
 	exit 0
 
-	

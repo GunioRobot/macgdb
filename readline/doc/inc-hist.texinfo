@@ -363,7 +363,7 @@ the letters @code{fi}.
 
 @need 0.75
 Here are the word designators:
- 
+
 @table @code
 
 @item 0 (zero)

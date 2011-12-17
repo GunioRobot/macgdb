@@ -360,9 +360,9 @@ disassembler (abfd)
 #ifdef ARCH_score
     case bfd_arch_score:
       if (bfd_big_endian (abfd))
-        disassemble = print_insn_big_score;      
+        disassemble = print_insn_big_score;
       else
-        disassemble = print_insn_little_score; 
+        disassemble = print_insn_little_score;
      break;
 #endif
 #ifdef ARCH_sh

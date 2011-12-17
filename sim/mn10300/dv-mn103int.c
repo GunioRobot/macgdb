@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -25,19 +25,19 @@
 
 /* DEVICE
 
-   
+
    mn103int - mn103002 interrupt controller
 
-   
+
    DESCRIPTION
 
-   
+
    Implements the mn103002 interrupt controller described in the
    mn103002 user guide.
 
 
    PROPERTIES
-   
+
 
    reg = <icr-adr> <icr-siz> <iagr-adr> <iadr-siz> <extmd-adr> <extmd-siz>
 
@@ -162,7 +162,7 @@ struct mn103int {
 
 
 
-/* output port ID's */ 
+/* output port ID's */
 
 enum {
   NMI_PORT,
@@ -379,9 +379,9 @@ find_highest_interrupt_group (struct hw *me,
 
   /* FIRST_NMI_GROUP (group zero) is used as a special default value
      when searching for an interrupt group.*/
-  selected = FIRST_NMI_GROUP; 
+  selected = FIRST_NMI_GROUP;
   controller->group[FIRST_NMI_GROUP].level = 7;
-  
+
   for (gid = FIRST_LEVEL_GROUP; gid <= LAST_LEVEL_GROUP; gid++)
     {
       struct mn103int_group *group = &controller->group[gid];
@@ -430,7 +430,7 @@ mn103int_port_event (struct hw *me,
 	int selected = find_highest_interrupt_group (me, controller);
 	if (controller->group[selected].level != level)
 	  hw_abort (me, "botched level synchronisation");
-	controller->interrupt_accepted_group = selected;	
+	controller->interrupt_accepted_group = selected;
 	HW_TRACE ((me, "port-event port=ack level=%d - selected=%d",
 		   level, selected));
 	break;
@@ -486,7 +486,7 @@ mn103int_port_event (struct hw *me,
 		}
 	      break;
 	    }
-	      
+
 	  case LEVEL_GROUP:
 	    {
 	      /* if an interrupt is now pending */
@@ -777,7 +777,7 @@ mn103int_io_read_buffer (struct hw *me,
 	}
     }
   return nr_bytes;
-}     
+}
 
 static unsigned
 mn103int_io_write_buffer (struct hw *me,
@@ -810,7 +810,7 @@ mn103int_io_write_buffer (struct hw *me,
 	}
     }
   return nr_bytes;
-}     
+}
 
 static int
 mn103int_ioctl(struct hw *me,

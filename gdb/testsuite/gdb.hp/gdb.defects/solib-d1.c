@@ -3,7 +3,7 @@ int global_from_primary = 5678;
 
 int function_from_primary()
 {
-    garbage();	
+    garbage();
 }
 
 force_generation_of_export_stub()

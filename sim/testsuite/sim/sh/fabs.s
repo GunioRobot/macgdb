@@ -1,4 +1,4 @@
-# sh testcase for fabs 
+# sh testcase for fabs
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 
@@ -110,6 +110,6 @@ fabs_dreg_b0:
 	test_fpr_a5a5 fr13
 	test_fpr_a5a5 fr14
 	test_fpr_a5a5 fr15
-	
+
 	pass
 	exit 0

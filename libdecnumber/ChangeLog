@@ -342,7 +342,7 @@
 
 	* Makefile.in: Don't include decRound in library used by compiler.
 
-2006-10-10  Brooks Moses  <bmoses@stanford.edu> 
+2006-10-10  Brooks Moses  <bmoses@stanford.edu>
 	* Makefile.in: Added empty "pdf" target.
 
 2006-09-15  Kaveh R. Ghazi  <ghazi@caip.rutgers.edu>
@@ -480,7 +480,7 @@
 	* decimal32.c: Ditto.
 	* decimal64.c: Ditto.
 	* decimal128.c: Ditto.
-	
+
 2005-11-29  Ben Elliston  <bje@au.ibm.com>
 
 	* decUtility.c: Remove redundant #includes.

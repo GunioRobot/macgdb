@@ -18,25 +18,25 @@ zero1:
 	mov #1, r2
 	cmp/eq r1, r2
 	bt wrong
-	
+
 zero2:
 	mov #0, r2
 	mov #1, r1
 	cmp/eq r2, r1
 	bt wrong
-	
+
 equal:
 	mov #192, r1
 	mov #192, r2
 	cmp/eq r1, r2
 	bf wrong
-	
+
 noteq:
 	mov #192, r1
 	mov #193, r2
 	cmp/eq r1, r2
 	bt wrong
-	
+
 large:
 	mov #1, r1
 	rotr r1
@@ -44,7 +44,7 @@ large:
 	rotr r2
 	cmp/eq r1, r2
 	bf wrong
-	
+
 okay:
 	pass
 

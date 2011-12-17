@@ -283,7 +283,7 @@ size_t iconv();
   fi
 ])
 
-dnl written by Guido Draheim <guidod@gmx.de>, original by Alexandre Oliva 
+dnl written by Guido Draheim <guidod@gmx.de>, original by Alexandre Oliva
 dnl Version 1.3 (2001/03/02)
 dnl source http://www.gnu.org/software/ac-archive/Miscellaneous/ac_define_dir.html
 

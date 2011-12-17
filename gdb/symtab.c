@@ -4592,7 +4592,7 @@ append_exact_match_to_sals (char *filename, int lineno,
   int j;
   *best_item = 0;
   *best_symtab = 0;
-  
+
   ALL_SYMTABS (objfile, symtab)
     {
       if (strcmp (filename, symtab->filename) == 0)

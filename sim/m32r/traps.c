@@ -81,7 +81,7 @@ m32r_core_signal (SIM_DESC sd, SIM_CPU *current_cpu, sim_cia cia,
 	default:
 	  abort ();
 	}
-	    
+
       m32rbf_h_cr_set (current_cpu, H_CR_BPC, cia);
 
       sim_engine_restart (CPU_STATE (current_cpu), current_cpu, NULL,

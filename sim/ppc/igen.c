@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -201,7 +201,7 @@ gen_semantics_h(insn_table *table,
       insn_table_traverse_insn(table,
 			       file, NULL,
 			       print_semantic_declaration);
-    
+
   }
   else {
     lf_print__this_file_is_empty(file);
@@ -249,7 +249,7 @@ gen_semantics_c(insn_table *table,
       insn_table_traverse_insn(table,
 			       file, cache_rules,
 			       print_semantic_definition);
-    
+
   }
   else {
     lf_print__this_file_is_empty(file);
@@ -286,7 +286,7 @@ gen_icache_h(insn_table *table,
       insn_table_traverse_insn(table,
 			       file, NULL,
 			       print_icache_declaration);
-    
+
   }
   else {
     lf_print__this_file_is_empty(file);
@@ -330,7 +330,7 @@ gen_icache_c(insn_table *table,
       insn_table_traverse_insn(table,
 			       file, cache_rules,
 			       print_icache_definition);
-    
+
   }
   else {
     lf_print__this_file_is_empty(file);
@@ -381,7 +381,7 @@ main(int argc,
     printf("  -i <instruction-table>\n");
     printf("\n");
     printf("Output options:\n");
-    printf("  -n <real-name>        Specify the real name of for the next output file\n"); 
+    printf("  -n <real-name>        Specify the real name of for the next output file\n");
     printf("  -h 		    Generate header file\n");
     printf("  -c <output-file>      output icache\n");
     printf("  -d <output-file>      output idecode\n");

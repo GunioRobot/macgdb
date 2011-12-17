@@ -15,7 +15,7 @@ wmac:
 	mcr        p15, 0, r1, cr15, cr1, 0
 
 	# Test Unsigned, Multiply Accumulate, Non-zeroing
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -28,20 +28,20 @@ wmac:
 	tmcrr	   wr2, r4, r5
 
 	wmacu	   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0x6c889377
 	test_h_gr  r5, 0x44444444
-				
+
 	# Test Unsigned, Multiply Accumulate, Zeroing
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -54,20 +54,20 @@ wmac:
 	tmcrr	   wr2, r4, r5
 
 	wmacuz	   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0x39556044
 	test_h_gr  r5, 0x00000000
-				
+
 	# Test Signed, Multiply Accumulate, Non-zeroing
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -80,20 +80,20 @@ wmac:
 	tmcrr	   wr2, r4, r5
 
 	wmacs	   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0x28449377
 	test_h_gr  r5, 0x44444444
-				
+
 	# Test Signed, Multiply Accumulate, Zeroing
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -106,16 +106,16 @@ wmac:
 	tmcrr	   wr2, r4, r5
 
 	wmacsz	   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xf5116044
 	test_h_gr  r5, 0xffffffff
-				
+
 	pass

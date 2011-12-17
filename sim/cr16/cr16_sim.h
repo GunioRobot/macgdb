@@ -13,7 +13,7 @@
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
- 
+
    You should have received a copy of the GNU General Public License
    along with this program. If not, see <http://www.gnu.org/licenses/>.  */
 
@@ -58,7 +58,7 @@ typedef signed64 int64;
 typedef uint16 reg_t;
 typedef uint32 creg_t;
 
-struct simops 
+struct simops
 {
   char mnimonic[12];
   uint32 size;
@@ -81,8 +81,8 @@ enum _ins_type
    INS_ARITH_BYTE_INS,
    INS_SHIFT_INS,
    INS_BRANCH_NEQ_INS,
-   INS_STOR_IMM_INS, 
-   INS_CSTBIT_INS, 
+   INS_STOR_IMM_INS,
+   INS_CSTBIT_INS,
    INS_MAX
 };
 
@@ -238,7 +238,7 @@ struct _state
 #define GPR32(N) \
      (N < 12) ? \
      ((((uint16) State.regs[(N) + 1]) << 16) | (uint16) State.regs[(N)]) \
-     : GPR (N) 
+     : GPR (N)
 
 #define SET_GPR32(N,VAL) do { \
      if (N < 11)  \
@@ -403,10 +403,10 @@ enum
 #define SIG_CR16_BUS    -3
 #define SIG_CR16_IAD    -4
 
-#define SEXT3(x)	((((x)&0x7)^(~3))+4)	
+#define SEXT3(x)	((((x)&0x7)^(~3))+4)
 
 /* sign-extend a 4-bit number */
-#define SEXT4(x)	((((x)&0xf)^(~7))+8)	
+#define SEXT4(x)	((((x)&0xf)^(~7))+8)
 
 /* sign-extend an 8-bit number */
 #define SEXT8(x)	((((x)&0xff)^(~0x7f))+0x80)

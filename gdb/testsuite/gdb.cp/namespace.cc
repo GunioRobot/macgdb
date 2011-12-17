@@ -107,7 +107,7 @@ namespace C
   namespace
   {
     int cX = 6;
-    
+
     namespace F
     {
       int cXf = 7;
@@ -174,11 +174,11 @@ int main ()
   char c1;
 
   using namespace BBB;
-  
+
   c1 = xyzq ('x');
   c1 = AAA::xyzq ('x');
   c1 = BBB::CCC::xyzq ('m');
-  
+
   inA ina;
 
   ina.xx = 33;
@@ -193,6 +193,6 @@ int main ()
   c1 = cl.xyzq('e');
 
   marker1();
-  
+
   C::D::marker2 ();
 }

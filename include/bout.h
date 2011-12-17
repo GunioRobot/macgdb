@@ -1,41 +1,41 @@
 /* This file is a modified version of 'a.out.h'.  It is to be used in all
    GNU tools modified to support the i80960 (or tools that operate on
    object files created by such tools).
-   
+
    Copyright 2001 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
- 
+
 /* All i80960 development is done in a CROSS-DEVELOPMENT environment.  I.e.,
    object code is generated on, and executed under the direction of a symbolic
    debugger running on, a host system.  We do not want to be subject to the
    vagaries of which host it is or whether it supports COFF or a.out format,
    or anything else.  We DO want to:
-  
+
   	o always generate the same format object files, regardless of host.
- 
+
  	o have an 'a.out' header that we can modify for our own purposes
  	  (the 80960 is typically an embedded processor and may require
  	  enhanced linker support that the normal a.out.h header can't
  	  accommodate).
- 
+
   As for byte-ordering, the following rules apply:
- 
+
  	o Text and data that is actually downloaded to the target is always
  	  in i80960 (little-endian) order.
- 
+
  	o All other numbers (in the header, symbols, relocation directives)
  	  are in host byte-order:  object files CANNOT be lifted from a
  	  little-end host and used on a big-endian (or vice versa) without
@@ -43,7 +43,7 @@
   ==> THIS IS NO LONGER TRUE USING BFD.  WE CAN GENERATE ANY BYTE ORDER
       FOR THE HEADER, AND READ ANY BYTE ORDER.  PREFERENCE WOULD BE TO
       USE LITTLE-ENDIAN BYTE ORDER THROUGHOUT, REGARDLESS OF HOST.  <==
- 
+
  	o The downloader ('comm960') takes care to generate a pseudo-header
  	  with correct (i80960) byte-ordering before shipping text and data
  	  off to the NINDY monitor in the target systems.  Symbols and
@@ -95,7 +95,7 @@ struct external_exec
 #define N_DRELOFF	N_DROFF
 #define N_SYMOFF(x)	( N_DROFF(x) + (x).a_drsize )
 #define N_STROFF(x)	( N_SYMOFF(x) + (x).a_syms )
-#define N_DATADDR(x)	( (x).a_dload )    
+#define N_DATADDR(x)	( (x).a_dload )
 
 /* Address of text segment in memory after it is loaded.  */
 #if !defined (N_TXTADDR)
@@ -132,31 +132,31 @@ struct nlist
 #define N_STAB	0340	/* Mask for all bits used for SDB entries 	*/
 
 /* MEANING OF 'n_other'
- 
+
   If non-zero, the 'n_other' fields indicates either a leaf procedure or
   a system procedure, as follows:
- 
+
  	1 <= n_other <= 32 :
  		The symbol is the entry point to a system procedure.
  		'n_value' is the address of the entry, as for any other
  		procedure.  The system procedure number (which can be used in
  		a 'calls' instruction) is (n_other-1).  These entries come from
  		'.sysproc' directives.
- 
+
  	n_other == N_CALLNAME
  		the symbol is the 'call' entry point to a leaf procedure.
  		The *next* symbol in the symbol table must be the corresponding
  		'bal' entry point to the procedure (see following).  These
  		entries come from '.leafproc' directives in which two different
  		symbols are specified (the first one is represented here).
- 	
- 
+
+
  	n_other == N_BALNAME
  		the symbol is the 'bal' entry point to a leaf procedure.
  		These entries result from '.leafproc' directives in which only
  		one symbol is specified, or in which the same symbol is
  		specified twice.
- 
+
   Note that an N_CALLNAME entry *must* have a corresponding N_BALNAME entry,
   but not every N_BALNAME entry must have an N_CALLNAME entry.  */
 #define N_CALLNAME	((char)-1)

@@ -74,7 +74,7 @@ struct objfile_data;
    process startup code.  Since we have no guarantee that the linked
    in startup modules have any debugging information that gdb can use,
    we need to avoid following frame pointers back into frames that might
-   have been built in the startup code, as we might get hopelessly 
+   have been built in the startup code, as we might get hopelessly
    confused.  However, we almost always have debugging information
    available for main().
 
@@ -243,7 +243,7 @@ struct objfile
     /* Obstack to hold objects that should be freed when we load a new symbol
        table from this object file. */
 
-    struct obstack objfile_obstack; 
+    struct obstack objfile_obstack;
 
     /* A byte cache where we can stash arbitrary "chunks" of bytes that
        will not change. */
@@ -369,7 +369,7 @@ struct objfile
     /* If this is a separate debug object, this is used as a link to the
        actual executable objfile. */
     struct objfile *separate_debug_objfile_backlink;
-    
+
     /* Place to stash various statistics about this objfile */
       OBJSTATS;
 

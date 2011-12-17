@@ -23,7 +23,7 @@ unlock:
 
 	ld r6, @r4
 	test_h_gr r6, 2
-	
+
 	pass
 
 data_loc:

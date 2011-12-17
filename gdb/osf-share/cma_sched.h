@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -78,7 +78,7 @@
  * Ada_low:  These threads are queued in the background queues, thus there
  * must be enough queues to allow one queue for each Ada priority below the
  * Ada default.
- */  
+ */
 #define cma__c_prio_o_al cma__c_prio_o_bg
 
 /*
@@ -237,7 +237,7 @@ extern cma_t_integer	cma__g_prio_m_0,
 		    	cma__g_prio_m_2,
 		    	cma__g_prio_m_3;
 
-/* 
+/*
  * The "b" values are the intercepts of the four sections of linear approx.
  *  (Not scaled.)
  *
@@ -248,7 +248,7 @@ extern cma_t_integer	cma__g_prio_b_0,
 		    	cma__g_prio_b_2,
 		    	cma__g_prio_b_3;
 
-/* 
+/*
  * The "p" values are the end points of the four sections of linear approx.
  *
  * cma__g_prio_p_I = cma__g_prio_fg_min + (I/4)*cma__g_prio_range

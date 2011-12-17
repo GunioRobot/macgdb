@@ -25,7 +25,7 @@ if {![istarget *-*-linux*]
     && ![istarget arm-*-eabi*]
     && ![istarget powerpc-*-eabi*]} {
     verbose "Skipping DW_AT_ranges test."
-    return 0  
+    return 0
 }
 
 set testfile "dw2-ranges"

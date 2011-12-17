@@ -34,7 +34,7 @@
 # that begins with '*/' without leading spaces (this assumes that the
 # texinfo snippet is within a C-style /* */ comment).
 
-# 
+#
 
 
 
@@ -72,7 +72,7 @@ for $in (@ARGV) {
 	    next unless $pertinent;
 
 	    if (/^\@def[a-z]*[a-wyz] /) {
-		
+
 		($name) = m/[^\(]* ([^\( \t\r\n]+) *\(/;
 		$name =~ s/[ 	]*$//;
 		$key = $name;

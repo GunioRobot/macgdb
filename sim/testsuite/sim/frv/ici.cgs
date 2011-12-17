@@ -19,7 +19,7 @@ ok1:
 	ori		gr10,1,gr10
 	set_mem_gr	gr10,testit
 	set_gr_addr	testit,gr10
-	dcf		@(gr10,gr0)	; flush data cache	
+	dcf		@(gr10,gr0)	; flush data cache
 	set_spr_addr	ok2,lr
 	bra		testit
 

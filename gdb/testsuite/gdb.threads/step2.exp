@@ -48,7 +48,7 @@ proc test_multi_threaded_stepping {} {
     set thread1condwait 0
     set thread2started 0
     set thread2condwait 0
-    
+
     send_gdb "run\n"
     gdb_expect {
 	-re "The program .* has been started already.*y or n. $" {
@@ -93,7 +93,7 @@ proc test_multi_threaded_stepping {} {
 	    send_gdb "step\n"
 	    exp_continue
 	}
-		    
+
 	-re ".*pthread_cond_wait.*cv_b.*$gdb_prompt" {
 	    if { $thread2started == 0 } then {
 		fail "thread2 condwait"
@@ -110,7 +110,7 @@ proc test_multi_threaded_stepping {} {
 	    send_gdb "step\n"
 	    exp_continue
 	}
-		    
+
 	-re "$gdb_prompt" {
 	    send_gdb "step\n"
 	    exp_continue

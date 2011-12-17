@@ -150,7 +150,7 @@ op tab[] =
     "  cycles += 2;",
     "}",
   },
-  
+
   { "", "m", "bld/st #<imm>, <REG_M>", "10000111mmmmi4*1",
     "/* MSB of 'i' is true for load, false for store.  */",
     "if (i <= 7)",
@@ -284,7 +284,7 @@ op tab[] =
     "    WLAT (R[15], PR);",
     "  else",
     "    WLAT (R[15], R[n]);",
-    "} while (n-- > 0);",    
+    "} while (n-- > 0);",
   },
   { "f", "f+", "movml.l @R15+,<REG_N>", "0100nnnn11110101",
     "/* Pop R0...Rn (if n==15, pop R0...R14 and pr).  */",
@@ -296,7 +296,7 @@ op tab[] =
     "  else",
     "    R[i] = RLAT (R[15]);",
     "  R[15] += 4;",
-    "} while (i++ < n);",    
+    "} while (i++ < n);",
   },
   { "f", "f-", "movmu.l <REG_N>,@-R15", "0100nnnn11110000",
     "/* Push pr, R14...Rn (if n==15, push pr).  */",	/* FIXME */
@@ -308,7 +308,7 @@ op tab[] =
     "    WLAT (R[15], PR);",
     "  else",
     "    WLAT (R[15], R[i]);",
-    "} while (i-- > n);",    
+    "} while (i-- > n);",
   },
   { "f", "f+", "movmu.l @R15+,<REG_N>", "0100nnnn11110100",
     "/* Pop Rn...R14, pr (if n==15, pop pr).  */",	/* FIXME */
@@ -319,10 +319,10 @@ op tab[] =
     "  else",
     "    R[n] = RLAT (R[15]);",
     "  R[15] += 4;",
-    "} while (n++ < 15);",    
+    "} while (n++ < 15);",
   },
   { "", "", "nott", "0000000001101000",
-    "SET_SR_T (T == 0);",	
+    "SET_SR_T (T == 0);",
   },
 
   { "", "", "bt.s <bdisp8>", "10001101i8p1....",
@@ -487,7 +487,7 @@ op tab[] =
 
   /* sh4 */
   { "", "", "fipr <FV_M>,<FV_N>", "1111vvVV11101101",
-    "if (FPSCR_PR)", 
+    "if (FPSCR_PR)",
     "  RAISE_EXCEPTION (SIGILL);",
     "else",
     "{",
@@ -652,7 +652,7 @@ op tab[] =
     "}",
   },
 
-  /* sh4: 
+  /* sh4:
      See fmov instructions above for move to/from extended fp registers.  */
 
   /* sh2e */
@@ -739,12 +739,12 @@ op tab[] =
     "if (FPSCR_PR)",
     "  RAISE_EXCEPTION (SIGILL);",
     "else",
-    "{", 
+    "{",
     "  if (saved_state.asregs.bfd_mach == bfd_mach_sh2a)",
     "    RAISE_EXCEPTION (SIGILL);",
     "  /* FIXME not implemented.  */",
     "  printf (\"ftrv xmtrx, FV%d\\n\", v1);",
-    "}", 
+    "}",
   },
 
   /* sh2e */
@@ -1132,7 +1132,7 @@ op tab[] =
     "WLAT (R[n], R[0]);",
   },
 
-  { "", "n0", "movco.l R0, @<REG_N>", "0000nnnn01110011", 
+  { "", "n0", "movco.l R0, @<REG_N>", "0000nnnn01110011",
     "/* LDST -> T */",
     "SET_SR_T (LDST);",
     "/* if (T) R0 -> (Rn) */",
@@ -1142,7 +1142,7 @@ op tab[] =
     "SET_LDST (0);",
   },
 
-  { "0", "n", "movli.l @<REG_N>, R0", "0000nnnn01100011", 
+  { "0", "n", "movli.l @<REG_N>, R0", "0000nnnn01100011",
     "/* 1 -> LDST */",
     "SET_LDST (1);",
     "/* (Rn) -> R0 */",
@@ -1155,7 +1155,7 @@ op tab[] =
     "R[n] = T;",
   },
   { "", "", "movrt <REG_N>", "0000nnnn00111001",
-    "R[n] = (T == 0);",	
+    "R[n] = (T == 0);",
   },
   { "0", "n", "movua.l @<REG_N>,R0", "0100nnnn10101001",
     "int regn = R[n];",
@@ -1258,8 +1258,8 @@ op tab[] =
   },
 
   /* sh4a */
-  { "", "", "synco", "0000000010101011", 
-    "/* Except for the effect on the pipeline - which is not simulated -", 
+  { "", "", "synco", "0000000010101011",
+    "/* Except for the effect on the pipeline - which is not simulated -",
     "   this is like a nop.  */",
   },
 
@@ -1287,7 +1287,7 @@ op tab[] =
     "R[n] |= (T << 31);",
   },
 
-  { "", "", "rte", "0000000000101011", 
+  { "", "", "rte", "0000000000101011",
 #if 0
     /* SH-[12] */
     "int tmp = PC;",
@@ -1503,7 +1503,7 @@ op tab[] =
     "WBAT (R[n],ult|0x80);",
   },
 
-  { "0", "", "trapa #<imm>", "11000011i8*1....", 
+  { "0", "", "trapa #<imm>", "11000011i8*1....",
     "long imm = 0xff & i;",
     "RAISE_EXCEPTION_IF_IN_DELAY_SLOT ();",
     "if (i < 20 || i == 33 || i == 34 || i == 0xc3)",
@@ -2006,8 +2006,8 @@ op ppi_tab[] =
     "else",
     "  {",
     "    res = -res;",
-    "    carry = (res != 0); /* The manual has a bug here.  */", 
-    "    res_grd = -res_grd - carry;", 
+    "    carry = (res != 0); /* The manual has a bug here.  */",
+    "    res_grd = -res_grd - carry;",
     "  }",
     "COMPUTE_OVERFLOW;",
     "/* ??? The re-computing of overflow after",
@@ -2023,8 +2023,8 @@ op ppi_tab[] =
     "else",
     "  {",
     "    res = -res;",
-    "    carry = (res != 0); /* The manual has a bug here.  */", 
-    "    res_grd = -res_grd - carry;", 
+    "    carry = (res != 0); /* The manual has a bug here.  */",
+    "    res_grd = -res_grd - carry;",
     "  }",
     "COMPUTE_OVERFLOW;",
     "/* ??? The re-computing of overflow after",
@@ -2598,9 +2598,9 @@ conflict_warn (val, i)
   for (ix = sizeof (tab) / sizeof (tab[0]); ix >= 0; ix--)
     if (tab[ix].index == i || tab[ix].index == j)
       {
-	key = ((tab[ix].code[0] - '0') << 3) + 
-	  ((tab[ix].code[1] - '0') << 2) + 
-	  ((tab[ix].code[2] - '0') << 1) + 
+	key = ((tab[ix].code[0] - '0') << 3) +
+	  ((tab[ix].code[1] - '0') << 2) +
+	  ((tab[ix].code[2] - '0') << 1) +
 	  ((tab[ix].code[3] - '0'));
 
 	if (val >> 12 == key)
@@ -2610,26 +2610,26 @@ conflict_warn (val, i)
   for (ix = sizeof (movsxy_tab) / sizeof (movsxy_tab[0]); ix >= 0; ix--)
     if (movsxy_tab[ix].index == i || movsxy_tab[ix].index == j)
       {
-	key = ((movsxy_tab[ix].code[0] - '0') << 3) + 
-	  ((movsxy_tab[ix].code[1] - '0') << 2) + 
-	  ((movsxy_tab[ix].code[2] - '0') << 1) + 
+	key = ((movsxy_tab[ix].code[0] - '0') << 3) +
+	  ((movsxy_tab[ix].code[1] - '0') << 2) +
+	  ((movsxy_tab[ix].code[2] - '0') << 1) +
 	  ((movsxy_tab[ix].code[3] - '0'));
 
 	if (val >> 12 == key)
-	  fprintf (stderr, "  %s -- %s\n", 
+	  fprintf (stderr, "  %s -- %s\n",
 		   movsxy_tab[ix].code, movsxy_tab[ix].name);
       }
 
   for (ix = sizeof (ppi_tab) / sizeof (ppi_tab[0]); ix >= 0; ix--)
     if (ppi_tab[ix].index == i || ppi_tab[ix].index == j)
       {
-	key = ((ppi_tab[ix].code[0] - '0') << 3) + 
-	  ((ppi_tab[ix].code[1] - '0') << 2) + 
-	  ((ppi_tab[ix].code[2] - '0') << 1) + 
+	key = ((ppi_tab[ix].code[0] - '0') << 3) +
+	  ((ppi_tab[ix].code[1] - '0') << 2) +
+	  ((ppi_tab[ix].code[2] - '0') << 1) +
 	  ((ppi_tab[ix].code[3] - '0'));
 
 	if (val >> 12 == key)
-	  fprintf (stderr, "  %s -- %s\n", 
+	  fprintf (stderr, "  %s -- %s\n",
 		   ppi_tab[ix].code, ppi_tab[ix].name);
       }
 }
@@ -2708,7 +2708,7 @@ expand_opcode (val, i, s)
 	    expand_opcode ((val << 4) | j, i, s + 4);
 	  break;
 	case 'G':
-	  /* A1G, A0G: 
+	  /* A1G, A0G:
 	     GGGG -- two-way fork */
 	  for (j = 13; j <= 15; j +=2)
 	    expand_opcode ((val << 4) | j, i, s + 4);
@@ -2841,7 +2841,7 @@ gensim_caselist (p)
       int sextbit = -1;
       int needm = 0;
       int needn = 0;
-      
+
       char *s = p->code;
 
       printf ("  /* %s %s */\n", p->name, p->code);
@@ -2969,7 +2969,7 @@ gensim_caselist (p)
 	      switch (s[1])
 		{
 		default:
-		  fprintf (stderr, 
+		  fprintf (stderr,
 			   "gensim_caselist: Unknown char '%c' in %s\n",
 			   s[1], s);
 		  exit (1);
@@ -2990,7 +2990,7 @@ gensim_caselist (p)
 	      switch (s[3])
 		{
 		default:
-		  fprintf (stderr, 
+		  fprintf (stderr,
 			   "gensim_caselist: Unknown char '%c' in %s\n",
 			   s[3], s);
 		  exit (1);
@@ -3017,7 +3017,7 @@ gensim_caselist (p)
 	}
 
       if (needm && needn)
-	printf ("      TB (m,n);\n");  
+	printf ("      TB (m,n);\n");
       else if (needm)
 	printf ("      TL (m);\n");
       else if (needn)
@@ -3029,7 +3029,7 @@ gensim_caselist (p)
 	for (r = p->refs; *r; r++)
 	  {
 	    if (*r == 'f') printf ("      CREF (15);\n");
-	    if (*r == '-') 
+	    if (*r == '-')
 	      {
 		printf ("      {\n");
 		printf ("        int i = n;\n");
@@ -3038,7 +3038,7 @@ gensim_caselist (p)
 		printf ("        } while (i-- > 0);\n");
 		printf ("      }\n");
 	      }
-	    if (*r == '+') 
+	    if (*r == '+')
 	      {
 		printf ("      {\n");
 		printf ("        int i = n;\n");
@@ -3047,11 +3047,11 @@ gensim_caselist (p)
 		printf ("        } while (i++ < 14);\n");
 		printf ("      }\n");
 	      }
-	    if (*r == '0') printf ("      CREF (0);\n"); 
-	    if (*r == '8') printf ("      CREF (8);\n"); 
-	    if (*r == '9') printf ("      CREF (9);\n"); 
-	    if (*r == 'n') printf ("      CREF (n);\n"); 
-	    if (*r == 'm') printf ("      CREF (m);\n"); 
+	    if (*r == '0') printf ("      CREF (0);\n");
+	    if (*r == '8') printf ("      CREF (8);\n");
+	    if (*r == '9') printf ("      CREF (9);\n");
+	    if (*r == 'n') printf ("      CREF (n);\n");
+	    if (*r == 'm') printf ("      CREF (m);\n");
 	  }
       }
 
@@ -3068,10 +3068,10 @@ gensim_caselist (p)
       {
 	/* Do the defs.  */
 	char *r;
-	for (r = p->defs; *r; r++) 
+	for (r = p->defs; *r; r++)
 	  {
 	    if (*r == 'f') printf ("      CDEF (15);\n");
-	    if (*r == '-') 
+	    if (*r == '-')
 	      {
 		printf ("      {\n");
 		printf ("        int i = n;\n");
@@ -3080,7 +3080,7 @@ gensim_caselist (p)
 		printf ("        } while (i-- > 0);\n");
 		printf ("      }\n");
 	      }
-	    if (*r == '+') 
+	    if (*r == '+')
 	      {
 		printf ("      {\n");
 		printf ("        int i = n;\n");
@@ -3089,9 +3089,9 @@ gensim_caselist (p)
 		printf ("        } while (i++ < 14);\n");
 		printf ("      }\n");
 	      }
-	    if (*r == '0') printf ("      CDEF (0);\n"); 
-	    if (*r == 'n') printf ("      CDEF (n);\n"); 
-	    if (*r == 'm') printf ("      CDEF (m);\n"); 
+	    if (*r == '0') printf ("      CDEF (0);\n");
+	    if (*r == 'n') printf ("      CDEF (n);\n");
+	    if (*r == 'm') printf ("      CDEF (m);\n");
 	  }
       }
 
@@ -3139,7 +3139,7 @@ gendefines ()
       char *s = p->name;
       printf ("#define OPC_");
       while (*s) {
-	if (isupper (*s)) 
+	if (isupper (*s))
 	  *s = tolower (*s);
 	if (isalpha (*s))
 	  printf ("%c", *s);
@@ -3281,7 +3281,7 @@ ppi_gensim ()
       int shift, j;
       int cond = 0;
       int havedecl = 0;
-      
+
       char *s = p->code;
 
       printf ("  /* %s %s */\n", p->name, p->code);

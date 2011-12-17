@@ -151,13 +151,13 @@ nia = PC
 #define PSW_S 0x2
 #define PSW_Z 0x1
 
-#define SEXT3(x)	((((x)&0x7)^(~0x3))+0x4)	
+#define SEXT3(x)	((((x)&0x7)^(~0x3))+0x4)
 
 /* sign-extend a 4-bit number */
-#define SEXT4(x)	((((x)&0xf)^(~0x7))+0x8)	
+#define SEXT4(x)	((((x)&0xf)^(~0x7))+0x8)
 
 /* sign-extend a 5-bit number */
-#define SEXT5(x)	((((x)&0x1f)^(~0xf))+0x10)	
+#define SEXT5(x)	((((x)&0x1f)^(~0xf))+0x10)
 
 /* sign-extend a 9-bit number */
 #define SEXT9(x)	((((x)&0x1ff)^(~0xff))+0x100)

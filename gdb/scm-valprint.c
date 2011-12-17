@@ -340,7 +340,7 @@ taloop:
 	      {
 		result
 		  = scm_apply (hook,
-			       scm_listify (exp, port, 
+			       scm_listify (exp, port,
 					    (writing ? BOOL_T : BOOL_F),
 					    SCM_UNDEFINED),
 			       EOL);
@@ -389,8 +389,8 @@ taloop:
 	  break;
 	case tc7_port:
 	  i = PTOBNUM (exp);
-	  if (i < scm_numptob 
-	      && scm_ptobs[i].print 
+	  if (i < scm_numptob
+	      && scm_ptobs[i].print
 	      && (scm_ptobs[i].print) (exp, port, writing))
 	    break;
 	  goto punk;

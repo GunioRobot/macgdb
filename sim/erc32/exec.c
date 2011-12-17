@@ -1,23 +1,23 @@
 /*
  * This file is part of SIS.
- * 
+ *
  * SIS, SPARC instruction simulator V1.8 Copyright (C) 1995 Jiri Gaisler,
  * European Space Agency
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
  * more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 675
  * Mass Ave, Cambridge, MA 02139, USA.
- * 
+ *
  */
 
 #include "sis.h"
@@ -315,16 +315,16 @@ mul64 (uint32 n1, uint32 n2, uint32 *result_hi, uint32 *result_lo, int msigned)
 	n1 = -n1;
       if (n2 & SIGN_BIT)
 	n2 = -n2;
-      
+
     }
-  
+
   /* We can split the 32x32 into four 16x16 operations. This ensures
      that we do not lose precision on 32bit only hosts: */
   lo =   ((n1 & 0xFFFF) * (n2 & 0xFFFF));
   mid1 = ((n1 & 0xFFFF) * ((n2 >> 16) & 0xFFFF));
   mid2 = (((n1 >> 16) & 0xFFFF) * (n2 & 0xFFFF));
   hi =   (((n1 >> 16) & 0xFFFF) * ((n2 >> 16) & 0xFFFF));
-  
+
   /* We now need to add all of these results together, taking care
      to propogate the carries from the additions: */
   reg_lo = add32 (lo, (mid1 << 16), &carry);
@@ -340,7 +340,7 @@ mul64 (uint32 n1, uint32 n2, uint32 *result_hi, uint32 *result_lo, int msigned)
       if (reg_lo == 0)
 	reg_hi++;
     }
-  
+
   *result_lo = reg_lo;
   *result_hi = reg_hi;
 }

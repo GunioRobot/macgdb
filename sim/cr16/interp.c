@@ -13,8 +13,8 @@
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
- 
-   You should have received a copy of the GNU General Public License 
+
+   You should have received a copy of the GNU General Public License
    along with this program. If not, see <http://www.gnu.org/licenses/>.  */
 
 #include <signal.h>
@@ -92,7 +92,7 @@ struct hash_entry hash_table[MAX_HASH+1];
 
 INLINE static long
 hash(unsigned long long insn, int format)
-{ 
+{
   unsigned int i = 4, tmp;
   if (format)
     {
@@ -143,7 +143,7 @@ lookup_hash (uint64 ins, int size)
 INLINE static void
 get_operands (operand_desc *s, uint64 ins, int isize, int nops)
 {
-  uint32 i, opn = 0, start_bit = 0, op_type = 0; 
+  uint32 i, opn = 0, start_bit = 0, op_type = 0;
   int32 op_size = 0, mask = 0;
 
   if (isize == 1) /* Trunkcate the extra 16 bits of INS.  */
@@ -166,7 +166,7 @@ get_operands (operand_desc *s, uint64 ins, int isize, int nops)
              else
                OP[i] = ((ins >> (32 - start_bit)) & ((1 << op_size) -1));
 
-             if (OP[i] & ((long)1 << (op_size -1))) 
+             if (OP[i] & ((long)1 << (op_size -1)))
                {
                  sign_flag = 1;
                  OP[i] = ~(OP[i]) + 1;
@@ -224,10 +224,10 @@ get_operands (operand_desc *s, uint64 ins, int isize, int nops)
           case uimm5: break; /*NOT USED.  */
             OP[i] = ins & ((1 << op_size) - 1); break;
 
-          case disps5: 
-            OP[i] = (ins >> 4) & ((1 << 4) - 1); 
+          case disps5:
+            OP[i] = (ins >> 4) & ((1 << 4) - 1);
             OP[i] = (OP[i] * 2) + 2;
-            if (OP[i] & ((long)1 << 5)) 
+            if (OP[i] & ((long)1 << 5))
               {
                 sign_flag = 1;
                 OP[i] = ~(OP[i]) + 1;
@@ -235,10 +235,10 @@ get_operands (operand_desc *s, uint64 ins, int isize, int nops)
               }
             break;
 
-          case dispe9: 
-            OP[i] = ((((ins >> 8) & 0xf) << 4) | (ins & 0xf)); 
+          case dispe9:
+            OP[i] = ((((ins >> 8) & 0xf) << 4) | (ins & 0xf));
             OP[i] <<= 1;
-            if (OP[i] & ((long)1 << 8)) 
+            if (OP[i] & ((long)1 << 8))
               {
                 sign_flag = 1;
                 OP[i] = ~(OP[i]) + 1;
@@ -246,9 +246,9 @@ get_operands (operand_desc *s, uint64 ins, int isize, int nops)
               }
             break;
 
-          case disps17: 
+          case disps17:
             OP[i] = (ins & 0xFFFF);
-            if (OP[i] & 1) 
+            if (OP[i] & 1)
               {
                 OP[i] = (OP[i] & 0xFFFE);
                 sign_flag = 1;
@@ -257,14 +257,14 @@ get_operands (operand_desc *s, uint64 ins, int isize, int nops)
               }
             break;
 
-          case disps25: 
+          case disps25:
             if (isize == 2)
               OP[i] = (ins & 0xFFFFFF);
-            else 
+            else
               OP[i] = (ins & 0xFFFF) | (((ins >> 24) & 0xf) << 16) |
                       (((ins >> 16) & 0xf) << 20);
 
-            if (OP[i] & 1) 
+            if (OP[i] & 1)
               {
                 OP[i] = (OP[i] & 0xFFFFFE);
                 sign_flag = 1;
@@ -275,7 +275,7 @@ get_operands (operand_desc *s, uint64 ins, int isize, int nops)
 
           case abs20:
             if (isize == 3)
-              OP[i] = (ins) & 0xFFFFF; 
+              OP[i] = (ins) & 0xFFFFF;
             else
               OP[i] = (ins >> start_bit) & 0xFFFFF;
             break;
@@ -328,7 +328,7 @@ get_operands (operand_desc *s, uint64 ins, int isize, int nops)
           case regr: case regp: case pregr: case pregrp:
               switch(isize)
                 {
-                  case 1: 
+                  case 1:
                     if (start_bit == 20) OP[i] = (ins >> 4) & 0xF;
                     else if (start_bit == 16) OP[i] = ins & 0xF;
                     break;
@@ -336,16 +336,16 @@ get_operands (operand_desc *s, uint64 ins, int isize, int nops)
                   case 3: OP[i] = (ins >> (start_bit + 16)) & 0xF; break;
                 }
                break;
-          case cc: 
+          case cc:
             {
               if (isize == 1) OP[i] = (ins >> 4) & 0xF;
               else if (isize == 2)  OP[i] = (ins >> start_bit)  & 0xF;
-              else  OP[i] = (ins >> (start_bit + 16)) & 0xF; 
+              else  OP[i] = (ins >> (start_bit + 16)) & 0xF;
               break;
             }
           default: break;
         }
-     
+
       /* For ESC on uimm4_1 operand.  */
       if (op_type == uimm4_1)
         if (OP[i] == 9)
@@ -393,7 +393,7 @@ do_run(uint64 mcode)
   if ((cr16_debug & DEBUG_INSTRUCTION) != 0)
     (*cr16_callback->printf_filtered) (cr16_callback, "do_long 0x%x\n", mcode);
 #endif
-  
+
    h =  lookup_hash(mcode, 1);
 
    if ((h == NULL) || (h->opcode == NULL)) return 0;
@@ -772,24 +772,24 @@ map_memory (unsigned phys_addr)
   uint8 *raw;
   unsigned offset;
   int segment = ((phys_addr >> 24) & 0xff);
-  
+
   switch (segment)
     {
-      
+
     case 0x00: /* Unified memory */
       {
         memory = &State.mem.unif[(phys_addr / SEGMENT_SIZE) % UMEM_SEGMENTS];
         last_segname = "umem";
         break;
       }
-    
+
     case 0x01: /* On-chip insn memory */
       {
         memory = &State.mem.insn[(phys_addr / SEGMENT_SIZE) % IMEM_SEGMENTS];
         last_segname = "imem";
         break;
       }
-    
+
     case 0x02: /* On-chip data memory */
       {
         if ((phys_addr & 0xff00) == 0xff00)
@@ -808,13 +808,13 @@ map_memory (unsigned phys_addr)
         memory = &State.mem.data[(phys_addr / SEGMENT_SIZE) % DMEM_SEGMENTS];
         break;
       }
-    
+
     default:
       /* OOPS! */
       last_segname = "scrap";
       return State.mem.fault;
     }
-  
+
   if (*memory == NULL)
     {
       *memory = calloc (1, SEGMENT_SIZE);
@@ -824,12 +824,12 @@ map_memory (unsigned phys_addr)
           return State.mem.fault;
         }
     }
-  
+
   offset = (phys_addr % SEGMENT_SIZE);
   raw = *memory + offset;
   return raw;
 }
-  
+
 /* Transfer data to/from simulated memory.  Since a bug in either the
    simulated program or in gdb or the simulator itself may cause a
    bogus address to be passed in, we need to do some sanity checking
@@ -874,7 +874,7 @@ xfer_mem (SIM_ADDR virt,
     {
       memcpy (buffer, memory, phys_size);
     }
-  
+
   return phys_size;
 }
 
@@ -932,7 +932,7 @@ sim_open (SIM_OPEN_KIND kind, struct host_callback_struct *callback, struct bfd 
         (*cr16_callback->printf_filtered) (cr16_callback, "ERROR: unsupported option(s): %s\n",*p);
     }
 #endif
-  
+
   /* put all the opcodes in the hash table.  */
   if (!init_p++)
     {
@@ -941,7 +941,7 @@ sim_open (SIM_OPEN_KIND kind, struct host_callback_struct *callback, struct bfd 
           switch(32 - s->mask)
             {
             case 0x4:
-               h = &hash_table[hash(s->opcode, 0)]; 
+               h = &hash_table[hash(s->opcode, 0)];
                break;
 
             case 0x7:
@@ -960,9 +960,9 @@ sim_open (SIM_OPEN_KIND kind, struct host_callback_struct *callback, struct bfd 
 
             case 0x9:
                if (((s->opcode  >> 1) >> 4) != 0)
-                 h = &hash_table[hash((s->opcode >>1) >> 4, 0)]; 
-               else 
-                 h = &hash_table[hash((s->opcode >> 1), 0)]; 
+                 h = &hash_table[hash((s->opcode >>1) >> 4, 0)];
+               else
+                 h = &hash_table[hash((s->opcode >> 1), 0)];
                break;
 
             case 0xa:
@@ -971,7 +971,7 @@ sim_open (SIM_OPEN_KIND kind, struct host_callback_struct *callback, struct bfd 
                else if ((s->opcode >> 4) != 0)
                  h = &hash_table[hash(s->opcode >> 4, 0)];
                else
-                 h = &hash_table[hash(s->opcode, 0)]; 
+                 h = &hash_table[hash(s->opcode, 0)];
                break;
 
             case 0xc:
@@ -994,12 +994,12 @@ sim_open (SIM_OPEN_KIND kind, struct host_callback_struct *callback, struct bfd 
 
             case 0x10:
                if ((s->opcode >> 0xc) != 0)
-                 h = &hash_table[hash(s->opcode >> 12, 0)]; 
+                 h = &hash_table[hash(s->opcode >> 12, 0)];
                else if ((s->opcode >> 8) != 0)
                  h = &hash_table[hash(s->opcode >> 8, 0)];
                else if ((s->opcode >> 4) != 0)
                  h = &hash_table[hash(s->opcode >> 4, 0)];
-               else 
+               else
                  h = &hash_table[hash(s->opcode, 0)];
                break;
 
@@ -1012,13 +1012,13 @@ sim_open (SIM_OPEN_KIND kind, struct host_callback_struct *callback, struct bfd 
                  h = &hash_table[hash(s->opcode >> 8, 0)];
                else if ((s->opcode >> 4) != 0)
                  h = &hash_table[hash(s->opcode >> 4, 0)];
-               else 
+               else
                  h = &hash_table[hash(s->opcode, 0)];
                break;
             default:
               break;
             }
-      
+
           /* go to the last entry in the chain.  */
           while (h->next)
             h = h->next;
@@ -1118,7 +1118,7 @@ imem_addr (uint32 offset)
     {
       return State.mem.fault;
     }
-  mem = map_memory (phys); 
+  mem = map_memory (phys);
 #ifdef DEBUG
   if ((cr16_debug & DEBUG_MEMORY))
     {
@@ -1153,7 +1153,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
   uint8 *iaddr;
 
 #ifdef DEBUG
-//  (*cr16_callback->printf_filtered) (cr16_callback, "sim_resume (%d,%d)  PC=0x%x\n",step,siggnal,PC); 
+//  (*cr16_callback->printf_filtered) (cr16_callback, "sim_resume (%d,%d)  PC=0x%x\n",step,siggnal,PC);
 #endif
 
   State.exception = 0;
@@ -1193,20 +1193,20 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
           State.exception = SIGBUS;
           break;
         }
- 
-      mcode = get_longword( iaddr ); 
- 
+
+      mcode = get_longword( iaddr );
+
       State.pc_changed = 0;
-      
+
       curr_ins_size = do_run(mcode);
 
 #if CR16_DEBUG
- (*cr16_callback->printf_filtered) (cr16_callback, "INS: PC=0x%X, mcode=0x%X\n",PC,mcode); 
+ (*cr16_callback->printf_filtered) (cr16_callback, "INS: PC=0x%X, mcode=0x%X\n",PC,mcode);
 #endif
 
       if (!State.pc_changed)
         {
-          if (curr_ins_size == 0) 
+          if (curr_ins_size == 0)
            {
              State.exception = SIG_CR16_EXIT; /* exit trap */
              break;
@@ -1238,7 +1238,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 #endif /* NEED_UI_LOOP_HOOK */
     }
   while ( !State.exception && !stop_simulator);
-  
+
   if (step && !State.exception)
     State.exception = SIGTRAP;
 }
@@ -1491,7 +1491,7 @@ sim_fetch_register (sd, rn, memory, length)
     }
   return size;
 }
- 
+
 int
 sim_store_register (sd, rn, memory, length)
      SIM_DESC sd;
@@ -1551,7 +1551,7 @@ void
 sim_do_command (sd, cmd)
      SIM_DESC sd;
      char *cmd;
-{ 
+{
   (*cr16_callback->printf_filtered) (cr16_callback, "sim_do_command: %s\n",cmd);
 }
 
@@ -1572,4 +1572,4 @@ sim_load (SIM_DESC sd, char *prog, struct bfd *abfd, int from_tty)
     return SIM_RC_FAIL;
   prog_bfd_was_opened_p = abfd == NULL;
   return SIM_RC_OK;
-} 
+}

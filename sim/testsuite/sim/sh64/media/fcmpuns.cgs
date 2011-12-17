@@ -9,7 +9,7 @@
 init:
 	pta wrong, tr0
 
-fcmpuns:	
+fcmpuns:
 	movi 0, r0
 	movi 1, r1
 	fmov.ls r0, fr0
@@ -19,7 +19,7 @@ fcmpuns:
 	fcmpun.s fr0, fr1, r7
 	bnei r7, 0, tr0
 
-okay:	
+okay:
 	pass
 
 wrong:

@@ -27,7 +27,7 @@
 #include "tui/tui-data.h"
 
 extern void tui_add_win_to_layout (enum tui_win_type);
-extern int tui_default_win_height (enum tui_win_type, 
+extern int tui_default_win_height (enum tui_win_type,
 				   enum tui_layout_type);
 extern int tui_default_win_viewport_height (enum tui_win_type,
 					    enum tui_layout_type);

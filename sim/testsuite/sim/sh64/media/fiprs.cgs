@@ -8,7 +8,7 @@
 	.macro _load val, fpreg
 	# This macro clobbers r0.
 	movi \val, r0
-	fmov.ls r0, \fpreg 
+	fmov.ls r0, \fpreg
 	float.ls \fpreg, \fpreg
 	.endm
 

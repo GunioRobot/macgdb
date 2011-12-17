@@ -90,21 +90,21 @@ struct frame_info
     int p;
     CORE_ADDR value;
   } prev_pc;
-  
+
   /* Cached copy of the previous frame's function address.  */
   struct
   {
     CORE_ADDR addr;
     int p;
   } prev_func;
-  
+
   /* This frame's ID.  */
   struct
   {
     int p;
     struct frame_id value;
   } this_id;
-  
+
   /* The frame's high-level base methods, and corresponding cache.
      The high level base methods are selected based on the frame's
      debug info.  */
@@ -614,7 +614,7 @@ frame_unwind_pc (struct frame_info *this_frame)
 	     determine the value of registers in THIS frame, and hence
 	     the value of this frame's PC (resume address).  A typical
 	     implementation is no more than:
-	   
+
 	     frame_unwind_register (this_frame, ISA_PC_REGNUM, buf);
 	     return extract_unsigned_integer (buf, size of ISA_PC_REGNUM);
 
@@ -1257,7 +1257,7 @@ select_frame (struct frame_info *fi)
 	}
     }
 }
-	
+
 /* Create an arbitrary (i.e. address specified by user) or innermost frame.
    Always returns a non-NULL value.  */
 
@@ -1661,9 +1661,9 @@ get_prev_frame (struct frame_info *this_frame)
      pcsqh register (space register for the instruction at the head of the
      instruction queue) cannot be written directly; the only way to set it
      is to branch to code that is in the target space.  In order to implement
-     frame dummies on HPUX, the called function is made to jump back to where 
-     the inferior was when the user function was called.  If gdb was inside 
-     the main function when we created the dummy frame, the dummy frame will 
+     frame dummies on HPUX, the called function is made to jump back to where
+     the inferior was when the user function was called.  If gdb was inside
+     the main function when we created the dummy frame, the dummy frame will
      point inside the main function.  */
   if (this_frame->level >= 0
       && get_frame_type (this_frame) == NORMAL_FRAME
@@ -1707,7 +1707,7 @@ get_prev_frame (struct frame_info *this_frame)
      That should provide a far better stopper than the current
      heuristics.  */
   /* NOTE: tausq/2004-10-09: this is needed if, for example, the compiler
-     applied tail-call optimizations to main so that a function called 
+     applied tail-call optimizations to main so that a function called
      from main returns directly to the caller of main.  Since we don't
      stop at main, we should at least stop at the entry point of the
      application.  */

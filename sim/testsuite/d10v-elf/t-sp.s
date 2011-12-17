@@ -8,7 +8,7 @@
 	ldi sp, 0xdead
 	loadpsw2 PSW_SM
 	ldi sp, 0xbeef
-	
+
 	loadpsw2 0
 	check 1 sp 0xdead
 	loadpsw2 PSW_SM

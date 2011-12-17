@@ -239,7 +239,7 @@ sh64_media_pbb_begin (SIM_CPU *current_cpu, int FAST_P)
  while (max_insns > 0)
     {
       USI insn = GETIMEMUSI (current_cpu, pc);
-      
+
       idesc = extract (current_cpu, pc, insn, &sc->argbuf, FAST_P);
       SEM_SKIP_COMPILE (current_cpu, sc, 1);
       ++sc;
@@ -362,7 +362,7 @@ sh64_media_pbb_cti_chain (SIM_CPU *current_cpu, SEM_ARG sem_arg,
     CPU_IDESC_SEM_INIT_P (current_cpu) = 0;
     CPU_RUNNING_P (current_cpu) = 0;
   }
-  
+
   /* If not running forever, exit back to main loop.  */
   if (CPU_MAX_SLICE_INSNS (current_cpu) != 0
       /* Also exit back to main loop if there's an event.

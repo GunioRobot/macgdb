@@ -456,7 +456,7 @@ static reloc_howto_type elf_mn10300_howto_table[] =
   EMPTY_HOWTO (30),
   EMPTY_HOWTO (31),
   EMPTY_HOWTO (32),
-  
+
   HOWTO (R_MN10300_SYM_DIFF,	/* type */
 	 0,			/* rightshift */
 	 2,			/* size (0 = byte, 1 = short, 2 = long) */
@@ -1842,7 +1842,7 @@ mn10300_elf_relax_delete_bytes (bfd *abfd,
 	 serve to keep the section artifically inflated.  */
       if (ELF32_R_TYPE ((irelend - 1)->r_info) == (int) R_MN10300_ALIGN)
 	--irelend;
-      
+
       /* The deletion must stop at the next ALIGN reloc for an aligment
 	 power larger than, or not a multiple of, the number of bytes we
 	 are deleting.  */

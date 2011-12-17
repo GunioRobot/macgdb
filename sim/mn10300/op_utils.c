@@ -170,7 +170,7 @@ do_syscall (void)
   /* We use this for simulated system calls; we may need to change
      it to a reserved instruction if we conflict with uses at
      Matsushita.  */
-  int save_errno = errno;	
+  int save_errno = errno;
   errno = 0;
 
 /* Registers passed to trap 0 */

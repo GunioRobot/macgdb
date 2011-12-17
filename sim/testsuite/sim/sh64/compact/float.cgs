@@ -7,7 +7,7 @@
 
 	start
 
-pos:	
+pos:
 	mov #3, r0
 	lds r0, fpul
 	float fpul, fr7
@@ -20,7 +20,7 @@ pos:
 	fcmp/eq fr1, fr7
 	bf wrong
 
-neg:	
+neg:
 	mov #3, r0
 	neg r0, r0
 	lds r0, fpul
@@ -40,7 +40,7 @@ neg:
 
 wrong:
 	fail
-	
+
 double:
 	mov #3, r0
 	lds r0, fpul
@@ -71,7 +71,7 @@ dneg:
 	fneg fr1
 	_s2d fr1, dr2
 	fcmp/eq dr2, dr8
-	bf wrong	
+	bf wrong
 
 okay:
 	pass

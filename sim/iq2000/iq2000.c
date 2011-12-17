@@ -34,20 +34,20 @@ enum
 enum libgloss_syscall
 {
   SYS_exit = 1,
-  SYS_open = 2, 
-  SYS_close = 3, 
+  SYS_open = 2,
+  SYS_close = 3,
   SYS_read = 4,
-  SYS_write = 5, 
-  SYS_lseek = 6, 
+  SYS_write = 5,
+  SYS_lseek = 6,
   SYS_unlink = 7,
   SYS_getpid = 8,
   SYS_kill = 9,
-  SYS_fstat = 10, 
-  SYS_argvlen = 12, 
+  SYS_fstat = 10,
+  SYS_argvlen = 12,
   SYS_argv = 13,
-  SYS_chdir = 14, 
-  SYS_stat = 15, 
-  SYS_chmod = 16, 
+  SYS_chdir = 14,
+  SYS_stat = 15,
+  SYS_chmod = 16,
   SYS_utime = 17,
   SYS_time = 18,
   SYS_gettimeofday = 19,
@@ -84,7 +84,7 @@ do_syscall (SIM_CPU *current_cpu, PCADDR pc)
   int PARM2 = iq2000bf_h_gr_get (current_cpu, 6);
   int PARM3 = iq2000bf_h_gr_get (current_cpu, 7);
   const int ret_reg = 2;
-	
+
   switch (syscall_function)
     {
     case 0:
@@ -114,7 +114,7 @@ do_syscall (SIM_CPU *current_cpu, PCADDR pc)
 		sim_io_lseek (CPU_STATE (current_cpu),
 			      PARM1, PARM2, PARM3));
       break;
-	    
+
     case SYS_exit:
       sim_engine_halt (CPU_STATE (current_cpu), current_cpu,
 		       NULL, pc, sim_exited, PARM1);
@@ -128,7 +128,7 @@ do_syscall (SIM_CPU *current_cpu, PCADDR pc)
       sim_write (CPU_STATE (current_cpu), CPU2DATA(PARM2), buf, PARM3);
       zfree (buf);
       break;
-	    
+
     case SYS_open:
       buf = fetch_str (current_cpu, pc, PARM1);
       SET_H_GR (ret_reg,
@@ -151,7 +151,7 @@ do_syscall (SIM_CPU *current_cpu, PCADDR pc)
     }
 }
 
-void 
+void
 do_break (SIM_CPU *current_cpu, PCADDR pc)
 {
   SIM_DESC sd = CPU_STATE (current_cpu);

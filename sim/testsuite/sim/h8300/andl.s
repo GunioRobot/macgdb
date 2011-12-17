@@ -6,12 +6,12 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
 	start
-	
+
 .if (sim_cpu == h8sx)		; 16-bit immediate is only available on sx.
 and_l_imm16:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -71,7 +71,7 @@ and_l_reg:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 	pass
 
 	exit 0

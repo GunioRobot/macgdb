@@ -46,7 +46,7 @@ static void whatis_command (char *, int);
 static void whatis_exp (char *, int);
 
 
-/* Print a description of a type in the format of a 
+/* Print a description of a type in the format of a
    typedef for the current language.
    NEW is the new name for a type TYPE. */
 
@@ -161,7 +161,7 @@ whatis_exp (char *exp, int show)
       type_print (real_type, "", gdb_stdout, -1);
       if (! full)
         printf_filtered (" (incomplete object)");
-      printf_filtered (" */\n");    
+      printf_filtered (" */\n");
     }
 
   type_print (type, "", gdb_stdout, show);

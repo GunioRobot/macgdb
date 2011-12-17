@@ -39,7 +39,7 @@ large:
 	add #2, r0
 	assert r0, #1
 
-okay:	
+okay:
 	pass
 
 wrong:

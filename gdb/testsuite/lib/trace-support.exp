@@ -59,7 +59,7 @@ proc gdb_target_supports_trace { } {
 # Procedure: gdb_delete_tracepoints
 # Many of the tests depend on setting tracepoints at various places and
 # running until that tracepoint is reached.  At times, we want to start
-# with a clean slate with respect to tracepoints, so this utility proc 
+# with a clean slate with respect to tracepoints, so this utility proc
 # lets us do this without duplicating this code everywhere.
 #
 
@@ -73,9 +73,9 @@ proc gdb_delete_tracepoints {} {
 	    exp_continue
 	}
 	-re ".*$gdb_prompt $" { # This happens if there were no tracepoints }
-	timeout { 
-	    perror "Delete all tracepoints in delete_tracepoints (timeout)" 
-	    return 
+	timeout {
+	    perror "Delete all tracepoints in delete_tracepoints (timeout)"
+	    return
 	}
     }
     send_gdb "info tracepoints\n"
@@ -158,7 +158,7 @@ proc gdb_trace_setactions { testname tracepoint args } {
     if { $testname != "" } {
 	$passfail $testname;
     }
-    if { $passfail == "pass" } then { 
+    if { $passfail == "pass" } then {
 	return 0;
     } else {
 	return 1;
@@ -168,7 +168,7 @@ proc gdb_trace_setactions { testname tracepoint args } {
 #
 # Procedure: gdb_tfind_test
 #   Find a specified trace frame.
-#   Arguments: 
+#   Arguments:
 #	testname   -- identifying string for pass/fail output
 #	tfind_arg  -- frame (line, PC, etc.) identifier
 #	exp_res    -- Expected result of frame test
@@ -201,7 +201,7 @@ proc gdb_tfind_test { testname tfind_arg exp_res args } {
 	-re "$gdb_prompt $" { }
     }
     $passfail "$testname";
-    if { $passfail == "pass" } then { 
+    if { $passfail == "pass" } then {
 	return 0;
     } else {
 	return 1;

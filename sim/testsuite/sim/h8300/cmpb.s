@@ -4,8 +4,8 @@
 # as(h8300h):	--defsym sim_cpu=1
 # as(h8300s):	--defsym sim_cpu=2
 # as(h8sx):	--defsym sim_cpu=3
-# ld(h8300h):	-m h8300helf	
-# ld(h8300s):	-m h8300self	
+# ld(h8300h):	-m h8300helf
+# ld(h8300s):	-m h8300self
 # ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
@@ -42,7 +42,7 @@
 	#
 
 	# Coming soon:
-	
+
 	# ...
 
 .data
@@ -52,7 +52,7 @@ byte_dst:	.byte 0xa5
 post_byte:	.byte 0
 
 	start
-	
+
 cmp_b_imm8_reg8:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
@@ -67,7 +67,7 @@ cmp_b_imm8_reg8:
 .Llt1:	cmp.b	#0xa4, r0l
 	bgt	.Lgt1
 	fail
-.Lgt1:	
+.Lgt1:
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
 	test_h_gr16 0xa5a5 r0	; r0 unchanged
 .if (sim_cpu)			; non-zero means h8300h, s, or sx
@@ -80,7 +80,7 @@ cmp_b_imm8_reg8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .if (sim_cpu == h8sx)
 cmp_b_imm8_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -105,12 +105,12 @@ cmp_b_imm8_rdind:
 ;;; 	.word	0xa0a4
 	bgt	.Lgt2
 	fail
-.Lgt2:		
+.Lgt2:
 	test_carry_clear	; H=0 N=0 Z=0 V=0 C=0
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32 byte_dst er0	; er0 still contains address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -246,7 +246,7 @@ cmp_b_imm8_rdpreinc:
 ;;; 	.word	0xa0a5
 	beq	.Leq5
 	fail
-.Leq5:	test_h_gr32 byte_dst er0	; er0 contains destination address 
+.Leq5:	test_h_gr32 byte_dst er0	; er0 contains destination address
 	mov	#pre_byte, er0
 	set_ccr_zero
 	cmp.b	#0xa6, @+er0
@@ -255,7 +255,7 @@ cmp_b_imm8_rdpreinc:
 ;;; 	.word	0xa0a6
 	blt	.Llt5
 	fail
-.Llt5:	test_h_gr32 byte_dst er0	; er0 contains destination address 
+.Llt5:	test_h_gr32 byte_dst er0	; er0 contains destination address
 	mov	#pre_byte, er0
 	set_ccr_zero
 	cmp.b	#0xa4, @+er0
@@ -270,7 +270,7 @@ cmp_b_imm8_rdpreinc:
 	test_zero_clear
 	test_neg_clear
 
-	test_h_gr32 byte_dst er0	; er0 contains destination address 
+	test_h_gr32 byte_dst er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -299,7 +299,7 @@ cmp_b_imm8_rdpredec:
 ;;; 	.word	0xa0a5
 	beq	.Leq6
 	fail
-.Leq6:	test_h_gr32 byte_dst er0	; er0 contains destination address 
+.Leq6:	test_h_gr32 byte_dst er0	; er0 contains destination address
 	mov	#post_byte, er0
 	set_ccr_zero
 	cmp.b	#0xa6, @-er0
@@ -308,7 +308,7 @@ cmp_b_imm8_rdpredec:
 ;;; 	.word	0xa0a6
 	blt	.Llt6
 	fail
-.Llt6:	test_h_gr32 byte_dst er0	; er0 contains destination address 
+.Llt6:	test_h_gr32 byte_dst er0	; er0 contains destination address
 	mov	#post_byte, er0
 	set_ccr_zero
 	cmp.b	#0xa4, @-er0
@@ -323,7 +323,7 @@ cmp_b_imm8_rdpredec:
 	test_zero_clear
 	test_neg_clear
 
-	test_h_gr32 byte_dst er0	; er0 contains destination address 
+	test_h_gr32 byte_dst er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -373,7 +373,7 @@ cmp_b_reg8_reg8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .if (sim_cpu == h8sx)
 cmp_b_reg8_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -543,7 +543,7 @@ cmp_b_reg8_rdpreinc:
 ;;; 	.word	0x9029
 	beq	.Leq11
 	fail
-.Leq11:	test_h_gr32 byte_dst er0	; er0 contains destination address 
+.Leq11:	test_h_gr32 byte_dst er0	; er0 contains destination address
 	mov	#pre_byte er0
 	mov	#0xa6, r1l
 	set_ccr_zero
@@ -552,7 +552,7 @@ cmp_b_reg8_rdpreinc:
 ;;; 	.word	0x9029
 	blt	.Llt11
 	fail
-.Llt11:	test_h_gr32 byte_dst er0	; er0 contains destination address 
+.Llt11:	test_h_gr32 byte_dst er0	; er0 contains destination address
 	mov	#pre_byte er0
 	mov	#0xa4, r1l
 	set_ccr_zero
@@ -567,7 +567,7 @@ cmp_b_reg8_rdpreinc:
 	test_zero_clear
 	test_neg_clear
 
-	test_h_gr32 byte_dst er0	; er0 contains destination address 
+	test_h_gr32 byte_dst er0	; er0 contains destination address
 	test_h_gr32 0xa5a5a5a4 er1	; er1 contains test load
 	test_gr_a5a5 2		; Make sure other general regs not disturbed
 	test_gr_a5a5 3
@@ -596,7 +596,7 @@ cmp_b_reg8_rdpredec:
 ;;; 	.word	0xb029
 	beq	.Leq12
 	fail
-.Leq12:	test_h_gr32 byte_dst er0	; er0 contains destination address 
+.Leq12:	test_h_gr32 byte_dst er0	; er0 contains destination address
 	mov	#post_byte er0
 	mov	#0xa6, r1l
 	set_ccr_zero
@@ -605,7 +605,7 @@ cmp_b_reg8_rdpredec:
 ;;; 	.word	0xb029
 	blt	.Llt12
 	fail
-.Llt12:	test_h_gr32 byte_dst er0	; er0 contains destination address 
+.Llt12:	test_h_gr32 byte_dst er0	; er0 contains destination address
 	mov	#post_byte er0
 	mov	#0xa4, r1l
 	set_ccr_zero
@@ -620,7 +620,7 @@ cmp_b_reg8_rdpredec:
 	test_zero_clear
 	test_neg_clear
 
-	test_h_gr32 byte_dst er0	; er0 contains destination address 
+	test_h_gr32 byte_dst er0	; er0 contains destination address
 	test_h_gr32 0xa5a5a5a4 er1	; er1 contains test load
 	test_gr_a5a5 2		; Make sure other general regs not disturbed
 	test_gr_a5a5 3
@@ -640,7 +640,7 @@ cmp_b_reg8_rdpredec:
 cmp_b_rsind_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	mov	#byte_src, er1
-	mov	#byte_dst, er2	
+	mov	#byte_dst, er2
 	set_ccr_zero
 	cmp.b	@er1, @er2
 	test_neg_clear		; N=0, Z=0, V=1, C=0
@@ -649,7 +649,7 @@ cmp_b_rsind_rdind:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	byte_src er1	
+	test_h_gr32	byte_src er1
 	test_h_gr32	byte_dst er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -664,7 +664,7 @@ cmp_b_rsind_rdind:
 cmp_b_rspostinc_rdpostinc:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	mov	#byte_src, er1
-	mov	#byte_dst, er2	
+	mov	#byte_dst, er2
 	set_ccr_zero
 	cmp.b	@er1+, @er2+
 ;;;	.word	0x0174
@@ -677,7 +677,7 @@ cmp_b_rspostinc_rdpostinc:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	byte_src+1 er1	
+	test_h_gr32	byte_src+1 er1
 	test_h_gr32	byte_dst+1 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -693,7 +693,7 @@ cmp_b_rspostinc_rdpostinc:
 cmp_b_rspostdec_rdpostdec:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	mov	#byte_src, er1
-	mov	#byte_dst, er2	
+	mov	#byte_dst, er2
 	set_ccr_zero
 	cmp.b	@er1-, @er2-
 ;;;	.word	0x0176
@@ -706,7 +706,7 @@ cmp_b_rspostdec_rdpostdec:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	byte_src-1 er1	
+	test_h_gr32	byte_src-1 er1
 	test_h_gr32	byte_dst-1 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -722,7 +722,7 @@ cmp_b_rspostdec_rdpostdec:
 cmp_b_rspreinc_rdpreinc:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	mov	#byte_src-1, er1
-	mov	#byte_dst-1, er2	
+	mov	#byte_dst-1, er2
 	set_ccr_zero
 	cmp.b	@+er1, @+er2
 ;;;	.word	0x0175
@@ -735,7 +735,7 @@ cmp_b_rspreinc_rdpreinc:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	byte_src er1	
+	test_h_gr32	byte_src er1
 	test_h_gr32	byte_dst er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -750,7 +750,7 @@ cmp_b_rspreinc_rdpreinc:
 cmp_b_rspredec_predec:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	mov	#byte_src+1, er1
-	mov	#byte_dst+1, er2	
+	mov	#byte_dst+1, er2
 	set_ccr_zero
 	cmp.b	@-er1, @-er2
 ;;;	.word	0x0177
@@ -763,7 +763,7 @@ cmp_b_rspredec_predec:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	byte_src er1	
+	test_h_gr32	byte_src er1
 	test_h_gr32	byte_dst er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -791,7 +791,7 @@ cmp_b_disp2_disp2:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	byte_src-1 er1	
+	test_h_gr32	byte_src-1 er1
 	test_h_gr32	byte_dst-2 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -821,7 +821,7 @@ cmp_b_disp16_disp16:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	byte_src-3 er1	
+	test_h_gr32	byte_src-3 er1
 	test_h_gr32	byte_dst-4 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -851,7 +851,7 @@ cmp_b_disp32_disp32:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	byte_src+5 er1	
+	test_h_gr32	byte_src+5 er1
 	test_h_gr32	byte_dst+6 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -881,7 +881,7 @@ cmp_b_indexb16_indexb16:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	0xffffff01 er1	
+	test_h_gr32	0xffffff01 er1
 	test_h_gr32	0xffffff02 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -911,7 +911,7 @@ cmp_b_indexw16_indexw16:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	0xffff0003 er1	
+	test_h_gr32	0xffff0003 er1
 	test_h_gr32	0xffff0004 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -942,7 +942,7 @@ cmp_b_indexl16_indexl16:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	0x00000005 er1	
+	test_h_gr32	0x00000005 er1
 	test_h_gr32	0x00000006 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -972,7 +972,7 @@ cmp_b_indexb32_indexb32:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	0xffffff01 er1	
+	test_h_gr32	0xffffff01 er1
 	test_h_gr32	0xffffff02 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -1003,7 +1003,7 @@ cmp_b_indexw32_indexw32:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	0xffff0003 er1	
+	test_h_gr32	0xffff0003 er1
 	test_h_gr32	0xffff0004 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4
@@ -1034,7 +1034,7 @@ cmp_b_indexl32_indexl32:
 	test_carry_clear
 
 	test_gr_a5a5	0
-	test_h_gr32	0x00000005 er1	
+	test_h_gr32	0x00000005 er1
 	test_h_gr32	0x00000006 er2
 	test_gr_a5a5	3
 	test_gr_a5a5	4

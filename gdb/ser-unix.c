@@ -512,7 +512,7 @@ wait_for (struct serial *scb, int timeout)
 	if (state.termios.c_cc[VTIME] != timeout * 10)
 	  {
 
-	    /* If c_cc is an 8-bit signed character, we can't go 
+	    /* If c_cc is an 8-bit signed character, we can't go
 	       bigger than this.  If it is always unsigned, we could use
 	       25.  */
 
@@ -536,7 +536,7 @@ wait_for (struct serial *scb, int timeout)
 	state.termio.c_cc[VTIME] = timeout * 10;
 	if (state.termio.c_cc[VTIME] != timeout * 10)
 	  {
-	    /* If c_cc is an 8-bit signed character, we can't go 
+	    /* If c_cc is an 8-bit signed character, we can't go
 	       bigger than this.  If it is always unsigned, we could use
 	       25.  */
 
@@ -784,7 +784,7 @@ rate_to_code (int rate)
 	    }
         }
     }
- 
+
   /* The requested speed was too large. */
   warning (_("Invalid baud rate %d.  Maximum value is %d."),
             rate, baudtab[i - 1].rate);
@@ -796,7 +796,7 @@ hardwire_setbaudrate (struct serial *scb, int rate)
 {
   struct hardwire_ttystate state;
   int baud_code = rate_to_code (rate);
-  
+
   if (baud_code < 0)
     {
       /* The baud rate was not valid.

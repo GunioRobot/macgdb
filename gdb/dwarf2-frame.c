@@ -750,7 +750,7 @@ static void *
 dwarf2_frame_init (struct obstack *obstack)
 {
   struct dwarf2_frame_ops *ops;
-  
+
   ops = OBSTACK_ZALLOC (obstack, struct dwarf2_frame_ops);
   ops->init_reg = dwarf2_frame_default_init_reg;
   return ops;
@@ -1388,7 +1388,7 @@ read_initial_length (bfd *abfd, gdb_byte *buf, unsigned int *bytes_read_ptr)
    way.  Several "pointer encodings" are supported.  The encoding
    that's used for a particular FDE is determined by the 'R'
    augmentation in the associated CIE.  The argument of this
-   augmentation is a single byte.  
+   augmentation is a single byte.
 
    The address can be encoded as 2 bytes, 4 bytes, 8 bytes, or as a
    LEB128.  This is encoded in bits 0, 1 and 2.  Bit 3 encodes whether
@@ -1424,7 +1424,7 @@ read_encoded_value (struct comp_unit *unit, gdb_byte encoding,
   /* GCC currently doesn't generate DW_EH_PE_indirect encodings for
      FDE's.  */
   if (encoding & DW_EH_PE_indirect)
-    internal_error (__FILE__, __LINE__, 
+    internal_error (__FILE__, __LINE__,
 		    _("Unsupported encoding: DW_EH_PE_indirect"));
 
   *bytes_read_ptr = 0;
@@ -1705,9 +1705,9 @@ decode_frame_entry_1 (struct comp_unit *unit, gdb_byte *start, int eh_frame_p,
       cie->encoding = DW_EH_PE_absptr;
 
       /* The target address size.  For .eh_frame FDEs this is considered
-	 equal to the size of a target pointer.  For .dwarf_frame FDEs, 
+	 equal to the size of a target pointer.  For .dwarf_frame FDEs,
 	 this is supposed to be the target address size from the associated
-	 CU header.  FIXME: We do not have a good way to determine the 
+	 CU header.  FIXME: We do not have a good way to determine the
 	 latter.  Always use the target pointer size for now.  */
       cie->addr_size = gdbarch_ptr_bit (gdbarch) / TARGET_CHAR_BIT;
 
@@ -1933,7 +1933,7 @@ decode_frame_entry (struct comp_unit *unit, gdb_byte *start, int eh_frame_p,
 
 	 This becomes a problem when you have some other producer that
 	 creates frame sections that are not as strictly aligned.  That
-	 produces a hole in the frame info that gets filled by the 
+	 produces a hole in the frame info that gets filled by the
 	 linker with zeros.
 
 	 The GCC behaviour is arguably a bug, but it's effectively now

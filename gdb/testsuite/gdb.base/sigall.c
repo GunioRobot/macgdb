@@ -795,7 +795,7 @@ gen_ABRT ()
 {
   kill (getpid (), SIGABRT);
   return 0;
-}  
+}
 
 int
 gen_HUP ()
@@ -806,7 +806,7 @@ gen_HUP ()
   handle_HUP (0);
 #endif
 return 0;
-}  
+}
 
 int
 gen_QUIT ()
@@ -1081,7 +1081,7 @@ gen_USR2 ()
   handle_USR2 (0);
 #endif
 return 0;
-}  
+}
 
 int
 gen_PWR ()
@@ -1572,7 +1572,7 @@ gen_TERM ()
 {
   kill (getpid (), SIGTERM);
 return 0;
-}  
+}
 
 int
 main ()

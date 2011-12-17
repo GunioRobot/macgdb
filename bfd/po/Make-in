@@ -97,7 +97,7 @@ $(srcdir)/$(PACKAGE).pot: $(SRC-POTFILES) $(BLD-POTFILES)
 	  --directory=$(top_srcdir) \
 	  --add-comments --keyword=_ --keyword=N_ \
 	  --msgid-bugs-address=bug-binutils@gnu.org \
-	  --files-from=$(srcdir)/SRC-POTFILES.in 
+	  --files-from=$(srcdir)/SRC-POTFILES.in
 	$(XGETTEXT) --default-domain=$(PACKAGE) \
 	  --directory=.. \
 	  --directory=. \
@@ -213,7 +213,7 @@ clean: mostlyclean
 
 distclean: clean
 	rm -f Makefile Makefile.in *.mo *.msg *.cat *.cat.m
-	rm -f SRC-POTFILES BLD-POTFILES 
+	rm -f SRC-POTFILES BLD-POTFILES
 
 maintainer-clean: distclean
 	@echo "This command is intended for maintainers to use;"

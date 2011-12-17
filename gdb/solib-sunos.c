@@ -145,7 +145,7 @@ LM_ADDR (struct so_list *so)
   int lm_addr_offset = offsetof (struct link_map, lm_addr);
   int lm_addr_size = fieldsize (struct link_map, lm_addr);
 
-  return (CORE_ADDR) extract_signed_integer (so->lm_info->lm + lm_addr_offset, 
+  return (CORE_ADDR) extract_signed_integer (so->lm_info->lm + lm_addr_offset,
 					     lm_addr_size, byte_order);
 }
 
@@ -416,7 +416,7 @@ sunos_current_sos (void)
 
   /* Walk the inferior's link map list, and build our list of
      `struct so_list' nodes.  */
-  lm = first_link_map_member ();  
+  lm = first_link_map_member ();
   while (lm)
     {
       struct so_list *new
@@ -637,7 +637,7 @@ enable_break (void)
    DESCRIPTION
 
    Once the symbols from a shared object have been loaded in the usual
-   way, we are called to do any system specific symbol handling that 
+   way, we are called to do any system specific symbol handling that
    is needed.
 
    For SunOS4, this consists of grunging around in the dynamic

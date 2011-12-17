@@ -258,7 +258,7 @@ extern int value_optimized_out (struct value *value);
 extern void set_value_optimized_out (struct value *value, int val);
 
 /* Set or return field indicating whether a variable is initialized or
-   not, based on debugging information supplied by the compiler. 
+   not, based on debugging information supplied by the compiler.
    1 = initialized; 0 = uninitialized.  */
 extern int value_initialized (struct value *);
 extern void set_value_initialized (struct value *, int);

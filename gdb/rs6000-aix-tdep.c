@@ -229,22 +229,22 @@ rs6000_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
       ii++;
     }
 
-/* 
+/*
    effectively indirect call... gcc does...
 
    return_val example( float, int);
 
-   eabi: 
+   eabi:
    float in fp0, int in r3
    offset of stack on overflow 8/16
    for varargs, must go by type.
    power open:
    float in r3&r4, int in r5
-   offset of stack on overflow different 
-   both: 
+   offset of stack on overflow different
+   both:
    return in r3 or f0.  If no float, must study how gcc emulates floats;
-   pay attention to arg promotion.  
-   User may have to cast\args to handle promotion correctly 
+   pay attention to arg promotion.
+   User may have to cast\args to handle promotion correctly
    since gdb won't know if prototype supplied or not.
  */
 
@@ -323,7 +323,7 @@ ran_out_of_registers_for_arguments:
   /* Stack pointer must be quadword aligned.  */
   sp &= -16;
 
-  /* If there are more arguments, allocate space for them in 
+  /* If there are more arguments, allocate space for them in
      the stack, then push them starting from the ninth one.  */
 
   if ((argno < nargs) || argbytes)
@@ -357,7 +357,7 @@ ran_out_of_registers_for_arguments:
       regcache_raw_write_signed (regcache,
 				 gdbarch_sp_regnum (gdbarch), sp);
 
-      /* If the last argument copied into the registers didn't fit there 
+      /* If the last argument copied into the registers didn't fit there
          completely, push the rest of it into stack.  */
 
       if (argbytes)
@@ -683,7 +683,7 @@ rs6000_software_single_step (struct frame_info *frame)
 
   if (ppc_deal_with_atomic_sequence (frame))
     return 1;
-  
+
   breaks[0] = loc + PPC_INSN_SIZE;
   opcode = insn >> 26;
   breaks[1] = branch_dest (frame, opcode, insn, loc, breaks[0]);
@@ -708,7 +708,7 @@ rs6000_software_single_step (struct frame_info *frame)
 static enum gdb_osabi
 rs6000_aix_osabi_sniffer (bfd *abfd)
 {
-  
+
   if (bfd_get_flavour (abfd) == bfd_target_xcoff_flavour);
     return GDB_OSABI_AIX;
 

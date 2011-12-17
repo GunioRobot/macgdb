@@ -86,7 +86,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	else
 	  {
 	    signed32 a32 = a, b32 = b;
-	    
+
 	    rv32 = a * b;
 	    * sat = (rv32 & (3<<30)) == (3<<30);
 	    return (signed64)rv32 << 1;
@@ -300,7 +300,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	sim_fpu a, b, d;
 	unsigned32 w;
 	int sa, sb, ea, eb, ei;
-	
+
 	sim_fpu_32to (&a, aa);
 	sim_fpu_32to (&b, bb);
 	sa = sim_fpu_sign(&a);
@@ -361,7 +361,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	      {
 	        if (sim_fpu_is_zero (&a))
 	          EV_SET_SPEFSCR_BITS(dbz);
-	        else 
+	        else
 	          EV_SET_SPEFSCR_BITS(inv);
 	        w = sa ? EV_NMAX : EV_PMAX;
 	      }
@@ -374,7 +374,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	  }
 	}
 	return w;
-	
+
 
 #
 # A.2.7 Integer SPE Simple Instructions
@@ -786,7 +786,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed16 al, ah, bl, bh;
 	signed32 tl, th;
 	int movl, movh;
-	
+
 	al = (signed16) EV_LOHALF (*rA);
 	ah = (signed16) EV_LOHALF (*rAh);
 	bl = (signed16) EV_LOHALF (*rB);
@@ -802,7 +802,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed16 al, ah, bl, bh;
 	signed32 tl, th;
 	int movl, movh;
-	
+
 	al = (signed16) EV_LOHALF (*rA);
 	ah = (signed16) EV_LOHALF (*rAh);
 	bl = (signed16) EV_LOHALF (*rB);
@@ -818,7 +818,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed16 al, ah, bl, bh;
 	signed32 tl, th;
 	int dummy;
-	
+
 	al = (signed16) EV_LOHALF (*rA);
 	ah = (signed16) EV_LOHALF (*rAh);
 	bl = (signed16) EV_LOHALF (*rB);
@@ -832,7 +832,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed32 al, ah, bl, bh;
 	signed32 tl, th;
 	int dummy;
-	
+
 	al = (signed16) EV_LOHALF (*rA);
 	ah = (signed16) EV_LOHALF (*rAh);
 	bl = (signed16) EV_LOHALF (*rB);
@@ -892,7 +892,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed16 al, ah, bl, bh;
 	signed32 tl, th;
 	int movl, movh;
-	
+
 	al = (signed16) EV_HIHALF (*rA);
 	ah = (signed16) EV_HIHALF (*rAh);
 	bl = (signed16) EV_HIHALF (*rB);
@@ -908,7 +908,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed16 al, ah, bl, bh;
 	signed32 tl, th;
 	int movl, movh;
-	
+
 	al = (signed16) EV_HIHALF (*rA);
 	ah = (signed16) EV_HIHALF (*rAh);
 	bl = (signed16) EV_HIHALF (*rB);
@@ -924,7 +924,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed16 al, ah, bl, bh;
 	signed64 tl, th;
 	int movl, movh;
-	
+
 	al = (signed16) EV_HIHALF (*rA);
 	ah = (signed16) EV_HIHALF (*rAh);
 	bl = (signed16) EV_HIHALF (*rB);
@@ -939,7 +939,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed16 al, ah, bl, bh;
 	signed32 tl, th;
 	int dummy;
-	
+
 	al = (signed16) EV_HIHALF (*rA);
 	ah = (signed16) EV_HIHALF (*rAh);
 	bl = (signed16) EV_HIHALF (*rB);
@@ -952,7 +952,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 0.4,6.RS,11.RA,16.RB,21.1033:EVX:e500:evmhesmi %RS,%RA,%RB:Vector Multiply Half Words Even Signed Modulo Integer
 	signed16 al, ah, bl, bh;
 	signed32 tl, th;
-	
+
 	al = (signed16) EV_HIHALF (*rA);
 	ah = (signed16) EV_HIHALF (*rAh);
 	bl = (signed16) EV_HIHALF (*rB);
@@ -1000,7 +1000,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed32 t1, t2;
 	signed64 tl, th;
 	int movl, movh, ovl, ovh;
-	
+
 	al = (signed16) EV_LOHALF (*rA);
 	ah = (signed16) EV_LOHALF (*rAh);
 	bl = (signed16) EV_LOHALF (*rB);
@@ -1111,7 +1111,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed32 t1, t2;
 	signed64 tl, th;
 	int movl, movh, ovl, ovh;
-	
+
 	al = (signed16) EV_HIHALF (*rA);
 	ah = (signed16) EV_HIHALF (*rAh);
 	bl = (signed16) EV_HIHALF (*rB);
@@ -1219,7 +1219,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed32 t1, t2;
 	signed64 tl, th;
 	int movl, movh, ovl, ovh;
-	
+
 	al = (signed16) EV_LOHALF (*rA);
 	ah = (signed16) EV_LOHALF (*rAh);
 	bl = (signed16) EV_LOHALF (*rB);
@@ -1325,7 +1325,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed32 t1, t2;
 	signed64 tl, th;
 	int movl, movh, ovl, ovh;
-	
+
 	al = (signed16) EV_HIHALF (*rA);
 	ah = (signed16) EV_HIHALF (*rAh);
 	bl = (signed16) EV_HIHALF (*rB);
@@ -1602,7 +1602,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	t2 = EV_MUL32_SSF(ah, bh);
 	EV_SET_REG2(*rSh, *rS, t2 >> 32, t1 >> 32);
 	PPC_INSN_INT(RS_BITMASK, RA_BITMASK | RB_BITMASK, 0);
-	
+
 0.4,6.RS,11.RA,16.RB,21.1135:EVX:e500:evmwhsmfa %RS,%RA,%RB:Vector Multiply Word High Signed Modulo Fractional and Accumulate
 	signed32 al, ah, bl, bh;
 	signed64 t1, t2;
@@ -2198,7 +2198,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	signed64 t1, t2;
 	unsigned32 al, ah;
 	int ovl, ovh;
-	
+
 	al = *rA;
 	ah = *rAh;
 	t1 = (signed64)EV_ACCHIGH - (signed64)ah;
@@ -2262,7 +2262,7 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	EV_SET_SPEFSCR_OV(ovl, ovh);
 	PPC_INSN_INT_SPR(RS_BITMASK, RA_BITMASK, spr_spefscr);
-	
+
 
 0.4,6.RS,11.RA,16.RB,21.1223:EVX:e500:evdivwu %RS,%RA,%RB:Vector Divide Word Unsigned
 	unsigned32 dividendh, dividendl, divisorh, divisorl;
@@ -2475,19 +2475,19 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 0.4,6.RS,11.0,16.RB,21.656:EVX:e500:evfscfui %RS,%RB:Vector Convert Floating-Point from Unsigned Integer
 	unsigned32 f, w1, w2;
 	sim_fpu b;
-	
+
 	sim_fpu_u32to (&b, *rBh, sim_fpu_round_default);
 	sim_fpu_to32 (&w1, &b);
 	sim_fpu_u32to (&b, *rB, sim_fpu_round_default);
 	sim_fpu_to32 (&w2, &b);
-	
+
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	PPC_INSN_INT(RS_BITMASK, RB_BITMASK, 0);
 
 0.4,6.RS,11.0,16.RB,21.664:EVX:e500:evfsctuiz %RS,%RB:Vector Convert Floating-Point to Unsigned Integer with Round toward Zero
 	unsigned32 w1, w2;
 	sim_fpu b;
-	
+
 	sim_fpu_32to (&b, *rBh);
 	sim_fpu_to32u (&w1, &b, sim_fpu_round_zero);
 	sim_fpu_32to (&b, *rB);
@@ -2496,10 +2496,10 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	PPC_INSN_INT(RS_BITMASK, RB_BITMASK, 0);
 
-0.4,6.RS,11.0,16.RB,21.657:EVX:e500:evfscfsi %RS,%RB:Vector Convert Floating-Point from Signed Integer 
+0.4,6.RS,11.0,16.RB,21.657:EVX:e500:evfscfsi %RS,%RB:Vector Convert Floating-Point from Signed Integer
 	signed32 w1, w2;
 	sim_fpu b, x, y;
-	
+
 	sim_fpu_i32to (&b, *rBh, sim_fpu_round_default);
 	sim_fpu_to32 (&w1, &b);
 	sim_fpu_i32to (&b, *rB, sim_fpu_round_default);
@@ -2535,87 +2535,87 @@ void::model-function::ppc_insn_int_spr:itable_index index, model_data *model_ptr
 0.4,6.RS,11.0,16.RB,21.659:EVX:e500:evfscfsf %RS,%RB:Vector Convert Floating-Point from Signed Fraction
 	unsigned32 w1, w2;
 	sim_fpu b, x, y;
-	
+
 	sim_fpu_u32to (&x, 0x80000000, sim_fpu_round_default);
 	sim_fpu_i32to (&y, *rBh, sim_fpu_round_default);
 	sim_fpu_div (&b, &y, &x);
 	sim_fpu_to32 (&w1, &b);
-	
+
 	sim_fpu_u32to (&x, 0x80000000, sim_fpu_round_default);
 	sim_fpu_i32to (&y, *rB, sim_fpu_round_default);
 	sim_fpu_div (&b, &y, &x);
 	sim_fpu_to32 (&w2, &b);
-	
+
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	PPC_INSN_INT(RS_BITMASK, RB_BITMASK, 0);
 
 0.4,6.RS,11.0,16.RB,21.660:EVX:e500:evfsctui %RS,%RB:Vector Convert Floating-Point to Unsigned Integer
 	unsigned32 w1, w2;
 	sim_fpu b;
-	
+
 	sim_fpu_32to (&b, *rBh);
 	sim_fpu_to32u (&w1, &b, sim_fpu_round_default);
 	sim_fpu_32to (&b, *rB);
 	sim_fpu_to32u (&w2, &b, sim_fpu_round_default);
-	
+
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	PPC_INSN_INT(RS_BITMASK, RB_BITMASK, 0);
 
 0.4,6.RS,11.0,16.RB,21.661:EVX:e500:evfsctsi %RS,%RB:Vector Convert Floating-Point to Signed Integer
 	signed32 w1, w2;
 	sim_fpu b;
-	
+
 	sim_fpu_32to (&b, *rBh);
 	sim_fpu_to32i (&w1, &b, sim_fpu_round_default);
 	sim_fpu_32to (&b, *rB);
 	sim_fpu_to32i (&w2, &b, sim_fpu_round_default);
-	
+
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	PPC_INSN_INT(RS_BITMASK, RB_BITMASK, 0);
 
 0.4,6.RS,11.0,16.RB,21.666:EVX:e500:evfsctsiz %RS,%RB:Vector Convert Floating-Point to Signed Integer with Round toward Zero
 	signed32 w1, w2;
 	sim_fpu b;
-	
+
 	sim_fpu_32to (&b, *rBh);
 	sim_fpu_to32i (&w1, &b, sim_fpu_round_zero);
 	sim_fpu_32to (&b, *rB);
 	sim_fpu_to32i (&w2, &b, sim_fpu_round_zero);
-	
+
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	PPC_INSN_INT(RS_BITMASK, RB_BITMASK, 0);
 
 0.4,6.RS,11.0,16.RB,21.662:EVX:e500:evfsctuf %RS,%RB:Vector Convert Floating-Point to Unsigned Fraction
 	unsigned32 w1, w2;
 	sim_fpu b, x, y;
-	
+
 	sim_fpu_u64to (&x, 0x100000000, sim_fpu_round_default);
 	sim_fpu_32to (&y, *rBh);
 	sim_fpu_mul (&b, &y, &x);
 	sim_fpu_to32u (&w1, &b, sim_fpu_round_default);
-	
+
 	sim_fpu_u64to (&x, 0x100000000, sim_fpu_round_default);
 	sim_fpu_32to (&y, *rB);
 	sim_fpu_mul (&b, &y, &x);
 	sim_fpu_to32u (&w2, &b, sim_fpu_round_default);
-	
+
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	PPC_INSN_INT(RS_BITMASK, RB_BITMASK, 0);
 
 0.4,6.RS,11.0,16.RB,21.663:EVX:e500:evfsctsf %RS,%RB:Vector Convert Floating-Point to Signed Fraction
 	signed32 w1, w2;
 	sim_fpu b, x, y;
-	
+
 	sim_fpu_32to (&y, *rBh);
 	sim_fpu_u32to (&x, 0x80000000, sim_fpu_round_default);
 	sim_fpu_mul (&b, &y, &x);
 	sim_fpu_to32i (&w1, &b, sim_fpu_round_near);
-	
+
 	sim_fpu_32to (&y, *rB);
 	sim_fpu_u32to (&x, 0x80000000, sim_fpu_round_default);
 	sim_fpu_mul (&b, &y, &x);
 	sim_fpu_to32i (&w2, &b, sim_fpu_round_near);
-	
+
 	EV_SET_REG2(*rSh, *rS, w1, w2);
 	PPC_INSN_INT(RS_BITMASK, RB_BITMASK, 0);
 

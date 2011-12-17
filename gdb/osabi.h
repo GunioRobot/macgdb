@@ -1,7 +1,7 @@
 /* OS ABI variant handling for GDB.
    Copyright (C) 2001, 2002, 2003, 2007, 2008, 2009
    Free Software Foundation, Inc.
-   
+
    This file is part of GDB.
 
    This program is free software; you can redistribute it and/or modify
@@ -40,7 +40,7 @@ void gdbarch_register_osabi (enum bfd_architecture, unsigned long,
 /* Lookup the OS ABI corresponding to the specified BFD.  */
 enum gdb_osabi gdbarch_lookup_osabi (bfd *);
 
-/* APPLE LOCAL: This variant of gdbarch_lookup_osabi ALWAYS 
+/* APPLE LOCAL: This variant of gdbarch_lookup_osabi ALWAYS
    consults the bfd.  The original version will prefer the user
    set value if it is actually set.  */
 enum gdb_osabi gdbarch_lookup_osabi_from_bfd (bfd *);

@@ -297,7 +297,7 @@ smsss29:
 	smsss		gr7,gr8
 	test_gr_limmed	0x8000,0x0000,gr8
 	test_gr_limmed	0x7fff,0xffff,gr7
-	test_spr_limmed	0xffff,0xffff,iacc0l	; 400000007fffffff - 
+	test_spr_limmed	0xffff,0xffff,iacc0l	; 400000007fffffff -
 	test_spr_limmed	0x7fff,0xffff,iacc0h	;  0x80000000*0x7fffffff
 smsss30:
 	set_gr_limmed	0x7fff,0xffff,gr7	; just barely overflow (pos)

@@ -65,7 +65,7 @@
 # malloc.  So on HP-UX, GDB can evaluate array literals even in
 # inferior programs that don't use malloc.  That's why this test is in
 # gdb.hp.
-# 
+#
 # This file has, for some reason, led to well more than its fair share
 # of misunderstandings about the relationship between array literal
 # expressions and inferior function calls.  Folks talk as if you can
@@ -225,7 +225,7 @@ proc do_function_calls {} {
 	gdb_test "p t_double_values(double_val1,double_val2)" " = 1"
 	gdb_test "p t_double_values(45.654,double_val2)" " = 1"
 	gdb_test "p t_double_values(double_val1,-67.66)" " = 1"
-   
+
     }
 
     gdb_test "p t_string_values(string_val2,string_val1)" " = 0"
@@ -271,7 +271,7 @@ proc do_function_calls {} {
     if {![istarget hppa*-*-hpux*]} then {
 	gdb_test "p t_call_add(add,3,4)" " = 7"
     }
-    
+
     gdb_test "p t_enum_value1(enumval1)" " = 1"
     gdb_test "p t_enum_value1(enum_val1)" " = 1"
     gdb_test "p t_enum_value1(enum_val2)" " = 0"

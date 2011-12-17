@@ -83,7 +83,7 @@ proc continue_all {} {
 
     send_gdb "continue\n"
     gdb_expect {
-	-re "Breakpoint \[0-9\]*, thread\[0-9\]* .*$gdb_prompt $" { 
+	-re "Breakpoint \[0-9\]*, thread\[0-9\]* .*$gdb_prompt $" {
 	    pass "continue_all"
 	    return 0
 	}

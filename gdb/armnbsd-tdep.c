@@ -71,9 +71,9 @@ arm_netbsd_init_abi_common (struct gdbarch_info info,
   /* Single stepping.  */
   set_gdbarch_software_single_step (gdbarch, arm_software_single_step);
 }
-  
+
 static void
-arm_netbsd_aout_init_abi (struct gdbarch_info info, 
+arm_netbsd_aout_init_abi (struct gdbarch_info info,
 			  struct gdbarch *gdbarch)
 {
   struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);

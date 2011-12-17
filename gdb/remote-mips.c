@@ -96,7 +96,7 @@ static int mips_store_word (CORE_ADDR addr, unsigned int value,
 			    int *old_contents);
 
 static int mips_xfer_memory (CORE_ADDR memaddr, gdb_byte *myaddr, int len,
-			     int write, 
+			     int write,
 			     struct mem_attrib *attrib,
 			     struct target_ops *target);
 
@@ -310,7 +310,7 @@ static enum mips_monitor_type mips_monitor = MON_LAST;
    default prompt will be set according the target:
    target               prompt
    -----                -----
-   pmon         PMON> 
+   pmon         PMON>
    ddb          NEC010>
    lsi          PMON>
  */
@@ -713,7 +713,7 @@ mips_receive_header (unsigned char *hdr, int *pgarbage, int ch, int timeout)
 		    }
 		  gdb_flush (gdb_stdtarg);
   		}
-	      
+
 	      /* Only count unprintable characters. */
 	      if (! (isprint (ch) || isspace (ch)))
 		(*pgarbage) += 1;
@@ -2342,7 +2342,7 @@ mips_clear_breakpoint (CORE_ADDR addr, int len, enum break_type type)
    command.  If there's no error, just return 0.  If it's a warning,
    print the warning text and return 0.  If it's an error, print
    the error text and return 1.  <ADDR> is the address of the breakpoint
-   that was being set.  <RERRFLG> is the error code returned by PMON. 
+   that was being set.  <RERRFLG> is the error code returned by PMON.
    This is a helper function for mips_common_breakpoint.  */
 
 static int
@@ -2492,7 +2492,7 @@ mips_common_breakpoint: Bad response from remote board: %s",
 	     succesful completion, other values indicate various
 	     errors and warnings.
 
-	     Possible return codes: OK, W_QAL, E_QAL, E_OUT, E_NON.  
+	     Possible return codes: OK, W_QAL, E_QAL, E_OUT, E_NON.
 
 	   */
 
@@ -2684,7 +2684,7 @@ mips_load_srec (char *args)
 
 	      bfd_get_section_contents (abfd, s, buffer, i, numbytes);
 
-	      reclen = mips_make_srec (srec, '3', s->vma + i, 
+	      reclen = mips_make_srec (srec, '3', s->vma + i,
 				       buffer, numbytes);
 	      send_srec (srec, reclen, s->vma + i);
 
@@ -2745,7 +2745,7 @@ mips_load_srec (char *args)
  *        7) four byte address termination record
  *        8) three byte address termination record
  *        9) two byte address termination record
- *       
+ *
  *      - address
  *        is the start address of the data following, or in the case of
  *        a termination record, the start address of the image
@@ -3202,7 +3202,7 @@ pmon_load_fast (char *file)
 		   the line: */
 		for (; ((binamount - binptr) > 0);)
 		  {
-		    pmon_make_fastrec (&bp, binbuf, &binptr, binamount, 
+		    pmon_make_fastrec (&bp, binbuf, &binptr, binamount,
 				       &reclen, &csum, &zerofill);
 		    if (reclen >= (MAXRECSIZE - CHECKSIZE))
 		      {

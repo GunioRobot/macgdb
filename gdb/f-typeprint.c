@@ -79,7 +79,7 @@ f_print_type (struct type *type, char *varstring, struct ui_file *stream,
       /* For demangled function names, we have the arglist as part of the name,
          so don't print an additional pair of ()'s */
 
-      demangled_args = varstring[strlen (varstring) - 1] == ')'; 
+      demangled_args = varstring[strlen (varstring) - 1] == ')';
       f_type_print_varspec_suffix (type, stream, show, 0, demangled_args, 0);
    }
 }
@@ -368,7 +368,7 @@ f_type_print_base (struct type *type, struct ui_file *stream, int show,
 	  f_type_print_varspec_suffix (TYPE_FIELD_TYPE (type, index),
 				       stream, 0, 0, 0, 0);
 	  fputs_filtered ("\n", stream);
-	} 
+	}
       fprintfi_filtered (level, stream, "End Type ");
       fputs_filtered (TYPE_TAG_NAME (type), stream);
       break;

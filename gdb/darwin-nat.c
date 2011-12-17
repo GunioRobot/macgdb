@@ -1120,7 +1120,7 @@ darwin_wait (ptid_t ptid, struct target_waitstatus *status)
 }
 
 static ptid_t
-darwin_wait_to (struct target_ops *ops, 
+darwin_wait_to (struct target_ops *ops,
                 ptid_t ptid, struct target_waitstatus *status, int options)
 {
   return darwin_wait (ptid, status);

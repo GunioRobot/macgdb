@@ -27,7 +27,7 @@ check:
 	mov.l @(12, pc), r0
 	cmp/eq r2, r0
 	bf wrong
-	
+
 okay:
 	pass
 wrong:

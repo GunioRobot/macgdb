@@ -88,7 +88,7 @@ Tue Dec 27 12:32:43 1994  Jeff Law  (law@snake.cs.utah.edu)
 
 Fri Dec 23 17:03:13 1994  Steve Chamberlain  (sac@jonny.cygnus.com)
 
-	* remote-est.c:  New file supports EST-300 CPU32 background 
+	* remote-est.c:  New file supports EST-300 CPU32 background
 	mode ICE.
 	* remote-utils.c (sr_com):  Call registers_changed.
 	* configure.in (m68*-*-est*):  New configuration.
@@ -174,7 +174,7 @@ Sat Dec 17 13:23:21 1994  Jim Kingdon  (kingdon@lioth.cygnus.com)
 	INIT_FRAME_PC_FIRST and the sparc.
 
 	* sparc-tdep.c (single_step): Use 4 not sizeof (long) for size of
-	instruction. 
+	instruction.
 
 Sat Dec 17 02:33:37 1994  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
@@ -274,7 +274,7 @@ Wed Dec  7 14:50:54 1994  Jim Kingdon  <kingdon@deneb.cygnus.com>
 	LynxOS (apprently kernel problems).
 	* infrun.c (wait_for_inferior): When resuming new thread, pass pid
 	not -1 for remote case.
-	* thread.c (info_threads_command): Give error if !target_has_stack. 
+	* thread.c (info_threads_command): Give error if !target_has_stack.
 	* infrun.c (start_remote): Call init_thread_list.
 	* thread.c (info_threads_command): Don't call kill for remote
 	debugging target.
@@ -409,7 +409,7 @@ Thu Nov 24 00:39:27 1994  Jeff Law  (law@snake.cs.utah.edu)
 	(IN_SOLIB_RETURN_TRAMPOLINE): Use in_solib_return_trampoline.
 	(INHIBIT_SUNSOLIB_TRANSFER_TABLE_HACK): Define.
 	* hppa-tdep.c (in_solib_call_trampoline): New function.
-	(in_solib_return_trampoline): New function.	
+	(in_solib_return_trampoline): New function.
 
 Wed Nov 23 21:43:03 1994  Steve Chamberlain  (sac@jonny.cygnus.com)
 
@@ -506,7 +506,7 @@ Wed Nov 16 10:31:27 1994  J.T. Conklin  (jtc@cygnus.com)
 	* config/powerpc/gdbserve.mt (TDEPFILES): Remove fake_aio.o.
 
 	* nlm/gdbserve.c: Include <nwtypes.h> before other NetWare headers.
-	* nlm/ppc.c: Likewise. 
+	* nlm/ppc.c: Likewise.
 
 	* nlm/ppc.c (strtol): Remove, it is provided by NetWare C Library.
 	(StopBell): New function (stubbed out).
@@ -635,7 +635,7 @@ Mon Nov  7 00:27:16 1994  Jeff Law  (law@snake.cs.utah.edu)
 	section is not a code section.
 	* config/pa/{hppabsd.mh, hppahpux.mh} (NATDEPFILES): Add somsolib.o
 	* config/pa/{nm-hppab.h, nm-hppah.h}: Include somsolib.h.
-	
+
 Sun Nov  6 12:54:54 1994  Jeff Law  (law@snake.cs.utah.edu)
 
 	* partial-stab.h (N_TEXT): Put back GDB_TARGET_IS_HPPA kludge,
@@ -649,7 +649,7 @@ Sun Nov  6 12:54:54 1994  Jeff Law  (law@snake.cs.utah.edu)
 	If the next frame is a signal handler caller and it's a system
 	call which has entered the kernel ((PSW & 0x2) != 0), then the
 	saved pc is in %r2 instead of %r31.
-	
+
 Fri Nov  4 23:47:07 1994  Jeff Law  (law@snake.cs.utah.edu)
 
 	* hppa-tdep.c (hppa_frame_find_saved_regs): Change "frame" to
@@ -1554,9 +1554,9 @@ Thu Sep  8 17:14:43 1994  Steve Chamberlain  (sac@jonny.cygnus.com)
 	remote_debugging.  Don't use repeat count unless it's > 0.
 	* remote-e7000.c (expect): When echoing, ignore multiple newlines.
 	(e7000_insert_breakpoint, e7000_remove_breakpoint, target_ops):
-	Optionally cope with BC style breakpoints.  
+	Optionally cope with BC style breakpoints.
 	(e7000_command):  After command send directly to the E7000 mark
-	registers as changed. 
+	registers as changed.
 	(why_stop, e7000_wait: Understand BC style stop condition.
 	* sh-tdep.c (sh_skip_prologue):  Understand more complicated
 	sequences.  (frame_find_saved_regs): Likewise.
@@ -1599,7 +1599,7 @@ Tue Sep  6 16:24:07 1994  Stan Shebs  (shebs@andros.cygnus.com)
 	 * eval.c (evaluate_subexp): For OP_ARRAY expressions in Fortran,
 	 call f77_value_literal_string instead.
 	 * f_exp.y: Include <string.h>, move include of parser-defs.h.
-	 (parse_number): Translate 'd' floats to 'e' so atof() works. 
+	 (parse_number): Translate 'd' floats to 'e' so atof() works.
 	 (yylex): Remove unused variables.
 	 * f-lang.c: Include <string.h>.
 	 (get_bf_for_fcn): Remove unused variable.
@@ -1704,7 +1704,7 @@ Thu Sep  1 11:01:40 1994  J.T. Conklin  (jtc@rtl.cygnus.com)
 
 Wed Aug 31 14:40:33 1994  Jason Molenda (crash@phydeaux.cygnus.com)
 
-	* remote-udi.c (udi_read_inferior_memory,udi_write_inferior_memory): 
+	* remote-udi.c (udi_read_inferior_memory,udi_write_inferior_memory):
 	change typeo in error msg (`inferrior' -> `inferior').
 
 Wed Aug 31 09:17:02 1994  Jim Kingdon  (kingdon@cygnus.com)
@@ -1715,7 +1715,7 @@ Wed Aug 31 09:17:02 1994  Jim Kingdon  (kingdon@cygnus.com)
 	* inftarg.c (child_wait), lynx-nat.c (child_wait),
 	procfs.c (wait_fd), symm-nat.c (child_wait): Don't check
 	attach_flag in deciding whether to call set_sigint_trap and
-	clear_sigint_trap. 
+	clear_sigint_trap.
 
 	* value.h (struct value): Change literal_data from PTR to char *,
 	since that is the way it is used.
@@ -1740,7 +1740,7 @@ Mon Aug 29 14:39:42 1994  Stan Shebs  (shebs@andros.cygnus.com)
 	(ns32k-pinsn.o): Update dependencies.
 	* ns32k-opcode.h: Remove file.
 	* ns32k-pinsn.c (print_insn): Call version in libopcodes, remove
-	all other code in this file. 
+	all other code in this file.
 
 Mon Aug 29 12:04:07 1994  Stu Grossman  (grossman@cygnus.com)
 
@@ -1847,7 +1847,7 @@ Mon Aug 22 10:42:15 1994  Steve Chamberlain  (sac@jonny.cygnus.com)
 	* ser-go32.c:  (dos_async_ready): See if anything is in the buffer.
 	(dos_async_rx): rewrite to unpack as many characters from the
 	asynctsr as possible into a local buffer.
-	
+
 Fri Aug 19 14:55:45 1994  Stan Shebs  (shebs@andros.cygnus.com)
 
 	Initial Fortran language support, adapted from work by Farooq Butt
@@ -2507,7 +2507,7 @@ Wed Jul 13 18:58:15 1994  Stan Shebs  (shebs@andros.cygnus.com)
 	* infcmd.c (run_command): Reset breakpoint hit counts.
 	* target.c (generic_mourn_inferior): Don't clear ignore counts if
 	displaying hit counts.
-	
+
 Tue Jul 12 12:23:15 1994  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* elfread.c (elf_symfile_read):  Unconditionally add dynamic
@@ -2555,7 +2555,7 @@ Wed Jul 06 12:39:07 1994  Jeff Law  (law@snake.cs.utah.edu)
 	indention problems that have crept in.
 	(SET_NAMESTRING): Accept new namep and objfile arguments so that
 	it doesn't depend on the variable names on the procedures it's
-	used from.  
+	used from.
 	(hpread_symfile_init): Delete incorrect checks for bogus sizes of
 	the debug sections.
 
@@ -2727,7 +2727,7 @@ Wed Jun 22 14:40:52 1994  Kung Hsu  (kung@mexican.cygnus.com)
 
 Tue Jun 21 14:06:46 1994  Kung Hsu  (kung@mexican.cygnus.com)
 
-	* config/i386/nm-linux.h: change calling convention of 
+	* config/i386/nm-linux.h: change calling convention of
 	TARGET_CAN_USE_HARDWARE_WATCHPOINT() and
 	target_insert_watchpoint() and
 	target_remove_watchpoint().
@@ -2834,7 +2834,7 @@ Fri Jun 10 14:52:56 1994  Kung Hsu  (kung@mexican.cygnus.com)
 
 	* Makefile.in: change sparclite-tdep.c to sparcl-tdep.c.
 	* sparclite/Makefile.in: ditto.
-	* sparcl-tdpe.c: change file name because first 8 chars has to be 
+	* sparcl-tdpe.c: change file name because first 8 chars has to be
 	unique.
 	* sparcl-stub.c: ditto.
 
@@ -2856,7 +2856,7 @@ Thu Jun  9 18:10:44 1994  Kung Hsu  (kung@mexican.cygnus.com)
 	* sparclite/hw_breakpoint.note: note for SPARClite hardware breapoint
 	support.
 	* config/sparc/sparclite.mt: add sparclite-tdep.o.
-	* config/sparc/tm-sparclite.h: add hardware breakpoints support 
+	* config/sparc/tm-sparclite.h: add hardware breakpoints support
 	defiines and code.
 	* sparclite-tdep.c: new file, contains hardware breakpoint support
 	code.
@@ -2927,7 +2927,7 @@ Fri Jun  3 09:15:00 1994  Jim Kingdon  (kingdon@lioth.cygnus.com)
 	to new file top.c.  Make things extern instead of static and
 	similar rearrangements to deal with this.
 	* top.h: New file.
-	* utils.c: Move fputs_unfiltered to main.c.  Remove 
+	* utils.c: Move fputs_unfiltered to main.c.  Remove
 	FPUTS_UNFILTERED_OVERRIDE ifndef.
 	* Makefile.in: Change so that gdb uses main.c, utils.c, and top.c,
 	and libgdb uses utils.c and top.c.
@@ -3052,7 +3052,7 @@ Wed May 18 13:01:55 1994  Doug Evans  (dje@canuck.cygnus.com)
 Tue May 17 16:45:20 1994  Stan Shebs  (shebs@andros.cygnus.com)
 
 	* xcoffread.c (read_xcoff_symtab): For C_FILE symbols, only use
-	the auxent if the symbol's name is ".file".  From David Edelsohn 
+	the auxent if the symbol's name is ".file".  From David Edelsohn
 	<c1dje@watson.ibm.com>.
 
 Tue May 17 11:08:22 1994  Jim Kingdon  (kingdon@lioth.cygnus.com)
@@ -3247,7 +3247,7 @@ Wed May  4 06:56:03 1994  Jim Kingdon  (kingdon@lioth.cygnus.com)
 	cp-valprint.c, core.c, ch-valprint.c, c-valprint.c, breakpoint.c,
 	exec.c: New argument use_local.
 	* source.c (identify_source_line): Use filtered output.  Use
-	print_address_numeric. 
+	print_address_numeric.
 
 	* core.c (memory_error), symtab.c (cplusplus_hint, decode_line_1),
 	language.c (type_error, range_error): Use filtered output.
@@ -3580,7 +3580,7 @@ Wed Apr 13 14:52:46 1994  Jeffrey A. Law  (law@snake.cs.utah.edu)
 	(enable_breakpoint): Handle hardware breakpoints much like normal
 	breakpoints, but recompute the watchpoint_scope breakpoint's
 	frame and address  (if we have an associated scope breakpoint).
-	(read_memory_nobpt): Handle hardware watchpoints like normal 
+	(read_memory_nobpt): Handle hardware watchpoints like normal
 	watchpoints.  When necessary handle watchpoint_scope breakpoints.
 	(print_it_normal, bpstat_what, breakpoint_1, mention): Likewise.
 	(clear_command, breakpoint_re_set_one, enable_command): Likewise.
@@ -4147,7 +4147,7 @@ Tue Mar 15 10:33:28 1994  Jim Kingdon  (kingdon@lioth.cygnus.com)
 	GNUTARGET.
 	* putenv.c: Removed, conflicts with system declaration of
 	putenv on RS/6000 running AIX 3.2.5, and above change makes it
-	unnecessary. 
+	unnecessary.
 	* Makefile.in: Change accordingly.
 	* procfs.c (procfs_create_inferior): Change comment accordingly.
 
@@ -4298,7 +4298,7 @@ Fri Mar  4 09:50:47 1994  Jeffrey A. Law  (law@snake.cs.utah.edu)
 	(frame_chain, frame_chain_valid): Likewise.
 	(hppa_frame_find_saved_regs): Likewise.  Also deal with special
 	saved regs convention for SP.
-	
+
 	* tm-hppa[bho].h: FRAME_FIND_SAVED_PC_IN_SIGTRAMP): Define.
 	(FRAME_BASE_BEFORE_SIGTRAMP): Define.
 	(FRAME_FIND_SAVED_REGS_IN_SIGTRAMP): Define.
@@ -4461,7 +4461,7 @@ Mon Feb 28 12:40:46 1994  Jim Kingdon  (kingdon@deneb.cygnus.com)
 Sun Feb 27 21:05:06 1994  Jim Kingdon  (kingdon@deneb.cygnus.com)
 
 	* config/m68k/tm-apollo68b.h: Remove HAVE_68881 define; it is
-	obsolete. 
+	obsolete.
 
 	* i387-tdep.c, i386-tdep.c i386v-nat.c, i386aix-nat.c,
 	i386m3-nat.c, config/m68k/tm-m68k.h, i960-tdep.c
@@ -4637,8 +4637,8 @@ Thu Feb 17 17:25:47 1994  Kung Hsu  (kung@mexican.cygnus.com)
 
 Thu Feb 17 09:30:22 1994  David J. Mackenzie  (djm@thepub.cygnus.com)
 
-	* corelow.c, exec.c, irix5-nat.c, mipsread.c, objfiles.c, 
-	osfsolib.c, rs6000-nat.c, solib.c, symfile.c, utils.c, 
+	* corelow.c, exec.c, irix5-nat.c, mipsread.c, objfiles.c,
+	osfsolib.c, rs6000-nat.c, solib.c, symfile.c, utils.c,
 	xcoffexec.c: Use bfd_get_error and bfd_set_error and new error names.
 
 Fri Feb 11 21:47:24 1994  Steve Chamberlain  (sac@sphagnum.cygnus.com)
@@ -4668,7 +4668,7 @@ Tue Feb  8 00:32:28 1994  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* README:  Remove note about gcc warnings on alpha, these should be
 	gone now.
-	* c-exp.y, ch-exp.y, core.c, corelow.c, eval.c, fork-child.c, 
+	* c-exp.y, ch-exp.y, core.c, corelow.c, eval.c, fork-child.c,
 	m2-exp.y, minsyms.c, nlmread.c, parse.c, putenv.c, regex.c
 	remote-utils.c, stabsread.c:  Include <string.h>.
 	* regex.c:  Include "defs.h", change re_comp argument to const char *.
@@ -5546,7 +5546,7 @@ Tue Jan 11 00:53:46 1994  John Gilmore  (gnu@cygnus.com)
 	print a newline to end the display anyway.
 
 	* sparc-tdep.c (sparc_pop_frame):  Pop the fsr and csr (float and
-	coprocessor status regs) when popping a frame.  This fixes 
+	coprocessor status regs) when popping a frame.  This fixes
 	float exceptions that occur after calling inferior functions.
 
 	* sparc-nat.c (fetch_inferior_registers, store_inferior_registers):
@@ -5573,7 +5573,7 @@ Mon Jan 10 20:08:23 1994  Jim Kingdon  (kingdon@deneb.cygnus.com)
 
 Mon Jan 10 15:48:36 1994  Tom Lord  (lord@rtl.cygnus.com)
 
-	* m68k-stub.c, sparc-stub.c: removed spurious introduction of 
+	* m68k-stub.c, sparc-stub.c: removed spurious introduction of
 	_filtered io routines from these two files.
 
 Fri Jan  7 12:42:45 1994  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
@@ -5581,7 +5581,7 @@ Fri Jan  7 12:42:45 1994  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 	* config/i386/tm-i386v.h, config/m68k/tm-m68k.h, config/mips/tm-mips.h,
 	config/vax/tm-vax.h (CALL_DUMMY_BREAKPOINT_OFFSET):  Define.
 	* mdebugread.c (parse_symbol):  Handle enum sh.type produced by
-	DEC c89. 
+	DEC c89.
 	* mdebugread.c (add_line):  Handle zero linenos produced by DEC c89.
 
 Fri Jan  7 12:55:25 1994  Jim Kingdon  (kingdon@lioth.cygnus.com)
@@ -5643,7 +5643,7 @@ Tue Jan  4 09:47:14 1994  Jim Kingdon  (kingdon@lioth.cygnus.com)
 	to resume(), proceed(), and target_resume() from int to enum
 	target_signal.
 	* All targets (*_wait, *_resume): Change accordingly.
-	* infcmd.c (program_info, signal_command), throughout infrun.c, 
+	* infcmd.c (program_info, signal_command), throughout infrun.c,
 	* fork-child.c, solib.c, hppa-tdep.c, osfsolib.c: Use this stuff.
 	* convex-xdep.c, convex-tdep.c: Add FIXME's (getting the Convex
 	signal code stuff right with the new signals would be non-trivial).

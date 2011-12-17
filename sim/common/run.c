@@ -351,7 +351,7 @@ usage (int help)
   exit (help ? 0 : 1);
 }
 
-static void 
+static void
 print_version ()
 {
   printf ("GNU simulator %s%s\n", PKGVERSION, version);

@@ -24,7 +24,7 @@
 	lds	r0, y0
 	padd	x0, y0, a0
 	assert_sreg	4, a0
-		
+
 	set_dcfalse
 	dct padd x0, y0, a1
 	assert_sreg2	0xa5a5a5a5, a1

@@ -77,7 +77,7 @@ tui_file_delete (struct ui_file *file)
   if (tmpstream->ts_magic != &tui_file_magic)
     internal_error (__FILE__, __LINE__,
 		    _("tui_file_delete: bad magic number"));
-  if ((tmpstream->ts_streamtype == astring) 
+  if ((tmpstream->ts_streamtype == astring)
       && (tmpstream->ts_strbuf != NULL))
     {
       xfree (tmpstream->ts_strbuf);

@@ -28,13 +28,13 @@
 typedef enum
   {
     /* 16-bit general purpose registers.  */
-    r0, r1, r2, r3, 
-    r4, r5, r6, r7, 
-    r8, r9, r10, r11, 
+    r0, r1, r2, r3,
+    r4, r5, r6, r7,
+    r8, r9, r10, r11,
     r12_L = 12, r13_L = 13, ra = 14, sp_L = 15,
 
     /* 32-bit general purpose registers.  */
-    r12 = 12, r13 = 13, r14 = 14, r15 = 15, 
+    r12 = 12, r13 = 13, r14 = 14, r15 = 15,
     era = 14, sp = 15, RA,
 
     /* Not a register.  */
@@ -50,16 +50,16 @@ reg;
 typedef enum
   {
     /* processor registers.  */
-    dbs = MAX_REG, 
-    dsr, dcrl, dcrh, 
-    car0l, car0h, car1l, car1h, 
-    cfg, psr, intbasel, intbaseh, 
+    dbs = MAX_REG,
+    dsr, dcrl, dcrh,
+    car0l, car0h, car1l, car1h,
+    cfg, psr, intbasel, intbaseh,
     ispl, isph, uspl, usph,
-    dcr =  dcrl, 
-    car0 = car0l, 
-    car1 = car1l, 
-    intbase = intbasel, 
-    isp =  ispl, 
+    dcr =  dcrl,
+    car0 = car0l,
+    car1 = car1l,
+    intbase = intbasel,
+    isp =  ispl,
     usp =  uspl,
     /* Not a processor register.  */
     nullpregister = usph + 1,
@@ -138,15 +138,15 @@ typedef enum
     /* Register pair index.  */
     rpindex_disps0, rpindex_disps14, rpindex_disps20,
     /* register.  */
-    regr, 
+    regr,
     /* register pair.  */
-    regp, 
+    regp,
     /* processor register.  */
-    pregr, 
+    pregr,
     /* processor register 32 bit.  */
-    pregrp, 
+    pregrp,
     /* condition code - 4 bit.  */
-    cc, 
+    cc,
     /* Not an operand.  */
     nulloperand,
     /* Maximum supported operand.  */
@@ -192,7 +192,7 @@ operand_type;
 /* Indicates whether this instruction can be relaxed.  */
 #define RELAXABLE      (1 << 14)
 
-/* Indicates that instruction uses user registers (and not 
+/* Indicates that instruction uses user registers (and not
    general-purpose registers) as operands.  */
 #define USER_REG       (1 << 15)
 

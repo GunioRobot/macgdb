@@ -95,9 +95,9 @@ trotcr:
 	bf wrong
 	rotcr r1
 
-okay:	
+okay:
 	pass
 wrong:
 	fail
-	
+
 

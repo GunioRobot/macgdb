@@ -27,7 +27,7 @@ fadd0:
 	fcmpeq.s fr2, fr3, r7
 	bnei r7, 1, tr0
 
-okay:	
+okay:
 	pass
 
 wrong:

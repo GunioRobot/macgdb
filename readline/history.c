@@ -157,7 +157,7 @@ history_set_pos (pos)
   history_offset = pos;
   return (1);
 }
- 
+
 /* Return the current history array.  The caller has to be carefull, since this
    is the actual array of data, and could be bashed or made corrupt easily.
    The array is terminated with a NULL pointer. */
@@ -328,7 +328,7 @@ free_history_entry (hist)
   free (hist);
   return (x);
 }
-  
+
 /* Make the history entry at WHICH have LINE and DATA.  This returns
    the old entry so you can dispose of the data.  In the case of an
    invalid WHICH, a NULL pointer is returned. */

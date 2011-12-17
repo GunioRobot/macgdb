@@ -60,7 +60,7 @@ trad_frame_alloc_saved_regs (struct frame_info *this_frame)
     {
       this_saved_regs[regnum].realreg = regnum;
       this_saved_regs[regnum].addr = -1;
-    }      
+    }
   return this_saved_regs;
 }
 

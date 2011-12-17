@@ -783,7 +783,7 @@ gdb_setpgid (void)
       retval = setpgid (getpid (), getpid ());
 #else
 #ifdef HAVE_SETPGRP
-#ifdef SETPGRP_VOID 
+#ifdef SETPGRP_VOID
       retval = setpgrp ();
 #else
       retval = setpgrp (getpid (), getpid ());

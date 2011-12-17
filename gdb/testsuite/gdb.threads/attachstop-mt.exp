@@ -120,7 +120,7 @@ if {[string match "*(sleeping)*" $line2]} {
   fail $test
 }
 
-# Stop the program 
+# Stop the program
 remote_exec build "kill -s STOP ${testpid}"
 
 # No race
@@ -176,7 +176,7 @@ gdb_test "bt" ".*sleep.*(func|main).*" "attach3 to stopped bt"
 # Exit and detach the process.
 gdb_exit
 
-# Stop the program 
+# Stop the program
 remote_exec build "kill -s STOP ${testpid}"
 
 # No race
@@ -192,7 +192,7 @@ gdb_load ${binfile}
 
 # Verify that we can attach to the process just by giving the
 # process ID.
-   
+
 set test "attach4 to stopped, after setting file"
 gdb_test_multiple "attach $testpid" "$test" {
     -re "Attaching to program.*`?$escapedbinfile'?, process $testpid.*$gdb_prompt $" {
@@ -261,7 +261,7 @@ if {[string match "*(sleeping)*" $line2]} {
 # the next test run (and prevent the compile by keeping
 # the text file busy), in case the "set should_exit" didn't
 # work.
-   
+
 remote_exec build "kill -9 ${testpid}"
 
 return 0

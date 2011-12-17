@@ -1,5 +1,5 @@
 # cr16 testcase for mulsb $imm4/imm16/reg, reg
-# mach(): cr16 
+# mach(): cr16
 
 	.include "testutils.inc"
 

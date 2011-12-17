@@ -71,7 +71,7 @@ struct objfile *rt_common_objfile;	/* For runtime common symbols */
 
 static int objfiles_changed_p;
 
-/* Locate all mappable sections of a BFD file. 
+/* Locate all mappable sections of a BFD file.
    objfile_p_char is a char * to get it through
    bfd_map_over_sections; we cast it back to its proper type.  */
 
@@ -267,7 +267,7 @@ init_entry_point_info (struct objfile *objfile)
     /* Some shared libraries may have entry points set and be
        runnable.  There's no clear way to indicate this, so just check
        for values other than zero.  */
-    objfile->ei.entry_point = bfd_get_start_address (objfile->obfd);    
+    objfile->ei.entry_point = bfd_get_start_address (objfile->obfd);
   else
     {
       /* Examination of non-executable.o files.  Short-circuit this stuff.  */
@@ -335,7 +335,7 @@ put_objfile_before (struct objfile *objfile, struct objfile *before_this)
   struct objfile **objp;
 
   unlink_objfile (objfile);
-  
+
   for (objp = &object_files; *objp != NULL; objp = &((*objp)->next))
     {
       if (*objp == before_this)
@@ -345,7 +345,7 @@ put_objfile_before (struct objfile *objfile, struct objfile *before_this)
 	  return;
 	}
     }
-  
+
   internal_error (__FILE__, __LINE__,
 		  _("put_objfile_before: before objfile not in list"));
 }
@@ -404,7 +404,7 @@ unlink_objfile (struct objfile *objfile)
 
 
 /* Destroy an objfile and all the symtabs and psymtabs under it.  Note
-   that as much as possible is allocated on the objfile_obstack 
+   that as much as possible is allocated on the objfile_obstack
    so that the memory can be efficiently freed.
 
    Things which we do NOT free because they are not in malloc'd memory
@@ -426,14 +426,14 @@ free_objfile (struct objfile *objfile)
     {
       free_objfile (objfile->separate_debug_objfile);
     }
-  
+
   if (objfile->separate_debug_objfile_backlink)
     {
       /* We freed the separate debug file, make sure the base objfile
 	 doesn't reference it.  */
       objfile->separate_debug_objfile_backlink->separate_debug_objfile = NULL;
     }
-  
+
   /* Remove any references to this objfile in the global value
      lists.  */
   preserve_values (objfile);
@@ -550,7 +550,7 @@ objfile_relocate (struct objfile *objfile, struct section_offsets *new_offsets)
 {
   struct obj_section *s;
   struct section_offsets *delta =
-    ((struct section_offsets *) 
+    ((struct section_offsets *)
      alloca (SIZEOF_N_SECTION_OFFSETS (objfile->num_sections)));
 
   {
@@ -1129,7 +1129,7 @@ find_pc_section (CORE_ADDR pc)
 }
 
 
-/* In SVR4, we recognize a trampoline by it's section name. 
+/* In SVR4, we recognize a trampoline by it's section name.
    That is, if the pc is in a section named ".plt" then we are in
    a trampoline.  */
 
@@ -1163,7 +1163,7 @@ struct objfile_data_registration
   struct objfile_data *data;
   struct objfile_data_registration *next;
 };
-  
+
 struct objfile_data_registry
 {
   struct objfile_data_registration *registrations;

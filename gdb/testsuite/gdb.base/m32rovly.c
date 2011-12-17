@@ -20,7 +20,7 @@ static void ovly_copy (unsigned long dst, unsigned long src, long size);
    since libgloss is the one intended to handle low level system issues.
    I would suggest something like _flush_cache to avoid the user's namespace
    but not be completely obscure as other things may need this facility.  */
- 
+
 static void
 FlushCache (void)
 {
@@ -52,8 +52,8 @@ OverlayLoad (unsigned long ovlyno)
     else if (_ovly_table[i][VMA] == _ovly_table[ovlyno][VMA])
       _ovly_table[i][MAPPED] = 0;	/* this one now un-mapped */
 
-  ovly_copy (_ovly_table[ovlyno][VMA], 
-	     _ovly_table[ovlyno][LMA], 
+  ovly_copy (_ovly_table[ovlyno][VMA],
+	     _ovly_table[ovlyno][LMA],
 	     _ovly_table[ovlyno][SIZE]);
 
   FlushCache ();
@@ -66,17 +66,17 @@ OverlayLoad (unsigned long ovlyno)
  * Does NOT mark overlay as "unmapped", therefore may be called
  * more than once for the same mapped overlay.
  */
- 
+
 bool
 OverlayUnload (unsigned long ovlyno)
 {
   if (ovlyno < 0 || ovlyno >= _novlys)
     exit (-1);  /* fail, bad ovly number */
- 
+
   if (!_ovly_table[ovlyno][MAPPED])
     exit (-1);  /* error, can't copy out a segment that's not "in" */
- 
-  ovly_copy (_ovly_table[ovlyno][LMA], 
+
+  ovly_copy (_ovly_table[ovlyno][LMA],
 	     _ovly_table[ovlyno][VMA],
 	     _ovly_table[ovlyno][SIZE]);
 
@@ -97,7 +97,7 @@ D10VTranslate (unsigned long logical,
   unsigned long seg;
   unsigned long off;
 
-  /* to access data, we use the following mapping 
+  /* to access data, we use the following mapping
      0x00xxxxxx: Logical data address segment        (DMAP translated memory)
      0x01xxxxxx: Logical instruction address segment (IMAP translated memory)
      0x10xxxxxx: Physical data memory segment        (On-chip data memory)
@@ -113,7 +113,7 @@ D10VTranslate (unsigned long logical,
      first translated into a physical address */
   seg = (logical >> 24);
   off = (logical & 0xffffffL);
-  switch (seg) 
+  switch (seg)
       {
       case 0x00: /* in logical data address segment */
 	if (off <= 0x7fffL)
@@ -161,7 +161,7 @@ D10VTranslate (unsigned long logical,
 
   seg = (physical >> 24);
   off = (physical & 0xffffffL);
-  switch (seg) 
+  switch (seg)
     {
     case 0x10:	/* dst is a 15 bit offset into the on-chip memory */
       *dmap = 0;
@@ -208,7 +208,7 @@ ovly_copy (unsigned long dst, unsigned long src, long size)
       DMAP = dmap_src;
       tmp = *s;
       DMAP = dmap_dst;
-      *d = tmp; 
+      *d = tmp;
       d++;
       s++;
       size -= sizeof (tmp);

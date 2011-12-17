@@ -1,17 +1,17 @@
 /* coff information for 80960.  Origins: Intel corp, natch.
-   
+
    Copyright 2001 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -37,7 +37,7 @@ struct external_filehdr
 
 /*
 *	Intel 80960 (I960) processor flags.
-*	F_I960TYPE == mask for processor type field. 
+*	F_I960TYPE == mask for processor type field.
 */
 
 #define	F_I960TYPE	(0xf000)
@@ -72,7 +72,7 @@ typedef struct
   unsigned long	bitarray;
 } TAGBITS;
 
-typedef struct 
+typedef struct
 {
   char 	magic[2];		/* type of file				*/
   char	vstamp[2];		/* version stamp			*/
@@ -154,7 +154,7 @@ struct external_lineno
 #define E_FILNMLEN	14	/* # characters in a file name		*/
 #define E_DIMNUM	4	/* # array dimensions in auxiliary entry */
 
-struct external_syment 
+struct external_syment
 {
   union
   {
@@ -180,7 +180,7 @@ struct external_syment
 #define N_TMASK		(0x60)
 #define N_BTSHFT	(5)
 #define N_TSHIFT	(2)
-  
+
 union external_auxent
 {
   struct

@@ -352,7 +352,7 @@ static void *
 copy_pieced_value_closure (struct value *v)
 {
   struct piece_closure *c = (struct piece_closure *) value_computed_closure (v);
-  
+
   return allocate_piece_closure (c->n_pieces, c->pieces, c->arch);
 }
 
@@ -709,14 +709,14 @@ locexpr_describe_location (struct symbol *symbol, struct ui_file *stream)
 
      DW_AT_location    : 10 byte block: 3 4 0 0 0 0 0 0 0 e0
                         (DW_OP_addr: 4; DW_OP_GNU_push_tls_address)
-     
+
      0x3 is the encoding for DW_OP_addr, which has an operand as long
      as the size of an address on the target machine (here is 8
      bytes).  0xe0 is the encoding for DW_OP_GNU_push_tls_address.
      The operand represents the offset at which the variable is within
      the thread local storage.  */
 
-  if (dlbaton->size > 1 
+  if (dlbaton->size > 1
       && dlbaton->data[dlbaton->size - 1] == DW_OP_GNU_push_tls_address)
     if (dlbaton->data[0] == DW_OP_addr)
       {
@@ -726,13 +726,13 @@ locexpr_describe_location (struct symbol *symbol, struct ui_file *stream)
 						&dlbaton->data[1],
 						&dlbaton->data[dlbaton->size - 1],
 						addr_size);
-	fprintf_filtered (stream, 
+	fprintf_filtered (stream,
 			  "a thread-local variable at offset %s in the "
 			  "thread-local storage for `%s'",
 			  paddress (gdbarch, offset), objfile->name);
 	return 1;
       }
-  
+
 
   fprintf_filtered (stream,
 		    "a variable with complex or multiple locations (DWARF2)");

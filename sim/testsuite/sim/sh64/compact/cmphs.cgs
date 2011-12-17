@@ -48,7 +48,7 @@ ltneg:
 	mov #1, r0
 	rotr r0
 	add #3, r0
-	
+
 	mov #1, r1
 	rotr r1
 	add #1, r1

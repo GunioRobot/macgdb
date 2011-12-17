@@ -44,7 +44,7 @@ _start:
 	setlo		0x0000,gr11
 	or		gr10,gr11,gr10
 	movgs		gr10,hsr0
-	
+
 	sethi.p		0x7,sp
 	setlo		0x0000,sp
 
@@ -73,8 +73,8 @@ read1:	ld		@(sp,gr11),gr12
 	addi.p		gr11,4,gr11
 	bctrlr.p	1,0
 	bra		read1
-done2:	
-	
+done2:
+
 	; fill the cache twice
 	sethi.p		%hi(done3),gr10
 	setlo		%lo(done3),gr10
@@ -100,7 +100,7 @@ read4:	ld		@(sp,gr11),gr12
 	addi.p		gr11,4,gr11
 	bctrlr.p	1,0
 	bra		read4
-done4:	
+done4:
 	; read it back in reverse
 	sethi.p		%hi(done5),gr10
 	setlo		%lo(done5),gr10
@@ -114,7 +114,7 @@ read5:	ld		@(sp,gr11),gr12
 	subi.p		gr11,4,gr11
 	bctrlr.p	1,0
 	bra		read5
-done5:	
+done5:
 
 	; access data and insns in non-cache areas
 	sethi.p		0x8038,gr11		; bctrlr 0,0
@@ -158,7 +158,7 @@ done5:
 	sti		gr11,@(gr10,0)
 	dcf		@(gr10,gr0)
 	jmpl		@(gr10,gr0)
-	
+
 	pass
 fail:
 	fail

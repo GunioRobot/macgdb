@@ -141,7 +141,7 @@ cp_is_vtbl_member (struct type *type)
    same meanings as in cp_print_value and c_val_print.
 
    2nd argument REAL_TYPE is used to carry over the type of the derived
-   class across the recursion to base classes. 
+   class across the recursion to base classes.
 
    DONT_PRINT is an array of baseclass types that we
    should not print, or zero if called from top level.  */
@@ -267,7 +267,7 @@ cp_print_value_fields (struct type *type, struct type *real_type,
 		  struct value_print_options opts = *options;
 		  opts.deref_ref = 0;
 		  v = value_from_longest
-		    (TYPE_FIELD_TYPE (type, i), 
+		    (TYPE_FIELD_TYPE (type, i),
 		     unpack_field_as_long (type, valaddr + offset, i));
 
 		  common_val_print (v, stream, recurse + 1, &opts,
@@ -431,7 +431,7 @@ cp_print_value (struct type *type, struct type *real_type,
 					       stream, recurse,
 					       options,
 					       current_language);
-	  	  
+
 	  if (!result)
 	    cp_print_value_fields (baseclass, thistype, base_valaddr,
 				   thisoffset + boffset, address + boffset,
@@ -509,7 +509,7 @@ cp_print_static_field (struct type *type,
 
   opts = *options;
   opts.deref_ref = 0;
-  val_print (type, value_contents_all (val), 
+  val_print (type, value_contents_all (val),
 	     value_embedded_offset (val), value_address (val),
 	     stream, recurse, &opts, current_language);
 }

@@ -51,7 +51,7 @@ mipsnbsd_fetch_inferior_registers (struct target_ops *ops,
       if (ptrace (PT_GETREGS, PIDGET (inferior_ptid),
 		  (PTRACE_TYPE_ARG3) &regs, 0) == -1)
 	perror_with_name (_("Couldn't get registers"));
-      
+
       mipsnbsd_supply_reg (regcache, (char *) &regs, regno);
       if (regno != -1)
 	return;
@@ -84,7 +84,7 @@ mipsnbsd_store_inferior_registers (struct target_ops *ops,
 
       mipsnbsd_fill_reg (regcache, (char *) &regs, regno);
 
-      if (ptrace (PT_SETREGS, PIDGET (inferior_ptid), 
+      if (ptrace (PT_SETREGS, PIDGET (inferior_ptid),
 		  (PTRACE_TYPE_ARG3) &regs, 0) == -1)
 	perror_with_name (_("Couldn't write registers"));
 
@@ -94,7 +94,7 @@ mipsnbsd_store_inferior_registers (struct target_ops *ops,
 
   if (regno == -1 || regno >= gdbarch_fp0_regnum (get_regcache_arch (regcache)))
     {
-      struct fpreg fpregs; 
+      struct fpreg fpregs;
 
       if (ptrace (PT_GETFPREGS, PIDGET (inferior_ptid),
 		  (PTRACE_TYPE_ARG3) &fpregs, 0) == -1)

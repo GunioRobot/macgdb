@@ -9,7 +9,7 @@
 
 init:
 	pta wrong, tr0
-	
+
 fmacs:
 	movi 2, r0
 	fmov.ls r0, fr0

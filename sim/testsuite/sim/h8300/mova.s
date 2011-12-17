@@ -250,7 +250,7 @@ t02_mova:
 	mova/l.c @(0x12345678:32,r1.w),er1 ; 7AD112345678
 	test_h_gr32	0x12345a7c, er1	; 12s
 
-t02b:	
+t02b:
 	mov.l	#0x01010101, er3
 	mova/b.l @(0x1234:16,r3l.b),er1 ; 78B87A891234
 	test_h_gr32	0x1235, er1 ; 1
@@ -277,7 +277,7 @@ t02b:
 	mova/l.l @(0x12345678:32,r3.w),er1 ; 78397AD112345678
 	test_h_gr32	0x12345a7c, er1	; 12
 	test_h_gr32	0x01010101, er3
-t02c:	
+t02c:
 	mov.l	#foo, er2
 	mova/b.l @(0x1234:16,@er2.b),er1              ;017F02811234
 	test_h_gr32	0x1235, er1 ; 13
@@ -287,7 +287,7 @@ t02c:
 	test_h_gr32	foo, er2
 	mova/b.l @(0x1234:16,@er2+.b),er1             ;017F82811234
 	test_h_gr32	0x1235, er1 ; 14
-	test_h_gr32	foo+1, er2 
+	test_h_gr32	foo+1, er2
 	mova/b.l @(0x1234:16,@-er2.b),er1             ;017FB2811234
 	test_h_gr32	0x1235, er1 ; 17
 	test_h_gr32	foo, er2
@@ -427,13 +427,13 @@ t02h:
 	test_h_gr32	foo+2, er2
 	mova/w.l @(0x1234:16,@-er2.w),er1          ;015FB2B11234
 	test_h_gr32	0x1436, er1 ; 63
-	test_h_gr32	foo, er2 
+	test_h_gr32	foo, er2
 	mova/w.l @(0x1234:16,@+er2.w),er1          ;015F92B11234
 	test_h_gr32	0x1436, er1 ; 64
 	test_h_gr32	foo+2, er2
 	mova/w.l @(0x1234:16,@er2-.w),er1          ;015FA2B11234
 	test_h_gr32	0x1436, er1 ; 65
-	test_h_gr32	foo, er2 
+	test_h_gr32	foo, er2
 t02i:
 	mov.l	#4, er2
 	mova/w.l @(0x1234:16, @(foo:16, er2).w), er1
@@ -512,7 +512,7 @@ t02l:
 	mova/l.l @(0x1234:16,@er2.w),er1           ;015F02D11234
 	test_h_gr32	0x1638, er1 ; 93
 	mova/l.l @(0x1234:16,@(0x2:2,er2).w),er1   ;015F12D11234
-	test_h_gr32	0x1638, er1 ; 98 
+	test_h_gr32	0x1638, er1 ; 98
 	mova/l.l @(0x1234:16,@er2+.w),er1          ;015F82D11234
 	test_h_gr32	0x1638, er1 ; 94
 	test_h_gr32	foo+2, er2

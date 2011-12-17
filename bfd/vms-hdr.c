@@ -692,7 +692,7 @@ parse_module (bfd *abfd, struct module *module, unsigned char *ptr,
 	  funcinfo->low = bfd_getl32 (ptr + DST_S_L_RTNBEG_ADDRESS);
 	  funcinfo->next = module->func_table;
 	  module->func_table = funcinfo;
-    
+
 #if VMS_DEBUG
           _bfd_vms_debug (3, "routine: %s at 0x%x\n",
 			  funcinfo->name, funcinfo->low);
@@ -984,7 +984,7 @@ parse_module (bfd *abfd, struct module *module, unsigned char *ptr,
 		  _bfd_vms_debug (4, "DST_S_C_SET_LINUM_B: %d\n", data);
 #endif
 		  break;
-	
+
 		case DST_S_C_SET_LINE_NUM:
 		  data = bfd_getl16 (pcl_ptr + DST_S_W_PCLINE_UNSWORD);
 		  curr_linenum = data;
@@ -1231,7 +1231,7 @@ build_module_list (bfd *abfd)
 
 static bfd_boolean
 module_find_nearest_line (bfd *abfd, struct module *module, bfd_vma addr,
-			  const char **file, const char **func, 
+			  const char **file, const char **func,
 			  unsigned int *line)
 {
   struct funcinfo *funcinfo;
@@ -1356,7 +1356,7 @@ vms_slurp_debug (bfd *abfd)
 
   PRIV (image_section) = PRIV (dst_section);
   PRIV (image_ptr) = PRIV (dst_section)->contents;
- 
+
   return _bfd_vms_slurp_tir (abfd, EOBJ_S_C_ETIR);
 }
 

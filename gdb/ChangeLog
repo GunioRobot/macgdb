@@ -61,7 +61,7 @@
 	* dwarf2-frame.c (find_cie): Don't call bsearch on empty cie_table.
 	* objfiles.c (find_pc_section): Likewise.
 	(update_section_map): Don't allocate empty table.
-	
+
 2009-10-19  Don Lee  <don.lee@sunplusct.com>
 
 	* score-tdep.c: Delete some simulator dependent codes.
@@ -76,7 +76,7 @@
 
 	PR gdb/10457
 	* elfread.c (elf_symtab_read): Don't use alloca in a loop.
-	
+
 2009-10-06  Joel Brobecker  <brobecker@adacore.com>
 
 	* version.in: Set version to 7.0.0.20091006-cvs.
@@ -654,7 +654,7 @@
 	* objfiles.c (qsort_cmp): Remove asserts.
 	(insert_section_p, filter_debuginfo_sections): New function.
 	(filter_overlapping_sections): Likewise.
-	(update_section_map): Adjust.	
+	(update_section_map): Adjust.
 
 2009-09-13  Daniel Jacobowitz  <dan@codesourcery.com>
 
@@ -807,19 +807,19 @@
 
 2009-09-08  Michael Snyder  <msnyder@vmware.com>
 
-	* amd64-linux-tdep.h (enum amd64_syscall): New enum consts, 
+	* amd64-linux-tdep.h (enum amd64_syscall): New enum consts,
 	to replace literal consts used in amd64-linux-tdep.c
 	* linux-record.h (enum gdb_syscall): New enum consts, to replace
 	literal consts used in amd64-linux-tdep.c and linux-record.c.
 	* amd64-linux-tdep.c (amd64_canonicalize_syscall): New function,
 	translate from native amd64 Linux syscall id to internal gdb id.
-	(amd64_linux_syscall_record): Switch statement abstracted out 
+	(amd64_linux_syscall_record): Switch statement abstracted out
 	and replaced with a call to amd64_canonicalize_syscall.
 	* linux-record.c (record_linux_system_call): Replace literal
 	consts with enum consts.
 	* i386-linux-tdep.c (i386_canonicalize_syscall): New function,
 	trivially translate from native i386 Linux syscalls to gdb syscalls.
-	(i386_linux_intx80_sysenter_record): 
+	(i386_linux_intx80_sysenter_record):
 
 2009-09-08  Ralf Wildenhues  <Ralf.Wildenhues@gmx.de>
 
@@ -1065,7 +1065,7 @@
 2009-08-25  Keith Seitz  <keiths@redhat.com>
 
 	* c-exp.y (yylex): Add cxx_only check for tokentab2 and tokentab3
-	searches. 
+	searches.
 	(tokentab3): Add cxx_only for DOT_STAR.
 
 2009-08-25  Pedro Alves  <pedro@codesourcery.com>
@@ -1091,7 +1091,7 @@
 
 	* symtab.c (default_make_symbol_completion_list): Keep
 	':', too, so that we can limit searches in namespaces
-	and classes. 
+	and classes.
 
 2009-08-24  Tom Tromey  <tromey@redhat.com>
 
@@ -1428,7 +1428,7 @@
 	* objfiles.c (qsort_cmp): Remove assert.
 	(preferred_obj_section): New function.
 	(update_section_map): Filter duplicates.
-	
+
 2009-08-10  Tristan Gingold  <gingold@adacore.com>
 
 	* solib-darwin.c (find_program_interpreter): Simplify the code by
@@ -1540,10 +1540,10 @@
 	add_setshow_zinteger_cmd, add_setshow_zuinteger_cmd): Update.
 
 2009-08-06  Paul Pluzhnikov  <ppluzhnikov@google.com>
-	
+
 	gold/10400
-	* dwarf2-frame.c (qsort_fde_cmp): Use stable sort.	
-	
+	* dwarf2-frame.c (qsort_fde_cmp): Use stable sort.
+
 2009-08-06  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* dwarf2-frame.c (struct dwarf2_cie): Remove 'next'.
@@ -1557,7 +1557,7 @@
 	(decode_frame_entry, decode_frame_entry_1): New parameters.
 	(qsort_fde_cmp): New function.
 	(dwarf2_build_frame_info): Adjust.
-	
+
 2009-08-06  Don Lee <don.lee@sunplusct.com>
 
 	* score-tdep.c: Support a new Sunplus CT S+core variant, S+core 3.
@@ -1939,7 +1939,7 @@
 
 	PR gdb/6817
 	* dbxread.c (read_dbx_symtab): Reduce stack use.
-	
+
 2009-07-29  Jan Kratochvil  <jan.kratochvil@redhat.com>
 
 	Fix gcc-4.5 HEAD warnings.
@@ -2048,11 +2048,11 @@
 2009-07-23  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* symtab.c (search_symbols): Add QUIT.
-	
+
 2009-07-22  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* symfile.c (symbol_file_add_with_addrs_or_offsets): Call observer.
-	
+
 2009-07-22  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* objfiles.h (objfiles_changed): New prototype.
@@ -2064,22 +2064,22 @@
 	(set_objfiles_updated_on_solib_activity): Remove.
 	(_initialize_objfiles): Remove.
 	(objfiles_changed): New function.
-	* symfile.c (reread_symbols): Call objfiles_changed.	
-	
+	* symfile.c (reread_symbols): Call objfiles_changed.
+
 2009-07-22  Hui Zhu  <teawater@gmail.com>
 
 	* record.c (record_xfer_partial): Call error When nquery
 	return "n".
 
 2009-07-21  Paul Pluzhnikov  <ppluzhnikov@google.com>
-	
+
 	* objfiles.c (objfiles_updated_p): New variable.
 	(qsort_cmp, bsearch_cmp, update_section_map): New function.
 	(find_pc_section): Use bsearch.
 	(set_objfiles_updated_on_exe_change): New function.
 	(set_objfiles_updated_on_solib_activity): New function.
 	(_initialize_objfiles): New function.
-	
+
 2009-07-21 Michael Eager <eager@eagercon.com>
 
 	* features/rs6000/powerpc-405.xml: New.
@@ -2257,7 +2257,7 @@
 	(prepare_to_wait): Do not invaliate registers or overlay cache
 	(moved to wait_for_inferior).  Do not reset waiton_ptid (moved
 	to handle_inferior_event).
-	(fetch_inferior_event): Remove check for always-true condition.  
+	(fetch_inferior_event): Remove check for always-true condition.
 
 2009-07-20  Thomas Schwinge  <tschwinge@gnu.org>
 
@@ -2267,7 +2267,7 @@
 2009-07-18  Michael Snyder  <msnyder@vmware.com>
 
 	* infrun.c (handle_inferior_event): Remove an execution_direction
-	check in the "check for subroutine calls" test, and add some 
+	check in the "check for subroutine calls" test, and add some
 	additional handling for reverse-stepping through shared libraries.
 
 2009-07-18  Anthony Green  <green@moxielogic.com>
@@ -2494,7 +2494,7 @@
 2009-07-07  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* python/python-value.c (valpy_getitem): Remove incorrect assert.
-	
+
 2009-07-07  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* python/python-value.c (valpy_getitem): Don't return from TRY_CATCH.
@@ -2568,7 +2568,7 @@
 	(_initialize_i386_darwin_tdep): Remove 64 bits parts.
 	(darwin_dwarf_signal_frame_p): Make public.
 	* amd64-darwin-tdep.c: New file with most chunks from
-	i386-darwin-tdep.c	
+	i386-darwin-tdep.c
 	* i386-darwin-tdep.h: Add a prototype for darwin_dwarf_signal_frame_p.
 	(amd64_darwin_thread_state_reg_offset)
 	(amd64_darwin_thread_state_num_regs): Moved to amd64-darwin-tdep.h
@@ -2586,7 +2586,7 @@
 	* Makefile.in (ALLDEPFILES): Add amd64-darwin-tdep.c, darwin-nat.c,
 	i386-darwin-tdep.c i386-darwin-nat.c
 	(ALL_64_TARGET_OBS): Add amd64-darwin-tdep.o
-	
+
 2009-07-02  Pedro Alves  <pedro@codesourcery.com>
 
 	* linux-fork.c (forks_exist_p): Drop unnecessary extern.
@@ -2829,7 +2829,7 @@
 	* irix5nat.c (fill_gregset): Update.
 	* jv-lang.c (evaluate_subexp_java): Update.
 	* jv-valprint.c (java_value_print): Update.
-	* lm32-tdep.c (lm32_analyze_prologue, lm32_push_dummy_call, 
+	* lm32-tdep.c (lm32_analyze_prologue, lm32_push_dummy_call,
 	lm32_extract_return_value, lm32_store_return_value): Update.
 	* m32c-tdep.c (m32c_push_dummy_call, m32c_return_value,
 	m32c_skip_trampoline_code, m32c_m16c_address_to_pointer,
@@ -2856,7 +2856,7 @@
 	* mipsnbdsd-tdep.c (mipsnbsd_get_longjmp_target): Update.
 	* mips-tdep.c (mips_fetch_instruction, fetch_mips_16,
 	mips_eabi_push_dummy_call, mips_n32n64_push_dummy_call,
-	mips_o32_push_dummy_call, mips_o64_push_dummy_call, 
+	mips_o32_push_dummy_call, mips_o64_push_dummy_call,
 	mips_single_step_through_delay, mips_skip_pic_trampoline_code,
 	mips_integer_to_address): Update.
 	* mn10300-tdep.c (mn10300_analyze_prologue, mn10300_push_dummy_call):
@@ -2890,7 +2890,7 @@
 	* remote-mips.c (mips_wait, mips_fetch_registers, mips_xfer_memory):
 	Update.
 	* rs6000-aix-tdep.c (rs6000_push_dummy_call, rs6000_return_value,
-	rs6000_convert_from_func_ptr_addr, branch_dest, 
+	rs6000_convert_from_func_ptr_addr, branch_dest,
 	rs6000_software_single_step): Update.
 	* rs6000-tdep.c (rs6000_in_function_epilogue_p,
 	ppc_displaced_step_fixup, ppc_deal_with_atomic_sequence,
@@ -2950,7 +2950,7 @@
 	* target.c (debug_print_register): Update.
 	* tramp-frame.c (tramp_frame_start): Update.
 	* v850-tdep.c (v850_analyze_prologue, v850_push_dummy_call,
-	v850_extract_return_value, v850_store_return_value, 
+	v850_extract_return_value, v850_store_return_value,
 	* valarith.c (value_binop, value_bit_index): Update.
 	* valops.c (value_cast): Update.
 	* valprint.c (val_print_type_code_int, val_print_string,
@@ -3230,7 +3230,7 @@
 	(rs6000_skip_stack_check): Add GDBARCH parameter, pass to
 	rs6000_fetch_instruction.
 	(skip_prologue): Pass architecture to rs6000_fetch_instruction.
-	
+
 	* remote-mips.c (mips_store_word): Return old_contents as host
 	integer value instead of target bytes.
 
@@ -3495,7 +3495,7 @@
 	* i386-cygwin-tdep.c (struct cpms_data): Add GDBARCH member.
 	(core_process_module_section): Pass architecture from cpms_data to
 	windows_xfer_shared_library.
-	(windows_core_xfer_shared_libraries): Initialize cmps_data 
+	(windows_core_xfer_shared_libraries): Initialize cmps_data
 	architecture member.
 	* windows-nat.c (windows_xfer_shared_libraries): Pass architecture
 	to windows_xfer_shared_library.
@@ -3567,7 +3567,7 @@
 	tui_disassemble.
 	(tui_set_disassem_content): Add GDBARCH parameter.  Install into
 	source_info.gdbarch.  Pass to tui_disassemble.
-	(tui_show_disassem): Add GDBARCH parameter.  Pass to 
+	(tui_show_disassem): Add GDBARCH parameter.  Pass to
 	tui_update_source_window.
 	(tui_show_disassem_and_update_source): Add GDBARCH parameter.  Pass to
 	tui_show_disassem and tui_update_source_window.
@@ -3622,9 +3622,9 @@
 	Pass to subroutines.
 	(tui_update_source_windows_with_line): Pass objfile architecture
 	to subroutines.
-	(tui_horizontal_source_scroll): Pass architecture to 
+	(tui_horizontal_source_scroll): Pass architecture to
 	tui_update_source_window_as_is.
-	
+
 	* tui/tui-winsource.h (tui_update_source_window): Add GDBARCH
 	parameter.
 	(tui_update_source_window_as_is): Likewise.
@@ -4414,7 +4414,7 @@
 	(decode_format): Use 'a' size to indicate width of an address.
 	(do_examine): Add GDBARCH argument.  Handle 'a' size.
 	(x_command): Pass architecture to do_examine.
-	Error if called without argument the first time.  
+	Error if called without argument the first time.
 	(do_one_display): Pass architecture to do_examine.
 
 	(examine_i_type, examine_b_type, examine_h_type, examine_w_type,
@@ -4523,7 +4523,7 @@
 	gdb/10275
 	* dwarf2-frame.c (dwarf2_frame_state): Move cfa_offset, cfa_reg,
 	cfa_how and cfa_exp into regs and adjust users.
-	
+
 2009-06-30  Daniel Jacobowitz  <dan@codesourcery.com>
 
 	* dwarf2read.c (inherit_abstract_dies): Work around GCC PR 40573.
@@ -4730,7 +4730,7 @@
 2009-06-28  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* mi/mi-cmds.c (mi_cmds): Remove unimplemented entries.
-	
+
 2009-06-27  Daniel Jacobowitz  <dan@codesourcery.com>
 	    Jan Kratochvil  <jan.kratochvil@redhat.com>
 
@@ -4853,7 +4853,7 @@
 
 	* linespec.c (find_method): Add new not_found_ptr parameter to
 	bring in line with symtab_from_filename, decode_variable.
-	(decode_compound): Likewise.  Also propagate not_found_ptr to 
+	(decode_compound): Likewise.  Also propagate not_found_ptr to
 	find_method.
 	(decode_line_1): Propagate not_found_ptr to decode_compound.
 	(cplusplus_error): Now throws NOT_FOUND_ERROR.
@@ -4964,7 +4964,7 @@
 	(tdesc_numbered_register): Likewise.
 	(tdesc_use_registers): Likewise.
 	(tdesc_create_reg): Likewise.
-	
+
 	(tdesc_find_arch_register): New function.
 	(tdesc_find_register): Use it.
 	(tdesc_register_type): Use tdesc_gdb_type to generate GDB type from
@@ -5057,8 +5057,8 @@
 	(create_overlay_event_breakpoint): Remove objfile parameter,
 	iterate over all objfiles.
 	* objfiles.c (objfile_relocate): Update.
-	* symfile.c (new_symfile_objfile): Likewise.	
-	
+	* symfile.c (new_symfile_objfile): Likewise.
+
 2009-06-23  Tom Tromey  <tromey@redhat.com>
 
 	PR gdb/10309:
@@ -5562,7 +5562,7 @@
 
 2009-06-17  Pierre Muller  <muller@ics.u-strasbg.fr>
 	Pedro Alves  <pedro@codesourcery.com>
-	
+
 	* infcmd.c (post_create_inferior): Call breakpoint_re_set after target
 	is pushed for watchpoint promotion to hardware watchpoint.
 
@@ -5581,7 +5581,7 @@
 	(section_is_p): Signature change.
 	* dwarf2-frame.c (dwarf2_build_frame_info): Use
 	dwarf2_get_section_info instead of dwarf2_read_section.
-	
+
 2009-06-16  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* solib.c (symbol_add_stub): New FLAGS parameter.
@@ -5599,7 +5599,7 @@
 	* symfile-mem.c (symbol_file_add_from_memory): Adjust.
 	* windows-nat.c (safe_symbol_file_add_stub): Adjust.
 	* machoread.c (macho_oso_symfile, macho_symfile_read): Adjust.
-	
+
 2009-06-16  Keith Seitz  <keiths@redhat.com>
 
 	* linespec.c (collect_methods): Delete.
@@ -5611,9 +5611,9 @@
 	(check_field): Likewise.
 	(value_struct_elt_for_reference): Likewise.
 	(destructor_name_p): Remove misleading comment about dtors
-	being "special cases". 
+	being "special cases".
 	* gdbtypes.h (get_destructor_fn_field): Remove. No longer needed.
-	* gdbtypes.c (get_destructor_fn_field): Likewise. 
+	* gdbtypes.c (get_destructor_fn_field): Likewise.
 
 2009-06-16  Pedro Alves  <pedro@codesourcery.com>
 
@@ -6116,7 +6116,7 @@
 	* printcmd.c (x_command): Call clear_internalvar instead of
 	set_internalvar.
 	* tracepoint.c (set_traceframe_context): Likewise.
-	
+
 	* breakpoint.c (get_number_trailer): Call get_internalvar_integer
 	instead of value_of_internalvar.
 	* linespec.c (decode_dollar): Likewise.
@@ -6134,7 +6134,7 @@
 	of builtin_type_scm.
 	(evaluate_exp): Pass expression architecture to scm_lookup_name.
 
-	(scm_get_field): Add SIZE parameter.  Use it instead of 
+	(scm_get_field): Add SIZE parameter.  Use it instead of
 	TYPE_LENGTH (builtin_type_scm).
 
 	(build_scm_types): New function.
@@ -6246,7 +6246,7 @@
 	* configure: Regenerate.
 	* python/python-prettyprint.c: Move "#ifdef HAVE_PYTHON" before
 	python headers.
-	
+
 2009-05-27  Vladimir Prus  <vladimir@codesourcery.com>
 	    Tom Tromey  <tromey@redhat.com>
 	    Thiago Jung Bauermann  <bauerman@br.ibm.com>
@@ -6543,7 +6543,7 @@
 	command and "assf" alias.
 	* windows-nat.c (_initialize_windows_nat): to here.
 	Change "add-shared-symbol-files" to alias.
-	
+
 	* config/i386/cygwin.mh: Remove NAT_FILE.
 	* config/i386/mingw.mh: Remove NAT_FILE.
 	* config/i386/mingw64.mh: Remove NAT_FILE.
@@ -6585,7 +6585,7 @@
 	* rs6000-nat.c (add_vmap): Likewise.
 	* top.c (set_prompt, init_history, init_main): Likewise.
 	* tracepoint.c (stringify_collection_list): Likewise.
-	* varobj.c (varobj_create): Remove variable expr_len.  Replace the 
+	* varobj.c (varobj_create): Remove variable expr_len.  Replace the
 	savestring calls by xstrdup calls where possible.
 	(value_of_root, c_name_of_variable, c_describe_child): Replace the
 	savestring calls by xstrdup calls where possible.
@@ -7043,9 +7043,9 @@
 	extract_typed_floating instead of deprecated_extract_floating.
 
 2009-05-18  Jon Beniston <jon@beniston.com>
-        
-        * MAINTAINERS: Add lm32 target.        
-        * Makefile.in: Add lm32 dependencies.        
+
+        * MAINTAINERS: Add lm32 target.
+        * Makefile.in: Add lm32 dependencies.
         * NEWS: Indicate lm32 is a new target.
         * configure.tgt: Add lm32 targets.
         * lm32-tdep.c: New file.
@@ -7131,7 +7131,7 @@
 	changed, return 1.
 
 2009-05-15  Paul Pluzhnikov  <ppluzhnikov@google.com>
-	
+
 	* NEWS: Mention set/show libthread-db-search-path.
 	* gdb_thread_db.h (LIBTHREAD_DB_SEARCH_PATH): New define.
 	(LIBTHREAD_DB_SO): Moved from linux-thread-db.c
@@ -7149,11 +7149,11 @@
 	* solib.c (libpthread_name_p): New function.
 	(libpthread_solib_p): Call it.
 	* solib.h (libpthread_name_p): New prototype.
-	
+
 2009-05-15  Pierre Muller  <muller@ics.u-strasbg.fr>
 
 	* MAINTAINERS: Update my email address.
-	
+
 2009-05-14  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* breakpoint.h: Add breakpoint_re_set_objfile prototype.
@@ -7166,7 +7166,7 @@
 	* symfile.c (new_symfile_objfile): Call breakpoint_re_set_objfile
 	instead of breakpoint_re_set.
 	* objfiles.c (objfile_relocate): Likewise.
-	
+
 2009-05-14  Joel Brobecker  <brobecker@adacore.com>
 
 	* gdbarch.sh: Add comment documenting the target_gdbarch global.
@@ -7194,13 +7194,13 @@
 	(i386_use_watchpoints): Call add_show_debug_regs_command if not done.
 	(i386_set_debug_register_length): New function.
 	(_initialize_i386_nat): Delete.
-	
+
 	* amd64-linux-nat.c: Include "i386-nat.h".
 	(amd64_linux_dr_set_control):  Change to static.
 	(amd64_linux_dr_get_status): Change to static.
 	(amd64_linux_dr_set_addr,amd64_linux_dr_reset_addr): Likewise.
 	(_initialize_amd64_linux_nat): Set i386_dr_low variable fields.
-	
+
 	* go32-nat.c: Include "i386-nat.h".
 	(go32_set_addr): Change to static.
 	(go32_set_dr7): Change to static. Change arg type to unisgned long.
@@ -7221,7 +7221,7 @@
 	(cygwin_set_dr7): Change arg type to unisgned long.
 	(init_windows_ops): Set i386_dr_low function fields.
 
-	* amd64-windows-nat.c (_initialize_amd64_windows_nat): Call 
+	* amd64-windows-nat.c (_initialize_amd64_windows_nat): Call
 	i386_set_debug_register_length.
 	* i386-windows-nat.c (_initialize_i386_windows_nat): Likewise.
 

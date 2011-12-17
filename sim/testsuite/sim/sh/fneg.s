@@ -1,4 +1,4 @@
-# sh testcase for fneg 
+# sh testcase for fneg
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 

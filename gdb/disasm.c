@@ -260,7 +260,7 @@ do_mixed_source_and_assembly (struct gdbarch *gdbarch, struct ui_out *uiout,
 		    {
 		      struct cleanup *ui_out_list_chain_line;
 		      struct cleanup *ui_out_tuple_chain_line;
-		      
+
 		      ui_out_tuple_chain_line
 			= make_cleanup_ui_out_tuple_begin_end (uiout,
 							       "src_and_asm_line");

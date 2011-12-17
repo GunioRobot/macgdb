@@ -9,14 +9,14 @@
 	mov #40, r1
 	shll8 r1
 	mov #55, r2
-	
+
 	# Save ADDR, DATA.
 	mov r1, r7
 	mov r2, r8
 
 	# Do the move.
 	mov.b r2, @-r1
-	
+
 	# Load the value back into r3.
 	mov.b @r1, r3
 	cmp/eq r2, r3

@@ -1630,7 +1630,7 @@ You must also add the magic number for this processor to the
 @samp{prep_headers} function in @file{elf.c}.
 
 You must also create a header file in the @file{include/elf} directory
-called @file{@var{cpu}.h}.  This file should define any target specific 
+called @file{@var{cpu}.h}.  This file should define any target specific
 information which may be needed outside of the BFD code.  In particular
 it should use the @samp{START_RELOC_NUMBERS}, @samp{RELOC_NUMBER},
 @samp{FAKE_RELOC}, @samp{EMPTY_RELOC} and @samp{END_RELOC_NUMBERS}

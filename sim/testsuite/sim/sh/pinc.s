@@ -1,6 +1,6 @@
 # sh testcase for pinc
 # mach: shdsp
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -97,7 +97,7 @@ dcf_pincy:
 	dcf	pinc	y0, x0
 	assert_sreg	0xa5a60000, x0
 
-	test_grs_a5a5 
+	test_grs_a5a5
 	assert_sreg	0xa5a5a5a5, x1
 	assert_sreg	0xa5a5a5a5, y0
 	assert_sreg	0xa5a5a5a5, y1

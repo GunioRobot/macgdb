@@ -20,7 +20,7 @@
 #
 # tests for expressions with struct/array elements and mixed operator types
 # with elementary types
-# 
+#
 
 if $tracelevel then {
         strace $tracelevel

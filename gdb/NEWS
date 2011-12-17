@@ -113,7 +113,7 @@ source+assembly.
 
 * GDB now supports multiple function calling conventions according to the
 DWARF-2 DW_AT_calling_convention function attribute.
-  
+
 * The SH target utilizes the aforementioned change to distinguish between gcc
 and Renesas calling convention.  It also adds the new CLI commands
 `set/show sh calling-convention'.
@@ -369,7 +369,7 @@ show multiple-symbols
   The value of this variable can be changed to adjust the debugger behavior
   when an expression or a breakpoint location contains an ambiguous symbol
   name (an overloaded function name, for instance).
-  
+
 set breakpoint always-inserted
 show breakpoint always-inserted
   Keep breakpoints always inserted in the target, as opposed to inserting
@@ -607,7 +607,7 @@ vRun
 
 *** Changes in GDB 6.7
 
-* Resolved 101 resource leaks, null pointer dereferences, etc. in gdb, 
+* Resolved 101 resource leaks, null pointer dereferences, etc. in gdb,
 bfd, libiberty and opcodes, as revealed by static analysis donated by
 Coverity, Inc. (http://scan.coverity.com).
 
@@ -619,7 +619,7 @@ symbol definition in the current shared library if it was built using the
 recognize the -tui command-line option and print a message that the TUI
 is not supported.
 
-* The GDB remote stub, gdbserver, now has lower overhead for high 
+* The GDB remote stub, gdbserver, now has lower overhead for high
 frequency signals (e.g. SIGALRM) via the QPassSignals packet.
 
 * GDB for MIPS targets now autodetects whether a remote target provides
@@ -657,7 +657,7 @@ has been rewritten to use the standard GDB remote protocol.
 layout.  It also supports a TextSeg= and DataSeg= response when only
 segment base addresses (rather than offsets) are available.
 
-* The /i format now outputs any trailing branch delay slot instructions 
+* The /i format now outputs any trailing branch delay slot instructions
 immediately following the last instruction within the count specified.
 
 * The GDB remote protocol "T" stop reply packet now supports a
@@ -804,7 +804,7 @@ target ocd
 
 DWARF 1 support
 
-	A debug information format.  The predecessor to DWARF 2 and 
+	A debug information format.  The predecessor to DWARF 2 and
 	DWARF 3, which are still supported.
 
 Support for the HP aCC compiler on HP-UX/PA-RISC
@@ -923,7 +923,7 @@ The following commands are presently only implemented for native GNU/Linux:
 
 checkpoint			Save a snapshot of the program state.
 
-restart	<n>			Return the program state to a 
+restart	<n>			Return the program state to a
 				previously saved state.
 
 info checkpoints		List currently saved checkpoints.
@@ -1068,8 +1068,8 @@ continued, we're looking forward to our first translation.
 
 * Ada
 
-Initial support for debugging programs compiled with the GNAT 
-implementation of the Ada programming language has been integrated 
+Initial support for debugging programs compiled with the GNAT
+implementation of the Ada programming language has been integrated
 into GDB.  In this release, support is limited to expression evaluation.
 
 * New native configurations
@@ -1536,7 +1536,7 @@ Fujitsu SPARClite 			sparclite-fujitsu-none  or  sparclite
 
 * REMOVED configurations and files
 
-V850EA ISA				
+V850EA ISA
 Motorola Delta 88000 running Sys V		m88k-motorola-sysv  or  delta88
 IBM AIX PS/2					i[3456]86-*-aix
 i386 running Mach 3.0				i[3456]86-*-mach3*
@@ -1571,7 +1571,7 @@ shared libs like mad''.
 
 * ``gdbserver'' now supports multi-threaded applications on some targets
 
-Support for debugging multi-threaded applications which use  
+Support for debugging multi-threaded applications which use
 the GNU/Linux LinuxThreads package has been added for
 arm*-*-linux*-gnu*, i[3456]86-*-linux*-gnu*, mips*-*-linux*-gnu*,
 powerpc*-*-linux*-gnu*, and sh*-*-linux*-gnu*.
@@ -1686,11 +1686,11 @@ gdb/439: gdb/291: On some ELF object files, gdb was reporting:
 dwarf2read.c:1072: gdb-internal-error: sect_index_text not initialize
 Fix, by Fred Fish, imported from mainline.
 
-Dwarf2 .debug_frame & .eh_frame handler improved in many ways. 
+Dwarf2 .debug_frame & .eh_frame handler improved in many ways.
 Surprisingly enough, it works now.
 By Michal Ludvig, imported from mainline.
 
-i386 hardware watchpoint support: 
+i386 hardware watchpoint support:
 avoid misses on second run for some targets.
 By Pierre Muller, imported from mainline.
 
@@ -1714,18 +1714,18 @@ hosts.  Argument is core file name (defaults to core.<pid>).
 
 * New command line option
 
-GDB now accepts --pid or -p followed by a process id.  
+GDB now accepts --pid or -p followed by a process id.
 
 * Change in command line behavior -- corefiles vs. process ids.
 
-There is a subtle behavior in the way in which GDB handles 
+There is a subtle behavior in the way in which GDB handles
 command line arguments.  The first non-flag argument is always
 a program to debug, but the second non-flag argument may either
 be a corefile or a process id.  Previously, GDB would attempt to
 open the second argument as a corefile, and if that failed, would
 issue a superfluous error message and then attempt to attach it as
-a process.  Now, if the second argument begins with a non-digit, 
-it will be treated as a corefile.  If it begins with a digit, 
+a process.  Now, if the second argument begins with a non-digit,
+it will be treated as a corefile.  If it begins with a digit,
 GDB will attempt to attach it as a process, and if no such process
 is found, will then attempt to open it as a corefile.
 
@@ -1785,7 +1785,7 @@ for the inferior from gdb's command line.
 
 There is a new `operate-and-get-next' function bound to `C-o'.
 
-*** Changes in GDB 5.1.1 
+*** Changes in GDB 5.1.1
 
 Fix compile problem on DJGPP.
 
@@ -1817,7 +1817,7 @@ UltraSparc running GNU/Linux			sparc64-*-linux*
 
 * OBSOLETE configurations and files
 
-x86 FreeBSD before 2.2				i[3456]86*-freebsd{1,2.[01]}*, 
+x86 FreeBSD before 2.2				i[3456]86*-freebsd{1,2.[01]}*,
 Harris/CXUX m88k				m88*-harris-cxux*
 Most ns32k hosts and targets			ns32k-*-mach3* ns32k-umax-*
 						ns32k-utek-sysv* ns32k-utek-*
@@ -2698,7 +2698,7 @@ There is a new hardware breakpoint for the watch command for sparclite
 targets.  See gdb/sparclite/hw_breakpoint.note.
 
 Hardware watchpoints are also now supported under GNU/Linux.
- 
+
 * Annotations
 
 Annotations have been added.  These are for use with graphical interfaces,
@@ -2779,7 +2779,7 @@ for details).
 
 * Improvements in C++ mangling/demangling.
 
-This release has much better g++ debugging, specifically in name 
+This release has much better g++ debugging, specifically in name
 mangling/demangling, virtual function calls, print virtual table,
 call methods, ...etc.
 
@@ -2841,7 +2841,7 @@ Z8000 simulator		  		z8k-zilog-none 	  or z8ksim
 IDT MIPS board over serial line		mips-idt-ecoff
 
 Cross-debugging to GO32 targets is supported.  It requires a custom
-version of the i386-stub.c module which is integrated with the 
+version of the i386-stub.c module which is integrated with the
 GO32 memory extender.
 
  * New remote protocols
@@ -3462,7 +3462,7 @@ encapulation, but the details have not been worked out yet.
  *  Improved configuration
 
 Only one copy of `configure' exists now, and it is not self-modifying.
-Porting BFD is simpler.  
+Porting BFD is simpler.
 
  *  Stepping improved
 
@@ -3564,7 +3564,7 @@ stub on the target system.
 
 New CPUs supported include the AMD 29000 and Intel 960.
 
-GDB now reads object files and symbol tables via a ``binary file'' 
+GDB now reads object files and symbol tables via a ``binary file''
 library, which allows a single copy of GDB to debug programs of multiple
 object file types such as a.out and coff.
 
@@ -3590,27 +3590,27 @@ confirm on/off:  Enables warning questions for operations that are
 		 hard to recover from, e.g. rerunning the program while
 		 it is already running.  Default is ON.
 
-editing on/off:  Enables EMACS style command line editing 
-                 of input.  Previous lines can be recalled with 
+editing on/off:  Enables EMACS style command line editing
+                 of input.  Previous lines can be recalled with
 		 control-P, the current line can be edited with control-B,
 		 you can search for commands with control-R, etc.
 		 Default is ON.
 
-history filename NAME:  NAME is where the gdb command history 
+history filename NAME:  NAME is where the gdb command history
 			will be stored.  The default is .gdb_history,
 			or the value of the environment variable
 			GDBHISTFILE.
 
-history size N:  The size, in commands, of the command history.  The 
+history size N:  The size, in commands, of the command history.  The
 		 default is 256, or the value of the environment variable
 		 HISTSIZE.
 
 history save on/off: If this value is set to ON, the history file will
-		      be saved after exiting gdb.  If set to OFF, the 
+		      be saved after exiting gdb.  If set to OFF, the
 		      file will not be saved.  The default is OFF.
 
-history expansion on/off: If this value is set to ON, then csh-like 
-			  history expansion will be performed  on 
+history expansion on/off: If this value is set to ON, then csh-like
+			  history expansion will be performed  on
 			  command line input.  The default is OFF.
 
 radix N:  Sets the default radix for input and output.  It can be set
@@ -3635,7 +3635,7 @@ print address on/off:  Print memory addresses in various command displays,
 		      more ``symbolic'' if you turn this off; it looks more
 		      ``machine level'' with it on.  Default is ON.
 
-print array on/off:  Prettyprint arrays.  New convenient format!  Default 
+print array on/off:  Prettyprint arrays.  New convenient format!  Default
                     is OFF.
 
 print demangle on/off:   Print C++ symbols in "source" form if on,
@@ -3666,7 +3666,7 @@ from dynamically linked programs), gdb reads the symbols from each
 shared library when you type the ``sharedlibrary'' command.
 It can be abbreviated ``share''.
 
-sharedlibrary REGEXP:  Load shared object library symbols for files 
+sharedlibrary REGEXP:  Load shared object library symbols for files
                        matching a unix regular expression.  No argument
 		       indicates to load symbols for all shared libraries.
 
@@ -3734,7 +3734,7 @@ find your source file in the current directory, type "dir .".
 For normal use, type ``./configure host''.  See README or gdb.texinfo
 for more details.
 
-GDB now handles cross debugging.  If you are remotely debugging between 
+GDB now handles cross debugging.  If you are remotely debugging between
 two different machines, type ``./configure host -target=targ''.
 Host is the machine where GDB will run; targ is the machine
 where the program that you are debugging will run.

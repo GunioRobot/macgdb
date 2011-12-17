@@ -48,7 +48,7 @@ char *argv[], **envp;*/
 #endif
 #ifdef FAKEARGV
     printf ("%d\n", factorial (1));
-#else    
+#else
     if (argc != 2) {
 	printf ("usage:  factorial <number>\n");
 	return 1;

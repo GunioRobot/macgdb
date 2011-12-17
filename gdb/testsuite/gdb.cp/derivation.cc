@@ -10,7 +10,7 @@ public:
     }
     int afoo();
     int foo();
-    
+
 };
 
 
@@ -27,7 +27,7 @@ public:
     }
     int bfoo();
     int foo();
-    
+
 };
 
 
@@ -44,7 +44,7 @@ public:
     }
     int cfoo();
     int foo();
-    
+
 };
 
 
@@ -61,7 +61,7 @@ public:
     }
     int dfoo();
     int foo();
-    
+
 };
 
 
@@ -77,7 +77,7 @@ public:
     }
     int efoo();
     int foo();
-    
+
 };
 
 
@@ -93,7 +93,7 @@ public:
     }
     int ffoo();
     int foo();
-    
+
 };
 
 class G : private A, public B, protected C {
@@ -111,11 +111,11 @@ public:
         a=15;
         b=16;
         c=17;
-        
+
     }
     int gfoo();
     int foo();
-    
+
 };
 
 
@@ -152,43 +152,43 @@ int G::gfoo() {
 int A::foo()
 {
     return 7;
-    
+
 }
 
 int B::foo()
 {
     return 8;
-    
+
 }
 
 int C::foo()
 {
     return 9;
-    
+
 }
 
 int D::foo()
 {
     return 10;
-    
+
 }
 
 int E::foo()
 {
     return 11;
-    
+
 }
 
 int F::foo()
 {
     return 12;
-    
+
 }
 
 int G::foo()
 {
     return 13;
-    
+
 }
 
 
@@ -207,15 +207,15 @@ int main(void)
     E e_instance;
     F f_instance;
     G g_instance;
-    
+
     #ifdef usestubs
        set_debug_traps();
        breakpoint();
     #endif
-    
+
 
     marker1(); // marker1-returns-here
-    
+
     a_instance.a = 20; // marker1-returns-here
     a_instance.aa = 21;
     b_instance.b = 22;
@@ -228,13 +228,13 @@ int main(void)
     e_instance.ee =29;
     f_instance.f =30;
     f_instance.ff =31;
-    
-    
-    
+
+
+
 
     return 0;
-    
+
 }
 
-    
-    
+
+

@@ -22,7 +22,7 @@ beq1:
 	# We should branch over this.
 	fail
 
-beq2:	
+beq2:
 	# Ensure high order bits are compared, too.
 	movi 1, r0
 	shlli r0, 35, r0

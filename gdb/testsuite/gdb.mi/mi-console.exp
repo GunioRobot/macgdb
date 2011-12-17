@@ -55,6 +55,6 @@ mi_gdb_test "220-exec-next" \
 
 mi_expect_stop "end-stepping-range" "main" "" ".*mi-console.c" "14" "" \
     "finished step over hello"
-    
+
 mi_gdb_exit
 return 0

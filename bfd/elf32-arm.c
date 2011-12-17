@@ -3320,7 +3320,7 @@ elf32_arm_get_stub_entry (const asection *input_section,
 }
 
 /* Find or create a stub section.  Returns a pointer to the stub section, and
-   the section to which the stub section will be attached (in *LINK_SEC_P). 
+   the section to which the stub section will be attached (in *LINK_SEC_P).
    LINK_SEC_P may be NULL.  */
 
 static asection *
@@ -3356,10 +3356,10 @@ elf32_arm_create_or_find_stub_sec (asection **link_sec_p, asection *section,
 	}
       htab->stub_group[section->id].stub_sec = stub_sec;
     }
-  
+
   if (link_sec_p)
     *link_sec_p = link_sec;
-  
+
   return stub_sec;
 }
 
@@ -3464,7 +3464,7 @@ arm_build_one_stub (struct bfd_hash_entry *gen_entry,
     /* We have to do the a8 fixes last, as they are less aligned than
        the other veneers.  */
     return TRUE;
-  
+
   /* Make a note of the offset within the stubs for this entry.  */
   stub_entry->stub_offset = stub_sec->size;
   loc = stub_sec->contents + stub_entry->stub_offset;
@@ -4009,7 +4009,7 @@ cortex_a8_erratum_scan (bfd *input_bfd,
 		}
 
 	      is_32bit_branch = is_b || is_bl || is_blx || is_bcc;
-			   
+
               if (((base_vma + i) & 0xfff) == 0xffe
 		  && insn_32bit
 		  && is_32bit_branch
@@ -4193,11 +4193,11 @@ cortex_a8_erratum_scan (bfd *input_bfd,
       if (elf_section_data (section)->this_hdr.contents == NULL)
         free (contents);
     }
-  
+
   *a8_fixes_p = a8_fixes;
   *num_a8_fixes_p = num_a8_fixes;
   *a8_fix_table_size_p = a8_fix_table_size;
-  
+
   return FALSE;
 }
 
@@ -4403,7 +4403,7 @@ elf32_arm_size_stubs (bfd *output_bfd,
 			/* This is an undefined symbol.  It can never
 			   be resolved. */
 			continue;
-		  
+
 		      if (ELF_ST_TYPE (sym->st_info) != STT_SECTION)
 			sym_value = sym->st_value;
 		      destination = (sym_value + irela->r_addend
@@ -4893,9 +4893,9 @@ static const insn32 a2t3p_bx_r12_insn = 0xe12fff1c;
      .arm                               mov  lr, pc
      b func                             bx   r6
                                         .arm
-		 		    ;; back_to_thumb       
+		 		    ;; back_to_thumb
                  		        ldmia r13! {r6, lr}
- 				        bx    lr           
+ 				        bx    lr
                                     __func_addr:
                                         .word        func  */
 
@@ -7027,7 +7027,7 @@ elf32_arm_final_link_relocate (reloc_howto_type *           howto,
 	      || r_type == R_ARM_PLT32)
 	    {
 	      bfd_vma from;
-	      
+
 	      /* If the call goes through a PLT entry, make sure to
 		 check distance to the right destination address.  */
 	      if (h != NULL && splt != NULL && h->plt.offset != (bfd_vma) -1)
@@ -8787,7 +8787,7 @@ elf32_arm_relocate_section (bfd *                  output_bfd,
 		   rel->r_offset, TRUE))
 		return FALSE;
 	    }
-	  
+
 	  if (globals->use_rel)
 	    {
 	      relocation = (sec->output_section->vma
@@ -9043,11 +9043,11 @@ add_unwind_table_edit (arm_unwind_table_edit **head,
 		       unsigned int index)
 {
   arm_unwind_table_edit *new_edit = xmalloc (sizeof (arm_unwind_table_edit));
-  
+
   new_edit->type = type;
   new_edit->linked_section = linked_section;
   new_edit->index = index;
-  
+
   if (index > 0)
     {
       new_edit->next = NULL;
@@ -9105,7 +9105,7 @@ insert_cantunwind_after(asection *text_sec, asection *exidx_sec)
 
 /* Scan .ARM.exidx tables, and create a list describing edits which should be
    made to those tables, such that:
-   
+
      1. Regions without unwind data are marked with EXIDX_CANTUNWIND entries.
      2. Duplicate entries are merged together (EXIDX_CANTUNWIND, or unwind
         codes which have been inlined into the index).
@@ -9130,15 +9130,15 @@ elf32_arm_fix_exidx_coverage (asection **text_section_order,
   for (inp = info->input_bfds; inp != NULL; inp = inp->link_next)
     {
       asection *sec;
-      
+
       for (sec = inp->sections; sec != NULL; sec = sec->next)
         {
 	  struct bfd_elf_section_data *elf_sec = elf_section_data (sec);
 	  Elf_Internal_Shdr *hdr = &elf_sec->this_hdr;
-	  
+
 	  if (!hdr || hdr->sh_type != SHT_ARM_EXIDX)
 	    continue;
-	  
+
 	  if (elf_sec->linked_to)
 	    {
 	      Elf_Internal_Shdr *linked_hdr
@@ -9201,13 +9201,13 @@ elf32_arm_fix_exidx_coverage (asection **text_section_order,
       hdr = &elf_section_data (exidx_sec)->this_hdr;
       if (hdr->sh_type != SHT_ARM_EXIDX)
         continue;
-      
+
       exidx_arm_data = get_arm_elf_section_data (exidx_sec);
       if (exidx_arm_data == NULL)
         continue;
-      
+
       ibfd = exidx_sec->owner;
-	  
+
       if (hdr->contents != NULL)
 	contents = hdr->contents;
       else if (! bfd_malloc_and_get_section (ibfd, exidx_sec, &contents))
@@ -9258,7 +9258,7 @@ elf32_arm_fix_exidx_coverage (asection **text_section_order,
       /* Record edits to be applied later (in elf32_arm_write_section).  */
       exidx_arm_data->u.exidx.unwind_edit_list = unwind_edit_head;
       exidx_arm_data->u.exidx.unwind_edit_tail = unwind_edit_tail;
-	  
+
       if (deleted_exidx_bytes > 0)
 	adjust_exidx_size(exidx_sec, -deleted_exidx_bytes);
 
@@ -10768,7 +10768,7 @@ elf32_arm_check_relocs (bfd *abfd, struct bfd_link_info *info,
   symtab_hdr = & elf_symtab_hdr (abfd);
   sym_hashes = elf_sym_hashes (abfd);
   nsyms = NUM_SHDR_ENTRIES (symtab_hdr);
-  
+
   rel_end = relocs + sec->reloc_count;
   for (rel = relocs; rel < rel_end; rel++)
     {
@@ -13275,16 +13275,16 @@ copy_exidx_entry (bfd *output_bfd, bfd_byte *to, bfd_byte *from, bfd_vma offset)
 {
   unsigned long first_word = bfd_get_32 (output_bfd, from);
   unsigned long second_word = bfd_get_32 (output_bfd, from + 4);
-  
+
   /* High bit of first word is supposed to be zero.  */
   if ((first_word & 0x80000000ul) == 0)
     first_word = offset_prel31 (first_word, offset);
-  
+
   /* If the high bit of the first word is clear, and the bit pattern is not 0x1
      (EXIDX_CANTUNWIND), this is an offset to an .ARM.extab entry.  */
   if ((second_word != 0x1) && ((second_word & 0x80000000ul) == 0))
     second_word = offset_prel31 (second_word, offset);
-  
+
   bfd_put_32 (output_bfd, first_word, to);
   bfd_put_32 (output_bfd, second_word, to + 4);
 }
@@ -13526,7 +13526,7 @@ elf32_arm_write_section (bfd *output_bfd,
 	  if (edit_node)
 	    {
 	      unsigned int edit_index = edit_node->index;
-	      
+
 	      if (in_index < edit_index && in_index * 8 < input_size)
 	        {
 		  copy_exidx_entry (output_bfd, edited_contents + out_index * 8,
@@ -13544,7 +13544,7 @@ elf32_arm_write_section (bfd *output_bfd,
 		      in_index++;
 		      add_to_offsets += 8;
 		      break;
-		    
+
 		    case INSERT_EXIDX_CANTUNWIND_AT_END:
 		      {
 		        asection *text_sec = edit_node->linked_section;
@@ -13574,7 +13574,7 @@ elf32_arm_write_section (bfd *output_bfd,
 		      }
 		      break;
 		    }
-		  
+
 		  edit_node = edit_node->next;
 		}
 	    }

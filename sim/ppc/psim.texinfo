@@ -31,7 +31,7 @@ END-INFO-DIR-ENTRY
 @c Experiment with smaller amounts of whitespace between chapters
 @c and sections.
 @tex
-\global\chapheadingskip = 15pt plus 4pt minus 2pt 
+\global\chapheadingskip = 15pt plus 4pt minus 2pt
 \global\secheadingskip = 12pt plus 3pt minus 2pt
 \global\subsecheadingskip = 9pt plus 2pt minus 2pt
 @end tex
@@ -95,7 +95,7 @@ by the Free Software Foundation.
 @author by Robert J. Chassell and Richard M. Stallman
 
 @comment   Include the Distribution inside the titlepage so
-@c that headings are turned off. 
+@c that headings are turned off.
 
 @page
 @vskip 0pt plus 1filll
@@ -141,12 +141,12 @@ The first part of this master menu lists the major nodes in this Info
 document, including the @@-command and concept indices.  The rest of
 the menu lists all the lower level nodes in the document.@refill
 
-This is Edition @value{edition} of the Texinfo documentation, 
+This is Edition @value{edition} of the Texinfo documentation,
 @w{@value{update-date},} for Texinfo Version Three.
 @end ifinfo
 
 @c Here is a spare copy of the chapter menu entry descriptions,
-@c in case they are accidently deleted 
+@c in case they are accidently deleted
 @ignore
 Your rights.
 Texinfo in brief.
@@ -191,7 +191,7 @@ A menu covering many topics.
 @end ignore
 
 @menu
-* Copying::                     Your rights. 
+* Copying::                     Your rights.
 * Overview::                    Texinfo in brief.
 * Texinfo Mode::                How to use Texinfo mode.
 * Beginning a File::            What is at the beginning of a Texinfo file?
@@ -211,7 +211,7 @@ A menu covering many topics.
 * Glyphs::                      How to indicate results of evaluation,
                                   expansion of macros, errors, etc.
 * Breaks::                      How to force and prevent line and page breaks.
-* Definition Commands::         How to describe functions and the like 
+* Definition Commands::         How to describe functions and the like
                                   in a uniform manner.
 * Footnotes::                   How to write footnotes.
 * Conditionals::                How to specify text for either @TeX{} or Info.
@@ -238,7 +238,7 @@ A menu covering many topics.
 
 Overview of Texinfo
 
-* Using Texinfo::               Create a conventional printed book 
+* Using Texinfo::               Create a conventional printed book
                                   or an Info file.
 * Info Files::                  What is an Info file?
 * Printed Books::               Characteristics of a printed book or manual.
@@ -249,14 +249,14 @@ Overview of Texinfo
 * Minimum::                     What a Texinfo file must have.
 * Six Parts::                   Usually, a Texinfo file has six parts.
 * Short Sample::                A short sample Texinfo file.
-* Acknowledgements::            
+* Acknowledgements::
 
 Using Texinfo Mode
 
 * Texinfo Mode Overview::       How Texinfo mode can help you.
 * Emacs Editing::               Texinfo mode adds to GNU Emacs' general
                                   purpose editing features.
-* Inserting::                   How to insert frequently used @@-commands. 
+* Inserting::                   How to insert frequently used @@-commands.
 * Showing the Structure::       How to show the structure of a file.
 * Updating Nodes and Menus::    How to update or create new nodes and menus.
 * Info Formatting::             How to format for Info.
@@ -285,7 +285,7 @@ Beginning a Texinfo File
 
 The Texinfo File Header
 
-* First Line::                  The first line of a Texinfo file.  
+* First Line::                  The first line of a Texinfo file.
 * Start of Header::             Formatting a region requires this.
 * setfilename::                 Tell Info the name of the Info file.
 * settitle::                    Create a title for the printed work.
@@ -314,7 +314,7 @@ The `Top' Node and Master Menu
 
 Ending a Texinfo File
 
-* Printing Indices & Menus::    How to print an index in hardcopy and 
+* Printing Indices & Menus::    How to print an index in hardcopy and
                                   generate index menus in Info.
 * Contents::                    How to create a table of contents.
 * File End::                    How to mark the end of a file.
@@ -324,19 +324,19 @@ Chapter Structuring
 * Tree Structuring::            A manual is like an upside down tree @dots{}
 * Structuring Command Types::   How to divide a manual into parts.
 * makeinfo top::                The @code{@@top} command, part of the `Top' node.
-* chapter::                     
-* unnumbered & appendix::       
-* majorheading & chapheading::  
-* section::                     
-* unnumberedsec appendixsec heading::  
-* subsection::                  
-* unnumberedsubsec appendixsubsec subheading::  
+* chapter::
+* unnumbered & appendix::
+* majorheading & chapheading::
+* section::
+* unnumberedsec appendixsec heading::
+* subsection::
+* unnumberedsubsec appendixsubsec subheading::
 * subsubsection::               Commands for the lowest level sections.
 * Raise/lower sections::        How to change commands' hierarchical level.
 
 Nodes
 
-* Two Paths::                   Different commands to structure 
+* Two Paths::                   Different commands to structure
                                   Info output and printed output.
 * Node Menu Illustration::      A diagram, and sample nodes and menus.
 * node::                        How to write a node, in detail.
@@ -349,7 +349,7 @@ The @code{@@node} Command
 * Node Line Tips::              Keep names short.
 * Node Line Requirements::      Keep names unique, without @@-commands.
 * First Node::                  How to write a `Top' node.
-* makeinfo top command::        How to use the @code{@@top} command. 
+* makeinfo top command::        How to use the @code{@@top} command.
 * Top Node Summary::            Write a brief description for readers.
 
 Menus
@@ -406,7 +406,7 @@ Emphasizing Text
 
 Quotations and Examples
 
-* Block Enclosing Commands::    Use different constructs for 
+* Block Enclosing Commands::    Use different constructs for
                                   different purposes.
 * quotation::                   How to write a quotation.
 * example::                     How to write an example in a fixed-width font.
@@ -455,14 +455,14 @@ Special Insertions
 * Braces Atsigns Periods::      How to insert braces, @samp{@@} and periods.
 * dmn::                         How to format a dimension.
 * Dots Bullets::                How to insert dots and bullets.
-* TeX and copyright::           How to insert the @TeX{} logo 
+* TeX and copyright::           How to insert the @TeX{} logo
                                   and the copyright symbol.
 * minus::                       How to insert a minus sign.
 * math::                        How to format a mathematical expression.
 
 Inserting @samp{@@}, Braces, and Periods
 
-* Inserting An Atsign::         
+* Inserting An Atsign::
 * Inserting Braces::            How to insert @samp{@{} and @samp{@}}
 * Controlling Spacing::         How to insert the right amount of space
                                   after punctuation within a sentence.
@@ -477,9 +477,9 @@ Inserting @TeX{} and the Copyright Symbol
 * tex::                         How to insert the @TeX{} logo.
 * copyright symbol::            How to use @code{@@copyright}@{@}.
 
-Glyphs for Examples 
+Glyphs for Examples
 
-* Glyphs Summary::              
+* Glyphs Summary::
 * result::                      How to show the result of expression.
 * expansion::                   How to indicate an expansion.
 * Print Glyph::                 How to indicate printed output.
@@ -491,7 +491,7 @@ Making and Preventing Breaks
 
 * Break Commands::              Cause and prevent splits.
 * Line Breaks::                 How to force a single line to use two lines.
-* w::                           How to prevent unwanted line breaks. 
+* w::                           How to prevent unwanted line breaks.
 * sp::                          How to insert blank lines.
 * page::                        How to force the start of a new page.
 * group::                       How to prevent unwanted page breaks.
@@ -505,7 +505,7 @@ Definition Commands
 * deffnx::                      How to group two or more `first' lines.
 * Def Cmds in Detail::          All the definition commands.
 * Def Cmd Conventions::         Conventions for writing definitions.
-* Sample Function Definition::  
+* Sample Function Definition::
 
 The Definition Commands
 
@@ -532,7 +532,7 @@ Conditionally Visible Text
 @code{@@set}, @code{@@clear}, and @code{@@value}
 
 * ifset ifclear::               Format a region if a flag is set.
-* value::                       Replace a flag with a string. 
+* value::                       Replace a flag with a string.
 * value Example::               An easy way to update edition information.
 
 Format and Print Hardcopy
@@ -560,17 +560,17 @@ Creating an Info File
 * Pointer Validation::          How to check that pointers point somewhere.
 * makeinfo in Emacs::           How to run @code{makeinfo} from Emacs.
 * texinfo-format commands::     Two Info formatting commands written
-                                  in Emacs Lisp are an alternative 
+                                  in Emacs Lisp are an alternative
                                   to @code{makeinfo}.
 * Batch Formatting::            How to format for Info in Emacs Batch mode.
-* Tag and Split Files::         How tagged and split files help Info 
+* Tag and Split Files::         How tagged and split files help Info
                                   to run better.
 
 Installing an Info File
 
 * Directory file::              The top level menu for all Info files.
 * New Info File::               Listing a new info file.
-* Other Info Directories::      How to specify Info files that are 
+* Other Info Directories::      How to specify Info files that are
                                   located in other directories.
 
 Sample Permissions
@@ -673,7 +673,7 @@ the word @TeX{}, the @samp{X} is actually the Greek letter ``chi''
 rather than the English letter ``ex''.  Pronounce @TeX{} as if the
 @samp{X} were the last sound in the name `Bach'; but pronounce Texinfo
 as if the @samp{x} were a `k'.  Spell ``Texinfo'' with a capital ``T''
-and write the other letters in lower case.} 
+and write the other letters in lower case.}
 is a documentation system that uses a single source file to produce both
 on-line information and printed output.  This means that instead of
 writing two different documents, one for the on-line help or other on-line
@@ -683,7 +683,7 @@ only one document.  (You can read the on-line information, known as an
 @dfn{Info file}, with an Info documentation-reading program.)@refill
 
 @menu
-* Using Texinfo::               Create a conventional printed book 
+* Using Texinfo::               Create a conventional printed book
                                   or an Info file.
 * Info Files::                  What is an Info file?
 * Printed Books::               Characteristics of a printed book or manual.
@@ -694,7 +694,7 @@ only one document.  (You can read the on-line information, known as an
 * Minimum::                     What a Texinfo file must have.
 * Six Parts::                   Usually, a Texinfo file has six parts.
 * Short Sample::                A short sample Texinfo file.
-* Acknowledgements::            
+* Acknowledgements::
 @end menu
 
 @c ************************************************************************
@@ -847,7 +847,7 @@ contributed in their own unique way:
 
 
 	SMP
-		
+
 		The PowerPC ISA defines SMP synchronizing instructions.
 		This simulator implements a limited, but functional,
 		subset of the PowerPC synchronization instructions
@@ -858,7 +858,7 @@ contributed in their own unique way:
 
 		People intending to use this system should study
 		the code implementing the lwarx instruction.
-		
+
 	ENDIAN SUPPORT
 
 		PSIM implements the PowerPC's big and little (xor
@@ -957,7 +957,7 @@ contributed in their own unique way:
 	Here is the current output generated with the -I switch on a P90
 	(the compiler used is the development version of GCC with a new
 	scheduler replacing the old one):
-	
+
 	CPU #1 executed     41,994 AND instructions.
 	CPU #1 executed    519,785 AND Immediate instructions.
 	.
@@ -965,7 +965,7 @@ contributed in their own unique way:
 	.
 	CPU #1 executed          1 System Call instruction.
 	CPU #1 executed    207,746 XOR instructions.
-	
+
 	CPU #1 executed 23,740,856 cycles.
 	CPU #1 executed 10,242,780 stalls waiting for data.
 	CPU #1 executed          1 stall waiting for a function unit.
@@ -978,7 +978,7 @@ contributed in their own unique way:
 	CPU #1 executed    971,926 data writes.
 	CPU #1 executed        221 icache misses.
 	CPU #1 executed 16,949,396 instructions in total.
-	
+
 	Simulator speed was 250,731 instructions/second
 
 

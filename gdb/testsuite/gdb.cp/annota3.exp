@@ -61,7 +61,7 @@ if [target_info exists gdb_stub] {
 #
 set main_line 25
 
-# The commands we test here produce many lines of output; disable "press 
+# The commands we test here produce many lines of output; disable "press
 # <return> to continue" prompts.
 send_gdb "set height 0\n"
 gdb_expect -re "$gdb_prompt $"
@@ -84,7 +84,7 @@ gdb_test "break 25" \
 set old_gdb_prompt $gdb_prompt
 set gdb_prompt "\r\n\032\032pre-prompt\r\n$gdb_prompt \r\n\032\032prompt\r\n"
 
-send_gdb "set annotate 3\n" 
+send_gdb "set annotate 3\n"
 gdb_expect_list "annotation set at level 3" "\r\n$gdb_prompt$" {
     "set annotate 3"
 }
@@ -147,7 +147,7 @@ gdb_expect {
 }
 
 #
-# break at first line of main. 
+# break at first line of main.
 #
 send_gdb "break 22\n"
 gdb_expect_list "break at main" "$gdb_prompt$" {
@@ -174,7 +174,7 @@ gdb_expect_list "second run until main breakpoint" "$gdb_prompt$" {
 }
 
 #
-# set up a watch point on a.x 
+# set up a watch point on a.x
 #
 send_gdb "watch a.x\n"
 gdb_expect_list "set watch on a.x" "$gdb_prompt$" {
@@ -188,7 +188,7 @@ gdb_expect_list "set watch on a.x" "$gdb_prompt$" {
 #
 send_gdb "next\n"
 gdb_expect {
-    -re "\r\n\032\032post-prompt\r\n\r\n\032\032starting\r\n\r\n\032\032watchpoint 3\r\n.*atchpoint 3: a.x\r\n\r\nOld value = 0\r\nNew value = 1\r\n\r\n(\032\032frame-begin 0 0x\[0-9a-z\]+\r\n|)main \\(\\) at .*$srcfile:$decimal\r\n\r\n\032\032source .*$srcfile.*beg:$hex\r\n\r\n\032\032stopped\r\n.*$gdb_prompt$" { 
+    -re "\r\n\032\032post-prompt\r\n\r\n\032\032starting\r\n\r\n\032\032watchpoint 3\r\n.*atchpoint 3: a.x\r\n\r\nOld value = 0\r\nNew value = 1\r\n\r\n(\032\032frame-begin 0 0x\[0-9a-z\]+\r\n|)main \\(\\) at .*$srcfile:$decimal\r\n\r\n\032\032source .*$srcfile.*beg:$hex\r\n\r\n\032\032stopped\r\n.*$gdb_prompt$" {
 	pass "watch triggered on a.x"
     }
     -re "\r\n\032\032post-prompt\r\n\r\n\032\032starting\r\n\r\n\032\032source .*$srcfile.*beg:$hex\r\n\r\n\032\032stopped\r\n$gdb_prompt$" {
@@ -203,7 +203,7 @@ gdb_expect {
 }
 
 #
-# send ^C to gdb, so that the quit() function gets called 
+# send ^C to gdb, so that the quit() function gets called
 # and annotate-quit is tested
 # test:
 # annotate-quit
@@ -216,9 +216,9 @@ gdb_expect_list "annotate-quit" "$gdb_prompt$" {
 }
 
 #
-# FIXME: the testsuite does not currently have tests for 
+# FIXME: the testsuite does not currently have tests for
 #        annotate_catchpoints and annotate_function_call
-#        and a few variants of the annotations that are 
+#        and a few variants of the annotations that are
 #        tested (marked by FIXME on the annot?.exp files)
 #
 

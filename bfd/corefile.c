@@ -144,7 +144,7 @@ generic_core_file_matches_executable_p (bfd *core_bfd, bfd *exec_bfd)
      of the const char * returned by bfd_core_file_failing_command to a
      non-const char *.  In this case, the assignement does not lead to
      breaking the const, as we're only reading the string.  */
-     
+
   core = (char *) bfd_core_file_failing_command (core_bfd);
   if (core == NULL)
     return TRUE;
@@ -160,7 +160,7 @@ generic_core_file_matches_executable_p (bfd *core_bfd, bfd *exec_bfd)
   last_slash = strrchr (exec, '/');
   if (last_slash != NULL)
     exec = last_slash + 1;
-  
+
   return strcmp (exec, core) == 0;
 }
 

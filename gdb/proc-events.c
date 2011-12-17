@@ -1436,9 +1436,9 @@ proc_prettyprint_syscalls (sysset_t *sysset, int verbose)
 
 /* Signal translation table.  */
 
-static struct trans signal_table[] = 
+static struct trans signal_table[] =
 {
-  { 0,      "<no signal>", "no signal" }, 
+  { 0,      "<no signal>", "no signal" },
 #ifdef SIGHUP
   { SIGHUP, "SIGHUP", "Hangup" },
 #endif
@@ -1713,7 +1713,7 @@ proc_prettyfprint_fault (FILE *file, int faultno, int verbose)
 	return;
       }
 
-  fprintf (file, "Unknown hardware fault %d%c", 
+  fprintf (file, "Unknown hardware fault %d%c",
 	   faultno, verbose ? '\n' : ' ');
 }
 

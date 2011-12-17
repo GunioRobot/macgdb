@@ -16,7 +16,7 @@
 
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA. 
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
 #ifdef HAVE_CONFIG_H
@@ -106,7 +106,7 @@ protect_end (const char * s)
   static char * buf;
   size_t s_len = strlen (s);
   char * result;
-  
+
   /* Don't try if S is too long.  */
   if (s_len >= pagesize)
     return s;
@@ -121,7 +121,7 @@ protect_end (const char * s)
 	return s;
       munmap (buf + pagesize, pagesize);
     }
-  
+
   result = buf + (pagesize - s_len - 1);
   memcpy (result, s, s_len + 1);
   return result;
@@ -195,7 +195,7 @@ main(argc, argv)
   for (;;)
     {
       const char *inp;
-      
+
       get_line (&format);
       if (feof (stdin))
 	break;

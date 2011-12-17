@@ -177,7 +177,7 @@ proc set_regs { regs val } {
 	# Use send_gdb/gdb_expect so that these aren't logged as pass/fail.
 	send_gdb "set \$${reg} = ${val}\n"
 	gdb_expect 10 {
-	    -re "$gdb_prompt $" { 
+	    -re "$gdb_prompt $" {
 		verbose "Setting ${reg} to ${val}." 2
 	    }
 	    timeout {

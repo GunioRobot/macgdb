@@ -477,7 +477,7 @@ execute_stack_op (struct dwarf_expr_context *ctx,
 	case DW_OP_reg29:
 	case DW_OP_reg30:
 	case DW_OP_reg31:
-	  if (op_ptr != op_end 
+	  if (op_ptr != op_end
 	      && *op_ptr != DW_OP_piece
 	      && *op_ptr != DW_OP_GNU_uninit)
 	    error (_("DWARF-2 expression error: DW_OP_reg operations must be "
@@ -604,7 +604,7 @@ execute_stack_op (struct dwarf_expr_context *ctx,
 	  result = dwarf_expr_fetch (ctx, offset);
 	  in_stack_memory = dwarf_expr_fetch_in_stack_memory (ctx, offset);
 	  break;
-	  
+
 	case DW_OP_swap:
 	  {
 	    struct dwarf_stack_value t1, t2;

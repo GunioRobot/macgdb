@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -54,7 +54,7 @@
 
    available = { <address> <size> } (automatic)
 
-   Each pair specifies a block of memory that is currently unallocated.  
+   Each pair specifies a block of memory that is currently unallocated.
 
 
    BUGS
@@ -400,7 +400,7 @@ hw_memory_instance_release(device_instance *instance,
   unsigned_word address;
   int stackp = 0;
   hw_memory_chunk *chunk;
-  
+
   /* get the length from the stack */
   {
     int i;

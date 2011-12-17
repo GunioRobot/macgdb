@@ -118,7 +118,7 @@ fetch_register (struct regcache *regcache, int regno)
       *(long *) &buf[i] = ptrace (PTRACE_PEEKUSER, tid, regaddr, 0);
       regaddr += sizeof (long);
       if (errno != 0)
-	error (_("Couldn't read register %s (#%d): %s."), 
+	error (_("Couldn't read register %s (#%d): %s."),
 	       gdbarch_register_name (gdbarch, regno),
 	       regno, safe_strerror (errno));
     }

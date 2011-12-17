@@ -132,7 +132,7 @@ cp_canonicalize_string (const char *string)
 }
 
 /* Convert a mangled name to a demangle_component tree.  *MEMORY is set to the
-   block of used memory that should be freed when finished with the tree. 
+   block of used memory that should be freed when finished with the tree.
    DEMANGLED_P is set to the char * that should be freed when finished with
    the tree, or NULL if none was needed.  OPTIONS will be passed to the
    demangler.  */
@@ -161,7 +161,7 @@ mangled_name_to_comp (const char *mangled_name, int options,
   demangled_name = cplus_demangle (mangled_name, options);
   if (demangled_name == NULL)
    return NULL;
-  
+
   /* If we could demangle the name, parse it to build the component tree.  */
   ret = cp_demangled_name_to_comp (demangled_name, NULL);
 
@@ -724,7 +724,7 @@ make_symbol_overload_list_using (const char *func_name,
     }
 
   /* Now, add names for this namespace.  */
-  
+
   if (namespace[0] == '\0')
     {
       make_symbol_overload_list_qualified (func_name);
@@ -892,8 +892,8 @@ maint_cplus_command (char *arg, int from_tty)
 static void
 first_component_command (char *arg, int from_tty)
 {
-  int len;  
-  char *prefix; 
+  int len;
+  char *prefix;
 
   if (!arg)
     return;

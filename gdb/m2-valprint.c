@@ -199,7 +199,7 @@ m2_print_unbounded_array (struct type *type, const gdb_byte *valaddr,
 		       addr);
   len = unpack_field_as_long (type, valaddr + embedded_offset, 1);
 
-  fprintf_filtered (stream, "{");  
+  fprintf_filtered (stream, "{");
   m2_print_array_contents (value_type (val), value_contents(val),
 			   value_embedded_offset (val), addr, stream,
 			   recurse, options, len);
@@ -236,7 +236,7 @@ print_unpacked_pointer (struct type *type,
       && addr != 0)
     return val_print_string (TYPE_TARGET_TYPE (type), addr, -1,
 			     stream, options);
-  
+
   return 0;
 }
 
@@ -254,7 +254,7 @@ print_variable_at_address (struct type *type,
   fprintf_filtered (stream, "[");
   fputs_filtered (paddress (gdbarch, addr), stream);
   fprintf_filtered (stream, "] : ");
-  
+
   if (TYPE_CODE (elttype) != TYPE_CODE_UNDEF)
     {
       struct value *deref_val =

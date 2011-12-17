@@ -97,14 +97,14 @@ int main()
   JVA1 jva1;
   JVA2 jva2;
   JVA1V jva1v;
-  
+
   int i;
 
   i += k.i + m.w + a1.x + a2.x + a3.x + x.z + l.z + n.r + j.j;
 
   marker1();
-  
+
 }
 
 
-  
+

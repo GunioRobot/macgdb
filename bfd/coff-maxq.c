@@ -9,17 +9,17 @@
    This file is part of BFD, the Binary File Descriptor library.
 
    This program is free software; you can redistribute it and/or modify it
-   under the terms of the GNU General Public License as published by the Free 
+   under the terms of the GNU General Public License as published by the Free
    Software Foundation; either version 3 of the License, or (at your option)
    any later version.
 
    This program is distributed in the hope that it will be useful, but
-   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
    or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
    for more details.
 
    You should have received a copy of the GNU General Public License along
-   with this program; if not, write to the Free Software Foundation, Inc., 
+   with this program; if not, write to the Free Software Foundation, Inc.,
    51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
 
 #include "sysdep.h"
@@ -99,7 +99,7 @@ coff_maxq20_reloc (bfd *      abfd,
       call_addr = call_addr - call_addr;
       call_addr = get_symbol_value (symbol_in);
 
-      /* Over here the value val stores the 8 bit/16 bit value. We will put a 
+      /* Over here the value val stores the 8 bit/16 bit value. We will put a
          check if we are moving a 16 bit immediate value into an 8 bit
          register. In that case we will generate a Upper bytes into PFX[0]
          and move the lower 8 bits as SRC.  */
@@ -138,7 +138,7 @@ coff_maxq20_reloc (bfd *      abfd,
 	case ABSOLUTE_ADDR_FOR_DATA:
 	case LONG_JUMP:
 	  /* BFD_RELOC_14 Handles intersegment or long jumps which might be
-	     from code to code or code to data segment jumps. Note: When this 
+	     from code to code or code to data segment jumps. Note: When this
 	     fucntion is called by gas the section flags somehow do not
 	     contain the info about the section type(CODE or DATA). Thus the
 	     user needs to evoke the linker after assembling the files
@@ -381,27 +381,27 @@ maxq_reloc_type_lookup (bfd * abfd ATTRIBUTE_UNUSED,
       /* SHORT JUMP */
     case BFD_RELOC_16_PCREL_S2:
       return howto_table + 3;
-      
+
       /* INTERSEGMENT JUMP */
     case BFD_RELOC_24:
       return howto_table + 4;
-      
+
       /* BYTE RELOC */
     case BFD_RELOC_8:
       return howto_table + 7;
-      
+
       /* WORD RELOC */
     case BFD_RELOC_16:
       return howto_table + 5;
-      
+
       /* LONG RELOC */
     case BFD_RELOC_32:
       return howto_table + 2;
-      
+
       /* LONG JUMP */
     case BFD_RELOC_14:
       return howto_table + 6;
-      
+
     default:
       return NULL;
     }

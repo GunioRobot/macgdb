@@ -159,7 +159,7 @@ adjust_float_register_busy (SIM_CPU *cpu, INT in_FRi, INT in_FRj, INT out_FRk,
       decrease_FR_busy (cpu, in_FRi, cycles);
     else
       enforce_full_fr_latency (cpu, in_FRi);
-  
+
   if (in_FRj >= 0 && in_FRj != in_FRi)
     if (use_is_fpop (cpu, in_FRj))
       decrease_FR_busy (cpu, in_FRj, cycles);

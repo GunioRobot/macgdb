@@ -7,7 +7,7 @@
 
 	start
 	_clrpr
-	
+
 	# 1.0 / 0.0 should be INF
 	# (and not crash the sim).
 	fldi0 fr0
@@ -51,8 +51,8 @@
 
 wrong:
 	fail
-	
-double:	
+
+double:
 	# double test
 	# (1.0 / 2.0) + (1.0 / 2.0) == 1.0.
 	fldi1 fr1
@@ -66,7 +66,7 @@ double:
 	# double it, expect 1.0.
 	fadd dr6, dr6
 	_clrpr
-foo:	
+foo:
 	# Load 1.0 into dr4.
 	fldi1 fr1
 	_s2d fr1, dr10
@@ -75,7 +75,7 @@ foo:
 	fcmp/eq dr6, dr10
 	bf wrong2
 	_clrpr
-	
+
 okay:
 	pass
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -110,7 +110,7 @@
 /*
  *  FUNCTIONAL DESCRIPTION:
  *
- *	cma__int_attr_get_inherit_sched - Performs work of 
+ *	cma__int_attr_get_inherit_sched - Performs work of
  *	cma_attr_get_inherit_sched
  *
  *  FORMAL PARAMETERS:

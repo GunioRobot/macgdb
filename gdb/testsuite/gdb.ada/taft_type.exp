@@ -38,7 +38,7 @@ set bp_location [gdb_get_line_number "START" ${testdir}/p.adb]
 if ![runto "p.adb:$bp_location" ] then {
   perror "Couldn't run ${testfile}"
   return
-} 
+}
 
 gdb_test "print w.e.all" \
          "= \\(month => 8, year => 1974\\)" \

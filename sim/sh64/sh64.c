@@ -194,9 +194,9 @@ sh64_fcmpuns(SIM_CPU *current_cpu, SF frg, SF frh)
   sim_fpu f1, f2;
 
   sim_fpu_32to (&f1, frg);
-  sim_fpu_32to (&f2, frh); 
+  sim_fpu_32to (&f2, frh);
   return (sim_fpu_is_nan (&f1) || sim_fpu_is_nan (&f2));
-}  
+}
 
 SF
 sh64_fcnvds(SIM_CPU *current_cpu, DF drgh)
@@ -213,7 +213,7 @@ sh64_fcnvds(SIM_CPU *current_cpu, DF drgh)
 
   f1.ll = drgh;
   f2.f = (float) f1.d;
-  
+
   return (SF) f2.l;
 }
 
@@ -260,7 +260,7 @@ sh64_floatld(SIM_CPU *current_cpu, SF frgh)
   DF result;
   sim_fpu f;
 
-  sim_fpu_i32to (&f, frgh, sim_fpu_round_default); 
+  sim_fpu_i32to (&f, frgh, sim_fpu_round_default);
   sim_fpu_to64 (&result, &f);
   return result;
 }
@@ -310,7 +310,7 @@ sh64_fmacs(SIM_CPU *current_cpu, SF fr0, SF frm, SF frn)
 
   sim_fpu_mul (&fres, &m1, &m2);
   sim_fpu_add (&fres, &fres, &a1);
-  
+
   sim_fpu_to32 (&result, &fres);
   return result;
 }
@@ -538,7 +538,7 @@ count_argc (cpu)
 
   if (! STATE_PROG_ARGV (CPU_STATE (cpu)))
     return -1;
-  
+
   while (STATE_PROG_ARGV (CPU_STATE (cpu)) [i] != NULL)
     ++i;
 
@@ -584,7 +584,7 @@ trap_handler (SIM_CPU *current_cpu, int shmedia_abi_p, UQI trapnum, PCADDR pc)
 	DI PARM1 = GET_H_GR ((shmedia_abi_p) ? 3 : 5);
 	DI PARM2 = GET_H_GR ((shmedia_abi_p) ? 4 : 6);
 	DI PARM3 = GET_H_GR ((shmedia_abi_p) ? 5 : 7);
-	
+
 	switch (GET_H_GR ((shmedia_abi_p) ? 2 : 4))
 	  {
 	  case SYS_write:
@@ -601,7 +601,7 @@ trap_handler (SIM_CPU *current_cpu, int shmedia_abi_p, UQI trapnum, PCADDR pc)
 		      sim_io_lseek (CPU_STATE (current_cpu),
 				    PARM1, PARM2, PARM3));
 	    break;
-	    
+
 	  case SYS_exit:
 	    sim_engine_halt (CPU_STATE (current_cpu), current_cpu,
 			     NULL, pc, sim_exited, PARM1);
@@ -615,7 +615,7 @@ trap_handler (SIM_CPU *current_cpu, int shmedia_abi_p, UQI trapnum, PCADDR pc)
 	    sim_write (CPU_STATE (current_cpu), PARM2, buf, PARM3);
 	    zfree (buf);
 	    break;
-	    
+
 	  case SYS_open:
 	    buf = fetch_str (current_cpu, pc, PARM1);
 	    SET_H_GR (ret_reg,
@@ -722,7 +722,7 @@ sh64_nsb (SIM_CPU *current_cpu, DI rm)
 	  source = newval;
 	}
     }
-  
+
   return result;
 }
 
@@ -838,7 +838,7 @@ sh64_fetch_register (SIM_CPU *cpu, int nr, unsigned char *buf, int len)
       *((unsigned64*) buf) = H2T_8 (sh64_h_sr_get (cpu));
       return len;
     }
-      
+
   /* Fetch saved status register (SSR) and PC (SPC).  */
   if ((nr == SIM_SH64_SSR_REGNUM || nr == SIM_SH64_SPC_REGNUM)
       && len == 8)
@@ -1020,7 +1020,7 @@ shmedia_init_cpu (SIM_CPU *cpu)
 
 static void
 shcompact_init_cpu (SIM_CPU *cpu)
-{ 
+{
   sh64_init_cpu (cpu);
 }
 

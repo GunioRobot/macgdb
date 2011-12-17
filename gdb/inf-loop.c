@@ -41,7 +41,7 @@ inferior_event_handler_wrapper (gdb_client_data client_data)
    otherwise it assumes that all is OK, and goes on reading data from
    the fd. This however may not always be what we want to do. */
 void
-inferior_event_handler (enum inferior_event_type event_type, 
+inferior_event_handler (enum inferior_event_type event_type,
 			gdb_client_data client_data)
 {
   struct gdb_exception e;
@@ -61,7 +61,7 @@ inferior_event_handler (enum inferior_event_type event_type,
 	 fetch_inferior_event (i.e. readchar) can return meaningful
 	 error status.  If an error occurs while getting an event from
 	 the target, just get rid of the target. */
-      if (!catch_errors (fetch_inferior_event_wrapper, 
+      if (!catch_errors (fetch_inferior_event_wrapper,
 			 client_data, "", RETURN_MASK_ALL))
 	{
 	  pop_all_targets_above (file_stratum, 0);
@@ -148,7 +148,7 @@ inferior_event_handler (enum inferior_event_type event_type,
 	do_all_intermediate_continuations ();
       break;
 
-    case INF_QUIT_REQ: 
+    case INF_QUIT_REQ:
       /* FIXME: ezannoni 1999-10-04. This call should really be a
 	 target vector entry, so that it can be used for any kind of
 	 targets. */
@@ -162,7 +162,7 @@ inferior_event_handler (enum inferior_event_type event_type,
     }
 }
 
-static int 
+static int
 fetch_inferior_event_wrapper (gdb_client_data client_data)
 {
   fetch_inferior_event (client_data);

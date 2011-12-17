@@ -9,7 +9,7 @@
 init:
 	pta wrong, tr0
 
-fcnvsd:	
+fcnvsd:
 	movi 9, r0
 	fmov.ls r0, fr0
 	float.ls fr0, fr0
@@ -20,7 +20,7 @@ fcnvsd:
 	fcmpeq.d dr2, dr4, r7
 	bnei r7, 1, tr0
 
-okay:	
+okay:
 	pass
 
 wrong:

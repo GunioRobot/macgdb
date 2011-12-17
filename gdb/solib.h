@@ -1,5 +1,5 @@
 /* Shared library declarations for GDB, the GNU Debugger.
-   
+
    Copyright (C) 1992, 1993, 1995, 1998, 1999, 2000, 2001, 2003, 2005, 2007,
    2008, 2009 Free Software Foundation, Inc.
 

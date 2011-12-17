@@ -117,7 +117,7 @@ struct monitor_ops
     int stopbits;		/* number of stop bits */
     char **regnames;		/* array of register names in ascii */
                                 /* deprecated: use regname instead */
-    const char *(*regname) (int index); 
+    const char *(*regname) (int index);
                                 /* function for dynamic regname array */
     int num_breakpoints;	/* If set_break != NULL, number of supported
 				   breakpoints */

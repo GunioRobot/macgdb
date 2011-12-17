@@ -31,5 +31,5 @@ store:
  test_cc 1 1 1 1
  move.d [r4],r3
  dumpr3
- 
+
  quit

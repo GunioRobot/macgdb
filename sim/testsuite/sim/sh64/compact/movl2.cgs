@@ -28,7 +28,7 @@ check:
 	mov.l @r1, r3
 	cmp/eq r2, r3
 	bf wrong
-	
+
 dec:
 	# Ensure address is decremented.
 	mov #4, r6
@@ -36,7 +36,7 @@ dec:
 	cmp/eq r1, r7
 	bf wrong
 
-okay:	
+okay:
 	pass
 
 wrong:

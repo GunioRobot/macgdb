@@ -201,7 +201,7 @@ store_ppc_memory (ULONGEST memaddr, const gdb_byte *myaddr, int len)
 /* If the PPU thread is currently stopped on a spu_run system call,
    return to FD and ADDR the file handle and NPC parameter address
    used with the system call.  Return non-zero if successful.  */
-static int 
+static int
 parse_spufs_run (int *fd, ULONGEST *addr)
 {
   enum bfd_endian byte_order = gdbarch_byte_order (target_gdbarch);
@@ -389,7 +389,7 @@ spu_child_post_startup_inferior (ptid_t ptid)
   int tid = TIDGET (ptid);
   if (tid == 0)
     tid = PIDGET (ptid);
-  
+
   while (!parse_spufs_run (&fd, &addr))
     {
       ptrace (PT_SYSCALL, tid, (PTRACE_TYPE_ARG3) 0, 0);
@@ -406,7 +406,7 @@ spu_child_post_attach (int pid)
   ULONGEST addr;
 
   /* Like child_post_startup_inferior, if we happened to attach to
-     the inferior while it wasn't currently in spu_run, continue 
+     the inferior while it wasn't currently in spu_run, continue
      running it until we get back there.  */
   while (!parse_spufs_run (&fd, &addr))
     {
@@ -549,7 +549,7 @@ spu_store_inferior_registers (struct target_ops *ops,
 }
 
 /* Override the to_xfer_partial routine.  */
-static LONGEST 
+static LONGEST
 spu_xfer_partial (struct target_ops *ops,
 		  enum target_object object, const char *annex,
 		  gdb_byte *readbuf, const gdb_byte *writebuf,
@@ -585,7 +585,7 @@ spu_can_use_hw_breakpoint (int type, int cnt, int othertype)
 
 
 /* Initialize SPU native target.  */
-void 
+void
 _initialize_spu_nat (void)
 {
   /* Generic ptrace methods.  */
@@ -593,7 +593,7 @@ _initialize_spu_nat (void)
   t = inf_ptrace_target ();
 
   /* Add SPU methods.  */
-  t->to_post_attach = spu_child_post_attach;  
+  t->to_post_attach = spu_child_post_attach;
   t->to_post_startup_inferior = spu_child_post_startup_inferior;
   t->to_wait = spu_child_wait;
   t->to_fetch_registers = spu_fetch_inferior_registers;

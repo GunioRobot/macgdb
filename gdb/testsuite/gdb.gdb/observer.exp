@@ -211,7 +211,7 @@ proc test_observer { executable } {
     test_notifications 1 1 1 "three observers added" \
 	attach_first_observer \
 	attach_second_observer \
-	attach_third_observer 
+	attach_third_observer
 
     # Remove the third observer.
     test_notifications 1 1 0 "third observer removed" \

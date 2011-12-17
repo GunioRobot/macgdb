@@ -519,7 +519,7 @@ frv_current_sos (void)
 	  if (solib_frv_debug)
 	    fprintf_unfiltered (gdb_stdlog, "current_sos: name = %s\n",
 	                        name_buf);
-	  
+
 	  if (errcode != 0)
 	    warning (_("Can't read pathname for link map entry: %s."),
 		     safe_strerror (errcode));
@@ -862,7 +862,7 @@ enable_break (void)
    DESCRIPTION
 
    Once the symbols from a shared object have been loaded in the usual
-   way, we are called to do any system specific symbol handling that 
+   way, we are called to do any system specific symbol handling that
    is needed.
 
  */
@@ -913,7 +913,7 @@ frv_relocate_main_executable (void)
       CORE_ADDR orig_addr, addr, offset;
       int osect_idx;
       int seg;
-      
+
       osect_idx = osect->the_bfd_section->index;
 
       /* Current address of section.  */
@@ -1197,7 +1197,7 @@ find_canonical_descriptor_in_load_object
       lm->dyn_relocs = (arelent **) xmalloc (storage_needed);
 
       /* Fetch the dynamic relocs.  */
-      lm->dyn_reloc_count 
+      lm->dyn_reloc_count
 	= bfd_canonicalize_dynamic_reloc (abfd, lm->dyn_relocs, lm->dyn_syms);
     }
 

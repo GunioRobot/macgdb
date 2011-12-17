@@ -677,7 +677,7 @@ next_opcode:
 
   /** 0000 0000				BRK */
 
-  /* We report the break to our caller with the PC still pointing at the 
+  /* We report the break to our caller with the PC still pointing at the
      breakpoint instruction.  */
   put_reg (pc, m32c_opcode_pc);
   if (verbose)
@@ -697,7 +697,7 @@ next_opcode:
    this opcode instead of the real BRK.  */
 
   /* GDB Break. */
-  /* We report the break to our caller with the PC still pointing at the 
+  /* We report the break to our caller with the PC still pointing at the
      breakpoint instruction.  */
   put_reg (pc, m32c_opcode_pc);
   if (verbose)
@@ -978,7 +978,7 @@ next_opcode:
   NOTYET();
 
   /** 1101 0001 1110 1dst		FSET dest */
-  
+
   set_flags (1 << dst, 1 << dst);
 
   /** 1010 ddd w dd00 1110		INC.size dest */
@@ -1052,7 +1052,7 @@ next_opcode:
   put_reg (pc, m32c_opcode_pc + 1 + imm);
 
   /** 1100 1100				JMP.A label */
-  
+
   prefix (0, 0, 0);
   imm = IMM(3);
   put_reg (pc, imm);

@@ -115,7 +115,7 @@ trotcl:
 	rotcl r1
 	rotcl r1
 
-okay:	
+okay:
 	pass
 wrong2:
 	fail

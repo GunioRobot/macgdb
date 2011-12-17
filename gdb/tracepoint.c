@@ -75,11 +75,11 @@ extern char *(*deprecated_readline_hook) (char *);
 extern void (*deprecated_readline_end_hook) (void);
 
 /* GDB commands implemented in other modules:
- */  
+ */
 
 extern void output_command (char *, int);
 
-/* 
+/*
    Tracepoint.c:
 
    This module defines the following debugger commands:
@@ -276,8 +276,8 @@ set_traceframe_context (struct frame_info *trace_frame)
 static void read_actions (struct breakpoint *);
 
 /* The three functions:
-   collect_pseudocommand, 
-   while_stepping_pseudocommand, and 
+   collect_pseudocommand,
+   while_stepping_pseudocommand, and
    end_actions_pseudocommand
    are placeholders for "commands" that are actually ONLY to be used
    within a tracepoint action list.  If the actual function is ever called,
@@ -385,7 +385,7 @@ read_actions (struct breakpoint *t)
           line = xstrdup ("end");
           printf_filtered ("end\n");
         }
-      
+
       linetype = validate_actionline (&line, t);
       if (linetype == BADLINE)
 	continue;		/* already warned -- collect another line */
@@ -465,7 +465,7 @@ validate_actionline (char **line, struct breakpoint *t)
   c = lookup_cmd (&p, cmdlist, "", -1, 1);
   if (c == 0)
     {
-      warning (_("'%s' is not an action that I know, or is ambiguous."), 
+      warning (_("'%s' is not an action that I know, or is ambiguous."),
 	       p);
       return BADLINE;
     }
@@ -691,7 +691,7 @@ add_register (struct collection_list *collection, unsigned int regno)
 
 /* Add a memrange to a collection list */
 static void
-add_memrange (struct collection_list *memranges, 
+add_memrange (struct collection_list *memranges,
 	      int type, bfd_signed_vma base,
 	      unsigned long len)
 {
@@ -722,7 +722,7 @@ add_memrange (struct collection_list *memranges,
 
 /* Add a symbol to a collection list.  */
 static void
-collect_symbol (struct collection_list *collect, 
+collect_symbol (struct collection_list *collect,
 		struct symbol *sym,
 		struct gdbarch *gdbarch,
 		long frame_regno, long frame_offset)
@@ -759,7 +759,7 @@ collect_symbol (struct collection_list *collect,
     case LOC_REGISTER:
       reg = SYMBOL_REGISTER_OPS (sym)->register_number (sym, gdbarch);
       if (info_verbose)
-	printf_filtered ("LOC_REG[parm] %s: ", 
+	printf_filtered ("LOC_REG[parm] %s: ",
 			 SYMBOL_PRINT_NAME (sym));
       add_register (collect, reg);
       /* Check for doubles stored in two registers.  */
@@ -810,7 +810,7 @@ collect_symbol (struct collection_list *collect,
       add_memrange (collect, reg, offset, len);
       break;
     case LOC_UNRESOLVED:
-      printf_filtered ("Don't know LOC_UNRESOLVED %s\n", 
+      printf_filtered ("Don't know LOC_UNRESOLVED %s\n",
 		       SYMBOL_PRINT_NAME (sym));
       break;
     case LOC_OPTIMIZED_OUT:
@@ -852,7 +852,7 @@ add_local_symbols (struct collection_list *collect,
 	block = BLOCK_SUPERBLOCK (block);
     }
   if (count == 0)
-    warning (_("No %s found in scope."), 
+    warning (_("No %s found in scope."),
 	     type == 'L' ? "locals" : "args");
 }
 
@@ -917,9 +917,9 @@ stringify_collection_list (struct collection_list *list, char *string)
       sprintf_vma (tmp2, list->list[i].start);
       if (info_verbose)
 	{
-	  printf_filtered ("(%d, %s, %ld)\n", 
-			   list->list[i].type, 
-			   tmp2, 
+	  printf_filtered ("(%d, %s, %ld)\n",
+			   list->list[i].type,
+			   tmp2,
 			   (long) (list->list[i].end - list->list[i].start));
 	}
       if (count + 27 > MAX_AGENT_EXPR_LEN)
@@ -961,7 +961,7 @@ stringify_collection_list (struct collection_list *list, char *string)
       end += 10;		/* 'X' + 8 hex digits + ',' */
       count += 10;
 
-      end = mem2hex (list->aexpr_list[i]->buf, 
+      end = mem2hex (list->aexpr_list[i]->buf,
 		     end, list->aexpr_list[i]->len);
       count += 2 * list->aexpr_list[i]->len;
     }
@@ -1087,7 +1087,7 @@ encode_actions (struct breakpoint *t, char ***tdp_actions,
 		  struct cleanup *old_chain1 = NULL;
 		  struct agent_reqs areqs;
 
-		  exp = parse_exp_1 (&action_exp, 
+		  exp = parse_exp_1 (&action_exp,
 				     block_for_pc (t->loc->address), 1);
 		  old_chain = make_cleanup (free_current_contents, &exp);
 
@@ -1157,7 +1157,7 @@ encode_actions (struct breakpoint *t, char ***tdp_actions,
 				  for (ndx2 = 0; ndx2 < 8; ndx2++)
 				    if (areqs.reg_mask[ndx1] & (1 << ndx2))
 				      /* it's used -- record it */
-				      add_register (collect, 
+				      add_register (collect,
 						    ndx1 * 8 + ndx2);
 				}
 			    }
@@ -1184,9 +1184,9 @@ encode_actions (struct breakpoint *t, char ***tdp_actions,
   memrange_sortmerge (&tracepoint_list);
   memrange_sortmerge (&stepping_list);
 
-  *tdp_actions = stringify_collection_list (&tracepoint_list, 
+  *tdp_actions = stringify_collection_list (&tracepoint_list,
 					    tdp_buff);
-  *stepping_actions = stringify_collection_list (&stepping_list, 
+  *stepping_actions = stringify_collection_list (&stepping_list,
 						 step_buff);
 }
 
@@ -1210,7 +1210,7 @@ static long target_buf_size;
 /* Set "transparent" memory ranges
 
    Allow trace mechanism to treat text-like sections
-   (and perhaps all read-only sections) transparently, 
+   (and perhaps all read-only sections) transparently,
    i.e. don't reject memory requests from these address ranges
    just because they haven't been collected.  */
 
@@ -1240,7 +1240,7 @@ remote_set_transparent_ranges (void)
       size = bfd_get_section_size (s);
       sprintf_vma (tmp1, lma);
       sprintf_vma (tmp2, lma + size);
-      sprintf (target_buf + strlen (target_buf), 
+      sprintf (target_buf + strlen (target_buf),
 	       ":%s,%s", tmp1, tmp2);
     }
   if (anysecs)
@@ -1254,7 +1254,7 @@ remote_set_transparent_ranges (void)
 
    Tell target to clear any previous trace experiment.
    Walk the list of tracepoints, and send them (and their actions)
-   to the target.  If no errors, 
+   to the target.  If no errors,
    Tell target to start a new trace experiment.  */
 
 void download_tracepoint (struct breakpoint *t);
@@ -1316,7 +1316,7 @@ download_tracepoint (struct breakpoint *t)
   struct cleanup *aexpr_chain = NULL;
 
   sprintf_vma (tmp, (t->loc ? t->loc->address : 0));
-  sprintf (buf, "QTDP:%x:%s:%c:%lx:%x", t->number, 
+  sprintf (buf, "QTDP:%x:%s:%c:%lx:%x", t->number,
 	   tmp, /* address */
 	   (t->enable_state == bp_enabled ? 'E' : 'D'),
 	   t->step_count, t->pass_count);
@@ -1455,12 +1455,12 @@ finish_tfind_command (char **msg,
 	    /* A request for a non-existant trace frame has failed.
 	       Our response will be different, depending on FROM_TTY:
 
-	       If FROM_TTY is true, meaning that this command was 
+	       If FROM_TTY is true, meaning that this command was
 	       typed interactively by the user, then give an error
 	       and DO NOT change the state of traceframe_number etc.
 
 	       However if FROM_TTY is false, meaning that we're either
-	       in a script, a loop, or a user-defined command, then 
+	       in a script, a loop, or a user-defined command, then
 	       DON'T give an error, but DO change the state of
 	       traceframe_number etc. to invalid.
 
@@ -1482,7 +1482,7 @@ finish_tfind_command (char **msg,
 		/* The following will not recurse, since it's
 		   special-cased.  */
 		trace_find_command ("-1", from_tty);
-		reply = NULL;	/* Break out of loop 
+		reply = NULL;	/* Break out of loop
 				   (avoid recursive nonsense).  */
 	      }
 	  }
@@ -1531,13 +1531,13 @@ finish_tfind_command (char **msg,
     }
 }
 
-/* trace_find_command takes a trace frame number n, 
-   sends "QTFrame:<n>" to the target, 
+/* trace_find_command takes a trace frame number n,
+   sends "QTFrame:<n>" to the target,
    and accepts a reply that may contain several optional pieces
    of information: a frame number, a tracepoint number, and an
    indication of whether this is a trap frame or a stepping frame.
 
-   The minimal response is just "OK" (which indicates that the 
+   The minimal response is just "OK" (which indicates that the
    target does not give us a frame number or a tracepoint number).
    Instead of that, the target may send us a string containing
    any combination of:
@@ -1658,7 +1658,7 @@ trace_find_tracepoint_command (char *args, int from_tty)
    This command will take a sourceline for argument, just like BREAK
    or TRACE (ie. anything that "decode_line_1" can handle).
 
-   With no argument, this command will find the next trace frame 
+   With no argument, this command will find the next trace frame
    corresponding to a source line OTHER THAN THE CURRENT ONE.  */
 
 static void
@@ -1743,11 +1743,11 @@ trace_find_line_command (char *args, int from_tty)
       sprintf_vma (endpc_str, end_pc - 1);
       /* Find within range of stated line.  */
       if (args && *args)
-	sprintf (target_buf, "QTFrame:range:%s:%s", 
+	sprintf (target_buf, "QTFrame:range:%s:%s",
 		 startpc_str, endpc_str);
       /* Find OUTSIDE OF range of CURRENT line.  */
       else
-	sprintf (target_buf, "QTFrame:outside:%s:%s", 
+	sprintf (target_buf, "QTFrame:outside:%s:%s",
 		 startpc_str, endpc_str);
       finish_tfind_command (&target_buf, &target_buf_size,
 			    from_tty);

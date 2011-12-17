@@ -3,7 +3,7 @@
 	start
 
 	PSW_BITS = PSW_DM
-	
+
 ;;; Blat our DMAP registers so that they point at on-chip imem
 
 	ldi r2, MAP_INSN | 0xf

@@ -164,7 +164,7 @@ do_watchpoint_info (SIM_DESC sd)
       sim_io_printf (sd, "\n");
     }
 }
-		    
+
 
 
 static sim_event_handler handle_watchpoint;
@@ -220,7 +220,7 @@ handle_watchpoint (SIM_DESC sd, void *data)
     schedule_watchpoint (sd, point);
   else
     do_watchpoint_delete (sd, point->ident, invalid_watchpoint);
-    
+
   if (point->interrupt_nr == watch->nr_interrupts)
     sim_engine_halt (sd, NULL, NULL, NULL_CIA, sim_stopped, SIM_SIGINT);
   else
@@ -259,7 +259,7 @@ do_watchpoint_create (SIM_DESC sd,
 	break;
       arg++;
     }
-	
+
   (*point)->arg0 = strtoul (arg, &arg, 0);
   if (arg[0] == ',')
     (*point)->arg0 = strtoul (arg, NULL, 0);
@@ -282,7 +282,7 @@ watchpoint_option_handler (SIM_DESC sd, sim_cpu *cpu, int opt,
   else
     switch (opt)
       {
-	
+
       case OPTION_WATCH_DELETE:
 	if (isdigit ((int) arg[0]))
 	  {
@@ -336,19 +336,19 @@ watchpoint_option_handler (SIM_DESC sd, sim_cpu *cpu, int opt,
 	  }
 	sim_io_eprintf (sd, "Unknown watchpoint type `%s'\n", arg);
 	return SIM_RC_FAIL;
-	
+
       case OPTION_WATCH_INFO:
 	{
 	  do_watchpoint_info (sd);
 	  return SIM_RC_OK;
 	}
-      
+
       default:
 	sim_io_eprintf (sd, "Unknown watch option %d\n", opt);
 	return SIM_RC_FAIL;
-	
+
       }
-  
+
 }
 
 
@@ -425,7 +425,7 @@ sim_watchpoint_install (SIM_DESC sd)
     /* adjust first few entries so that they contain real
        documentation, the first entry includes a list of actions. */
     {
-      char *prefix = 
+      char *prefix =
 	"Watch the simulator, take ACTION in COUNT cycles (`+' for every COUNT cycles), ACTION is";
       char *doc;
       int len = strlen (prefix) + 1;

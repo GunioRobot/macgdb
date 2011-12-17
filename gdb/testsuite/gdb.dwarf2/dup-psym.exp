@@ -22,7 +22,7 @@ if {![istarget *-*-linux*]
     && ![istarget *-*-elf*]
     && ![istarget arm-*-eabi*]
     && ![istarget powerpc-*-eabi*]} {
-    return 0  
+    return 0
 }
 
 set testfile "dup-psym"

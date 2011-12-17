@@ -59,8 +59,8 @@ main ()
 }
 
 /*
-Local variables: 
+Local variables:
 change-log-default-name: "ChangeLog-mi"
-End: 
+End:
 */
 

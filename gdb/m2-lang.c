@@ -216,7 +216,7 @@ evaluate_subexp_modula2 (struct type *expect_type, struct expression *exp,
 	      arg1 = value_struct_elt (&temp, NULL, "_m2_high", NULL,
 				       _("unbounded structure "
 					 "missing _m2_high field"));
-	  
+
 	      if (value_type (arg1) != type)
 		arg1 = value_cast (type, arg1);
 	    }
@@ -248,7 +248,7 @@ evaluate_subexp_modula2 (struct type *expect_type, struct expression *exp,
 	  arg1 = value_struct_elt (&temp, NULL, "_m2_contents", NULL,
 				   _("unbounded structure "
 				     "missing _m2_contents field"));
-	  
+
 	  if (value_type (arg1) != type)
 	    arg1 = value_cast (type, arg1);
 
@@ -352,7 +352,7 @@ m2_language_arch_info (struct gdbarch *gdbarch,
   lai->bool_type_default = builtin->builtin_bool;
 }
 
-const struct exp_descriptor exp_descriptor_modula2 = 
+const struct exp_descriptor exp_descriptor_modula2 =
 {
   print_subexp_standard,
   operator_length_standard,

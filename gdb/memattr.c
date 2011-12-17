@@ -77,7 +77,7 @@ show_inaccessible_by_default (struct ui_file *file, int from_tty,
 Unknown memory addresses will be treated as inaccessible.\n"));
   else
     fprintf_filtered (file, _("\
-Unknown memory addresses will be treated as RAM.\n"));          
+Unknown memory addresses will be treated as RAM.\n"));
 }
 
 
@@ -204,7 +204,7 @@ create_mem_region (CORE_ADDR lo, CORE_ADDR hi,
 
       n = VEC_index (mem_region_s, mem_region_list, i);
 
-      if ((lo >= n->lo && (lo < n->hi || n->hi == 0)) 
+      if ((lo >= n->lo && (lo < n->hi || n->hi == 0))
 	  || (hi > n->lo && (hi <= n->hi || n->hi == 0))
 	  || (lo <= n->lo && (hi >= n->hi || hi == 0)))
 	{
@@ -245,7 +245,7 @@ lookup_mem_region (CORE_ADDR addr)
 
   /* Either find memory range containing ADDRESS, or set LO and HI
      to the nearest boundaries of an existing memory range.
-     
+
      If we ever want to support a huge list of memory regions, this
      check should be replaced with a binary search (probably using
      VEC_lower_bound).  */
@@ -276,8 +276,8 @@ lookup_mem_region (CORE_ADDR addr)
   region.lo = lo;
   region.hi = hi;
 
-  /* When no memory map is defined at all, we always return 
-     'default_mem_attrib', so that we do not make all memory 
+  /* When no memory map is defined at all, we always return
+     'default_mem_attrib', so that we do not make all memory
      inaccessible for targets that don't provide a memory map.  */
   if (inaccessible_by_default && !VEC_empty (mem_region_s, mem_region_list))
     region.attrib = unknown_mem_attrib;
@@ -450,7 +450,7 @@ mem_info_command (char *args, int from_tty)
 	tmp = hex_string_custom ((unsigned long) m->lo, 8);
       else
 	tmp = hex_string_custom ((unsigned long) m->lo, 16);
-      
+
       printf_filtered ("%s ", tmp);
 
       if (gdbarch_addr_bit (target_gdbarch) <= 32)

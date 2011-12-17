@@ -153,10 +153,10 @@ or32_opcode_match (unsigned long insn, char *encoding)
 
 #if DEBUG
   printf ("or32_opcode_match: %.8lx\n", insn);
-#endif    
+#endif
   ones  = or32_extract ('1', encoding, insn);
   zeros = or32_extract ('0', encoding, insn);
-  
+
 #if DEBUG
   printf ("ones: %x \n", ones);
   printf ("zeros: %x \n", zeros);
@@ -168,7 +168,7 @@ or32_opcode_match (unsigned long insn, char *encoding)
 #endif
       return 0;
     }
-    
+
   if ((~insn & zeros) != zeros)
     {
 #if DEBUG
@@ -176,7 +176,7 @@ or32_opcode_match (unsigned long insn, char *encoding)
 #endif
       return 0;
     }
-  
+
 #if DEBUG
   printf ("ret3\n");
 #endif
@@ -192,10 +192,10 @@ or32_print_register (char param_ch,
 		     struct disassemble_info *info)
 {
   int regnum = or32_extract (param_ch, encoding, insn);
-  
+
 #if DEBUG
   printf ("or32_print_register: %c, %s, %x\n", param_ch, encoding, insn);
-#endif  
+#endif
   if (param_ch == 'A')
     (*info->fprintf_func) (info->stream, "r%d", regnum);
   else if (param_ch == 'B')
@@ -219,7 +219,7 @@ or32_print_immediate (char param_ch,
 		      struct disassemble_info *info)
 {
   int imm = or32_extract(param_ch, encoding, insn);
-  
+
   if (letter_signed(param_ch))
     (*info->fprintf_func) (info->stream, "0x%x", imm);
 /*    (*info->fprintf_func) (info->stream, "%d", imm); */
@@ -271,7 +271,7 @@ print_insn (bfd_vma memaddr, struct disassemble_info *info)
                 {
                 case '\0':
                   return 4;
-      
+
                 case 'r':
                   or32_print_register (*++s, opcode->encoding, insn, info);
                   break;

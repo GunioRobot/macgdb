@@ -489,7 +489,7 @@ frvbf_check_non_excepting_load (
     default:
       {
 	IADDR pc = GET_H_PC ();
-	sim_engine_abort (sd, current_cpu, pc, 
+	sim_engine_abort (sd, current_cpu, pc,
 			  "check_non_excepting_load: Incorrect data_size\n");
 	break;
       }
@@ -511,7 +511,7 @@ frvbf_check_non_excepting_load (
       if (ne_index == NO_NESR)
 	{
 	  IADDR pc = GET_H_PC ();
-	  sim_engine_abort (sd, current_cpu, pc, 
+	  sim_engine_abort (sd, current_cpu, pc,
 			    "No available NESR register\n");
 	}
 
@@ -529,14 +529,14 @@ frvbf_check_non_excepting_load (
 
       /* Set the corresponding NEEAR.  */
       SET_NEEAR (ne_index, address);
-  
+
       SET_NESR_DAEC (nesr, 0);
       SET_NESR_REC (nesr, 0);
       SET_NESR_EC (nesr, 0);
     }
 
   /* Set the NE flag corresponding to the target register if an interrupt
-     factor was detected. 
+     factor was detected.
      daec is not checked here yet, but is declared for future reference.  */
   if (is_float)
     NE_base = H_SPR_FNER0;
@@ -782,7 +782,7 @@ frvbf_check_acc_range (SIM_CPU *current_cpu, SI regno)
 	return 1; /* all is ok */
       break;
     }
-  
+
   /* The specified accumulator is out of range. Queue an illegal_instruction
      interrupt.  */
   frv_queue_program_interrupt (current_cpu, FRV_ILLEGAL_INSTRUCTION);

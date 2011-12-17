@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -514,7 +514,7 @@ om_effective_to_bat(om_map *map,
 
 STATIC_INLINE_VM\
 (om_segment_tlb_entry *)
-om_effective_to_virtual(om_map *map, 
+om_effective_to_virtual(om_map *map,
 			unsigned_word ea,
 			cpu *processor,
 			unsigned_word cia)
@@ -527,7 +527,7 @@ om_effective_to_virtual(om_map *map,
   TRACE(trace_vm, ("ea=0x%lx - sr[%ld] - masked-vsid=0x%lx va=0x%lx%07lx\n",
 		   (unsigned long)ea,
 		   (long)om_segment_tlb_index(ea),
-		   (unsigned long)segment_tlb_entry->masked_virtual_segment_id, 
+		   (unsigned long)segment_tlb_entry->masked_virtual_segment_id,
 		   (unsigned long)EXTRACTED32(segment_tlb_entry->masked_virtual_segment_id, 31-6-24+1, 31-6),
 		   (unsigned long)EXTRACTED32(ea, 4, 31)));
   return segment_tlb_entry;
@@ -595,7 +595,7 @@ om_effective_to_virtual(om_map *map,
 
 STATIC_INLINE_VM\
 (om_page_tlb_entry *)
-om_virtual_to_real(om_map *map, 
+om_virtual_to_real(om_map *map,
 		   unsigned_word ea,
 		   om_segment_tlb_entry *segment_tlb_entry,
 		   om_access_types access,
@@ -614,7 +614,7 @@ om_virtual_to_real(om_map *map,
 	       (long)ea, (long)page_tlb_entry));
     return page_tlb_entry;
   }
-      
+
   /* drats, it is a tlb miss */
   {
     unsigned_word page_hash =
@@ -875,9 +875,9 @@ om_unpack_sr(vm *virtual,
   ASSERT(which_sr >= 0 && which_sr < nr_om_segment_tlb_entries);
 
   /* get the working values */
-  segment_tlb_entry = &virtual->segment_tlb.entry[which_sr];  
+  segment_tlb_entry = &virtual->segment_tlb.entry[which_sr];
   new_sr_value = srs[which_sr];
-  
+
   /* do we support this */
   if (MASKED32(new_sr_value, 0, 0))
     cpu_error(processor, cia, "unsupported value of T in segment register %d",
@@ -934,7 +934,7 @@ vm_synchronize_context(vm *virtual,
 
   unsigned_word page_table_hash_mask;
   unsigned_word real_address_of_page_table;
- 
+
   /* update current processor mode */
   virtual->instruction_map.translation.is_relocate = instruction_relocate;
   virtual->instruction_map.translation.is_problem_state = problem_state;
@@ -968,7 +968,7 @@ vm_synchronize_context(vm *virtual,
   om_unpack_srs(virtual, srs,
 		processor, cia);
 #endif
- 
+
   /* set up the XOR registers if the current endian mode conflicts
      with what is in the MSR */
   if (WITH_XOR_ENDIAN) {

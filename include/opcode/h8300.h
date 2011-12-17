@@ -3,19 +3,19 @@
    2003, 2004, 2005, 2008, 2009
    Free Software Foundation, Inc.
    Written by Steve Chamberlain <sac@cygnus.com>.
-   
+
    This file is part of GDB, the GNU Debugger and GAS, the GNU Assembler.
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
@@ -229,22 +229,22 @@ enum h8_flags
 
 enum ctrlreg
 {
-  C_CCR  = 0, 
-  C_EXR  = 1, 
-  C_MACH = 2, 
-  C_MACL = 3, 
-  C_VBR  = 6, 
+  C_CCR  = 0,
+  C_EXR  = 1,
+  C_MACH = 2,
+  C_MACL = 3,
+  C_VBR  = 6,
   C_SBR  = 7
 };
 
 enum {MAX_CODE_NIBBLES = 33};
 
-struct code 
+struct code
 {
   op_type nib[MAX_CODE_NIBBLES];
 };
 
-struct arg 
+struct arg
 {
   op_type nib[3];
 };
@@ -258,7 +258,7 @@ enum h8_model
   AV_H8SX
 };
 
-struct h8_opcode 
+struct h8_opcode
 {
   int how;
   enum h8_model available;
@@ -393,7 +393,7 @@ struct h8_opcode
 #define FROM_POSTDEC	10, RSPOSTDEC
 #define FROM_PREINC	 9, RSPREINC
 #define FROM_PREDEC	11, RSPREDEC
-#define FROM_DISP2	B30 | B20 | DISP2SRC, DISPREG 
+#define FROM_DISP2	B30 | B20 | DISP2SRC, DISPREG
 #define FROM_DISP16	12, B30 | DISPREG
 #define FROM_DISP32	12, B31 | DISPREG
 #define FROM_DISP16B	13, B30 | DISPREG
@@ -1191,21 +1191,21 @@ enum h8_size
 /* FIXME: Lots of insns have "E, 0, 0, 0, 0" in the nibble code sequences.
    Methinks the zeroes aren't necessary.  Once confirmed, nuke 'em.  */
 
-struct h8_opcode h8_opcodes[] = 
+struct h8_opcode h8_opcodes[] =
 {
-  {O (O_ADD, SB), AV_H8,   2, "add.b", {{IMM8,      RD8,      E}}, {{0x8, RD8, IMM8LIST, E}}}, 
-  EXPAND_TWOOP_B (O (O_ADD, SB), "add.b", 0x8, 0x0, 0x8, 0x1, 0), 
+  {O (O_ADD, SB), AV_H8,   2, "add.b", {{IMM8,      RD8,      E}}, {{0x8, RD8, IMM8LIST, E}}},
+  EXPAND_TWOOP_B (O (O_ADD, SB), "add.b", 0x8, 0x0, 0x8, 0x1, 0),
 
-  {O (O_ADD, SW), AV_H8,   6, "add.w", {{RS16,      RD16,     E}}, {{0x0, 0x9, RS16,         RD16,   E}}}, 
-  {O (O_ADD, SW), AV_H8SX, 0, "add.w", {{IMM3NZ_NS, RD16,     E}}, {{0x0, 0xa, B30 | IMM3NZ, RD16,   E}}}, 
-  {O (O_ADD, SW), AV_H8SX, 0, "add.w", {{IMM3NZ_NS, RDIND,    E}}, {{0x7, 0xd,      B31 | RDIND,  IGNORE,       0x0, 0xa, B30 | IMM3NZ, IGNORE, E}}}, 
-  {O (O_ADD, SW), AV_H8SX, 0, "add.w", {{IMM3NZ_NS, ABS16DST, E}}, {{0x6, 0xb, 0x1, B31 | IGNORE, DSTABS16LIST, 0x0, 0xa, B30 | IMM3NZ, IGNORE, E}}}, 
-  {O (O_ADD, SW), AV_H8SX, 0, "add.w", {{IMM3NZ_NS, ABS32DST, E}}, {{0x6, 0xb, 0x3, B31 | IGNORE, DSTABS32LIST, 0x0, 0xa, B30 | IMM3NZ, IGNORE, E}}}, 
-  EXPAND_TWOOP_W (O (O_ADD, SW), "add.w", 0x0, 0x9, 0x1), 
+  {O (O_ADD, SW), AV_H8,   6, "add.w", {{RS16,      RD16,     E}}, {{0x0, 0x9, RS16,         RD16,   E}}},
+  {O (O_ADD, SW), AV_H8SX, 0, "add.w", {{IMM3NZ_NS, RD16,     E}}, {{0x0, 0xa, B30 | IMM3NZ, RD16,   E}}},
+  {O (O_ADD, SW), AV_H8SX, 0, "add.w", {{IMM3NZ_NS, RDIND,    E}}, {{0x7, 0xd,      B31 | RDIND,  IGNORE,       0x0, 0xa, B30 | IMM3NZ, IGNORE, E}}},
+  {O (O_ADD, SW), AV_H8SX, 0, "add.w", {{IMM3NZ_NS, ABS16DST, E}}, {{0x6, 0xb, 0x1, B31 | IGNORE, DSTABS16LIST, 0x0, 0xa, B30 | IMM3NZ, IGNORE, E}}},
+  {O (O_ADD, SW), AV_H8SX, 0, "add.w", {{IMM3NZ_NS, ABS32DST, E}}, {{0x6, 0xb, 0x3, B31 | IGNORE, DSTABS32LIST, 0x0, 0xa, B30 | IMM3NZ, IGNORE, E}}},
+  EXPAND_TWOOP_W (O (O_ADD, SW), "add.w", 0x0, 0x9, 0x1),
 
-  {O (O_ADD, SL), AV_H8H,  6, "add.l", {{RS32,      RD32,     E}}, {{0x0, 0xa, B31 | RS32,   B30 | RD32, E}}}, 
-  {O (O_ADD, SL), AV_H8SX, 0, "add.l", {{IMM3NZ_NS, RD32,     E}}, {{0x0, 0xa, B31 | IMM3NZ, B31 | RD32, E}}}, 
-  EXPAND_TWOOP_L (O (O_ADD, SL), "add.l", 0x1), 
+  {O (O_ADD, SL), AV_H8H,  6, "add.l", {{RS32,      RD32,     E}}, {{0x0, 0xa, B31 | RS32,   B30 | RD32, E}}},
+  {O (O_ADD, SL), AV_H8SX, 0, "add.l", {{IMM3NZ_NS, RD32,     E}}, {{0x0, 0xa, B31 | IMM3NZ, B31 | RD32, E}}},
+  EXPAND_TWOOP_L (O (O_ADD, SL), "add.l", 0x1),
 
   {O (O_ADDS, SL), AV_H8,  2, "adds",  {{KBIT,  RDP,  E}}, {{0x0, 0xB,KBIT, RDP, E}}},
 
@@ -1220,9 +1220,9 @@ struct h8_opcode h8_opcodes[] =
   {O (O_ADDX, SB), AV_H8SX, 0, "addx.b", {{RSIND,     RDIND,     E}}, {{PREFIX_0174, 0x6, 0x8, B30 | RSIND,     0xd, 0x0, RDIND,     0x1, IGNORE, E}}},
   {O (O_ADDX, SB), AV_H8SX, 0, "addx.b", {{RSPOSTDEC, RDPOSTDEC, E}}, {{PREFIX_0176, 0x6, 0xc, B30 | RSPOSTDEC, 0xd, 0xa, RDPOSTDEC, 0x1, IGNORE, E}}},
 
-  {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{IMM16,     RD16,      E}}, {{PREFIX_0151,                         0x7, 0x9, 0x1, RD16,   IMM16LIST, E}}}, 
-  {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{IMM16,     RDIND,     E}}, {{0x7, 0xd, B31 | RDIND, B01 | IGNORE, 0x7, 0x9, 0x1, IGNORE, IMM16LIST, E}}}, 
-  {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{IMM16,     RDPOSTDEC, E}}, {{PREFIX_0156, 0x6, 0xd, B30 | RDPOSTDEC, B31 | B20 | B01 | IGNORE, 0x7, 0x9, 0x1, IGNORE, IMM16LIST, E}}}, 
+  {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{IMM16,     RD16,      E}}, {{PREFIX_0151,                         0x7, 0x9, 0x1, RD16,   IMM16LIST, E}}},
+  {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{IMM16,     RDIND,     E}}, {{0x7, 0xd, B31 | RDIND, B01 | IGNORE, 0x7, 0x9, 0x1, IGNORE, IMM16LIST, E}}},
+  {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{IMM16,     RDPOSTDEC, E}}, {{PREFIX_0156, 0x6, 0xd, B30 | RDPOSTDEC, B31 | B20 | B01 | IGNORE, 0x7, 0x9, 0x1, IGNORE, IMM16LIST, E}}},
   {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{RS16,      RD16,      E}}, {{PREFIX_0151, 0x0, 0x9, RS16,  RD16,    E}}},
   {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{RS16,      RDIND,     E}}, {{0x7, 0xd, B31 | RDIND, B01 | IGNORE, 0x0, 0x9, RS16, IGNORE, E}}},
   {O (O_ADDX, SW), AV_H8SX, 0, "addx.w", {{RS16,      RDPOSTDEC, E}}, {{PREFIX_0156, 0x6, 0xd, B30 | RDPOSTDEC, B31 | B20 | B01 | IGNORE, 0x0, 0x9, RS16, IGNORE, E}}},
@@ -1242,14 +1242,14 @@ struct h8_opcode h8_opcodes[] =
   {O (O_ADDX, SL), AV_H8SX, 0, "addx.l", {{RSIND,     RDIND,     E}}, {{PREFIX_0104, 0x6, 0x9, B30 | RSIND,     0xd, 0x0, RDIND,     0x1, IGNORE, E}}},
   {O (O_ADDX, SL), AV_H8SX, 0, "addx.l", {{RSPOSTDEC, RDPOSTDEC, E}}, {{PREFIX_0106, 0x6, 0xd, B30 | RSPOSTDEC, 0xd, 0xa, RDPOSTDEC, 0x1, IGNORE, E}}},
 
-  {O (O_AND, SB), AV_H8,   2, "and.b", {{IMM8, RD8,  E}}, {{0xe, RD8, IMM8LIST, E}}}, 
-  EXPAND_TWOOP_B (O (O_AND, SB), "and.b", 0xe, 0x1, 0x6, 0x6, 0), 
+  {O (O_AND, SB), AV_H8,   2, "and.b", {{IMM8, RD8,  E}}, {{0xe, RD8, IMM8LIST, E}}},
+  EXPAND_TWOOP_B (O (O_AND, SB), "and.b", 0xe, 0x1, 0x6, 0x6, 0),
 
-  {O (O_AND, SW), AV_H8,   2, "and.w", {{RS16, RD16, E}}, {{0x6, 0x6, RS16, RD16,   E}}}, 
-  EXPAND_TWOOP_W (O (O_AND, SW), "and.w", 0x6, 0x6, 0x6), 
+  {O (O_AND, SW), AV_H8,   2, "and.w", {{RS16, RD16, E}}, {{0x6, 0x6, RS16, RD16,   E}}},
+  EXPAND_TWOOP_W (O (O_AND, SW), "and.w", 0x6, 0x6, 0x6),
 
   {O (O_AND, SL), AV_H8H,  2, "and.l", {{RS32,  RD32, E}}, {{0x0, 0x1, 0xF, 0x0, 0x6, 0x6, B30 | RS32, B30 | RD32, E}}},
-  EXPAND_TWOOP_L (O (O_AND, SL), "and.l", 0x6), 
+  EXPAND_TWOOP_L (O (O_AND, SL), "and.l", 0x6),
 
   {O (O_ANDC, SB), AV_H8,  2, "andc", {{IMM8,  CCR | DST, E}}, {{0x0, 0x6, IMM8LIST, E}}},
   {O (O_ANDC, SB), AV_H8S, 2, "andc", {{IMM8,  EXR | DST, E}}, {{0x0, 0x1, 0x4, EXR | DST, 0x0, 0x6, IMM8LIST, E}}},
@@ -1276,7 +1276,7 @@ struct h8_opcode h8_opcodes[] =
   {O (O_BRABS, SB), AV_H8SX, 0, "bra/bs", {{IMM3, ABS8DST,  OP3PCREL16}}, {{0x7, 0xE, DSTABS8LIST,            0x5, 0x8, B31 | IMM3, 0x0, OP3PCREL16, DATA3, E}}},
   {O (O_BRABS, SB), AV_H8SX, 0, "bra/bs", {{IMM3, ABS16DST, OP3PCREL16}}, {{0x6, 0xA, 0x1, 0x0, DSTABS16LIST, 0x5, 0x8, B31 | IMM3, 0x0, OP3PCREL16, DATA3, E}}},
   {O (O_BRABS, SB), AV_H8SX, 0, "bra/bs", {{IMM3, ABS32DST, OP3PCREL16}}, {{0x6, 0xA, 0x3, 0x0, DSTABS32LIST, 0x5, 0x8, B31 | IMM3, 0x0, OP3PCREL16, DATA3, E}}},
-  
+
   {O (O_BRAS,  SB), AV_H8SX, 0, "bra/s",  {{PCREL8, E}}, {{0x4, 0x0, PCREL8, DATA | B01, E}}},
 
   {O (O_BSRBC, SB), AV_H8SX, 0, "bsr/bc", {{IMM3, RDIND,    OP3PCREL16}}, {{0x7, 0xC, B30 | RDIND, 0x0,       0x5, 0xC, B30 | IMM3, 0x0, OP3PCREL16, DATA3, E}}},
@@ -1335,7 +1335,7 @@ struct h8_opcode h8_opcodes[] =
   {O (O_BFLD, SB), AV_H8SX, 0, "bfld", {{IMM8, ABS16DST, R3_8}},  {{0x6, 0xA, 0x1, 0x0, DSTABS16LIST,     0xF, R3_8, IMM8LIST, E}}},
   {O (O_BFLD, SB), AV_H8SX, 0, "bfld", {{IMM8, ABS32DST, R3_8}},  {{0x6, 0xA, 0x3, 0x0, DSTABS32LIST,     0xF, R3_8, IMM8LIST, E}}},
 
-  /* Because the assembler treats SRC, DST and OP3 as ordinals, 
+  /* Because the assembler treats SRC, DST and OP3 as ordinals,
      I must designate the second argument, an immediate value, as DST.
      May God have mercy on my soul.  */
   {O (O_BFST, SB), AV_H8SX, 0, "bfst", {{RS8, DST | IMM8, R3_IND}},   {{0x7, 0xD,           B30 | R3_IND, 0x0, 0xF, RS8, DST | IMM8LIST, E}}},
@@ -1349,19 +1349,19 @@ struct h8_opcode h8_opcodes[] =
   {O (O_BSR, SW), AV_H8SX, 0, "bsr", {{LOWREG | L_16,   E}}, {{0x5, 0xd, B30 | LOWREG | L_16, 0x6, E}}},
   {O (O_BSR, SL), AV_H8SX, 0, "bsr", {{OR32,   E}}, {{0x5, 0xd, B30 | OR32, 0x7, E}}},
 
-  {O (O_CMP, SB), AV_H8,   2, "cmp.b", {{IMM8, RD8, E}}, {{0xa, RD8, IMM8LIST, E}}}, 
-  EXPAND_TWOOP_B (O (O_CMP, SB), "cmp.b", 0xa, 0x1, 0xc, 0x2, B00), 
+  {O (O_CMP, SB), AV_H8,   2, "cmp.b", {{IMM8, RD8, E}}, {{0xa, RD8, IMM8LIST, E}}},
+  EXPAND_TWOOP_B (O (O_CMP, SB), "cmp.b", 0xa, 0x1, 0xc, 0x2, B00),
 
-  {O (O_CMP, SW), AV_H8,   2, "cmp.w", {{RS16,      RD16,     E}}, {{0x1, 0xd, RS16,         RD16,   E}}}, 
-  {O (O_CMP, SW), AV_H8SX, 0, "cmp.w", {{IMM3NZ_NS, RD16,     E}}, {{0x1, 0xf, B30 | IMM3NZ, RD16,   E}}}, 
-  {O (O_CMP, SW), AV_H8SX, 0, "cmp.w", {{IMM3NZ_NS, RDIND,    E}}, {{0x7, 0xd,      B31 | RDIND,  IGNORE,       0x1, 0xf, B30 | IMM3NZ, IGNORE, E}}}, 
-  {O (O_CMP, SW), AV_H8SX, 0, "cmp.w", {{IMM3NZ_NS, ABS16DST, E}}, {{0x6, 0xb, 0x1, B31 | IGNORE, DSTABS16LIST, 0x1, 0xf, B30 | IMM3NZ, IGNORE, E}}}, 
-  {O (O_CMP, SW), AV_H8SX, 0, "cmp.w", {{IMM3NZ_NS, ABS32DST, E}}, {{0x6, 0xb, 0x3, B31 | IGNORE, DSTABS32LIST, 0x1, 0xf, B30 | IMM3NZ, IGNORE, E}}}, 
-  EXPAND_TWOOP_W (O (O_CMP, SW), "cmp.w", 0x1, 0xd, 0x2), 
+  {O (O_CMP, SW), AV_H8,   2, "cmp.w", {{RS16,      RD16,     E}}, {{0x1, 0xd, RS16,         RD16,   E}}},
+  {O (O_CMP, SW), AV_H8SX, 0, "cmp.w", {{IMM3NZ_NS, RD16,     E}}, {{0x1, 0xf, B30 | IMM3NZ, RD16,   E}}},
+  {O (O_CMP, SW), AV_H8SX, 0, "cmp.w", {{IMM3NZ_NS, RDIND,    E}}, {{0x7, 0xd,      B31 | RDIND,  IGNORE,       0x1, 0xf, B30 | IMM3NZ, IGNORE, E}}},
+  {O (O_CMP, SW), AV_H8SX, 0, "cmp.w", {{IMM3NZ_NS, ABS16DST, E}}, {{0x6, 0xb, 0x1, B31 | IGNORE, DSTABS16LIST, 0x1, 0xf, B30 | IMM3NZ, IGNORE, E}}},
+  {O (O_CMP, SW), AV_H8SX, 0, "cmp.w", {{IMM3NZ_NS, ABS32DST, E}}, {{0x6, 0xb, 0x3, B31 | IGNORE, DSTABS32LIST, 0x1, 0xf, B30 | IMM3NZ, IGNORE, E}}},
+  EXPAND_TWOOP_W (O (O_CMP, SW), "cmp.w", 0x1, 0xd, 0x2),
 
-  {O (O_CMP, SL), AV_H8H,  6, "cmp.l", {{RS32,      RD32,     E}}, {{0x1, 0xf, B31 | RS32,   B30 | RD32, E}}}, 
-  {O (O_CMP, SL), AV_H8SX, 0, "cmp.l", {{IMM3NZ_NS, RD32,     E}}, {{0x1, 0xf, B31 | IMM3NZ, B31 | RD32, E}}}, 
-  EXPAND_TWOOP_L (O (O_CMP, SL), "cmp.l", 0x2), 
+  {O (O_CMP, SL), AV_H8H,  6, "cmp.l", {{RS32,      RD32,     E}}, {{0x1, 0xf, B31 | RS32,   B30 | RD32, E}}},
+  {O (O_CMP, SL), AV_H8SX, 0, "cmp.l", {{IMM3NZ_NS, RD32,     E}}, {{0x1, 0xf, B31 | IMM3NZ, B31 | RD32, E}}},
+  EXPAND_TWOOP_L (O (O_CMP, SL), "cmp.l", 0x2),
 
   UNOP (O (O_DAA, SB), "daa",   0x0, 0xF),
   UNOP (O (O_DAS, SB), "das",   0x1, 0xF),
@@ -1452,22 +1452,22 @@ struct h8_opcode h8_opcodes[] =
   MOVTO_REG_BW (O (O_MOV, SB),   "mov.b", RD8, PREFIX_017, 8, 10, 12, 14, MEMRELAX),
   {O (O_MOV, SB), AV_H8,   4,    "mov.b", {{ABS8SRC, RD8, E}}, {{0x2, RD8, ABS8LIST,    E}}},
 
-  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSIND,     FROM_IND), 
-  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSPOSTINC, FROM_POSTINC), 
-  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSPOSTDEC, FROM_POSTDEC), 
-  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSPREINC,  FROM_PREINC), 
-  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSPREDEC,  FROM_PREDEC), 
-  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", DISP2SRC,  FROM_DISP2), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", DISP16SRC, FROM_DISP16,  DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", DISP32SRC, FROM_DISP32,  DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXB16,  FROM_DISP16B, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXW16,  FROM_DISP16W, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXL16,  FROM_DISP16L, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXB32,  FROM_DISP32B, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXW32,  FROM_DISP32W, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXL32,  FROM_DISP32L, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", ABS16SRC,  FROM_ABS16,   ABS16LIST), 
-  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", ABS32SRC,  FROM_ABS32,   ABS32LIST), 
+  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSIND,     FROM_IND),
+  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSPOSTINC, FROM_POSTINC),
+  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSPOSTDEC, FROM_POSTDEC),
+  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSPREINC,  FROM_PREINC),
+  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", RSPREDEC,  FROM_PREDEC),
+  MOVFROM_STD (O (O_MOV, SB), PREFIX_0178, "mov.b", DISP2SRC,  FROM_DISP2),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", DISP16SRC, FROM_DISP16,  DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", DISP32SRC, FROM_DISP32,  DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXB16,  FROM_DISP16B, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXW16,  FROM_DISP16W, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXL16,  FROM_DISP16L, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXB32,  FROM_DISP32B, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXW32,  FROM_DISP32W, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", INDEXL32,  FROM_DISP32L, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", ABS16SRC,  FROM_ABS16,   ABS16LIST),
+  MOVFROM_AD  (O (O_MOV, SB), PREFIX_0178, "mov.b", ABS32SRC,  FROM_ABS32,   ABS32LIST),
 
   {O (O_MOV, SW), AV_H8SX, 0, "mov.w", {{IMM3NZ_NS, RD16, E}}, {{0x0, 0xf, B30 | IMM3NZ, RD16,   E}}},
   {O (O_MOV, SW), AV_H8,   4, "mov.w", {{IMM16,     RD16, E}}, {{0x7, 0x9, 0x0, RD16, IMM16LIST, E}}},
@@ -1481,22 +1481,22 @@ struct h8_opcode h8_opcodes[] =
   MOVFROM_REG_BW (O (O_MOV, SW), "mov.w", RS16, PREFIX_015, 9, 11, 13, 15, 0),
   MOVTO_REG_BW   (O (O_MOV, SW), "mov.w", RD16, PREFIX_015, 9, 11, 13, 15, 0),
 
-  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSIND,     FROM_IND), 
-  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSPOSTINC, FROM_POSTINC), 
-  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSPOSTDEC, FROM_POSTDEC), 
-  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSPREINC,  FROM_PREINC), 
-  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSPREDEC,  FROM_PREDEC), 
-  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", DISP2SRC,  FROM_DISP2), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", DISP16SRC, FROM_DISP16,  DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", DISP32SRC, FROM_DISP32,  DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXB16,  FROM_DISP16B, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXW16,  FROM_DISP16W, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXL16,  FROM_DISP16L, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXB32,  FROM_DISP32B, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXW32,  FROM_DISP32W, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXL32,  FROM_DISP32L, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", ABS16SRC,  FROM_ABS16,   ABS16LIST), 
-  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", ABS32SRC,  FROM_ABS32,   ABS32LIST), 
+  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSIND,     FROM_IND),
+  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSPOSTINC, FROM_POSTINC),
+  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSPOSTDEC, FROM_POSTDEC),
+  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSPREINC,  FROM_PREINC),
+  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", RSPREDEC,  FROM_PREDEC),
+  MOVFROM_STD (O (O_MOV, SW), PREFIX_0158, "mov.w", DISP2SRC,  FROM_DISP2),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", DISP16SRC, FROM_DISP16,  DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", DISP32SRC, FROM_DISP32,  DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXB16,  FROM_DISP16B, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXW16,  FROM_DISP16W, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXL16,  FROM_DISP16L, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXB32,  FROM_DISP32B, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXW32,  FROM_DISP32W, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", INDEXL32,  FROM_DISP32L, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", ABS16SRC,  FROM_ABS16,   ABS16LIST),
+  MOVFROM_AD  (O (O_MOV, SW), PREFIX_0158, "mov.w", ABS32SRC,  FROM_ABS32,   ABS32LIST),
 
   {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{IMM3NZ_NS, RD32, E}}, {{0x0, 0xf, B31 | IMM3NZ, B31 | RD32, E}}},
 
@@ -1510,59 +1510,59 @@ struct h8_opcode h8_opcodes[] =
 
   {O (O_MOV, SL), AV_H8H,  2, "mov.l", {{RS32, RD32,      E}}, {{0x0, 0xf, B31 | RS32, B30 | RD32, E}}},
 
-  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, RDIND,     E}}, {{PREFIX_0100,                       0x6, 0x9, B31 | RDIND, B30 | RS32, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, RDPOSTINC, E}}, {{PREFIX_0103,                       0x6, 0xd, B31 | RDPOSTINC,   RS32, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, RDPOSTDEC, E}}, {{PREFIX_0101,                       0x6, 0xd, B31 | RDPOSTDEC,   RS32, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, RDPREINC,  E}}, {{PREFIX_0102,                       0x6, 0xd, B31 | RDPREINC,    RS32, E}}}, 
-  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, RDPREDEC,  E}}, {{PREFIX_0100,                       0x6, 0xd, B31 | RDPREDEC,    RS32, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, DISP2DST,  E}}, {{PREFIX_010,  B30 | B20 | DISP2DST, 0x6, 0x9, B31 | DSTDISPREG,  RS32, E}}}, 
-  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, DISP16DST, E}}, {{PREFIX_0100,                       0x6, 0xf, B31 | DSTDISPREG,  RS32, DSTDISP16LIST, E}}}, 
+  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, RDIND,     E}}, {{PREFIX_0100,                       0x6, 0x9, B31 | RDIND, B30 | RS32, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, RDPOSTINC, E}}, {{PREFIX_0103,                       0x6, 0xd, B31 | RDPOSTINC,   RS32, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, RDPOSTDEC, E}}, {{PREFIX_0101,                       0x6, 0xd, B31 | RDPOSTDEC,   RS32, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, RDPREINC,  E}}, {{PREFIX_0102,                       0x6, 0xd, B31 | RDPREINC,    RS32, E}}},
+  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, RDPREDEC,  E}}, {{PREFIX_0100,                       0x6, 0xd, B31 | RDPREDEC,    RS32, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, DISP2DST,  E}}, {{PREFIX_010,  B30 | B20 | DISP2DST, 0x6, 0x9, B31 | DSTDISPREG,  RS32, E}}},
+  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, DISP16DST, E}}, {{PREFIX_0100,                       0x6, 0xf, B31 | DSTDISPREG,  RS32, DSTDISP16LIST, E}}},
   {O (O_MOV, SL), AV_H8SX, 6, "mov.l", {{RS32, DISP32DST, E}}, {{0x7, 0x8, B31 | DSTDISPREG, 0x0,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}},
   {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, DISP32DST, E}}, {{PREFIX_0100,                       0x7, 0x8, B31 | DSTDISPREG, 0x0,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}},
   {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, DISP32DST, E}}, {{PREFIX_0100,                       0x7, 0x8, DSTDISPREG, 0x0,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}},
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXB16D, E}}, {{PREFIX_0101,                       0x6, 0xf, B31 | DSTDISPREG,  RS32, DSTDISP16LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXW16D, E}}, {{PREFIX_0102,                       0x6, 0xf, B31 | DSTDISPREG,  RS32, DSTDISP16LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXL16D, E}}, {{PREFIX_0103,                       0x6, 0xf, B31 | DSTDISPREG,  RS32, DSTDISP16LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXB32D, E}}, {{0x7, 0x8, B31 | DSTDISPREG, 0x1,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXW32D, E}}, {{0x7, 0x8, B31 | DSTDISPREG, 0x2,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXL32D, E}}, {{0x7, 0x8, B31 | DSTDISPREG, 0x3,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}}, 
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXB16D, E}}, {{PREFIX_0101,                       0x6, 0xf, B31 | DSTDISPREG,  RS32, DSTDISP16LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXW16D, E}}, {{PREFIX_0102,                       0x6, 0xf, B31 | DSTDISPREG,  RS32, DSTDISP16LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXL16D, E}}, {{PREFIX_0103,                       0x6, 0xf, B31 | DSTDISPREG,  RS32, DSTDISP16LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXB32D, E}}, {{0x7, 0x8, B31 | DSTDISPREG, 0x1,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXW32D, E}}, {{0x7, 0x8, B31 | DSTDISPREG, 0x2,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RS32, INDEXL32D, E}}, {{0x7, 0x8, B31 | DSTDISPREG, 0x3,   0x6, 0xb, 0xa,               RS32, DSTDISP32LIST, E}}},
   {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, ABS16DST,  E}}, {{PREFIX_0100,                       0x6, 0xb, 0x8,            RS32, DSTABS16LIST,            E}}},
   {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RS32, ABS32DST,  E}}, {{PREFIX_0100,                       0x6, 0xb, 0xa,            RS32, MEMRELAX | DSTABS32LIST, E}}},
 
-  {O (O_MOV, SL), AV_H8H,  4, "mov.l", {{RSIND,     RD32, E}}, {{PREFIX_0100,                       0x6, 0x9, B30 | RSIND,     RD32, E}}}, 
-  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RSPOSTINC, RD32, E}}, {{PREFIX_0100,                       0x6, 0xd, B30 | RSPOSTINC, RD32, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RSPOSTDEC, RD32, E}}, {{PREFIX_0102,                       0x6, 0xd, B30 | RSPOSTDEC, RD32, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RSPREINC,  RD32, E}}, {{PREFIX_0101,                       0x6, 0xd, B30 | RSPREINC,  RD32, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RSPREDEC,  RD32, E}}, {{PREFIX_0103,                       0x6, 0xd, B30 | RSPREDEC,  RD32, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{DISP2SRC,  RD32, E}}, {{PREFIX_010,  B30 | B20 | DISP2SRC, 0x6, 0x9, B30 | DISPREG,   RD32, E}}}, 
-  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{DISP16SRC, RD32, E}}, {{PREFIX_0100,                       0x6, 0xf, B30 | DISPREG,   RD32, SRC | DISP16LIST, E}}}, 
+  {O (O_MOV, SL), AV_H8H,  4, "mov.l", {{RSIND,     RD32, E}}, {{PREFIX_0100,                       0x6, 0x9, B30 | RSIND,     RD32, E}}},
+  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{RSPOSTINC, RD32, E}}, {{PREFIX_0100,                       0x6, 0xd, B30 | RSPOSTINC, RD32, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RSPOSTDEC, RD32, E}}, {{PREFIX_0102,                       0x6, 0xd, B30 | RSPOSTDEC, RD32, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RSPREINC,  RD32, E}}, {{PREFIX_0101,                       0x6, 0xd, B30 | RSPREINC,  RD32, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{RSPREDEC,  RD32, E}}, {{PREFIX_0103,                       0x6, 0xd, B30 | RSPREDEC,  RD32, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{DISP2SRC,  RD32, E}}, {{PREFIX_010,  B30 | B20 | DISP2SRC, 0x6, 0x9, B30 | DISPREG,   RD32, E}}},
+  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{DISP16SRC, RD32, E}}, {{PREFIX_0100,                       0x6, 0xf, B30 | DISPREG,   RD32, SRC | DISP16LIST, E}}},
   {O (O_MOV, SL), AV_H8SX, 6, "mov.l", {{DISP32SRC, RD32, E}}, {{0x7, 0x8, B31 | DISPREG, 0x0,      0x6, 0xb, 0x2,             RD32, SRC | DISP32LIST, E}}},
   {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{DISP32SRC, RD32, E}}, {{PREFIX_0100,                       0x7, 0x8, B30 | DISPREG, 0x0, 0x6, 0xb, 0x2,             RD32, SRC | DISP32LIST, E}}},
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXB16,  RD32, E}}, {{PREFIX_0101,                       0x6, 0xf, B30 | DISPREG,   RD32, SRC | DISP16LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXW16,  RD32, E}}, {{PREFIX_0102,                       0x6, 0xf, B30 | DISPREG,   RD32, SRC | DISP16LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXL16,  RD32, E}}, {{PREFIX_0103,                       0x6, 0xf, B30 | DISPREG,   RD32, SRC | DISP16LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXB32,  RD32, E}}, {{0x7, 0x8, B31 | DISPREG, 0x1,      0x6, 0xb, 0x2,             RD32, SRC | DISP32LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXW32,  RD32, E}}, {{0x7, 0x8, B31 | DISPREG, 0x2,      0x6, 0xb, 0x2,             RD32, SRC | DISP32LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXL32,  RD32, E}}, {{0x7, 0x8, B31 | DISPREG, 0x3,      0x6, 0xb, 0x2,             RD32, SRC | DISP32LIST, E}}}, 
-  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{ABS16SRC,  RD32, E}}, {{PREFIX_0100,                       0x6, 0xb, 0x0,             RD32, SRC | ABS16LIST,  E}}}, 
-  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{ABS32SRC,  RD32, E}}, {{PREFIX_0100,                       0x6, 0xb, 0x2,             RD32, SRC | MEMRELAX | ABS32LIST, E}}}, 
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXB16,  RD32, E}}, {{PREFIX_0101,                       0x6, 0xf, B30 | DISPREG,   RD32, SRC | DISP16LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXW16,  RD32, E}}, {{PREFIX_0102,                       0x6, 0xf, B30 | DISPREG,   RD32, SRC | DISP16LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXL16,  RD32, E}}, {{PREFIX_0103,                       0x6, 0xf, B30 | DISPREG,   RD32, SRC | DISP16LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXB32,  RD32, E}}, {{0x7, 0x8, B31 | DISPREG, 0x1,      0x6, 0xb, 0x2,             RD32, SRC | DISP32LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXW32,  RD32, E}}, {{0x7, 0x8, B31 | DISPREG, 0x2,      0x6, 0xb, 0x2,             RD32, SRC | DISP32LIST, E}}},
+  {O (O_MOV, SL), AV_H8SX, 0, "mov.l", {{INDEXL32,  RD32, E}}, {{0x7, 0x8, B31 | DISPREG, 0x3,      0x6, 0xb, 0x2,             RD32, SRC | DISP32LIST, E}}},
+  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{ABS16SRC,  RD32, E}}, {{PREFIX_0100,                       0x6, 0xb, 0x0,             RD32, SRC | ABS16LIST,  E}}},
+  {O (O_MOV, SL), AV_H8H,  6, "mov.l", {{ABS32SRC,  RD32, E}}, {{PREFIX_0100,                       0x6, 0xb, 0x2,             RD32, SRC | MEMRELAX | ABS32LIST, E}}},
 
-  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSIND,     FROM_IND), 
-  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSPOSTINC, FROM_POSTINC), 
-  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSPOSTDEC, FROM_POSTDEC), 
-  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSPREINC,  FROM_PREINC), 
-  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSPREDEC,  FROM_PREDEC), 
-  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", DISP2SRC,  FROM_DISP2), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", DISP16SRC, FROM_DISP16,  DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", DISP32SRC, FROM_DISP32,  DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXB16,  FROM_DISP16B, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXW16,  FROM_DISP16W, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXL16,  FROM_DISP16L, DISP16LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXB32,  FROM_DISP32B, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXW32,  FROM_DISP32W, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXL32,  FROM_DISP32L, DISP32LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", ABS16SRC,  FROM_ABS16,   ABS16LIST), 
-  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", ABS32SRC,  FROM_ABS32,   ABS32LIST), 
+  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSIND,     FROM_IND),
+  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSPOSTINC, FROM_POSTINC),
+  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSPOSTDEC, FROM_POSTDEC),
+  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSPREINC,  FROM_PREINC),
+  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", RSPREDEC,  FROM_PREDEC),
+  MOVFROM_STD (O (O_MOV, SL), PREFIX_0108, "mov.l", DISP2SRC,  FROM_DISP2),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", DISP16SRC, FROM_DISP16,  DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", DISP32SRC, FROM_DISP32,  DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXB16,  FROM_DISP16B, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXW16,  FROM_DISP16W, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXL16,  FROM_DISP16L, DISP16LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXB32,  FROM_DISP32B, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXW32,  FROM_DISP32W, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", INDEXL32,  FROM_DISP32L, DISP32LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", ABS16SRC,  FROM_ABS16,   ABS16LIST),
+  MOVFROM_AD  (O (O_MOV, SL), PREFIX_0108, "mov.l", ABS32SRC,  FROM_ABS32,   ABS32LIST),
 
 #define DO_MOVA1(TYPE, OP0, OP1) \
   {O (O_MOVAB, SL), AV_H8SX, 0, "mova/b.l", {{INDEXB16, TYPE, R3_32}}, {{PREFIX_017F, OP0, OP1, 0x8, B30 | R3_32, MEMRELAX | DISP16LIST, E}}}, \
@@ -1682,14 +1682,14 @@ struct h8_opcode h8_opcodes[] =
   EXPAND_UNOP_STD_W (O (O_NOT,  SW), "not.w", PREFIX_015, 0x1, 0x7, 0x1),
   EXPAND_UNOP_STD_L (O (O_NOT,  SL), "not.l", PREFIX_010, 0x1, 0x7, 0x3),
 
-  {O (O_OR,  SB), AV_H8,  2, "or.b",  {{IMM8, RD8,  E}}, {{0xc, RD8, IMM8LIST, E}}}, 
-  EXPAND_TWOOP_B (O (O_OR, SB), "or.b", 0xc, 0x1, 0x4, 0x4, 0), 
+  {O (O_OR,  SB), AV_H8,  2, "or.b",  {{IMM8, RD8,  E}}, {{0xc, RD8, IMM8LIST, E}}},
+  EXPAND_TWOOP_B (O (O_OR, SB), "or.b", 0xc, 0x1, 0x4, 0x4, 0),
 
-  {O (O_OR,  SW), AV_H8,  2, "or.w",  {{RS16, RD16, E}}, {{0x6, 0x4, RS16, RD16, E}}}, 
-  EXPAND_TWOOP_W (O (O_OR, SW), "or.w", 0x6, 0x4, 0x4), 
+  {O (O_OR,  SW), AV_H8,  2, "or.w",  {{RS16, RD16, E}}, {{0x6, 0x4, RS16, RD16, E}}},
+  EXPAND_TWOOP_W (O (O_OR, SW), "or.w", 0x6, 0x4, 0x4),
 
   {O (O_OR,  SL), AV_H8H, 2, "or.l",  {{RS32, RD32, E}}, {{0x0, 0x1, 0xF, 0x0, 0x6, 0x4, B30 | RS32, B30 | RD32, E}}},
-  EXPAND_TWOOP_L (O (O_OR, SL), "or.l", 0x4), 
+  EXPAND_TWOOP_L (O (O_OR, SL), "or.l", 0x4),
 
   {O (O_ORC, SB), AV_H8,  2, "orc", {{IMM8, CCR | DST, E}}, {{0x0, 0x4, IMM8LIST, E}}},
   {O (O_ORC, SB), AV_H8S, 2, "orc", {{IMM8, EXR | DST, E}}, {{0x0, 0x1, 0x4, EXR | DST, 0x0, 0x4, IMM8LIST, E}}},
@@ -1817,18 +1817,18 @@ struct h8_opcode h8_opcodes[] =
   {O (O_STC, SL), AV_H8SX, 0, "stc", {{B30 | VBR_SBR | SRC, RD32, E}}, {{0x0, 0x2, B30 | VBR_SBR | SRC, RD32, E}}},
 
 
-  EXPAND_TWOOP_B (O (O_SUB, SB), "sub.b", 0xa, 0x1, 0x8, 0x3, B01), 
+  EXPAND_TWOOP_B (O (O_SUB, SB), "sub.b", 0xa, 0x1, 0x8, 0x3, B01),
 
-  {O (O_SUB, SW), AV_H8,   2, "sub.w", {{RS16,      RD16,     E}}, {{0x1, 0x9, RS16,         RD16,   E}}}, 
-  {O (O_SUB, SW), AV_H8SX, 0, "sub.w", {{IMM3NZ_NS, RD16,     E}}, {{0x1, 0xa, B30 | IMM3NZ, RD16,   E}}}, 
-  {O (O_SUB, SW), AV_H8SX, 0, "sub.w", {{IMM3NZ_NS, RDIND,    E}}, {{0x7, 0xd,      B31 | RDIND,  IGNORE,       0x1, 0xa, B30 | IMM3NZ, IGNORE, E}}}, 
-  {O (O_SUB, SW), AV_H8SX, 0, "sub.w", {{IMM3NZ_NS, ABS16DST, E}}, {{0x6, 0xb, 0x1, B31 | IGNORE, DSTABS16LIST, 0x1, 0xa, B30 | IMM3NZ, IGNORE, E}}}, 
-  {O (O_SUB, SW), AV_H8SX, 0, "sub.w", {{IMM3NZ_NS, ABS32DST, E}}, {{0x6, 0xb, 0x3, B31 | IGNORE, DSTABS32LIST, 0x1, 0xa, B30 | IMM3NZ, IGNORE, E}}}, 
-  EXPAND_TWOOP_W (O (O_SUB, SW), "sub.w", 0x1, 0x9, 0x3), 
+  {O (O_SUB, SW), AV_H8,   2, "sub.w", {{RS16,      RD16,     E}}, {{0x1, 0x9, RS16,         RD16,   E}}},
+  {O (O_SUB, SW), AV_H8SX, 0, "sub.w", {{IMM3NZ_NS, RD16,     E}}, {{0x1, 0xa, B30 | IMM3NZ, RD16,   E}}},
+  {O (O_SUB, SW), AV_H8SX, 0, "sub.w", {{IMM3NZ_NS, RDIND,    E}}, {{0x7, 0xd,      B31 | RDIND,  IGNORE,       0x1, 0xa, B30 | IMM3NZ, IGNORE, E}}},
+  {O (O_SUB, SW), AV_H8SX, 0, "sub.w", {{IMM3NZ_NS, ABS16DST, E}}, {{0x6, 0xb, 0x1, B31 | IGNORE, DSTABS16LIST, 0x1, 0xa, B30 | IMM3NZ, IGNORE, E}}},
+  {O (O_SUB, SW), AV_H8SX, 0, "sub.w", {{IMM3NZ_NS, ABS32DST, E}}, {{0x6, 0xb, 0x3, B31 | IGNORE, DSTABS32LIST, 0x1, 0xa, B30 | IMM3NZ, IGNORE, E}}},
+  EXPAND_TWOOP_W (O (O_SUB, SW), "sub.w", 0x1, 0x9, 0x3),
 
-  {O (O_SUB, SL), AV_H8H,  6, "sub.l", {{RS32,      RD32,     E}}, {{0x1, 0xa, B31 | RS32,   B30 | RD32, E}}}, 
-  {O (O_SUB, SL), AV_H8SX, 0, "sub.l", {{IMM3NZ_NS, RD32,     E}}, {{0x1, 0xa, B31 | IMM3NZ, B31 | RD32, E}}}, 
-  EXPAND_TWOOP_L (O (O_SUB, SL), "sub.l", 0x3), 
+  {O (O_SUB, SL), AV_H8H,  6, "sub.l", {{RS32,      RD32,     E}}, {{0x1, 0xa, B31 | RS32,   B30 | RD32, E}}},
+  {O (O_SUB, SL), AV_H8SX, 0, "sub.l", {{IMM3NZ_NS, RD32,     E}}, {{0x1, 0xa, B31 | IMM3NZ, B31 | RD32, E}}},
+  EXPAND_TWOOP_L (O (O_SUB, SL), "sub.l", 0x3),
 
   {O (O_SUBS, SL), AV_H8, 2, "subs", {{KBIT, RDP, E}}, {{0x1, 0xB,KBIT, RDP, E}}},
 
@@ -1843,12 +1843,12 @@ struct h8_opcode h8_opcodes[] =
   {O (O_SUBX, SB), AV_H8SX, 0, "subx.b", {{RSIND,     RDIND,     E}}, {{PREFIX_0174, 0x6, 0x8, B30 | RSIND,     0xd, 0x0, RDIND,     0x3, IGNORE, E}}},
   {O (O_SUBX, SB), AV_H8SX, 0, "subx.b", {{RSPOSTDEC, RDPOSTDEC, E}}, {{PREFIX_0176, 0x6, 0xc, B30 | RSPOSTDEC, 0xd, 0xa, RDPOSTDEC, 0x3, IGNORE, E}}},
 
-  {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{IMM16,     RD16,      E}}, {{PREFIX_0151,                         0x7, 0x9, 0x3, RD16,   IMM16LIST, E}}}, 
-  {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{IMM16,     RDIND,     E}}, {{0x7, 0xd, B31 | RDIND, B01 | IGNORE, 0x7, 0x9, 0x3, IGNORE, IMM16LIST, E}}}, 
-  {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{IMM16,     RDPOSTDEC, E}}, {{PREFIX_0156, 0x6, 0xd, B30 | RDPOSTDEC, B31 | B20 | B01 | IGNORE, 0x7, 0x9, 0x3, IGNORE, IMM16LIST, E}}}, 
+  {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{IMM16,     RD16,      E}}, {{PREFIX_0151,                         0x7, 0x9, 0x3, RD16,   IMM16LIST, E}}},
+  {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{IMM16,     RDIND,     E}}, {{0x7, 0xd, B31 | RDIND, B01 | IGNORE, 0x7, 0x9, 0x3, IGNORE, IMM16LIST, E}}},
+  {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{IMM16,     RDPOSTDEC, E}}, {{PREFIX_0156, 0x6, 0xd, B30 | RDPOSTDEC, B31 | B20 | B01 | IGNORE, 0x7, 0x9, 0x3, IGNORE, IMM16LIST, E}}},
   {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{RS16,      RD16,      E}}, {{PREFIX_0151, 0x1, 0x9, RS16,  RD16,    E}}},
   {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{RS16,      RDIND,     E}}, {{0x7, 0xd, B31 | RDIND, B01 | IGNORE, 0x1, 0x9, RS16, IGNORE, E}}},
-  {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{RS16,      RDPOSTDEC, E}}, {{PREFIX_0156, 0x6, 0xd, B30 | RDPOSTDEC, B31 | B20 | B01 | IGNORE, 0x1, 0x9, RS16, IGNORE, E}}}, 
+  {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{RS16,      RDPOSTDEC, E}}, {{PREFIX_0156, 0x6, 0xd, B30 | RDPOSTDEC, B31 | B20 | B01 | IGNORE, 0x1, 0x9, RS16, IGNORE, E}}},
   {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{RSIND,     RD16,      E}}, {{0x7, 0xc, B31 | RSIND, B01 | IGNORE, 0x1, 0x9, IGNORE, RD16, E}}},
   {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{RSPOSTDEC, RD16,      E}}, {{PREFIX_0156, 0x6, 0xd, B30 | RSPOSTDEC, B30 | B20 | B01 | IGNORE, 0x1, 0x9, IGNORE, RD16, E}}},
   {O (O_SUBX, SW), AV_H8SX, 0, "subx.w", {{RSIND,     RDIND,     E}}, {{PREFIX_0154, 0x6, 0x9, B30 | RSIND,     0xd, 0x0, RDIND,     0x3, IGNORE, E}}},
@@ -1868,14 +1868,14 @@ struct h8_opcode h8_opcodes[] =
   {O (O_TRAPA, SB), AV_H8H, 2, "trapa", {{IMM2,  E}}, {{0x5, 0x7, IMM2, IGNORE, E}}},
   {O (O_TAS,   SB), AV_H8H, 2, "tas",   {{RSIND, E}}, {{0x0, 0x1, 0xe, 0x0, 0x7, 0xb, B30 | RSIND, 0xc, E}}},
 
-  {O (O_XOR,   SB), AV_H8,  2, "xor.b", {{IMM8, RD8,  E}}, {{0xd, RD8, IMM8LIST, E}}}, 
-  EXPAND_TWOOP_B (O (O_XOR, SB), "xor.b", 0xd, 0x1, 0x5, 0x5, 0), 
+  {O (O_XOR,   SB), AV_H8,  2, "xor.b", {{IMM8, RD8,  E}}, {{0xd, RD8, IMM8LIST, E}}},
+  EXPAND_TWOOP_B (O (O_XOR, SB), "xor.b", 0xd, 0x1, 0x5, 0x5, 0),
 
-  {O (O_XOR,   SW), AV_H8,  2, "xor.w", {{RS16, RD16, E}}, {{0x6, 0x5, RS16, RD16, E}}}, 
-  EXPAND_TWOOP_W (O (O_XOR, SW), "xor.w", 0x6, 0x5, 0x5), 
+  {O (O_XOR,   SW), AV_H8,  2, "xor.w", {{RS16, RD16, E}}, {{0x6, 0x5, RS16, RD16, E}}},
+  EXPAND_TWOOP_W (O (O_XOR, SW), "xor.w", 0x6, 0x5, 0x5),
 
   {O (O_XOR,   SL), AV_H8H, 2, "xor.l", {{RS32, RD32, E}}, {{0x0, 0x1, 0xF, 0x0, 0x6, 0x5, B30 | RS32, B30 | RD32, E}}},
-  EXPAND_TWOOP_L (O (O_XOR, SL), "xor.l", 0x5), 
+  EXPAND_TWOOP_L (O (O_XOR, SL), "xor.l", 0x5),
 
   {O (O_XORC, SB), AV_H8,  2, "xorc", {{IMM8, CCR | DST, E}}, {{0x0, 0x5, IMM8LIST, E}}},
   {O (O_XORC, SB), AV_H8S, 2, "xorc", {{IMM8, EXR | DST, E}}, {{0x0, 0x1, 0x4, EXR | DST, 0x0, 0x5, IMM8LIST, E}}},

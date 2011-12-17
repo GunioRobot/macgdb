@@ -122,7 +122,7 @@ struct struct18 foo18 = {'a','2','c','4','e','6','g','8','i','A','k','C','m','E'
 
 struct struct1  fun1()
 {
-  return foo1;  
+  return foo1;
 }
 struct struct2  fun2()
 {
@@ -158,39 +158,39 @@ struct struct9  fun9()
 }
 struct struct10 fun10()
 {
-  return foo10; 
+  return foo10;
 }
 struct struct11 fun11()
 {
-  return foo11; 
+  return foo11;
 }
 struct struct12 fun12()
 {
-  return foo12; 
+  return foo12;
 }
 struct struct13 fun13()
 {
-  return foo13; 
+  return foo13;
 }
 struct struct14 fun14()
 {
-  return foo14; 
+  return foo14;
 }
 struct struct15 fun15()
 {
-  return foo15; 
+  return foo15;
 }
 struct struct16 fun16()
 {
-  return foo16; 
+  return foo16;
 }
 struct struct17 fun17()
 {
-  return foo17; 
+  return foo17;
 }
 struct struct18 fun18()
 {
-  return foo18; 
+  return foo18;
 }
 
 #ifdef PROTOTYPES
@@ -281,7 +281,7 @@ void Fun10(foo10)
      struct struct10 foo10;
 #endif
 {
-  L10 = foo10; 
+  L10 = foo10;
 }
 #ifdef PROTOTYPES
 void Fun11(struct struct11 foo11)
@@ -290,7 +290,7 @@ void Fun11(foo11)
      struct struct11 foo11;
 #endif
 {
-  L11 = foo11; 
+  L11 = foo11;
 }
 #ifdef PROTOTYPES
 void Fun12(struct struct12 foo12)
@@ -299,7 +299,7 @@ void Fun12(foo12)
      struct struct12 foo12;
 #endif
 {
-  L12 = foo12; 
+  L12 = foo12;
 }
 #ifdef PROTOTYPES
 void Fun13(struct struct13 foo13)
@@ -308,7 +308,7 @@ void Fun13(foo13)
      struct struct13 foo13;
 #endif
 {
-  L13 = foo13; 
+  L13 = foo13;
 }
 #ifdef PROTOTYPES
 void Fun14(struct struct14 foo14)
@@ -317,7 +317,7 @@ void Fun14(foo14)
      struct struct14 foo14;
 #endif
 {
-  L14 = foo14; 
+  L14 = foo14;
 }
 #ifdef PROTOTYPES
 void Fun15(struct struct15 foo15)
@@ -326,7 +326,7 @@ void Fun15(foo15)
      struct struct15 foo15;
 #endif
 {
-  L15 = foo15; 
+  L15 = foo15;
 }
 #ifdef PROTOTYPES
 void Fun16(struct struct16 foo16)
@@ -335,7 +335,7 @@ void Fun16(foo16)
      struct struct16 foo16;
 #endif
 {
-  L16 = foo16; 
+  L16 = foo16;
 }
 #ifdef PROTOTYPES
 void Fun17(struct struct17 foo17)
@@ -344,7 +344,7 @@ void Fun17(foo17)
      struct struct17 foo17;
 #endif
 {
-  L17 = foo17; 
+  L17 = foo17;
 }
 #ifdef PROTOTYPES
 void Fun18(struct struct18 foo18)
@@ -353,7 +353,7 @@ void Fun18(foo18)
      struct struct18 foo18;
 #endif
 {
-  L18 = foo18; 
+  L18 = foo18;
 }
 
 zed ()
@@ -410,15 +410,15 @@ int main()
     chartest[i].c = i;
   chartest[0].c = 0;  /* chartest-done */
 
-  Fun1(foo1);	
-  Fun2(foo2);	
-  Fun3(foo3);	
-  Fun4(foo4);	
-  Fun5(foo5);	
-  Fun6(foo6);	
-  Fun7(foo7);	
-  Fun8(foo8);	
-  Fun9(foo9);	
+  Fun1(foo1);
+  Fun2(foo2);
+  Fun3(foo3);
+  Fun4(foo4);
+  Fun5(foo5);
+  Fun6(foo6);
+  Fun7(foo7);
+  Fun8(foo8);
+  Fun9(foo9);
   Fun10(foo10);
   Fun11(foo11);
   Fun12(foo12);
@@ -437,15 +437,15 @@ int main()
   while (1)
     {
       zed ();
-      L1  = fun1();	
-      L2  = fun2();	
-      L3  = fun3();	
-      L4  = fun4();	
-      L5  = fun5();	
-      L6  = fun6();	
-      L7  = fun7();	
-      L8  = fun8();	
-      L9  = fun9();	
+      L1  = fun1();
+      L2  = fun2();
+      L3  = fun3();
+      L4  = fun4();
+      L5  = fun5();
+      L6  = fun6();
+      L7  = fun7();
+      L8  = fun8();
+      L9  = fun9();
       L10 = fun10();
       L11 = fun11();
       L12 = fun12();

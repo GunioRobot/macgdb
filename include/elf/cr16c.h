@@ -80,10 +80,10 @@ END_RELOC_NUMBERS (RINDEX_16C_MAX)
 	REG  - R_16C_REGREL mnemonic,
 	ABS  - R_16C_ABS mnemonic,
 	IMM  - R_16C_IMMED mnemonic,
-     <size> stands for R_S_16C_<size> 
-     _C means 'code label' and is only added when R_ADDRTYPE subfield 
+     <size> stands for R_S_16C_<size>
+     _C means 'code label' and is only added when R_ADDRTYPE subfield
      is of type R_CODE_ADDR.  */
-   
+
 /* The table below shows what the hex digits in the definition of the
    relocation type constants correspond to.
    ------------------------------------------------------------------

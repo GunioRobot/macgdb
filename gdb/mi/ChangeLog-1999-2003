@@ -25,7 +25,7 @@
 
 	* mi-main.c (mi_setup_architecture_data): Don't use
 	DEPRECATED_REGISTER_BYTES because some architecture don't set it
-	and its default is 0. 
+	and its default is 0.
 
 2003-08-08  Andrew Cagney  <cagney@redhat.com>
 
@@ -92,7 +92,7 @@
 
 2003-05-16  Andrew Cagney  <cagney@redhat.com>
 
-	* mi-main.c (mi_setup_architecture_data): 
+	* mi-main.c (mi_setup_architecture_data):
 
 2003-05-12  Elena Zannoni  <ezannoni@redhat.com>
 
@@ -128,7 +128,7 @@
 2003-04-02  Bob Rossi  <bob_rossi@cox.net>
 
 	* mi-cmd-file.c: New file to implement mi file commands.
-	* mi-getopt.c (mi_valid_noargs): Added mi_valid_noargs to verify 
+	* mi-getopt.c (mi_valid_noargs): Added mi_valid_noargs to verify
         if a set of parameters passed to an MI function has no arguments
 	* mi-getopt.h (mi_valid_noargs): Declare.
 	* mi-cmds.c (mi_cmds): Added -file-list-exec-source-file command.
@@ -181,7 +181,7 @@
 	    Keith Seitz  <keiths@redhat.com>
             Elena Zannoni  <ezannoni@redhat.com>
             Andrew Cagney  <ac131313@redhat.com>
-	
+
 	* mi-main.h: New file.
 	* mi-interp.c: New file.
 	* mi-main.c: Include "interps.h".
@@ -265,24 +265,24 @@
 
 2002-11-08  Jeff Johnston  <jjohnstn@redhat.com>
 
-	* mi-main.c (mi_command_loop): Initialize raw_stdout and gdb_stdout 
+	* mi-main.c (mi_command_loop): Initialize raw_stdout and gdb_stdout
 	only if mi version is <= 1.
-	(mi_init_ui): Initialize raw_stdout and gdb_stdout if mi version 
-	is > 1 so startup message is treated as console output.  This is 
+	(mi_init_ui): Initialize raw_stdout and gdb_stdout if mi version
+	is > 1 so startup message is treated as console output.  This is
 	part of fix for PR gdb/604.
 
 2002-11-06  Jeff Johnston  <jjohnstn@redhat.com>
 
-	* mi-cmd-var.c (mi_cmd_var_create): Change the function used to 
-	parse the frame addr from parse_and_eval_address() to 
+	* mi-cmd-var.c (mi_cmd_var_create): Change the function used to
+	parse the frame addr from parse_and_eval_address() to
 	string_to_core_addr().  This is a fix for PR gdb/494.
 
 2002-10-23  Jeff Johnston  <jjohnstn@redhat.com>
 
-	* mi-cmd-var.c: Change all remaining occurrences of ui_out_tuple_begin 
-	to make_cleanup_ui_out_tuple_begin_end.  Change all remaining 
+	* mi-cmd-var.c: Change all remaining occurrences of ui_out_tuple_begin
+	to make_cleanup_ui_out_tuple_begin_end.  Change all remaining
 	occurrences of ui_out_list_begin to make_cleanup_ui_out_list_begin_end.
-	Use do_cleanups instead of ui_out_list_end or ui_out_tuple_end.  This 
+	Use do_cleanups instead of ui_out_list_end or ui_out_tuple_end.  This
 	is a fix for PR gdb/680.
 	* mi-cmd-stack.c: Ditto.
 	* mi-main.c: Ditto.
@@ -297,12 +297,12 @@
 
 	* gdbmi.texinfo: Fix examples that show frames to remove
 	extraneous blank in level field.  Part of fix for PR gdb/192.
-        
+
 2002-10-03  Jeff Johnston  <jjohnstn@redhat.com>
-        
-	* mi-cmd-var.c (mi_cmd_var_update): Fix for PR gdb/672.  For m2, 
+
+	* mi-cmd-var.c (mi_cmd_var_update): Fix for PR gdb/672.  For m2,
 	output list begin and end for "changelist" rather than tuple begin/end.
-	(varobj_update_one): For m2, add tuple begin and end for varobj 
+	(varobj_update_one): For m2, add tuple begin and end for varobj
 	update output.
 
 2002-10-02  Elena Zannoni  <ezannoni@redhat.com>
@@ -373,7 +373,7 @@
 
 2002-04-14  Andrew Cagney  <ac131313@redhat.com>
 
-	* mi-main.c (mi_cmd_exec_return): 
+	* mi-main.c (mi_cmd_exec_return):
 
 2002-04-09  Andrew Cagney  <ac131313@redhat.com>
 
@@ -418,7 +418,7 @@
 	* mi-console.c (XMALLOC): Ditto.
 	* mi-cmd-var.c (XMALLOC): Ditto.
 	* mi-cmd-break.c (XMALLOC): Ditto.
-	
+
 	* mi/mi-cmd-var.c, mi/mi-console.c, mi/mi-out.c: Update copyright
 	* mi/mi-parse.c: Ditto.
 
@@ -579,7 +579,7 @@
 	register numbers.
 	* gdbmi.texinfo (data-list-changed-registers): Update
 	documentation.
-	
+
 2001-06-23  Andrew Cagney  <ac131313@redhat.com>
 
 	* gdbmi.texinfo (data-disassemble): Update documentation of
@@ -632,7 +632,7 @@
 	* gdbmi.texinfo (GDB/MI Output Syntax): Add tuples and lists to
 	syntax.
 	(GDB/MI Draft Changes to Output Syntax): Delete section.
-	
+
 Mon Jun 11 17:22:25 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-out.c: Fix typo. s/supress/suppress/.
@@ -721,7 +721,7 @@ Thu May 10 16:28:13 2001  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbmi.texinfo, mi-cmd-disas.c, mi-cmd-stack.c, mi-cmd-var.c,
 	mi-cmds.c, mi-cmds.h, mi-console.c, mi-console.h, mi-getopt.c,
-	mi-getopt.h, mi-out.c, mi-out.h, mi-parse.c, mi-parse.h: 
+	mi-getopt.h, mi-out.c, mi-out.h, mi-parse.c, mi-parse.h:
 	Update/correct copyright notices.
 
 Wed Feb  7 19:50:37 2001  Andrew Cagney  <cagney@redhat.com>
@@ -803,7 +803,7 @@ Wed Apr 26 18:35:19 2000  Andrew Cagney  <cagney@b1.cygnus.com>
 2000-03-06  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* mi-cmds.h: Export mi_cmd_data_write_register_values.
-	
+
 	* mi-cmds.c (mi_cmds): Implement data-write-register-values with
  	mi_cmd_data_write_register_values.
 
@@ -849,7 +849,7 @@ Wed Feb 23 10:30:55 2000  Andrew Cagney  <cagney@b1.cygnus.com>
 2000-02-18  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* mi-cmd-disas.c (mi_cmd_disassemble): Change syntax of
- 	command. Now use options.  
+ 	command. Now use options.
 	Instead of printing the symbolic address of instructions via
  	print_address_symbolic(), use build_address_symbolic() and format
  	properly for output.
@@ -857,14 +857,14 @@ Wed Feb 23 10:30:55 2000  Andrew Cagney  <cagney@b1.cygnus.com>
 
 2000-02-18  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
-	* mi-cmd-disas.c (mi_cmd_disassemble): 
+	* mi-cmd-disas.c (mi_cmd_disassemble):
 
 2000-02-17  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* mi-main.c (mi_cmd_data_write_memory): New function. Write a
  	value into target memory.
 
-	* mi-cmds.h (mi_cmd_data_write_memory): Export. 
+	* mi-cmds.h (mi_cmd_data_write_memory): Export.
 
 	* mi-cmds.c (mi_cmds): Hook up data-write-memory to
  	mi_cmd_data_write_memory().
@@ -880,13 +880,13 @@ Wed Feb 23 10:30:55 2000  Andrew Cagney  <cagney@b1.cygnus.com>
 	(free_and_reset): New function, free the argument and set it to
  	NULL.
 	(mi_cmd_target_select_continuation): Delete prototype.
-	
+
 Tue Feb  1 00:17:12 2000  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-cmd-disas.c, mi-cmds.h, mi-console.c, mi-console.h,
  	mi-main.c, mi-out.c, mi-out.h: Update to reflect rename of
  	gdb-file / GDB_FILE to ui-file / ``struct ui_file''.
-	
+
 Mon Jan 31 18:33:28 2000  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-main.c (mi_command_loop): Delete reference to
@@ -907,7 +907,7 @@ Mon Jan 31 18:33:28 2000  Andrew Cagney  <cagney@b1.cygnus.com>
  	mi_cmd_data_list_changed_registers,
  	mi_cmd_data_list_register_values): Update to use argc, argv
  	parameters.
-	
+
 2000-01-27  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* mi-main.c (mi_cmd_data_read_memory): Correct the computation of
@@ -1052,7 +1052,7 @@ Fri Dec 24 11:23:22 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* mi-cmd-var.c (mi_cmd_var_list_children): Add test for C++ pseudo
 	variable objects (private, public, protected) as these do not have
         a type and the -var-list-children operation was dumping core.
-	
+
 Fri Dec 17 20:23:33 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbmi.texinfo: Document recommended syntax for options.
@@ -1060,7 +1060,7 @@ Fri Dec 17 20:23:33 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* mi-main.c (mi_cmd_data_read_memory): Add support for ``-o
  	<offset>''.
 	* gdbmi.texinfo: Document.
-	
+
 Wed Dec 15 17:43:08 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-getopt.h (mi_getopt): Change optarg to a char pointer. Check
@@ -1109,7 +1109,7 @@ Mon Dec 13 15:08:36 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-getopt.h, mi-getopt.c: New files. Similar to getopt but with
  	well defined semantics.
-	
+
 Mon Dec 13 14:22:21 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-main.c (mi_cmd_break_insert, mi_cmd_break_watch, enum
@@ -1187,14 +1187,14 @@ Thu Dec  2 17:17:22 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-main.c (mi_cmd_exec_return): ifdef the references to
  	return_command_wrapper().
-	
+
 1999-12-01  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* mi-main.c (mi_cmd_gdb_exit, mi_cmd_exec_interrupt,
  	mi_cmd_target_select, mi_execute_async_cli_command,
  	mi_exec_async_cli_cmd_continuation, mi_load_progress): Don't print
  	last_async_command if it is NULL.
-	(mi_cmd_exec_return): 
+	(mi_cmd_exec_return):
 
 1999-12-01  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
@@ -1285,12 +1285,12 @@ Tue Nov 30 19:37:25 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	-exec-next-instruction, exec-step-instruction, -exec-run,
  	-exec-until.  Format examples for -data-read-memory.
 	update example for -target-download.
-	
+
 1999-11-29  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* gdbmi.texinfo: Remove mentioning of inaccurate watchpoint hit
  	count.
-	
+
 Mon Nov 29 19:28:55 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-main.c (mi_execute_async_cli_command): Return ``enum
@@ -1318,7 +1318,7 @@ Mon Nov 29 15:15:16 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-main.c (mi_load_progress): Add parameter for total sent so far.
 	Print it as well.
-	
+
 Fri Nov 26 10:17:49 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdbmi.texinfo (section Output Syntax): For lists, the <string>
@@ -1336,7 +1336,7 @@ Wed Nov 24 19:41:35 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-cmds.c (struct mi_cmd): Add field for mi_cmd_argv_ftype.
 	(mi_cmds): Update mi_cmd_data_read_memory.
-	(mi_lookup): Return 
+	(mi_lookup): Return
 
 	* mi-cmds.h (mi_cmd_args_ftype): Rename mi_cmd_ftype. Make all
  	functions of type this type.
@@ -1344,7 +1344,7 @@ Wed Nov 24 19:41:35 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(mi_cmd_data_read_memory): Change type to mi_cmd_argv_fytpe.
 	(struct mi_cmd): Move declaration to here from mi-cmds.c.
 	(mi_lookup): Return a pointer to ``struct mi_cmd''.
-	
+
 Wed Nov 24 15:03:34 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-parse.c (mi_parse): Initialize TOKEN when a CLI command.
@@ -1379,7 +1379,7 @@ Wed Nov 24 11:24:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-11-23  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
-	* mi-cmds.h (mi_cmd_target_download): Export. 
+	* mi-cmds.h (mi_cmd_target_download): Export.
 
 	* mi-cmds.c (mi_cmds): Add mi_cmd_target_download.
 
@@ -1398,17 +1398,17 @@ Wed Nov 24 11:24:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	command.
 	(mi_cmd_exec_next_instruction): New function. Implement nexti
  	command.
-	
+
 	* mi-cmds.c (mi_cmds): Add mi_cmd_exec_step_instruction,
  	mi_cmd_exec_next_instruction, mi_cmd_exec_until.
 
 	* mi-cmds.h (mi_cmd_exec_step_instruction,
  	mi_cmd_exec_next_instruction, mi_cmd_exec_until): Export.
-	
+
 Tue Nov 23 00:30:37 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi/gdbmi.texinfo: Document -data-read-memory.
-	
+
 	* mi-main.c (mi_cmd_data_read_memory): Fix off-by-one check of
  	argc.
 	(mi_cmd_data_read_memory): Label the output table with "memory".
@@ -1483,7 +1483,7 @@ Tue Nov  9 17:53:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-main.c (mi_console_file_new), mi-out.c (mi_out_new): Replace
  	the tui_file with a mem_file. Ya!
-	
+
 	* mi-out.c (do_write): New function, wrapper to gdb_file_write.
 	(mi_out_put): Pass do_write to gdb_file_put.
 
@@ -1496,7 +1496,7 @@ Tue Nov  9 17:53:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-cmds.c (mi_cmds): Break-insert is now implemented by
  	mi_cmd_break_insert.
-	* mi-cmds.h (mi_cmd_break_insert): Export. 
+	* mi-cmds.h (mi_cmd_break_insert): Export.
 	* mi-main.c (bp_type): New enumeration.
 	(mi_cmd_break_insert): New function. Implements all flavors of
  	breakpoint insertion.
@@ -1532,12 +1532,12 @@ Thu Nov  4 20:33:58 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	because interrupt_target_command_wrapper is only defined if UI_OUT is.
 
 	* mi-cmds.c (mi_cmds): Implement command exec-interrupt by
- 	mi_cmd_exec_interrupt.  
+ 	mi_cmd_exec_interrupt.
 
 	* mi-main.c (mi_cmd_exec_interrupt): New function. Implements
  	exec-interrupt command.
 	(mi_cmd_execute): If the target is running save execution command
- 	token in previous_async_command. If the command is not 'interrupt' 
+ 	token in previous_async_command. If the command is not 'interrupt'
 	and the target is running, reject it.
 	(clean): New function. Free the arg and reset it to NULL.
 
@@ -1546,7 +1546,7 @@ Thu Nov  4 20:33:58 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 1999-10-28  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* mi-cmds.c (mi_cmds): Implement command stack-select-frame by
- 	mi_cmd_stack_select_frame.  
+ 	mi_cmd_stack_select_frame.
 
 	* mi-main.c (mi_cmd_stack_select_frame): New function. Implements
  	stack-select-frame command.
@@ -1587,7 +1587,7 @@ Thu Nov  4 20:33:58 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* mi-cmds.c (mi_cmds): Hook stack-list-frames command to
  	mi_cmd_stack_list_frames function.
 	* mi-cmds.h (mi_cmd_stack_list_frames): Export.
-	
+
 	* mi-main.c (mi_execute_command): Deal with a return code of
  	MI_CMD_ERROR from the execution of mi commands.
 	(mi_error_message): Static string variable, to contain the error
@@ -1641,7 +1641,7 @@ Tue Oct  5 15:27:28 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-main.c (mi_cmd_var_create, mi_cmd_var_delete): Add missing
 	cleanups.
-	
+
 1999-10-04  Fernando Nasser  <fnasser@totem.to.cygnus.com>
 
 	* mi-main.c (next_arg): Returns lenght as well.
@@ -1956,7 +1956,7 @@ Mon Jun 28 13:06:52 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-06-25  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
-	* event-loop.h: Export input_fd.  
+	* event-loop.h: Export input_fd.
 	* mi-main.c (mi_command_loop): Use the event loop if running
  	asynchronously.
 	(mi_execute_command_wrapper): New function.
@@ -2119,7 +2119,7 @@ Mon Jun  7 18:43:43 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	* mi-cmds.c (mi_cmd_execute), mi-main.c (mi_execute_command): Only
  	print debug information when mi_debug_p.
 	* mi-cmds.h (mi_debug_p), mi-main.c: Global, control debug messages.
-	
+
 Thu Jun  3 00:44:52 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
   	From Fernando Nasser  <fnasser@totem.to.cygnus.com>:

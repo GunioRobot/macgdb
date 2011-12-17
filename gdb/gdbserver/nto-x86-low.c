@@ -46,7 +46,7 @@ nto_x86_register_offset (int gdbregno)
       /* GPRs  */
       switch (gdbregno)
 	{
-	case 0: 
+	case 0:
 	  return (int)&(dummy->eax);
 	case 1:
 	  return (int)&(dummy->ecx);

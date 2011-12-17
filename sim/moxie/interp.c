@@ -57,18 +57,18 @@ moxie_extract_unsigned_integer (addr, len)
   unsigned char * p;
   unsigned char * startaddr = (unsigned char *)addr;
   unsigned char * endaddr = startaddr + len;
- 
+
   if (len > (int) sizeof (unsigned long))
     printf ("That operation is not available on integers of more than %d bytes.",
 	    sizeof (unsigned long));
- 
+
   /* Start at the most significant end of the integer, and work towards
      the least significant.  */
   retval = 0;
 
   for (p = endaddr; p > startaddr;)
     retval = (retval << 8) | * -- p;
-  
+
   return retval;
 }
 
@@ -90,8 +90,8 @@ moxie_store_unsigned_integer (addr, len, val)
 }
 
 /* moxie register names.  */
-static const char *reg_names[16] = 
-  { "$fp", "$sp", "$r0", "$r1", "$r2", "$r3", "$r4", "$r5", 
+static const char *reg_names[16] =
+  { "$fp", "$sp", "$r0", "$r1", "$r2", "$r3", "$r4", "$r5",
     "$r6", "$r7", "$r8", "$r9", "$r10", "$r11", "$r12", "$r13" };
 
 /* The machine state.
@@ -144,10 +144,10 @@ set_initial_gprs ()
 {
   int i;
   long space;
-  
+
   /* Set up machine just out of reset.  */
   cpu.asregs.regs[PC_REGNO] = 0;
-  
+
   /* Clean out the register contents.  */
   for (i = 0; i < NUM_MOXIE_REGS; i++)
     cpu.asregs.regs[i] = 0;
@@ -163,67 +163,67 @@ interrupt ()
 
 /* Write a 1 byte value to memory.  */
 
-static void INLINE 
+static void INLINE
 wbat (sim_cpu *scpu, word pc, word x, word v)
 {
   address_word cia = CIA_GET (scpu);
-  
+
   sim_core_write_aligned_1 (scpu, cia, write_map, x, v);
 }
 
 /* Write a 2 byte value to memory.  */
 
-static void INLINE 
+static void INLINE
 wsat (sim_cpu *scpu, word pc, word x, word v)
 {
   address_word cia = CIA_GET (scpu);
-  
+
   sim_core_write_aligned_2 (scpu, cia, write_map, x, v);
 }
 
 /* Write a 4 byte value to memory.  */
 
-static void INLINE 
+static void INLINE
 wlat (sim_cpu *scpu, word pc, word x, word v)
 {
   address_word cia = CIA_GET (scpu);
-	
+
   sim_core_write_aligned_4 (scpu, cia, write_map, x, v);
 }
 
 /* Read 2 bytes from memory.  */
 
-static int INLINE 
+static int INLINE
 rsat (sim_cpu *scpu, word pc, word x)
 {
   address_word cia = CIA_GET (scpu);
-  
+
   return (sim_core_read_aligned_2 (scpu, cia, read_map, x));
 }
 
 /* Read 1 byte from memory.  */
 
-static int INLINE 
+static int INLINE
 rbat (sim_cpu *scpu, word pc, word x)
 {
   address_word cia = CIA_GET (scpu);
-  
+
   return (sim_core_read_aligned_1 (scpu, cia, read_map, x));
 }
 
 /* Read 4 bytes from memory.  */
 
-static int INLINE 
+static int INLINE
 rlat (sim_cpu *scpu, word pc, word x)
 {
   address_word cia = CIA_GET (scpu);
-  
+
   return (sim_core_read_aligned_4 (scpu, cia, read_map, x));
 }
 
 #define CHECK_FLAG(T,H) if (tflags & T) { hflags |= H; tflags ^= T; }
 
-unsigned int 
+unsigned int
 convert_target_flags (unsigned int tflags)
 {
   unsigned int hflags = 0x0;
@@ -237,8 +237,8 @@ convert_target_flags (unsigned int tflags)
   CHECK_FLAG(0x2000, O_SYNC);
 
   if (tflags != 0x0)
-    fprintf (stderr, 
-	     "Simulator Error: problem converting target open flags for host.  0x%x\n", 
+    fprintf (stderr,
+	     "Simulator Error: problem converting target open flags for host.  0x%x\n",
 	     tflags);
 
   return hflags;
@@ -266,7 +266,7 @@ sim_resume (sd, step, siggnal)
   insts = cpu.asregs.insts;
 
   /* Run instructions here. */
-  do 
+  do
     {
       opc = pc;
 
@@ -444,11 +444,11 @@ sim_resume (sd, step, siggnal)
  		/* Push the return address.  */
 		sp -= 4;
  		wlat (scpu, opc, sp, pc + 6);
- 		
+
  		/* Push the current frame pointer.  */
  		sp -= 4;
  		wlat (scpu, opc, sp, cpu.asregs.regs[0]);
- 
+
  		/* Uncache the stack pointer and set the pc and $fp.  */
 		cpu.asregs.regs[1] = sp;
 		cpu.asregs.regs[0] = sp;
@@ -460,18 +460,18 @@ sim_resume (sd, step, siggnal)
  		unsigned int sp = cpu.asregs.regs[0];
 
 		TRACE("ret");
- 
+
  		/* Pop the frame pointer.  */
  		cpu.asregs.regs[0] = rlat (scpu, opc, sp);
  		sp += 4;
- 		
+
  		/* Pop the return address.  */
  		pc = rlat (scpu, opc, sp) - 2;
  		sp += 4;
 
 		/* Skip over the static chain slot.  */
 		sp += 4;
- 
+
  		/* Uncache the stack pointer.  */
  		cpu.asregs.regs[1] = sp;
   	      }
@@ -570,7 +570,7 @@ sim_resume (sd, step, siggnal)
 		int b  = inst & 0xf;
 		int cc = 0;
 		int va = cpu.asregs.regs[a];
-		int vb = cpu.asregs.regs[b]; 
+		int vb = cpu.asregs.regs[b];
 
 		TRACE("cmp");
 
@@ -616,7 +616,7 @@ sim_resume (sd, step, siggnal)
 		/* Push the return address.  */
 		sp -= 4;
 		wlat (scpu, opc, sp, pc + 2);
-		
+
 		/* Push the current frame pointer.  */
 		sp -= 4;
 		wlat (scpu, opc, sp, cpu.asregs.regs[0]);
@@ -895,7 +895,7 @@ sim_resume (sd, step, siggnal)
 		      /* Push the return address.  */
 		      sp -= 4;
 		      wlat (scpu, opc, sp, pc + 6);
-		
+
 		      /* Push the current frame pointer.  */
 		      sp -= 4;
 		      wlat (scpu, opc, sp, cpu.asregs.regs[0]);
@@ -1044,7 +1044,7 @@ sim_read (sd, addr, buffer, size)
   sim_cpu *scpu = STATE_CPU (sd, 0); /* FIXME */
 
   sim_core_read_buffer (sd, scpu, read_map, buffer, addr, size);
-  
+
   return size;
 }
 
@@ -1061,7 +1061,7 @@ sim_store_register (sd, rn, memory, length)
       if (length == 4)
 	{
 	  long ival;
-	  
+
 	  /* misalignment safe */
 	  ival = moxie_extract_unsigned_integer (memory, 4);
 	  cpu.asints[rn] = ival;
@@ -1089,7 +1089,7 @@ sim_fetch_register (sd, rn, memory, length)
 	  /* misalignment-safe */
 	  moxie_store_unsigned_integer (memory, 4, ival);
 	}
-      
+
       return 4;
     }
   else
@@ -1105,11 +1105,11 @@ sim_trace (sd)
     tracefile = fopen("trace.csv", "wb");
 
   tracing = 1;
-  
+
   sim_resume (sd, 0, 0);
 
   tracing = 0;
-  
+
   return 1;
 }
 
@@ -1165,17 +1165,17 @@ sim_open (kind, cb, abfd, argv)
   if (sim_pre_argv_init (sd, argv[0]) != SIM_RC_OK)
     return 0;
 
-  sim_do_command(sd," memory region 0x00000000,0x4000000") ; 
-  sim_do_command(sd," memory region 0xE0000000,0x10000") ; 
+  sim_do_command(sd," memory region 0x00000000,0x4000000") ;
+  sim_do_command(sd," memory region 0xE0000000,0x10000") ;
 
   myname = argv[0];
   callback = cb;
-  
+
   if (kind == SIM_OPEN_STANDALONE)
     issue_messages = 1;
-  
+
   set_initial_gprs ();	/* Reset the GPR registers.  */
-  
+
   return sd;
 }
 
@@ -1196,7 +1196,7 @@ load_dtb (SIM_DESC sd, const char *filename)
   int size = 0;
   FILE *f = fopen (filename, "rb");
   char *buf;
-  sim_cpu *scpu = STATE_CPU (sd, 0); /* FIXME */ 
+  sim_cpu *scpu = STATE_CPU (sd, 0); /* FIXME */
  if (f == NULL)
     {
       printf ("WARNING: ``%s'' could not be opened.\n", filename);
@@ -1236,14 +1236,14 @@ sim_load (sd, prog, abfd, from_tty)
   {
     bfd * handle;
     handle = bfd_openr (prog, 0);	/* could be "moxie" */
-    
+
     if (!handle)
       {
 	printf("``%s'' could not be opened.\n", prog);
 	return SIM_RC_FAIL;
       }
-    
-    /* Makes sure that we have an object file, also cleans gets the 
+
+    /* Makes sure that we have an object file, also cleans gets the
        section headers in place.  */
     if (!bfd_check_format (handle, bfd_object))
       {
@@ -1263,7 +1263,7 @@ sim_load (sd, prog, abfd, from_tty)
                             0, sim_write);
   if (prog_bfd == NULL)
     return SIM_RC_FAIL;
-  
+
   if (abfd == NULL)
     bfd_close (prog_bfd);
 
@@ -1286,7 +1286,7 @@ sim_create_inferior (sd, prog_bfd, argv, env)
   issue_messages = 0;
   set_initial_gprs ();
   issue_messages = l;
-  
+
   cpu.asregs.regs[PC_REGNO] = bfd_get_start_address (prog_bfd);
 
   /* Copy args into target memory.  */
@@ -1300,7 +1300,7 @@ sim_create_inferior (sd, prog_bfd, argv, env)
      0x00000008 start of argv
      .
      0x0000???? end of argv
-     0x0000???? zero word 
+     0x0000???? zero word
      0x0000???? start of data pointed to by argv  */
 
   wlat (scpu, 0, 0, 0);
@@ -1341,7 +1341,7 @@ sim_do_command (sd, cmd)
      char * cmd;
 {
   if (sim_args_command (sd, cmd) != SIM_RC_OK)
-    sim_io_printf (sd, 
+    sim_io_printf (sd,
 		   "Error: \"%s\" is not a valid moxie simulator command.\n",
 		   cmd);
 }
@@ -1350,5 +1350,5 @@ void
 sim_set_callbacks (ptr)
      host_callback * ptr;
 {
-  callback = ptr; 
+  callback = ptr;
 }

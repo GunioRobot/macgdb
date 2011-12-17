@@ -57,7 +57,7 @@
 
    BUGS
 
-   
+
    This code assumes that the memory node has #address-cells and
    #size-cells set to one.  For future implementations, this may not
    be the case.

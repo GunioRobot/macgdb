@@ -70,7 +70,7 @@ struct value *
 evaluate_subexp (struct type *expect_type, struct expression *exp,
 		 int *pos, enum noside noside)
 {
-  return (*exp->language_defn->la_exp_desc->evaluate_exp) 
+  return (*exp->language_defn->la_exp_desc->evaluate_exp)
     (expect_type, exp, pos, noside);
 }
 
@@ -421,7 +421,7 @@ value_f90_subarray (struct value *array,
   LONGEST low_bound, high_bound;
   struct type *range = check_typedef (TYPE_INDEX_TYPE (value_type (array)));
   enum f90_range_type range_type = longest_to_int (exp->elts[pc].longconst);
- 
+
   *pos += 3;
 
   if (range_type == LOW_BOUND_DEFAULT || range_type == BOTH_BOUND_DEFAULT)
@@ -1031,7 +1031,7 @@ evaluate_subexp_standard (struct type *expect_type,
 
 	struct value *target = NULL;
 	struct value *method = NULL;
-	struct value *called_method = NULL; 
+	struct value *called_method = NULL;
 
 	struct type *selector_type = NULL;
 	struct type *long_type;
@@ -1041,7 +1041,7 @@ evaluate_subexp_standard (struct type *expect_type,
 
 	selector = exp->elts[pc + 1].longconst;
 	nargs = exp->elts[pc + 2].longconst;
-	argvec = (struct value **) alloca (sizeof (struct value *) 
+	argvec = (struct value **) alloca (sizeof (struct value *)
 					   * (nargs + 5));
 
 	(*pos) += 3;
@@ -1058,17 +1058,17 @@ evaluate_subexp_standard (struct type *expect_type,
 
 	if (value_as_long (target) == 0)
  	  return value_from_longest (long_type, 0);
-	
+
 	if (lookup_minimal_symbol ("objc_msg_lookup", 0, 0))
 	  gnu_runtime = 1;
-	
+
 	/* Find the method dispatch (Apple runtime) or method lookup
 	   (GNU runtime) function for Objective-C.  These will be used
 	   to lookup the symbol information for the method.  If we
 	   can't find any symbol information, then we'll use these to
 	   call the method, otherwise we can call the method
 	   directly. The msg_send_stret function is used in the special
-	   case of a method that returns a structure (Apple runtime 
+	   case of a method that returns a structure (Apple runtime
 	   only).  */
 	if (gnu_runtime)
 	  {
@@ -1083,7 +1083,7 @@ evaluate_subexp_standard (struct type *expect_type,
 	      = find_function_in_inferior ("objc_msg_lookup", NULL);
 
 	    msg_send = value_from_pointer (type, value_as_address (msg_send));
-	    msg_send_stret = value_from_pointer (type, 
+	    msg_send_stret = value_from_pointer (type,
 					value_as_address (msg_send_stret));
 	  }
 	else
@@ -1104,16 +1104,16 @@ evaluate_subexp_standard (struct type *expect_type,
 	if (responds_selector == 0)
 	  responds_selector
 	    = lookup_child_selector (exp->gdbarch, "respondsTo:");
-	
+
 	if (responds_selector == 0)
 	  error (_("no 'respondsTo:' or 'respondsToSelector:' method"));
-	
+
 	method_selector
 	  = lookup_child_selector (exp->gdbarch, "methodForSelector:");
 	if (method_selector == 0)
 	  method_selector
 	    = lookup_child_selector (exp->gdbarch, "methodFor:");
-	
+
 	if (method_selector == 0)
 	  error (_("no 'methodFor:' or 'methodForSelector:' method"));
 
@@ -1164,7 +1164,7 @@ evaluate_subexp_standard (struct type *expect_type,
 	    /* Is it a high_level symbol?  */
 
 	    sym = find_pc_function (addr);
-	    if (sym != NULL) 
+	    if (sym != NULL)
 	      method = value_of_variable (sym, 0);
 	  }
 
@@ -1182,8 +1182,8 @@ evaluate_subexp_standard (struct type *expect_type,
 	    b = block_for_pc (funaddr);
 
 	    CHECK_TYPEDEF (val_type);
-	  
-	    if ((val_type == NULL) 
+
+	    if ((val_type == NULL)
 		|| (TYPE_CODE(val_type) == TYPE_CODE_ERROR))
 	      {
 		if (expect_type != NULL)
@@ -1198,7 +1198,7 @@ evaluate_subexp_standard (struct type *expect_type,
 	    struct_return = using_struct_return (exp->gdbarch, NULL,
 						 check_typedef (expect_type));
 	  }
-	
+
 	/* Found a function symbol.  Now we will substitute its
 	   value in place of the message dispatcher (obj_msgSend),
 	   so that we call the method directly instead of thru
@@ -1207,11 +1207,11 @@ evaluate_subexp_standard (struct type *expect_type,
 	   according to their known data types, in case we need to
 	   do things like promotion, dereferencing, special handling
 	   of structs and doubles, etc.
-	  
+
 	   We want to use the type signature of 'method', but still
 	   jump to objc_msgSend() or objc_msgSend_stret() to better
 	   mimic the behavior of the runtime.  */
-	
+
 	if (method)
 	  {
 	    if (TYPE_CODE (value_type (method)) != TYPE_CODE_FUNC)
@@ -1464,7 +1464,7 @@ evaluate_subexp_standard (struct type *expect_type,
 	{
 	  /* Non-member function being called */
           /* fn: This can only be done for C++ functions.  A C-style function
-             in a C++ program, for instance, does not have the fields that 
+             in a C++ program, for instance, does not have the fields that
              are expected here */
 
 	  if (overload_resolution && (exp->language_defn->la_language == language_cplus))
@@ -1537,11 +1537,11 @@ evaluate_subexp_standard (struct type *expect_type,
 
     case OP_F77_UNDETERMINED_ARGLIST:
 
-      /* Remember that in F77, functions, substring ops and 
-         array subscript operations cannot be disambiguated 
-         at parse time.  We have made all array subscript operations, 
-         substring operations as well as function calls  come here 
-         and we now have to discover what the heck this thing actually was.  
+      /* Remember that in F77, functions, substring ops and
+         array subscript operations cannot be disambiguated
+         at parse time.  We have made all array subscript operations,
+         substring operations as well as function calls  come here
+         and we now have to discover what the heck this thing actually was.
          If it is a function, we process just as if we got an OP_FUNCALL. */
 
       nargs = longest_to_int (exp->elts[pc + 1].longconst);
@@ -1557,7 +1557,7 @@ evaluate_subexp_standard (struct type *expect_type,
 	  /* Fortran always passes variable to subroutines as pointer.
 	     So we need to look into its target type to see if it is
 	     array, string or function.  If it is, we need to switch
-	     to the target value the original one points to.  */ 
+	     to the target value the original one points to.  */
 	  struct type *target_type = check_typedef (TYPE_TARGET_TYPE (type));
 
 	  if (TYPE_CODE (target_type) == TYPE_CODE_ARRAY
@@ -1568,7 +1568,7 @@ evaluate_subexp_standard (struct type *expect_type,
 	      type = check_typedef (value_type (arg1));
 	      code = TYPE_CODE (type);
 	    }
-	} 
+	}
 
       switch (code)
 	{
@@ -1605,7 +1605,7 @@ evaluate_subexp_standard (struct type *expect_type,
 	}
 
     case OP_COMPLEX:
-      /* We have a complex number, There should be 2 floating 
+      /* We have a complex number, There should be 2 floating
          point numbers that compose it */
       (*pos) += 2;
       arg1 = evaluate_subexp (NULL_TYPE, exp, pos, noside);
@@ -2002,7 +2002,7 @@ evaluate_subexp_standard (struct type *expect_type,
 
 	gdb_assert (nargs > 0);
 
-	/* Now that we know we have a legal array subscript expression 
+	/* Now that we know we have a legal array subscript expression
 	   let us actually find out where this element exists in the array. */
 
 	offset_item = 0;
@@ -2029,12 +2029,12 @@ evaluate_subexp_standard (struct type *expect_type,
 
 	    subscript_array[nargs - i - 1] -= lower;
 
-	    /* If we are at the bottom of a multidimensional 
+	    /* If we are at the bottom of a multidimensional
 	       array type then keep a ptr to the last ARRAY
 	       type around for use when calling value_subscript()
 	       below. This is done because we pretend to value_subscript
-	       that we actually have a one-dimensional array 
-	       of base element type that we apply a simple 
+	       that we actually have a one-dimensional array
+	       of base element type that we apply a simple
 	       offset to. */
 
 	    if (i < nargs - 1)
@@ -2049,10 +2049,10 @@ evaluate_subexp_standard (struct type *expect_type,
 	  offset_item =
 	    array_size_array[i - 1] * offset_item + subscript_array[i - 1];
 
-	/* Let us now play a dirty trick: we will take arg1 
+	/* Let us now play a dirty trick: we will take arg1
 	   which is a value node pointing to the topmost level
 	   of the multidimensional array-set and pretend
-	   that it is actually a array of the final element 
+	   that it is actually a array of the final element
 	   type, this will ensure that value_subscript()
 	   returns the correct type value */
 
@@ -2247,7 +2247,7 @@ evaluate_subexp_standard (struct type *expect_type,
 	  unop_promote (exp->language_defn, exp->gdbarch, &arg1);
 	  return value_pos (arg1);
 	}
-      
+
     case UNOP_NEG:
       arg1 = evaluate_subexp (NULL_TYPE, exp, pos, noside);
       if (noside == EVAL_SKIP)

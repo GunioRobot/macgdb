@@ -753,10 +753,10 @@ config.h.in
 doc/manvers.texinfo
         - renamed to version.texi to match other GNU software
         - UPDATE-MONTH variable is now `UPDATED-MONTH'
-        
+
 doc/{hist,rlman,rluserman}.texinfo
         - include version.texi
-        
+
 doc/{rltech,rluser,hstech,hsuser}.texi
 	- changed the suffix from `texinfo' to `texi'
 
@@ -836,7 +836,7 @@ configure.in
 	- add support for --enable-purify configure argument
 	- pass TERMCAP_LIB in environment when calling shobj-conf
 
-examples/Makefile.in 
+examples/Makefile.in
 	- add support for building examples with purify
 
 				 1/23/2005

@@ -231,7 +231,7 @@ static CGEN_ATTR_VALUE_ENUM_TYPE fr400_unit_mapping[] =
 /* NIL      */     UNIT_NIL,
 /* I0       */     UNIT_I0,
 /* I1       */     UNIT_I1,
-/* I01      */     UNIT_I01, 
+/* I01      */     UNIT_I01,
 /* I2       */     UNIT_NIL, /* no I2 or I3 unit */
 /* I3       */     UNIT_NIL,
 /* IALL     */     UNIT_I01, /* only I0 and I1 units */
@@ -266,7 +266,7 @@ static CGEN_ATTR_VALUE_ENUM_TYPE fr450_unit_mapping[] =
 /* NIL      */     UNIT_NIL,
 /* I0       */     UNIT_I0,
 /* I1       */     UNIT_I1,
-/* I01      */     UNIT_I01, 
+/* I01      */     UNIT_I01,
 /* I2       */     UNIT_NIL, /* no I2 or I3 unit */
 /* I3       */     UNIT_NIL,
 /* IALL     */     UNIT_I01, /* only I0 and I1 units */
@@ -298,7 +298,7 @@ static CGEN_ATTR_VALUE_ENUM_TYPE fr500_unit_mapping[] =
 /* NIL      */     UNIT_NIL,
 /* I0       */     UNIT_I0,
 /* I1       */     UNIT_I1,
-/* I01      */     UNIT_I01, 
+/* I01      */     UNIT_I01,
 /* I2       */     UNIT_NIL, /* no I2 or I3 unit */
 /* I3       */     UNIT_NIL,
 /* IALL     */     UNIT_I01, /* only I0 and I1 units */
@@ -330,10 +330,10 @@ static CGEN_ATTR_VALUE_ENUM_TYPE fr550_unit_mapping[] =
 /* NIL      */     UNIT_NIL,
 /* I0       */     UNIT_I0,
 /* I1       */     UNIT_I1,
-/* I01      */     UNIT_I01, 
+/* I01      */     UNIT_I01,
 /* I2       */     UNIT_I2,
 /* I3       */     UNIT_I3,
-/* IALL     */     UNIT_IALL, 
+/* IALL     */     UNIT_IALL,
 /* FM0      */     UNIT_FM0,
 /* FM1      */     UNIT_FM1,
 /* FM01     */     UNIT_FM01,

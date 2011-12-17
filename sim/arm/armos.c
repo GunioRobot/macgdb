@@ -1,16 +1,16 @@
 /*  armos.c -- ARMulator OS interface:  ARM6 Instruction Emulator.
     Copyright (C) 1994 Advanced RISC Machines Ltd.
- 
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
- 
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA. */
@@ -158,7 +158,7 @@ ARMul_OSInit (ARMul_State * state)
 	  exit (15);
 	}
     }
-  
+
   OSptr = (struct OSblock *) state->OSptr;
   OSptr->ErrorP = 0;
   state->Reg[13] = ADDRSUPERSTACK;			/* Set up a stack for the current mode...  */
@@ -167,11 +167,11 @@ ARMul_OSInit (ARMul_State * state)
   ARMul_SetReg (state, UNDEF32MODE, 13, ADDRSUPERSTACK);/* ...and for undef 32 mode...  */
   ARMul_SetReg (state, SYSTEMMODE,  13, ADDRSUPERSTACK);/* ...and for system mode.  */
   instr = 0xe59ff000 | (ADDRSOFTVECTORS - 8);		/* Load pc from soft vector */
-  
+
   for (i = ARMul_ResetV; i <= ARMFIQV; i += 4)
     /* Write hardware vectors.  */
     ARMul_WriteWord (state, i, instr);
-  
+
   SWI_vector_installed = 0;
 
   for (i = ARMul_ResetV; i <= ARMFIQV + 4; i += 4)
@@ -627,7 +627,7 @@ ARMul_OSHandleSWI (ARMul_State * state, ARMword number)
 		 returning -1 in r0 to the caller.  If GDB is then used to
 		 resume the system call the reason code will now be -1.  */
 	      return TRUE;
-	  
+
 	      /* Unimplemented reason codes.  */
 	    case AngelSWI_Reason_ReadC:
 	    case AngelSWI_Reason_TmpNam:
@@ -771,14 +771,14 @@ ARMul_OSHandleSWI (ARMul_State * state, ARMword number)
     case 0x91: /* Undefined Instruction.  */
       {
 	ARMword addr = state->RegBank[UNDEFBANK][14] - 4;
-	
+
 	sim_callback->printf_filtered
 	  (sim_callback, "sim: exception: Unhandled Instruction '0x%08x' at 0x%08x.  Stopping.\n",
 	   ARMul_ReadWord (state, addr), addr);
 	state->EndCondition = RDIError_SoftwareInterrupt;
 	state->Emulate = FALSE;
 	return FALSE;
-      }      
+      }
 
     case 0x90: /* Reset.  */
     case 0x92: /* SWI.  */
@@ -800,7 +800,7 @@ ARMul_OSHandleSWI (ARMul_State * state, ARMword number)
 	 returning -1 in r0 to the caller.  If GDB is then used to
 	 resume the system call the reason code will now be -1.  */
       return TRUE;
-	  
+
     case 0x180001: /* RedBoot's Syscall SWI in ARM mode.  */
       if (swi_mask & SWI_MASK_REDBOOT)
 	{
@@ -889,11 +889,11 @@ ARMul_OSHandleSWI (ARMul_State * state, ARMword number)
 	    }
 	  break;
 	}
-      
+
     default:
       unhandled = TRUE;
     }
-      
+
   if (unhandled)
     {
       if (SWI_vector_installed)

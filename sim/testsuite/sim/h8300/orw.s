@@ -11,7 +11,7 @@
 	.include "testutils.inc"
 
 	start
-	
+
 .if (sim_cpu)			; non-zero means h8300h, s, or sx
 or_w_imm16:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -55,7 +55,7 @@ or_w_reg:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 	pass
 
 	exit 0

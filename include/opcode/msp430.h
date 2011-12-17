@@ -2,7 +2,7 @@
 
    Copyright 2002, 2004 Free Software Foundation, Inc.
    Contributed by Dmitry Diky <diwil@mail.ru>
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2, or (at your option)
@@ -46,7 +46,7 @@ struct  msp430_opcode_s
 
 #define MSP_INSN(name, size, numb, bin, mask) { #name, size, numb, bin, mask }
 
-static struct msp430_opcode_s msp430_opcodes[] = 
+static struct msp430_opcode_s msp430_opcodes[] =
 {
   MSP_INSN (and,   1, 2, 0xf000, 0xf000),
   MSP_INSN (inv,   0, 1, 0xe330, 0xfff0),

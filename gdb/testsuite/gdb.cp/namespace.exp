@@ -133,10 +133,10 @@ send_gdb "info func xyzq\n"
 gdb_expect {
    -re "All functions.*File.*namespace.cc:\r\nint AAA::A_xyzq\\(int\\);\r\nint BBB::B_xyzq\\(int\\);\r\nchar AAA::xyzq\\(char\\);\r\nchar BBB::xyzq\\(char\\);\r\nchar BBB::CCC::xyzq\\(char\\);\r\nchar BBB::Class::xyzq\\(char\\);\r\n$gdb_prompt $" {
        pass "info func xyzq"
-   }    
+   }
    -re "All functions.*File.*namespace.cc:\r\nint AAA::A_xyzq\\(int\\);\r\nchar AAA::xyzq\\(char\\);\r\nint BBB::B_xyzq\\(int\\);\r\nchar BBB::CCC::xyzq\\(char\\);\r\nchar BBB::Class::xyzq\\(char\\);\r\nchar BBB::xyzq\\(char\\);\r\n$gdb_prompt $" {
        pass "info func xyzq"
-   }    
+   }
    -re ".*$gdb_prompt $" { fail "info func xyzq" }
    timeout { fail "(timeout) info func xyzq" }
 }
@@ -151,7 +151,7 @@ gdb_expect {
    -re ".*$gdb_prompt $" { fail "print 'AAA::xyzq'('x')" }
    timeout { fail "(timeout) print 'AAA::xyzq'('x')" }
 }
-       
+
 send_gdb "print AAA::xyzq('x')\n"
 gdb_expect {
    -re "\\$\[0-9\]* = 97 'a'\r\n$gdb_prompt $" {
@@ -160,14 +160,14 @@ gdb_expect {
    -re ".*$gdb_prompt $" { fail "print AAA::xyzq('x')" }
    timeout { fail "(timeout) print AAA::xyzq('x')" }
 }
-       
+
 # Break on a function in a namespace
 
 send_gdb "break AAA::xyzq\n"
 gdb_expect {
     -re "Breakpoint.*at $hex: file.*namespace.cc, line 42\\.\r\n$gdb_prompt $" {
          pass "break AAA::xyzq"
-    }    
+    }
    -re ".*$gdb_prompt $" { fail "break AAA::xyzq" }
    timeout { fail "(timeout) break AAA::xyzq" }
 }
@@ -182,7 +182,7 @@ gdb_expect {
    -re ".*$gdb_prompt $" { fail "print 'BBB::CCC::xyzq'('x')" }
    timeout { fail "(timeout) print 'BBB::CCC::xyzq'('x')" }
 }
-       
+
 send_gdb "print BBB::CCC::xyzq('x')\n"
 gdb_expect {
    -re "\\$\[0-9\]* = 122 'z'\r\n$gdb_prompt $" {
@@ -191,14 +191,14 @@ gdb_expect {
    -re ".*$gdb_prompt $" { fail "print BBB::CCC::xyzq('x')" }
    timeout { fail "(timeout) print BBB::CCC::xyzq('x')" }
 }
-       
+
 # Break on a function in a nested namespace
 
 send_gdb "break BBB::CCC::xyzq\n"
 gdb_expect {
     -re "Breakpoint.*at $hex: file.*namespace.cc, line 58\\.\r\n$gdb_prompt $" {
          pass "break BBB::CCC::xyzq"
-    }    
+    }
    -re ".*$gdb_prompt $" { fail "break BBB::CCC::xyzq" }
    timeout { fail "(timeout) break BBB::CCC::xyzq" }
 }
@@ -229,7 +229,7 @@ send_gdb "break BBB::Class::xyzq\n"
 gdb_expect {
     -re "Breakpoint.*at $hex: file.*namespace.cc, line 63\\.\r\n$gdb_prompt $" {
          pass "break BBB::Class::xyzq"
-    }    
+    }
    -re ".*$gdb_prompt $" { fail "break BBB::Class::xyzq" }
    timeout { fail "(timeout) break BBB::Class::xyzq" }
 }

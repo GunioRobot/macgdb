@@ -1354,7 +1354,7 @@ gen_struct_ref (struct expression *exp, struct agent_expr *ax,
 }
 
 
-/* Generate code for GDB's magical `repeat' operator.  
+/* Generate code for GDB's magical `repeat' operator.
    LVALUE @ INT creates an array INT elements long, and whose elements
    have the same type as LVALUE, located in memory so that LVALUE is
    its first element.  For example, argv[0]@argc gives you the array
@@ -1685,7 +1685,7 @@ gen_expr (struct expression *exp, union exp_element **pc,
       gen_expr (exp, pc, ax, value);
       gen_usual_unary (exp, ax, value);
       break;
-      
+
     case UNOP_NEG:
       (*pc)++;
       /* -FOO is equivalent to 0 - FOO.  */

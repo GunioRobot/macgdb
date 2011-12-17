@@ -36,7 +36,7 @@ if [test_compiler_info gcc*] {
 # Generate the intermediate object file.  This is required by Darwin to
 # have access to the .debug_macinfo section.
 if  {[gdb_compile "${srcdir}/${subdir}/macscp1.c" "${objfile}" \
-	  object $options] != "" 
+	  object $options] != ""
      || [gdb_compile "${objfile}" "${binfile}" executable $options] != "" } {
     untested macscp.exp
     return -1
@@ -59,7 +59,7 @@ gdb_load ${binfile}
 #
 # If GDB complains that it doesn't have any information about
 # preprocessor macro definitions, return the string `no-macro-info'.
-# 
+#
 # If expect times out waiting for GDB, we return the string `timeout'.
 #
 # If GDB's output doesn't otherwise match what we're expecting, we
@@ -227,7 +227,7 @@ if {[list_and_check_macro main WHERE {macscp1.c {before macscp1_3}}]} {
 	return 0
     }
 }
- 
+
 list_and_check_macro macscp2_2 WHERE {macscp2.h macscp1.c {before macscp2_2}}
 list_and_check_macro macscp3_2 WHERE {macscp3.h macscp1.c {before macscp3_2}}
 
@@ -251,7 +251,7 @@ switch -exact -- [info_macro WHERE] {
         setup_kfail *-*-* "gdb/555"
         fail "info macro WHERE after `list macscp_4_2_from_macscp2' (gdb/555)"
     }
-    timeout { 
+    timeout {
         fail "info macro WHERE after `list macscp_4_2_from_macscp2' (timeout)"
     }
     default { fail "info macro WHERE after `list macscp_4_2_from_macscp2'" }
@@ -408,7 +408,7 @@ for {set i 0} {$i < [llength $funcs]} {incr i} {
                 switch -- [lindex $result end] {
                     undefined { pass $test_name }
                     timeout { fail "$test_name (timeout)" }
-                    default { 
+                    default {
                         maybe_kfail $func "$test_name"
                     }
                 }
@@ -423,7 +423,7 @@ for {set i 0} {$i < [llength $funcs]} {incr i} {
                 switch -- [lindex $result end] {
                     undefined { pass $test_name }
                     timeout { fail "$test_name (timeout)" }
-                    default { 
+                    default {
                         maybe_kfail $func "$test_name"
                     }
                 }

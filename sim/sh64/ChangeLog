@@ -363,7 +363,7 @@ Fri May 17 14:27:41 2002  J"orn Rennecke <joern.rennecke@superh.com>
 	(stamp-all, stamp-mloop, stamp-decode, stamp-defs): New targets.
 	(stamp-desc, stamp-cpu): Likewise.
 	(stamp-defs-compact, stamp-defs-media): Likewise.
-	(stamp-decode-compact, stamp-decode-media): Likewise.	
+	(stamp-decode-compact, stamp-decode-media): Likewise.
 
 	* defs-compact.h, defs-media.h: Regenerate.
 

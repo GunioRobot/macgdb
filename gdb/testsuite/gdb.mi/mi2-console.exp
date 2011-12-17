@@ -64,7 +64,7 @@ if { ![target_info exists gdb,noinferiorio] } {
 	    pass "Hello message"
 	}
 	-re "Hello" {
-	    
+
 	    # Probably a native system where GDB doesn't have direct #
 	    # control over the inferior console.  # For this to work,
 	    # GDB would need to run the inferior process # under a PTY

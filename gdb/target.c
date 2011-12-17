@@ -462,7 +462,7 @@ target_create_inferior (char *exec_file, char *args,
   struct target_ops *t;
   for (t = current_target.beneath; t != NULL; t = t->beneath)
     {
-      if (t->to_create_inferior != NULL)	
+      if (t->to_create_inferior != NULL)
 	{
 	  t->to_create_inferior (t, exec_file, args, env, from_tty);
 	  if (targetdebug)
@@ -1000,7 +1000,7 @@ target_translate_tls_address (struct objfile *objfile, CORE_ADDR offset)
       TRY_CATCH (ex, RETURN_MASK_ALL)
 	{
 	  CORE_ADDR lm_addr;
-	  
+
 	  /* Fetch the load module address for this objfile.  */
 	  lm_addr = gdbarch_fetch_tls_load_module_address (target_gdbarch,
 	                                                   objfile);
@@ -1600,7 +1600,7 @@ default_xfer_partial (struct target_ops *ops, enum target_object object,
 	  do_cleanups (cleanup);
 	}
       if (readbuf != NULL)
-	xfered = ops->deprecated_xfer_memory (offset, readbuf, len, 
+	xfered = ops->deprecated_xfer_memory (offset, readbuf, len,
 					      0/*read*/, NULL, ops);
       if (xfered > 0)
 	return xfered;
@@ -1708,14 +1708,14 @@ target_read_until_error (struct target_ops *ops,
 	     it's likely that the very first byte is not accessible.
 	     Try reading the first byte, to avoid doing log N tries
 	     below.  */
-	  xfer = target_read_partial (ops, object, annex, 
+	  xfer = target_read_partial (ops, object, annex,
 				      (gdb_byte *) buf + xfered, start, 1);
 	  if (xfer <= 0)
 	    return xfered;
 	  start += 1;
 	  remaining -= 1;
 	  half = remaining/2;
-	  
+
 	  while (half > 0)
 	    {
 	      xfer = target_read_partial (ops, object, annex,
@@ -1725,7 +1725,7 @@ target_read_until_error (struct target_ops *ops,
 		return xfered;
 	      if (xfer < 0)
 		{
-		  remaining = half;		  
+		  remaining = half;
 		}
 	      else
 		{
@@ -2038,7 +2038,7 @@ void
 target_detach (char *args, int from_tty)
 {
   struct target_ops* t;
-  
+
   if (gdbarch_has_global_breakpoints (target_gdbarch))
     /* Don't remove global breakpoints here.  They're removed on
        disconnection from the target.  */
@@ -2188,7 +2188,7 @@ target_mourn_inferior (void)
   struct target_ops *t;
   for (t = current_target.beneath; t != NULL; t = t->beneath)
     {
-      if (t->to_mourn_inferior != NULL)	
+      if (t->to_mourn_inferior != NULL)
 	{
 	  t->to_mourn_inferior (t);
 	  if (targetdebug)
@@ -2736,7 +2736,7 @@ init_dummy_target (void)
   dummy_target.to_longname = "None";
   dummy_target.to_doc = "";
   dummy_target.to_attach = find_default_attach;
-  dummy_target.to_detach = 
+  dummy_target.to_detach =
     (void (*)(struct target_ops *, char *, int))target_ignore;
   dummy_target.to_create_inferior = find_default_create_inferior;
   dummy_target.to_can_async_p = find_default_can_async_p;
@@ -2781,7 +2781,7 @@ target_attach (char *args, int from_tty)
   struct target_ops *t;
   for (t = current_target.beneath; t != NULL; t = t->beneath)
     {
-      if (t->to_attach != NULL)	
+      if (t->to_attach != NULL)
 	{
 	  t->to_attach (t, args, from_tty);
 	  if (targetdebug)

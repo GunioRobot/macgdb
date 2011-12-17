@@ -92,11 +92,11 @@ END_RELOC_NUMBERS (R_68K_max)
 #define EF_M68K_CF_ISA_B	0x05
 #define EF_M68K_CF_ISA_C	0x06
 #define EF_M68K_CF_ISA_C_NODIV	0x07  /* ISA C except for div */
-#define EF_M68K_CF_MAC_MASK	0x30 
+#define EF_M68K_CF_MAC_MASK	0x30
 #define EF_M68K_CF_MAC		0x10  /* MAC */
 #define EF_M68K_CF_EMAC		0x20  /* EMAC */
 #define EF_M68K_CF_EMAC_B	0x30  /* EMAC_B */
 #define EF_M68K_CF_FLOAT	0x40  /* Has float insns */
 #define EF_M68K_CF_MASK		0xFF
-     
+
 #endif

@@ -384,21 +384,21 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = 1.5 gnits
-noinst_HEADERS = 
+noinst_HEADERS =
 noinst_LIBRARIES = libgnu.a
-noinst_LTLIBRARIES = 
+noinst_LTLIBRARIES =
 EXTRA_DIST = $(top_srcdir)/gnulib/extra/link-warning.h memchr.c \
 	memcmp.c memmem.c str-two-way.h stdint.in.h string.in.h \
 	wchar.in.h
 BUILT_SOURCES = $(STDINT_H) string.h $(WCHAR_H)
-SUFFIXES = 
+SUFFIXES =
 MOSTLYCLEANFILES = core *.stackdump stdint.h stdint.h-t string.h \
 	string.h-t wchar.h wchar.h-t
-MOSTLYCLEANDIRS = 
-CLEANFILES = 
-DISTCLEANFILES = 
-MAINTAINERCLEANFILES = 
-AM_CPPFLAGS = 
+MOSTLYCLEANDIRS =
+CLEANFILES =
+DISTCLEANFILES =
+MAINTAINERCLEANFILES =
+AM_CPPFLAGS =
 libgnu_a_SOURCES = dummy.c
 libgnu_a_LIBADD = $(gl_LIBOBJS)
 libgnu_a_DEPENDENCIES = $(gl_LIBOBJS)
@@ -442,7 +442,7 @@ $(am__aclocal_m4_deps):
 
 clean-noinstLIBRARIES:
 	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libgnu.a: $(libgnu_a_OBJECTS) $(libgnu_a_DEPENDENCIES) 
+libgnu.a: $(libgnu_a_OBJECTS) $(libgnu_a_DEPENDENCIES)
 	-rm -f libgnu.a
 	$(libgnu_a_AR) libgnu.a $(libgnu_a_OBJECTS) $(libgnu_a_LIBADD)
 	$(RANLIB) libgnu.a

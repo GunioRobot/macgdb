@@ -238,7 +238,7 @@ mi_gdb_test "-var-update *" \
 	"update all vars: lsimple and others changed"
 
 
-### 
+###
 #
 # Test assignment to variables. More tests on assignment are in other files.
 #
@@ -361,7 +361,7 @@ mi_gdb_test "-var-assign lsimple.integer 333" \
 	"assign to lsimple.integer"
 
 ######
-# End of assign tests 
+# End of assign tests
 #####
 
 set line_subroutine1_body [gdb_get_line_number "global_simple.integer = i + 3;"]

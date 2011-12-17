@@ -8,7 +8,7 @@
 	start
 
 	sts mach, r7
-	
+
 	.global mulsw
 zero:
 	mov #0, r0
@@ -62,7 +62,7 @@ lxs:
 	shll8 r4
 	cmp/eq r3, r4
 	bf wrong
-	
+
 lxl:
 	# Large * large.
 	mov #255, r0
@@ -77,13 +77,13 @@ lxl:
 	shll16 r4
 	cmp/eq r3, r4
 	bf wrong
-	
-invariant:	
+
+invariant:
 	# Ensure MACH is invariant.
 	sts mach, r8
 	cmp/eq r7, r8
 	bf wrong
-	 
+
 okay:
 	pass
 

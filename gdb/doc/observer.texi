@@ -207,7 +207,7 @@ exited.  The argument @var{pid} identifies the inferior.
 @end deftypefun
 
  @deftypefun void test_notification (int @var{somearg})
-This observer is used for internal testing.  Do not use.  
+This observer is used for internal testing.  Do not use.
 See testsuite/gdb.gdb/observer.exp.
  @end deftypefun
 

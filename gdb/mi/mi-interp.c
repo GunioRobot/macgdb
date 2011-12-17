@@ -286,8 +286,8 @@ mi_new_thread (struct thread_info *t)
 {
   struct mi_interp *mi = top_level_interpreter_data ();
 
-  fprintf_unfiltered (mi->event_channel, 
-		      "thread-created,id=\"%d\",group-id=\"%d\"", 
+  fprintf_unfiltered (mi->event_channel,
+		      "thread-created,id=\"%d\",group-id=\"%d\"",
 		      t->num, t->ptid.pid);
   gdb_flush (mi->event_channel);
 }
@@ -302,8 +302,8 @@ mi_thread_exit (struct thread_info *t, int silent)
 
   mi = top_level_interpreter_data ();
   target_terminal_ours ();
-  fprintf_unfiltered (mi->event_channel, 
-		      "thread-exited,id=\"%d\",group-id=\"%d\"", 
+  fprintf_unfiltered (mi->event_channel,
+		      "thread-exited,id=\"%d\",group-id=\"%d\"",
 		      t->num,t->ptid.pid);
   gdb_flush (mi->event_channel);
 }
@@ -313,7 +313,7 @@ mi_new_inferior (int pid)
 {
   struct mi_interp *mi = top_level_interpreter_data ();
   target_terminal_ours ();
-  fprintf_unfiltered (mi->event_channel, "thread-group-created,id=\"%d\"", 
+  fprintf_unfiltered (mi->event_channel, "thread-group-created,id=\"%d\"",
 		      pid);
   gdb_flush (mi->event_channel);
 }
@@ -323,9 +323,9 @@ mi_inferior_exit (int pid)
 {
   struct mi_interp *mi = top_level_interpreter_data ();
   target_terminal_ours ();
-  fprintf_unfiltered (mi->event_channel, "thread-group-exited,id=\"%d\"", 
+  fprintf_unfiltered (mi->event_channel, "thread-group-exited,id=\"%d\"",
 		      pid);
-  gdb_flush (mi->event_channel);  
+  gdb_flush (mi->event_channel);
 }
 
 static void
@@ -341,7 +341,7 @@ mi_on_normal_stop (struct bpstats *bs, int print_frame)
     {
       if (uiout != mi_uiout)
 	{
-	  /* The normal_stop function has printed frame information into 
+	  /* The normal_stop function has printed frame information into
 	     CLI uiout, or some other non-MI uiout.  There's no way we
 	     can extract proper fields from random uiout object, so we print
 	     the frame again.  In practice, this can only happen when running
@@ -356,16 +356,16 @@ mi_on_normal_stop (struct bpstats *bs, int print_frame)
 			pid_to_thread_id (inferior_ptid));
       if (non_stop)
 	{
-	  struct cleanup *back_to = make_cleanup_ui_out_list_begin_end 
+	  struct cleanup *back_to = make_cleanup_ui_out_list_begin_end
 	    (mi_uiout, "stopped-threads");
 	  ui_out_field_int (mi_uiout, NULL,
-			    pid_to_thread_id (inferior_ptid));		  		  
+			    pid_to_thread_id (inferior_ptid));
 	  do_cleanups (back_to);
 	}
       else
 	ui_out_field_string (mi_uiout, "stopped-threads", "all");
     }
-  
+
   fputs_unfiltered ("*stopped", raw_stdout);
   mi_out_put (mi_uiout, raw_stdout);
   mi_out_rewind (mi_uiout);
@@ -485,9 +485,9 @@ mi_solib_loaded (struct so_list *solib)
 {
   struct mi_interp *mi = top_level_interpreter_data ();
   target_terminal_ours ();
-  fprintf_unfiltered (mi->event_channel, 
-		      "library-loaded,id=\"%s\",target-name=\"%s\",host-name=\"%s\",symbols-loaded=\"%d\"", 
-		      solib->so_original_name, solib->so_original_name, 
+  fprintf_unfiltered (mi->event_channel,
+		      "library-loaded,id=\"%s\",target-name=\"%s\",host-name=\"%s\",symbols-loaded=\"%d\"",
+		      solib->so_original_name, solib->so_original_name,
 		      solib->so_name, solib->symbols_loaded);
   gdb_flush (mi->event_channel);
 }
@@ -497,9 +497,9 @@ mi_solib_unloaded (struct so_list *solib)
 {
   struct mi_interp *mi = top_level_interpreter_data ();
   target_terminal_ours ();
-  fprintf_unfiltered (mi->event_channel, 
-		      "library-unloaded,id=\"%s\",target-name=\"%s\",host-name=\"%s\"", 
-		      solib->so_original_name, solib->so_original_name, 
+  fprintf_unfiltered (mi->event_channel,
+		      "library-unloaded,id=\"%s\",target-name=\"%s\",host-name=\"%s\"",
+		      solib->so_original_name, solib->so_original_name,
 		      solib->so_name);
   gdb_flush (mi->event_channel);
 }

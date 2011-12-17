@@ -16,7 +16,7 @@ dst1:	.byte	0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 dst2:	.byte	0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 	start
-.if (sim_cpu == h8sx)	
+.if (sim_cpu == h8sx)
 movsd_n:#
 	# In this test, the transfer will stop after n bytes.
 	#
@@ -30,7 +30,7 @@ movsd_n:#
 	movsd.b	fail1:16
 ;;; 	.word	0x7b84
 ;;; 	.word	0x02
-	
+
 	bra	pass1
 fail1:	fail
 pass1:	test_cc_clear
@@ -94,7 +94,7 @@ pass2:	test_cc_clear
 	bne	fail2:16
 	cmp.b	#0,     @dst2+5
 	bne	fail2:16
-.endif	
+.endif
 	pass
 
 	exit 0

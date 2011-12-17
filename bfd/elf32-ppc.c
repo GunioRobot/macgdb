@@ -2733,7 +2733,7 @@ struct ppc_elf_link_hash_table
 
   /* The bfd that forced an old-style PLT.  */
   bfd *old_bfd;
- 
+
   /* TLS local dynamic got entry handling.  */
   union {
     bfd_signed_vma refcount;
@@ -4067,15 +4067,15 @@ ppc_elf_merge_obj_attributes (bfd *ibfd, bfd *obfd)
 	  (_("Warning: %B uses hard float, %B uses soft float"), obfd, ibfd);
       else if (out_attr->i == 1 && in_attr->i == 3)
 	_bfd_error_handler
-	  (_("Warning: %B uses double-precision hard float, %B uses single-precision hard float"), 
+	  (_("Warning: %B uses double-precision hard float, %B uses single-precision hard float"),
 	  obfd, ibfd);
       else if (out_attr->i == 3 && in_attr->i == 1)
 	_bfd_error_handler
-	  (_("Warning: %B uses double-precision hard float, %B uses single-precision hard float"), 
+	  (_("Warning: %B uses double-precision hard float, %B uses single-precision hard float"),
 	  ibfd, obfd);
       else if (out_attr->i == 3 && in_attr->i == 2)
 	_bfd_error_handler
-	  (_("Warning: %B uses soft float, %B uses single-precision hard float"), 
+	  (_("Warning: %B uses soft float, %B uses single-precision hard float"),
 	  ibfd, obfd);
       else if (out_attr->i == 2 && (in_attr->i == 1 || in_attr->i == 3))
 	_bfd_error_handler
@@ -5183,7 +5183,7 @@ allocate_dynrelocs (struct elf_link_hash_entry *h, void *inf)
 
 			/* If this symbol is not defined in a regular
 			   file, and we are not generating a shared
-			   library, then set the symbol to this location 
+			   library, then set the symbol to this location
 			   in the .plt.  This is to avoid text
 			   relocations, and is required to make
 			   function pointers compare as equal between
@@ -5921,7 +5921,7 @@ ppc_elf_relax_section (bfd *abfd,
      anyway.  */
   if (link_info->relocatable && link_info->shared)
      return TRUE;
-  
+
   trampoff = (isec->size + 3) & (bfd_vma) -4;
   /* Space for a branch around any trampolines.  */
   trampoff += 4;
@@ -6327,7 +6327,7 @@ ppc_elf_relax_section (bfd *abfd,
       Elf_Internal_Rela *new_relocs = bfd_malloc ((changes + isec->reloc_count)
 						  * sizeof (*new_relocs));
       unsigned ix;
-      
+
       if (!new_relocs)
 	goto error_return;
       memcpy (new_relocs, internal_relocs,
@@ -6369,7 +6369,7 @@ ppc_elf_relax_section (bfd *abfd,
 	    irel++;
 	  }
     }
-  
+
   return TRUE;
 
  error_return:
@@ -8019,7 +8019,7 @@ ppc_elf_finish_dynamic_symbol (bfd *output_bfd,
 	      {
 		bfd_vma got_offset;
 		const bfd_vma *plt_entry;
-		
+
 		/* The first three entries in .got.plt are reserved.  */
 		got_offset = (reloc_index + 3) * 4;
 
@@ -8060,7 +8060,7 @@ ppc_elf_finish_dynamic_symbol (bfd *output_bfd,
 		   low-order 16 bits of the load instruction.  */
 		/* NOTE: It appears that this is now an index rather than a
 		   prescaled offset.  */
-		bfd_put_32 (output_bfd, 
+		bfd_put_32 (output_bfd,
 			    plt_entry[4] | reloc_index,
 			    htab->plt->contents + ent->plt.offset + 16);
 		/* This instruction is a PC-relative branch whose target is
@@ -8069,8 +8069,8 @@ ppc_elf_finish_dynamic_symbol (bfd *output_bfd,
 		   The address is encoded in bits 6-29, inclusive.  The value
 		   stored is right-shifted by two bits, permitting a 26-bit
 		   offset.  */
-		bfd_put_32 (output_bfd, 
-			    (plt_entry[5] 
+		bfd_put_32 (output_bfd,
+			    (plt_entry[5]
 			     | (-(ent->plt.offset + 20) & 0x03fffffc)),
 			    htab->plt->contents + ent->plt.offset + 20);
 		bfd_put_32 (output_bfd, plt_entry[6],
@@ -8326,7 +8326,7 @@ ppc_elf_finish_dynamic_sections (bfd *output_bfd,
   dynobj = elf_hash_table (info)->dynobj;
   sdyn = bfd_get_section_by_name (dynobj, ".dynamic");
   if (htab->is_vxworks)
-    splt = bfd_get_section_by_name (dynobj, ".plt");  
+    splt = bfd_get_section_by_name (dynobj, ".plt");
   else
     splt = NULL;
 
@@ -8436,7 +8436,7 @@ ppc_elf_finish_dynamic_sections (bfd *output_bfd,
     {
       /* Use the right PLT. */
       static const bfd_vma *plt_entry = NULL;
-      plt_entry = info->shared ? 
+      plt_entry = info->shared ?
 	ppc_elf_vxworks_pic_plt0_entry : ppc_elf_vxworks_plt0_entry;
 
       if (!info->shared)
@@ -8475,7 +8475,7 @@ ppc_elf_finish_dynamic_sections (bfd *output_bfd,
 	  rela.r_addend = 0;
 	  bfd_elf32_swap_reloca_out (output_bfd, &rela, loc);
 	  loc += sizeof (Elf32_External_Rela);
-	  
+
 	  /* Output the @l relocation for the second instruction.  */
 	  rela.r_offset = (htab->plt->output_section->vma
 			   + htab->plt->output_offset

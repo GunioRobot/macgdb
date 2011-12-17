@@ -1,11 +1,11 @@
-@c This file is designed to be included in manuals that use 
+@c This file is designed to be included in manuals that use
 @c expandargv.
 
 @item @@@var{file}
 Read command-line options from @var{file}.  The options read are
 inserted in place of the original @@@var{file} option.  If @var{file}
 does not exist, or cannot be read, then the option will be treated
-literally, and not removed.  
+literally, and not removed.
 
 Options in @var{file} are separated by whitespace.  A whitespace
 character may be included in an option by surrounding the entire

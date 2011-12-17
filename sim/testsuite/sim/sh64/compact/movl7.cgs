@@ -14,7 +14,7 @@
 	# Store something first.
 	mov #170, r3
 	mov.l r3, @r0
-	
+
 	mov.l @r0+, r1
 check:
 	cmp/eq r1, r3
@@ -25,13 +25,13 @@ check:
 	cmp/eq r7, r0
 	bf wrong
 
-equal:	
+equal:
 	# Test rm = rn.
 	mov #30, r0
 	shll8 r0
 	mov.l @r0+, r0
 
-okay:	
+okay:
 	pass
 wrong:
 	fail

@@ -43,7 +43,7 @@ END_RELOC_NUMBERS (R_ARC_max)
 /* Various CPU types.  */
 
 #define E_ARC_MACH_ARC5 0
-#define E_ARC_MACH_ARC6 1	
+#define E_ARC_MACH_ARC6 1
 #define E_ARC_MACH_ARC7 2
 #define E_ARC_MACH_ARC8 3
 

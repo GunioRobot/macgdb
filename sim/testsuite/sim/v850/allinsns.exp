@@ -36,4 +36,3 @@ if [istarget v850*-*] {
 #    }
 #    puts [format "%-30s %s" $var "[set ::$var]"]
 #}
-	

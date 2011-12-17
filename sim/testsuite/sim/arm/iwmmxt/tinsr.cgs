@@ -15,7 +15,7 @@ tinsr:
 	mcr        p15, 0, r1, cr15, cr1, 0
 
 	# Test Byte Wide Insertion
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -23,15 +23,15 @@ tinsr:
 	tmcrr	   wr0, r0, r1
 
 	tinsrb	   wr0, r2, #3
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0xff345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x111111ff
-	
+
 	# Test Half Word Wide Insertion
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -39,15 +39,15 @@ tinsr:
 	tmcrr	   wr0, r0, r1
 
 	tinsrh	   wr0, r2, #2
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abc11ff
 	test_h_gr  r2, 0x111111ff
-	
+
 	# Test Word Wide Insertion
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -55,11 +55,11 @@ tinsr:
 	tmcrr	   wr0, r0, r1
 
 	tinsrw	   wr0, r2, #1
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x111111ff
 	test_h_gr  r2, 0x111111ff
-	
+
 	pass

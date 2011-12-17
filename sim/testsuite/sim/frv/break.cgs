@@ -7,7 +7,7 @@
 
 	.global tra
 tra:
-	; Can't test break anymore in the user environment because it is the 
+	; Can't test break anymore in the user environment because it is the
 	; debugger's breakpoint insn. Just pass this test for now.
 	pass
 
@@ -55,4 +55,4 @@ ok1:	test_spr_addr	ret,bpcsr
 	rett		0			; nop
 	rett		1
 
-	
+

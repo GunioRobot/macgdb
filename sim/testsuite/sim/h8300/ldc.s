@@ -16,7 +16,7 @@ byte_src:
 	.byte	0xff
 byte_post:
 	.byte	0
-	
+
 	start
 
 ldc_imm8_ccr:
@@ -45,7 +45,7 @@ ldc_imm8_ccr:
 .L8:
 	test_cc_clear
 	test_grs_a5a5
-	
+
 ldc_reg8_ccr:
 	set_grs_a5a5
 	set_ccr_zero
@@ -103,8 +103,8 @@ ldc_imm8_exr:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
-ldc_reg8_exr:	
+
+ldc_reg8_exr:
 	set_grs_a5a5
 	set_ccr_zero
 
@@ -278,7 +278,7 @@ ldc_postinc_ccr:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 ldc_postinc_exr:
 	set_grs_a5a5
 	set_ccr_zero
@@ -296,7 +296,7 @@ ldc_postinc_exr:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 ldc_ind_ccr:
 	set_grs_a5a5
 	set_ccr_zero
@@ -313,7 +313,7 @@ ldc_ind_ccr:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 ldc_ind_exr:
 	set_grs_a5a5
 	set_ccr_zero
@@ -331,11 +331,11 @@ ldc_ind_exr:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .endif
-	
+
 .if (sim_cpu == h8sx)		; New vbr and sbr registers for h8sx
-ldc_reg_sbr:	
+ldc_reg_sbr:
 	set_grs_a5a5
 	set_ccr_zero
 
@@ -352,7 +352,7 @@ ldc_reg_sbr:
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 
-ldc_reg_vbr:	
+ldc_reg_vbr:
 	set_grs_a5a5
 	set_ccr_zero
 

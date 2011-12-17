@@ -287,67 +287,67 @@ const CGEN_OPERAND openrisc_cgen_operand_table[] =
 {
 /* pc: program counter */
   { "pc", OPENRISC_OPERAND_PC, HW_H_PC, 0, 0,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_NIL] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_NIL] } },
     { 0|A(SEM_ONLY), { { { (1<<MACH_BASE), 0 } } } }  },
 /* sr: special register */
   { "sr", OPENRISC_OPERAND_SR, HW_H_SR, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0|A(SEM_ONLY), { { { (1<<MACH_BASE), 0 } } } }  },
 /* cbit: condition bit */
   { "cbit", OPENRISC_OPERAND_CBIT, HW_H_CBIT, 0, 0,
-    { 0, { (const PTR) 0 } }, 
+    { 0, { (const PTR) 0 } },
     { 0|A(SEM_ONLY), { { { (1<<MACH_BASE), 0 } } } }  },
 /* simm-16: 16 bit signed immediate */
   { "simm-16", OPENRISC_OPERAND_SIMM_16, HW_H_SINT, 15, 16,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_SIMM16] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_SIMM16] } },
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* uimm-16: 16 bit unsigned immediate */
   { "uimm-16", OPENRISC_OPERAND_UIMM_16, HW_H_UINT, 15, 16,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_UIMM16] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_UIMM16] } },
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* disp-26: pc-rel 26 bit */
   { "disp-26", OPENRISC_OPERAND_DISP_26, HW_H_IADDR, 25, 26,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_DISP26] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_DISP26] } },
     { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
 /* abs-26: abs 26 bit */
   { "abs-26", OPENRISC_OPERAND_ABS_26, HW_H_IADDR, 25, 26,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_ABS26] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_ABS26] } },
     { 0|A(ABS_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
 /* uimm-5: imm5 */
   { "uimm-5", OPENRISC_OPERAND_UIMM_5, HW_H_UINT, 4, 5,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_UIMM5] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_UIMM5] } },
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* rD: destination register */
   { "rD", OPENRISC_OPERAND_RD, HW_H_GR, 25, 5,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_R1] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_R1] } },
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* rA: source register A */
   { "rA", OPENRISC_OPERAND_RA, HW_H_GR, 20, 5,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_R2] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_R2] } },
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* rB: source register B */
   { "rB", OPENRISC_OPERAND_RB, HW_H_GR, 15, 5,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_R3] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_R3] } },
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* op-f-23: f-op23 */
   { "op-f-23", OPENRISC_OPERAND_OP_F_23, HW_H_UINT, 23, 3,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_OP4] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_OP4] } },
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* op-f-3: f-op3 */
   { "op-f-3", OPENRISC_OPERAND_OP_F_3, HW_H_UINT, 25, 5,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_OP5] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_OP5] } },
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* hi16: high 16 bit immediate, sign optional */
   { "hi16", OPENRISC_OPERAND_HI16, HW_H_HI16, 15, 16,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_SIMM16] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_SIMM16] } },
     { 0|A(SIGN_OPT), { { { (1<<MACH_BASE), 0 } } } }  },
 /* lo16: low 16 bit immediate, sign optional */
   { "lo16", OPENRISC_OPERAND_LO16, HW_H_LO16, 15, 16,
-    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_LO16] } }, 
+    { 0, { (const PTR) &openrisc_cgen_ifld_table[OPENRISC_F_LO16] } },
     { 0|A(SIGN_OPT), { { { (1<<MACH_BASE), 0 } } } }  },
 /* ui16nc: 16 bit immediate, sign optional */
   { "ui16nc", OPENRISC_OPERAND_UI16NC, HW_H_LO16, 10, 16,
-    { 2, { (const PTR) &OPENRISC_F_I16NC_MULTI_IFIELD[0] } }, 
+    { 2, { (const PTR) &OPENRISC_F_I16NC_MULTI_IFIELD[0] } },
     { 0|A(SIGN_OPT)|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
 /* sentinel */
   { 0, 0, 0, 0, 0,
@@ -983,7 +983,7 @@ openrisc_cgen_cpu_open (enum cgen_cpu_open_arg arg_type, ...)
 
   /* Default to not allowing signed overflow.  */
   cd->signed_overflow_ok_p = 0;
-  
+
   return (CGEN_CPU_DESC) cd;
 }
 
@@ -1023,7 +1023,7 @@ openrisc_cgen_cpu_close (CGEN_CPU_DESC cd)
       for (i = 0; i < cd->insn_table.num_init_entries; ++i, ++insns)
 	if (CGEN_INSN_RX (insns))
 	  regfree (CGEN_INSN_RX (insns));
-    }  
+    }
 
   if (cd->macro_insn_table.init_entries)
     free ((CGEN_INSN *) cd->macro_insn_table.init_entries);

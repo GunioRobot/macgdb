@@ -63,7 +63,7 @@ if {[gdb_compile_pthreads "${srcdir}/${subdir}/${libfile}.c" "${objdir}/${subdir
     return -1
 }
 
-if { ($gcc_compiled 
+if { ($gcc_compiled
 &&  ([istarget "powerpc*-*-aix*"]
 || [istarget "rs6000*-*-aix*"] )) } {
     set additional_flags "additional_flags=-L${objdir}/${subdir}"
@@ -104,7 +104,7 @@ gdb_test "break $line_number" \
 gdb_test "continue" \
 	"main .* at .*:.*return 0.*break here to check result.*" \
         "continue to break"
-# This is more of a gcc/glibc test, really. 
+# This is more of a gcc/glibc test, really.
 #
 gdb_test "print result" "3" "print result"
 

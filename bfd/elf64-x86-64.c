@@ -860,7 +860,7 @@ elf64_x86_64_check_tls_transition (bfd *abfd, asection *sec,
 
       h = sym_hashes[r_symndx - symtab_hdr->sh_info];
       /* Use strncmp to check __tls_get_addr since __tls_get_addr
-	 may be versioned.  */ 
+	 may be versioned.  */
       return (h != NULL
 	      && h->root.root.string != NULL
 	      && (ELF64_R_TYPE (rel[1].r_info) == R_X86_64_PC32
@@ -1100,7 +1100,7 @@ elf64_x86_64_check_relocs (bfd *abfd, struct bfd_link_info *info,
 						   TRUE);
 	      if (h == NULL)
 		return FALSE;
-	      
+
 	      /* Fake a STT_GNU_IFUNC symbol.  */
 	      h->type = STT_GNU_IFUNC;
 	      h->def_regular = 1;
@@ -1152,7 +1152,7 @@ elf64_x86_64_check_relocs (bfd *abfd, struct bfd_link_info *info,
 	      /* It is referenced by a non-shared object. */
 	      h->ref_regular = 1;
 	      h->needs_plt = 1;
- 
+
 	      /* STT_GNU_IFUNC symbol must go through PLT.  */
 	      h->plt.refcount += 1;
 
@@ -2423,7 +2423,7 @@ elf64_x86_64_size_dynamic_sections (bfd *output_bfd ATTRIBUTE_UNUSED,
 	  /* If any dynamic relocs apply to a read-only section,
 	     then we need a DT_TEXTREL entry.  */
 	  if ((info->flags & DF_TEXTREL) == 0)
-	    elf_link_hash_traverse (&htab->elf, 
+	    elf_link_hash_traverse (&htab->elf,
 				    elf64_x86_64_readonly_dynrelocs,
 				    info);
 
@@ -2621,7 +2621,7 @@ elf64_x86_64_relocate_section (bfd *output_bfd, struct bfd_link_info *info,
 	      if (h == NULL)
 		abort ();
 
-	      /* Set STT_GNU_IFUNC symbol value.  */ 
+	      /* Set STT_GNU_IFUNC symbol value.  */
 	      h->root.u.def.value = sym->st_value;
 	      h->root.u.def.section = sec;
 	    }
@@ -2690,7 +2690,7 @@ elf64_x86_64_relocate_section (bfd *output_bfd, struct bfd_link_info *info,
 		abort ();
 	      goto do_relocation;
 
-	    case R_X86_64_64: 
+	    case R_X86_64_64:
 	      if (rel->r_addend != 0)
 		{
 		  if (h->root.root.string)
@@ -2795,9 +2795,9 @@ elf64_x86_64_relocate_section (bfd *output_bfd, struct bfd_link_info *info,
 		      || h->forced_local
 		      || info->symbolic)
 		    {
-		      /* This references the local defitionion.  We must 
+		      /* This references the local defitionion.  We must
 			 initialize this entry in the global offset table.
-			 Since the offset must always be a multiple of 8, 
+			 Since the offset must always be a multiple of 8,
 			 we use the least significant bit to record
 			 whether we have initialized it already.
 
@@ -3757,7 +3757,7 @@ elf64_x86_64_finish_dynamic_symbol (bfd *output_bfd,
 	 corresponds to this symbol.  This is the index of this symbol
 	 in all the symbols for which we are making plt entries.  The
 	 first entry in the procedure linkage table is reserved.
-	 
+
 	 Get the offset into the .got table of the entry that
 	 corresponds to this function.	Each .got entry is GOT_ENTRY_SIZE
 	 bytes. The first three are reserved for the dynamic linker.
@@ -3968,7 +3968,7 @@ elf64_x86_64_finish_local_dynamic_symbol (void **slot, void *inf)
   struct elf_link_hash_entry *h
     = (struct elf_link_hash_entry *) *slot;
   struct bfd_link_info *info
-    = (struct bfd_link_info *) inf; 
+    = (struct bfd_link_info *) inf;
 
   return elf64_x86_64_finish_dynamic_symbol (info->output_bfd,
 					     info, h, NULL);

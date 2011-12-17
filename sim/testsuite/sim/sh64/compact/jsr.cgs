@@ -16,7 +16,7 @@ jsr:
 	shll2 r0
 	add #16, r0
 	jsr @r0
-slot:	
+slot:
 	nop
 bad:
 	fail

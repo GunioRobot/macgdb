@@ -170,7 +170,7 @@ void (*after_char_processing_hook) ();
 
 
 /* Wrapper function for calling into the readline library. The event
-   loop expects the callback function to have a paramter, while readline 
+   loop expects the callback function to have a paramter, while readline
    expects none. */
 static void
 rl_callback_read_char_wrapper (gdb_client_data client_data)
@@ -196,7 +196,7 @@ cli_command_loop (void)
       /* Tell readline what the prompt to display is and what function it
          will need to call after a whole line is read. This also displays
          the first prompt. */
-      length = strlen (PREFIX (0)) 
+      length = strlen (PREFIX (0))
 	+ strlen (gdb_prompt) + strlen (SUFFIX (0)) + 1;
       a_prompt = (char *) alloca (length);
       strcpy (a_prompt, PREFIX (0));
@@ -487,9 +487,9 @@ command_handler (char *command)
   if (instream == stdin && stdin_is_tty)
     reinitialize_more_filter ();
 
-  /* If readline returned a NULL command, it means that the 
+  /* If readline returned a NULL command, it means that the
      connection with the terminal is gone. This happens at the
-     end of a testsuite run, after Expect has hung up 
+     end of a testsuite run, after Expect has hung up
      but GDB is still alive. In such a case, we just quit gdb
      killing the inferior program too. */
   if (command == 0)
@@ -597,7 +597,7 @@ command_line_handler (char *rl)
   if (source_file_name != NULL)
     ++source_line_number;
 
-  /* If we are in this case, then command_handler will call quit 
+  /* If we are in this case, then command_handler will call quit
      and exit from gdb. */
   if (!rl || rl == (char *) EOF)
     {
@@ -887,7 +887,7 @@ mark_async_signal_handler_wrapper (void *token)
   mark_async_signal_handler ((struct async_signal_handler *) token);
 }
 
-/* Tell the event loop what to do if SIGINT is received. 
+/* Tell the event loop what to do if SIGINT is received.
    See event-signal.c. */
 void
 handle_sigint (int sig)
@@ -936,7 +936,7 @@ async_request_quit (gdb_client_data arg)
 }
 
 #ifdef SIGQUIT
-/* Tell the event loop what to do if SIGQUIT is received. 
+/* Tell the event loop what to do if SIGQUIT is received.
    See event-signal.c. */
 static void
 handle_sigquit (int sig)
@@ -957,7 +957,7 @@ async_do_nothing (gdb_client_data arg)
 #endif
 
 #ifdef SIGHUP
-/* Tell the event loop what to do if SIGHUP is received. 
+/* Tell the event loop what to do if SIGHUP is received.
    See event-signal.c. */
 static void
 handle_sighup (int sig)
@@ -1015,7 +1015,7 @@ async_stop_sig (gdb_client_data arg)
 }
 #endif /* STOP_SIGNAL */
 
-/* Tell the event loop what to do if SIGFPE is received. 
+/* Tell the event loop what to do if SIGFPE is received.
    See event-signal.c. */
 static void
 handle_sigfpe (int sig)
@@ -1033,7 +1033,7 @@ async_float_handler (gdb_client_data arg)
   error (_("Erroneous arithmetic operation."));
 }
 
-/* Tell the event loop what to do if SIGWINCH is received. 
+/* Tell the event loop what to do if SIGWINCH is received.
    See event-signal.c. */
 #if defined(SIGWINCH) && defined(SIGWINCH_HANDLER)
 static void
@@ -1090,7 +1090,7 @@ gdb_setup_readline (void)
 	 could be overwritten by a command in .gdbinit like 'set
 	 editing on' or 'off'.  */
       async_command_editing_p = 1;
-	  
+
       /* When a character is detected on instream by select or poll,
 	 readline will be invoked via this callback function.  */
       call_readline = rl_callback_read_char_wrapper;
@@ -1100,12 +1100,12 @@ gdb_setup_readline (void)
       async_command_editing_p = 0;
       call_readline = gdb_readline2;
     }
-  
+
   /* When readline has read an end-of-line character, it passes the
      complete line to gdb for processing. command_line_handler is the
      function that does this.  */
   input_handler = command_line_handler;
-      
+
   /* Tell readline to use the same input stream that gdb uses. */
   rl_instream = instream;
 

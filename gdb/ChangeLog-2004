@@ -54,7 +54,7 @@
 2004-12-21  Jim Blandy  <jimb@redhat.com>
 
 	* remote.c (fetch_register_using_p): Fix formatting.
-	
+
 2004-12-21  Paul N. Hilfinger  <hilfingr@otisco.mckusick.com>
 
 	* ada-lang.c (ada_print_subexp): Remove i18n markup from Ada code
@@ -128,7 +128,7 @@
 
 	* hppa-hpux-tdep.c (IS_32BIT_TARGET): New.
 	(in_opd_section): New.
-	(hppa32_hpux_find_global_pointer): Rename from 
+	(hppa32_hpux_find_global_pointer): Rename from
 	hppa_hpux_som_find_global_pointer.
 	(hppa64_hpux_find_global_pointer): New.
 	(ldsid_pattern): New.
@@ -232,7 +232,7 @@
 	is available, use it to determine the base of unwind records.
 	* hppa-tdep.h (gdbarch_tdep): Add new solib methods.
 	* hpread.c: Replace somsolib.h with solib-som.h.
-	(hpread_process_one_debug_symbol): Use target vector to get thread 
+	(hpread_process_one_debug_symbol): Use target vector to get thread
 	start address.
 	* config/pa/hppa64.mt (TDEPFILES): Use new solib interface.
 	* config/pa/hppahpux.mt (TDEPFILES): Likewise.
@@ -241,7 +241,7 @@
 
 2004-12-13  Randolph Chung  <tausq@debian.org>
 
-	* tramp-frame.c (tramp_frame_sniffer): Allow frames with names or 
+	* tramp-frame.c (tramp_frame_sniffer): Allow frames with names or
 	sections to be trampolines too.
 
 2004-12-13  Ben Elliston  <bje@au.ibm.com>
@@ -254,7 +254,7 @@
 	Committed by Andrew Cagney.
 	* abug-rom.c, ada-lang.c, ada-typeprint.c, alpha-tdep.c: i18n
 	markup.
-	
+
 2004-12-12  Andrew Cagney  <cagney@gnu.org>
 
 	* frame.c (get_prev_frame): When unwinding normal frames, check
@@ -401,7 +401,7 @@
 
 2004-12-07  Randolph Chung  <tausq@debian.org>
 
-	* hppa-tdep.c (hppa_stub_Frame_unwind_cache): Stop unwinding if 
+	* hppa-tdep.c (hppa_stub_Frame_unwind_cache): Stop unwinding if
 	unwinding from a frame with pc == 0.
 	(hppa_stub_frame_this_id): Likewise.
 	(hppa_stub_frame_prev_register): Only provide real values if the frame
@@ -493,7 +493,7 @@
 	(convert_floatformat_to_doublest): Use floatformat_normalize_byteorder
 	to normalize and select modified byte order. Pass modified byte order
 	to get_field.
-	(floatformat_is_negative, floatformat_is_nan, floatformat_mantissa): 
+	(floatformat_is_negative, floatformat_is_nan, floatformat_mantissa):
 	Likewise.
 	(convert_doublest_to_floatformat): Select an appropriate intermediate
 	byte order if necessary.  Always convert to the final format before
@@ -512,7 +512,7 @@
 	* gdbarch.h: Regenerate.
 	* hppa-tdep.c (hppa_target_read_pc): Adjust pc if instruction is
 	nullified.
-	(hppa_unwind_pc): Likewise. 
+	(hppa_unwind_pc): Likewise.
 	(hppa_instruction_nullified): Delete.
 	(hppa_gdbarch_init): Don't set instruction_nullified method.
 	* infrun.c (infwait_states): Remove infwait_nullified_state.
@@ -571,9 +571,9 @@
 2004-11-30  Randolph Chung  <tausq@debian.org>
 
 	* hppa-linux-tdep.c (insns_match_pattern_relaxed): New function.
-	(hppa_linux_in_dyncall): Check that we are inside the range of 
+	(hppa_linux_in_dyncall): Check that we are inside the range of
 	$$dyncall, not necessarily at the first insn.
-	(hppa_linux_in_solib_call_trampoline): Identify a trampoline 
+	(hppa_linux_in_solib_call_trampoline): Identify a trampoline
 	even if the pc does not point to the first insn of the trampoline.
 
 2004-11-30  Randolph Chung  <tausq@debian.org>
@@ -742,7 +742,7 @@
 
 	* infttrace.h (ttrace_write_reg_64): Add prototype.
 	* hppah-nat.c (store_inferior_registers): Fix warning from ambiguous
-	expression.  
+	expression.
 	(store_inferior_registers): Correct formatting.  Replace uses of
 	deprecated_registers with calls to regcache_raw_read,
 	regcache_raw_write_part and regcache_raw_read_part.
@@ -891,7 +891,7 @@
 	* ns32knbsd-nat.c, ns32knbsd-tdep.c, ns32k-tdep.c: Delete.
 	* ns32k-tdep.h, config/v850/v850.mt, v850ice.c: Delete.
 	* v850-tdep.c: Delete.
-	
+
 2004-11-13  Joel Brobecker  <brobecker@gnat.com>
 
 	* irix5-nat.c (fetch_core_registers): Replace use of
@@ -968,12 +968,12 @@
 
 	* config/tm/tm-hppa.h (SYMBOLS_CAN_START_WITH_DOLLAR): Remove.
 	* parse.c (SYMBOLS_CAN_START_WITH_DOLLAR): Remove.
-	(write_exp_msymbol): Remove conditional check for symbols starting 
+	(write_exp_msymbol): Remove conditional check for symbols starting
 	with $.  Update comments.
 
 2004-11-12  Randolph Chung  <tausq@debian.org>
 
-	* pa64solib.c (pa64_solib_thread_start_addr): Rename from 
+	* pa64solib.c (pa64_solib_thread_start_addr): Rename from
 	so_lib_thread_start_addr.
 	* pa64solib.h (so_list): Forward declare.
 	(pa64_solib_thread_start_addr): Prototype.
@@ -984,16 +984,16 @@
 	* hpread.c (hpread_process_one_debug_symbol): Use either the som or
 	the elf solib handler to find the start address.
 
-	* config/pa/hppahpux.mh (NATDEPFILES): Move target-specific support 
+	* config/pa/hppahpux.mh (NATDEPFILES): Move target-specific support
 	files to the target makefile.
 	* config/pa/hpux1020.mh (NATDEPFILES):  Likewise.
 	* config/pa/hpux11.mh (NATDEPFILES): Likewise.
 	* config/pa/hpux11w.mh (NATDEPFILES): Likewise.
 
-	* config/pa/hppa64.mt (TDEPFILES): Put target-specific support 
+	* config/pa/hppa64.mt (TDEPFILES): Put target-specific support
 	files for symbol reading and shared library handling here.
-	* config/pa/hppahpux.mt (TDEPFILES): Likewise.  
-	(PA_SOM_ONLY): Define so we can build a 32-bit SOM only target 
+	* config/pa/hppahpux.mt (TDEPFILES): Likewise.
+	(PA_SOM_ONLY): Define so we can build a 32-bit SOM only target
 	without bringing in 64-bit support.
 
 2004-11-12  Andrew Cagney  <cagney@gnu.org>
@@ -1071,20 +1071,20 @@
 
 2004-11-10  msnyder  <msnyder@redhat.com>
 
-	* rs6000-tdep.c (skip_prologue): After saving lr_offset, 
-	must invalidate lr_reg (so we don't try to save it again).  
+	* rs6000-tdep.c (skip_prologue): After saving lr_offset,
+	must invalidate lr_reg (so we don't try to save it again).
 	Ditto for cr_offset and cr_reg.
 
 2004-11-05  Jon Beniston <jon@beniston.com>
 
 	Committed by Andrew Cagney.
-	* remote.c (putpkt_binary) Fix PR gdb/1806. Send an ACK 
-	when an unexpected packet is received, as the target stubs 
+	* remote.c (putpkt_binary) Fix PR gdb/1806. Send an ACK
+	when an unexpected packet is received, as the target stubs
 	continually retransmit the same packet until ACKed.
-	
+
 2004-11-10  Randolph Chung  <tausq@debian.org>
 
-	* frame.c (get_prev_frame): Use get_frame_type to retrieve the 
+	* frame.c (get_prev_frame): Use get_frame_type to retrieve the
 	frame's type.
 
 2004-11-10  Randolph Chung  <tausq@debian.org>
@@ -1109,11 +1109,11 @@
 	* value.c (coerce_ref, coerce_array, coerce_number)
 	(coerce_enum): New functions.
 	(value_as_long, value_as_address): Update.
-	* ada-lang.c (ada_coerce_ref, ada_value_binop) 
+	* ada-lang.c (ada_coerce_ref, ada_value_binop)
 	(ada_evaluate_subexp, ada_value_assign, ada_value_struct_elt): Update.
 	* jv-lang.c (evaluate_subexp_java): Update.
 	* valarith.c (value_less, value_neg, value_complement)
-	(value_binop, value_add, value_subscript, value_x_binop) 
+	(value_binop, value_add, value_subscript, value_x_binop)
 	(value_logical_not, value_sub): Update.
 	* valops.c (check_field, value_struct_elt, value_ind)
 	(value_find_oload_method_list, value_cast, value_assign): Update.
@@ -1129,7 +1129,7 @@
 	* hppa-tdep.c (hppa32_register_name, hppa64_register_name): Make static.
 	(hppa32_push_dummy_call, hppa64_push_dummy_call): Likewise.
 	(hppa_fetch_pointer_argument): Likewise.
-	(hppa_frame_cache): Use safe_frame_unwind_memory instead of 
+	(hppa_frame_cache): Use safe_frame_unwind_memory instead of
 	deprecated_read_memory_nobpt.
 	(_initialize_hppa_tdep): Replace deprecated_add_show_from_set/
 	add_set_cmd sequence with add_setshow_boolean_cmd.
@@ -1161,11 +1161,11 @@
 	(do_examine): Delete asection parameter.
 	(next_section): Delete variable.
 	* valops.c (value_cast, value_at, value_at_lazy)
-	(value_coerce_function, value_addr, value_ind, value_string) 
+	(value_coerce_function, value_addr, value_ind, value_string)
 	(find_rt_vbase_offset, value_full_object): Update.
 	* hpacc-abi.c (hpacc_virtual_fn_field)
 	(hpacc_value_rtti_type): Update.
-	* gnu-v3-abi.c (gnuv3_rtti_type, gnuv3_virtual_fn_field) 
+	* gnu-v3-abi.c (gnuv3_rtti_type, gnuv3_virtual_fn_field)
 	(gnuv3_baseclass_offset): Update.
 	* f-valprint.c (f_val_print): Update.
 	* c-valprint.c (c_val_print): Update.
@@ -1181,7 +1181,7 @@
 	* eval.c (evaluate_subexp_standard): Update.
 	* values.c (allocate_value, value_copy, value_static_field): Update.
 	* findvar.c (read_var_value, locate_var_value): Update.
-	
+
 2004-11-09  Andrew Cagney  <cagney@gnu.org>
 
 	* i386-linux-tdep.c: Include "dwarf2-frame.h".
@@ -1436,7 +1436,7 @@
 2004-11-01  Paul N. Hilfinger  <Hilfinger@gnat.com>
 
 	* values.c (modify_field): Correct handling of bit-fields that
-	don't fit in 32 bits.  Use unsigned operations throughout and 
+	don't fit in 32 bits.  Use unsigned operations throughout and
 	simplify the code a bit.  Document preconditions.
 
 2004-10-31  Andrew Cagney  <cagney@gnu.org>
@@ -1489,21 +1489,21 @@
 	* armnbsd-tdep.c (arm_netbsd_aout_init_abi)
 	(arm_netbsd_aout_in_solib_call_trampoline): Do not set
 	in_solib_call_trampoline, delete corresponding unused function.
-	* vaxnbsd-tdep.c (vaxnbsd_aout_in_solib_call_trampoline) 
+	* vaxnbsd-tdep.c (vaxnbsd_aout_in_solib_call_trampoline)
 	(vaxnbsd_aout_init_abi): Ditto.
-	* sparcnbsd-tdep.c (sparcnbsd_aout_in_solib_call_trampoline) 
+	* sparcnbsd-tdep.c (sparcnbsd_aout_in_solib_call_trampoline)
 	(sparc32nbsd_aout_init_abi): Ditto.
-	* ppc-linux-tdep.c (ppc64_in_solib_call_trampoline) 
+	* ppc-linux-tdep.c (ppc64_in_solib_call_trampoline)
 	(ppc_linux_init_abi): Ditto.
-	* ns32knbsd-tdep.c (ns32knbsd_aout_in_solib_call_trampoline) 
+	* ns32knbsd-tdep.c (ns32knbsd_aout_in_solib_call_trampoline)
 	(ns32knbsd_init_abi_aout): Ditto.
 	* mips-tdep.c (mips_in_call_stub, mips_gdbarch_init): Ditto.
 	* mips-linux-tdep.c (mips_linux_init_abi): Ditto.
-	* m68kbsd-tdep.c (m68kbsd_aout_in_solib_call_trampoline) 
+	* m68kbsd-tdep.c (m68kbsd_aout_in_solib_call_trampoline)
 	(m68kbsd_aout_init_abi): Ditto.
-	* i386-cygwin-tdep.c (i386_cygwin_in_solib_call_trampoline) 
+	* i386-cygwin-tdep.c (i386_cygwin_in_solib_call_trampoline)
 	(i386_cygwin_init_abi): Ditto.
-	* i386bsd-tdep.c (i386bsd_aout_in_solib_call_trampoline) 
+	* i386bsd-tdep.c (i386bsd_aout_in_solib_call_trampoline)
 	(i386bsd_init_abi): Ditto.
 
 	* sparc-sol2-tdep.c (sparc32_sol2_init_abi): Do not set
@@ -1541,7 +1541,7 @@
 	* config/mips/irix6.mt (DEPRECATED_TM_FILE): Delete.
 	* config/mips/tm-linux.h: Don't include tm-mips.h.
 	* config/mips/tm-vxmips.h: Don't include tm-mips.h.
-	* config/mips/irix5.mt (DEPRECATED_TM_FILE): 
+	* config/mips/irix5.mt (DEPRECATED_TM_FILE):
 	* config/mips/tm-wince.h: Don't include.
 
 	* mdebugread.h (MDEBUG_EFI_SYMBOL_NAME): Define.
@@ -1565,7 +1565,7 @@
 	mips_step_skips_delay.
 	(mips_gdbarch_init): Set single_step_through_delay.
 	(mips_dump_tdep): Do not print STEP_SKIPS_DELAY.
-	
+
 2004-10-31  Mark Kettenis  <kettenis@gnu.org>
 
 	* tramp-frame.c (tramp_frame_prepend_unwinder): Set unwinder type
@@ -1607,7 +1607,7 @@
 	* config/mips/tm-mips.h (ecoff_relcate_cfi): Delete.
 	* mdebugread.h (ecoff_relocate_efi): New file.
 	* Makefile.in: Update dependencies.
-	
+
 	* mips-tdep.c (struct frame_extra_info): Delete.
 	(temp_proc_desc): Delete.
 
@@ -1621,7 +1621,7 @@
 	(struct mdebug_extra_func_info): Replace struct
 	alpha_extra_func_info and alpha_extra_func_info_t.
 	* objfiles.c, mips-tdep.c, mips-mdebug-tdep.c: Update.
-	* mdebugread.c, alpha-mdebug-tdep.c: 
+	* mdebugread.c, alpha-mdebug-tdep.c:
 
 	Suggested by Mark Kettenis.
 	* config/mips/tm-mips.h (struct mips_extra_func_info): Delete
@@ -1701,9 +1701,9 @@
 	(mips_mdebug_frame_base_sniffer, non_heuristic_proc_desc)
 	(compare_pdr_entries, the_bfd, mips16_fetch_instruction): Delete.
 	(mips_gdbarch_init): Do not append mdebug sniffers.
-	(PROC_LOW_ADDR, PROC_HIGH_ADDR, PROC_FRAME_OFFSET) 
-	(PROC_FRAME_REG, PROC_FRAME_ADJUST, PROC_REG_MASK) 
-	(PROC_FREG_MASK, PROC_REG_OFFSET, PROC_FREG_OFFSET, PROC_PC_REG) 
+	(PROC_LOW_ADDR, PROC_HIGH_ADDR, PROC_FRAME_OFFSET)
+	(PROC_FRAME_REG, PROC_FRAME_ADJUST, PROC_REG_MASK)
+	(PROC_FREG_MASK, PROC_REG_OFFSET, PROC_FREG_OFFSET, PROC_PC_REG)
 	(PROC_SYMBOL, _PROC_MAGIC_): Delete.
 	* Makefile.in: Update dependencies.
 
@@ -1747,7 +1747,7 @@
 
 	* mips-tdep.c (_initialize_mips_tdep): Use
 	add_setshow_zinteger_cmd.
-	
+
 	* mips-tdep.c (mips_eabi_extract_return_value)
 	(mips_o64_extract_return_value, mips_o64_store_return_value)
 	(return_value_location, mips_eabi_reg_struct_has_addr)
@@ -1826,7 +1826,7 @@
 	* trad-frame.c (trad_frame_get_prev_register): Use
 	frame_unwind_register instead of frame_register_unwind, do not
 	recurse the register's location.
-	* xstormy16-tdep.c (xstormy16_frame_prev_register): 
+	* xstormy16-tdep.c (xstormy16_frame_prev_register):
 	* sparc-tdep.c (sparc32_frame_prev_register): Ditto.
 	* sparc64-tdep.c (sparc64_frame_prev_register): Ditto.
 	* sh-tdep.c (sh_frame_prev_register): Ditto.
@@ -1879,7 +1879,7 @@
 
 	* mips-tdep.h (mips_software_single_step): Move to here ...
 	* config/mips/tm-mips.h: ... from here.
-	* config/mips/tm-linux.h (SOFTWARE_SINGLE_STEP_P) 
+	* config/mips/tm-linux.h (SOFTWARE_SINGLE_STEP_P)
 	(SOFTWARE_SINGLE_STEP): Delete.
 	* mips-linux-tdep.c (mips_linux_init_abi): Set software_single_step.
 
@@ -1985,7 +1985,7 @@
 	* ada-lang.c (ada_lookup_symbol): Correct comment.
 	(ada_evaluate_subexp): Change error message for
 	OP_FUNCALL case so as not to indicate an internal error.
-	
+
 2004-10-15  Joel Brobecker  <brobecker@gnat.com>
 
 	Committed by Paul Hilfinger.
@@ -1993,11 +1993,11 @@
 	type sizes in XVE/XVU types, and emit a warning when that happens,
 	instead of rounding up the size of the resulting type.
 	Some minor reformatting.
-	(ada_is_aligner_type): Do not consider a type as an aligner type 
+	(ada_is_aligner_type): Do not consider a type as an aligner type
 	if there is a corresponding XVS type as well.
-	(ada_evaluate_subexp): For TERNOP_SLICE, handle cases where we 
+	(ada_evaluate_subexp): For TERNOP_SLICE, handle cases where we
 	have several levels of pointer indirection to the array.
-	
+
 2004-10-15  Jerome Guitton  <guitton@gnat.com>
 
 	Committed by Paul Hilfinger.
@@ -2008,7 +2008,7 @@
 	Implements the case when we get a reference when we evaluate
 	the expression of one of the bounds of the slice.
 	(ada_value_struct_elt): when a packed array field is
-	a reference, use ada_coerce_ref to dereference it; use 
+	a reference, use ada_coerce_ref to dereference it; use
 	ada_value_ind only if it is a pointer.
 
 2004-10-15  Joel Brobecker  <brobecker@gnat.com>
@@ -2146,7 +2146,7 @@
 	(struct gdbarch_tdep, cris_mode, cris_mode_update)
 	(cris_cannot_store_register, cris_dump_tdep, cris_gdbarch_init)
 	(_initialize_cris_tdep): Remove CRIS mode command.
-	(cris_fpless_backtrace, _initialize_cris_tdep): Remove 
+	(cris_fpless_backtrace, _initialize_cris_tdep): Remove
 	cris-fpless-backtrace command.
 	(cris_scan_prologue): Fix prologue scanning limit.
 	(cris_register_type): Update to reflect actual registers.
@@ -2154,7 +2154,7 @@
 	(cris_gdbarch_init): Remove support for CRIS v8 and v9.
 	Remove set_gdbarch_deprecated_register_size,
 	set_gdbarch_deprecated_register_byte, set_gdbarch_register_bytes_ok.
-	
+
 2004-10-10  Andrew Cagney  <cagney@gnu.org>
 
 	* ada-lang.c (lim_warning): Add ATTR_FORMAT prototype and FIXME
@@ -2334,25 +2334,25 @@
 	* ada-typeprint.c (ada_print_type): Use int_string for printing
 	modulus of modular type.
 	* ada-lang.h (ada_modulus): Change return type to unsigned.
-	* ada-lang.c (ada_language_arch_info): Correct type of 
+	* ada-lang.c (ada_language_arch_info): Correct type of
 	string_char_type.
 	(ada_modulus): Return unsigned result.
-	(ada_lookup_symbol): Remove user disambiguation and modify comment 
+	(ada_lookup_symbol): Remove user disambiguation and modify comment
 	accordingly.
-	
-2004-10-08 Eric Botcazou  <ebotcazou@act-europe.fr>	
+
+2004-10-08 Eric Botcazou  <ebotcazou@act-europe.fr>
 
 	Committed by Paul Hilfinger.
-	* ada-lang.c (decode_packed_array): On big-endian targets, 
+	* ada-lang.c (decode_packed_array): On big-endian targets,
 	left-justify the value if it comes with a modular type.
 
-2004-10-08  Joel Brobecker  <brobecker@gnat.com>	
+2004-10-08  Joel Brobecker  <brobecker@gnat.com>
 
 	Committed by Paul Hilfinger.
         * ada-lang.c (template_to_static_fixed_type): Fix a small typo.
 	(is_name_suffix): Add support for "___JM" suffixes.
-	(ada_check_typedef): Renames ada_completed_type. 
-	Update all users of CHECK_TYPEDEF, check_typedef, and 
+	(ada_check_typedef): Renames ada_completed_type.
+	Update all users of CHECK_TYPEDEF, check_typedef, and
 	ada_complete_type to call ada_check_typedef.
 	* ada-typeprint.c: Likewise.
 	* ada-valprint.c: Likewise.
@@ -2382,7 +2382,7 @@
 
 2004-10-06  Paul N. Hilfinger  <Hilfinger@gnat.com>
 
-	* Makefile.in (.l.c): Do conversions of names of alloc and free 
+	* Makefile.in (.l.c): Do conversions of names of alloc and free
 	functions that are done for .y.c files, plus special one
 	for yy_flex_realloc.  Also, correct missing-file tests here.
 	* ada-lex.l (malloc, free): Remove macros.
@@ -2392,7 +2392,7 @@
 	functions.
 	* ada-exp.y (dummy_string_to_ada_operator): Temporary definition
 	to suppress warning.
-	
+
 2004-10-06  Corinna Vinschen  <vinschen@redhat.com>
 
 	* sh-tdep.c (sh_return_value_nofpu): New function, implementing
@@ -2405,7 +2405,7 @@
 
 2004-10-06  Corinna Vinschen  <vinschen@redhat.com>
 
-	* sh-tdep.c (sh_pseudo_register_read): Add PSEUDO_BANK_REGNUM handling. 
+	* sh-tdep.c (sh_pseudo_register_read): Add PSEUDO_BANK_REGNUM handling.
 	(sh_pseudo_register_write): Ditto.
 
 2004-10-06  Corinna Vinschen  <vinschen@redhat.com>
@@ -2445,7 +2445,7 @@
 	pseudo registers to accomodate pseudo bank register.
 	* sh-tdep.h: Add register numbers for R0_BANK0_REGNUM, MACHB_REGNUM,
 	IVNB_REGNUM, PRB_REGNUM, GBRB_REGNUM, MACLB_REGNUM, BANK_REGNUM,
-	IBCR_REGNUM, IBNR_REGNUM, TBR_REGNUM and PSEUDO_BANK_REGNUM. 
+	IBCR_REGNUM, IBNR_REGNUM, TBR_REGNUM and PSEUDO_BANK_REGNUM.
 	Increment pseudo register numbers.
 
 2004-10-06  Corinna Vinschen  <vinschen@redhat.com>
@@ -2555,7 +2555,7 @@
 2004-10-02  Paul N. Hilfinger  <Hilfinger@gnat.com>
 
         Turn on initial Ada support (mainly expression evaluation).
-	
+
         * Makefile.in (SFILES): Remove ada-tasks.c.
 	(HFILES_NO_SRCDIR): Add ada-lang.h.
 	(COMMON_OBS): Add ada-lang.o, ada-typeprint.o, ada-valprint.o.
@@ -2605,7 +2605,7 @@
 	(function_name_from_pc, ada_translate_error_message)
 	(ada_lookup_minimal_symbol): Remove definition.
 	(ada_add_block_symbols): Remove useless label.
-	* ada-lang.h (ada_maybe_exception_partial_symbol): Remove 
+	* ada-lang.h (ada_maybe_exception_partial_symbol): Remove
 	useless declaration.
 	(ada_is_exception_sym): Likewise.
 
@@ -2665,8 +2665,8 @@
 2004-09-30  Andrew Cagney  <cagney@gnu.org>
 
 	* target.c (target_xfer_partial): New function.
-	(target_read_memory_partial, target_write_memory_partial) 
-	(default_xfer_partial, target_read_partial, target_write_partial) 
+	(target_read_memory_partial, target_write_memory_partial)
+	(default_xfer_partial, target_read_partial, target_write_partial)
 	(xfer_using_stratum): Use.
 	(debug_to_xfer_partial): Delete function.
 	(setup_target_debug): Do not override to_xfer_partial.
@@ -2733,7 +2733,7 @@
 	* wince.c (child_ops): Delete.
 	* win32-nat.c (child_ops): Delete.
 
-	* inftarg.c (inftarg_set_find_memory_regions) 
+	* inftarg.c (inftarg_set_find_memory_regions)
 	(inftarg_set_make_corefile_notes): Delete functions.
 	(_initialize_linux_nat): Inline calls.
 
@@ -2766,7 +2766,7 @@
 
 	* linux-proc.c: Delete file.
 	* Makefile.in: Update.
-	* config/sparc/linux64.mh (NATDEPFILES): 
+	* config/sparc/linux64.mh (NATDEPFILES):
 	* config/sparc/linux.mh (NATDEPFILES): Update.
 	* config/s390/s390.mh (NATDEPFILES): Update.
 	* config/powerpc/ppc64-linux.mh (NATDEPFILES): Update.
@@ -2925,7 +2925,7 @@
 
 2004-09-24  Paul Hilfinger  <hilfingr@nile.gnat.com>
 
-	* Makefile.in (.y.c): Revert previous change.  ../ylwrap was 
+	* Makefile.in (.y.c): Revert previous change.  ../ylwrap was
 	rolled back instead.
 
 2004-09-24  Paul Hilfinger  <hilfingr@nile.gnat.com>
@@ -3130,7 +3130,7 @@
 	comment.
 
 2004-09-18  Paul N. Hilfinger  <hilfinger@gnat.com>
-	
+
 	* ada-exp.y (type_int): New function to add layer of abstraction
 	around references to expression types.
 	(type_long): Ditto.
@@ -3140,7 +3140,7 @@
 	(type_long_double): Ditto.
 	(type_char): Ditto.
 	(type_system_address): Ditto.
-	(simple_exp): Use type_* functions in place of builtin_* 
+	(simple_exp): Use type_* functions in place of builtin_*
 	variables.
 	(exp): Ditto.
 	(write_var_from_name): Ditto.
@@ -3154,8 +3154,8 @@
 	(value_pos_atr): Ditto.
 	(ada_evaluate_subexp): Ditto.
 	(builtin_type_ada_int, builtin_type_ada_short, builtin_type_ada_long,
-	builtin_type_ada_long_long, builtin_type_ada_char, 
-	builtin_type_ada_float, builtin_type_ada_double, 
+	builtin_type_ada_long_long, builtin_type_ada_char,
+	builtin_type_ada_float, builtin_type_ada_double,
 	builtin_type_ada_long_double, builtin_type_ada_natural,
 	builtin_type_ada_positive, builtin_type_ada_system_address): Remove.
 	(ada_builtin_types): Remove.
@@ -3166,9 +3166,9 @@
 	(ada_create_fundamental_type): Break up line.
 	(ada_dump_symtab): Remove unused function.
 	(enum ada_primitive_types): Define.
-	* ada-lang.h (builtin_type_ada_int, builtin_type_ada_short, 
-	builtin_type_ada_long,builtin_type_ada_long_long,builtin_type_ada_char, 
-	builtin_type_ada_float, builtin_type_ada_double, 
+	* ada-lang.h (builtin_type_ada_int, builtin_type_ada_short,
+	builtin_type_ada_long,builtin_type_ada_long_long,builtin_type_ada_char,
+	builtin_type_ada_float, builtin_type_ada_double,
 	builtin_type_ada_long_double, builtin_type_ada_natural,
 	builtin_type_ada_positive, builtin_type_ada_system_address): Remove.
 	* ada-lex.l: Use type_* functions in place of builtin_* variables.
@@ -3177,7 +3177,7 @@
 	(name_lookup): Ditto.
 	* ada-typeprint.c (print_range): Use builtin_type_int, not
 	builtin_type_ada_int.
-	
+
 2004-09-18  Mark Kettenis  <kettenis@gnu.org>
 
 	* i386-tdep.c (i386_register_name): Rename regno to regnum.
@@ -3193,11 +3193,11 @@
 2004-09-18  Paul N. Hilfinger  <hilfinger@gnat.com>
 
 	* ada-lang.c: (ada_main_name, ada_value_slice_ptr, ada_value_slice,
-	ada_breakpoint_rewrite, ada_template_to_fixed_record_type_1): 
+	ada_breakpoint_rewrite, ada_template_to_fixed_record_type_1):
 	Minor formatting changes.
 	(empty_array): Slight rewrite for formatting.
 	(emit_char,parse,ada_language_defn,build_ada_types,
-	ada_is_exception_sym, _initialize_ada_language): Move 
+	ada_is_exception_sym, _initialize_ada_language): Move
 	definitions around.
 	(ada_dump_symtab): Remove unused definition.
 	(ada_maybe_exception_partial_symbol): Remove unused definition.
@@ -3329,11 +3329,11 @@
 	* breakpoint.c (until_break_command): Simplify.
 	* utils.c (prompt_for_continue): Simplify.
 	* tracepoint.c (read_actions): Simplify.
-	* top.c (throw_exception, execute_command, gdb_readline_wrapper) 
-	(gdb_rl_operate_and_get_next, command_line_input, get_prompt) 
+	* top.c (throw_exception, execute_command, gdb_readline_wrapper)
+	(gdb_rl_operate_and_get_next, command_line_input, get_prompt)
 	(set_prompt, init_main): Simplify.
 	(init_signals, disconnect): Delete, unused.
-	* remote.c (remote_async_resume) 
+	* remote.c (remote_async_resume)
 	(extended_remote_async_create_inferior): Simplify.
 	* mi/mi-interp.c (mi_input): Delete, unused.
 	(mi_interpreter_resume, mi_command_loop): Simplify.
@@ -3383,7 +3383,7 @@
 	inf-ptrace.o and inf-child.o.
 	* inf-ptrace.h, inf-ptrace.c, inf-child.h, inf-child.c: New files.
 	* Makefile.in: Update dependencies.
-	
+
 2004-09-11  Andrew Cagney  <cagney@gnu.org>
 
 	* language.c (hex_string, hex_string_custom): Move from here ...
@@ -3392,7 +3392,7 @@
 	* language.h (hex_string, hex_string_custom): Move from here ...
 	* defs.h: ... to here.
 	* Makefile.in: Update all dependencies.
-	
+
 2004-09-11  Paul N. Hilfinger  <hilfinger@gnat.com>
 
         * language.c (local_hex_format_custom): Remove.
@@ -3402,7 +3402,7 @@
 	interface.  Now uses C format.  Move to utils.c
 	(local_octal_format_custom): Remove.
 	(local_decimal_format_custom): Remove.
-	(unknown_language_defn): Remove language-specific number 
+	(unknown_language_defn): Remove language-specific number
 	formatting entries.
 	(auto_language_defn): Ditto.
 	(local_language_defn): Ditto.
@@ -3450,7 +3450,7 @@
 	(print_octal_chars): Use C octal format.
 	(print_decimal_chars): Delocalize format.
 	(print_decimal): Remove.
-	* ada-lang.c (ada_language_defn): Remove language-specific number 
+	* ada-lang.c (ada_language_defn): Remove language-specific number
 	formatting entries.
 	* p-lang.c (pascal_language_defn): Ditto.
 	* c-lang.c (c_language_defn): Ditto.
@@ -3506,7 +3506,7 @@
 	* mdebugread.c: Ditto.
 	* rs6000-nat.c: Ditto.
 	* buildsym.c (make_blockvector): Use renamed hex_string.
-	
+
 2004-09-10  Jason Molenda  (jmolenda@apple.com)
 
         * cli/cli-script.c (read_next_line): Accept zero or more whitespace
@@ -3691,7 +3691,7 @@
 	* config/i386/tm-linux64.h: Delete file.
 	* config/i386/linux64.mt (TM_FILE): Set to solib.h.
 	* config/djgpp/fnchange.lst: Do not rename tm-linux.h.
-	
+
 	* config/m68k/tm-linux.h (SVR4_SHARED_LIBS): Delete.
 	* config/i386/tm-linux64.h (SVR4_SHARED_LIBS): Delete.
 	* config/i386/nm-i386sco5.h (SVR4_SHARED_LIBS): Delete.
@@ -3699,7 +3699,7 @@
 	* config/nm-sysv4.h (SVR4_SHARED_LIBS): Delete.
 	* config/nm-linux.h (SVR4_SHARED_LIBS): Delete.
 	* config/nm-gnu.h (SVR4_SHARED_LIBS): Delete.
-	* sh64-tdep.c [SVR4_SHARED_LIBS]: Delete #ifdef wrapper. 
+	* sh64-tdep.c [SVR4_SHARED_LIBS]: Delete #ifdef wrapper.
 	* sh-tdep.c [SVR4_SHARED_LIBS]: Delete #ifdef wrapper.
 
 	* configure.in (GDB_TM_FILE): Fix typo, use gdb_target_cpu and not
@@ -3745,7 +3745,7 @@
 	* configure: Re-generate.
 	* config/arm/nbsd.mt (TM_FILE): Set to "solib.h".
 	* config/arm/tm-nbsd.h: Delete file.
-	
+
 	* config/powerpc/tm-ppcle-sim.h: Delete.
 	* config/powerpc/tm-ppcle-eabi.h: Delete.
 	* config/powerpc/tm-nbsd.h: Delete.
@@ -3772,12 +3772,12 @@
 	* config/sparc/tm-fbsd.h: Delete.
 
 	* acconfig.h (GDB_MULTI_ARCH): Delete undef.
-	* defs.h (GDB_MULTI_ARCH_PARTIAL, GDB_MULTI_ARCH_TM) 
+	* defs.h (GDB_MULTI_ARCH_PARTIAL, GDB_MULTI_ARCH_TM)
 	(GDB_MULTI_ARCH_PURE, GDB_MULTI_ARCH): Delete macros.
 
 	* gdbarch.sh: Instead of GDB_MULTI_ARCH print GDB_NM_FILE,
 	GDB_TM_FILE and GDB_XM_FILE.
-	* gdbarch.c: Re-generate.	
+	* gdbarch.c: Re-generate.
 	* configure.in (GDB_XM_FILE, GDB_NM_FILE, GDB_TM_FILE): Include
 	quotes in macro definition.
 	* configure.in: Re-generate.
@@ -3785,12 +3785,12 @@
 	* gdbarch.sh: Delete check for GDB_MULTI_ARCH_PARTIAL when
 	validating architecture methods.
 	* gdbarch.c: Re-generate.
-	
+
 	* gdbarch.sh: Delete check for consistency between GDB_MULTI_ARCH
 	and GDB_TM_FILE.  Check for GDB_TM_FILE instead of
 	GDB_MULTI_ARCH_PARTIAL.
 	* gdbarch.h: Re-generate.
-	
+
 	* config/sparc/tm-vxworks.h (GDB_MULTI_ARCH): Delete.
 	* config/sparc/tm-sol2.h (GDB_MULTI_ARCH): Delete.
 	* config/sparc/tm-nbsd.h (GDB_MULTI_ARCH): Delete.
@@ -3829,8 +3829,8 @@
 	breakpoint.c.
 	* breakpoint.c (disable_breakpoints_in_unloaded_shlib): New
 	function.
-	(_initialize_breakpoint): Register 
-	disable_breakpoints_in_unloaded_shlib as an observer of the 
+	(_initialize_breakpoint): Register
+	disable_breakpoints_in_unloaded_shlib as an observer of the
         "solib unloaded" observation event.
 	(re_enable_breakpoints_in_shlibs): For bp_shlib_disabled breakpoints,
 	call decode_line_1 so unfound breakpoint errors are silent.
@@ -3880,10 +3880,10 @@
 	remove_breakpoints_on_following_step.
 
 2004-08-29  David Lecomber  <david@streamline-computing.com>
-	
+
 	Fix PR gdb/648
 	* language.h (enum array_ordering): New enum.
-	* language.h (struct language_defn): New la_array_ordering 
+	* language.h (struct language_defn): New la_array_ordering
 	attribute.
 	* language.c (unknown_language_defn, auto_language_defn)
 	(local_language_defn): Ditto.
@@ -4031,14 +4031,14 @@
 
 	* configure.in: Change test for return type of ptrace to default
 	to `long' instead of `int'.
-	* configure: Regenerate.	
+	* configure: Regenerate.
 
 2004-08-21  Mark Kettenis  <kettenis@gnu.org>
 
 	* config/alpha/alpha-linux.mh (LOADLIBES): New variable.
 
 	* configure.in: Check for ttrace function.
-	* configure, config.in: Regenerate.	
+	* configure, config.in: Regenerate.
 
 	* gdb_ptrace.h: New file.
 	* infptrace.c: Include "gdb_ptrace.h" instead of <ptrace.h> or
@@ -4076,7 +4076,7 @@
 
 	* configure.in: Add <ncurses/ncurses.h> to the list of possible
 	curses headers.
-	* configure, config.in: Regenerate.	
+	* configure, config.in: Regenerate.
 	* gdb_curses.h [HAVE_NCURSES_NCURSES_H]: Include
 	<ncurses/ncurses.h>.
 
@@ -4085,7 +4085,7 @@
 	(PTRACE_ARG3_TYPE): Remove define.
 
 	* sparc-nat.c (fetch_inferior_registers)
-	(store_inferior_registers, sparc_xfer_wcookie): 
+	(store_inferior_registers, sparc_xfer_wcookie):
 	Replace PTRACE_ARG3_TYPE with PTRACE_TYPE_ARG3.
 
 	* alphabsd-nat.c (fetch_inferior_registers):
@@ -4128,7 +4128,7 @@
 	* vaxbsd-nat.c (fetch_inferior_registers)
 	(store_inferior_registers): Replace PTRACE_ARG3_TYPE with
 	PTRACE_TYPE_ARG3.
-	
+
 	* inferior.h (call_ptrace): Replace PTRACE_ARG3_TYPE with
 	PTRACE_TYPE_ARG3.
 	* infptrace.c (call_ptrace, child_resume, attach, detach)
@@ -4253,7 +4253,7 @@
 	* symfile.c (reread_symbols, init_psymbol_list): Ditto.
 	* source.c (forget_cached_source_info, find_and_open_source): Ditto.
 	* somread.c (som_symfile_finish): Ditto.
-	* objfiles.c (allocate_objfile, free_objfile): 
+	* objfiles.c (allocate_objfile, free_objfile):
 	* nlmread.c (nlm_symfile_finish): Ditto.
 	* hpread.c (hpread_symfile_finish): Ditto.
 	* elfread.c (free_elfinfo, elf_symfile_finish): Ditto.
@@ -4335,7 +4335,7 @@
 
 	* configure.in: Check for <sys/types.h>.  Check return and
 	argument types of ptrace.
-	* configure, config.in: Regenerate.	
+	* configure, config.in: Regenerate.
 
 2004-08-09  Jim Blandy  <jimb@redhat.com>
 
@@ -4361,7 +4361,7 @@
 	(float_format, double_format, long_double_format): List with bit
 	members.  Use pformat when printing.
 	* gdbarch.c, gdbarch.h: Re-generate.
-	
+
 2004-08-08  Nathan J. Williams  <nathanw@wasabisystems.com>
 
 	* ppcnbsd-nat.c: Include <machine/frame.h>, <machine/pcb.h>,
@@ -4384,7 +4384,7 @@
 	* doublest.c (_initialize_doublest, floatformat_ieee_single)
 	(floatformat_ieee_double, floatformat_arm_ext)
 	(floatformat_ia64_spill, floatformat_ia64_quad): Add tables
-	of LE/BE floatformats.	
+	of LE/BE floatformats.
 	* doublest.h: (struct floatformat, floatformat_ieee_single)
 	(floatformat_ieee_double, floatformat_arm_ext)
 	(floatformat_ia64_spill, floatformat_ia64_quad): Declare.
@@ -4408,8 +4408,8 @@
 	variables.  Incapitalized "process".
 
 	* configure.in: Add cursesX to the list of possible curses libs.
-	Add cursesX.h to the list of possible curses headers. 
-	* configure, config.in: Regenerate.	
+	Add cursesX.h to the list of possible curses headers.
+	* configure, config.in: Regenerate.
 
 2004-08-07  Nathan J. Williams  <nathanw@wasabisystems.com>
 
@@ -4650,7 +4650,7 @@
 	simulator.
 	* ppc-tdep.h (struct gdbarch_tdep): New member: 'sim_regno'.
 	* rs6000-tdep.c: #include "sim-regno.h" and "gdb/sim-ppc.h".
-	(set_sim_regno, init_sim_regno_table, rs6000_register_sim_regno): 
+	(set_sim_regno, init_sim_regno_table, rs6000_register_sim_regno):
 	New functions.
 	(rs6000_gdbarch_init): Register rs6000_register_sim_regno.  Call
 	init_sim_regno_table.
@@ -4725,10 +4725,10 @@
 	Replace DEPRECATED_REGISTER_RAW_SIZE with register_size.
 	* rs6000-tdep.c (rs6000_push_dummy_call)
 	(rs6000_extract_return_value): Use register_size.
-	* xstormy16-tdep.c (xstormy16_get_saved_register) 
+	* xstormy16-tdep.c (xstormy16_get_saved_register)
 	(xstormy16_extract_return_value): Ditto.
 	* valops.c (value_assign): Ditto.
-	* v850ice.c (v850ice_fetch_registers, v850ice_store_registers): 
+	* v850ice.c (v850ice_fetch_registers, v850ice_store_registers):
 	* v850-tdep.c (v850_extract_return_value): Ditto.
 	* tracepoint.c (collect_symbol): Ditto.
 	* target.c (debug_print_register): Ditto.
@@ -4741,22 +4741,22 @@
 	* remote-sim.c (gdbsim_fetch_register, gdbsim_store_register): Ditto.
 	* remote-mips.c (mips_wait, mips_fetch_registers): Ditto.
 	* remote-e7000.c (fetch_regs_from_dump, sub2_from_pc): Ditto.
-	* regcache.c (deprecated_read_register_bytes) 
-	(deprecated_write_register_bytes, read_register) 
+	* regcache.c (deprecated_read_register_bytes)
+	(deprecated_write_register_bytes, read_register)
 	(write_register): Ditto.
 	* ppc-linux-nat.c (fetch_altivec_register, fetch_register)
 	(supply_vrregset, store_altivec_register, fill_vrregset): Ditto.
-	* monitor.c (monitor_supply_register, monitor_fetch_register) 
+	* monitor.c (monitor_supply_register, monitor_fetch_register)
 	(monitor_store_register): Ditto.
-	* mn10300-tdep.c (mn10300_pop_frame_regular) 
+	* mn10300-tdep.c (mn10300_pop_frame_regular)
 	(mn10300_print_register): Ditto.
 	* mipsv4-nat.c (fill_fpregset): Ditto.
-	* mips-linux-tdep.c (supply_32bit_reg, fill_fpregset) 
+	* mips-linux-tdep.c (supply_32bit_reg, fill_fpregset)
 	(mips64_fill_fpregset): Ditto.
 	* mi/mi-main.c (register_changed_p, get_register)
 	(mi_cmd_data_write_register_values): Ditto.
-	* lynx-nat.c (fetch_inferior_registers, store_inferior_registers): 
-	* irix5-nat.c (fill_gregset, fetch_core_registers): 
+	* lynx-nat.c (fetch_inferior_registers, store_inferior_registers):
+	* irix5-nat.c (fill_gregset, fetch_core_registers):
 	* infrun.c (write_inferior_status_register): Ditto.
 	* infptrace.c (fetch_register, store_register): Ditto.
 	* infcmd.c (default_print_registers_info): Ditto.
@@ -4765,9 +4765,9 @@
 	* i386gnu-nat.c (gnu_store_registers, fill): Ditto.
 	* hpux-thread.c (hpux_thread_fetch_registers)
 	(hpux_thread_store_registers): Ditto.
-	* hppah-nat.c (store_inferior_registers, fetch_register): 
+	* hppah-nat.c (store_inferior_registers, fetch_register):
 	* findvar.c (value_from_register): Ditto.
-	* dve3900-rom.c (fetch_bitmapped_register): 
+	* dve3900-rom.c (fetch_bitmapped_register):
 	* cris-tdep.c (cris_gdbarch_init): Ditto.
 	* alpha-tdep.h: Ditto.
 	* aix-thread.c (pd_enable, fill_sprs64, fill_sprs32): Ditto.
@@ -4784,7 +4784,7 @@
 	* arch-utils.c (generic_register_size): Simplify by assuming
 	register_type.
 
-	* regcache.c (legacy_read_register_gen, real_register) 
+	* regcache.c (legacy_read_register_gen, real_register)
 	(legacy_write_register_gen): Delete, not used.
 
 	* regcache.c (struct regcache_descr): Delete legacy_p.
@@ -4970,7 +4970,7 @@
 	(TARGET_SIGNAL_RAW_VALUES): Delete.
 	* config/pa/nm-hppah.h (TARGET_RANGE_PROFITABLE_FOR_HW_WATCHPOINT):
 	Delete.
-	* config/frv/tm-frv.h (TARGET_HW_BREAK_LIMIT) 
+	* config/frv/tm-frv.h (TARGET_HW_BREAK_LIMIT)
 	(TARGET_HW_WATCH_LIMIT): Delete.
 	* Makefile.in (minimon_h, HFILES_NO_SRCDIR): Remove minimon.h.
 	* minimon.h: Delete file.
@@ -5002,21 +5002,21 @@
 	Update.
 	* sparc-linux-tdep.c (sparc32_linux_sigtramp_frame_prev_register):
 	Update.
-	* s390-tdep.c (s390_frame_prev_register) 
-	(s390_stub_frame_prev_register) 
+	* s390-tdep.c (s390_frame_prev_register)
+	(s390_stub_frame_prev_register)
 	(s390_sigtramp_frame_prev_register): Update.
 	* rs6000-tdep.c (rs6000_frame_prev_register): Update.
 	* ppc-linux-tdep.c (ppc_linux_sigtramp_prev_register): Update.
 	* mips-tdep.c (mips_mdebug_frame_prev_register): Update.
-	* m88k-tdep.c (m88k_frame_prev_register) 
-	* m68hc11-tdep.c (m68hc11_frame_prev_register) 
+	* m88k-tdep.c (m88k_frame_prev_register)
+	* m68hc11-tdep.c (m68hc11_frame_prev_register)
 	* m32r-tdep.c (m32r_frame_prev_register): Update.
-	* hppa-tdep.c (hppa_frame_prev_register_helper) 
+	* hppa-tdep.c (hppa_frame_prev_register_helper)
 	* frv-tdep.c (frv_frame_prev_register): Update.
 	* d10v-tdep.c (d10v_frame_prev_register): Update.
 	* cris-tdep.c (cris_frame_prev_register): Update.
 	* avr-tdep.c (avr_frame_prev_register): Update.
-	* arm-tdep.c (arm_prologue_prev_register) 
+	* arm-tdep.c (arm_prologue_prev_register)
 	(arm_sigtramp_prev_register): Update.
 
 2004-07-31  Andrew Cagney  <cagney@gnu.org>
@@ -5091,7 +5091,7 @@
 	src/gdb/po/ directory.  Set @localedir@ in Makefile.in.
 	* configure: Re-generate.
 	* po/gdbtext: New file
-	
+
 2004-07-30  Jerome Guitton  <guitton@gnat.com>
 
 	* MAINTAINERS: Reorder Write After Approval list in alphabetical
@@ -5099,7 +5099,7 @@
 
 2004-07-30  David Lecomber  <dsl@sources.redhat.com>
 
-	* dwarf2read.c (read_file_scope): Set producer if attribute 
+	* dwarf2read.c (read_file_scope): Set producer if attribute
 	present.
 	(struct dwarf2_cu): Added new member producer.
 
@@ -5144,7 +5144,7 @@
 	* config/ia64/linux.mh (XM_FILE): Delete.
 	* config/arm/xm-linux.h: Delete empty file.
 	* config/arm/linux.mh (XM_FILE): Delete.
-	
+
 	* config/powerpc/xm-linux.h (KERNEL_U_ADDR): Move from here ...
 	* config/powerpc/nm-linux.h (KERNEL_U_ADDR): ... to here.
 	* config/m68k/xm-linux.h (KERNEL_U_ADDR): Move from here ...
@@ -5181,7 +5181,7 @@
 	(HOST_FLOAT_FORMAT, HOST_DOUBLE_FORMAT)
 	(HOST_LONG_DOUBLE_FORMAT): Delete macros.
 	* config/i386/xm-i386.h: Do not include "floatformat.h".
-	(HOST_FLOAT_FORMAT, HOST_DOUBLE_FORMAT) 
+	(HOST_FLOAT_FORMAT, HOST_DOUBLE_FORMAT)
 	(HOST_LONG_DOUBLE_FORMAT): Delete macros.
 	* doublest.c (HOST_FLOAT_FORMAT, HOST_DOUBLE_FORMAT)
 	(HOST_LONG_DOUBLE_FORMAT): Delete macros.  Use
@@ -5189,10 +5189,10 @@
 	GDB_HOST_LONG_DOUBLE_FORMAT instead.
 	* configure.in (GDB_HOST_FLOAT_FORMAT, GDB_HOST_DOUBLE_FORMAT)
 	(GDB_HOST_LONG_DOUBLE_FORMAT): Define.
-	* configure, config.in: Regenerate.	
+	* configure, config.in: Regenerate.
 	* configure.host (gdb_host_float_format, gdb_host_double_format)
 	(gdb_host_long_double_format): Set according to the host.
-	
+
 2004-07-29  Andrew Cagney  <cagney@gnu.org>
 
 	* Makefile.in (CONFIG_CLEAN): Delete duplicate definition.
@@ -5208,7 +5208,7 @@
 	(add_setshow_cmd_full): Make static.
 	* command.h (add_setshow_cmd, add_setshow_cmd_full): Delete.
 	(add_setshow_filename_cmd, add_setshow_string_cmd): Declare.
-	* cli/cli-decode.c (add_setshow_filename_cmd) 
+	* cli/cli-decode.c (add_setshow_filename_cmd)
 	(add_setshow_string_cmd): New functions.
 	* nto-tdep.c (_initialize_nto_tdep): Update.  Fix parameters.
 	* mips-tdep.c (_initialize_mips_tdep): Update.
@@ -5216,7 +5216,7 @@
 	* cli/cli-logging.c (_initialize_cli_logging): Update.
 	* complaints.c (_initialize_complaints): Update.
 	* remote.c (_initialize_remote): Update.
-	
+
 2004-07-28  Andrew Cagney  <cagney@gnu.org>
 
 	* cli/cli-decode.c (add_setshow_zinteger_cmd)
@@ -5310,9 +5310,9 @@
 	* jv-lang.c (java_language_defn): Ditto.
 	* objc-lang.c (objc_language_defn): Ditto.
 	* f-lang.c (f_language_defn): Ditto.
-	* c-lang.c (c_language_defn, cplus_language_defn) 
+	* c-lang.c (c_language_defn, cplus_language_defn)
 	(asm_language_defn, minimal_language_defn): Ditto.
-	
+
 2004-07-27  Andrew Cagney  <cagney@gnu.org>
 
 	* gdbtypes.h (struct builtin_type): Declare.
@@ -5429,7 +5429,7 @@
 	* rs6000-nat.c (store_register): Update.
 	* remote.c (store_register_using_P, remote_store_registers): Update.
 	* ppcnbsd-tdep.c (ppcnbsd_fill_reg): Update.
-	* ppc-linux-nat.c (store_altivec_register, store_spe_register) 
+	* ppc-linux-nat.c (store_altivec_register, store_spe_register)
 	(fill_vrregset, store_spe_registers, fill_gregset)
 	(fill_gregset): Update.
 	* nto-procfs.c (procfs_store_registers): Update.
@@ -5444,8 +5444,8 @@
 	* go32-nat.c (store_register): Update.
 	* armnbsd-nat.c (store_register, store_regs, store_fp_register)
 	(store_fp_regs): Update.
-	* arm-linux-nat.c (store_nwfpe_single, store_nwfpe_double) 
-	(store_nwfpe_extended, store_fpregister, store_fpregs) 
+	* arm-linux-nat.c (store_nwfpe_single, store_nwfpe_double)
+	(store_nwfpe_extended, store_fpregister, store_fpregs)
 	(store_register, store_regs, fill_gregset, fill_fpregset): Update.
 	* alpha-tdep.c (alpha_fill_int_regs, alpha_fill_fp_regs): Update.
 	* aix-thread.c (fill_gprs64, fill_fprs, fill_sprs64, fill_sprs32)
@@ -5494,7 +5494,7 @@
 	* regcache.h (supply_register): Delete declaration.
 	* regcache.c (supply_register): Delete function.
 	* wince.c (do_child_fetch_inferior_registers): Update.
-	* win32-nat.c (do_child_fetch_inferior_registers) 
+	* win32-nat.c (do_child_fetch_inferior_registers)
 	(fetch_elf_core_registers): Update.
 	* v850ice.c (v850ice_fetch_registers): Update.
 	* thread-db.c (thread_db_store_registers): Update.
@@ -5512,10 +5512,10 @@
 	* remote-m32r-sdi.c (m32r_fetch_register): Update.
 	* remote-hms.c (init_hms_cmds): Update.
 	* remote-est.c (init_est_cmds): Update.
-	* remote-e7000.c (get_hex_regs, fetch_regs_from_dump) 
+	* remote-e7000.c (get_hex_regs, fetch_regs_from_dump)
 	(e7000_fetch_registers, sub2_from_pc, e7000_wait): Update.
 	* ppcnbsd-tdep.c (ppcnbsd_supply_reg, ppcnbsd_supply_fpreg): Update.
-	* ppc-linux-nat.c (fetch_altivec_register, fetch_spe_register) 
+	* ppc-linux-nat.c (fetch_altivec_register, fetch_spe_register)
 	(fetch_register, supply_vrregset, supply_vrregset)
 	(fetch_spe_registers): Update.
 	* ppc-bdm.c (bdm_ppc_fetch_registers): Update.
@@ -5525,7 +5525,7 @@
 	(mipsnbsd_supply_fpreg): Update.
 	* mips-nat.c (fetch_inferior_registers)
 	(fetch_core_registers): Update.
-	* mips-linux-tdep.c (supply_32bit_reg, supply_gregset) 
+	* mips-linux-tdep.c (supply_32bit_reg, supply_gregset)
 	(supply_fpregset, mips64_supply_gregset)
 	(mips64_supply_fpregset): Update.
 	* m68klinux-nat.c (fetch_register, supply_gregset)
@@ -5537,14 +5537,14 @@
 	* infptrace.c (fetch_register): Update.
 	* ia64-linux-nat.c (supply_gregset, supply_fpregset): Update.
 	* ia64-aix-nat.c (supply_gregset, supply_fpregset): Update.
-	* i386gnu-nat.c (fetch_fpregs, supply_gregset) 
+	* i386gnu-nat.c (fetch_fpregs, supply_gregset)
 	(gnu_fetch_registers, gnu_store_registers): Update.
 	* i386-nto-tdep.c (i386nto_supply_gregset): Update.
 	* i386-linux-nat.c (fetch_register, supply_gregset)
 	(dummy_sse_values): Update.
 	* hpux-thread.c (hpux_thread_fetch_registers): Update.
 	* hppah-nat.c (fetch_register): Update.
-	* hppa-linux-nat.c (fetch_register, supply_gregset) 
+	* hppa-linux-nat.c (fetch_register, supply_gregset)
 	(supply_fpregset): Update.
 	* go32-nat.c (fetch_register): Update.
 	* dve3900-rom.c (fetch_bitmapped_register)
@@ -5559,9 +5559,9 @@
 	(fetch_register, fetch_regs, supply_gregset, supply_fpregset): Update.
 	* alphanbsd-tdep.c (fetch_core_registers): Update.
 	* alpha-tdep.c (alpha_supply_int_regs, alpha_supply_fp_regs): Update.
-	* alpha-nat.c (fetch_osf_core_registers) 
+	* alpha-nat.c (fetch_osf_core_registers)
 	(fetch_osf_core_registers, fetch_osf_core_registers): Update.
-	* aix-thread.c (supply_gprs64, supply_reg32, supply_fprs) 
+	* aix-thread.c (supply_gprs64, supply_reg32, supply_fprs)
 	(supply_sprs64, supply_sprs32, fetch_regs_kernel_thread): Update.
 
 2004-07-21  Andrew Cagney  <cagney@gnu.org>
@@ -5607,13 +5607,13 @@
 	(s390_sigtramp_frame_sniffer): Update.
 	* mn10300-tdep.c (mn10300_analyze_prologue): Update.
 	* mipsnbsd-tdep.c (mipsnbsd_sigtramp_offset): Update.
-	* mips-tdep.c (mips_fetch_instruction, mips16_fetch_instruction) 
+	* mips-tdep.c (mips_fetch_instruction, mips16_fetch_instruction)
 	(mips32_fetch_instruction): Update.
 	* mcore-tdep.c (get_insn): Update.
 	* m68klinux-tdep.c (m68k_linux_pc_in_sigtramp): Update.
 	* i386nbsd-tdep.c (i386nbsd_sigtramp_offset): Update.
 	* i386ly-tdep.c (i386lynx_saved_pc_after_call): Update.
-	* i386-linux-tdep.c (i386_linux_sigtramp_start) 
+	* i386-linux-tdep.c (i386_linux_sigtramp_start)
 	(i386_linux_rt_sigtramp_start): Update.
 	* i386-linux-nat.c (child_resume): Update.
 	* hppa-tdep.c (skip_prologue_hard_way, hppa_frame_cache): Update.
@@ -5657,7 +5657,7 @@
 	* ppc-linux-nat.c (store_spe_registers): Eliminate K&R C.
 	* tui/tui-win.c (tui_get_cmd_list): Ditto.
 	* symfile-mem.c (_initialize_symfile_mem): Ditto.
-	
+
 	* ppc-linux-tdep.c (ppc_linux_init_abi): Add [sic] to Linux.
 	* ppc-linux-nat.c: Use "Linux kernel".
 	* hppa-linux-tdep.c: Use GNU/Linux.
@@ -5797,7 +5797,7 @@
 
 2004-07-10  Randolph Chung  <tausq@debian.org>
 
-	* hppa-hpux-tdep.c (hppa_hpux_som_find_global_pointer): New 
+	* hppa-hpux-tdep.c (hppa_hpux_som_find_global_pointer): New
 	function.
 	(hppa_hpux_push_dummy_code): New function.
 	(hppa_hpux_init_abi): Set push_dummy_code and call_dummy_location.
@@ -5822,9 +5822,9 @@
 2004-07-09  Paul N. Hilfinger  <Hilfinger@gnat.com>
 
         * ada-tasks.c: Remove file.
-	
+
 	Remove ARI problems:
-	
+
 	* ada-exp.y (write_var_from_sym): Reformat to put operator at
 	beginning of line.
 
@@ -5847,14 +5847,14 @@
 	(build_ada_types): Add gdbarch parameter.
 	(_initialize_ada_language): Replace deprecated_register_gdbarch_swap
 	with gdbarch_data_register_post_init.
-	Use add_setshow_uinteger_cmd rather than add_set_cmd and 
+	Use add_setshow_uinteger_cmd rather than add_set_cmd and
 	add_show_from_set.
 
 	* ada-valprint.c (inspect_it): Remove declaration.
 	(repeat_count_threshold): Remove declaration.
 	(ada_print_floating): Remove assignments in 'if' statements.
 	(print_str): Move operator to beginning of line.
-	
+
 2004-07-08  Jim Blandy  <jimb@redhat.com>
 
 	* rs6000-tdep.c (registers_powerpc_nofp): Unused; deleted.
@@ -5892,7 +5892,7 @@
 	* m2-lang.c (m2_language_defn): Ditto.
 	* objc-lang.c (objc_language_defn): Ditto.
 	* p-lang.c (pascal_language_defn): Ditto.
-	* scm-lang.c (scm_language_defn): Ditto. 
+	* scm-lang.c (scm_language_defn): Ditto.
 
 2004-07-06  Andrew Cagney  <cagney@gnu.org>
 
@@ -5944,12 +5944,12 @@
 2004-07-01  Paul N. Hilfinger  <Hilfinger@gnat.com>
 
 	* ada-lang.c (decode_packed_array): Minor change to comment.
-	(ada_value_slice_ptr): New function. 
-	(ada_value_slice): New function. 
+	(ada_value_slice_ptr): New function.
+	(ada_value_slice): New function.
 	(ada_evaluate_subexp): Remove XVS-suffix code from subscripting
 	test.  Don't know why it is there.
 	Change slice code to use ada_value_slice_ptr and ada_value_slice, and
-	to avoid dereferencing huge arrays from which one is slicing.  
+	to avoid dereferencing huge arrays from which one is slicing.
 	(empty_array): Correct to return an array rather than
 	a subrange value.
 	* ada-valprint.c (print_optional_low_bound): Don't print lower bound
@@ -5958,7 +5958,7 @@
 2004-07-01  Paul N. Hilfinger  <Hilfinger@gnat.com>
 
 	Address complaints from gdb_ari.sh:
-	
+
 	* ada-exp.y: Include gdb_string.h rather than string.h.
 	(convert_char_literal): Reformat declaration.
 	* ada-lang.h: Include opaque struct declaration for struct frame_info.
@@ -5966,10 +5966,10 @@
 	anyway, but this is harmless).
 	Include gdb_string.h rather than string.h.
 	* ada-valprint.c (ada_val_print_stub): Change PTR => void*.
-	
+
 	* ada-lang.c (parse): Remove K&Rism in parameter list.
 	(is_name_suffix): Correct Linux => GNU/Linux in comment.
-	
+
 2004-06-30  Mark Kettenis  <kettenis@gnu.org>
 
 	* dbxread.c (process_one_symbol) [SUN_FIXED_LBRAC_BUG]: Remove
@@ -6006,7 +6006,7 @@
 
 	* defs.h (xstrvprintf): Declare.
 	* utils.c (xstrvprintf): New function.
-	(internal_vproblem, xstrprintf, xasprintf) 
+	(internal_vproblem, xstrprintf, xasprintf)
 	(vfprintf_maybe_filtered, vfprintf_unfiltered): Use xstrvprintf.
 	* serial.c (serial_printf): Ditto.
 	* complaints.c (vcomplaint): Ditto.
@@ -6035,7 +6035,7 @@
 	* frv-tdep.c (new_variant, new_variant): Ditto.
 	* fbsd-proc.c (child_pid_to_exec_file): Ditto.
 	(fbsd_find_memory_regions): Ditto.
-	* breakpoint.c (create_thread_event_breakpoint) 
+	* breakpoint.c (create_thread_event_breakpoint)
 	(create_breakpoints): Ditto.
 	* aix-thread.c (aix_thread_pid_to_str): Ditto.
 	* ada-lang.c (is_package_name): Ditto.  Also delete xmalloc call.
@@ -6047,7 +6047,7 @@
 
 2004-06-27  Ulrich Weigand  <uweigand@de.ibm.com>
 
-	* frame.h (struct frame_id): Change bit field type of stack_addr_p, 
+	* frame.h (struct frame_id): Change bit field type of stack_addr_p,
 	code_addr_p and special_addr_p to 'unsigned int'.
 
 2004-06-27  Mark Kettenis  <kettenis@gnu.org>
@@ -6123,7 +6123,7 @@
 2004-06-27    <david@streamline-computing.com>
 
 	Partial fix for PR cli/1056.
-	* valarith.c: Check for zero in division and remainder 
+	* valarith.c: Check for zero in division and remainder
 	evaluation.
 
 2004-06-27  Mark Kettenis  <kettenis@gnu.org>
@@ -6172,7 +6172,7 @@
 	* v850ice.c (v850ice_wait): Update.
 	* top.c (deprecated_ui_loop_hook): Update.
 	* serial.h: Update.
-	* ser-unix.c (do_hardwire_readchar, do_hardwire_readchar) 
+	* ser-unix.c (do_hardwire_readchar, do_hardwire_readchar)
 	(do_unix_readchar): Update.
 	* ser-tcp.c (net_open): Update.
 	* remote-sim.c (gdb_os_poll_quit): Update.
@@ -6182,7 +6182,7 @@
 
 	* defs.h (deprecated_pre_add_symbol_hook)
 	(deprecated_post_add_symbol_hook): Deprecated.
-	* symfile.c (symbol_file_add_with_addrs_or_offsets) 
+	* symfile.c (symbol_file_add_with_addrs_or_offsets)
 	(symbol_file_add_with_addrs_or_offsets): Update references.
 
 2004-06-24  Andrew Cagney  <cagney@gnu.org>
@@ -6297,13 +6297,13 @@
 	macro print statements in #ifdef.  Move format logic to where it
 	is needed.
 	* gdbarch.c: Re-generate.
-	
+
 	* gdbarch.sh (read): Delete "print_p" and "description", add
 	"garbage_at_eol".  Check for non-empty garbage at end-of-line.
 	Delete references to print_p.
 	(TARGET_ARCHITECTURE): Delete print predicate.
 	* gdbarch.c: Re-generate.
-	
+
 	* gdbarch.sh: Check that multi-arch methods do not provide a
 	macro.
 	(register_type, unwind_dummy_id, push_dummy_call, push_dummy_code)
@@ -6312,12 +6312,12 @@
 	(construct_inferior_arguments, skip_solib_resolver, unwind_pc)
 	(address_class_type_flags_to_name, unwind_sp): Remove the macro
 	name from the multi-arch definition.
-	
+
 2004-06-20  Andrew Cagney  <cagney@gnu.org>
 
 	* gdbarch.sh: Sort by the function, instead of macro name.
 	* gdbarch.c: Re-generate.
-	
+
 2004-06-20  Andrew Cagney  <cagney@gnu.org>
 
 	* gdbarch.sh: Use the function, instead of macro name in
@@ -6340,7 +6340,7 @@
 	(legacy_return_value): New function.
 	* arch-utils.h: Update copyright.
 	(legacy_return_value): Declare.
-	
+
 2004-06-20  Andrew Cagney  <cagney@gnu.org>
 
 	* gdbarch.sh (DEPRECATED_USE_STRUCT_CONVENTION): Deprecated.
@@ -6400,7 +6400,7 @@
 	operation as a uleb128.  Found by Michael Coulter.
 
 2004-06-16  Paul N. Hilfinger  <Hilfinger@gnat.com>
-	
+
 	* ada-tasks.c: Rename build_task_list to ada_build_task_list, and
 	make it non-static.
 	* ada-lang.h (task_control_block): declaration moved from ada-task.c
@@ -6410,11 +6410,11 @@
 	(task_entry): Ditto.
 	(task_list): Ditto.
 	(ada_build_task_list): Ditto.
-	
-	* ada-lang.c: Conditionalize routines and data structures related 
-	to breakpoints, exceptions, completion, and symbol caching on 
+
+	* ada-lang.c: Conditionalize routines and data structures related
+	to breakpoints, exceptions, completion, and symbol caching on
 	GNAT_GDB, since these are not yet used in the submitted public sources.
-	(ada_main_name): Editorial: Move definition out of exception-related 
+	(ada_main_name): Editorial: Move definition out of exception-related
 	code.
 
 2004-06-15  Andrew Cagney  <cagney@gnu.org>
@@ -6451,7 +6451,7 @@
 2004-06-14  Randolph Chung  <tausq@debian.org>
 
 	* Makefile.in (hppa-hpux-tdep.o): Update dependency.
-	* hppa-hpux-tdep.c (hp_cxx_exception_support_initialized): Make 
+	* hppa-hpux-tdep.c (hp_cxx_exception_support_initialized): Make
 	static.
 	(hppa_hpux_inferior_created): New function.
 	(hppa_hpux_init_abi): Register observer.
@@ -6487,7 +6487,7 @@
 	* gdbarch.sh (DEPRECATED_MAX_REGISTER_RAW_SIZE)
 	(DEPRECATED_MAX_REGISTER_VIRTUAL_SIZE): Delete.
 	* gdbarch.h, gdbarch.c: Regenerate.
-	* ns32k-tdep.h (NS32K_MAX_REGISTER_RAW_SIZE) 
+	* ns32k-tdep.h (NS32K_MAX_REGISTER_RAW_SIZE)
 	(NS32K_MAX_REGISTER_VIRTUAL_SIZE): Delete macros.
 	* xstormy16-tdep.c (xstormy16_gdbarch_init): Do not set
 	deprecated_max_register_raw_size and
@@ -6514,7 +6514,7 @@
 	declaration.
 	* arch-utils.c (generic_return_value_on_stack_not): Delete
 	function.
-	
+
 2004-06-12  Andrew Cagney  <cagney@gnu.org>
 
 	* values.c (register_value_being_returned): Delete function.
@@ -6609,19 +6609,19 @@
 	* v850-tdep.c (v850_find_callers_reg, v850_frame_chain)
 	(v850_pop_frame, v850_frame_saved_pc, v850_frame_init_saved_regs):
 	Ditto.
-	* sh64-tdep.c (sh64_frame_chain, sh64_get_saved_pr) 
-	(sh64_init_extra_frame_info, sh64_get_saved_register) 
+	* sh64-tdep.c (sh64_frame_chain, sh64_get_saved_pr)
+	(sh64_init_extra_frame_info, sh64_get_saved_register)
 	(sh64_pop_frame): Ditto.
 	* mips-tdep.c (non_heuristic_proc_desc): Ditto.
-	* mcore-tdep.c (mcore_find_callers_reg, mcore_frame_saved_pc) 
+	* mcore-tdep.c (mcore_find_callers_reg, mcore_frame_saved_pc)
 	(mcore_pop_frame, mcore_init_extra_frame_info): Ditto.
-	* h8300-tdep.c (h8300_frame_chain, h8300_frame_saved_pc) 
+	* h8300-tdep.c (h8300_frame_chain, h8300_frame_saved_pc)
 	(h8300_pop_frame): Ditto.
-	* blockframe.c (legacy_inside_entry_func) 
+	* blockframe.c (legacy_inside_entry_func)
 	(legacy_frame_chain_valid): Ditto.
 	* frame.c (frame_type_from_pc, legacy_get_prev_frame): Update call
 	to deprecated_pc_in_call_dummy.
-	
+
 2004-06-09  Andrew Cagney  <cagney@gnu.org>
 
 	* gdbarch.sh (REGISTER_TO_VALUE, VALUE_TO_REGISTER): Do not
@@ -6701,13 +6701,13 @@
 	* ada-lang.c (lookup_symbol_in_language): New function to allow
 	re-use of another language's symbol lookup code.  (Placed here
 	temporarily while Ada support is being integrated into the public
-	tree).  
-	(restore_language): New auxiliary function for 
+	tree).
+	(restore_language): New auxiliary function for
 	lookup_symbol_in_language.
 	* ada-lang.h (lookup_symbol_in_language): Declare (Placed here
 	temporarily while Ada support is being integrated into the public
 	tree).
-	
+
 2004-06-08  Alexandre Oliva  <aoliva@redhat.com>
 
 	* Makefile.in (check//%): New.
@@ -6733,7 +6733,7 @@
 	#definitions.
 	(struct gdb_evrregset_t): New type.
 	(have_ptrace_getsetevrregs): New variable.
-	(get_spe_registers, read_spliced_spe_reg, fetch_spe_register, 
+	(get_spe_registers, read_spliced_spe_reg, fetch_spe_register,
 	fetch_spe_registers): New functions.
 	(fetch_register): Call fetch_spe_register as appropriate.
 	Assert that we're only passed raw register numbers.
@@ -6745,7 +6745,7 @@
 	Assert that we're only passed raw register numbers.
 	(store_ppc_registers): Call store_spe_registers as appropriate.
 	Don't store gprs if they're pseudoregisters.
-	
+
 2004-06-07  Jeff Johnston  <jjohnstn@redhat.com>
 
 	* thread-db.c (thread_get_info_callback): Fill in the thread_info
@@ -6765,7 +6765,7 @@
 	unwinding after sp has been saved to the stack but before the end
 	of the prologue, and after the fp has been modified but before it has
 	been saved to the stack.
-	(hppa_frame_base_address, hppa_frame_base, hppa_frame_base_sniffer): 
+	(hppa_frame_base_address, hppa_frame_base, hppa_frame_base_sniffer):
 	Remove superfluous definitions.
 	(hppa_gdbarch_init): Remove superfluous frame base sniffer.
 
@@ -6782,7 +6782,7 @@
 
 2004-06-06  Randolph Chung  <tausq@debian.org>
 
-	* hppa-hpux-tdep.c (hppa32_hpux_in_solib_call_trampoline) 
+	* hppa-hpux-tdep.c (hppa32_hpux_in_solib_call_trampoline)
 	(hppa_hpux_skip_trampoline_code): Don't cache symbol values.
 	* hppa-linux-tdep.c (hppa_linux_in_dyncall): Likewise.
 	* hppa-tdep.c (hppa_symbol_address): New function definition.
@@ -6895,7 +6895,7 @@
 
 	* ada-exp.y: Update copyright notice.
 	Include block.h.
-	
+
 	Replace REGNAME, LAST, INTERNAL_VARIABLE with
 	SPECIAL_VARIABLE and unify the treatment of these cases.
 
@@ -6904,15 +6904,15 @@
 	(write_attribute_calln): Remove.
 	(save_qualifier): Add missing semicolon.
 
-	(simple_exp,exp): Decomment (i.e., reactivate) code that was 
+	(simple_exp,exp): Decomment (i.e., reactivate) code that was
 	temporarily disabled to allow compilation with FSF head version.
 
-	(simple_exp syntax): Remove use of OP_ADA_ATTRIBUTE and 
+	(simple_exp syntax): Remove use of OP_ADA_ATTRIBUTE and
 	use individual operators (OP_*) for all attributes.
 	(exp syntax): Use write_int.
 	Handle STRING literals with OP_STRING.
-	(variable syntax): Add limit parameter to calls to 
-	write_object_renaming.  
+	(variable syntax): Add limit parameter to calls to
+	write_object_renaming.
 
 	(temp_parse_space): New definition to hold entities that need
 	only live until the next call to ada_parse.
@@ -6920,10 +6920,10 @@
 
 	(write_var_from_sym): Record block.
 	(write_var_from_name): Minor reformatting.
-	Make sure saved name is properly encoded in the case of multiple 
+	Make sure saved name is properly encoded in the case of multiple
 	matches, and set its language to Ada.
 	Update comment.
-	Modify to indicate unresolved name as symbol in the UNRESOLVED 
+	Modify to indicate unresolved name as symbol in the UNRESOLVED
 	namespace, allocated in temp_parse_space.
 	(write_int): New function.
 
@@ -6932,14 +6932,14 @@
 	Handle case where root of renaming expression is itself a renaming.
 	Use temp_parse_space for temporary name buffer.
 	Handle renamings to dereferenced pointers (___XEXA suffices).
-	
-	(ada_parse, yyerror, string_to_operator, 
-	write_var_from_sym, write_var_from_name, write_attribute_call0, 
-	write_attribute_call1, write_attribute_calln, 
+
+	(ada_parse, yyerror, string_to_operator,
+	write_var_from_sym, write_var_from_name, write_attribute_call0,
+	write_attribute_call1, write_attribute_calln,
 	write_object_renaming): Protoize.
 
 	(_initialize_ada_exp): New function.
-	
+
 	* ada-lang.c: Update copyright notice.
 	General terminology change to conform to GNAT compiler usage:
 	mangle => encode, demangle => decode
@@ -6951,7 +6951,7 @@
 	Include gdb_stat.h
 	Include block.h
 	Include infcall.h
-	
+
 	(ADA_RETAIN_DOTS): Make sure this is defined.
 	(TRUNCATION_TOWARDS_ZERO): Define.
 	(struct string_vector): Define.
@@ -6987,10 +6987,10 @@
 
 	(all_sals_for_line): Rename to ada_sals_for_line and make
 	global.
-	Add new parameter. When set, do not ask the user to choose the 
+	Add new parameter. When set, do not ask the user to choose the
 	instance, but use the first one	found instead.
 	Use given line number in returned sals.
-	Fix comment. 
+	Fix comment.
 	Skip the prologue if funfirstline is set.
 	Correct for memory leak when 0 lines found.
 
@@ -7014,16 +7014,16 @@
 	(known_runtime_file_name_patterns): New constant.
 	(known_auxiliary_function_name_patterns): New constant.
 	(symbol_list_obstack): New variable.
-	
+
 	(field_name_match,is_suffix,is_suppressed_name,ada_encode,
 	ada_decode,ada_match_name,encoded_ordered_before,equiv_types,
 	lesseq_defined_than,is_nondebugging_type,is_name_suffix,wild_match,
-	find_sal_from_funcs_and_line, ada_breakpoint_rewrite, 
-	ada_is_tagged_type, ada_is_parent_field, ada_is_wrapper_field, 
+	find_sal_from_funcs_and_line, ada_breakpoint_rewrite,
+	ada_is_tagged_type, ada_is_parent_field, ada_is_wrapper_field,
 	ada_variant_discrim_name, field_alignment, dynamic_template_type,
-	ada_is_character_type, ada_is_aligner_type, ada_is_vax_floating_type): 
-	Replace use of deprecated STREQ and STREQN macros by calls to strncmp 
-	and strcmp. 
+	ada_is_character_type, ada_is_aligner_type, ada_is_vax_floating_type):
+	Replace use of deprecated STREQ and STREQN macros by calls to strncmp
+	and strcmp.
 
 	(ada_get_field_index): New function.
 	(lim_warning): New function.
@@ -7036,7 +7036,7 @@
 	(discrete_type_low_bound): New function.
 	(base_type): New function.
 	(do_command): Remove.
-	
+
 	(ada_update_initial_language): Use language_ada, not language_unknown.
 	(ada_encode): Renamed from ada_mangle.
 	Obey ADA_RETAIN_DOTS.
@@ -7045,8 +7045,8 @@
 	(decoded_names_store): New hash table.
 	(ada_decode_symbol): New function.
 	(ada_la_decode): New function.
-	
-	(modify_general_field):	Correct computations of offset and bit 
+
+	(modify_general_field):	Correct computations of offset and bit
 	position.
 	(desc_base_type): Handle ref types, too.
 	(ada_is_direct_array_type): New function.
@@ -7055,15 +7055,15 @@
 	(ada_is_array_descriptor): Rename to ada_is_array_descriptor_type.
 	(ada_is_bogus_array_descriptor,ada_type_of_array,
 	ada_coerce_to_simple_array_ptr,ada_coerce_to_simple_array,
-	ada_type_match,convert_actual,ada_evaluate_subexp): Use renamed 
+	ada_type_match,convert_actual,ada_evaluate_subexp): Use renamed
 	ada_is_array_descriptor_type.
-	
+
 	(ada_coerce_to_simple_array_type): Fix incorrect value freeing.
-	(ada_is_packed_array_type): Handle pointers or 
+	(ada_is_packed_array_type): Handle pointers or
 	references to packed arrays as well.
 	(packed_array_type): Uncomment use of TYPE_FLAG_FIXED_INSTANCE.
-	(decode_packed_array_type): Search for the packed array type 
-	symbol in the currently selected block and associated 
+	(decode_packed_array_type): Search for the packed array type
+	symbol in the currently selected block and associated
 	superblocks too.
 	Use lookup_symbol again.
 
@@ -7071,10 +7071,10 @@
 	Update call to coerce_unspec_val_to_type.
 	(decode_packed_array_type,value_subscript_packed): Limit warnings.
 	(ada_value_primitive_packed_val): Improve comment.
-	
+
 	(ada_index_type): Substitute int type for "undefined".
 	(ada_index_type,ada_array_bound_from_type,ada_array_bound,
-	ada_array_langth, ada_is_string_type): Use renamed 
+	ada_array_langth, ada_is_string_type): Use renamed
 	ada_is_simple_array_type.
 	(empty_array): New function.
 
@@ -7086,10 +7086,10 @@
 	(resolve_subexp): Update comment.
 	Decomment disabled code.
 	Add LOC_COMPUTED* cases.
-	Modify to use temporary	struct symbols (marked as being in 
-	UNDEF_NAMESPACE) to indicate unresolved names, instead of 
+	Modify to use temporary	struct symbols (marked as being in
+	UNDEF_NAMESPACE) to indicate unresolved names, instead of
 	OP_UNRESOLVED_VALUE.
-	Remove OP_ATTRIBUTE; use individual opcodes for attributes.	
+	Remove OP_ATTRIBUTE; use individual opcodes for attributes.
 	Add OP_STRING case.
 	Remove OP_ARRAY.
 	Use SYMBOL_PRINT_NAME instead of ada_demangle.
@@ -7108,13 +7108,13 @@
 	Use new sort_choices interface.
 	Use SYMBOL_PRINT_NAME rather than SYMBOL_SOURCE_NAME.
 	(possible_user_operator_p): Idiot-proof against null values.
-	(ada_simple_renamed_entity): Don't make cleanup; rely on 
+	(ada_simple_renamed_entity): Don't make cleanup; rely on
 	caller to free result string.
 	Remove const from return type.
-	(make_array_descriptor): Rename uses of place_on_stack to 
+	(make_array_descriptor): Rename uses of place_on_stack to
 	ensure_lval.
 	Make sure that arrays are on stack.
-	
+
 	(HASH_SIZE): Define.
 	(struct cache_entry): Define.
 	(cache_space): Define.
@@ -7125,20 +7125,20 @@
 	(defn_vector_size): Define.
 	(cache_symbol): New function.
 	(defn_symbols): Remove.
-	
+
 	(standard_lookup): Use lookup_symbol_in_language to get effect of
 	C lookup.
 	Cache results.
-	
+
 	(symbol_completion_match): New function.
 	(symbol_completion_add): New function.
 	(ada_make_symbol_completion_list): New function.
 
-	(ada_lookup_partial_symbol,ada_lookup_simple_minsym, 
-	add_symbols_from_enclosing_procs,remove_extra_symbols): Replace 
-	DEPRECATED_SYMBOL_NAME with SYMBOL_LINKAGE_NAME. 
+	(ada_lookup_partial_symbol,ada_lookup_simple_minsym,
+	add_symbols_from_enclosing_procs,remove_extra_symbols): Replace
+	DEPRECATED_SYMBOL_NAME with SYMBOL_LINKAGE_NAME.
 	(symtab_for_sym): Handle LOC_COMPUTED, LOC_COMPUTED_ARG.
-	
+
 	(ada_lookup_simple_minsym): New function.
 	(ada_lookup_minimal_symbol): Use ada_lookup_simple_minsym.
 
@@ -7147,7 +7147,7 @@
 	Don't bother if program isn't running.
 	Use new interface to get_frame_block.
 	Limit number of levels searched	with MAX_LEXICAL_LEVELS, just in case.
-	
+
 	(remove_extra_symbols): New interface.
 	(xget_renaming_scope): New function.
 	(is_package_name): New function.
@@ -7158,15 +7158,15 @@
 	Properly reinitialize the symbol list obstack.
 	Don't call add_symbols_from_enclosing_procs if we start from a
 	static or global block.
-	Use new interfaces to ada_add_block_symbols, add_defn_to_vec, 
+	Use new interfaces to ada_add_block_symbols, add_defn_to_vec,
 	add_symbols_from_enclosing_procs.
 	Add symtab data to cached entries.
 	Handle symbols prefixed with
 	"standard__" specially; strip prefix and don't look in local symbols.
-	Do not include out of scope renaming symbols in list of 
+	Do not include out of scope renaming symbols in list of
 	symbols returned.
 	Add const to block parameter.
-	Move check for non-local, non-global symbols earlier.  
+	Move check for non-local, non-global symbols earlier.
 	Remove timing stuff.
 	(ada_lookup_symbol): New interface.
 	Find symtab as well.
@@ -7176,27 +7176,27 @@
 	an optional "__[:digit:]+" before any "\.[:digit:]+" suffix.
 	(is_dot_digits_suffix): New function.
 	(wild_match): Ignore ".[:digit:]*" suffixes during matches.
-	
+
 	(ada_add_block_symbols): New interface.  Use obstack to return results
 	in a vector of struct ada_symbol_infos.  Add symtab argument.
 	Use new interface to add_defn_to_vec.
 	Remove calls to fill_in_ada_prototype.
 	Use BLOCK_BUCKETS, BLOCK_BUCKET.
-	
+
 	(ada_finish_decode_line_1): Add const qualification to local to fix
 	warning.
-	Start looking in static block for functions to avoid attempts 
+	Start looking in static block for functions to avoid attempts
 	to search frame chain for up-level variables.
 	Adapt to new ada_sals_for_line interface.
 	Use new interfaces to ada_lookup_symbol_list and user_select_syms.
 	Handle quoting of the function name inside the spec string.
-	Skip prologue when funfirstline is set and update the 
+	Skip prologue when funfirstline is set and update the
 	function documentation to that effect.
 
-	(debug_print_lines, debug_print_block, debug_print_blocks, 
+	(debug_print_lines, debug_print_block, debug_print_blocks,
 	debug_print_symtab): Remove.
 
-	(ada_main_name): New function.	
+	(ada_main_name): New function.
 	(ada_exception_breakpoint_type): New function.
 	(is_known_support_routine): New function.
 	(ada_find_printable_frame): Renamed from find_printable_frame and made
@@ -7208,11 +7208,11 @@
 	(ada_adjust_exception_stop): New function.
 	(ada_print_exception_stop): New function.
 	(exception_name_from_cond): New function.
-	(ada_report_exception_break): Replace disabled code with 
+	(ada_report_exception_break): Replace disabled code with
 	conditionalization on GNAT_GDB.
 	Get the exception name from the condition string.
-	Remove and move functionality into new functions 
-	ada_print_exception_breakpoint_task and 
+	Remove and move functionality into new functions
+	ada_print_exception_breakpoint_task and
 	ada_print_exception_breakpoint_nontask.
 	(error_breakpoint_runtime_sym_not_found): New function.
 	(is_runtime_sym_defined): New function.
@@ -7221,7 +7221,7 @@
 	Surround runtime symbol names in quotes.
 	Allow non-specific breakpoints on exceptions and assertions before
 	program starts.
-	
+
 	(ada_is_tagged_type): Add parameter.
 	(ada_is_tag_type): New function.
 	(ada_tag_type): Use new ada_lookup_struct_elt_type interface.
@@ -7252,30 +7252,30 @@
 	(contains_variant_part): Removed: subsumed by variant_field_index.
 	(ada_template_to_fixed_record_type): New function, mostly from
 	template_to_fixed_record_type.
-	(template_to_fixed_record_type): 
-	Do not scan the type fields beyond the last one; prevents a 
+	(template_to_fixed_record_type):
+	Do not scan the type fields beyond the last one; prevents a
 	potential SEGV.
-	Handle case where variant field is listed BEFORE discriminant it 
+	Handle case where variant field is listed BEFORE discriminant it
 	depends on.
-	Fix calculation of record length when bit length is 
+	Fix calculation of record length when bit length is
 	not evenly divisible by char length.
 	Move code to ada_template_to_fixed_record_type and call it.
 
-	(template_to_static_fixed_type): Revise comment.  
-	Modify to work on ordinary record types as well as templates, 
-	so as to handle	fields that use ___XVE or ___XVU encodings. 
+	(template_to_static_fixed_type): Revise comment.
+	Modify to work on ordinary record types as well as templates,
+	so as to handle	fields that use ___XVE or ___XVU encodings.
 	(to_record_with_fixed_variant_part): Fill out comment.
 	Initialize C++ stuff in right type.
 	Allow case where DVAL is null.
 	Handle case where variant field is not last.
 	Fix typo concerning record length.
 	(to_fixed_record_type): Decomment disabled code.
-	(to_fixed_record_type): Use variant_field_index instead of 
+	(to_fixed_record_type): Use variant_field_index instead of
 	contains_variant_part.
 	(to_fixed_variant_branch_type): Ditto.
 	(to_fixed_array_type): Decomment disabled code.
 	(ada_to_fixed_type): Convert tagged types to the specific type.
-	Deactivate the size-check for array types in order to avoid 
+	Deactivate the size-check for array types in order to avoid
 	some false size alarms.
 	(to_static_fixed_type): Decomment disabled code.
 	Modify to call template_to_static_fixed_type
@@ -7286,7 +7286,7 @@
 	operand.
 	(adjust_pc_past_prologue): New function.
 	(ada_attribute_name): Modify to take enum exp_opcode argument.
-		
+
 	(ada_enum_name): Recognize new homonym-distinguishing convention.
 	Adjust local variable's type to	remove compiler warning.
 	Fix a small problem in the part	that unqualifies the enumeration name.
@@ -7294,43 +7294,43 @@
 	(ada_value_equal): New function.
 
 	(ada_evaluate_subexp): Use new ada_lookup_struct_elt_type interface.
-	Don't give error message when not doing	normal evaluation 
+	Don't give error message when not doing	normal evaluation
 	and a tagged type doesn't seem to contain a structure member.
 	Give error message for packed arrays.
 	For indexing arrays, handle pointers to	packed arrays correctly.
-	Handle case of 'first and 'last attributes of bare integral type 
-	without encoded subtype info.  
+	Handle case of 'first and 'last attributes of bare integral type
+	without encoded subtype info.
 	Remove some unnecessary casts.
 	Fix uninitialized value of type in computing 'first, 'last, or 'length
-	of array object.  
+	of array object.
 	Add BINOP_EQUAL and BINOP_NOTEQUAL cases.
 	Remove binop_user_defined_p tests and value_x_binop and value_x_unop
 	calls.
 	Attributes are now exp_opcode values.
 	Correct treatment of 'modulus.
-	Better error message for taking 'length of wrong kind of type; 
+	Better error message for taking 'length of wrong kind of type;
 	improve comment.
 	Change EVAL_NORMAL to noside for consistency.
 	Use ada_value_binop for DIV, MOD, REM.
-	Make special case out of array of length 0, since an argument 
+	Make special case out of array of length 0, since an argument
 	of 0 upsets some platforms' malloc.
 	Use OP_STRING instead of OP_ARRAY.
-	For slice, add check that we have an array type before extracting 
+	For slice, add check that we have an array type before extracting
 	a slice out of it.  Avoids a SEGV.
-	When evaluating an array slice,	if the array type is a reference to 
+	When evaluating an array slice,	if the array type is a reference to
 	an aligner type, then replace the aligner type by the actual type.
 	Decomment disabled code.
 	Remove some dead code.
-	Use temporary struct symbols (marked as being in UNDEF_NAMESPACE) 
+	Use temporary struct symbols (marked as being in UNDEF_NAMESPACE)
 	to indicate unresolved names, instead of OP_UNRESOLVED_VALUE.
-	Rename BINOP_MBR to BINOP_IN_BOUNDS, TERNOP_MBR to TERNOP_IN_RANGE, 
+	Rename BINOP_MBR to BINOP_IN_BOUNDS, TERNOP_MBR to TERNOP_IN_RANGE,
 	and UNOP_MBR to UNOP_IN_RANGE.
 	If an array type has a parallel	___XVE type, then use it.
 	Turn arrays into pointers for lvalue arrays.
 	Change TERNOP_SLICE code to work even when bounds are unknown, ignoring
 	bounds error and handle 0-length slices.
 	Use lim_warning.
-	When selecting fields, apply ada_to_fixed_value	(because the fields 
+	When selecting fields, apply ada_to_fixed_value	(because the fields
 	might have ___XVU or ___XVE encodings even if not dynamic.)
 	Use ada_to_fixed_value_create and new ada_to_fixed_value interface.
 	(ada_is_system_address_type): New function.
@@ -7351,16 +7351,16 @@
 	Change ada_parse => parse.
 	Add post-parser entry.
 	Use ada-specific non-local symbol lookup.
-	Don't use C-style arrays. 
+	Don't use C-style arrays.
 	String lower-bound is 1.
-	Decomment disabled code.	
+	Decomment disabled code.
 	(parse): New function.
-	New fields ada_translate_error_message, ada_lookup_symbol, 
+	New fields ada_translate_error_message, ada_lookup_symbol,
 	ada_lookup_minimal_symbol.
-	
+
 	* ada-lang.h: Update copyright dates.
 	Replace the mangle/demangle terminology throughout by the
-	more appropriate encode/decode one. 
+	more appropriate encode/decode one.
 	Include breakpoint.h.
 	Forward declare struct partial_symbol, struct block.
 	(ADA_KNOWN_RUNTIME_FILE_NAME_PATTERNS): Define.
@@ -7381,7 +7381,7 @@
 	(struct ada_symbol_info): Define.
 	(enum ada_attribute): Remove.
 	(enum ada_operator): Define.
-	
+
 	(ada_get_field_index): Declare.
 	(ada_coerce_to_simple_array): Rename to ada_coerce_to_simple_array_ptr.
 	(ada_is_simple_array): Rename to ada_is_simple_array_type.
@@ -7418,54 +7418,54 @@
 	* ada-lex.l: Update copyright notices.
 	Use xmalloc and xfree instead of malloc and free.
 	Use new interface to name_lookup.
-	Use new interface to 
+	Use new interface to
 	ada_mangle=>ada_encode.
-	Redo handling of '$...' variable to parallel current treatment 
-	in c-exp.y.  
+	Redo handling of '$...' variable to parallel current treatment
+	in c-exp.y.
         (resize_tempbuf, canonicalizeNumeral, is_digit_in_base,
-	digit_to_int, strtoulst, processInt, processReal, processId, 
+	digit_to_int, strtoulst, processInt, processReal, processId,
 	block_lookup, name_lookup, find_dot_all, subseqMatch, processAttribute,
 	yywrap): Protoize.
-	
+
 	(processInt): Use cast to remove harmless warning.
 	(processReal): Modify to get rid of compiler warning on scan formats.
 
 	(processId): Replace xmalloc with obstack_alloc for name and remove
 	call to ada_name_string_cleanup.
 	Remove obsolete disabled code.
-	(name_lookup): Ditto. 
+	(name_lookup): Ditto.
 	New interface.
-	Use obsavestring on temp_parse_space instead of savestring 
-	on name, and remove call to ada_name_string_cleanup.  
+	Use obsavestring on temp_parse_space instead of savestring
+	on name, and remove call to ada_name_string_cleanup.
 	Free string returned from ada_simple_renamed_entity.
 	Use new interface to ada_lookup_symbol_list.
 	Decomment disabled code.
-	Treat LOC_COMPUTED and LOC_COMPUTED_ARG	symbols as variables, 
+	Treat LOC_COMPUTED and LOC_COMPUTED_ARG	symbols as variables,
 	not types.
-	When a type name lookup succeeds as a result of 
-	lookup_primitive_typename, check for regular type entry that has not 
+	When a type name lookup succeeds as a result of
+	lookup_primitive_typename, check for regular type entry that has not
 	yet been read in.
-	Limit length of chain of renamed symbols we are willing to follow.  
-	Do not break names beginning with "standard__" into segments.  
+	Limit length of chain of renamed symbols we are willing to follow.
+	Do not break names beginning with "standard__" into segments.
 	(block_lookup): Use new interface to ada_lookup_symbol_list.
-	
+
 	* ada-typeprint.c: Update copyright notice.
 	(demangled_type_name): Rename to decoded_type_name.
 	(ada_typedef_print): Use SYMBOL_PRINT_NAME.
 	(print_range_bound):  Correct handling of negative
-	bounds that make the index type looked unsigned under STABS.  
+	bounds that make the index type looked unsigned under STABS.
 	(print_dynamic_range_bound): Use new interface to get_int_var_value.
-	(print_range_type_named):  Use the builtin int type if no type 
+	(print_range_type_named):  Use the builtin int type if no type
 	corresponding to the given type name could be found.
 	(print_array_type): ada_is_simple_array => ada_is_simple_array_type.
 	Add some bullet-proofing.
-	(print_variant_clauses): Allow for variant branches with ___XVU 
-	encodings that are not dynamic fields.  
+	(print_variant_clauses): Allow for variant branches with ___XVU
+	encodings that are not dynamic fields.
 	Use new interface to ada_is_tagged_type.
-	(print_record_type): Allow for fields with ___XVE encodings that 
-	are not dynamic fields. 
+	(print_record_type): Allow for fields with ___XVE encodings that
+	are not dynamic fields.
 	Use new interface to ada_is_tagged_type.
-	(ada_print_type): ada_is_array_descriptor => 
+	(ada_print_type): ada_is_array_descriptor =>
 	ada_is_array_descriptor_type.
 
 	* ada-valprint.c: Update copyright notice.
@@ -7474,21 +7474,21 @@
 	(ui_memcpy): New function.
 	(ada_print_floating): New function.
 	(ada_print_str): Order arguments correctly.
-	Correct handling of empty arrays and arrays of 0-length items. 
-	ada_is_array_descriptor => ada_is_array_descriptor_type 
+	Correct handling of empty arrays and arrays of 0-length items.
+	ada_is_array_descriptor => ada_is_array_descriptor_type
 	Print values of type System.Address in hexadecimal format.
 	Use ada_print_floating to print floating-point numbers in Ada format.
-	Print class tag values with type names.  
-	No longer print the address of reference values. Avoids 
-	a potential confusion.	
+	Print class tag values with type names.
+	No longer print the address of reference values. Avoids
+	a potential confusion.
 	(ada_value_print): Stop printing the object type for reference
 	values, but preserve that behavior for access types. Avoids
 	a potential confusion.
 	Simplify one conditional expression, as the first part is now
 	necessarily true.
-	ada_is_array_descriptor => ada_is_array_descriptor_type 
+	ada_is_array_descriptor => ada_is_array_descriptor_type
 	Add check for arrays for null records, and print them by hand.
-	
+
 2004-06-01  Jim Blandy  <jimb@redhat.com>
 
 	* ppc-tdep.h: Delete unused 'regoff' member.
@@ -7504,17 +7504,17 @@
 
 	* mi/mi-cmd-env.c (env_execute_cli_command): Use xstrprintf
 	instead of xasprintf.
-	* mi/mi-main.c (mi_error_last_message, mi_cmd_exec_interrupt) 
-	(mi_cmd_thread_select, mi_cmd_thread_list_ids) 
-	(mi_cmd_data_list_register_names) 
-	(mi_cmd_data_list_changed_registers) 
-	(mi_cmd_data_list_register_values) 
-	(get_register, mi_cmd_data_write_register_values) 
-	(mi_cmd_data_write_register_values) 
-	(mi_cmd_data_assign, mi_cmd_data_evaluate_expression) 
-	(mi_cmd_target_download, mi_cmd_target_select) 
-	(mi_cmd_data_read_memory, mi_cmd_data_write_memory) 
-	(mi_execute_cli_command, mi_execute_async_cli_command) 
+	* mi/mi-main.c (mi_error_last_message, mi_cmd_exec_interrupt)
+	(mi_cmd_thread_select, mi_cmd_thread_list_ids)
+	(mi_cmd_data_list_register_names)
+	(mi_cmd_data_list_changed_registers)
+	(mi_cmd_data_list_register_values)
+	(get_register, mi_cmd_data_write_register_values)
+	(mi_cmd_data_write_register_values)
+	(mi_cmd_data_assign, mi_cmd_data_evaluate_expression)
+	(mi_cmd_target_download, mi_cmd_target_select)
+	(mi_cmd_data_read_memory, mi_cmd_data_write_memory)
+	(mi_execute_cli_command, mi_execute_async_cli_command)
 	(mi_execute_async_cli_command): Ditto.
 	* mi/mi-interp.c (mi_cmd_interpreter_exec) Ditto.
 	* mi/mi-cmd-var.c (mi_cmd_var_create): Ditto.
@@ -7645,7 +7645,7 @@
 	(hppa32_hpux_frame_find_saved_regs_in_sigtramp)
 	(hppa64_hpux_frame_saved_pc_in_sigtramp)
 	(hppa64_hpux_frame_base_before_sigtramp)
-	(hppa64_hpux_frame_find_saved_regs_in_sigtramp): Remove unused 
+	(hppa64_hpux_frame_find_saved_regs_in_sigtramp): Remove unused
 	functions.
 	(struct hppa_hpux_sigtramp_unwind_cache, hppa_hpux_tramp_reg)
 	(hppa_hpux_sigtramp_frame_unwind_cache)
@@ -7696,11 +7696,11 @@
 	* win32-nat.c (child_create_inferior): Update.
 	* uw-thread.c (uw_thread_create_inferior): Update.
 	* thread-db.c (thread_db_create_inferior): Update.
-	* target.c (debug_to_create_inferior) 
+	* target.c (debug_to_create_inferior)
 	(find_default_create_inferior): Update.
 	(maybe_kill_then_create_inferior): Update.
 	* sol-thread.c (sol_thread_create_inferior): Update.
-	* remote.c (extended_remote_async_create_inferior) 
+	* remote.c (extended_remote_async_create_inferior)
 	(extended_remote_create_inferior): Update.
 	* remote-vx.c (vx_create_inferior): Update.
 	* remote-st.c (st2000_create_inferior): Update.
@@ -7770,7 +7770,7 @@
 
 2004-05-24  Randolph Chung  <tausq@debian.org>
 
-	* hppa-tdep.c: Fix handling of 8-byte structures; they should not 
+	* hppa-tdep.c: Fix handling of 8-byte structures; they should not
 	be "small_struct".
 
 2004-05-24  Mark Kettenis  <kettenis@gnu.org>
@@ -7913,22 +7913,22 @@
 	* symtab.h (SYMBOL_SEARCH_NAME): New definition.
 	(SYMBOL_MATCHES_SEARCH_NAME): New definition.
 	(symbol_search_name): Declare.
-	
+
 	* dictionary.c (iter_name_first_hashed): Match on SYMBOL_SEARCH_NAME.
 	(iter_name_next_hashed): Ditto.
 	(iter_name_next_linear): Ditto.
 	(insert_symbol_hashed): Hash on SYMBOL_SEARCH_NAME.
 
-	* symtab.c (lookup_partial_symbol): Assume symbols ordered by 
+	* symtab.c (lookup_partial_symbol): Assume symbols ordered by
 	search name, using SYMBOL_SEARCH_NAME and SYMBOL_MATCHES_SEARCH_NAME.
 	(symbol_search_name): New function.
-	
+
 	* symfile.c (compare_psymbols): Order by SYMBOL_SEARCH_NAME.
-	
+
 	* minsyms.c (build_minimal_symbol_hash_tables): Change
 	test for adding to demangled hash table to check for difference
 	between SYMBOL_SEARCH_NAME and SYMBOL_LINKAGE_NAME.
-	
+
 2004-05-19  Jim Blandy  <jimb@redhat.com>
 
 	Use a constructor function to create regset structures.
@@ -8136,12 +8136,12 @@
 	(store_regs_user_thread, store_regs_kernel_thread): Use
 	ppc_num_gprs and ppc_num_fprs instead of '32' and '31'.
 	* ppc-linux-nat.c (fill_gregset): Same.
-	* ppc-linux-tdep.c (ppc_linux_supply_gregset) 
+	* ppc-linux-tdep.c (ppc_linux_supply_gregset)
 	(ppc_linux_sigtramp_cache): Same.
-	* ppcnbsd-tdep.c (ppcnbsd_supply_reg, ppcnbsd_fill_reg) 
+	* ppcnbsd-tdep.c (ppcnbsd_supply_reg, ppcnbsd_fill_reg)
 	(ppcnbsd_sigtramp_cache_init): Same.
 	* rs6000-nat.c (fetch_core_registers): Same.
-	* rs6000-tdep.c (ppc_supply_gregset, ppc_collect_gregset) 
+	* rs6000-tdep.c (ppc_supply_gregset, ppc_collect_gregset)
 	(rs6000_frame_cache): Same.
 
 	* aix-thread.c (supply_gprs64, fetch_regs_user_thread)
@@ -8170,7 +8170,7 @@
 
 2004-05-13  Bryce McKinlay  <mckinlay@redhat.com>
 
-	* MAINTAINERS (write after approval): Add myself.	
+	* MAINTAINERS (write after approval): Add myself.
 
 2004-05-13  Ulrich Weigand  <uweigand@de.ibm.com>
 
@@ -8295,7 +8295,7 @@
 	floating-point registers and the fpscr if we have them.
 	* Makefile.in (ppc-bdm.o, ppc-linux-nat.o, ppcnbsd-nat.o)
 	(ppcobsd-tdep.o): Update dependencies.
-	
+
 2004-05-10  Andrew Cagney  <cagney@redhat.com>
 
 	* infrun.c (through_sigtramp_breakpoint): Delete variable.
@@ -8311,7 +8311,7 @@
 
 2004-05-10  Maciej W. Rozycki  <macro@ds2.pg.gda.pl>
 
-	* acinclude.m4: Quote macro names being defined by AC_DEFUN 
+	* acinclude.m4: Quote macro names being defined by AC_DEFUN
 	throughout.
 	* aclocal.m4: Regenerate.
 
@@ -8407,7 +8407,7 @@
 	DEPRECATED_SAVE_DUMMY_FRAME_TOS.
 	* mn10300-tdep.c (mn10300_gdbarch_init): Ditto.
 	* mcore-tdep.c (mcore_gdbarch_init): Ditto.
-	
+
 	* gdbarch.sh (DEPRECATED_FIX_CALL_DUMMY): Delete.
 	* gdbarch.h, gdbarch.c: Re-generate.
 	* ns32k-tdep.c (ns32k_gdbarch_init): Do not set
@@ -8450,7 +8450,7 @@
 	* gdbarch.sh (DEPRECATED_CALL_DUMMY_BREAKPOINT_OFFSET)
 	(DEPRECATED_CALL_DUMMY_START_OFFSET): Delete.
 	* gdbarch.h, gdbarch.c: Re-generate.
-	
+
 	* infcall.c (legacy_push_dummy_code): Delete function.
 	(push_dummy_code): Delete call.
 
@@ -8492,7 +8492,7 @@
 
 2004-05-07  Randolph Chung  <tausq@debian.org>
 
-	* hppa-tdep.c (skip_prologue_hard_way, hppa_frame_cache): Use 
+	* hppa-tdep.c (skip_prologue_hard_way, hppa_frame_cache): Use
 	read_memory_nobpt for code reading when doing frame unwinding.
 	* hppa-linux-tdep.c (insns_match_pattern): Likewise.
 
@@ -8500,7 +8500,7 @@
 
 	* hppa-linux-tdep.c (hppa_linux_sigtramp_find_sigcontext): Pass in pc
 	instead of sp, handle sigaltstack case.
-	(hppa_linux_sigtramp_frame_unwind_cache): Adjust calls to 
+	(hppa_linux_sigtramp_frame_unwind_cache): Adjust calls to
 	hppa_linux_sigtramp_find_sigcontext, and set base to the frame of the
 	signal handler and not that of the caller.
 	(hppa_linux_sigtramp_unwind_sniffer): Adjust calls to
@@ -8521,7 +8521,7 @@
 
 2004-05-07  Randolph Chung  <tausq@debian.org>
 
-	* hppa-tdep.c (hppa_frame_prev_register_helper): New function to 
+	* hppa-tdep.c (hppa_frame_prev_register_helper): New function to
 	do common handling of the pcoqt register.
 	(hppa_frame_prev_register, hppa_stub_frame_prev_register): Convert
 	to use helper function.
@@ -8565,7 +8565,7 @@
 	registers.
 
 	* ppc-sysv-tdep.c (ppc64_sysv_abi_return_value): Assert that
-	the given architecture has floating-point registers. 
+	the given architecture has floating-point registers.
 
 2004-05-07  Andrew Cagney  <cagney@redhat.com>
 
@@ -8608,7 +8608,7 @@
 	(EIEM_REGNUM, IIR_REGNUM, ISR_REGNUM, IOR_REGNUM, SR4_REGNUM)
 	(RCR_REGNUM, PID0_REGNUM, PID1_REGNUM, PID2_REGNUM, PID3_REGNUM)
 	(CCR_REGNUM, TR0_REGNUM, CR27_REGNUM, HPPA_FP0_REGNUM, FP4_REGNUM)
-	(ARG0_REGNUM, ARG1_REGNUM, ARG2_REGNUM, ARG3_REGNUM): Move *_REGNUM 
+	(ARG0_REGNUM, ARG1_REGNUM, ARG2_REGNUM, ARG3_REGNUM): Move *_REGNUM
 	definitions ...
 	* hppa-tdep.h: ... to here, with HPPA_ prefix.
 	* Makefile.in (hppah-nat.o): Add $(hppa_tdep_h)
@@ -8636,11 +8636,11 @@
 	(som_solib_library_pathname): Likewise.
 
 2004-05-05  Jim Ingham  <jingham@apple.com>
-	
+
 	* breakpoint.c (create_breakpoints): Copy the ignore count and
 	thread id over from the pended breakpoint to the actual
 	breakpoint.
-	
+
 2004-05-05  Andrew Cagney  <cagney@redhat.com>
 
 	* gdbarch.sh (PARM_BOUNDARY): Delete.
@@ -8666,15 +8666,15 @@
 	(rs6000_push_dummy_call, rs6000_extract_return_value)
 	(rs6000_dwarf2_stab_reg_to_regnum, rs6000_store_return_value)
 	(rs6000_frame_cache): Use tdep->ppc_fp0_regnum instead of
-	FP0_REGNUM. 
+	FP0_REGNUM.
 	* aix-thread.c (supply_fprs, fetch_regs_kernel_thread)
 	(fill_gprs64, fill_gprs32, fill_fprs, store_regs_kernel_thread):
 	Same.
 	* ppc-bdm.c (bdm_ppc_fetch_registers, bdm_ppc_fetch_registers,
 	bdm_ppc_store_registers): Same.
-	* ppc-linux-nat.c (ppc_register_u_addr, fetch_register) 
+	* ppc-linux-nat.c (ppc_register_u_addr, fetch_register)
 	(store_register, fill_fpregset): Same.
-	* ppc-linux-tdep.c (ppc_linux_sigtramp_cache) 
+	* ppc-linux-tdep.c (ppc_linux_sigtramp_cache)
 	(ppc_linux_supply_fpregset): Same.
 	* ppcnbsd-nat.c (getfpregs_supplies): Same.
 	* ppcnbsd-tdep.c (ppcnbsd_supply_fpreg, ppcnbsd_fill_fpreg):
@@ -8682,7 +8682,7 @@
 	* ppc-sysv-tdep.c (ppc_sysv_abi_push_dummy_call,
 	do_ppc_sysv_return_value, ppc64_sysv_abi_push_dummy_call,
 	ppc64_sysv_abi_return_value): Same.
-	* rs6000-nat.c (regmap, fetch_inferior_registers) 
+	* rs6000-nat.c (regmap, fetch_inferior_registers)
 	(store_inferior_registers, fetch_core_registers): Same.
 
 2004-05-01  Mark Kettenis  <kettenis@gnu.org>
@@ -8709,7 +8709,7 @@
 
 2004-05-04  Michael Snyder  <msnyder@redhat.com>
 
-	* m68k-tdep.c (m68k_gdbarch_init): Default to using 
+	* m68k-tdep.c (m68k_gdbarch_init): Default to using
 	reg_struct_return method (as gcc usually does for cross targets).
 
 2004-05-04  Ulrich Weigand <Ulrich.Weigand@de.ibm.com>
@@ -8739,7 +8739,7 @@
 	* ppc-bdm.c (bdm_ppc_fetch_registers, bdm_ppc_store_registers):
 	Same.
 	* ppc-linux-nat.c (ppc_register_u_addr): Same.
-	* rs6000-nat.c (regmap, fetch_inferior_registers) 
+	* rs6000-nat.c (regmap, fetch_inferior_registers)
 	(store_inferior_registers): Same.
 
 	* aix-thread.c (fill_fprs): Fix off-by-one error comparing regno
@@ -9140,7 +9140,7 @@
 	* gdb-events.sh (WITH_GDB_EVENTS): Delete macro and references.
 	Delete all disabled code.
 	* gdb-events.h, gdb-events.c: Re-generate.
-	
+
 2004-04-19  Jerome Guitton  <guitton@gnat.com>
 	    Mark Kettenis  <kettenis@gnu.org>
 
@@ -9182,7 +9182,7 @@
 
 	* hppa-tdep.c (hppa32_return_value): Handle both 4- and 8-byte fp
 	return values.
-	(hppa32_push_dummy_call): Fix small struct and floating point argument 
+	(hppa32_push_dummy_call): Fix small struct and floating point argument
 	passing, and make sure the stack frame is properly aligned.
 
 2004-04-28  Andrew Cagney  <cagney@redhat.com>
@@ -9216,7 +9216,7 @@
 	* infcmd.c (finish_command): Ditto.
 	* corelow.c (core_open): Ditto.
 	* tracepoint.c (finish_tfind_command): Ditto.
-	* thread.c (info_threads_command, info_threads_command) 
+	* thread.c (info_threads_command, info_threads_command)
 	(restore_current_thread, do_captured_thread_select): Ditto.
 	* ada-tasks.c (task_command): Ditto.
 
@@ -9272,7 +9272,7 @@
 	(hppa_stub_frame_this_id, hppa_stub_frame_prev_register)
 	(hppa_stub_frame_unwind, hppa_stub_unwind_sniffer): New stub unwinder
 	for handling stackless frames.
-	(hppa_gdbarch_init): Link in hppa_stub_unwind_sniffer. 
+	(hppa_gdbarch_init): Link in hppa_stub_unwind_sniffer.
 
 2004-04-23  Randolph Chung  <tausq@debian.org>
 
@@ -9301,7 +9301,7 @@
 	(find_unwind_entry): Remove prototype (moved to hppa-tdep.h).
 	(hppa_in_solib_call_trampoline, hppa_in_solib_return_trampoline)
 	(hppa_skip_trampoline_code): Move to hppa-hpux-tdep.c
-	(hppa_gdbarch_init): Remove gdbarch setting of 
+	(hppa_gdbarch_init): Remove gdbarch setting of
 	skip_trampoline_code, in_solib_call_trampoline and
 	in_solib_return_trampoline.
 	* hppa-hpux-tdep.c (hppa32_hpux_in_solib_call_trampoline)
@@ -9309,7 +9309,7 @@
 	hppa_in_solib_call_trampoline.
 	(hppa_hpux_in_solib_return_trampoline, hppa_hpux_skip_trampoline_code):
 	Moved from hppa-tdep.c.
- 	(hppa_hpux_init_abi): Set gdbarch for skip_trampoline_code, 
+ 	(hppa_hpux_init_abi): Set gdbarch for skip_trampoline_code,
 	in_solib_call_trampoline and in_solib_return_trampoline.
 
 2004-04-22  Randolph Chung  <tausq@debian.org>
@@ -9370,7 +9370,7 @@
 
 2004-04-21  Michael Snyder  <msnyder@redhat.com>
 
-	* mips-tdep.c (heuristic_proc_start): 
+	* mips-tdep.c (heuristic_proc_start):
 	Warning() already prefixes "Warning: ".
 
 2004-04-21  Andrew Cagney  <cagney@redhat.com>
@@ -9531,14 +9531,14 @@
 	* hpread.c (hppa-tdep.h): Include.
 	(hpread_adjust_stack_address): Move from hppa-tdep.c.
 	(hpread_read_function_type, hpread_read_doc_function_type)
-	(hpread_process_one_debug_symbol): Call hpread_adjust_stack_address 
+	(hpread_process_one_debug_symbol): Call hpread_adjust_stack_address
 	directly.
 	* pa64solib.c (hppa-tdep.h): Include.
 	* somsolib.c (hppa-tdep.h): Include.
 	* config/pa/tm-hppa.h (frame_info, frame_saved_regs, value, type,
 	inferior_status): Remove unused forward declarations.
 	(INSTRUCTION_SIZE): Move to hppa-tdep.c.
-	(unwind_table_entry, unwind_stub_types, obj_unwind_info, 
+	(unwind_table_entry, unwind_stub_types, obj_unwind_info,
 	obj_private_struct): Move to hppa-tdep.h.
 	(HPREAD_ADJUST_STACK_ADDRESS): Remove.
 
@@ -9570,7 +9570,7 @@
 
 	From Brian Ford <ford@vss.fsi.com>:
 	* i386-tdep.c (i386_coff_init_abi): New function.
-	* i386-tdep.h (i386_coff_init_abi): New prototype.	
+	* i386-tdep.h (i386_coff_init_abi): New prototype.
 	* i386-cygwin-tdep.c (i386_cygwin_init_abi): Call it.  Use correct
 	register number translation functions for DWARF and DWARF 2.
 

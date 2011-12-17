@@ -174,7 +174,7 @@ default_register_reggroup_p (struct gdbarch *gdbarch, int regnum,
     return (!vector_p && !float_p);
   if (group == save_reggroup || group == restore_reggroup)
     return raw_p;
-  return 0;   
+  return 0;
 }
 
 /* Dump out a table of register groups for the current architecture.  */
@@ -195,7 +195,7 @@ reggroups_dump (struct gdbarch *gdbarch, struct ui_file *file)
 	  name = reggroup_name (group);
 	fprintf_unfiltered (file, " %-10s", name);
       }
-      
+
       /* Group type.  */
       {
 	const char *type;
@@ -220,7 +220,7 @@ reggroups_dump (struct gdbarch *gdbarch, struct ui_file *file)
 
       /* Note: If you change this, be sure to also update the
          documentation.  */
-      
+
       fprintf_unfiltered (file, "\n");
 
       group = reggroup_next (gdbarch, group);

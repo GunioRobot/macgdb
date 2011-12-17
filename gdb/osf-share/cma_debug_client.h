@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -18,7 +18,7 @@
  * 	language run-times to the CMA debugger capabilities.
  *
  *	NOTE: the clients that are able to use this interface is
- *	very limited because clients needing task debugging must have 
+ *	very limited because clients needing task debugging must have
  *	support in the system debugger as well as here (at present).
  *	The following are the only legitimate clients of this interface:
  *	ADA runtime, C++ tasking library, and CMA.
@@ -66,8 +66,8 @@ typedef enum CMA_T_TCB_SENTINEL {
  * and CMA, for all time.
  */
 typedef struct CMA_T_TCB_PRIVATE {
-    cma_t_integer	pad1;		
-    cma_t_integer	pad2;	
+    cma_t_integer	pad1;
+    cma_t_integer	pad2;
     cma_t_integer	pad3;
     cma_t_integer	pad4;
     cma_t_integer	pad5;
@@ -77,7 +77,7 @@ typedef struct CMA_T_TCB_PRIVATE {
     } cma_t_tcb_private;
 
 /*
- * Type describing the "standard prolog" that clients should use 
+ * Type describing the "standard prolog" that clients should use
  * within their task control blocks.  We assume that the client will
  * store their "task control block" as a per-thread context under
  * the context key specified here.
@@ -106,7 +106,7 @@ typedef struct CMA_T_TCB_HEADER {
  * client can GET about a thread.
  */
 typedef enum CMA_T_DEBUG_GET {
-	/* 
+	/*
 	 * All of the following items use a buffer whose size is
 	 * four bytes.  (That is four must be passed as the buffer_size
 	 * parameter to cma_debug_get.)
@@ -118,7 +118,7 @@ typedef enum CMA_T_DEBUG_GET {
 	cma_c_debget_stack_ptr = 5, 	/* Current stack pointer */
 	cma_c_debget_stack_base = 6, 	/* Stack base address */
 	cma_c_debget_stack_top 	= 7, 	/* Stack top address */
-	cma_c_debget_sched_state = 8,	/* Scheduler state 
+	cma_c_debget_sched_state = 8,	/* Scheduler state
 					 *	0 - run
 					 *	1 - ready
 					 * 	2 - blocked
@@ -149,7 +149,7 @@ typedef enum CMA_T_DEBUG_GET {
  * client can SET (or change) about a thread using cma_debug_set.
  */
 typedef enum CMA_T_DEBUG_SET {
-	/* 
+	/*
 	 * All of the following items use a buffer whose size is
 	 * four bytes.  (That is four must be passed as the buffer_size
 	 * parameter to cma_debug_set.)
@@ -164,7 +164,7 @@ typedef enum CMA_T_DEBUG_SET {
 
 /*
  *  GLOBAL DATA
- * 
+ *
  * 	none
  */
 
@@ -172,22 +172,22 @@ typedef enum CMA_T_DEBUG_SET {
  * EXTERNAL INTERFACES
  */
 
-/* 
+/*
  * Routine to register with the CMA debug dispatcher.
  */
 extern void     cma_debug_register (cma_t_address,cma_t_key,cma_t_integer,cma_t_boolean);
 
-/* 
+/*
  * Routine to get get thread state needed by the CMA debug client.
  */
 extern void     cma_debug_get (cma_t_thread *,cma_t_debug_get,cma_t_address,cma_t_integer);
 
-/* 
- * Get thread context given an sp and a key 
+/*
+ * Get thread context given an sp and a key
  */
 extern void cma_debug_get_sp_context    (cma_t_address,cma_t_key,cma_t_address *);
 
-/* 
+/*
  * Routine to set thread state as needed by the CMA debug client.
  */
 extern void     cma_debug_set (cma_t_thread *,cma_t_debug_set,cma_t_address,cma_t_integer);

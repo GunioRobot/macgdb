@@ -25,10 +25,10 @@
    the loop.
 
    There are 4 main components:
-   - a list of file descriptors to be monitored, GDB_NOTIFIER.  
+   - a list of file descriptors to be monitored, GDB_NOTIFIER.
    - a list of asynchronous event sources to be monitored,
      ASYNC_EVENT_HANDLER_LIST.
-   - a list of events that have occurred, EVENT_QUEUE.  
+   - a list of events that have occurred, EVENT_QUEUE.
    - a list of signal handling functions, SIGHANDLER_LIST.
 
    GDB_NOTIFIER keeps track of the file descriptor based event
@@ -63,7 +63,7 @@
    functions that are invoked through traditional signal handlers.
    The actions to be taken is response to such events will be executed
    when the SIGHANDLER_LIST is scanned, the next time through the
-   infinite loop.  
+   infinite loop.
 
    Corollary tasks are the creation and deletion of event sources. */
 
@@ -87,7 +87,7 @@ typedef enum
   }
 queue_position;
 
-/* Tell create_file_handler what events we are interested in. 
+/* Tell create_file_handler what events we are interested in.
    This is used by the select version of the event loop. */
 
 #define GDB_READABLE	(1<<1)

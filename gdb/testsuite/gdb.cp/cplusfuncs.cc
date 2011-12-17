@@ -57,7 +57,7 @@ public:
 };
 
 #ifdef usestubs
-extern "C" { 
+extern "C" {
    void set_debug_traps();
    void breakpoint();
 };

@@ -332,7 +332,7 @@ register_name_from_keyword (CGEN_KEYWORD *keyword_table, int regnum)
     return "";
 }
 
-  
+
 /* Masks for option bits in the OPT special-purpose register.  */
 enum {
   MEP_OPT_DIV = 1 << 25,        /* 32-bit divide instruction option */
@@ -437,7 +437,7 @@ me_module_name (CONFIG_ATTR me_module)
 
 
 /* The MeP spec defines the following registers:
-   16 general purpose registers (r0-r15) 
+   16 general purpose registers (r0-r15)
    32 control/special registers (csr0-csr31)
    32 coprocessor general-purpose registers (c0 -- c31)
    64 coprocessor control registers (ccr0 -- ccr63)
@@ -930,7 +930,7 @@ current_ccr_names ()
 static const char *
 mep_register_name (struct gdbarch *gdbarch, int regnr)
 {
-  struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);  
+  struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);
 
   /* General-purpose registers.  */
   static const char *gpr_names[] = {
@@ -942,7 +942,7 @@ mep_register_name (struct gdbarch *gdbarch, int regnr)
 
   /* Special-purpose registers.  */
   static const char *csr_names[] = {
-    "pc",   "lp",   "sar",  "",     /* 0  csr3: reserved */ 
+    "pc",   "lp",   "sar",  "",     /* 0  csr3: reserved */
     "rpb",  "rpe",  "rpc",  "hi",   /* 4 */
     "lo",   "",     "",     "",     /* 8  csr9-csr11: reserved */
     "mb0",  "me0",  "mb1",  "me1",  /* 12 */
@@ -1205,7 +1205,7 @@ mep_pseudo_csr_write (struct gdbarch *gdbarch,
       ULONGEST old_bits;
       ULONGEST new_bits;
       ULONGEST mixed_bits;
-          
+
       regcache_raw_read_unsigned (regcache, r->raw, &old_bits);
       new_bits = extract_unsigned_integer (buf, size, byte_order);
       mixed_bits = ((r->writeable_bits & new_bits)
@@ -1213,7 +1213,7 @@ mep_pseudo_csr_write (struct gdbarch *gdbarch,
       regcache_raw_write_unsigned (regcache, r->raw, mixed_bits);
     }
 }
-                      
+
 
 static void
 mep_pseudo_cr32_write (struct gdbarch *gdbarch,
@@ -1226,7 +1226,7 @@ mep_pseudo_cr32_write (struct gdbarch *gdbarch,
      the pseudoregister.  */
   int rawnum = mep_pseudo_to_raw[cookednum];
   char buf64[8];
-  
+
   gdb_assert (TYPE_LENGTH (register_type (gdbarch, rawnum)) == sizeof (buf64));
   gdb_assert (TYPE_LENGTH (register_type (gdbarch, cookednum)) == 4);
   /* Slow, but legible.  */
@@ -1285,10 +1285,10 @@ mep_gdb_print_insn (bfd_vma pc, disassemble_info * info)
          right instructions to print.  */
       info->section = s->the_bfd_section;
       info->arch = bfd_arch_mep;
-	
+
       return print_insn_mep (pc, info);
     }
-  
+
   return 0;
 }
 
@@ -1325,7 +1325,7 @@ mep_gdb_print_insn (bfd_vma pc, disassemble_info * info)
      Every bundle is four bytes long, and naturally aligned, and can hold
      one or two instructions:
      - 16-bit core instruction; 16-bit coprocessor instruction
-       These execute in parallel.       
+       These execute in parallel.
      - 32-bit core instruction
      - 32-bit coprocessor instruction
 
@@ -1333,9 +1333,9 @@ mep_gdb_print_insn (bfd_vma pc, disassemble_info * info)
      Every bundle is eight bytes long, and naturally aligned, and can hold
      one or two instructions:
      - 16-bit core instruction; 48-bit (!) coprocessor instruction
-       These execute in parallel.       
+       These execute in parallel.
      - 32-bit core instruction; 32-bit coprocessor instruction
-       These execute in parallel.       
+       These execute in parallel.
      - 64-bit coprocessor instruction
 
    Now, the MeP manual doesn't define any 48- or 64-bit coprocessor
@@ -1397,7 +1397,7 @@ mep_pc_in_vliw_section (CORE_ADDR pc)
    So, the *INSN values for the instruction sequence above would be
    the following, in either endianness:
 
-       0xd1561234       movu $1,0x123456     
+       0xd1561234       movu $1,0x123456
        0xc1285678 	sb $1,22136($2)
        0xf1011098 	clip $1,0x13
        0x70020000      	ret
@@ -1419,7 +1419,7 @@ mep_pc_in_vliw_section (CORE_ADDR pc)
    significant to prologue analysis --- for the time being,
    anyway.  */
 
-static CORE_ADDR 
+static CORE_ADDR
 mep_get_insn (struct gdbarch *gdbarch, CORE_ADDR pc, long *insn)
 {
   enum bfd_endian byte_order = gdbarch_byte_order (gdbarch);
@@ -1490,7 +1490,7 @@ mep_get_insn (struct gdbarch *gdbarch, CORE_ADDR pc, long *insn)
       else
         gdb_assert (0);
     }
-  
+
   /* Otherwise, the top two bits of the major opcode are (again) what
      we need to check.  */
   else if ((*insn & 0xc0000000) == 0xc0000000)
@@ -1752,7 +1752,7 @@ mep_analyze_prologue (struct gdbarch *gdbarch,
              accuracy, it would be better to just quit now.  */
           if (pv_area_store_would_trash (stack, reg[rm]))
             break;
-          
+
           if (is_arg_spill (gdbarch, reg[rn], reg[rm], stack))
             after_last_frame_setup_insn = next_pc;
 
@@ -1826,14 +1826,14 @@ mep_analyze_prologue (struct gdbarch *gdbarch,
 	     body, gcc 4.x will use a BRA instruction to branch to the
 	     loop condition checking code.  This BRA instruction is
 	     marked as part of the prologue.  We therefore set next_pc
-	     to this branch target and also stop the prologue scan. 
+	     to this branch target and also stop the prologue scan.
 	     The instructions at and beyond the branch target should
 	     no longer be associated with the prologue.
-	     
+
 	     Note that we only consider forward branches here.  We
 	     presume that a forward branch is being used to skip over
 	     a loop body.
-	     
+
 	     A backwards branch is covered by the default case below.
 	     If we were to encounter a backwards branch, that would
 	     most likely mean that we've scanned through a loop body.
@@ -1859,7 +1859,7 @@ mep_analyze_prologue (struct gdbarch *gdbarch,
 
          - If the instruction just changed the FP back to its original
            value, then that's probably a restore instruction.  The
-           prologue should definitely end before that.  
+           prologue should definitely end before that.
 
          - If the instruction increased the value of the SP (that is,
            shrunk the frame), then it's probably part of a frame
@@ -1945,7 +1945,7 @@ mep_analyze_frame_prologue (struct frame_info *this_frame,
     {
       CORE_ADDR func_start, stop_addr;
 
-      *this_prologue_cache 
+      *this_prologue_cache
         = FRAME_OBSTACK_ZALLOC (struct mep_prologue);
 
       func_start = get_frame_func (this_frame);
@@ -2314,7 +2314,7 @@ mep_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
   /* The address of the end of the stack area for arguments.  This is
      just for error checking.  */
   CORE_ADDR arg_stack_end;
-  
+
   sp = push_large_arguments (sp, argc, argv, copy);
 
   /* Reserve space for the stack arguments, if any.  */
@@ -2371,7 +2371,7 @@ mep_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
 
   /* Update the stack pointer.  */
   regcache_cooked_write_unsigned (regcache, MEP_SP_REGNUM, sp);
-  
+
   return sp;
 }
 
@@ -2425,7 +2425,7 @@ mep_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
           const char *file_name = bfd_get_filename (info.abfd);
           const char *file_endianness
             = bfd_big_endian (info.abfd) ? "big" : "little";
-          
+
           fputc_unfiltered ('\n', gdb_stderr);
           if (module_name)
             warning ("the MeP module '%s' is %s-endian, but the executable\n"
@@ -2444,7 +2444,7 @@ mep_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
      already.  info->bfd_arch_info needs to match, but we also want
      the right me_module: the ELF header's e_flags field needs to
      match as well.  */
-  for (arches = gdbarch_list_lookup_by_info (arches, &info); 
+  for (arches = gdbarch_list_lookup_by_info (arches, &info);
        arches != NULL;
        arches = gdbarch_list_lookup_by_info (arches->next, &info))
     if (gdbarch_tdep (arches->gdbarch)->me_module == me_module)
@@ -2490,7 +2490,7 @@ mep_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
   reggroup_add (gdbarch, mep_ccr_reggroup);
 
   /* Disassembly.  */
-  set_gdbarch_print_insn (gdbarch, mep_gdb_print_insn); 
+  set_gdbarch_print_insn (gdbarch, mep_gdb_print_insn);
 
   /* Breakpoints.  */
   set_gdbarch_breakpoint_from_pc (gdbarch, mep_breakpoint_from_pc);
@@ -2506,7 +2506,7 @@ mep_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 
   /* Return values.  */
   set_gdbarch_return_value (gdbarch, mep_return_value);
-  
+
   /* Inferior function calls.  */
   set_gdbarch_frame_align (gdbarch, mep_frame_align);
   set_gdbarch_push_dummy_call (gdbarch, mep_push_dummy_call);
@@ -2522,7 +2522,7 @@ void
 _initialize_mep_tdep (void)
 {
   mep_csr_reggroup = reggroup_new ("csr", USER_REGGROUP);
-  mep_cr_reggroup  = reggroup_new ("cr", USER_REGGROUP); 
+  mep_cr_reggroup  = reggroup_new ("cr", USER_REGGROUP);
   mep_ccr_reggroup = reggroup_new ("ccr", USER_REGGROUP);
 
   register_gdbarch_init (bfd_arch_mep, mep_gdbarch_init);

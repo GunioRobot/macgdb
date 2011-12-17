@@ -312,7 +312,7 @@ the program.*$gdb_prompt $"\
 # all of them were.)
 #
 # Note that we set the GDB "height" variable to prevent GDB from
-# prompting 
+# prompting
 #
 # Warning!  On a machine with little free swap space, this may
 # fail!

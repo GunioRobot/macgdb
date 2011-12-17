@@ -5,7 +5,7 @@
     (From a driver model Contributed by Cygnus Solutions.)
 
     This file is part of the program GDB, the GNU debugger.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -18,7 +18,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -32,7 +32,7 @@
 
         m68hc11sio - m68hc11 serial I/O
 
-   
+
    DESCRIPTION
 
         Implements the m68hc11 serial I/O controller described in the m68hc11
@@ -41,14 +41,14 @@
 
             - baud rate emulation
             - 8-bits transfers
-    
+
    PROPERTIES
 
    backend {tcp | stdio}
 
         Use dv-sockser TCP-port backend or stdio for backend.  Default: stdio.
 
-   
+
    PORTS
 
    reset (input)
@@ -68,7 +68,7 @@ enum
 };
 
 
-static const struct hw_port_descriptor m68hc11sio_ports[] = 
+static const struct hw_port_descriptor m68hc11sio_ports[] =
 {
   { "reset", RESET_PORT, 0, input_port, },
   { NULL, },
@@ -76,7 +76,7 @@ static const struct hw_port_descriptor m68hc11sio_ports[] =
 
 
 /* Serial Controller information.  */
-struct m68hc11sio 
+struct m68hc11sio
 {
   enum {sio_tcp, sio_stdio} backend; /* backend */
 
@@ -94,7 +94,7 @@ struct m68hc11sio
 
   unsigned char rx_char;
   unsigned char rx_clear_scsr;
-  
+
   /* Periodic I/O polling.  */
   struct hw_event* tx_poll_event;
   struct hw_event* rx_poll_event;
@@ -184,10 +184,10 @@ m68hc11sio_port_event (struct hw *me,
   struct m68hc11sio *controller;
   sim_cpu *cpu;
   unsigned8 val;
-  
+
   controller = hw_data (me);
   sd         = hw_system (me);
-  cpu        = STATE_CPU (sd, 0);  
+  cpu        = STATE_CPU (sd, 0);
   switch (my_port)
     {
     case RESET_PORT:
@@ -202,7 +202,7 @@ m68hc11sio_port_event (struct hw *me,
                                     (unsigned_word) M6811_SCCR1, 1);
         m68hc11sio_io_write_buffer (me, &val, io_map,
                                     (unsigned_word) M6811_SCCR2, 1);
-        
+
         cpu->ios[M6811_SCSR]    = M6811_TC | M6811_TDRE;
         controller->rx_char     = 0;
         controller->tx_char     = 0;
@@ -224,7 +224,7 @@ m68hc11sio_port_event (struct hw *me,
         if (((cpu->ios[M6811_HPRIO]) & (M6811_SMOD | M6811_MDA)) == M6811_SMOD)
           {
             unsigned char val = 0x33;
-            
+
             m68hc11sio_io_write_buffer (me, &val, io_map,
                                         (unsigned_word) M6811_BAUD, 1);
             val = 0x12;
@@ -250,7 +250,7 @@ m68hc11sio_rx_poll (struct hw *me, void *data)
   char cc;
   int cnt;
   int check_interrupt = 0;
-  
+
   controller = hw_data (me);
   sd         = hw_system (me);
   cpu        = STATE_CPU (sd, 0);
@@ -320,14 +320,14 @@ m68hc11sio_tx_poll (struct hw *me, void *data)
   SIM_DESC sd;
   struct m68hc11sio *controller;
   sim_cpu *cpu;
-  
+
   controller = hw_data (me);
   sd         = hw_system (me);
   cpu        = STATE_CPU (sd, 0);
 
   cpu->ios[M6811_SCSR] |= M6811_TDRE;
   cpu->ios[M6811_SCSR] |= M6811_TC;
-  
+
   /* Transmitter is enabled and we have something to send.  */
   if ((cpu->ios[M6811_SCCR2] & M6811_TE) && controller->tx_has_char)
     {
@@ -355,12 +355,12 @@ m68hc11sio_tx_poll (struct hw *me, void *data)
       hw_event_queue_deschedule (me, controller->tx_poll_event);
       controller->tx_poll_event = 0;
     }
-  
+
   if ((cpu->ios[M6811_SCCR2] & M6811_TE)
       && ((cpu->ios[M6811_SCSR] & M6811_TC) == 0))
     {
       unsigned long clock_cycle;
-      
+
       /* Compute CPU clock cycles to wait for the next character.  */
       clock_cycle = controller->data_length * controller->baud_cycle;
 
@@ -425,11 +425,11 @@ m68hc11sio_info (struct hw *me)
   struct m68hc11sio *controller;
   uint8 val;
   long clock_cycle;
-  
+
   sd = hw_system (me);
   cpu = STATE_CPU (sd, 0);
   controller = hw_data (me);
-  
+
   sim_io_printf (sd, "M68HC11 SIO:\n");
 
   base = cpu_get_io_base (cpu);
@@ -453,7 +453,7 @@ m68hc11sio_info (struct hw *me)
   sim_io_printf (sd, "\n");
 
   clock_cycle = controller->data_length * controller->baud_cycle;
-  
+
   if (controller->tx_poll_event)
     {
       signed64 t;
@@ -474,7 +474,7 @@ m68hc11sio_info (struct hw *me)
       sim_io_printf (sd, "  Receive finished in %s\n",
 		     cycle_to_string (cpu, t, PRINT_TIME | PRINT_CYCLE));
     }
-  
+
 }
 
 static int
@@ -499,7 +499,7 @@ m68hc11sio_io_read_buffer (struct hw *me,
   struct m68hc11sio *controller;
   sim_cpu *cpu;
   unsigned8 val;
-  
+
   HW_TRACE ((me, "read 0x%08lx %d", (long) base, (int) nr_bytes));
 
   sd  = hw_system (me);
@@ -511,13 +511,13 @@ m68hc11sio_io_read_buffer (struct hw *me,
     case M6811_SCSR:
       controller->rx_clear_scsr = cpu->ios[M6811_SCSR]
         & (M6811_RDRF | M6811_IDLE | M6811_OR | M6811_NF | M6811_FE);
-      
+
     case M6811_BAUD:
     case M6811_SCCR1:
     case M6811_SCCR2:
       val = cpu->ios[base];
       break;
-      
+
     case M6811_SCDR:
       if (controller->rx_clear_scsr)
         {
@@ -525,7 +525,7 @@ m68hc11sio_io_read_buffer (struct hw *me,
         }
       val = controller->rx_char;
       break;
-      
+
     default:
       return 0;
     }
@@ -550,7 +550,7 @@ m68hc11sio_io_write_buffer (struct hw *me,
   sd  = hw_system (me);
   cpu = STATE_CPU (sd, 0);
   controller = hw_data (me);
-  
+
   val = *((const unsigned8*) source);
   switch (base)
     {
@@ -559,7 +559,7 @@ m68hc11sio_io_write_buffer (struct hw *me,
         long divisor;
         long baud;
 
-        cpu->ios[M6811_BAUD] = val;        
+        cpu->ios[M6811_BAUD] = val;
         switch (val & (M6811_SCP1|M6811_SCP0))
           {
           case M6811_BAUD_DIV_1:
@@ -590,7 +590,7 @@ m68hc11sio_io_write_buffer (struct hw *me,
         controller->baud_cycle = divisor;
       }
       break;
-      
+
     case M6811_SCCR1:
       {
         if (val & M6811_M)
@@ -601,7 +601,7 @@ m68hc11sio_io_write_buffer (struct hw *me,
         cpu->ios[M6811_SCCR1] = val;
       }
       break;
-      
+
     case M6811_SCCR2:
       if ((val & M6811_RE) == 0)
         {
@@ -616,14 +616,14 @@ m68hc11sio_io_write_buffer (struct hw *me,
       if (controller->rx_poll_event == 0)
         {
           long clock_cycle;
-          
+
           /* Compute CPU clock cycles to wait for the next character.  */
           clock_cycle = controller->data_length * controller->baud_cycle;
 
           controller->rx_poll_event = hw_event_queue_schedule (me, clock_cycle,
                                                                m68hc11sio_rx_poll,
                                                                NULL);
-        }      
+        }
       cpu->ios[M6811_SCCR2] = val;
       interrupts_update_pending (&cpu->cpu_interrupts);
       break;
@@ -631,7 +631,7 @@ m68hc11sio_io_write_buffer (struct hw *me,
       /* No effect.  */
     case M6811_SCSR:
       return 1;
-      
+
     case M6811_SCDR:
       if (!(cpu->ios[M6811_SCSR] & M6811_TDRE))
         {
@@ -646,12 +646,12 @@ m68hc11sio_io_write_buffer (struct hw *me,
           m68hc11sio_tx_poll (me, NULL);
         }
       return 1;
-      
+
     default:
       return 0;
     }
   return nr_bytes;
-}     
+}
 
 
 const struct hw_descriptor dv_m68hc11sio_descriptor[] = {

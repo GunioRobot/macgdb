@@ -15,7 +15,7 @@ wacc:
 	mcr        p15, 0, r1, cr15, cr1, 0
 
 	# Test Unsigned Byte Wide Accumulation
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0
@@ -25,17 +25,17 @@ wacc:
 	tmcrr	   wr1, r2, r3
 
 	waccb	   wr1, wr0
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x00000438
 	test_h_gr  r3, 0x00000000
 
 	# Test Unsigned Half Word Wide Accumulation
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0
@@ -45,17 +45,17 @@ wacc:
 	tmcrr	   wr1, r2, r3
 
 	wacch	   wr1, wr0
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x0001e258
 	test_h_gr  r3, 0x00000000
 
 	# Test Unsigned Word Wide Accumulation
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0
@@ -65,10 +65,10 @@ wacc:
 	tmcrr	   wr1, r2, r3
 
 	waccw	   wr1, wr0
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0xacf13568

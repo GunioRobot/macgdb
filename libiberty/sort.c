@@ -3,7 +3,7 @@
    Contributed by Mark Mitchell <mark@codesourcery.com>.
 
 This file is part of GNU CC.
-   
+
 GNU CC is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2, or (at your option)
@@ -47,7 +47,7 @@ Boston, MA 02110-1301, USA.  */
 void sort_pointers (size_t n, void **pointers, void **work)
 {
   /* The type of a single digit.  This can be any unsigned integral
-     type.  When changing this, DIGIT_MAX should be changed as 
+     type.  When changing this, DIGIT_MAX should be changed as
      well.  */
   typedef unsigned char digit_t;
 
@@ -94,7 +94,7 @@ void sort_pointers (size_t n, void **pointers, void **work)
 	j = sizeof (void *) / sizeof (digit_t) - i;
       else
 	j = i;
-	
+
       /* Now, perform a stable sort on this digit.  We use counting
 	 sort.  */
       memset (count, 0, DIGIT_MAX * sizeof (unsigned int));
@@ -108,8 +108,8 @@ void sort_pointers (size_t n, void **pointers, void **work)
       /* Count how many there are of each value.  At the end of this
 	 loop, COUNT[K] will contain the number of pointers whose Ith
 	 digit is K.  */
-      for (digit = bias; 
-	   digit < top; 
+      for (digit = bias;
+	   digit < top;
 	   digit += sizeof (void *) / sizeof (digit_t))
 	++count[*digit];
 

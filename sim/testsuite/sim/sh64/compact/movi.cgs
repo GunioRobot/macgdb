@@ -12,11 +12,11 @@ movi:
 	mov #0, r0
 	cmp/eq #0, r0
 	bf wrong
-	
+
 	mov #1, r0
 	cmp/eq #1, r0
 	bf wrong
-	
+
 	mov #255, r0
 	cmp/eq #255, r0
 	bf wrong
@@ -36,4 +36,4 @@ okay:
 
 wrong:
 	fail
-	
+

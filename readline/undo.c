@@ -242,7 +242,7 @@ rl_revert_line (count, key)
 	rl_point = rl_mark = 0;		/* rl_end should be set correctly */
 #endif
     }
-    
+
   return 0;
 }
 

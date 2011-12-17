@@ -14,7 +14,7 @@ int main ()
 #ifdef usestubs
     set_debug_traps();
     breakpoint();
-#endif    
+#endif
     y = nothing () ;
     printf ("hello\n") ;
     return 0;

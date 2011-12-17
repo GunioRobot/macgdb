@@ -191,7 +191,7 @@ gdb_expect {
 # the breakpoint wants to be set on an import stub in the
 # main program for solib_main?  There wouldn't be one, in
 # this case...
-# 
+#
 send_gdb "next\n"
 gdb_expect {
   -re "$gdb_prompt $"\

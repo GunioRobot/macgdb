@@ -28,7 +28,7 @@ stdf:
 	fnegs		fr8,fr8
 	ldf		@(sp,gr0),fr10
 	ldf		@(sp,gr7),fr11		; memory is set
-	test_mem_limmed	0xbeef,0xdead,sp	
+	test_mem_limmed	0xbeef,0xdead,sp
 	inc_gr_immed	4,sp
 	test_mem_limmed	0xdead,0xbeef,sp
 	test_fr_iimmed	0xbeefdead,fr10		; regs were pre-loaded

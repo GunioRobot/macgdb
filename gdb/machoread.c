@@ -142,7 +142,7 @@ macho_symtab_read (struct objfile *objfile,
 	      /* Fall through.  */
 	    case N_BNSYM:
 	      gdb_assert (oso_file != NULL);
-	      addr = sym->value 
+	      addr = sym->value
 		+ bfd_get_section_vma (sym->section->bfd, sym->section);
 	      if (addr != 0
 		  && first_symbol[sym->section->index] == NULL)
@@ -256,7 +256,7 @@ get_archive_prefix_len (const char *name)
 
   if (name_len == 0 || name[name_len - 1] != ')')
     return -1;
-  
+
   lparen = strrchr (name, '(');
   if (lparen == NULL || lparen == name)
     return -1;
@@ -276,7 +276,7 @@ macho_oso_symfile (struct objfile *main_objfile)
 
   vec = oso_vector;
   oso_vector = NULL;
-  
+
   leading_char = bfd_get_symbol_leading_char (main_objfile->obfd);
 
   for (ix = 0; VEC_iterate (oso_el, vec, ix, oso); ix++)
@@ -286,7 +286,7 @@ macho_oso_symfile (struct objfile *main_objfile)
       int len;
       int i;
       oso_el el;
-      
+
       if (mach_o_debug_level > 0)
 	printf_unfiltered (_("Loading symbols from oso: %s\n"), oso->name);
 
@@ -329,7 +329,7 @@ macho_oso_symfile (struct objfile *main_objfile)
 	    addrs->other[len].name = (char *)oso->symbols[i]->section->name;
 	    len++;
 	  }
-      
+
       if (mach_o_debug_level > 1)
 	{
 	  int j;
@@ -339,7 +339,7 @@ macho_oso_symfile (struct objfile *main_objfile)
 	       core_addr_to_string (addrs->other[j].addr),
 	       addrs->other[j].name);
 	}
-      
+
       /* Check if this is a library name.  */
       pfx_len = get_archive_prefix_len (oso->name);
       if (pfx_len > 0)
@@ -369,7 +369,7 @@ macho_oso_symfile (struct objfile *main_objfile)
 	      continue;
 	    }
 	  member_bfd = bfd_openr_next_archived_file (archive_bfd, NULL);
-	  
+
 	  if (member_bfd == NULL)
 	    {
 	      warning (_("Could not read archive members out of "
@@ -377,7 +377,7 @@ macho_oso_symfile (struct objfile *main_objfile)
 	      bfd_close (archive_bfd);
 	      continue;
 	    }
-	  
+
 	  while (member_bfd != NULL)
 	    {
 	      bfd *prev = member_bfd;
@@ -396,9 +396,9 @@ macho_oso_symfile (struct objfile *main_objfile)
 	      bfd_close (archive_bfd);
 	      continue;
 	    }
-	  
+
 	  bfd_set_cacheable (member_bfd, 1);
-  
+
 	  if (!bfd_check_format (member_bfd, bfd_object))
 	    {
 	      warning (_("`%s': can't read symbols: %s."), oso->name,
@@ -420,7 +420,7 @@ macho_oso_symfile (struct objfile *main_objfile)
 	      continue;
 	    }
 	  bfd_set_cacheable (abfd, 1);
-  
+
 	  if (!bfd_check_format (abfd, bfd_object))
 	    {
 	      bfd_close (abfd);
@@ -428,7 +428,7 @@ macho_oso_symfile (struct objfile *main_objfile)
 		       bfd_errmsg (bfd_get_error ()));
 	      continue;
 	    }
-  
+
 	  symbol_file_add_from_bfd (abfd, 0, addrs, 0);
 	}
       xfree (oso->symbols);
@@ -555,15 +555,15 @@ macho_symfile_read (struct objfile *objfile, int mainline)
 	  symbol_table = (asymbol **) xmalloc (storage_needed);
 	  make_cleanup (xfree, symbol_table);
 	  symcount = bfd_canonicalize_symtab (objfile->obfd, symbol_table);
-	  
+
 	  if (symcount < 0)
 	    error (_("Can't read symbols from %s: %s"),
 		   bfd_get_filename (objfile->obfd),
 		   bfd_errmsg (bfd_get_error ()));
-	  
+
 	  macho_symtab_read (objfile, symcount, symbol_table);
 	}
-      
+
       install_minimal_symbols (objfile);
 
       /* Try to read .eh_frame / .debug_frame.  */
@@ -571,7 +571,7 @@ macho_symfile_read (struct objfile *objfile, int mainline)
 	 as it only checks for debug info.  */
       dwarf2_has_info (objfile);
       dwarf2_build_frame_info (objfile);
-      
+
       /* Check for DSYM file.  */
       dsym_bfd = macho_check_dsym (objfile);
       if (dsym_bfd != NULL)
@@ -593,7 +593,7 @@ macho_symfile_read (struct objfile *objfile, int mainline)
 
 	  /* Now recurse: read dwarf from dsym.  */
 	  symbol_file_add_from_bfd (dsym_bfd, 0, NULL, 0);
-      
+
 	  /* Don't try to read dwarf2 from main file or shared libraries.  */
 	  return;
 	}
@@ -666,7 +666,7 @@ macho_symfile_offsets (struct objfile *objfile,
     {
       const char *bfd_sect_name = osect->the_bfd_section->name;
       int sect_index = osect->the_bfd_section->index;
-      
+
       if (strncmp (bfd_sect_name, "LC_SEGMENT.", 11) == 0)
 	bfd_sect_name += 11;
       if (strcmp (bfd_sect_name, "__TEXT") == 0

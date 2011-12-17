@@ -11,7 +11,7 @@ mhsetloh:
 	mhsetloh	0,fr1
 	test_fr_iimmed	0,fr1
 	mhsetloh	1,fr1
-	test_fr_iimmed	0x0000800,fr1 
+	test_fr_iimmed	0x0000800,fr1
 	mhsetloh	0xf,fr1
 	test_fr_iimmed	0x00007800,fr1
 	mhsetloh	-16,fr1

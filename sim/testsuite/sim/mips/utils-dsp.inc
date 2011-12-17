@@ -27,7 +27,7 @@
 	nop
 	j	_fail
 	nop
-1: 
+1:
 	.endm
 
 	# Set dsp control register <= crin

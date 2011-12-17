@@ -1,14 +1,14 @@
 # sh testcase for add
 # mach:	 all
 # as(sh):	-defsym sim_cpu=0
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
 	.align 2
 _x:	.long	1
 _y:	.long	1
-	
+
 	start
 
 add_reg_reg_direct:
@@ -54,11 +54,11 @@ add_reg_reg_indirect:
 	test_gr_a5a5 r12
 	test_gr_a5a5 r13
 	test_gr_a5a5 r14
-	
+
 add_imm_reg:
 	set_grs_a5a5
 	add	#0x16, r1
-	test_gr0_a5a5 
+	test_gr0_a5a5
 	assertreg 0xa5a5a5bb r1
 	test_gr_a5a5 r2
 	test_gr_a5a5 r3
@@ -83,4 +83,4 @@ x:	.long	_x
 y:	.long	_y
 i:	.long	2
 j:	.long	2
-	
+

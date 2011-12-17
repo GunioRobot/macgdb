@@ -21,5 +21,5 @@ int main (void)
     abort ();
 
   printf ("pass\n");
-  return 0; 
+  return 0;
 }

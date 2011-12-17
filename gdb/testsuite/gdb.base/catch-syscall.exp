@@ -196,7 +196,7 @@ proc test_catch_syscall_with_args {} {
     global gdb_prompt
     set syscall_name "close"
 
-    insert_catch_syscall_with_arg $syscall_name 
+    insert_catch_syscall_with_arg $syscall_name
 
     # Can we continue until we catch the syscall?
     check_continue $syscall_name

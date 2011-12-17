@@ -543,16 +543,16 @@ const inst crx_instruction[] =
 
   /* CO-processor extensions.  */
   /* opc12 c4 opc4 ui4 disps9 */
-  {"bcop",    2, 0x30107, 12, COP_BRANCH_INS | FMT_4 | RELAXABLE, 
+  {"bcop",    2, 0x30107, 12, COP_BRANCH_INS | FMT_4 | RELAXABLE,
       {{ui4,8}, {ui4,16}, {disps9,0}}},
   /* opc12 c4 opc4 ui4 disps25 */
-  {"bcop",    3, 0x31107, 12, COP_BRANCH_INS | FMT_4 | RELAXABLE, 
+  {"bcop",    3, 0x31107, 12, COP_BRANCH_INS | FMT_4 | RELAXABLE,
       {{ui4,8}, {ui4,16}, {disps25,0}}},
   /* opc12 c4 opc4 cpdo r r */
-  {"cpdop",   2, 0x3010B, 12, COP_REG_INS | FMT_4, 
+  {"cpdop",   2, 0x3010B, 12, COP_REG_INS | FMT_4,
       {{ui4,16}, {ui4,8}, {regr,4}, {regr,0}}},
   /* opc12 c4 opc4 cpdo r r cpdo16 */
-  {"cpdop",   3, 0x3110B, 12, COP_REG_INS | FMT_4, 
+  {"cpdop",   3, 0x3110B, 12, COP_REG_INS | FMT_4,
       {{ui4,16}, {ui4,8}, {regr,4}, {regr,0}, {ui16,16}}},
   /* esc16 r procreg */
   {"mtpr",    2, 0x3009,  16, NO_TYPE_INS, {{regr8,8}, {regr8,0}}},
@@ -566,9 +566,9 @@ const inst crx_instruction[] =
   {"cinv",    2, 0x3010000, 4,	NO_TYPE_INS, {{ui4,0}}},
 
   /* opc9 ui5 ui5 ui5 r r */
-  {"ram", 2, 0x7C,  23, NO_TYPE_INS, 
+  {"ram", 2, 0x7C,  23, NO_TYPE_INS,
       {{ui5,18}, {ui5,13}, {ui5,8}, {regr,4}, {regr,0}}},
-  {"rim", 2, 0x7D,  23, NO_TYPE_INS, 
+  {"rim", 2, 0x7D,  23, NO_TYPE_INS,
       {{ui5,18}, {ui5,13}, {ui5,8}, {regr,4}, {regr,0}}},
 
   /* opc9 ui3 r */
@@ -709,7 +709,7 @@ const long cst4_map[] =
 const int cst4_maps = ARRAY_SIZE (cst4_map);
 
 /* CRX instructions that don't have arguments.  */
-const char* no_op_insn[] = 
+const char* no_op_insn[] =
 {
   "di", "ei", "eiwait", "nop", "retx", "wait", NULL
 };

@@ -512,24 +512,24 @@ typedef struct cgen_keyword
 {
   /* Pointer to initial [compiled in] values.  */
   CGEN_KEYWORD_ENTRY *init_entries;
-  
+
   /* Number of entries in `init_entries'.  */
   unsigned int num_init_entries;
-  
+
   /* Hash table used for name lookup.  */
   CGEN_KEYWORD_ENTRY **name_hash_table;
-  
+
   /* Hash table used for value lookup.  */
   CGEN_KEYWORD_ENTRY **value_hash_table;
-  
+
   /* Number of entries in the hash_tables.  */
   unsigned int hash_table_size;
-  
+
   /* Pointer to null keyword "" entry if present.  */
   const CGEN_KEYWORD_ENTRY *null_entry;
 
   /* String containing non-alphanumeric characters used
-     in keywords.  
+     in keywords.
      At present, the highest number of entries used is 1.  */
   char nonalpha_chars[8];
 } CGEN_KEYWORD;
@@ -540,13 +540,13 @@ typedef struct
 {
   /* Table being searched.  */
   const CGEN_KEYWORD *table;
-  
+
   /* Specification of what is being searched for.  */
   const char *spec;
-  
+
   /* Current index in hash table.  */
   unsigned int current_hash;
-  
+
   /* Current element in current hash chain.  */
   CGEN_KEYWORD_ENTRY *current_entry;
 } CGEN_KEYWORD_SEARCH;
@@ -1354,7 +1354,7 @@ typedef struct cgen_cpu_desc
 
   /* This field could be turned into a bitfield if room for other flags is needed.  */
   unsigned int signed_overflow_ok_p;
-       
+
 } CGEN_CPU_TABLE;
 
 /* wip */

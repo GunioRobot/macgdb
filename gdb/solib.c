@@ -134,7 +134,7 @@ The search path for loading non-absolute shared library symbol files is %s.\n"),
    * If gdb_sysroot is NOT set, perform the following two searches:
    *   Look in inferior's $PATH.
    *   Look in inferior's $LD_LIBRARY_PATH.
-   *   
+   *
    * The last check avoids doing this search when targetting remote
    * machines since gdb_sysroot will almost always be set.
 
@@ -207,12 +207,12 @@ solib_find (char *in_pathname, int *fd)
       while (IS_DIR_SEPARATOR (*in_pathname))
         in_pathname++;
     }
-  
+
   /* If not found, search the solib_search_path (if any).  */
   if (found_file < 0 && solib_search_path != NULL)
     found_file = openp (solib_search_path, OPF_TRY_CWD_FIRST,
 			in_pathname, O_RDONLY | O_BINARY, &temp_pathname);
-  
+
   /* If not found, next search the solib_search_path (if any) for the basename
      only (ignoring the path).  This is to allow reading solibs from a path
      that differs from the opened path.  */
@@ -232,7 +232,7 @@ solib_find (char *in_pathname, int *fd)
 			OPF_TRY_CWD_FIRST, in_pathname, O_RDONLY | O_BINARY,
 			&temp_pathname);
 
-  /* If not found, next search the inferior's $LD_LIBRARY_PATH 
+  /* If not found, next search the inferior's $LD_LIBRARY_PATH
      environment variable. */
   if (found_file < 0 && gdb_sysroot_is_empty)
     found_file = openp (get_in_environ (inferior_environ, "LD_LIBRARY_PATH"),
@@ -408,7 +408,7 @@ solib_map_sections (void *arg)
    DESCRIPTION
 
    Free the storage associated with the `struct so_list' object SO.
-   If we have opened a BFD for SO, close it.  
+   If we have opened a BFD for SO, close it.
 
    The caller is responsible for removing SO from whatever list it is
    a member of.  If we have placed SO's sections in some target's
@@ -597,7 +597,7 @@ update_solib_list (int from_tty, struct target_ops *target)
 	  else
 	    {
 	      if (! strcmp (gdb->so_original_name, i->so_original_name))
-		break;	      
+		break;
 	    }
 
 	  i_link = &i->next;
@@ -870,7 +870,7 @@ info_sharedlibrary_command (char *pattern, int from_tty)
 	  ui_out_field_string (uiout, "syms-read", "Yes (*)");
 	}
       else
-	ui_out_field_string (uiout, "syms-read", 
+	ui_out_field_string (uiout, "syms-read",
 			     so->symbols_loaded ? "Yes" : "No");
 
       ui_out_field_string (uiout, "name", so->so_name);
@@ -1088,13 +1088,13 @@ reload_shared_libraries (char *ignored, int from_tty,
 {
   no_shared_libraries (NULL, from_tty);
   solib_add (NULL, from_tty, NULL, auto_solib_add);
-  /* Creating inferior hooks here has two purposes. First, if we reload 
+  /* Creating inferior hooks here has two purposes. First, if we reload
      shared libraries then the address of solib breakpoint we've computed
      previously might be no longer valid.  For example, if we forgot to set
      solib-absolute-prefix and are setting it right now, then the previous
      breakpoint address is plain wrong.  Second, installing solib hooks
      also implicitly figures were ld.so is and loads symbols for it.
-     Absent this call, if we've just connected to a target and set 
+     Absent this call, if we've just connected to a target and set
      solib-absolute-prefix or solib-search-path, we'll lose all information
      about ld.so.  */
   if (target_has_execution)
@@ -1106,7 +1106,7 @@ reload_shared_libraries (char *ignored, int from_tty,
 #endif
     }
   /* We have unloaded and then reloaded debug info for all shared libraries.
-     However, frames may still reference them, for example a frame's 
+     However, frames may still reference them, for example a frame's
      unwinder might still point of DWARF FDE structures that are now freed.
      Reinit frame cache to avoid crashing.  */
   reinit_frame_cache ();

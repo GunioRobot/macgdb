@@ -61,7 +61,7 @@
 	###
 
 	.macro clrset_fp_cc clr, set
-	cfc1	$20, $31	
+	cfc1	$20, $31
 	or	$20, $20, (((\clr & 0xfe) << 24) | ((\clr & 0x01) << 23))
 	xor	$20, $20, (((\clr & 0xfe) << 24) | ((\clr & 0x01) << 23))
 	or	$20, $20, (((\set & 0xfe) << 24) | ((\set & 0x01) << 23))

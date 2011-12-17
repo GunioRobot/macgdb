@@ -160,12 +160,12 @@
 #define	yylval	pascal_lval
 #define	yychar	pascal_char
 #define	yydebug	pascal_debug
-#define	yypact	pascal_pact	
-#define	yyr1	pascal_r1			
-#define	yyr2	pascal_r2			
-#define	yydef	pascal_def		
-#define	yychk	pascal_chk		
-#define	yypgo	pascal_pgo		
+#define	yypact	pascal_pact
+#define	yyr1	pascal_r1
+#define	yyr2	pascal_r2
+#define	yydef	pascal_def
+#define	yychk	pascal_chk
+#define	yypgo	pascal_pgo
 #define	yyact	pascal_act
 #define	yyexca	pascal_exca
 #define yyerrflag pascal_errflag
@@ -1069,7 +1069,7 @@ yyparse ()
 #endif
 #endif
 {
-  
+
   register int yystate;
   register int yyn;
   int yyresult;
@@ -1340,13 +1340,13 @@ yyreduce:
   case 9:
 #line 260 "p-exp.y"
     { write_exp_elt_opcode (UNOP_IND);
-			  if (current_type) 
+			  if (current_type)
 			    current_type = TYPE_TARGET_TYPE (current_type); }
     break;
 
   case 10:
 #line 266 "p-exp.y"
-    { write_exp_elt_opcode (UNOP_ADDR); 
+    { write_exp_elt_opcode (UNOP_ADDR);
 			  if (current_type)
 			    current_type = TYPE_POINTER_TYPE (current_type); }
     break;
@@ -1379,9 +1379,9 @@ yyreduce:
   case 16:
 #line 290 "p-exp.y"
     { write_exp_elt_opcode (STRUCTOP_STRUCT);
-			  write_exp_string (yyvsp[0].sval); 
+			  write_exp_string (yyvsp[0].sval);
 			  write_exp_elt_opcode (STRUCTOP_STRUCT);
-			  search_field = 0; 
+			  search_field = 0;
 			  if (current_type)
 			    { while (TYPE_CODE (current_type) == TYPE_CODE_PTR)
 				current_type = TYPE_TARGET_TYPE (current_type);
@@ -1392,21 +1392,21 @@ yyreduce:
 
   case 17:
 #line 302 "p-exp.y"
-    { char *arrayname; 
+    { char *arrayname;
 			  int arrayfieldindex;
 			  arrayfieldindex = is_pascal_string_type (
 				current_type, NULL, NULL,
-				NULL, NULL, &arrayname); 
-			  if (arrayfieldindex) 
+				NULL, NULL, &arrayname);
+			  if (arrayfieldindex)
 			    {
 			      struct stoken stringsval;
 			      stringsval.ptr = alloca (strlen (arrayname) + 1);
 			      stringsval.length = strlen (arrayname);
 			      strcpy (stringsval.ptr, arrayname);
 			      current_type = TYPE_FIELD_TYPE (current_type,
-				arrayfieldindex - 1); 
+				arrayfieldindex - 1);
 			      write_exp_elt_opcode (STRUCTOP_STRUCT);
-			      write_exp_string (stringsval); 
+			      write_exp_string (stringsval);
 			      write_exp_elt_opcode (STRUCTOP_STRUCT);
 			    }
 			  push_current_type ();  }
@@ -1430,7 +1430,7 @@ yyreduce:
 #line 333 "p-exp.y"
     { write_exp_elt_opcode (OP_FUNCALL);
 			  write_exp_elt_longcst ((LONGEST) end_arglist ());
-			  write_exp_elt_opcode (OP_FUNCALL); 
+			  write_exp_elt_opcode (OP_FUNCALL);
 			  pop_current_type ();
 			  if (current_type)
  	  		    current_type = TYPE_TARGET_TYPE (current_type);
@@ -1459,7 +1459,7 @@ yyreduce:
 			    }
 			  write_exp_elt_opcode (UNOP_CAST);
 			  write_exp_elt_type (yyvsp[-3].tval);
-			  write_exp_elt_opcode (UNOP_CAST); 
+			  write_exp_elt_opcode (UNOP_CAST);
 			  current_type = yyvsp[-3].tval; }
     break;
 
@@ -1483,7 +1483,7 @@ yyreduce:
 
   case 28:
 #line 379 "p-exp.y"
-    { 
+    {
 			  if (leftdiv_is_integer && current_type
 			      && is_integral_type (current_type))
 			    {
@@ -1494,7 +1494,7 @@ yyreduce:
 			      leftdiv_is_integer = 0;
 			    }
 
-			  write_exp_elt_opcode (BINOP_DIV); 
+			  write_exp_elt_opcode (BINOP_DIV);
 			}
     break;
 
@@ -1530,42 +1530,42 @@ yyreduce:
 
   case 35:
 #line 419 "p-exp.y"
-    { write_exp_elt_opcode (BINOP_EQUAL); 
+    { write_exp_elt_opcode (BINOP_EQUAL);
 			  current_type = parse_type->builtin_bool;
 			}
     break;
 
   case 36:
 #line 425 "p-exp.y"
-    { write_exp_elt_opcode (BINOP_NOTEQUAL); 
+    { write_exp_elt_opcode (BINOP_NOTEQUAL);
 			  current_type = parse_type->builtin_bool;
 			}
     break;
 
   case 37:
 #line 431 "p-exp.y"
-    { write_exp_elt_opcode (BINOP_LEQ); 
+    { write_exp_elt_opcode (BINOP_LEQ);
 			  current_type = parse_type->builtin_bool;
 			}
     break;
 
   case 38:
 #line 437 "p-exp.y"
-    { write_exp_elt_opcode (BINOP_GEQ); 
+    { write_exp_elt_opcode (BINOP_GEQ);
 			  current_type = parse_type->builtin_bool;
 			}
     break;
 
   case 39:
 #line 443 "p-exp.y"
-    { write_exp_elt_opcode (BINOP_LESS); 
+    { write_exp_elt_opcode (BINOP_LESS);
 			  current_type = parse_type->builtin_bool;
 			}
     break;
 
   case 40:
 #line 449 "p-exp.y"
-    { write_exp_elt_opcode (BINOP_GTR); 
+    { write_exp_elt_opcode (BINOP_GTR);
 			  current_type = parse_type->builtin_bool;
 			}
     break;
@@ -1672,13 +1672,13 @@ yyreduce:
 
   case 54:
 #line 553 "p-exp.y"
-    { 
+    {
 			  struct value * this_val;
 			  struct type * this_type;
 			  write_exp_elt_opcode (OP_THIS);
-			  write_exp_elt_opcode (OP_THIS); 
+			  write_exp_elt_opcode (OP_THIS);
 			  /* we need type of this */
-			  this_val = value_of_this (0); 
+			  this_val = value_of_this (0);
 			  if (this_val)
 			    this_type = value_type (this_val);
 			  else
@@ -1691,7 +1691,7 @@ yyreduce:
 				  write_exp_elt_opcode (UNOP_IND);
 				}
 			    }
-		
+
 			  current_type = this_type;
 			}
     break;
@@ -1825,7 +1825,7 @@ yyreduce:
 			      write_exp_string (yyvsp[0].ssym.stoken);
 			      write_exp_elt_opcode (STRUCTOP_PTR);
 			      /* we need type of this */
-			      this_val = value_of_this (0); 
+			      this_val = value_of_this (0);
 			      if (this_val)
 				this_type = value_type (this_val);
 			      else
@@ -1835,7 +1835,7 @@ yyreduce:
 				  this_type,
 				  copy_name (yyvsp[0].ssym.stoken), 0);
 			      else
-				current_type = NULL; 
+				current_type = NULL;
 			    }
 			  else
 			    {
@@ -2270,7 +2270,7 @@ parse_number (p, len, parsed_float, putithere)
 	 FIXME: This check is wrong; for example it doesn't find overflow
 	 on 0x123456789 when LONGEST is 32 bits.  */
       if (c != 'l' && c != 'u' && n != 0)
-	{	
+	{
 	  if ((unsigned_p && (ULONGEST) prevn >= (ULONGEST) n))
 	    error ("Numeric constant too large.");
 	}
@@ -2359,7 +2359,7 @@ push_current_type (void)
   tpnew->next = tp_top;
   tpnew->stored = current_type;
   current_type = NULL;
-  tp_top = tpnew; 
+  tp_top = tpnew;
 }
 
 static void
@@ -2811,7 +2811,7 @@ yylex ()
 
 
     if (search_field && current_type)
-      is_a_field = (lookup_struct_elt_type (current_type, tmp, 1) != NULL);	
+      is_a_field = (lookup_struct_elt_type (current_type, tmp, 1) != NULL);
     if (is_a_field)
       sym = NULL;
     else
@@ -2826,7 +2826,7 @@ yylex ()
              tmp[i] -= ('a'-'A');
          }
        if (search_field && current_type)
-	 is_a_field = (lookup_struct_elt_type (current_type, tmp, 1) != NULL);	
+	 is_a_field = (lookup_struct_elt_type (current_type, tmp, 1) != NULL);
        if (is_a_field)
 	 sym = NULL;
        else
@@ -2854,7 +2854,7 @@ yylex ()
              tmp[i] -= ('A'-'a');
           }
        if (search_field && current_type)
-	 is_a_field = (lookup_struct_elt_type (current_type, tmp, 1) != NULL);	
+	 is_a_field = (lookup_struct_elt_type (current_type, tmp, 1) != NULL);
        if (is_a_field)
 	 sym = NULL;
        else
@@ -2879,10 +2879,10 @@ yylex ()
 	tempbuf = (char *) xrealloc (tempbuf, namelen + 1);
 	strncpy (tempbuf, tokstart, namelen); tempbuf [namelen] = 0;
 	yylval.sval.ptr = tempbuf;
-	yylval.sval.length = namelen; 
+	yylval.sval.length = namelen;
 	xfree (uptokstart);
 	return FIELDNAME;
-      } 
+      }
     /* Call lookup_symtab, not lookup_partial_symtab, in case there are
        no psymtabs (coff, xcoff, or some future change to blow away the
        psymtabs once once symbols are read).  */

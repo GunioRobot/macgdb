@@ -137,9 +137,9 @@ c_print_typedef (struct type *type, struct symbol *new_symbol,
    }
 
    In general, gdb should try to print the types as closely as possible to
-   the form that they appear in the source code. 
-   Note that in case of protected derivation gcc will not say 'protected' 
-   but 'private'. The HP's aCC compiler emits specific information for 
+   the form that they appear in the source code.
+   Note that in case of protected derivation gcc will not say 'protected'
+   but 'private'. The HP's aCC compiler emits specific information for
    derivation via protected inheritance, so gdb can print it out */
 
 static void
@@ -209,7 +209,7 @@ cp_type_print_method_args (struct type *mtype, char *prefix, char *varstring,
    On outermost call, SHOW > 0 means should ignore
    any typename for TYPE and show its details.
    SHOW is always zero on recursive calls.
-   
+
    NEED_POST_SPACE is non-zero when a space will be be needed
    between a trailing qualifier and a field, variable, or function
    name.  */
@@ -741,7 +741,7 @@ c_type_print_base (struct type *type, struct ui_file *stream, int show,
 
     struct_union:
 
-      /* Print the tag if it exists. 
+      /* Print the tag if it exists.
        * The HP aCC compiler emits
        * a spurious "{unnamed struct}"/"{unnamed union}"/"{unnamed enum}"
        * tag  for unnamed struct/union/enum's, which we don't
@@ -939,7 +939,7 @@ c_type_print_base (struct type *type, struct ui_file *stream, int show,
 		{
 		  char *physname = TYPE_FN_FIELD_PHYSNAME (f, j);
 		  int is_full_physname_constructor =
-		   is_constructor_name (physname) 
+		   is_constructor_name (physname)
 		   || is_destructor_name (physname)
 		   || method_name[0] == '~';
 
@@ -1006,9 +1006,9 @@ c_type_print_base (struct type *type, struct ui_file *stream, int show,
 		  if (demangled_name == NULL)
 		    {
 		      /* in some cases (for instance with the HP demangling),
-		         if a function has more than 10 arguments, 
+		         if a function has more than 10 arguments,
 		         the demangling will fail.
-		         Let's try to reconstruct the function signature from 
+		         Let's try to reconstruct the function signature from
 		         the symbol information */
 		      if (!TYPE_FN_FIELD_STUB (f, j))
 			{
@@ -1066,7 +1066,7 @@ c_type_print_base (struct type *type, struct ui_file *stream, int show,
       c_type_print_modifier (type, stream, 0, 1);
       fprintf_filtered (stream, "enum ");
       /* Print the tag name if it exists.
-         The aCC compiler emits a spurious 
+         The aCC compiler emits a spurious
          "{unnamed struct}"/"{unnamed union}"/"{unnamed enum}"
          tag for unnamed struct/union/enum's, which we don't
          want to print. */

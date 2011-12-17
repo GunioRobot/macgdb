@@ -37,7 +37,7 @@ gdb_load ${binfile}
 if ![runto call_me] then {
   perror "Couldn't run ${testfile}"
   return
-} 
+}
 
 gdb_test "set print frame-arguments all" ""
 

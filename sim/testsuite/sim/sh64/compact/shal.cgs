@@ -50,8 +50,8 @@ shal:
 	shal r1
 	assert r1, #0
 
-okay:	
+okay:
 	pass
 wrong:
 	fail
-	
+

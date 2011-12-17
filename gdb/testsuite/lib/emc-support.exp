@@ -12,7 +12,7 @@ proc gdb_emc_readvar { varname } {
     }
     return $result;
 }
-    
+
 proc gdb_emc_gettpnum { testname } {
     global gdb_prompt;
 
@@ -87,7 +87,7 @@ proc gdb_emc_setactions { testname actionname args } {
     if { $testname != "" } {
 	$status $testname;
     }
-    if { $status == "pass" } then { 
+    if { $status == "pass" } then {
 	return 0;
     } else {
 	return 1;
@@ -114,18 +114,18 @@ proc gdb_emc_tracetest_collect { arg1 msgstring } {
                 send_gdb "end\n"
 		incr teststate;
                 exp_continue
-            } else { 
+            } else {
                 fail "$msgstring"
             }
         }
         -re ".*$gdb_prompt $" {
             if { $teststate == 2 } {
                 pass "$msgstring";
-            } else { 
+            } else {
                 fail "$msgstring";
             }
         }
-        default { 
+        default {
             fail "$msgstring (default)";
         }
     }

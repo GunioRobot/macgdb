@@ -14,7 +14,7 @@ div0u:
 	# the simulator's trace output).
 	bt wrong
 
-okay:	
+okay:
 	pass
 
 wrong:

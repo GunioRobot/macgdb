@@ -48,7 +48,7 @@ struct op_struct
     char  format[16];
     int   mode_bits;
     int   min_cpu;
-    
+
     unsigned long long sort_value;
     int   no_nibbles;
   };
@@ -304,7 +304,7 @@ dumpTable (void)
       for (str = op_array[ix].opcode; *str != 0; str++)
 	if (*str == '?')
 	  *str = '0';
-      printf ("OP%i(0x%sLL), ", 
+      printf ("OP%i(0x%sLL), ",
 	      op_array[ix].no_nibbles*4, op_array[ix].opcode);
       printf ("MASK_%s, INSTR_%s, ",
 	      op_array[ix].format, op_array[ix].format);
@@ -324,7 +324,7 @@ int
 main (void)
 {
   char currentLine[256];
-  
+
   createTable ();
 
   /*  Read opcode descriptions from `stdin'.  For each mnemonic,

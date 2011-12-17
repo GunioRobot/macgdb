@@ -75,7 +75,7 @@
 	Windows keysequences into ANSI key sequences.
 	* rldefs.h (NO_TTY_DRIVER): Define on MinGW.
 	* rltty.c: Conditionalize on NO_TTY_DRIVER throughout.
-	
+
 2005-07-03  Mark Kettenis <kettenis@gnu.org>
 
 	From Martin Simmons:
@@ -139,7 +139,7 @@
 	_rl_adjust_point): When in a locale with multibyte characters, the
 	readline display updater will occasionally cause a
 	segmentation fault when attempting to compute the length of the first
-	multibyte character on the line.  
+	multibyte character on the line.
 	Patch-ID: readline43-003.
 
 	* vi_mode.c (_rl_vi_change_mbchar_case): Using the vi editing
@@ -174,7 +174,7 @@
 	and HAVE_MBSTATE_T is not defined.
 
 2003-06-14  H.J. Lu <hongjiu.lu@intel.com>
- 
+
 	* support/config.guess: Update to 2003-06-12 version.
 	* support/config.sub: Update to 2003-06-13 version.
 
@@ -202,7 +202,7 @@
 	* Makefile.in: Add wcwidth object to lib if required.
 	* shlib/Makefile.in: Likewise.
 	* configure: Regenerate.
-	
+
 2003-01-09  Michael Chastain  <mec@shout.net>
 
 	From Chet Ramey, <chet@po.cwru.edu>, the readline maintainer:
@@ -393,7 +393,7 @@
 	local changes since last import.
 
 	New files: rlstdc.h, savestring.c, shlib directory,
-	doc/manvers.texinfo, examples/rlversion.c, 
+	doc/manvers.texinfo, examples/rlversion.c,
 	support/install-shlib, support/shobj-conf.
 
 	Removed files: MANIFEST.doc, doc/inc-hist.texi.
@@ -423,11 +423,11 @@
 Tue Mar 23 10:56:08 1999  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	Patches from Robert Hoehne <robert.hoehne@gmx.net>:
- 	
+
 	* display.c: Change some terminal calls to work on DJGPP.
 	* terminal.c: Likewise.
 	* Makefile.in: Remove . from the VPATH directive.
-	
+
 Tue Mar  9 14:58:13 1999  Geoffrey Noer  <noer@cygnus.com>
 
 	* support/config.sub: Recognize cygwin*, not just cygwin32.
@@ -463,7 +463,7 @@ Tue Dec 29 23:49:20 1998  Christopher Faylor <cgf@cygnus.com>
 Tue Dec 29 18:11:28 1998  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* cross-build: new directory.
-	
+
 	* cross-build/cygwin.cache: new file. Used for Cygwin cross builds.
 
 	* configure.in: added tests for cross-build for Cygwin.
@@ -477,12 +477,12 @@ Tue Dec 29 18:11:28 1998  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 Wed Dec 23 16:21:41 1998  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
-	* Makefile.in: comment out the rule to rebuild configure by 
-	running autoconf. 
+	* Makefile.in: comment out the rule to rebuild configure by
+	running autoconf.
 
 Tue Dec 22 10:00:30 1998  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
-	* shell.c (savestring): ifdef'd it out. 
+	* shell.c (savestring): ifdef'd it out.
 
 	* Imported new version of Readline 2.2.1. Removed all the Cygnus
 	local changes.
@@ -494,7 +494,7 @@ Tue Dec 22 10:00:30 1998  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
  	tcap.h, terminal.c, undo.c, util.c, support directory.
 
 	Removed files: sysdep*, config directory.
-	
+
 
 Fri Dec  4 15:25:41 1998  David Taylor  <taylor@texas.cygnus.com>
 
@@ -1045,7 +1045,7 @@ Mon Jun 15 12:28:24 1992  Fred Fish  (fnf@cygnus.com)
 
 Mon Jun 15 01:35:55 1992  John Gilmore  (gnu at cygnus.com)
 
-	* readline.c: Make new SIGNALS_* macros to parameterize the 
+	* readline.c: Make new SIGNALS_* macros to parameterize the
 	ugly changes in signal blocking.  Use them throughout,
 	reducing #ifdef HAVE_POSIX_SIGNALS and HAVE_BSD_SIGNALS clutter
 	significantly.  Make all such places use POSIX if available,
@@ -1254,7 +1254,7 @@ Sun Jul  7 02:37:05 1991  Brian Fox  (bfox at gnuwest.fsf.org)
 	* readline.c:(rl_parse_and_bind) Allow leading whitespace.
 	  Make sure TERMIO and TERMIOS systems treat CR and NL
 	  disctinctly.
-	
+
 Tue Jun 25 04:09:27 1991  Brian Fox  (bfox at gnuwest.fsf.org)
 
 	* readline.c: Rework parsing conditionals to pay attention to the
@@ -1379,7 +1379,7 @@ Tue Jul 11 06:25:01 1989  Brian Fox  (bfox at aurel)
 	  the standard meaning for expanding a tilde fails.  The function is
 	  called with the text sans tilde (as in "foo"), and returns a
 	  malloc()'ed string which is the expansion, or a NULL pointer if
-	  there is no expansion. 
+	  there is no expansion.
 
 	* readline.h - new file chardefs.h
 	  Separates things that only readline.c needs from the standard

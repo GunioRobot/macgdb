@@ -950,7 +950,7 @@ elf_i386_copy_indirect_symbol (struct bfd_link_info *info,
     _bfd_elf_link_hash_copy_indirect (info, dir, ind);
 }
 
-typedef union 
+typedef union
   {
     unsigned char c[2];
     uint16_t i;
@@ -1318,7 +1318,7 @@ elf_i386_check_relocs (bfd *abfd,
 						   TRUE);
 	      if (h == NULL)
 		return FALSE;
-	      
+
 	      /* Fake a STT_GNU_IFUNC symbol.  */
 	      h->type = STT_GNU_IFUNC;
 	      h->def_regular = 1;
@@ -1367,7 +1367,7 @@ elf_i386_check_relocs (bfd *abfd,
 	      /* It is referenced by a non-shared object. */
 	      h->ref_regular = 1;
 	      h->needs_plt = 1;
- 
+
 	      /* STT_GNU_IFUNC symbol must go through PLT.  */
 	      h->plt.refcount += 1;
 
@@ -1431,7 +1431,7 @@ elf_i386_check_relocs (bfd *abfd,
       if (! elf_i386_tls_transition (info, abfd, sec, NULL,
 				     symtab_hdr, sym_hashes,
 				     &r_type, GOT_UNKNOWN,
-				     rel, rel_end, h, r_symndx)) 
+				     rel, rel_end, h, r_symndx))
 	return FALSE;
 
       switch (r_type)
@@ -1805,7 +1805,7 @@ elf_i386_gc_sweep_hook (bfd *abfd,
       if (! elf_i386_tls_transition (info, abfd, sec, NULL,
 				     symtab_hdr, sym_hashes,
 				     &r_type, GOT_UNKNOWN,
-				     rel, relend, h, r_symndx)) 
+				     rel, relend, h, r_symndx))
 	return FALSE;
 
       switch (r_type)
@@ -2761,7 +2761,7 @@ elf_i386_relocate_section (bfd *output_bfd,
   bfd_boolean is_vxworks_tls;
 
   BFD_ASSERT (is_i386_elf (input_bfd));
-  
+
   htab = elf_i386_hash_table (info);
   symtab_hdr = &elf_symtab_hdr (input_bfd);
   sym_hashes = elf_sym_hashes (input_bfd);
@@ -2902,7 +2902,7 @@ elf_i386_relocate_section (bfd *output_bfd,
 	      if (h == NULL)
 		abort ();
 
-	      /* Set STT_GNU_IFUNC symbol value.  */ 
+	      /* Set STT_GNU_IFUNC symbol value.  */
 	      h->root.u.def.value = sym->st_value;
 	      h->root.u.def.section = sec;
 	    }
@@ -3007,7 +3007,7 @@ elf_i386_relocate_section (bfd *output_bfd,
 		      /* This symbol is resolved locally.  */
 		      outrel.r_info = ELF32_R_INFO (0, R_386_IRELATIVE);
 		      bfd_put_32 (output_bfd,
-				  (h->root.u.def.value 
+				  (h->root.u.def.value
 				   + h->root.u.def.section->output_section->vma
 				   + h->root.u.def.section->output_offset),
 				  contents + offset);
@@ -3045,7 +3045,7 @@ elf_i386_relocate_section (bfd *output_bfd,
 		  /* We can't use h->got.offset here to save state, or
 		     even just remember the offset, as finish_dynamic_symbol
 		     would use that as offset into .got.  */
-		  
+
 		  if (htab->elf.splt != NULL)
 		    {
 		      plt_index = h->plt.offset / PLT_ENTRY_SIZE - 1;
@@ -3477,7 +3477,7 @@ elf_i386_relocate_section (bfd *output_bfd,
 		     xchg %ax,%ax  */
 
 		  bfd_vma roff;
-		  
+
 		  roff = rel->r_offset;
 		  bfd_put_8 (output_bfd, 0x66, contents + roff);
 		  bfd_put_8 (output_bfd, 0x90, contents + roff + 1);
@@ -3669,7 +3669,7 @@ elf_i386_relocate_section (bfd *output_bfd,
 			    relocation - elf_i386_dtpoff_base (info),
 			    htab->elf.sgot->contents + off);
 	      else if (dr_type == R_386_TLS_TPOFF32 && indx == 0)
-		bfd_put_32 (output_bfd, 
+		bfd_put_32 (output_bfd,
 			    elf_i386_dtpoff_base (info) - relocation,
 			    htab->elf.sgot->contents + off);
 	      else if (dr_type != R_386_TLS_DESC)
@@ -4092,7 +4092,7 @@ elf_i386_finish_dynamic_symbol (bfd *output_bfd,
 	 Get the offset into the .got table of the entry that
 	 corresponds to this function.  Each .got entry is 4 bytes.
 	 The first three are reserved.
-	 
+
 	 For static executables, we don't reserve anything.  */
 
       if (plt == htab->elf.splt)
@@ -4192,7 +4192,7 @@ elf_i386_finish_dynamic_symbol (bfd *output_bfd,
 	     R_386_IRELATIVE instead of R_386_JUMP_SLOT.  Store addend
 	     in the .got.plt section.  */
 	  bfd_put_32 (output_bfd,
-		      (h->root.u.def.value 
+		      (h->root.u.def.value
 		       + h->root.u.def.section->output_section->vma
 		       + h->root.u.def.section->output_offset),
 		      gotplt->contents + got_offset);
@@ -4329,7 +4329,7 @@ elf_i386_finish_local_dynamic_symbol (void **slot, void *inf)
   struct elf_link_hash_entry *h
     = (struct elf_link_hash_entry *) *slot;
   struct bfd_link_info *info
-    = (struct bfd_link_info *) inf; 
+    = (struct bfd_link_info *) inf;
 
   return elf_i386_finish_dynamic_symbol (info->output_bfd, info,
 					 h, NULL);

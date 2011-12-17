@@ -211,7 +211,7 @@
 
 	* mi-stack.exp: Update.  Output for args=... and
 	locals=... changed to a list.
-	
+
 2001-06-26  Andrew Cagney  <ac131313@redhat.com>
 
 	* mi-stack.exp: Update. Output for stack=..., args=... and
@@ -315,7 +315,7 @@
 	* mi0-var-cmd.exp: Copy mi-var-cmd.exp.
 	* mi0-var-display.exp: Copy mi-var-display.exp.
 	* mi0-watch.exp: Copy mi-watch.exp.
-	
+
 2001-05-11  Fernando Nasser  <fnasser@redhat.com>
 
 	* mi-var-child.exp: Adjust for the fact that now (char *) can be
@@ -394,9 +394,9 @@ Sat Mar  4 13:55:08 2000  Andrew Cagney  <cagney@b1.cygnus.com>
 	* mi-console.exp, mi-disassemble.exp, mi-eval.exp,
  	mi-read-memory.exp, mi-regs.exp, mi-return.exp, mi-simplerun.exp:
  	Update stopped messages, update copyright.
-	
+
 	* mi-disassemble.exp: Update error messages output.
-	
+
 	* mi-support.exp (proc mi_step): Make gdb do a 'step' command, not
  	a 'next'. Update stopped message.
 	(proc mi_next): Update stop message.
@@ -427,10 +427,10 @@ Wed Dec 29 22:06:05 1999  Andrew Cagney  <cagney@b1.cygnus.com>
  	mi-simplerun.exp, mi-return.exp, mi-support.exp, mi-eval.exp,
  	mi-console.exp, mi-disassemble.exp, mi-break.exp: Update to
  	reflect extended output from -break-insert command.
-	
+
 	* mi-break.exp (test_rbreak_creation_and_listing): XFAIL regexp
  	tests.  -r flag broken by above.
-	
+
 Sun Dec 19 19:28:13 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* cpp_variable.cc, cpp_variable.h, c_variable.c: Delete.
@@ -471,17 +471,17 @@ Wed Dec 15 19:23:38 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-var-display.exp : New file. Tests for format and type, with
  	unions, structs and enums.
-	
+
 	* mi-var-cmd.exp: Add some var-assign tests.
 
-1999-12-14 Elena Zannoni <ezannoni@kwikemart.cygnus.com> 
+1999-12-14 Elena Zannoni <ezannoni@kwikemart.cygnus.com>
 
 	* mi-var-cmd.exp, mi-var-block.exp, mi-var-child.exp: New files
  	some tests for -var* commands.
 
 	* var-cmd.c: New source file for var-* commands tests.
 	* gdb.mi/Makefile.in (PROGS): Add var-cmd.
-	
+
 Mon Dec 13 18:06:09 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-break.exp: Fix quoting.  Changed "srcfile.c":6 to
@@ -544,12 +544,12 @@ Wed Dec  1 16:47:40 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-read-memory.exp, mi-read-memory.c: New files.  Test
  	data-read-memory command.
-	
+
 Tue Nov 30 23:54:16 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-support.exp: Don't start SID until after GDB has been started
  	and verified.
-	
+
 Tue Nov 30 22:21:33 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* mi-support.exp (mi_uncatched_gdb_exit): When SID, call sid_exit.
@@ -590,7 +590,7 @@ Mon Nov 29 17:59:13 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 	(mi_run_command): Check for and handle a builtin simulator target.
 	(mi_run_command): Don't check/handle for ``The program has been
  	started already'', not a valid MI response.
-	
+
 	* mi-simplerun.exp (test_running_the_program): Update all patterns
  	to match async output.
 	(test_running_the_program): Mark ``step to callee4'' as XFAIL.  MI
@@ -644,11 +644,11 @@ Wed Nov 24 17:31:04 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* gdb.mi/mi-simplerun.exp: Add more stack-list-frames tests.
 
-	* gdb.mi/mi-disassemble.exp: Update 'run to main' output.  
+	* gdb.mi/mi-disassemble.exp: Update 'run to main' output.
 
 	* gdb.mi/mi-simplerun.exp: Update execution commands
  	output. Update backtrace output.
-	
+
 1999-10-18  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* gdb.mi/mi-disassemble.exp: Add new tests for the new
@@ -659,7 +659,7 @@ Mon Oct 11 13:57:21 1999  Andrew Cagney  <cagney@amy.cygnus.com>
 	* lib/mi-support.exp: Break complicated gdb_expect containing
  	exp_continue into a while within an expect.  Don't attempt a start
  	more than three times.  Check return value from gdb_load.
-	
+
 1999-10-06  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* gdb.mi/mi-disassemble.exp: New file.
@@ -742,7 +742,7 @@ Wed Oct  6 12:05:58 1999  Andrew Cagney  <cagney@b1.cygnus.com>
 
 1999-06-22  Fernando Nasser  <fnasser@totem.to.cygnus.com>
 
-        * gdb.mi/mi-simplerun.exp: New file. Tests simple debugging tasks. 
+        * gdb.mi/mi-simplerun.exp: New file. Tests simple debugging tasks.
         * gdb.mi/mi-basics.exp: Remove tests moved to above new file.
         * lib/mi-support.exp: New file.  Support procedures for mi tests.
 

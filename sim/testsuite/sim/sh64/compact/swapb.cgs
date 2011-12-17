@@ -17,7 +17,7 @@ init:
 	shll8 r0
 	add #70, r0
 
-test:	
+test:
 	# Swap the lower two bytes into a different register.
 	swap.b r0, r1
 	mov #1, r7

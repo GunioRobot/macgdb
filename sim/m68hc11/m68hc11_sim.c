@@ -60,7 +60,7 @@ cpu_option_handler (SIM_DESC sd, sim_cpu *cpu,
                     int opt, char *arg, int is_command)
 {
   int val;
-  
+
   cpu = STATE_CPU (sd, 0);
   switch (opt)
     {
@@ -94,7 +94,7 @@ cpu_option_handler (SIM_DESC sd, sim_cpu *cpu,
   return SIM_RC_OK;
 }
 
-    
+
 void
 cpu_call (sim_cpu *cpu, uint16 addr)
 {
@@ -220,19 +220,19 @@ cpu_set_reg (sim_cpu* cpu, uint8 reg, uint16 val)
     case 0:
       cpu_set_x (cpu, val);
       break;
-      
+
     case 1:
       cpu_set_y (cpu, val);
       break;
-      
+
     case 2:
       cpu_set_sp (cpu, val);
       break;
-      
+
     case 3:
       cpu_set_pc (cpu, val);
       break;
-      
+
     default:
       break;
     }
@@ -558,7 +558,7 @@ cpu_restart (sim_cpu *cpu)
     {
       addr = cpu->cpu_elf_start;
     }
-  
+
   /* Setup the processor registers.  */
   cpu->cpu_insn_pc  = addr;
   cpu->cpu_regs.pc  = addr;
@@ -568,7 +568,7 @@ cpu_restart (sim_cpu *cpu)
   cpu->cpu_current_cycle  = 0;
 
   cpu_call (cpu, addr);
-  
+
   return 0;
 }
 
@@ -663,7 +663,7 @@ cpu_dbcc (sim_cpu* cpu)
   uint16 addr;
   uint16 inc;
   uint16 reg;
-  
+
   code = cpu_fetch8 (cpu);
   switch (code & 0xc0)
     {
@@ -712,7 +712,7 @@ cpu_exg (sim_cpu* cpu, uint8 code)
       src2 = cpu_get_src_reg (cpu, r2);
       if (r2 == 1 || r2 == 2)
         src2 |= 0xff00;
-      
+
       cpu_set_dst_reg (cpu, r2, src1);
       cpu_set_dst_reg (cpu, r1, src2);
     }
@@ -761,7 +761,7 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
 	cpu_return (cpu);
         break;
       }
-      
+
     case M6811_WAI:
       /* In the ELF-start mode, we are in a special mode where
 	 the WAI corresponds to an exit.  */
@@ -776,12 +776,12 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
       /* SCz: not correct... */
       cpu_push_all (cpu);
       break;
-      
+
     case M6811_SWI:
       interrupts_raise (&cpu->cpu_interrupts, M6811_INT_SWI);
       interrupts_process (&cpu->cpu_interrupts);
       break;
-      
+
     case M6811_EMUL_SYSCALL:
     case M6811_ILLEGAL:
       if (cpu->cpu_emul_syscall)
@@ -802,7 +802,7 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
             }
           return;
         }
-      
+
       interrupts_raise (&cpu->cpu_interrupts, M6811_INT_ILLEGAL);
       interrupts_process (&cpu->cpu_interrupts);
       break;
@@ -847,7 +847,7 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
           }
       }
       break;
-      
+
     case M6812_EDIV:
       {
         uint32 src1 = (uint32) cpu_get_x (cpu);
@@ -870,7 +870,7 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
           }
       }
       break;
-      
+
     case M6812_EDIVS:
       {
         int32 src1 = (int16) cpu_get_x (cpu);
@@ -892,7 +892,7 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
             cpu_set_ccr_V (cpu, src2 > 32767 || src2 < -32768);
           }
       }
-      break;      
+      break;
 
     case M6812_EMULS:
       {
@@ -908,12 +908,12 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
         cpu_set_ccr_C (cpu, (src1 & 0x00008000) != 0);
       }
       break;
-      
+
     case M6812_EMACS:
       {
         int32 src1, src2;
         uint16 addr;
-        
+
         addr = cpu_fetch16 (cpu);
         src1 = (int16) memory_read16 (cpu, cpu_get_x (cpu));
         src2 = (int16) memory_read16 (cpu, cpu_get_y (cpu));
@@ -924,7 +924,7 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
         memory_write16 (cpu, addr, (src1 + src2) >> 16);
         memory_write16 (cpu, addr + 2, (src1 + src2));
 
-        
+
       }
       break;
 
@@ -981,7 +981,7 @@ cpu_special (sim_cpu *cpu, enum M6811_Special special)
         cpu_set_pc (cpu, addr);
       }
       break;
-      
+
     case M6812_ETBL:
     default:
       sim_engine_halt (CPU_STATE (cpu), cpu, NULL,
@@ -1005,7 +1005,7 @@ cpu_single_step (sim_cpu *cpu)
       cpu->cpu_absolute_cycle += cpu->cpu_current_cycle;
       return;
     }
-  
+
   /*  printf("PC = 0x%04x\n", cpu_get_pc (cpu));*/
   cpu->cpu_interpretor (cpu);
   cpu->cpu_absolute_cycle += cpu->cpu_current_cycle;
@@ -1038,7 +1038,7 @@ cpu_memory_exception (sim_cpu *cpu, SIM_SIGNAL excep,
   cpu_set_pc (cpu, cpu->cpu_insn_pc);
   sim_engine_halt (CPU_STATE (cpu), cpu, NULL,
                    cpu_get_pc (cpu), sim_stopped, excep);
-  
+
 #if 0
   cpu->mem_exception = excep;
   cpu->fault_addr    = addr;
@@ -1060,7 +1060,7 @@ cpu_info (SIM_DESC sd, sim_cpu *cpu)
   sim_io_printf (sd, "  Absolute cycle: %s\n",
                  cycle_to_string (cpu, cpu->cpu_absolute_cycle,
                                   PRINT_TIME | PRINT_CYCLE));
-  
+
   sim_io_printf (sd, "  Syscall emulation: %s\n",
                  cpu->cpu_emul_syscall ? "yes, via 0xcd <n>" : "no");
   sim_io_printf (sd, "  Memory errors detection: %s\n",

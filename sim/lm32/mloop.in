@@ -156,7 +156,7 @@ cat <<EOF
   while (max_insns > 0)
     {
       USI insn = GETIMEMUSI (current_cpu, pc);
-      
+
       idesc = extract (current_cpu, pc, insn, &sc->argbuf, FAST_P);
       ++sc;
       --max_insns;

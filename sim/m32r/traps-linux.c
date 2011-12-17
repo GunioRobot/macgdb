@@ -201,10 +201,10 @@ translate_endian(void *addr, size_t size)
 {
   unsigned int *p = (unsigned int *) addr;
   int i;
-  
+
   for (i = 0; i <= size - 4; i += 4,p++)
     *p = conv_endian(*p);
-  
+
   if (i <= size - 2)
     *((unsigned short *) p) = conv_endian16(*((unsigned short *) p));
 }
@@ -236,18 +236,18 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
     case TRAP_ELF_SYSCALL :
       {
         CB_SYSCALL s;
- 
+
         CB_SYSCALL_INIT (&s);
         s.func = m32rbf_h_gr_get (current_cpu, 0);
         s.arg1 = m32rbf_h_gr_get (current_cpu, 1);
         s.arg2 = m32rbf_h_gr_get (current_cpu, 2);
         s.arg3 = m32rbf_h_gr_get (current_cpu, 3);
- 
+
         if (s.func == TARGET_SYS_exit)
           {
             sim_engine_halt (sd, current_cpu, NULL, pc, sim_exited, s.arg1);
           }
- 
+
         s.p1 = (PTR) sd;
         s.p2 = (PTR) current_cpu;
         s.read_mem = syscall_read_mem;
@@ -571,10 +571,10 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
             {
               struct timeval tv;
               struct timezone tz;
-              
+
               result = gettimeofday(&tv, &tz);
               errcode = errno;
-              
+
               if (result != 0)
                 break;
 
@@ -635,7 +635,7 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
               fd_set *hexceptfdsp;
               struct timeval *ttimeoutp;
               struct timeval timeout;
-              
+
               n = arg1;
 
               treadfdsp = (fd_set *) arg2;
@@ -647,7 +647,7 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
                 }
               else
                 hreadfdsp = NULL;
-              
+
               twritefdsp  = (fd_set *) arg3;
               if (twritefdsp != NULL)
                 {
@@ -657,7 +657,7 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
                 }
               else
                 hwritefdsp = NULL;
-              
+
               texceptfdsp = (fd_set *) arg4;
               if (texceptfdsp != NULL)
                 {
@@ -667,7 +667,7 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
                 }
               else
                 hexceptfdsp = NULL;
-              
+
               ttimeoutp = (struct timeval *) arg5;
               timeout = *((struct timeval *) t2h_addr(cb, &s, (unsigned int) ttimeoutp));
               translate_endian((void *) &timeout, sizeof(timeout));
@@ -761,7 +761,7 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
               size_t len;
               int prot, flags, fildes;
               off_t off;
-              
+
               addr   = (void *)  t2h_addr(cb, &s, arg1);
               len    = arg2;
               prot   = arg3;
@@ -788,7 +788,7 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
               size_t len;
               int prot, flags, fildes;
               off_t off;
-              
+
               addr   = *((void **)  t2h_addr(cb, &s, arg1));
               len    = *((size_t *) t2h_addr(cb, &s, arg1 + 4));
               prot   = *((int *)    t2h_addr(cb, &s, arg1 + 8));
@@ -1262,7 +1262,7 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
             break;
 
           case __NR_mremap: /* FIXME */
-            result = (int) mremap((void *) t2h_addr(cb, &s, arg1), arg2, arg3, arg4); 
+            result = (int) mremap((void *) t2h_addr(cb, &s, arg1), arg2, arg3, arg4);
             errcode = errno;
             break;
 
@@ -1315,12 +1315,12 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
             break;
 
           case __NR_pread:
-            result =  pread(arg1, (void *) t2h_addr(cb, &s, arg2), arg3, arg4); 
+            result =  pread(arg1, (void *) t2h_addr(cb, &s, arg2), arg3, arg4);
             errcode = errno;
             break;
 
           case __NR_pwrite:
-            result =  pwrite(arg1, (void *) t2h_addr(cb, &s, arg2), arg3, arg4); 
+            result =  pwrite(arg1, (void *) t2h_addr(cb, &s, arg2), arg3, arg4);
             errcode = errno;
             break;
 
@@ -1357,7 +1357,7 @@ m32r_trap (SIM_CPU *current_cpu, PCADDR pc, int num)
             errcode = ENOSYS;
             break;
           }
-        
+
         if (result == -1)
 	  m32rbf_h_gr_set (current_cpu, 0, -errcode);
         else

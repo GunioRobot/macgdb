@@ -32,7 +32,7 @@ brabc_ind_disp8:
 	bra	.Lpass2
 .Lfail1:
 	fail
-.Lpass2:	
+.Lpass2:
 	test_cc_clear
 	test_h_gr32 0xa5a5a5a5 er0
 	test_h_gr32 byte_src   er1

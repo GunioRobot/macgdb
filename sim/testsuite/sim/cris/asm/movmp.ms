@@ -118,7 +118,7 @@ filler:
  clear.w [r9+]
  subq 2,r9
  move.d [r9],r3
- dumpr3 
+ dumpr3
 
  clear.d [r9]
  move.d [r9],r3

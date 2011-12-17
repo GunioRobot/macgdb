@@ -26,7 +26,7 @@
 #include "source.h"
 #include "objfiles.h"
 
-/* Return to the client the absolute path and line number of the 
+/* Return to the client the absolute path and line number of the
    current file being executed. */
 
 void
@@ -35,7 +35,7 @@ mi_cmd_file_list_exec_source_file (char *command, char **argv, int argc)
   struct symtab_and_line st;
   int optind = 0;
   char *optarg;
-  
+
   if (!mi_valid_noargs ("mi_cmd_file_list_exec_source_file", argc, argv))
     error (_("mi_cmd_file_list_exec_source_file: Usage: No args"));
 
@@ -43,7 +43,7 @@ mi_cmd_file_list_exec_source_file (char *command, char **argv, int argc)
   set_default_source_symtab_and_line ();
   st = get_current_source_symtab_and_line ();
 
-  /* We should always get a symtab. 
+  /* We should always get a symtab.
      Apparently, filename does not need to be tested for NULL.
      The documentation in symtab.h suggests it will always be correct */
   if (!st.symtab)

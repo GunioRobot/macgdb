@@ -22,7 +22,7 @@ test_macu2:
 
 
 
-	
+
 	;; clear FX
 	ldi r2, #0x8005
 	mvtc r2, cr0

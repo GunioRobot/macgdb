@@ -15,7 +15,7 @@ wmul:
 	mcr        p15, 0, r1, cr15, cr1, 0
 
 	# Test Unsigned, Most Significant Multiply
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -28,20 +28,20 @@ wmul:
 	tmcrr	   wr2, r4, r5
 
 	wmulum	   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0x013605c3
 	test_h_gr  r5, 0x14a11db9
-		
+
 	# Test Unsigned, Least Significant Multiply
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -54,20 +54,20 @@ wmul:
 	tmcrr	   wr2, r4, r5
 
 	wmulul	   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xa974b5f8
 	test_h_gr  r5, 0x84f87be0
-		
+
 	# Test Signed, Most Significant Multiply
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -80,20 +80,20 @@ wmul:
 	tmcrr	   wr2, r4, r5
 
 	wmulsm	   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0x013605c3
 	test_h_gr  r5, 0xf27ffb97
-		
+
 	# Test Signed, Least Significant Multiply
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -106,16 +106,16 @@ wmul:
 	tmcrr	   wr2, r4, r5
 
 	wmulsl	   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xa974b5f8
 	test_h_gr  r5, 0x84f87be0
-		
+
 	pass

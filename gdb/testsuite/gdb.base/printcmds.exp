@@ -99,7 +99,7 @@ proc test_character_literals_accepted {} {
 proc test_integer_literals_rejected {} {
     global gdb_prompt
 
-    test_print_reject "p 0x" 
+    test_print_reject "p 0x"
     gdb_test "p ''" "(Empty character constant\\.|A character constant must contain at least one character\\.)"
     gdb_test "p '''" "(Empty character constant\\.|A character constant must contain at least one character\\.)"
     test_print_reject "p '\\'"
@@ -124,13 +124,13 @@ proc test_integer_literals_rejected {} {
 
     # Test various octal values.
 
-    test_print_reject "p 09" 
-    test_print_reject "p 079" 
+    test_print_reject "p 09"
+    test_print_reject "p 079"
 
     # Test various hexadecimal values.
 
-    test_print_reject "p 0xG" 
-    test_print_reject "p 0xAG" 
+    test_print_reject "p 0xG"
+    test_print_reject "p 0xAG"
 }
 
 proc test_print_all_chars {} {
@@ -722,7 +722,7 @@ proc test_printf_with_dfp {} {
     gdb_test "printf \"%DDf\\n\",1.2E6144dl" "1.200000000000000000000000000000000E\\+6144"
 }
 
-# Escape a left curly brace to prevent it from being interpreted as 
+# Escape a left curly brace to prevent it from being interpreted as
 # the beginning of a bound
 proc gdb_test_escape_braces { args } {
 

@@ -100,7 +100,7 @@
 {
   unsigned32 temp;
   int z;
-  
+
   PC = cia;
   temp = load_byte (FETCH16 (IMM16A, IMM16B));
   z = (temp & IMM8) == 0;
@@ -117,7 +117,7 @@
 {
   unsigned32 temp;
   int z;
-  
+
   PC = cia;
   temp = load_byte (FETCH16 (IMM16A, IMM16B));
   z = (temp & IMM8) == 0;
@@ -765,7 +765,7 @@
       Xf2FD (Z,fn) = load_dword (State.regs[ri] + State.regs[rm]);
     }
 }
-      
+
 // 1111 1011 0101 0111 Ri.. Rn.. fm.- --Z-; fmov FDm,(Ri,Rn)
 8.0xfb+8.0x57+4.Ri,4.Rn+3.fm,1.0,2.0,1.Z,1.0:D2j:::fmov
 "fmov"
@@ -782,7 +782,7 @@
       store_dword (State.regs[ri] + State.regs[rn], Xf2FD (Z,fm));
     }
 }
-      
+
 // 1111 1011 1010 000X Rm.. fn.- d8; fmov (d8,Rm),FDn
 8.0xfb+4.0xa,3.0,1.X+4.Rm,4.fn+8.IMM8:D2k:::fmov
 "fmov"
@@ -1736,7 +1736,7 @@
 	       &XS2FS (X,Sm1), &XS2FS (Y,Sm2), &XS2FS (Z,Sm3),
 	       &AS2FS (A,Sn), FP_SINGLE);
 }
-    
+
 // 1111 1011 1000 01Sn Sm1. Sm2. Sm3. XYZA; fmsub FSm1, FSm2, FSm3, FSn
 8.0xfb+4.8,2.1,2.Sn+4.Sm1,4.Sm2+4.Sm3,1.X,1.Y,1.Z,1.A:D2:::fmsub
 "fmsub"
@@ -1766,7 +1766,7 @@
 		&XS2FS (X,Sm1), &XS2FS (Y,Sm2), &XS2FS (Z,Sm3),
 		&AS2FS (A,Sn), FP_SINGLE);
 }
-    
+
 // 1111 1011 1001 01Sn Sm1. Sm2. Sm3. XYZA; fnmsub FSm1, FSm2, FSm3, FSn
 8.0xfb+4.9,2.1,2.Sn+4.Sm1,4.Sm2+4.Sm3,1.X,1.Y,1.Z,1.A:D2:::fnmsub
 "fnmsub"

@@ -1,7 +1,7 @@
 # sh testcase for mulr
 # mach:	 all
 # as(sh):	-defsym sim_cpu=0
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -159,4 +159,3 @@ mulr_7:	! multiply 7ffff by 7ffff (overflow)
 
 	exit 0
 
-	

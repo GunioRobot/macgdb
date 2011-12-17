@@ -22,7 +22,7 @@ foo (void)
 {
 }
 
-void 
+void
 bar (void)
 {
   char *nuller = 0;
@@ -36,7 +36,7 @@ handler (int sig)
   subroutine (sig);
 }
 
-/* The first statement in subroutine () is a place for a breakpoint.  
+/* The first statement in subroutine () is a place for a breakpoint.
    Without it, the breakpoint is put on the while comparison and will
    be hit at each iteration. */
 

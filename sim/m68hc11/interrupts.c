@@ -118,7 +118,7 @@ static const OPTION interrupt_options[] =
   { {"interrupt-clear", required_argument, NULL, OPTION_INTERRUPT_CLEAR },
       '\0', "NAME", "No longer catch the interrupt",
       interrupt_option_handler },
-  
+
   { {NULL, no_argument, NULL, 0}, '\0', NULL, NULL, NULL }
 };
 
@@ -127,7 +127,7 @@ void
 interrupts_initialize (SIM_DESC sd, struct _sim_cpu *proc)
 {
   struct interrupts *interrupts = &proc->cpu_interrupts;
-  
+
   interrupts->cpu          = proc;
 
   sim_add_option_table (sd, 0, interrupt_options);
@@ -138,7 +138,7 @@ void
 interrupts_reset (struct interrupts *interrupts)
 {
   int i;
-  
+
   interrupts->pending_mask = 0;
   if (interrupts->cpu->cpu_mode & M6811_SMOD)
     interrupts->vectors_addr = 0xbfc0;
@@ -153,7 +153,7 @@ interrupts_reset (struct interrupts *interrupts)
   interrupts->xirq_max_mask_cycles = 0;
   interrupts->xirq_min_mask_cycles = CYCLES_MAX;
   interrupts->xirq_last_mask_cycles = 0;
-  
+
   for (i = 0; i < M6811_INT_NUMBER; i++)
     {
       interrupts->interrupt_order[i] = i;
@@ -268,8 +268,8 @@ interrupt_option_handler (SIM_DESC sd, sim_cpu *cpu,
       if (id < 0)
         sim_io_eprintf (sd, "Interrupt name not recognized: %s\n", arg);
       else
-        interrupts->interrupts[id].stop_mode = 0;      
-      break;      
+        interrupts->interrupts[id].stop_mode = 0;
+      break;
     }
 
   return SIM_RC_OK;
@@ -290,12 +290,12 @@ interrupts_update_pending (struct interrupts *interrupts)
   clear_mask = 0;
   set_mask = 0;
   ioregs = &interrupts->cpu->ios[0];
-  
+
   for (i = 0; i < TableSize(idefs); i++)
     {
       struct interrupt_def *idef = &idefs[i];
       uint8 data;
-      
+
       /* Look if the interrupt is enabled.  */
       if (idef->enable_paddr)
 	{
@@ -332,7 +332,7 @@ interrupts_update_pending (struct interrupts *interrupts)
     {
       signed64 cycle = cpu_current_cycle (interrupts->cpu);
       int must_stop = 0;
-      
+
       for (i = 0; i < M6811_INT_NUMBER; i++)
         {
           if (!(set_mask & (1 << i)))
@@ -364,7 +364,7 @@ int
 interrupts_get_current (struct interrupts *interrupts)
 {
   int i;
-  
+
   if (interrupts->pending_mask == 0)
     return -1;
 
@@ -380,7 +380,7 @@ interrupts_get_current (struct interrupts *interrupts)
       interrupts->pending_mask &= ~(1 << M6811_INT_ILLEGAL);
       return M6811_INT_ILLEGAL;
     }
-  
+
   /* If there is a non maskable interrupt, go for it (unless we are masked
      by the X-bit.  */
   if (interrupts->pending_mask & (1 << M6811_INT_XIRQ))
@@ -508,7 +508,7 @@ interrupts_process (struct interrupts *interrupts)
       h->type = id;
       h->taken_cycle = cpu_current_cycle (interrupts->cpu);
       h->raised_cycle = interrupts->interrupts[id].cpu_cycle;
-      
+
       if (interrupts->history_index >= MAX_INT_HISTORY-1)
         interrupts->history_index = 0;
       else
@@ -533,7 +533,7 @@ interrupts_info (SIM_DESC sd, struct interrupts *interrupts)
 {
   signed64 t, prev_interrupt;
   int i;
-  
+
   sim_io_printf (sd, "Interrupts Info:\n");
   sim_io_printf (sd, "  Interrupts raised: %lu\n",
                  interrupts->nb_interrupts_raised);
@@ -566,7 +566,7 @@ interrupts_info (SIM_DESC sd, struct interrupts *interrupts)
   sim_io_printf (sd, "  Last interrupts masked sequence:      %s\n",
                  cycle_to_string (interrupts->cpu, t,
                                   PRINT_TIME | PRINT_CYCLE));
-  
+
   if (interrupts->xirq_start_mask_cycle >= 0)
     {
       t = cpu_current_cycle (interrupts->cpu);
@@ -603,7 +603,7 @@ interrupts_info (SIM_DESC sd, struct interrupts *interrupts)
       for (i = 0; i < M6811_INT_NUMBER; i++)
         {
           enum M6811_INT int_number = interrupts->interrupt_order[i];
-          
+
           if (interrupts->pending_mask & (1 << int_number))
             {
               sim_io_printf (sd, "%s ", interrupt_names[int_number]);

@@ -165,7 +165,7 @@ main(argc, argv)
       sleep(1);
       t += j;
     }
-  
+
   exit(0);
 }
 

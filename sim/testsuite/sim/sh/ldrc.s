@@ -1,6 +1,6 @@
 # sh testcase for ldrc, strc
 # mach: shdsp
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 

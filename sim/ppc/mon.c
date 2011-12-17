@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -117,7 +117,7 @@ mon_init(mon *monitor,
 INLINE_MON\
 (void)
 mon_issue(itable_index index,
-	  cpu *processor, 
+	  cpu *processor,
 	  unsigned_word cia)
 {
   cpu_mon *monitor = cpu_monitor(processor);
@@ -175,7 +175,7 @@ mon_get_number_of_insns(mon *monitor,
 {
   itable_index index;
   unsigned total_insns = 0;
-  ASSERT(cpu_nr >= 0 && cpu_nr < monitor->nr_cpus); 
+  ASSERT(cpu_nr >= 0 && cpu_nr < monitor->nr_cpus);
   for (index = 0; index < nr_itable_entries; index++)
     total_insns += monitor->cpu_monitor[cpu_nr].issue_count[index];
   return total_insns;
@@ -272,7 +272,7 @@ mon_print_info(psim *system,
     struct rusage mytime;
     if (getrusage (RUSAGE_SELF, &mytime) == 0
 	&& (mytime.ru_utime.tv_sec > 0 || mytime.ru_utime.tv_usec > 0)) {
-      
+
       cpu_time = (double)mytime.ru_utime.tv_sec + (((double)mytime.ru_utime.tv_usec) / 1000000.0);
     }
   }
@@ -399,7 +399,7 @@ mon_print_info(psim *system,
 					       sizeof(buffer),
 					       monitor->cpu_monitor[cpu_nr].unaligned_write_count),
 		       (monitor->cpu_monitor[cpu_nr].unaligned_write_count == 1) ? "" : "s");
-    
+
     if (monitor->cpu_monitor[cpu_nr].event_count[mon_event_icache_miss])
       printf_filtered ("CPU #%*d executed %*s icache miss%s.\n",
 		       len_cpu, cpu_nr+1,

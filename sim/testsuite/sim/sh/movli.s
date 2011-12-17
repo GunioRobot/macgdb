@@ -1,7 +1,7 @@
 # sh testcase for movli
 # mach:	 all
 # as(sh):	-defsym sim_cpu=0
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -9,7 +9,7 @@
 x:	.long	1
 y:	.long	2
 z:	.long	3
-	
+
 	start
 	set_grs_a5a5
 	mov.l	xptr, r1

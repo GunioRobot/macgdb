@@ -132,7 +132,7 @@ lm32_analyze_prologue (struct gdbarch *gdbarch,
   enum bfd_endian byte_order = gdbarch_byte_order (gdbarch);
   unsigned long instruction;
 
-  /* Keep reading though instructions, until we come across an instruction 
+  /* Keep reading though instructions, until we come across an instruction
      that isn't likely to be part of the prologue.  */
   info->size = 0;
   for (; pc < limit; pc += 4)
@@ -144,8 +144,8 @@ lm32_analyze_prologue (struct gdbarch *gdbarch,
       if ((LM32_OPCODE (instruction) == OP_SW)
 	  && (LM32_REG0 (instruction) == SIM_LM32_SP_REGNUM))
 	{
-	  /* Any stack displaced store is likely part of the prologue.  
-	     Record that the register is being saved, and the offset 
+	  /* Any stack displaced store is likely part of the prologue.
+	     Record that the register is being saved, and the offset
 	     into the stack.  */
 	  info->saved_regs[LM32_REG1 (instruction)].addr =
 	    LM32_IMM16 (instruction);
@@ -153,7 +153,7 @@ lm32_analyze_prologue (struct gdbarch *gdbarch,
       else if ((LM32_OPCODE (instruction) == OP_ADDI)
 	       && (LM32_REG1 (instruction) == SIM_LM32_SP_REGNUM))
 	{
-	  /* An add to the SP is likely to be part of the prologue.  
+	  /* An add to the SP is likely to be part of the prologue.
 	     Adjust stack size by whatever the instruction adds to the sp.  */
 	  info->size -= LM32_IMM16 (instruction);
 	}
@@ -167,7 +167,7 @@ lm32_analyze_prologue (struct gdbarch *gdbarch,
 		    && (LM32_REG1 (instruction) == SIM_LM32_FP_REGNUM)
 		    && (LM32_REG0 (instruction) == SIM_LM32_R0_REGNUM)))
 	{
-	  /* Likely to be in the prologue for functions that require 
+	  /* Likely to be in the prologue for functions that require
 	     a frame pointer.  */
 	}
       else
@@ -180,7 +180,7 @@ lm32_analyze_prologue (struct gdbarch *gdbarch,
   return pc;
 }
 
-/* Return PC of first non prologue instruction, for the function at the 
+/* Return PC of first non prologue instruction, for the function at the
    specified address.  */
 
 static CORE_ADDR
@@ -228,7 +228,7 @@ lm32_breakpoint_from_pc (struct gdbarch *gdbarch, CORE_ADDR *pcptr,
   return breakpoint;
 }
 
-/* Setup registers and stack for faking a call to a function in the 
+/* Setup registers and stack for faking a call to a function in the
    inferior.  */
 
 static CORE_ADDR
@@ -288,7 +288,7 @@ lm32_push_dummy_call (struct gdbarch *gdbarch, struct value *function,
       len = TYPE_LENGTH (arg_type);
       val = extract_unsigned_integer (contents, len, byte_order);
 
-      /* First num_arg_regs parameters are passed by registers, 
+      /* First num_arg_regs parameters are passed by registers,
          and the rest are passed on the stack.  */
       if (i < num_arg_regs)
 	regcache_cooked_write_unsigned (regcache, first_arg_reg + i, val);
@@ -336,7 +336,7 @@ lm32_extract_return_value (struct type *type, struct regcache *regcache,
     }
   else
     {
-      /* Aggregate types greater than a single register are returned in memory. 
+      /* Aggregate types greater than a single register are returned in memory.
          FIXME: Unless they are only 2 regs?.  */
       regcache_cooked_read_unsigned (regcache, SIM_LM32_R1_REGNUM, &l);
       return_buffer = l;

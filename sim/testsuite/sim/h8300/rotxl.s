@@ -30,7 +30,7 @@ rotxl_b_reg8_1:
 
 	test_carry_set		; H=0 N=0 Z=0 V=0 C=1
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_clear
 	test_h_gr16 0xa54a r0	; 1010 0101 -> 0100 1010
 .if (sim_cpu)
@@ -53,7 +53,7 @@ rotxl_b_reg8_2:
 
 	test_carry_clear	; H=0 N=1 Z=0 V=0 C=0
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_set
 
 	test_h_gr16 0xa595 r0	; 1010 0101 -> 1001 0101
@@ -78,7 +78,7 @@ rotxl_w_reg16_1:
 
 	test_carry_set		; H=0 N=0 Z=0 V=0 C=1
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_clear
 	test_h_gr16 0x4b4a r0	; 1010 0101 1010 0101 -> 0100 1011 0100 1010
 	test_h_gr32 0xa5a54b4a er0
@@ -100,7 +100,7 @@ rotxl_w_reg16_2:
 
 	test_carry_clear	; H=0 N=1 Z=0 V=0 C=0
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_set
 	test_h_gr16 0x9695 r0	; 1010 0101 1010 0101 -> 1001 0110 1001 0101
 	test_h_gr32 0xa5a59695 er0
@@ -122,9 +122,9 @@ rotxl_l_reg32_1:
 
 	test_carry_set		; H=0 N=0 Z=0 V=0 C=1
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_clear
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1010
 	test_h_gr32 0x4b4b4b4a er0
 
@@ -145,7 +145,7 @@ rotxl_l_reg32_2:
 
 	test_carry_clear	; H=0 N=1 Z=0 V=0 C=0
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_set
 	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1001 0110 1001 0110 1001 0110 1001 0101

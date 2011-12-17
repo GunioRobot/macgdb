@@ -25,7 +25,7 @@ main ()
 #endif
 {
  int y, z;
- 
+
  y = 2;
  z = 9;
  y = foo ();
@@ -43,6 +43,6 @@ baz (void)
 int
 baz ()
 #endif
-{ 
+{
   return 5;
 }

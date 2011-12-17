@@ -25,7 +25,7 @@
 0:
  move [$r1],$srp
  nop
- ret		; 1 cycle penalty. 
+ ret		; 1 cycle penalty.
  nop
 
  break 15
@@ -34,7 +34,7 @@
  move 2f,$nrp
  nop
  nop
- jump $nrp	; no penalty. 
+ jump $nrp	; no penalty.
  nop
 
  break 15

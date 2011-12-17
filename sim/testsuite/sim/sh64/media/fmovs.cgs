@@ -8,7 +8,7 @@
 	start
 init:
 	pta wrong, tr0
-	
+
 fmovs:
 	movi 8, r0
 	fmov.ls r0, fr7

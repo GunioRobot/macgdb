@@ -83,7 +83,7 @@ gdb_test "continue" "Breakpoint .*, $function_start in $function.*" \
 	 "Stop at the '$function' start breakpoint (fetching esp)."
 
 # We want to fetch esp at the start of '$function' function to make sure
-# skip_permanent_breakpoint implementation really skips only the perm. 
+# skip_permanent_breakpoint implementation really skips only the perm.
 # breakpoint. If, for whatever reason, 'leave' instruction doesn't get
 # executed, esp will not have this value.
 set start_esp 0

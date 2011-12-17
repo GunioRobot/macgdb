@@ -201,7 +201,7 @@ load_srec (struct serial *desc, const char *file, bfd_vma load_offset,
  *        7) four byte address termination record
  *        8) three byte address termination record
  *        9) two byte address termination record
- *       
+ *
  *      - address
  *        is the start address of the data following, or in the case of
  *        a termination record, the start address of the image

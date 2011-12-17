@@ -404,7 +404,7 @@ gdb_test "whatis (enum misordered volatile) v_misordered" \
 	"type = volatile enum misordered" \
 	"(enum misordered volatile)"
 
-# 
+#
 # Pointers
 #
 

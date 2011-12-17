@@ -3,7 +3,7 @@
 #    Free Software Foundation, Inc.
 #    Written by Cygnus Support
 #    Modified by J.Gaisler ESA/ESTEC
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
@@ -71,5 +71,5 @@ exec.o: exec.c sis.h end.h
 float.o: float.c sis.h end.h
 func.o: func.c sis.h end.h
 help.o: help.c sis.h end.h
-interf.o: interf.c sis.h end.h 
+interf.o: interf.c sis.h end.h
 sis.o: sis.c sis.h end.h

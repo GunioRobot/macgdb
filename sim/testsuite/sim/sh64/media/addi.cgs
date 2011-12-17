@@ -30,7 +30,7 @@ addi4:
 	addi r0, -2, r0
 	bnei r0, 18, tr0
 
-okay:	
+okay:
 	pass
 
 wrong:

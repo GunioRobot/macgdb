@@ -11,7 +11,7 @@
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
- 
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
@@ -44,7 +44,7 @@ main ()
   t._m2_contents = (char *)&data;
   t._m2_high = 4;
   /* include the <nul> in the string, even though high is set to 4.  */
-  
+
   for (i=0; i<6; i++)
     data[i] = input[i];
   return foo (t);

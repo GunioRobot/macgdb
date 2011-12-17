@@ -31,5 +31,5 @@ store:
  move mof,[r4]
  move.d [r4],r3
  dumpr3
- 
+
  quit

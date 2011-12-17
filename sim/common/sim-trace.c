@@ -218,7 +218,7 @@ set_trace_option_mask (sd, name, mask, arg)
 		}
 	    }
 	}
-    }  
+    }
 
   return SIM_RC_OK;
 }
@@ -613,7 +613,7 @@ print_data (SIM_DESC sd,
       abort ();
     }
 }
-		  
+
 static const char *
 trace_idx_to_str (int trace_idx)
 {
@@ -1029,7 +1029,7 @@ trace_result_word1 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_word, sizeof (unsigned_word), &r0);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result0 (SIM_DESC sd,
@@ -1043,7 +1043,7 @@ trace_result0 (SIM_DESC sd,
   last_input = TRACE_INPUT_IDX (data);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_word2 (SIM_DESC sd,
@@ -1061,7 +1061,7 @@ trace_result_word2 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_word, sizeof (r1), &r1);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_word4 (SIM_DESC sd,
@@ -1083,7 +1083,7 @@ trace_result_word4 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_word, sizeof (r3), &r3);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_bool1 (SIM_DESC sd,
@@ -1099,7 +1099,7 @@ trace_result_bool1 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_bool, sizeof (r0), &r0);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_addr1 (SIM_DESC sd,
@@ -1115,7 +1115,7 @@ trace_result_addr1 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_addr, sizeof (r0), &r0);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_fp1 (SIM_DESC sd,
@@ -1131,7 +1131,7 @@ trace_result_fp1 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_fp, sizeof (fp_word), &f0);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_fp2 (SIM_DESC sd,
@@ -1149,7 +1149,7 @@ trace_result_fp2 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_fp, sizeof (f1), &f1);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_fpu1 (SIM_DESC sd,
@@ -1167,7 +1167,7 @@ trace_result_fpu1 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_fp, sizeof (double), &d);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_string1 (SIM_DESC sd,
@@ -1183,7 +1183,7 @@ trace_result_string1 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_string, strlen (s0) + 1, s0);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_result_word1_string1 (SIM_DESC sd,
@@ -1201,7 +1201,7 @@ trace_result_word1_string1 (SIM_DESC sd,
   save_data (sd, data, trace_fmt_string, strlen (s0) + 1, s0);
 
   trace_results (sd, cpu, trace_idx, last_input);
-}	      
+}
 
 void
 trace_vprintf (SIM_DESC sd, sim_cpu *cpu, const char *fmt, va_list ap)

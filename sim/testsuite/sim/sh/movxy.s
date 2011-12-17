@@ -1,6 +1,6 @@
 # sh testcase for movxy
 # mach:	 shdsp
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -120,7 +120,7 @@ movxw_movyw:
 
 	# perform moves
 	movx.w	@r4, x1	movy.w	@r6, y1
-	pcopy	x1, a0	
+	pcopy	x1, a0
 	pcopy	y1, a1
 	movx.w	a0, @r5 movy.w	a1, @r7
 
@@ -199,9 +199,9 @@ movxw_movyw_new:
 	mov.l	dstp6b, r3
 
 	# perform moves
-	movx.w	@r0, x1	
+	movx.w	@r0, x1
 	movy.w	@r2, y1
-	movx.w	x1, @r1 
+	movx.w	x1, @r1
 	movy.w	y1, @r3
 
 	# verify pointers unchanged
@@ -283,7 +283,7 @@ dstp9b:	.long	dst9
 
 .L18:
 
-	# movx.w @Ax{}, Dx | nopy 
+	# movx.w @Ax{}, Dx | nopy
 movxwaxdx_nopy:
 	movx.w	@r4,x0		! .word	0xf004
 	movx.w	@r4,x1		! .word	0xf084
@@ -311,7 +311,7 @@ movxwdaax_nopy:
 	movx.w	a1,@r4+r8	! .word	0xf0ac
 	movx.w	a0,@r5+r8	! .word	0xf22c
 	movx.w	a1,@r5+r8	! .word	0xf2ac
-	# movy.w @Ay{}, Dy | nopx 
+	# movy.w @Ay{}, Dy | nopx
 movywaydy_nopx:
 	movy.w	@r6,y0		! .word	0xf001
 	movy.w	@r6,y1		! .word	0xf041
@@ -339,7 +339,7 @@ movywdaay_nopx:
 	movy.w	a1,@r6+r9	! .word	0xf053
 	movy.w	a0,@r7+r9	! .word	0xf113
 	movy.w	a1,@r7+r9	! .word	0xf153
-	# movx {} || movy {} 
+	# movx {} || movy {}
 movx_movy:
 	movx.w	@r4,x0	movy.w	@r6,y0	! .word	0xf005
 	movx.w	@r4,x0	movy.w	@r6,y1	! .word	0xf045
@@ -775,154 +775,154 @@ movx_movy:
 	movx.w	a1,@r5+r8	movy.w	@r7+r9,y1	! .word	0xf3ef
 
 movxwaxydxy:
-	movx.w	@r4,x0	! 
-	movx.w	@r4,y0	! 
-	movx.w	@r4,x1	! 
-	movx.w	@r4,y1	! 
-	movx.w	@r0,x0	! 
-	movx.w	@r0,y0	! 
-	movx.w	@r0,x1	! 
-	movx.w	@r0,y1	! 
-	movx.w	@r5,x0	! 
-	movx.w	@r5,y0	! 
-	movx.w	@r5,x1	! 
-	movx.w	@r5,y1	! 
-	movx.w	@r1,x0	! 
-	movx.w	@r1,y0	! 
-	movx.w	@r1,x1	! 
-	movx.w	@r1,y1	! 
-	movx.w	@r4+,x0	! 
-	movx.w	@r4+,y0	! 
-	movx.w	@r4+,x1	! 
-	movx.w	@r4+,y1	! 
-	movx.w	@r0+,x0	! 
-	movx.w	@r0+,y0	! 
-	movx.w	@r0+,x1	! 
-	movx.w	@r0+,y1	! 
-	movx.w	@r5+,x0	! 
-	movx.w	@r5+,y0	! 
-	movx.w	@r5+,x1	! 
-	movx.w	@r5+,y1	! 
-	movx.w	@r1+,x0	! 
-	movx.w	@r1+,y0	! 
-	movx.w	@r1+,x1	! 
-	movx.w	@r1+,y1	! 
-	movx.w	@r4+r8,x0	! 
-	movx.w	@r4+r8,y0	! 
-	movx.w	@r4+r8,x1	! 
-	movx.w	@r4+r8,y1	! 
-	movx.w	@r0+r8,x0	! 
-	movx.w	@r0+r8,y0	! 
-	movx.w	@r0+r8,x1	! 
-	movx.w	@r0+r8,y1	! 
-	movx.w	@r5+r8,x0	! 
-	movx.w	@r5+r8,y0	! 
-	movx.w	@r5+r8,x1	! 
-	movx.w	@r5+r8,y1	! 
-	movx.w	@r1+r8,x0	! 
-	movx.w	@r1+r8,y0	! 
-	movx.w	@r1+r8,x1	! 
-	movx.w	@r1+r8,y1	! 
-	
-movxwdaxaxy:	! 
-	movx.w	a0,@r4	! 
-	movx.w	x0,@r4	! 
-	movx.w	a1,@r4	! 
-	movx.w	x1,@r4	! 
-	movx.w	a0,@r0	! 
-	movx.w	x0,@r0	! 
-	movx.w	a1,@r0	! 
-	movx.w	x1,@r0	! 
-	movx.w	a0,@r5	! 
-	movx.w	x0,@r5	! 
-	movx.w	a1,@r5	! 
-	movx.w	x1,@r5	! 
-	movx.w	a0,@r1	! 
-	movx.w	x0,@r1	! 
-	movx.w	a1,@r1	! 
-	movx.w	x1,@r1	! 
-	movx.w	a0,@r4+	! 
-	movx.w	x0,@r4+	! 
-	movx.w	a1,@r4+	! 
-	movx.w	x1,@r4+	! 
-	movx.w	a0,@r0+	! 
-	movx.w	x0,@r0+	! 
-	movx.w	a1,@r0+	! 
-	movx.w	x1,@r0+	! 
-	movx.w	a0,@r5+	! 
-	movx.w	x0,@r5+	! 
-	movx.w	a1,@r5+	! 
-	movx.w	x1,@r5+	! 
-	movx.w	a0,@r1+	! 
-	movx.w	x0,@r1+	! 
-	movx.w	a1,@r1+	! 
-	movx.w	x1,@r1+	! 
-	movx.w	a0,@r4+r8	! 
-	movx.w	x0,@r4+r8	! 
-	movx.w	a1,@r4+r8	! 
-	movx.w	x1,@r4+r8	! 
-	movx.w	a0,@r0+r8	! 
-	movx.w	x0,@r0+r8	! 
-	movx.w	a1,@r0+r8	! 
-	movx.w	x1,@r0+r8	! 
-	movx.w	a0,@r5+r8	! 
-	movx.w	x0,@r5+r8	! 
-	movx.w	a1,@r5+r8	! 
-	movx.w	x1,@r5+r8	! 
-	movx.w	a0,@r1+r8	! 
-	movx.w	x0,@r1+r8	! 
-	movx.w	a1,@r1+r8	! 
-	movx.w	x1,@r1+r8	! 
+	movx.w	@r4,x0	!
+	movx.w	@r4,y0	!
+	movx.w	@r4,x1	!
+	movx.w	@r4,y1	!
+	movx.w	@r0,x0	!
+	movx.w	@r0,y0	!
+	movx.w	@r0,x1	!
+	movx.w	@r0,y1	!
+	movx.w	@r5,x0	!
+	movx.w	@r5,y0	!
+	movx.w	@r5,x1	!
+	movx.w	@r5,y1	!
+	movx.w	@r1,x0	!
+	movx.w	@r1,y0	!
+	movx.w	@r1,x1	!
+	movx.w	@r1,y1	!
+	movx.w	@r4+,x0	!
+	movx.w	@r4+,y0	!
+	movx.w	@r4+,x1	!
+	movx.w	@r4+,y1	!
+	movx.w	@r0+,x0	!
+	movx.w	@r0+,y0	!
+	movx.w	@r0+,x1	!
+	movx.w	@r0+,y1	!
+	movx.w	@r5+,x0	!
+	movx.w	@r5+,y0	!
+	movx.w	@r5+,x1	!
+	movx.w	@r5+,y1	!
+	movx.w	@r1+,x0	!
+	movx.w	@r1+,y0	!
+	movx.w	@r1+,x1	!
+	movx.w	@r1+,y1	!
+	movx.w	@r4+r8,x0	!
+	movx.w	@r4+r8,y0	!
+	movx.w	@r4+r8,x1	!
+	movx.w	@r4+r8,y1	!
+	movx.w	@r0+r8,x0	!
+	movx.w	@r0+r8,y0	!
+	movx.w	@r0+r8,x1	!
+	movx.w	@r0+r8,y1	!
+	movx.w	@r5+r8,x0	!
+	movx.w	@r5+r8,y0	!
+	movx.w	@r5+r8,x1	!
+	movx.w	@r5+r8,y1	!
+	movx.w	@r1+r8,x0	!
+	movx.w	@r1+r8,y0	!
+	movx.w	@r1+r8,x1	!
+	movx.w	@r1+r8,y1	!
 
-movywayxdyx:	! 
-	movy.w	@r6,y0	! 
-	movy.w	@r6,y1	! 
-	movy.w	@r6,x0	! 
-	movy.w	@r6,x1	! 
-	movy.w	@r7,y0	! 
-	movy.w	@r7,y1	! 
-	movy.w	@r7,x0	! 
-	movy.w	@r7,x1	! 
-	movy.w	@r2,y0	! 
-	movy.w	@r2,y1	! 
-	movy.w	@r2,x0	! 
-	movy.w	@r2,x1	! 
-	movy.w	@r3,y0	! 
-	movy.w	@r3,y1	! 
-	movy.w	@r3,x0	! 
-	movy.w	@r3,x1	! 
-	movy.w	@r6+,y0	! 
-	movy.w	@r6+,y1	! 
-	movy.w	@r6+,x0	! 
-	movy.w	@r6+,x1	! 
-	movy.w	@r7+,y0	! 
-	movy.w	@r7+,y1	! 
-	movy.w	@r7+,x0	! 
-	movy.w	@r7+,x1	! 
-	movy.w	@r2+,y0	! 
-	movy.w	@r2+,y1	! 
-	movy.w	@r2+,x0	! 
-	movy.w	@r2+,x1	! 
-	movy.w	@r3+,y0	! 
-	movy.w	@r3+,y1	! 
-	movy.w	@r3+,x0	! 
-	movy.w	@r3+,x1	! 
-	movy.w	@r6+r9,y0	! 
-	movy.w	@r6+r9,y1	! 
-	movy.w	@r6+r9,x0	! 
-	movy.w	@r6+r9,x1	! 
-	movy.w	@r7+r9,y0	! 
-	movy.w	@r7+r9,y1	! 
-	movy.w	@r7+r9,x0	! 
-	movy.w	@r7+r9,x1	! 
-	movy.w	@r2+r9,y0	! 
-	movy.w	@r2+r9,y1	! 
-	movy.w	@r2+r9,x0	! 
-	movy.w	@r2+r9,x1	! 
-	movy.w	@r3+r9,y0	! 
-	movy.w	@r3+r9,y1	! 
-	movy.w	@r3+r9,x0	! 
-	movy.w	@r3+r9,x1	! 
+movxwdaxaxy:	!
+	movx.w	a0,@r4	!
+	movx.w	x0,@r4	!
+	movx.w	a1,@r4	!
+	movx.w	x1,@r4	!
+	movx.w	a0,@r0	!
+	movx.w	x0,@r0	!
+	movx.w	a1,@r0	!
+	movx.w	x1,@r0	!
+	movx.w	a0,@r5	!
+	movx.w	x0,@r5	!
+	movx.w	a1,@r5	!
+	movx.w	x1,@r5	!
+	movx.w	a0,@r1	!
+	movx.w	x0,@r1	!
+	movx.w	a1,@r1	!
+	movx.w	x1,@r1	!
+	movx.w	a0,@r4+	!
+	movx.w	x0,@r4+	!
+	movx.w	a1,@r4+	!
+	movx.w	x1,@r4+	!
+	movx.w	a0,@r0+	!
+	movx.w	x0,@r0+	!
+	movx.w	a1,@r0+	!
+	movx.w	x1,@r0+	!
+	movx.w	a0,@r5+	!
+	movx.w	x0,@r5+	!
+	movx.w	a1,@r5+	!
+	movx.w	x1,@r5+	!
+	movx.w	a0,@r1+	!
+	movx.w	x0,@r1+	!
+	movx.w	a1,@r1+	!
+	movx.w	x1,@r1+	!
+	movx.w	a0,@r4+r8	!
+	movx.w	x0,@r4+r8	!
+	movx.w	a1,@r4+r8	!
+	movx.w	x1,@r4+r8	!
+	movx.w	a0,@r0+r8	!
+	movx.w	x0,@r0+r8	!
+	movx.w	a1,@r0+r8	!
+	movx.w	x1,@r0+r8	!
+	movx.w	a0,@r5+r8	!
+	movx.w	x0,@r5+r8	!
+	movx.w	a1,@r5+r8	!
+	movx.w	x1,@r5+r8	!
+	movx.w	a0,@r1+r8	!
+	movx.w	x0,@r1+r8	!
+	movx.w	a1,@r1+r8	!
+	movx.w	x1,@r1+r8	!
+
+movywayxdyx:	!
+	movy.w	@r6,y0	!
+	movy.w	@r6,y1	!
+	movy.w	@r6,x0	!
+	movy.w	@r6,x1	!
+	movy.w	@r7,y0	!
+	movy.w	@r7,y1	!
+	movy.w	@r7,x0	!
+	movy.w	@r7,x1	!
+	movy.w	@r2,y0	!
+	movy.w	@r2,y1	!
+	movy.w	@r2,x0	!
+	movy.w	@r2,x1	!
+	movy.w	@r3,y0	!
+	movy.w	@r3,y1	!
+	movy.w	@r3,x0	!
+	movy.w	@r3,x1	!
+	movy.w	@r6+,y0	!
+	movy.w	@r6+,y1	!
+	movy.w	@r6+,x0	!
+	movy.w	@r6+,x1	!
+	movy.w	@r7+,y0	!
+	movy.w	@r7+,y1	!
+	movy.w	@r7+,x0	!
+	movy.w	@r7+,x1	!
+	movy.w	@r2+,y0	!
+	movy.w	@r2+,y1	!
+	movy.w	@r2+,x0	!
+	movy.w	@r2+,x1	!
+	movy.w	@r3+,y0	!
+	movy.w	@r3+,y1	!
+	movy.w	@r3+,x0	!
+	movy.w	@r3+,x1	!
+	movy.w	@r6+r9,y0	!
+	movy.w	@r6+r9,y1	!
+	movy.w	@r6+r9,x0	!
+	movy.w	@r6+r9,x1	!
+	movy.w	@r7+r9,y0	!
+	movy.w	@r7+r9,y1	!
+	movy.w	@r7+r9,x0	!
+	movy.w	@r7+r9,x1	!
+	movy.w	@r2+r9,y0	!
+	movy.w	@r2+r9,y1	!
+	movy.w	@r2+r9,x0	!
+	movy.w	@r2+r9,x1	!
+	movy.w	@r3+r9,y0	!
+	movy.w	@r3+r9,y1	!
+	movy.w	@r3+r9,x0	!
+	movy.w	@r3+r9,x1	!
 
 movywdayayx:
 	movy.w	a0,@r6

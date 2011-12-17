@@ -15,7 +15,7 @@ walignr:
 	mcr        p15, 0, r1, cr15, cr1, 0
 
 	# Test 0 byte align
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -30,12 +30,12 @@ walignr:
 	tmcr	   wcgr0, r6
 
 	walignr0   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
 	tmrc	   r6, wcgr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
@@ -45,7 +45,7 @@ walignr:
 	test_h_gr  r6, 3
 
 	# Test 1 byte align
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -60,12 +60,12 @@ walignr:
 	tmcr	   wcgr1, r6
 
 	walignr1   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
 	tmrc	   r6, wcgr1
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
@@ -75,7 +75,7 @@ walignr:
 	test_h_gr  r6, 4
 
 	# Test 2 byte align
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -90,12 +90,12 @@ walignr:
 	tmcr	   wcgr2, r6
 
 	walignr2   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
 	tmrc	   r6, wcgr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111
@@ -105,7 +105,7 @@ walignr:
 	test_h_gr  r6, 2
 
 	# Test 3 byte align
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x11111111
@@ -120,12 +120,12 @@ walignr:
 	tmcr	   wcgr3, r6
 
 	walignr3   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
 	tmrc	   r6, wcgr3
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x11111111

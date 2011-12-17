@@ -184,9 +184,9 @@ be used to conditionally compile application code depending on
 the installed Readline version.  The value is a hexadecimal
 encoding of the major and minor version numbers of the library,
 of the form 0x@var{MMmm}.  @var{MM} is the two-digit major
-version number; @var{mm} is the two-digit minor version number. 
+version number; @var{mm} is the two-digit minor version number.
 For Readline 4.2, for example, the value of
-@code{RL_READLINE_VERSION} would be @code{0x0402}. 
+@code{RL_READLINE_VERSION} would be @code{0x0402}.
 
 @menu
 * Readline Typedefs::	C declarations to make code readable.
@@ -463,12 +463,12 @@ By default, this is set to @code{rl_deprep_terminal}
 @deftypevar {Keymap} rl_executing_keymap
 This variable is set to the keymap (@pxref{Keymaps}) in which the
 currently executing readline function was found.
-@end deftypevar 
+@end deftypevar
 
 @deftypevar {Keymap} rl_binding_keymap
 This variable is set to the keymap (@pxref{Keymaps}) in which the
 last key binding occurred.
-@end deftypevar 
+@end deftypevar
 
 @deftypevar {char *} rl_executing_macro
 This variable is set to the text of any currently-executing macro.
@@ -820,7 +820,7 @@ This is done with @code{rl_begin_undo_group()} and
 The types of events that can be undone are:
 
 @smallexample
-enum undo_code @{ UNDO_DELETE, UNDO_INSERT, UNDO_BEGIN, UNDO_END @}; 
+enum undo_code @{ UNDO_DELETE, UNDO_INSERT, UNDO_BEGIN, UNDO_END @};
 @end smallexample
 
 Notice that @code{UNDO_DELETE} means to insert some text, and
@@ -1262,7 +1262,7 @@ invert_case_line (count, key)
     @}
   else
     direction = 1;
-      
+
   /* Find the end of the range to modify. */
   end = start + (count * direction);
 
@@ -1310,7 +1310,7 @@ be sent to the process currently reading input from the keyboard.  Since
 Readline changes the terminal attributes when it is called, it needs to
 perform special processing when such a signal is received in order to
 restore the terminal to a sane state, or provide application writers with
-functions to do so manually. 
+functions to do so manually.
 
 Readline contains an internal signal handler that is installed for a
 number of signals (@code{SIGINT}, @code{SIGQUIT}, @code{SIGTERM},
@@ -1330,13 +1330,13 @@ There is an additional Readline signal handler, for @code{SIGWINCH}, which
 the kernel sends to a process whenever the terminal's size changes (for
 example, if a user resizes an @code{xterm}).  The Readline @code{SIGWINCH}
 handler updates Readline's internal screen size information, and then calls
-any @code{SIGWINCH} signal handler the calling application has installed. 
+any @code{SIGWINCH} signal handler the calling application has installed.
 Readline calls the application's @code{SIGWINCH} signal handler without
 resetting the terminal to its original state.  If the application's signal
 handler does more than update its idea of the terminal size and return (for
 example, a @code{longjmp} back to a main processing loop), it @emph{must}
 call @code{rl_cleanup_after_signal()} (described below), to restore the
-terminal state. 
+terminal state.
 
 Readline provides two variables that allow application writers to
 control whether or not it will catch certain signals and act on them
@@ -1361,7 +1361,7 @@ The default value of @code{rl_catch_sigwinch} is 1.
 
 If an application does not wish to have Readline catch any signals, or
 to handle signals other than those Readline catches (@code{SIGHUP},
-for example), 
+for example),
 Readline provides convenience functions to do the necessary terminal
 and internal state cleanup upon receipt of a signal.
 
@@ -1632,7 +1632,7 @@ A pointer to a function that will remove application-specific quoting
 characters from a filename before completion is attempted, so those
 characters do not interfere with matching the text against names in
 the filesystem.  It is called with @var{text}, the text of the word
-to be dequoted, and @var{quote_char}, which is the quoting character 
+to be dequoted, and @var{quote_char}, which is the quoting character
 that delimits the filename (usually @samp{'} or @samp{"}).  If
 @var{quote_char} is zero, the filename was not in an embedded string.
 @end deftypevar
@@ -1733,7 +1733,7 @@ shell variables and hostnames.
 @deftypevar int rl_completion_query_items
 Up to this many items will be displayed in response to a
 possible-completions call.  After that, readline asks the user if she is sure
-she wants to see them all.  The default value is 100.  A negative value 
+she wants to see them all.  The default value is 100.  A negative value
 indicates that Readline should never ask the user.
 @end deftypevar
 
@@ -2016,7 +2016,7 @@ stripwhite (string)
 
   for (s = string; whitespace (*s); s++)
     ;
-    
+
   if (*s == 0)
     return (s);
 

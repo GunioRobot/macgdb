@@ -276,7 +276,7 @@ frv_queue_float_disabled_interrupt (SIM_CPU *current_cpu)
   SIM_DESC sd = CPU_STATE (current_cpu);
   if (STATE_ARCHITECTURE (sd)->mach == bfd_mach_fr550)
     return frv_queue_program_interrupt (current_cpu, FRV_ILLEGAL_INSTRUCTION);
-  
+
   return frv_queue_program_interrupt (current_cpu, FRV_FP_DISABLED);
 }
 
@@ -287,7 +287,7 @@ frv_queue_media_disabled_interrupt (SIM_CPU *current_cpu)
   SIM_DESC sd = CPU_STATE (current_cpu);
   if (STATE_ARCHITECTURE (sd)->mach == bfd_mach_fr550)
     return frv_queue_program_interrupt (current_cpu, FRV_ILLEGAL_INSTRUCTION);
-  
+
   return frv_queue_program_interrupt (current_cpu, FRV_MP_DISABLED);
 }
 
@@ -350,7 +350,7 @@ frv_queue_fp_exception_interrupt (
   if (frv_interrupt_state.ne_index != NE_NOFLAG
       && fp_info->fsr_mask != FSR_NO_EXCEPTION)
     {
-      SET_NE_FLAG (frv_interrupt_state.f_ne_flags, 
+      SET_NE_FLAG (frv_interrupt_state.f_ne_flags,
 		   frv_interrupt_state.ne_index);
       /* TODO -- Set NESR for chips which support it.  */
       new_element = NULL;

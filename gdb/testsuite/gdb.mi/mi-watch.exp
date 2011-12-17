@@ -126,7 +126,7 @@ proc test_watchpoint_triggering {type} {
     set line_callee3_head         [gdb_get_line_number "callee3 ("]
     set line_callee3_close_brace  [expr $line_callee3_head + 3]
 
-    # Continue execution until the watchpoint is reached,  continue again, 
+    # Continue execution until the watchpoint is reached,  continue again,
     # to see the watchpoint go out of scope.
     # Does:
     # -exec-continue (Here wp triggers)

@@ -76,7 +76,7 @@ char **argv;
     strcat (linkfile_name, ".lopt");
     link_file = fopen (linkfile_name, "w");
     fprintf (link_file, "# Linker options for %s test\n", testcase_name);
-    
+
     /* Generate the makefile, if requested.
        */
     if (argc == 2)
@@ -210,7 +210,7 @@ fprintf (make_file, "# For convenience, here's names for all pieces of all shlib
     fprintf (main_file, "{\n");
     fprintf (main_file, "    int accum;\n");
     fprintf (main_file, "    int lib_num = %d;\n", lib_num);
-  
+
     for (i = 0; i < lib_num; i++) {
       fprintf (main_file, "    accum += r_%d();\n", i);
     }

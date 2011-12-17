@@ -26,7 +26,7 @@ Behavior is undefined if the pathname ends in a directory separator.
 #if defined (_WIN32) || defined (__MSDOS__) || defined (__DJGPP__) || \
   defined (__OS2__)
 #define HAVE_DOS_BASED_FILE_SYSTEM
-#ifndef DIR_SEPARATOR_2 
+#ifndef DIR_SEPARATOR_2
 #define DIR_SEPARATOR_2 '\\'
 #endif
 #endif
@@ -46,7 +46,7 @@ basename (const char *name)
 
 #if defined (HAVE_DOS_BASED_FILE_SYSTEM)
   /* Skip over the disk name in MSDOS pathnames. */
-  if (ISALPHA (name[0]) && name[1] == ':') 
+  if (ISALPHA (name[0]) && name[1] == ':')
     name += 2;
 #endif
 

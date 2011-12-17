@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -221,7 +221,7 @@ device_full_name(device *leaf,
     strcat(buf, leaf->name);
     strcat (buf, unit);
   }
-  
+
   /* return it usefully */
   if (buf == full_name)
     buf = (char *) strdup(full_name);
@@ -351,7 +351,7 @@ device_usage(int verbose)
     }
   }
 }
- 
+
 
 
 
@@ -658,7 +658,7 @@ INLINE_DEVICE\
 device_instance_call_method(device_instance *instance,
 			    const char *method_name,
 			    int n_stack_args,
-			    unsigned_cell stack_args[/*n_stack_args*/],	
+			    unsigned_cell stack_args[/*n_stack_args*/],
 			    int n_stack_returns,
 			    unsigned_cell stack_returns[/*n_stack_args*/])
 {
@@ -1069,7 +1069,7 @@ device_set_ihandle_property(device *me,
   cells = H2BE_cell(device_instance_to_external(ihandle));
   device_set_property(me, property, ihandle_property,
 		      &cells, sizeof(cells));
-		      
+
 }
 
 INLINE_DEVICE\
@@ -1225,10 +1225,10 @@ device_add_range_array_property(device *me,
     cell = unit_address_to_cells(&range->child_address, cell,
 				 device_nr_address_cells(me));
     /* copy the parent address */
-    cell = unit_address_to_cells(&range->parent_address, cell, 
+    cell = unit_address_to_cells(&range->parent_address, cell,
 				 device_nr_address_cells(device_parent(me)));
     /* copy the size */
-    cell = unit_address_to_cells(&range->size, cell, 
+    cell = unit_address_to_cells(&range->size, cell,
 				 device_nr_size_cells(me));
   }
   ASSERT(cell == &cells[nr_range_property_cells(me, nr_ranges)]);
@@ -1810,7 +1810,7 @@ device_ioctl(device *me,
   va_end(ap);
   return status;
 }
-      
+
 
 
 /* I/O */

@@ -15,7 +15,7 @@ textrm:
 	mcr        p15, 0, r1, cr15, cr1, 0
 
 	# Test Unsigned Byte Wide Extraction
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -23,15 +23,15 @@ textrm:
 	tmcrr	   wr0, r0, r1
 
 	textrmub   r2, wr0, #3
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x00000012
-	
+
 	# Test Signed Byte Wide Extraction
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -39,15 +39,15 @@ textrm:
 	tmcrr	   wr0, r0, r1
 
 	textrmsb   r2, wr0, #4
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0xfffffff0
-	
+
 	# Test Unsigned Half Word Wide Extraction
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -55,15 +55,15 @@ textrm:
 	tmcrr	   wr0, r0, r1
 
 	textrmuh   r2, wr0, #3
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x00009abc
-	
+
 	# Test Signed Half Word Wide Extraction
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -71,15 +71,15 @@ textrm:
 	tmcrr	   wr0, r0, r1
 
 	textrmsh   r2, wr0, #1
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x00001234
-	
+
 	# Test Unsigned Word Wide Extraction
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -87,15 +87,15 @@ textrm:
 	tmcrr	   wr0, r0, r1
 
 	textrmuw   r2, wr0, #0
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x12345678
-	
+
 	# Test Signed Word Wide Extraction
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcdef0
 	mvi_h_gr   r2, 0x111111ff
@@ -103,11 +103,11 @@ textrm:
 	tmcrr	   wr0, r0, r1
 
 	textrmsw   r2, wr0, #1
-	
+
 	tmrrc	   r0, r1, wr0
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcdef0
 	test_h_gr  r2, 0x9abcdef0
-	
+
 	pass

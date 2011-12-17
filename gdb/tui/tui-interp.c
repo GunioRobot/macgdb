@@ -131,7 +131,7 @@ tui_command_loop (void *data)
       /* Tell readline what the prompt to display is and what function
          it will need to call after a whole line is read. This also
          displays the first prompt.  */
-      length = strlen (PREFIX (0)) 
+      length = strlen (PREFIX (0))
 	+ strlen (gdb_prompt) + strlen (SUFFIX (0)) + 1;
       a_prompt = (char *) alloca (length);
       strcpy (a_prompt, PREFIX (0));
@@ -161,7 +161,7 @@ tui_command_loop (void *data)
         uiout = tui_out;
       else
         uiout = tui_old_uiout;
-      
+
       if (result == 0)
 	{
 	  /* If any exception escaped to here, we better enable

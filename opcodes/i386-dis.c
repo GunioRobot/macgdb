@@ -2485,9 +2485,9 @@ static const struct dis386 prefix_table[][4] = {
 
   /* PREFIX_0F2E */
   {
-    { "ucomiss",{ XM, EXd } }, 
+    { "ucomiss",{ XM, EXd } },
     { "(bad)",	{ XX } },
-    { "ucomisd",{ XM, EXq } }, 
+    { "ucomisd",{ XM, EXq } },
     { "(bad)",	{ XX } },
   },
 
@@ -3104,7 +3104,7 @@ static const struct dis386 prefix_table[][4] = {
     { "movbeS",	{ Gv, { MOVBE_Fixup, v_mode } } },
     { "(bad)",	{ XX } },
     { "movbeS",	{ Gv, { MOVBE_Fixup, v_mode } } },
-    { "crc32",	{ Gdq, { CRC32_Fixup, b_mode } } },	
+    { "crc32",	{ Gdq, { CRC32_Fixup, b_mode } } },
   },
 
   /* PREFIX_0F38F1 */
@@ -3112,7 +3112,7 @@ static const struct dis386 prefix_table[][4] = {
     { "movbeS",	{ { MOVBE_Fixup, v_mode }, Gv } },
     { "(bad)",	{ XX } },
     { "movbeS",	{ { MOVBE_Fixup, v_mode }, Gv } },
-    { "crc32",	{ Gdq, { CRC32_Fixup, v_mode } } },	
+    { "crc32",	{ Gdq, { CRC32_Fixup, v_mode } } },
   },
 
   /* PREFIX_0F3A08 */
@@ -7304,13 +7304,13 @@ static const struct dis386 vex_len_table[][2] = {
 
   /* VEX_LEN_2E_P_0 */
   {
-    { "vucomiss",	{ XM, EXd } }, 
+    { "vucomiss",	{ XM, EXd } },
     { "(bad)",		{ XX } },
   },
 
   /* VEX_LEN_2E_P_2 */
   {
-    { "vucomisd",	{ XM, EXq } }, 
+    { "vucomisd",	{ XM, EXq } },
     { "(bad)",		{ XX } },
   },
 
@@ -8500,7 +8500,7 @@ static const struct dis386 mod_table[][2] = {
   },
   {
     /* MOD_0F24 */
-    { "(bad)",		{ XX } },    
+    { "(bad)",		{ XX } },
     { "movL",		{ Rd, Td } },
   },
   {
@@ -9221,7 +9221,7 @@ get_valid_dis386 (const struct dis386 *dp, disassemble_info *info)
 	      break;
 	    }
 	}
-      else 
+      else
 	{
 	  index = 0;
 	  used_prefixes |= (prefixes & PREFIX_REPZ);
@@ -10947,7 +10947,7 @@ OP_E_register (int bytemode, int sizeflag)
       USED_REX (REX_W);
       if (rex & REX_W)
 	names = names64;
-      else if ((sizeflag & DFLAG) 
+      else if ((sizeflag & DFLAG)
 	       || (bytemode != v_mode
 		   && bytemode != v_swap_mode))
 	names = names32;
@@ -11085,11 +11085,11 @@ OP_E_memory (int bytemode, int sizeflag)
 		      *obufp = '\0';
 		    }
 		  if (haveindex)
-		    oappend (address_mode == mode_64bit 
+		    oappend (address_mode == mode_64bit
 			     && (sizeflag & AFLAG)
 			     ? names64[index] : names32[index]);
 		  else
-		    oappend (address_mode == mode_64bit 
+		    oappend (address_mode == mode_64bit
 			     && (sizeflag & AFLAG)
 			     ? index64 : index32);
 
@@ -12844,7 +12844,7 @@ PCLMUL_Fixup (int bytemode ATTRIBUTE_UNUSED,
       break;
     default:
       break;
-    } 
+    }
   if (pclmul_type < ARRAY_SIZE (pclmul_op))
     {
       char suffix [4];

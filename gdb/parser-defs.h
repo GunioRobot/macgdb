@@ -110,13 +110,13 @@ struct objc_class_str
    An array should be preceded in the list by the size of the array.  */
 enum type_pieces
   {
-    tp_end = -1, 
-    tp_pointer, 
-    tp_reference, 
-    tp_array, 
-    tp_function, 
-    tp_const, 
-    tp_volatile, 
+    tp_end = -1,
+    tp_pointer,
+    tp_reference,
+    tp_array,
+    tp_function,
+    tp_const,
+    tp_volatile,
     tp_space_identifier
   };
 /* The stack can contain either an enum type_pieces or an int.  */
@@ -182,7 +182,7 @@ extern int length_of_subexp (struct expression *, int);
 
 extern int dump_subexp (struct expression *, struct ui_file *, int);
 
-extern int dump_subexp_body_standard (struct expression *, 
+extern int dump_subexp_body_standard (struct expression *,
 				      struct ui_file *, int);
 
 extern void operator_length (struct expression *, int, int *, int *);
@@ -200,7 +200,7 @@ extern void null_post_parser (struct expression **, int);
 
 extern char *lexptr;
 
-/* After a token has been recognized, this variable points to it.  
+/* After a token has been recognized, this variable points to it.
    Currently used only for error reporting.  */
 extern char *prev_lexptr;
 
@@ -254,7 +254,7 @@ struct op_print
     int right_assoc;
   };
 
-/* Information needed to print, prefixify, and evaluate expressions for 
+/* Information needed to print, prefixify, and evaluate expressions for
    a given language.  */
 
 struct exp_descriptor
@@ -291,7 +291,7 @@ extern const struct exp_descriptor exp_descriptor_standard;
 extern void print_subexp (struct expression *, int *, struct ui_file *,
 			  enum precedence);
 
-extern void print_subexp_standard (struct expression *, int *, 
+extern void print_subexp_standard (struct expression *, int *,
 				   struct ui_file *, enum precedence);
 
 /* Function used to avoid direct calls to fprintf

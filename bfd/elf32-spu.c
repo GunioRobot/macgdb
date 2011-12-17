@@ -1489,7 +1489,7 @@ allocate_spuear_stubs (struct elf_link_hash_entry *h, void *inf)
     {
       return count_stub (htab, NULL, NULL, nonovl_stub, h, NULL);
     }
-  
+
   return TRUE;
 }
 
@@ -1515,7 +1515,7 @@ build_spuear_stubs (struct elf_link_hash_entry *h, void *inf)
       return build_stub (info, NULL, NULL, nonovl_stub, h, NULL,
 			 h->root.u.def.value, sym_sec);
     }
-  
+
   return TRUE;
 }
 
@@ -2948,7 +2948,7 @@ discover_functions (struct bfd_link_info *info)
   sec_arr = bfd_zmalloc (bfd_idx * sizeof (*sec_arr));
   if (sec_arr == NULL)
     return FALSE;
-  
+
   for (ibfd = info->input_bfds, bfd_idx = 0;
        ibfd != NULL;
        ibfd = ibfd->link_next, bfd_idx++)
@@ -2981,7 +2981,7 @@ discover_functions (struct bfd_link_info *info)
       if (symtab_hdr->contents != NULL)
 	{
 	  /* Don't use cached symbols since the generic ELF linker
-	     code only reads local symbols, and we need globals too.  */ 
+	     code only reads local symbols, and we need globals too.  */
 	  free (symtab_hdr->contents);
 	  symtab_hdr->contents = NULL;
 	}
@@ -4080,7 +4080,7 @@ print_one_overlay_section (FILE *script,
 			   struct bfd_link_info *info)
 {
   unsigned int j;
-	  
+
   for (j = base; j < count && ovly_map[j] == ovlynum; j++)
     {
       asection *sec = ovly_sections[2 * j];
@@ -4911,8 +4911,8 @@ spu_elf_relocate_section (bfd *output_bfd,
 	  && !(h->def_regular || ELF_COMMON_DEF_P (h)))
 	{
 	  bfd_byte *loc = contents + rel->r_offset;
-	  loc[0] = 0x1c; 
-	  loc[1] = 0x00; 
+	  loc[0] = 0x1c;
+	  loc[1] = 0x00;
 	  loc[2] &= 0x3f;
 	}
 

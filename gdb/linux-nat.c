@@ -71,7 +71,7 @@
    WSTOPSIG (status) is a syscall */
 #define TRAP_IS_SYSCALL (SIGTRAP | 0x80)
 
-/* This comment documents high-level logic of this file. 
+/* This comment documents high-level logic of this file.
 
 Waiting for events in sync mode
 ===============================
@@ -83,7 +83,7 @@ When waiting for an event in all threads, waitpid is not quite good. Prior to
 version 2.4, Linux can either wait for event in main thread, or in secondary
 threads. (2.4 has the __WALL flag).  So, if we use blocking waitpid, we might
 miss an event.  The solution is to use non-blocking waitpid, together with
-sigsuspend.  First, we use non-blocking waitpid to get an event in the main 
+sigsuspend.  First, we use non-blocking waitpid to get an event in the main
 process, if any. Second, we use non-blocking waitpid with the __WCLONED
 flag to check for events in cloned processes.  If nothing is found, we use
 sigsuspend to wait for SIGCHLD.  When SIGCHLD arrives, it means something
@@ -149,7 +149,7 @@ not when it is delivered.  SIGCONT resumes the entire thread group and SIGKILL
 kills the entire thread group.
 
 A delivered SIGSTOP would stop the entire thread group, not just the thread we
-tkill'd.  But we never let the SIGSTOP be delivered; we always intercept and 
+tkill'd.  But we never let the SIGSTOP be delivered; we always intercept and
 cancel it (by PTRACE_CONT without passing SIGSTOP).
 
 We could use a real-time signal instead.  This would solve those problems; we
@@ -217,9 +217,9 @@ static int (*linux_nat_siginfo_fixup) (struct siginfo *,
 
 /* The saved to_xfer_partial method, inherited from inf-ptrace.c.
    Called by our to_xfer_partial.  */
-static LONGEST (*super_xfer_partial) (struct target_ops *, 
+static LONGEST (*super_xfer_partial) (struct target_ops *,
 				      enum target_object,
-				      const char *, gdb_byte *, 
+				      const char *, gdb_byte *,
 				      const gdb_byte *,
 				      ULONGEST, LONGEST);
 
@@ -885,7 +885,7 @@ linux_child_set_syscall_catchpoint (int pid, int needed, int any_count,
     error (_("Your system does not support syscall catchpoints."));
   /* On GNU/Linux, we ignore the arguments.  It means that we only
      enable the syscall catchpoints, but do not disable them.
-     
+
      Also, we do not use the `table' information because we do not
      filter system calls here.  We let GDB do the logic for us.  */
   return 0;
@@ -1427,7 +1427,7 @@ lin_lwp_attach_lwp (ptid_t ptid)
 }
 
 static void
-linux_nat_create_inferior (struct target_ops *ops, 
+linux_nat_create_inferior (struct target_ops *ops,
 			   char *exec_file, char *allargs, char **env,
 			   int from_tty)
 {
@@ -2093,7 +2093,7 @@ linux_handle_extended_wait (struct lwp_info *lp, int status,
 	     the opposite of a SYSCALL_ENTRY, which is the SYSCALL_RETURN.
 	     Therefore, GDB would report inverted syscall events.  */
 	  if (catching_syscall_number (ourstatus->value.syscall_number))
-	    ourstatus->kind = 
+	    ourstatus->kind =
 	      (lp->syscall_state == TARGET_WAITKIND_SYSCALL_ENTRY) ?
 	      TARGET_WAITKIND_SYSCALL_RETURN : TARGET_WAITKIND_SYSCALL_ENTRY;
 	  else

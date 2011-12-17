@@ -12,7 +12,7 @@
 	# Store something there first.
 	mov #170, r1
 	mov.l r1, @r0
-check:	
+check:
 	# Load it back.
 	mov.l @r0, r3
 	cmp/eq r1, r3
@@ -22,4 +22,4 @@ okay:
 	pass
 wrong:
 	fail
-	
+

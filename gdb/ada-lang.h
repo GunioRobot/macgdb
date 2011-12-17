@@ -79,7 +79,7 @@ struct ada_opname_map
 /* Defined in ada-lang.c */
 extern const struct ada_opname_map ada_opname_table[];
 
-/* A tuple, (symbol, block), representing one instance of a 
+/* A tuple, (symbol, block), representing one instance of a
  * symbol-lookup operation. */
 struct ada_symbol_info {
   struct symbol* sym;
@@ -203,7 +203,7 @@ extern char *ada_decode_symbol (const struct general_symbol_info*);
 
 extern const char *ada_decode (const char*);
 
-extern enum language ada_update_initial_language (enum language, 
+extern enum language ada_update_initial_language (enum language,
 						  struct partial_symtab*);
 
 extern void clear_ada_sym_cache (void);
@@ -377,7 +377,7 @@ extern int ada_get_task_number (ptid_t);
 extern int ada_build_task_list (int warn_if_null);
 
 extern int ada_exception_catchpoint_p (struct breakpoint *b);
-  
+
 extern struct symtab_and_line
   ada_decode_exception_location (char *args, char **addr_string,
                                  char **exp_string, char **cond_string,

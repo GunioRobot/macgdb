@@ -15,7 +15,7 @@ wmin:
 	mcr        p15, 0, r1, cr15, cr1, 0
 
 	# Test Unsigned Byte Minimum
-		
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -28,11 +28,11 @@ wmin:
 	tmcrr	   wr2, r4, r5
 
 	wminub     wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
@@ -41,7 +41,7 @@ wmin:
 	test_h_gr  r5, 0x11111100
 
 	# Test Signed Byte Minimum
-		
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -54,11 +54,11 @@ wmin:
 	tmcrr	   wr2, r4, r5
 
 	wminsb     wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
@@ -67,7 +67,7 @@ wmin:
 	test_h_gr  r5, 0x9abcde00
 
 	# Test Unsigned Halfword Minimum
-		
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -80,11 +80,11 @@ wmin:
 	tmcrr	   wr2, r4, r5
 
 	wminuh     wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
@@ -93,7 +93,7 @@ wmin:
 	test_h_gr  r5, 0x11111111
 
 	# Test Signed Halfword Minimum
-		
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -106,11 +106,11 @@ wmin:
 	tmcrr	   wr2, r4, r5
 
 	wminsh     wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
@@ -119,7 +119,7 @@ wmin:
 	test_h_gr  r5, 0x9abcde00
 
 	# Test Unsigned Word Minimum
-		
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -132,11 +132,11 @@ wmin:
 	tmcrr	   wr2, r4, r5
 
 	wminuw     wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
@@ -145,7 +145,7 @@ wmin:
 	test_h_gr  r5, 0x11111111
 
 	# Test Signed Word Minimum
-		
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -158,11 +158,11 @@ wmin:
 	tmcrr	   wr2, r4, r5
 
 	wminsw     wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111

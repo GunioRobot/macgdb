@@ -82,7 +82,7 @@ m4_pushdef([acx_Var], [m4_default([$2], [WERROR])])dnl
 AC_SUBST(acx_Var)dnl
 m4_expand_once([acx_Var=
 ],m4_quote(acx_Var=))dnl
-AC_ARG_ENABLE(werror-always, 
+AC_ARG_ENABLE(werror-always,
     AS_HELP_STRING([--enable-werror-always],
 		   [enable -Werror despite compiler version]),
 [], [enable_werror_always=no])

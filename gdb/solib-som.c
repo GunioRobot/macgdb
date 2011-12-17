@@ -34,7 +34,7 @@
 #include <sys/utsname.h>
 #include <string.h>
 
-#undef SOLIB_SOM_DBG 
+#undef SOLIB_SOM_DBG
 
 /* These ought to be defined in some public interface, but aren't.  They
    define the meaning of the various bits in the distinguished __dld_flags
@@ -76,7 +76,7 @@ struct lm_info
        start of this thread's data.  I.e., the first thread-local
        variable in this shared library starts at *(tsd_start_addr)
        from that area pointed to by cr27 (mpsfu_hi).
-      
+
        We do the indirection as soon as we read it, so from then
        on it's the offset itself.  */
     CORE_ADDR tsd_start_addr;
@@ -117,12 +117,12 @@ som_relocate_section_addresses (struct so_list *so,
 
   if (aflag & SEC_CODE)
     {
-      sec->addr    += so->lm_info->text_addr - so->lm_info->text_link_addr; 
+      sec->addr    += so->lm_info->text_addr - so->lm_info->text_link_addr;
       sec->endaddr += so->lm_info->text_addr - so->lm_info->text_link_addr;
     }
   else if (aflag & SEC_DATA)
     {
-      sec->addr    += so->lm_info->data_start; 
+      sec->addr    += so->lm_info->data_start;
       sec->endaddr += so->lm_info->data_start;
     }
   else
@@ -339,7 +339,7 @@ keep_going:
   if (status != 0)
     error (_("Unable to write __dld_flags."));
 
-  /* Now find the address of _start and set a breakpoint there. 
+  /* Now find the address of _start and set a breakpoint there.
      We still need this code for two reasons:
 
      * Not all sites have /opt/langtools/lib/end.o, so it's not always
@@ -648,7 +648,7 @@ som_current_sos (void)
 	    	    paddress (target_gdbarch, lm));
 	    printf ("  'version' is %d\n", new->lm_info->struct_version);
 	    printf ("  'bind_mode' is %d\n", new->lm_info->bind_mode);
-	    printf ("  'library_version' is %d\n", 
+	    printf ("  'library_version' is %d\n",
 	    	    new->lm_info->library_version);
 	    printf ("  'text_addr' is %s\n",
 	    	    paddress (target_gdbarch, new->lm_info->text_addr));
@@ -686,7 +686,7 @@ som_current_sos (void)
 #undef EXTRACT
     }
 
-  /* TODO: The original somsolib code has logic to detect and eliminate 
+  /* TODO: The original somsolib code has logic to detect and eliminate
      duplicate entries.  Do we need that?  */
 
   return head;
@@ -773,7 +773,7 @@ som_solib_get_got_by_pc (CORE_ADDR addr)
 
 /* Return the address of the handle of the shared library in which ADDR belongs.
    If ADDR isn't in any known shared library, return zero.  */
-/* this function is used in initialize_hp_cxx_exception_support in 
+/* this function is used in initialize_hp_cxx_exception_support in
    hppa-hpux-tdep.c  */
 
 static CORE_ADDR
@@ -826,7 +826,7 @@ som_solib_select (struct gdbarch *gdbarch)
   tdep->solib_get_solib_by_pc = som_solib_get_solib_by_pc;
 }
 
-/* The rest of these functions are not part of the solib interface; they 
+/* The rest of these functions are not part of the solib interface; they
    are used by somread.c or hppa-hpux-tdep.c */
 
 int

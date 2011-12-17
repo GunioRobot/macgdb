@@ -28,8 +28,8 @@ if test x"$USE_NLS" != xyes; then
   AC_MSG_RESULT(no)
 else
   AC_MSG_RESULT(yes)
-  AC_DEFINE(ENABLE_NLS, 1, 
- [Define to 1 if translation of program messages to the 
+  AC_DEFINE(ENABLE_NLS, 1,
+ [Define to 1 if translation of program messages to the
   user's native language is requested.])
 
   AC_MSG_CHECKING(for catalogs to be installed)

@@ -51,14 +51,14 @@ Fri Mar 24 18:04:32 2000  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* inc-hist.texinfo: New file. Same as hsuser.texinfo, but w/o
  	cross reference to GNU History Manual.
-	
+
 Tue Dec 22 10:07:58 1998  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
 
 	* hsuser.texinfo (Bash History Builtins): comment out btindex
 	commands.
 
 	* Import of Readline 2.2.1.
-	
+
 	New files: readline.0, readline.3, texi2dvi, texi2html.
 
 1998-12-17  Felix Lee  <flee@cygnus.com>

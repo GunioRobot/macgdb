@@ -1,17 +1,17 @@
 /*  armemu.c -- Main instruction emulation:  ARM7 Instruction Emulator.
     Copyright (C) 1994 Advanced RISC Machines Ltd.
     Modifications to add arch. v4 support by <jsmith@cygnus.com>.
- 
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
- 
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -314,7 +314,7 @@ handle_v6_insn (ARMul_State * state, ARMword instr)
       {
 	ARMword Rm;
 	int ror = -1;
-	  
+
 	switch (BITS (4, 11))
 	  {
 	  case 0x07: ror = 0; break;
@@ -329,7 +329,7 @@ handle_v6_insn (ARMul_State * state, ARMword instr)
 	  default:
 	    break;
 	  }
-	
+
 	if (ror == -1)
 	  {
 	    if (BITS (4, 6) == 0x7)
@@ -357,7 +357,7 @@ handle_v6_insn (ARMul_State * state, ARMword instr)
       {
 	ARMword Rm;
 	int ror = -1;
-	  
+
 	switch (BITS (4, 11))
 	  {
 	  case 0x07: ror = 0; break;
@@ -371,7 +371,7 @@ handle_v6_insn (ARMul_State * state, ARMword instr)
 	  default:
 	    break;
 	  }
-	
+
 	if (ror == -1)
 	  break;
 
@@ -392,7 +392,7 @@ handle_v6_insn (ARMul_State * state, ARMword instr)
       {
 	ARMword Rm;
 	int ror = -1;
-	  
+
 	switch (BITS (4, 11))
 	  {
 	  case 0x07: ror = 0; break;
@@ -407,7 +407,7 @@ handle_v6_insn (ARMul_State * state, ARMword instr)
 	  default:
 	    break;
 	  }
-	
+
 	if (ror == -1)
 	  {
 	    if (BITS (4, 6) == 0x7)
@@ -433,7 +433,7 @@ handle_v6_insn (ARMul_State * state, ARMword instr)
       {
 	ARMword Rm;
 	int ror = -1;
-	  
+
 	switch (BITS (4, 11))
 	  {
 	  case 0x07: ror = 0; break;
@@ -447,7 +447,7 @@ handle_v6_insn (ARMul_State * state, ARMword instr)
 	  default:
 	    break;
 	  }
-	
+
 	if (ror == -1)
 	  break;
 
@@ -494,7 +494,7 @@ ARMul_Emulate26 (ARMul_State * state)
   ARMword lhs;		/* Almost the ABus and BBus.  */
   ARMword rhs;
   ARMword decoded = 0;	/* Instruction pipeline.  */
-  ARMword loaded = 0;	
+  ARMword loaded = 0;
 
   /* Execute the next instruction.  */
 
@@ -693,9 +693,9 @@ ARMul_Emulate26 (ARMul_State * state)
 	      if (BITS (25, 27) == 5) /* BLX(1) */
 		{
 		  ARMword dest;
-		  
+
 		  state->Reg[14] = pc + 4;
-		  
+
 		  /* Force entry into Thumb mode.  */
 		  dest = pc + 8 + 1;
 		  if (BIT (23))
@@ -864,7 +864,7 @@ check_PMUintr:
 		      ARMword temp = GetLS7RHS (state, instr);
 		      ARMword temp2 = BIT (23) ? LHS + temp : LHS - temp;
 		      ARMword addr = BIT (24) ? temp2 : LHS;
-		      
+
 		      if (BIT (12))
 			ARMul_UndefInstr (state, instr);
 		      else if (addr & 7)
@@ -873,7 +873,7 @@ check_PMUintr:
 		      else
 			{
 			  int wb = BIT (21) || (! BIT (24));
-			  
+
 			  state->Reg[BITS (12, 15)] =
 			    ARMul_LoadWordN (state, addr);
 			  state->Reg[BITS (12, 15) + 1] =
@@ -1445,7 +1445,7 @@ check_PMUintr:
 		      ARMword op1 = state->Reg[BITS (0, 3)];
 		      ARMword op2 = state->Reg[BITS (8, 11)];
 		      ARMword Rn = state->Reg[BITS (12, 15)];
-		      
+
 		      if (BIT (5))
 			op1 >>= 16;
 		      if (BIT (6))
@@ -1457,7 +1457,7 @@ check_PMUintr:
 		      if (op2 & 0x8000)
 			op2 -= 65536;
 		      op1 *= op2;
-		      
+
 		      if (AddOverflow (op1, Rn, op1 + Rn))
 			SETS;
 		      state->Reg[BITS (16, 19)] = op1 + Rn;
@@ -1600,7 +1600,7 @@ check_PMUintr:
 		      if (BIT (5) == 0)
 			{
 			  ARMword Rn = state->Reg[BITS (12, 15)];
-			  
+
 			  if (AddOverflow (result, Rn, result + Rn))
 			    SETS;
 			  result += Rn;
@@ -3527,11 +3527,11 @@ check_PMUintr:
 		    }
 		  else
 		    /* FIXME: Not sure what to do for other v5 processors.  */
-		    ARMul_UndefInstr (state, instr);		    
+		    ARMul_UndefInstr (state, instr);
 		  break;
 		}
 	      /* Drop through.  */
-	      
+
 	    case 0xc0:		/* Store , No WriteBack , Post Dec.  */
 	      ARMul_STC (state, instr, LHS);
 	      break;
@@ -4372,7 +4372,7 @@ Handle_Load_Double (ARMul_State * state, ARMword instr)
   ARMword addr_reg;
   ARMword write_back  = BIT (21);
   ARMword immediate   = BIT (22);
-  ARMword add_to_base = BIT (23);        
+  ARMword add_to_base = BIT (23);
   ARMword pre_indexed = BIT (24);
   ARMword offset;
   ARMword addr;
@@ -4380,7 +4380,7 @@ Handle_Load_Double (ARMul_State * state, ARMword instr)
   ARMword base;
   ARMword value1;
   ARMword value2;
-  
+
   BUSUSEDINCPCS;
 
   /* If the writeback bit is set, the pre-index bit must be clear.  */
@@ -4389,13 +4389,13 @@ Handle_Load_Double (ARMul_State * state, ARMword instr)
       ARMul_UndefInstr (state, instr);
       return;
     }
-  
+
   /* Extract the base address register.  */
   addr_reg = LHSReg;
-  
+
   /* Extract the destination register and check it.  */
   dest_reg = DESTReg;
-  
+
   /* Destination register must be even.  */
   if ((dest_reg & 1)
     /* Destination register cannot be LR.  */
@@ -4416,7 +4416,7 @@ Handle_Load_Double (ARMul_State * state, ARMword instr)
     sum = base + offset;
   else
     sum = base - offset;
-  
+
   /* If this is a pre-indexed mode use the sum.  */
   if (pre_indexed)
     addr = sum;
@@ -4455,17 +4455,17 @@ Handle_Load_Double (ARMul_State * state, ARMword instr)
       TAKEABORT;
       return;
     }
-  
+
   ARMul_Icycles (state, 2, 0L);
 
   /* Store the values.  */
   state->Reg[dest_reg] = value1;
   state->Reg[dest_reg + 1] = value2;
-  
+
   /* Do the post addressing and writeback.  */
   if (! pre_indexed)
     addr = sum;
-  
+
   if (! pre_indexed || write_back)
     state->Reg[addr_reg] = addr;
 }
@@ -4479,7 +4479,7 @@ Handle_Store_Double (ARMul_State * state, ARMword instr)
   ARMword addr_reg;
   ARMword write_back  = BIT (21);
   ARMword immediate   = BIT (22);
-  ARMword add_to_base = BIT (23);        
+  ARMword add_to_base = BIT (23);
   ARMword pre_indexed = BIT (24);
   ARMword offset;
   ARMword addr;
@@ -4494,20 +4494,20 @@ Handle_Store_Double (ARMul_State * state, ARMword instr)
       ARMul_UndefInstr (state, instr);
       return;
     }
-  
+
   /* Extract the base address register.  */
   addr_reg = LHSReg;
-  
+
   /* Base register cannot be PC.  */
   if (addr_reg == 15)
     {
       ARMul_UndefInstr (state, instr);
       return;
     }
-  
+
   /* Extract the source register.  */
   src_reg = DESTReg;
-  
+
   /* Source register must be even.  */
   if (src_reg & 1)
     {
@@ -4526,7 +4526,7 @@ Handle_Store_Double (ARMul_State * state, ARMword instr)
     sum = base + offset;
   else
     sum = base - offset;
-  
+
   /* If this is a pre-indexed mode use the sum.  */
   if (pre_indexed)
     addr = sum;
@@ -4558,17 +4558,17 @@ Handle_Store_Double (ARMul_State * state, ARMword instr)
   /* Load the words.  */
   ARMul_StoreWordN (state, addr, state->Reg[src_reg]);
   ARMul_StoreWordN (state, addr + 4, state->Reg[src_reg + 1]);
-  
+
   if (state->Aborted)
     {
       TAKEABORT;
       return;
     }
-  
+
   /* Do the post addressing and writeback.  */
   if (! pre_indexed)
     addr = sum;
-  
+
   if (! pre_indexed || write_back)
     state->Reg[addr_reg] = addr;
 }
@@ -4965,7 +4965,7 @@ StoreSMult (ARMul_State * state,
 
   for (temp = 0; !BIT (temp); temp++)
     ;	/* N cycle first.  */
-  
+
 #ifdef MODE32
   ARMul_StoreWordN (state, address, state->Reg[temp++]);
 #else
@@ -5137,7 +5137,7 @@ Multiply64 (ARMul_State * state, ARMword instr, int msigned, int scc)
      unsigned multiply, and what bits are clear in the multiplier.  */
   if (msigned && (Rm & ((unsigned) 1 << 31)))
     /* Invert the bits to make the check against zero.  */
-    Rm = ~Rm;			
+    Rm = ~Rm;
 
   if ((Rm & 0xFFFFFF00) == 0)
     scount = 1;

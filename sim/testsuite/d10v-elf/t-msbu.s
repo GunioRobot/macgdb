@@ -13,7 +13,7 @@ test_msbu1:
 	MSBU a1, r9, r8
 	checkacc2 1 a1 0X7F 0x7FFF 0x8000
 
-	
+
 	;; set FX
 	ldi r2, #0x8085
 	mvtc r2, cr0

@@ -1243,7 +1243,7 @@ static reloc_howto_type v850_elf_howto_table[] =
        0,                     /* Src_mask.  */
        0,                     /* Dst_mask.  */
        TRUE),                 /* PCrel_offset.  */
-  
+
   /* Simple pc-relative 32bit reloc.  */
   HOWTO (R_V850_REL32,			/* Type.  */
 	 0,				/* Rightshift.  */

@@ -36,8 +36,8 @@ typedef void *serial_ttystate;
 struct serial;
 
 /* Try to open NAME.  Returns a new `struct serial *' on success, NULL
-   on failure. Note that some open calls can block and, if possible, 
-   should be  written to be non-blocking, with calls to ui_look_hook 
+   on failure. Note that some open calls can block and, if possible,
+   should be  written to be non-blocking, with calls to ui_look_hook
    so they can be cancelled. An async interface for open could be
    added to GDB if necessary.  */
 
@@ -85,7 +85,7 @@ extern int serial_write (struct serial *scb, const char *str, int len);
 
 /* Write a printf style string onto the serial port.  */
 
-extern void serial_printf (struct serial *desc, 
+extern void serial_printf (struct serial *desc,
 			   const char *,...) ATTR_FORMAT (printf, 2, 3);
 
 /* Allow pending output to drain.  */
@@ -193,7 +193,7 @@ struct serial
        immediately forwarded to gdb_stderr.  This may be -1.
        If != -1, this descriptor should be non-blocking or
        ops->avail should be non-NULL.  */
-    int error_fd;               
+    int error_fd;
     struct serial_ops *ops;	/* Function vector */
     void *state;       		/* Local context info for open FD */
     serial_ttystate ttystate;	/* Not used (yet) */

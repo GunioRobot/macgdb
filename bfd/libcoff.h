@@ -1,4 +1,4 @@
-/* DO NOT EDIT!  -*- buffer-read-only: t -*-  This file is automatically 
+/* DO NOT EDIT!  -*- buffer-read-only: t -*-  This file is automatically
    generated from "libcoff-in.h" and "coffcode.h".
    Run "make headers" in your build bfd/ to regenerate.  */
 
@@ -721,7 +721,7 @@ typedef struct
   bfd_boolean _bfd_coff_long_section_names;
   bfd_boolean (*_bfd_coff_set_long_section_names)
     (bfd *, int);
-  
+
   unsigned int _bfd_coff_default_section_alignment_power;
   bfd_boolean _bfd_coff_force_symnames_in_strings;
   unsigned int _bfd_coff_debug_string_prefix_length;

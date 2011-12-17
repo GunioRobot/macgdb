@@ -45,14 +45,14 @@
 ** Static Local Decls
 ********************************/
 static void show_layout (enum tui_layout_type);
-static void init_gen_win_info (struct tui_gen_win_info *, 
-			       enum tui_win_type, 
+static void init_gen_win_info (struct tui_gen_win_info *,
+			       enum tui_win_type,
 			       int, int, int, int);
-static void *init_and_make_win (void *, enum tui_win_type, 
+static void *init_and_make_win (void *, enum tui_win_type,
 				int, int, int, int, int);
 static void show_source_or_disasm_and_command (enum tui_layout_type);
-static void make_source_or_disasm_window (struct tui_win_info **, 
-					  enum tui_win_type, 
+static void make_source_or_disasm_window (struct tui_win_info **,
+					  enum tui_win_type,
 					  int, int);
 static void make_command_window (struct tui_win_info **, int, int);
 static void make_source_window (struct tui_win_info **, int, int);
@@ -90,7 +90,7 @@ show_layout (enum tui_layout_type layout)
          source/asm.  */
       tui_free_all_source_wins_content ();
       tui_clear_source_windows ();
-      if (layout == SRC_DATA_COMMAND 
+      if (layout == SRC_DATA_COMMAND
 	  || layout == DISASSEM_DATA_COMMAND)
 	{
 	  show_data (layout);
@@ -137,7 +137,7 @@ tui_set_layout (enum tui_layout_type layout_type,
 {
   enum tui_status status = TUI_SUCCESS;
 
-  if (layout_type != UNDEFINED_LAYOUT 
+  if (layout_type != UNDEFINED_LAYOUT
       || regs_display_type != TUI_UNDEFINED_REGS)
     {
       enum tui_layout_type cur_layout = tui_current_layout (),
@@ -155,18 +155,18 @@ tui_set_layout (enum tui_layout_type layout_type,
 	{
 	  if (cur_layout == SRC_DISASSEM_COMMAND)
 	    new_layout = DISASSEM_DATA_COMMAND;
-	  else if (cur_layout == SRC_COMMAND 
+	  else if (cur_layout == SRC_COMMAND
 		   || cur_layout == SRC_DATA_COMMAND)
 	    new_layout = SRC_DATA_COMMAND;
-	  else if (cur_layout == DISASSEM_COMMAND 
+	  else if (cur_layout == DISASSEM_COMMAND
 		   || cur_layout == DISASSEM_DATA_COMMAND)
 	    new_layout = DISASSEM_DATA_COMMAND;
 	}
       else
 	new_layout = layout_type;
 
-      regs_populate = (new_layout == SRC_DATA_COMMAND 
-		       || new_layout == DISASSEM_DATA_COMMAND 
+      regs_populate = (new_layout == SRC_DATA_COMMAND
+		       || new_layout == DISASSEM_DATA_COMMAND
 		       || regs_display_type != TUI_UNDEFINED_REGS);
       if (new_layout != cur_layout
 	  || regs_display_type != TUI_UNDEFINED_REGS)
@@ -247,8 +247,8 @@ tui_set_layout (enum tui_layout_type layout_type,
 	      /*
 	       * Now update the window content.
 	       */
-	      if (!regs_populate 
-		  && (new_layout == SRC_DATA_COMMAND 
+	      if (!regs_populate
+		  && (new_layout == SRC_DATA_COMMAND
 		      || new_layout == DISASSEM_DATA_COMMAND))
 		tui_display_all_data ();
 
@@ -320,7 +320,7 @@ tui_add_win_to_layout (enum tui_win_type type)
    answer what the height of a window would be based upon its type and
    the layout.  */
 int
-tui_default_win_height (enum tui_win_type type, 
+tui_default_win_height (enum tui_win_type type,
 			enum tui_layout_type layout)
 {
   int h;
@@ -434,7 +434,7 @@ tui_set_layout_for_display_command (const char *layout_name)
 	buf_ptr[i] = toupper (buf_ptr[i]);
 
       /* First check for ambiguous input.  */
-      if (strlen (buf_ptr) <= 1 
+      if (strlen (buf_ptr) <= 1
 	  && (*buf_ptr == 'S' || *buf_ptr == '$'))
 	{
 	  warning (_("Ambiguous command input."));
@@ -448,13 +448,13 @@ tui_set_layout_for_display_command (const char *layout_name)
 	    new_layout = DISASSEM_COMMAND;
 	  else if (subset_compare (buf_ptr, "SPLIT"))
 	    new_layout = SRC_DISASSEM_COMMAND;
-	  else if (subset_compare (buf_ptr, "REGS") 
+	  else if (subset_compare (buf_ptr, "REGS")
 		   || subset_compare (buf_ptr, TUI_GENERAL_SPECIAL_REGS_NAME)
 		   || subset_compare (buf_ptr, TUI_GENERAL_REGS_NAME)
 		   || subset_compare (buf_ptr, TUI_FLOAT_REGS_NAME)
 		   || subset_compare (buf_ptr, TUI_SPECIAL_REGS_NAME))
 	    {
-	      if (cur_layout == SRC_COMMAND 
+	      if (cur_layout == SRC_COMMAND
 		  || cur_layout == SRC_DATA_COMMAND)
 		new_layout = SRC_DATA_COMMAND;
 	      else
@@ -654,7 +654,7 @@ prev_layout (void)
 
 
 static void
-make_command_window (struct tui_win_info **win_info_ptr, 
+make_command_window (struct tui_win_info **win_info_ptr,
 		     int height, int origin_y)
 {
   *win_info_ptr = init_and_make_win (*win_info_ptr,
@@ -672,7 +672,7 @@ make_command_window (struct tui_win_info **win_info_ptr,
 /* make_source_window().
  */
 static void
-make_source_window (struct tui_win_info **win_info_ptr, 
+make_source_window (struct tui_win_info **win_info_ptr,
 		    int height, int origin_y)
 {
   make_source_or_disasm_window (win_info_ptr, SRC_WIN, height, origin_y);
@@ -684,7 +684,7 @@ make_source_window (struct tui_win_info **win_info_ptr,
 /* make_disasm_window().
  */
 static void
-make_disasm_window (struct tui_win_info **win_info_ptr, 
+make_disasm_window (struct tui_win_info **win_info_ptr,
 		    int height, int origin_y)
 {
   make_source_or_disasm_window (win_info_ptr, DISASSEM_WIN, height, origin_y);
@@ -694,7 +694,7 @@ make_disasm_window (struct tui_win_info **win_info_ptr,
 
 
 static void
-make_data_window (struct tui_win_info **win_info_ptr, 
+make_data_window (struct tui_win_info **win_info_ptr,
 		  int height, int origin_y)
 {
   *win_info_ptr = init_and_make_win (*win_info_ptr,
@@ -902,9 +902,9 @@ show_data (enum tui_layout_type new_layout)
 /* init_gen_win_info().
  */
 static void
-init_gen_win_info (struct tui_gen_win_info *win_info, 
+init_gen_win_info (struct tui_gen_win_info *win_info,
 		   enum tui_win_type type,
-		   int height, int width, 
+		   int height, int width,
 		   int origin_x, int origin_y)
 {
   int h = height;
@@ -929,9 +929,9 @@ init_gen_win_info (struct tui_gen_win_info *win_info,
 /* init_and_make_win().
  */
 static void *
-init_and_make_win (void *opaque_win_info, 
+init_and_make_win (void *opaque_win_info,
 		   enum tui_win_type win_type,
-		   int height, int width, 
+		   int height, int width,
 		   int origin_x, int origin_y,
 		   int box_it)
 {
@@ -966,7 +966,7 @@ init_and_make_win (void *opaque_win_info,
 
 
 static void
-make_source_or_disasm_window (struct tui_win_info **win_info_ptr, 
+make_source_or_disasm_window (struct tui_win_info **win_info_ptr,
 			      enum tui_win_type type,
 			      int height, int origin_y)
 {

@@ -33,7 +33,7 @@ start:
 	lds r7, fpscr
 	.endm
 
-	# nb: this macro clobbers R7. 
+	# nb: this macro clobbers R7.
 	.macro assert reg value
 	mov \value, r7
 	cmp/eq \reg, r7

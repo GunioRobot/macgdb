@@ -1412,8 +1412,8 @@ m32c_is_arg_reg (struct m32c_pv_state *state, pv_t value)
      relative to the original value of the SP).  */
 
 static int
-m32c_is_arg_spill (struct m32c_pv_state *st, 
-		   struct srcdest loc, 
+m32c_is_arg_spill (struct m32c_pv_state *st,
+		   struct srcdest loc,
 		   pv_t value)
 {
   struct gdbarch_tdep *tdep = gdbarch_tdep (st->arch);
@@ -1424,10 +1424,10 @@ m32c_is_arg_spill (struct m32c_pv_state *st,
           && ! pv_area_find_reg (st->stack, st->arch, value.reg, 0));
 }
 
-/* Return non-zero if a store of VALUE to LOC is probably 
+/* Return non-zero if a store of VALUE to LOC is probably
    copying the struct return address into an address register
    for immediate use.  This is basically a "spill" into the
-   address register, instead of onto the stack. 
+   address register, instead of onto the stack.
 
    The prerequisites are:
    - value being stored is original value of the FIRST arg register;
@@ -1436,7 +1436,7 @@ m32c_is_arg_spill (struct m32c_pv_state *st,
 
 static int
 m32c_is_struct_return (struct m32c_pv_state *st,
-		       struct srcdest loc, 
+		       struct srcdest loc,
 		       pv_t value)
 {
   struct gdbarch_tdep *tdep = gdbarch_tdep (st->arch);
@@ -2521,7 +2521,7 @@ m32c_virtual_frame_pointer (struct gdbarch *gdbarch, CORE_ADDR pc,
 
   struct regcache *regcache = get_current_regcache ();
   struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);
-  
+
   if (!find_pc_partial_function (pc, &name, &func_addr, &func_end))
     internal_error (__FILE__, __LINE__, _("No virtual frame pointer available"));
 
@@ -2593,7 +2593,7 @@ m32c_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 #if 0
   /* I'm dropping the dwarf2 sniffer because it has a few problems.
      They may be in the dwarf2 cfi code in GDB, or they may be in
-     the debug info emitted by the upstream toolchain.  I don't 
+     the debug info emitted by the upstream toolchain.  I don't
      know which, but I do know that the prologue analyzer works better.
      MVS 04/13/06
   */
@@ -2614,7 +2614,7 @@ m32c_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
   /* m32c function boundary addresses are not necessarily even.
      Therefore, the `vbit', which indicates a pointer to a virtual
      member function, is stored in the delta field, rather than as
-     the low bit of a function pointer address.  
+     the low bit of a function pointer address.
 
      In order to verify this, see the definition of
      TARGET_PTRMEMFUNC_VBIT_LOCATION in gcc/defaults.h along with the

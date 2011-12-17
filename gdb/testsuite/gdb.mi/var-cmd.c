@@ -309,7 +309,7 @@ do_special_tests (void)
   int array[21];
   int a;
 
-  a = 1;   
+  a = 1;
   u.integer = a;
   anonu.a = a;
   s.integer = a;
@@ -331,8 +331,8 @@ void do_frozen_tests ()
   } v1 = {1, {2, 3}};
 
   int v2 = 4;
-  /*: 
-    mi_create_varobj V1 v1 "create varobj for v1" 
+  /*:
+    mi_create_varobj V1 v1 "create varobj for v1"
     mi_create_varobj V2 v2 "create varobj for v2"
 
     mi_list_varobj_children "V1" {
@@ -351,12 +351,12 @@ void do_frozen_tests ()
     mi_check_varobj_value V2 4 "check V2: 4"
   :*/
   v2 = 5;
-  /*: 
+  /*:
     mi_varobj_update * {V2} "update varobjs: V2 changed"
     set_frozen V2 1
   :*/
   v2 = 6;
-  /*: 
+  /*:
     mi_varobj_update * {} "update varobjs: nothing changed"
     mi_check_varobj_value V2 5 "check V2: 5"
     mi_varobj_update V2 {V2} "update V2 explicitly"
@@ -370,19 +370,19 @@ void do_frozen_tests ()
     mi_varobj_update * {} "update varobjs: nothing changed"
     mi_check_varobj_value V1.i 1 "check V1.i: 1"
     mi_check_varobj_value V1.nested.j 2 "check V1.nested.j: 2"
-    mi_check_varobj_value V1.nested.k 3 "check V1.nested.k: 3"    
+    mi_check_varobj_value V1.nested.k 3 "check V1.nested.k: 3"
     # Check that explicit update for elements of structures
     # works.
     # Update v1.j
     mi_varobj_update V1.nested.j {V1.nested.j} "update V1.nested.j"
     mi_check_varobj_value V1.i 1 "check V1.i: 1"
     mi_check_varobj_value V1.nested.j 8 "check V1.nested.j: 8"
-    mi_check_varobj_value V1.nested.k 3 "check V1.nested.k: 3"    
+    mi_check_varobj_value V1.nested.k 3 "check V1.nested.k: 3"
     # Update v1.nested, check that children is updated.
     mi_varobj_update V1.nested {V1.nested.k} "update V1.nested"
     mi_check_varobj_value V1.i 1 "check V1.i: 1"
     mi_check_varobj_value V1.nested.j 8 "check V1.nested.j: 8"
-    mi_check_varobj_value V1.nested.k 9 "check V1.nested.k: 9"    
+    mi_check_varobj_value V1.nested.k 9 "check V1.nested.k: 9"
     # Update v1.i
     mi_varobj_update V1.i {V1.i} "update V1.i"
     mi_check_varobj_value V1.i 7 "check V1.i: 7"
@@ -395,13 +395,13 @@ void do_frozen_tests ()
     set_frozen V1 0
     mi_check_varobj_value V1.i 7 "check V1.i: 7"
     mi_check_varobj_value V1.nested.j 8 "check V1.nested.j: 8"
-    mi_check_varobj_value V1.nested.k 9 "check V1.nested.k: 9"    
+    mi_check_varobj_value V1.nested.k 9 "check V1.nested.k: 9"
     mi_varobj_update V1 {V1.i V1.nested.j V1.nested.k} "update V1"
     mi_check_varobj_value V1.i 10 "check V1.i: 10"
     mi_check_varobj_value V1.nested.j 11 "check V1.nested.j: 11"
-    mi_check_varobj_value V1.nested.k 12 "check V1.nested.k: 12"    
-  :*/    
-  
+    mi_check_varobj_value V1.nested.k 12 "check V1.nested.k: 12"
+  :*/
+
   /*: END: frozen :*/
 }
 
@@ -413,7 +413,7 @@ void do_at_tests_callee ()
      and then try to reevaluate it in other frame without reparsing
      the expression, we will access local variables using DWARF
      location expression from the original frame, and are likely
-     to grab wrong symbol.  To reliably reproduce this bug, we need 
+     to grab wrong symbol.  To reliably reproduce this bug, we need
      to wrap our variable with a bunch of buffers, so that those
      buffers are accessed instead of the real one.  */
   int buffer1 = 10;
@@ -499,7 +499,7 @@ void do_bitfield_tests ()
     mi_check_varobj_value V.sharable 3 "access bitfield"
     :*/
   return;
-  /*: END: bitfield :*/  
+  /*: END: bitfield :*/
 }
 
 int
@@ -515,4 +515,4 @@ main (int argc, char *argv [])
   exit (0);
 }
 
-  
+

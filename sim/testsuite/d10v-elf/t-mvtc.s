@@ -32,7 +32,7 @@
 	checkpsw2 9 PSW_FX|PSW_ST
 
 	;; loadpsw2 PSW_ST
-	;; checkpsw2 10 
+	;; checkpsw2 10
 
 	loadpsw2 PSW_10
 	checkpsw2 11 0 ;; PSW_10
@@ -59,7 +59,7 @@
 	mvtc	r6, cr10
 	ldi	r6, #0xbeef
 	mvtc	r6, cr11
-	
+
 	mvfc	r7, cr10
 	check 17 r7 0xdeac
 	mvfc	r7, cr11

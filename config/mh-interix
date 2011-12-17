@@ -1,4 +1,4 @@
-# The shell may not be in /bin. 
+# The shell may not be in /bin.
 SHELL = sh
 
 # We also need to override LIBGCC2_DEBUG_CFLAGS so libgcc2 will be

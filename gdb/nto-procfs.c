@@ -1,5 +1,5 @@
 /* Machine independent support for QNX Neutrino /proc (process file system)
-   for GDB.  Written by Colin Burgess at QNX Software Systems Limited. 
+   for GDB.  Written by Colin Burgess at QNX Software Systems Limited.
 
    Copyright (C) 2003, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
 
@@ -110,7 +110,7 @@ procfs_is_nto_target (bfd *abfd)
 }
 
 /* This is called when we call 'target procfs <arg>' from the (gdb) prompt.
-   For QNX6 (nto), the only valid arg will be a QNX node string, 
+   For QNX6 (nto), the only valid arg will be a QNX node string,
    eg: "/net/some_node".  If arg is not a valid QNX node, we will
    default to local.  */
 static void
@@ -274,8 +274,8 @@ update_thread_private_data_name (struct thread_info *new_thread,
     }
 }
 
-static void 
-update_thread_private_data (struct thread_info *new_thread, 
+static void
+update_thread_private_data (struct thread_info *new_thread,
 			    pthread_t tid, int state, int flags)
 {
   struct private_thread_info *pti;
@@ -330,12 +330,12 @@ procfs_find_new_threads (struct target_ops *ops)
 
   for (tid = 1;; ++tid)
     {
-      if (status.tid == tid 
+      if (status.tid == tid
 	  && (devctl (ctl_fd, DCMD_PROC_TIDSTATUS, &status, sizeof (status), 0)
 	      != EOK))
 	break;
       if (status.tid != tid)
-	/* The reason why this would not be equal is that devctl might have 
+	/* The reason why this would not be equal is that devctl might have
 	   returned different tid, meaning the requested tid no longer exists
 	   (e.g. thread exited).  */
 	continue;

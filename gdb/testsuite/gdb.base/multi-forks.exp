@@ -164,7 +164,7 @@ gdb_test "show detach-on-fork" "on." "show detach default on"
 gdb_test "set detach off" "" "set detach off"
 
 #
-# We will now run every fork up to the exit bp, 
+# We will now run every fork up to the exit bp,
 # eventually winding up with 16 inferiors.
 #
 
@@ -183,9 +183,9 @@ gdb_test "inferior 2" " main .*" "restart final"
 # Now we should examine all the pids.
 #
 
-# 
+#
 # Test detach inferior
-# 
+#
 
 # [assumes we're at #1]
 gdb_test "detach inferior 2" "Detaching .*" "Detach 2"
@@ -193,7 +193,7 @@ gdb_test "detach inferior 3" "Detaching .*" "Detach 3"
 gdb_test "detach inferior 4" "Detaching .*" "Detach 4"
 gdb_test "detach inferior 5" "Detaching .*" "Detach 5"
 
-# 
+#
 # Test kill inferior
 #
 

@@ -20,7 +20,7 @@ bgtu1:
 
 bgt2:
 	bgtu r0, r0, tr0
- 
+
 bgt3:
 	pta okay, tr1
 	movi -1, r0

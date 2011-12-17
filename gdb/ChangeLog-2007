@@ -265,7 +265,7 @@
 
 	* target.h (target_pid_or_tid_to_str): Remove.
 	* infrun.c (handle_inferior_event):
-        Use target_pid_to_str instead of 
+        Use target_pid_to_str instead of
 	target_pid_or_tid_to_str.
 	(normal_stop): Likewise.
 
@@ -294,7 +294,7 @@
 	the -f flag, for pending breakpoint.
 
 2007-12-14  Vladimir Prus  <vladimir@codesourcery.com>
-	
+
 	* breakpoint.c (break_command_really): New, copied
 	from break_command_1. New parameters COND_STRING, THREAD
 	PARSE_CONDITITION_AND_THREAD and PENDING_BREAK_SUPPORT.
@@ -306,7 +306,7 @@
 	(do_captured_breakpoint): Remove.
 	(break_command_1): Relay to break_command_really.
 	(gdb_breakpoint): Relay to break_command_really.
-	
+
 2007-12-13  Michael Snyder  <msnyder@specifix.com>
 
 	* mips-linux-tdep.c (mips64_fill_gregset): Remove unused variable.
@@ -356,7 +356,7 @@
 	handling.
 	* stack.c (catch_info): Call print_frame_label_vars
 	unconditionally.
-	
+
 2007-12-12  Nigel Stephens  <nigel@mips.com>
             Maciej W. Rozycki  <macro@mips.com>
 
@@ -440,8 +440,8 @@
 	(keep_going): If steppping over breakpoint, remove
 	breakpoints.
 
-2007-12-06  Vladimir Prus  <vladimir@codesourcery.com>	
-	
+2007-12-06  Vladimir Prus  <vladimir@codesourcery.com>
+
 	Clarify infrun variable naming.
 	* infrun.c (trap_expected): Rename
 	to stepping_over_breakpoint.  Document.
@@ -654,7 +654,7 @@
 
 2007-11-30  Vladimir Prus  <vladimir@codesourcery.com>
 
-	Make insert_breakpoints return void.	
+	Make insert_breakpoints return void.
 	* breakpoint.h (insert_breakpoints): Change
 	return type to void.
 	* breakpoint.c (insert_breakpoints): Change
@@ -668,11 +668,11 @@
 	Stop infrun from tracking breakpoint insertion status.
 
 	The checks of breakpoints_inserted before calling
-	remove_breakpoints are removed, as remove_breakpoint 
+	remove_breakpoints are removed, as remove_breakpoint
 	won't touch uninserted breakpoints. In a number of places,
-	we're interested if a breakpoint is inserted at particular 
+	we're interested if a breakpoint is inserted at particular
 	PC, and we now use breakpoint_inserted_here_p.  In a few
-	places, insert_breakpoints can be called unconditionally, 
+	places, insert_breakpoints can be called unconditionally,
 	since it won't try to insert already inserted breakpoint.
 
 	* breakpoint.h (regular_breakpoint_inserted_here_p): New
@@ -703,7 +703,7 @@
 
 2007-11-28  Vladimir Prus  <vladimir@codesourcery.com>
 
-	* infrun.c (resume): Set right thread even if 
+	* infrun.c (resume): Set right thread even if
 	stepping over breakpoint using software single step.
 
 2007-11-28  Nick Roberts  <nickrob@snap.net.nz>
@@ -757,7 +757,7 @@
 
 	* breakpoint.c (insert_breakpoints)
 	(insert_bp_location): Remove stale comments.
-	
+
 2007-11-23  Maciej W. Rozycki  <macro@mips.com>
 
 	* mips-linux-tdep.h: Fix some formatting.
@@ -818,7 +818,7 @@
 	* sim-regno.h (one2one_register_sim_regno): Likewise.
 
 	* arch-utils.c (legacy_register_sim_regno): Add gdbarch as parameter.
-	Replace current_gdbarch by gdbarch. 
+	Replace current_gdbarch by gdbarch.
 	* sh-tdep.c (sh_sh2a_register_sim_regno)
 	(sh_dsp_register_sim_regno): Likewise.
 	* rs6000-tdep.c (rs6000_register_sim_regno): Likewise.
@@ -1073,7 +1073,7 @@
 	(m68*-*-aout*, m68*-*-coff*, m68*-*-elf*, m68*-*-rtems*,
 	m68*-*-uclinux*): Merge cases.
 	(powerpc-*-linux*, powerpc64-*-linux*): Merge cases.
-	(sh-*-coff*, sh-*-elf*): Merge into sh* case. 
+	(sh-*-coff*, sh-*-elf*): Merge into sh* case.
 
 2007-11-16  Ulrich Weigand  <uweigand@de.ibm.com>
 
@@ -1104,7 +1104,7 @@
 	* gdbarch.{c,h}: Regenerate.
 
 	* alpha-tdep.c (alpha_cannot_fetch_register)
-	(alpha_cannot_store_register): Add gdbarch as parameter. Replace 
+	(alpha_cannot_store_register): Add gdbarch as parameter. Replace
 	current_gdbarch by gdbarch.
 	* cris-tdep.c (cris_cannot_fetch_register, cris_cannot_store_register)
 	(crisv32_cannot_fetch_register)
@@ -1227,13 +1227,13 @@
 	(no_shared_libraries): Call clear_solib, not do_clear_solib.
 	* utils.c (run_cleanup_chain, make_run_cleanup)
 	(do_run_cleanups): Remove.
-		
+
 2007-11-15  Vladimir Prus  <vladimir@codesourcery.com>
 
 	Remove CLEAR_SOLIB use.
 	* corelow.c (core_close): Don't check for CLEAR_SOLIB.
 	* infcmd.c (attach_command): Likewise.
-	
+
 2007-11-14  Doug Evans  <dje@google.com>
 
 	* buildsym.c (start_subfile,start_symtab): Doc fixes.
@@ -1296,7 +1296,7 @@
 
 	* ppc-linux-nat.c (ppc_linux_insert_watchpoint): Move
 	saved_dabr_value assignment to the correct position.
-		
+
 2007-11-09  Markus Deuling  <deuling@de.ibm.com>
 
 	* arch-utils.c (generic_convert_register_p): Add gdbarch as parameter.
@@ -1335,7 +1335,7 @@
 	(break_command, tbreak_command, hbreak_command)
 	(stopin_command, stopat_command): Adjust call
 	to break_command_1.
-			
+
 2007-11-07  Joseph Myers  <joseph@codesourcery.com>
 	    Daniel Jacobowitz  <dan@codesourcery.com>
 
@@ -1370,10 +1370,10 @@
 
 	Fix crash when a variable object being deleted
 	has any of its children deleted previously.
-	
+
 	* varobj.c (delete_variable_1): Don't recurse
 	into deleted children.
-	
+
 2007-11-07  Markus Deuling  <deuling@de.ibm.com>
 
 	* gdbarch.sh (legacy_virtual_frame_pointer): Add gdbarch parameter.
@@ -1706,7 +1706,7 @@
 
 2007-10-30  Markus Deuling  <deuling@de.ibm.com>
 
-	* inf-child.c (inf_child_fetch_inferior_registers): Use 
+	* inf-child.c (inf_child_fetch_inferior_registers): Use
 	get_regcache_arch to get at the current architecture by regcache.
 
 2007-10-30  Markus Deuling  <deuling@de.ibm.com>
@@ -1884,7 +1884,7 @@
 	* dwarf2read.c (read_partial_die): check the value
 	of DW_AT_calling_convention in Fortran programs.
 
-2007-10-25  Wu Zhou  <woodzltc@cn.ibm.com> 
+2007-10-25  Wu Zhou  <woodzltc@cn.ibm.com>
 	    Thiago Jung Bauermann  <bauerman@br.ibm.com>
 
 	* c-exp.y (YYSTYPE): Add typed_val_decfloat for decimal
@@ -1909,7 +1909,7 @@
 	from a decimal floating point.
 	* value.h (value_from_decfloat): Prototype.
 
-2007-10-25  Wu Zhou  <woodzltc@cn.ibm.com> 
+2007-10-25  Wu Zhou  <woodzltc@cn.ibm.com>
 	    Thiago Jung Bauermann  <bauerman@br.ibm.com>
 
 	* c-lang.c (c_create_fundamental_type): Create fundamental
@@ -1924,7 +1924,7 @@
 	attribute code and return TYPE_CODE_DECFLOAT.
 	(dwarf_base_type): Set dwarf2_fundamental_type for DFP values.
 	* gdbtypes.c (gdbtypes_post_init): Initialize builtin_decfloat,
-	builtin_decdouble and builtin_declong. 
+	builtin_decdouble and builtin_declong.
 	* gdbtypes.h (enum type_code): Add TYPE_CODE_DECFLOAT as a
 	type code for DFP.
 	(FT_DECFLOAT, FT_DBL_PREC_DECFLOAT, FT_EXT_PREC_DECFLOAT): New
@@ -1936,7 +1936,7 @@
 	values.
 	* value.h (print_decimal_floating): Prototype.
 
-2007-10-25  Wu Zhou  <woodzltc@cn.ibm.com> 
+2007-10-25  Wu Zhou  <woodzltc@cn.ibm.com>
 	    Thiago Jung Bauermann  <bauerman@br.ibm.com>
 
 	* Makefile.in (LIBDECNUMBER_DIR, LIBDECNUMBER, LIBDECNUMBER_SRC
@@ -2189,7 +2189,7 @@
 	* infcmd.c (default_print_registers_info, print_return_value)
 	(print_vector_info, print_float_info): Replace current_gdbarch by
 	gdbarch.
-	(registers_info): Use get_frame_arch to get at the current 
+	(registers_info): Use get_frame_arch to get at the current
 	architecture by frame_info.
 
 2007-10-22  Markus Deuling  <deuling@de.ibm.com>
@@ -2200,7 +2200,7 @@
 2007-10-22  Markus Deuling  <deuling@de.ibm.com>
 
 	* target.c (debug_print_register): Use get_regcache_arch to get at the
-	current architecture by regcache. 
+	current architecture by regcache.
 
 2007-10-21  Daniel Jacobowitz  <dan@codesourcery.com>
 
@@ -2226,7 +2226,7 @@
 	* rs6000-tdep.c (ppc_dwarf2_frame_init_reg): New function.
 	* (rs6000_gdbarch_init): Install ppc_dwarf2_frame_init_reg as
 	default dwarf2_frame_set_init_reg function.
-		
+
 2007-10-21  Pedro Alves  <pedro_alves@portugalmail.pt>
 
 	* NEWS: Mention native MinGW configuration.
@@ -2684,7 +2684,7 @@
 
 	* linux-nat.c (lin_lwp_attach_lwp): Use "Linux kernel 2.6.19"
 	instead of "Linux 2.6.19" in comment.
-	(linux_xfer_partial): Use "GNU/Linux target" instead of 
+	(linux_xfer_partial): Use "GNU/Linux target" instead of
 	"Linux target" in comment.
 	* m68klinux-tdep.c (m68k_linux_inferior_created): Likewise.
 	(m68k_linux_get_sigtramp_info): Likewise.
@@ -2984,13 +2984,13 @@
 
 2007-10-08  Pierre Muller  <muller@ics.u-strasbg.fr>
 
-        * breakpoint.c (print_one_breakpoint_location): ARI fix: 
+        * breakpoint.c (print_one_breakpoint_location): ARI fix:
 	Replace asprintf by xstrprintf.
 
 2007-10-08  Pierre Muller  <muller@ics.u-strasbg.fr>
 
 	* linux-fork.c: ARI fix: include "gdb_dirent.h" instead of <dirent.h>.
-	Makefile.in (linux-fork.o): Add gdb_dirent.h dependency. 
+	Makefile.in (linux-fork.o): Add gdb_dirent.h dependency.
 
 2007-10-08  Pierre Muller  <muller@ics.u-strasbg.fr>
 
@@ -3128,7 +3128,7 @@
 	* alpha-linux-nat.c (alpha_linux_register_u_offset): Likewise.
 	(alpha_sigtramp_frame_unwind_cache, alpha_sigtramp_frame_this_id)
 	(alpha_sigtramp_frame_sniffer, alpha_next_pc): Use get_regcache_arch or
-	get_frame_arch to get at the current architecture by regcache or by 
+	get_frame_arch to get at the current architecture by regcache or by
 	frame, respectively.
 	* alpha-nat.c (fetch_osf_core_registers): Likewise.
 
@@ -3162,7 +3162,7 @@
 2007-10-08  Pierre Muller  <muller@ics.u-strasbg.fr>
 
 	* linux-fork.c: ARI fix: include "gdb_wait.h" instead of <sys/wait.h>.
-	Makefile.in (linux-fork.o): Add gdb_wait.h dependency. 
+	Makefile.in (linux-fork.o): Add gdb_wait.h dependency.
 
 2007-10-05  Daniel Jacobowitz  <dan@codesourcery.com>
 
@@ -3171,7 +3171,7 @@
 
 2007-10-03  Pierre Muller  <muller@ics.u-strasbg.fr>
 
-	* objc-exp.y: ARI fix: remove 4 PARAMS. 
+	* objc-exp.y: ARI fix: remove 4 PARAMS.
 
 2007-10-03  Daniel Jacobowitz  <dan@codesourcery.com>
 
@@ -3350,7 +3350,7 @@
 
 	* NEW: Mention pending breakpoint changes and
 	support for breakpoints at multiple locations.
-	
+
 2007-09-27  Daniel Jacobowitz  <dan@codesourcery.com>
 
 	* arm-linux-tdep.c (arm_linux_software_single_step): New.
@@ -3372,7 +3372,7 @@
 	* breakpoint.c (create_breakpoint): Set
 	condition on each location, not on the first
 	location of breakpoint.
-	
+
 2007-09-26  Jim Blandy  <jimb@codesourcery.com>
 
 	* remote.c (getpkt_sane): Fix error message.  No animals were
@@ -3382,18 +3382,18 @@
 
 	* p-typeprint.c: Fix 11 ARI reported problems.
 	(pascal_print_type): Fix 4 operator at end of line.
-	(pascal_type_print_method_args) : Replace 2 DEPRECATED_STREQN macros 
+	(pascal_type_print_method_args) : Replace 2 DEPRECATED_STREQN macros
 	using strncmp function.
 	(pascal_type_print_base): Fix 2 operator at end of line.
-	(pascal_type_print_base) : Replace 3 DEPRECATED_STREQN macros 
+	(pascal_type_print_base) : Replace 3 DEPRECATED_STREQN macros
 	using strncmp function.
 
 
 2007-09-26  Pierre Muller  <muller@ics.u-strasbg.fr>
 
 	* Fix PR pascal/2231
-	dwarf2read.c (read_subroutine_type): 
-	All pascal functions are prototyped. 
+	dwarf2read.c (read_subroutine_type):
+	All pascal functions are prototyped.
 
 2007-09-26  Pierre Muller  <muller@ics.u-strasbg.fr>
 
@@ -3436,7 +3436,7 @@
 	* frame.c (get_prev_frame_1): Also check for PC in the same register.
 
 2007-09-24  Vladimir Prus  <vladimir@codesourcery.com>
-	
+
 	* breakpoint.c (remove_sal): New.
 	(expand_line_sal_maybe): New.
 	(create_breakpoints): Call expand_line_sal_maybe.
@@ -3447,10 +3447,10 @@
 	(append_expanded_sal): New.
 	(expand_line_sal): New.
 	* linespec.h (expand_line_sal): Declare.
-	* symtab.c (init_sal): Initialize explicit_pc 
+	* symtab.c (init_sal): Initialize explicit_pc
 	and explicit_line.
 	* symtab.h (struct symtab_and_line): New fields
-	explicit_pc and explicit_line.	
+	explicit_pc and explicit_line.
 
 2007-09-23  Daniel Jacobowitz  <dan@codesourcery.com>
 
@@ -3485,7 +3485,7 @@
 	Allow a code breakpoint to have several locations
 	associated with it.
 	* breakpoint.h (enum enable_state): Remove the
-	bp_shlib_disabled enumerator. 
+	bp_shlib_disabled enumerator.
 	(struct bp_location): New members shlib_disabled,
 	global_next, enabled and function_name.
 	Rename pending to condition_not_parsed.
@@ -3518,7 +3518,7 @@
 	(set_raw_breakpoint_without_location): New,
 	extracted from set_raw_breakpoint.
 	(set_breakpoint_location_function): New.
-	(set_raw_breakpoint): Use 
+	(set_raw_breakpoint): Use
 	set_raw_breakpoint_without_location.
 	(make_breakpoint_permanent): Mark all locations
 	as inserted.
@@ -3531,7 +3531,7 @@
 	location, say so.
 	(add_location_to_breakpoint): New.
 	(create_breakpoint): Accept symtabs_and_lines, not
-	symtab_and_line. Pass extra sals to 
+	symtab_and_line. Pass extra sals to
 	add_location_to_breakpoint.
 	(create_breakpoints): Pass symtabs_and_lines to
 	create_breakpoints.
@@ -3556,7 +3556,7 @@
 	(enable_command): Allow enabling individual location.
 	* breakpoint.c: Adjust all uses of breakpoint's
 	enable state to for bp_shlib_disabled change.
-	
+
 2007-09-22  Vladimir Prus  <vladimir@codesourcery.com>
 
 	* breakpoint.c (do_restore_lang_radix_cleanup): Remove.
@@ -3582,7 +3582,7 @@
 	* solib-irix.c (irix_solib_create_inferior_hook): Likewise.
 	* solib-osf.c (osf_solib_create_inferior_hook): Likewise.
 	* win32-nat.c (get_win32_debug_event): Likewise.
-	
+
 2007-09-22  Vladimir Prus  <vladimir@codesourcery.com>
 
 	* breakpoint.c (create_breakpoint): Split from
@@ -3597,10 +3597,10 @@
 	Do not keep parsed conditions.
 	(do_captured_breakpoint): Don't convert
 	condition string to struct expression.
-	
+
 2007-09-22  Vladimir Prus  <vladimir@codesourcery.com>
 
-	* breakpoint.h (struct breakpoint): Move the cond 
+	* breakpoint.h (struct breakpoint): Move the cond
 	field to...
 	(struct bp_location): Here.
 	* breakpoint.c (condition_command, bpstat_stop_status)
@@ -3611,7 +3611,7 @@
 	(create_ada_exception_breakpoint, set_breakpoint_sal)
 	(delete_breakpoint, breakpoint_re_set_one): Adjust.
 	* tui/tui-winsource.c (tui_update_breakpoint_info): Adjust.
-	
+
 2007-09-22  Vladimir Prus  <vladimir@codesourcery.com>
 
 	Associate bp_stat with bp_location, not breakpoint.
@@ -3629,7 +3629,7 @@
 	(bpstat_what): Likewise.
 	(bpstat_get_triggered_catchpoints): Likewise.
 	(breakpoint_auto_delete): Likewise.
-	(delete_breakpoint): Likewise.	
+	(delete_breakpoint): Likewise.
 	(bpstat_stop_status): Pass location, not breakpoint,
 	to bpstat_alloc.  Look at bpstat's location's
 	owner, not at bpstat->breakpoint_at.
@@ -3733,7 +3733,7 @@
 	* mi/mi-cmds.c (mi_cmds): Register -list-features.
 	* mi/mi-cmds.h (mi_cmd_list_features): New.
 	* mi/mi-main.c (mi_cmd_list_features): New.
-	
+
 2007-09-11  Joel Brobecker  <brobecker@adacore.com>
 
 	GDB 6.7 branch created (branch timestamp: 2007-09-07 14:00 UTC)
@@ -3983,9 +3983,9 @@
 2007-08-31  Vladimir Prus  <vladimir@codesourcery.com>
 
 	* varobj.c (struct varobj): Fix comment
-	for the type member not to lie when it can be 
+	for the type member not to lie when it can be
 	NULL.
-	
+
 2007-08-31  Vladimir Prus  <vladimir@codesourcery.com>
 
 	Implement -var-info-path-expression.
@@ -4019,7 +4019,7 @@
 
 	* mi/mi-cmd-var.c (print_varobj): If a varobj
 	type is NULL, don't try to print it.
-	
+
 2007-08-30  Alan Modra  <amodra@bigpond.net.au>
 
 	* ppc-linux-nat.c (right_fill_reg): Delete.
@@ -4087,7 +4087,7 @@
 
 2007-08-28  Michael Snyder  <msnyder@access-company.com>
 
-	* mi/mi-cmd-var.c (mi_print_value_p): No longer necessary to 
+	* mi/mi-cmd-var.c (mi_print_value_p): No longer necessary to
 	check for null before calling check_typedef.
 
 	* NEWS: Mention Coverity bug fixes.
@@ -4096,7 +4096,7 @@
 
 	* spu-tdep.c (spu_pointer_to_address): New function.
 	(spu_integer_to_address): Likewise.
-	(spu_gdbarch_init): Add spu_pointer_to_address and 
+	(spu_gdbarch_init): Add spu_pointer_to_address and
 	spu_integer_to_address to gdbarch.
 
 2007-08-26  Pedro Alves  <pedro_alves@portugalmail.pt>
@@ -4190,7 +4190,7 @@
 
 	* c-exp.y (parse_number): Memory leak.
 
-	* completer.c (location_completer): Must free 'fn_list', except 
+	* completer.c (location_completer): Must free 'fn_list', except
 	in the one case where it is returned (as 'list').
 
 	* varobj.c (value_of_root): Memory leak.
@@ -4228,7 +4228,7 @@
 	(delete_breakpoint): Document why we cannot
 	remove bpstats from stop_bpstat.
 	* breakpoint.h (bpstat_free): Declare.
-		
+
 2007-08-16  Michael Snyder  <msnyder@access-company.com>
 
         * event-loop.c (gdb_wait_for_event): Move statement into "if" block.
@@ -4255,7 +4255,7 @@
 	tui-io.c, tui-layout.c, tui-layout.h, tui-out.c, tui-regs.c,
 	tui-source.c, tui-source.h, tui-stack.c, tui-win.c, tui-win.h,
 	tui-windata.c, tui-windata.h, tui-wingeneral.c, tui-winsource.c,
-	tui-winsource.h, tui.c, tui.h: Function declarations and 
+	tui-winsource.h, tui.c, tui.h: Function declarations and
 	definitions, wrap long lines.
 
 	* tui-command.c, tui-data.c, tui-disasm.c, tui-layout.c,
@@ -4266,8 +4266,8 @@
 	tui-hooks.c, tui-interp.c, tui-io.c, tui-layout.c, tui-out.c,
 	tui-regs.c, tui-regs.h, tui-source.c, tui-stack.c, tui-win.c,
 	tui-windata.c, tui-wingeneral.c, tui-winsource.c, tui-winsource.h,
-	tui.c, tui.h: Comment reformatting to coding standard (capitals, 
-	spaces after periods, etc).	
+	tui.c, tui.h: Comment reformatting to coding standard (capitals,
+	spaces after periods, etc).
 
 	* tui-data.c, tui-data.h, tui-disasm.c, tui-hooks.c, tui-layout.c,
 	tui-regs.c, tui-source.c, tui-stack.c, tui-win.c, tui-windata.c,
@@ -4312,7 +4312,7 @@
 	prototype.
 	* win32-nat.c: Adjust.
 	* solib.c: Adjust.
-	
+
 2007-08-14  Vladimir Prus  <vladimir@codesourcery.com>
 
 	* breakpoint.c (update_breakpoints_after_exec): Don't
@@ -4471,10 +4471,10 @@
 
 2007-08-01  Michael Snyder  <msnyder@access-company.com>
 
-	* cli/cli-decode.c (lookup_cmd): Check for null earlier, to 
+	* cli/cli-decode.c (lookup_cmd): Check for null earlier, to
 	avoid dereference in lookup_cmd_1.
 
-	* tui/tui-data.c (tui_alloc_content): Move assign out of if, 
+	* tui/tui-data.c (tui_alloc_content): Move assign out of if,
 	clean up long lines.
 	(tui_alloc_generic_win_info): Tidy by using XMALLOC macro.
 	(tui_alloc_win_info): Ditto.
@@ -4495,7 +4495,7 @@
 
 	* symfile.c (reread_separate_symbols): Free xmalloced memory.
 
-	* printcmd.c (build_address_symbolic): Remove dead code and dead 
+	* printcmd.c (build_address_symbolic): Remove dead code and dead
 	variable.
 
 2007-07-31  Daniel Jacobowitz  <dan@codesourcery.com>
@@ -4776,9 +4776,9 @@
 
 	* source.c (unset_substitute_path_command): Plug leak (Coverity).
 
-	* cli/cli-script.c (build_command_line): Add null pointer guard 
+	* cli/cli-script.c (build_command_line): Add null pointer guard
 	(Coverity).
-	
+
 2007-06-27  Daniel Jacobowitz  <dan@codesourcery.com>
 
 	* linux-thread-db.c (thread_db_attach): Delete.
@@ -4810,7 +4810,7 @@
 
 	* gdbarch.sh (gdbarch_swap_ftype, deprecated_register_gdbarch_swap,
 	DEPRECATED_REGISTER_GDBARCH_SWAP): Remove.
-	(struct gdbarch_swap, struct gdbarch_swap_registration, 
+	(struct gdbarch_swap, struct gdbarch_swap_registration,
 	struct gdbarch_swap_registry, gdbarch_swap_registry,
 	current_gdbarch_swap_init_hack, current_gdbarch_swap_out_hack,
 	current_gdbarch_swap_in_hack): Remove.
@@ -4863,7 +4863,7 @@
 	builtin_type_void_func_ptr, builtin_type_CORE_ADDR): Remove.
 	(build_gdbtypes): Remove.
 	(_initialize_gdbtypes): Do not call build_gdbtypes, move installing
-	opaque-type-resolution command here.   Do not call 
+	opaque-type-resolution command here.   Do not call
 	deprecated_register_gdbarch_swap.
 
 2007-06-22  Ulrich Weigand  <uweigand@de.ibm.com>
@@ -5279,11 +5279,11 @@
 
 2007-06-16  Ulrich Weigand  <uweigand@de.ibm.com>
 
-	* gdbtypes.c (builtin_type_v2_double, builtin_type_v4_float, 
+	* gdbtypes.c (builtin_type_v2_double, builtin_type_v4_float,
 	builtin_type_v2_int64, builtin_type_v4_int32, builtin_type_v8_int16,
 	builtin_type_v16_int8, builtin_type_v2_float, builtin_type_v2_int32,
 	builtin_type_v4_int16, builtin_type_v8_int8, builtin_type_v4sf,
-	builtin_type_v4si, builtin_type_v16qi, builtin_type_v8qi, 
+	builtin_type_v4si, builtin_type_v16qi, builtin_type_v8qi,
 	builtin_type_v8hi, builtin_type_v4hi, builtin_type_v2si,
 	builtin_type_vec64, builtin_type_vec128): Remove.
 	(init_simd_type): Remove.
@@ -5291,11 +5291,11 @@
 	(build_builtin_type_vec64, build_builtin_type_vec128): Remove.
 	(build_gdbtypes): Do not build vector types.
 	(_initialize_gdbtypes): Do not swap vector types.
-	* gdbtypes.h (builtin_type_v2_double, builtin_type_v4_float, 
+	* gdbtypes.h (builtin_type_v2_double, builtin_type_v4_float,
 	builtin_type_v2_int64, builtin_type_v4_int32, builtin_type_v8_int16,
 	builtin_type_v16_int8, builtin_type_v2_float, builtin_type_v2_int32,
 	builtin_type_v4_int16, builtin_type_v8_int8, builtin_type_v4sf,
-	builtin_type_v4si, builtin_type_v16qi, builtin_type_v8qi, 
+	builtin_type_v4si, builtin_type_v16qi, builtin_type_v8qi,
 	builtin_type_v8hi, builtin_type_v4hi, builtin_type_v2si,
 	builtin_type_vec64, builtin_type_vec128): Remove declarations.
 	(init_vector_type): Add prototype.
@@ -5394,7 +5394,7 @@
 	(get_thread_regcache): New function.
 	(get_current_regcache): New function.
 	(registers_changed): Implement by freeing current regcache.
-	(regcache_raw_read): Do not refer to current_regcache.  Set 
+	(regcache_raw_read): Do not refer to current_regcache.  Set
 	inferior_ptid to regcache->ptid while calling target routines.
 	(regcache_raw_write): Likewise.
 	(regcache_raw_supply): Do not refer to current_regcache.
@@ -5692,7 +5692,7 @@
 	* mn10300-linux-tdep.c (am33_supply_fpregset_method): Use REGCACHE
 	parameter instead of current_regcache.
 
-	* mips-tdep.c (mips2_fp_compat): Add FRAME parameter.  Use it 
+	* mips-tdep.c (mips2_fp_compat): Add FRAME parameter.  Use it
 	instead of calling read_register.
 	(mips_read_fp_register_double, mips_print_fp_register): Update calls.
 	(mips_eabi_push_dummy_call): Use REGCACHE instead of write_register.
@@ -5773,7 +5773,7 @@
 
 2007-06-15  Vladimir Prus  <vladimir@codesourcery.com>
 
-	* m68k-tdep.h (enum m68k_flavour): New.	
+	* m68k-tdep.h (enum m68k_flavour): New.
 	(struct gdbarch_tdep): New fields
 	float_return, flavour and fpregs_present.
 	* m68k-tdep.c (m68k_register_type): Use
@@ -5800,7 +5800,7 @@
 	* m68kbsd-tdep.c (m68kbsd_fpreg_offset): Use
 	size of tdep->fpreg_type, as opposed to hardcoded value.
 	* Makefile.in (m68k-tdep.o): Update dependencies.
-	
+
 2007-06-15  Ulrich Weigand  <uweigand@de.ibm.com>
 
 	* NEWS: Mention "info spu" commands and qXfer:spu:read and
@@ -6371,7 +6371,7 @@
 	* target-memory.c (blocks_to_erase): Correct off-by-one error.
 
 2007-06-06  Vladimir Prus  <vladimir@codesourcery.com>
-	
+
 	* remote.c (process_g_packet): Don't check size.
 	* gdbarch.sh: Remove register_bytes_ok.
 	* gdbarch.c: Regenerated.
@@ -6379,7 +6379,7 @@
 	* m68k-tdep.c (REGISTER_BYTES_NOFP): Remove.
 	(m68k_register_bytes_ok): Remove.
 	(m68k_gdbarch_init): Don't register m68k_register_bytes_ok.
-	
+
 2007-06-06  Andreas Schwab  <schwab@suse.de>
 
 	* libunwind-frame.c (unw_destroy_addr_space_p): Define.
@@ -6557,7 +6557,7 @@
 	* xtensa-tdep.c (XTENSA_IS_ENTRY, extract_call_winsize)
 	(xtensa_register_write_masked, xtensa_register_read_masked)
 	(xtensa_extract_return_value, xtensa_store_return_value
-	(xtensa_push_dummy_call, xtensa_breakpoint_from_pc): Replace 
+	(xtensa_push_dummy_call, xtensa_breakpoint_from_pc): Replace
 	TARGET_BYTE_ORDER by gdbarch_byte_order.
 	* sh-tdep.c (sh_breakpoint_from_pc, gdb_print_insn_sh)
 	(sh_justify_value_in_reg, sh_next_flt_argreg, sh_push_dummy_call_fpu)
@@ -6833,13 +6833,13 @@
 
 	* c-valprint.c (c_value_print):  If the initialized field of the
 	value struct is 0, print out "[uninitialized]" before the value.
-	* dwarf2expr.c (execute_stack_op): Initialize ctx->initialized field; 
-	allow DW_OP_GNU_uninit as legal op following a DW_OP_reg op or a 
+	* dwarf2expr.c (execute_stack_op): Initialize ctx->initialized field;
+	allow DW_OP_GNU_uninit as legal op following a DW_OP_reg op or a
 	DW_OP_regx op; add case for DW_OP_GNU_uninit and update
 	ctx->initialized appropriately. Verify no location op follows
 	DW_OP_GNU_uninit.
 	* dwarf2expr.h (struct dwarf_expr_context): New field, initialized.
-	* dwarf2loc.c (dwarf2_evaluate_loc_desc): Add call to 
+	* dwarf2loc.c (dwarf2_evaluate_loc_desc): Add call to
 	set_value_initialized.
 	* dwarf2read.c (dwarf_stack_op_name): Add case for DW_OP_GNU_uninit.
 	(decode_locdesc): Add case for DW_OP_GNU_uninit.
@@ -6849,11 +6849,11 @@
 	(value_initialized): New function.
 	* value.h (value_initialized): New extern declaration.
 	(set_value_initialized): Likewise.
-	
+
 2007-05-18  Caroline Tice  <ctice@apple.com>
 
 	* MAINTAINERS (Write After Approval): Add self.
-	
+
 2007-05-17  Joel Brobecker  <brobecker@adacore.com>
 
 	* gdbtypes.c (make_reference_type): Preserve the type chain
@@ -6916,7 +6916,7 @@
 	(armobsd_init_abi): Override tdep->thumb_breakpoint and
 	tdep->thumb_breakpoint_size.
 	* arm-wince-tdep.c (arm_wince_thumb_le_breakpoint): New variable.
-	(arm_wince_init_abi): Override tdep->thumb_breakpoint and 
+	(arm_wince_init_abi): Override tdep->thumb_breakpoint and
 	tdep->thumb_breakpoint_size.
 
 	* arm-tdep.c (arm_gdbarch_init): Add set_gdbarch_skip_trampoline_code.
@@ -7074,10 +7074,10 @@
 
 2007-05-11  Ulrich Weigand  <uweigand@de.ibm.com>
 
-	* i386-linux-nat.c (i386_linux_resume): Use regcache functions 
+	* i386-linux-nat.c (i386_linux_resume): Use regcache functions
 	instead of read_register and read_register_pid.
 
-	* ia64-linux-nat.c (enable_watchpoints_in_psr): Use REGCACHE 
+	* ia64-linux-nat.c (enable_watchpoints_in_psr): Use REGCACHE
 	argument instead of PTID.  Use regcache functions instead of
 	read_register_pid.
 	(ia64_linux_insert_watchpoint): Update call.
@@ -7123,7 +7123,7 @@
 	(spu_get_overlay_table, spu_overlay_update_osect, spu_overlay_update,
 	spu_overlay_new_objfile): New functions.
 	(spu_gdbarch_init): Install spu_overlay_update.
-	(_initialize_spu_tdep): Register spu_overlay_new_objfile, 
+	(_initialize_spu_tdep): Register spu_overlay_new_objfile,
 	allocate spu_overlay_data objfile data.
 
 2007-05-11  Ulrich Weigand  <uweigand@de.ibm.com>
@@ -7253,10 +7253,10 @@
 	whitespace when setting a var_filename.
 
 2007-05-09  Bob Wilson  <bob.wilson@acm.org>
-	
+
 	* main.c (captured_main): Recognize -tui option and print an error
 	message when the TUI is not configured.
-	
+
 2007-05-09  Andreas Schwab  <schwab@suse.de>
 
 	* mipsnbsd-tdep.c (mipsnbsd_ilp32_fetch_link_map_offsets): Don't
@@ -7353,7 +7353,7 @@
 	* inferior.h (kill_inferior, store_inferior_registers,
 	fetch_inferior_registers, attach, detach, ptrace_wait, child_resume,
 	call_ptrace, pre_fork_inferior): Remove prototypes.
-	* target.h (child_xfer_memory, child_pid_to_exec_file, 
+	* target.h (child_xfer_memory, child_pid_to_exec_file,
 	child_core_file_to_sym_file, child_post_attach,
 	child_post_startup_inferior, child_acknowledge_created_inferior,
 	child_insert_fork_catchpoint, child_remove_fork_catchpoint,
@@ -7371,8 +7371,8 @@
 	(store_inferior_registers): Rename to ...
 	(sparc_store_inferior_registers): ... this.
 	(sparc_target): Update callback names.
-	* sparc-linux.nat.c (_initialize_sparc_linux_nat): Likewise. 
-	* sparc64-linux.nat.c (_initialize_sparc64_linux_nat): Likewise. 
+	* sparc-linux.nat.c (_initialize_sparc_linux_nat): Likewise.
+	* sparc64-linux.nat.c (_initialize_sparc64_linux_nat): Likewise.
 
 2007-05-06  Ulrich Weigand  <uweigand@de.ibm.com>
 
@@ -7591,7 +7591,7 @@
 	* ppc-linux-nat.c (fetch_altivec_register, fetch_spe_register,
 	fetch_register, supply_vrregset, fetch_altivec_registers,
 	fetch_ppc_registers, ppc_linux_fetch_inferior_registers): Likewise.
-	(store_altivec_register, store_spe_register, store_register, 
+	(store_altivec_register, store_spe_register, store_register,
 	fill_vrregset, store_altivec_registers, store_ppc_registers,
 	ppc_linux_store_inferior_registers): Likewise.
 	* ppcnbsd-nat.c (ppcnbsd_fetch_inferior_registers): Likewise.
@@ -7601,7 +7601,7 @@
 	* procfs.c (procfs_fetch_registers, procfs_store_registers): Likewise.
 	* remote.c (fetch_register_using_p, process_g_packet,
 	fetch_registers_using_g, remote_fetch_registers): Likewise.
-	(store_register_using_P, store_registers_using_G, 
+	(store_register_using_P, store_registers_using_G,
 	remote_store_registers): Likewise.
 	* remote-m32r-sdi.c (m32r_fetch_registers, m32r_fetch_register,
 	m32r_store_register, m32r_store_register): Likewise.
@@ -7666,10 +7666,10 @@
 	Update all definitions accordingly:
 	* alphabsd-nat.c, alpha-linux-nat.c, alpha-nat.c, amd64-linux-nat.c,
 	arm-linux-nat.c, hppa-linux-nat.c, i386gnu-nat.c, i386-linux-nat.c,
-	i386-sol2-nat.c, i386v4-nat.c, ia64-linux-nat.c, irix5-nat.c, 
+	i386-sol2-nat.c, i386v4-nat.c, ia64-linux-nat.c, irix5-nat.c,
 	m32r-linux-nat.c, m68klinux-nat.c, mips-linux-nat.c, ppc-linux-nat.c,
-	s390-nat.c, sparc64-linux-nat.c, sparc-linux-nat.c, sparc-sol2-nat.c 
-	(supply_gregset): Add REGCACHE parameter, use it instead of 
+	s390-nat.c, sparc64-linux-nat.c, sparc-linux-nat.c, sparc-sol2-nat.c
+	(supply_gregset): Add REGCACHE parameter, use it instead of
 	current_regcache.  Make GREGSETP parameter const, adapt casts.
 	(supply_fpregset): Add REGCACHE parameter, use it instead of
 	current_regcache.  Make FPREGSETP parameter const, adapt casts.
@@ -7697,7 +7697,7 @@
 	(ps_lsetregs): Update supply_gregset call.
 	(ps_lgetfpregs): Update fill_fpregset call.
 	(ps_lsetfpregs): Update supply_fpregset call.
-	
+
 	* linux-nat.c (linux_nat_do_thread_registers): Update fill_gregset,
 	fill_fpregset, and fill_fpxregset calls.
 	* i386-linux-nat.c (fetch_regs): Update supply_gregset call.
@@ -7725,7 +7725,7 @@
 
 	* monitor.c (monitor_supply_register): Add REGCACHE parameter, use
 	it instead of current_regcache.
-	(parse_register_dump): Add REGCACHE parameter, pass it to 
+	(parse_register_dump): Add REGCACHE parameter, pass it to
 	supply_register callback.
 	(monitor_dump_reg_block): Add REGCACHE parameter, pass it to
 	parse_register_dump.
@@ -7789,7 +7789,7 @@
 	(mips_supply_gregset): Likewise.  Pass REGCACHE to supply_32bit_reg.
 	Make GREGSETP const, remove superfluous casts.
 	(mips_fill_gregset): Add REGCACHE parameter; replace current_regcache.
-	(mips_supply_fpregset): Likewise.  Make FPREGSETP const, remove 
+	(mips_supply_fpregset): Likewise.  Make FPREGSETP const, remove
 	superfluous casts.
 	(mips_fill_fpregset): Add REGCACHE parameter; replace current_regcache.
 	(supply_64bit_reg): Likewise
@@ -8003,7 +8003,7 @@
 	(rs6000_aix_regset_from_core_section): New function.
 	(rs6000_aix_init_osabi): Register it.
 	(_initialize_rs6000_aix_tdep): Register GDB_OSABI_AIX osabi and
-	sniffer for bfd_arch_powerpc as well as bfd_arch_rs6000. 
+	sniffer for bfd_arch_powerpc as well as bfd_arch_rs6000.
 	* rs6000-nat.c (CoreRegs): Do not define type.
 	(fetch_core_registers, rs6000_core_fns): Remove.
 	(_initialize_core_rs6000): Do not register it.  Rename to ...
@@ -8072,7 +8072,7 @@
 2007-04-27  Ulrich Weigand  <uweigand@de.ibm.com>
 
 	* inf-ptrace.c: Include "gdb_stdint.h".
-	(inf_ptrace_xfer_partial): Use "uintptr_t" instead of "long" as 
+	(inf_ptrace_xfer_partial): Use "uintptr_t" instead of "long" as
 	intermediate type when casting CORE_ADDR to PTRACE_TYPE_ARG3.
 	(inf_ptrace_fetch_register): Add intermediate cast to "uintptr_t"
 	before casting CORE_ADDR to PTRACE_TYPE_ARG3.
@@ -8290,7 +8290,7 @@
 
 2007-04-18  Denis Pilat  <denis.pilat@st.com>
 
-	* infcmd.c (post_create_inferior): Start with a call to 
+	* infcmd.c (post_create_inferior): Start with a call to
 	target_terminal_ours.
 
 2007-04-17  Maciej W. Rozycki  <macro@mips.com>
@@ -8365,14 +8365,14 @@
 	* varobj.c (struct varobj): New fields frozen
 	and not_fetched.
 	(varobj_set_frozen, varobj_get_frozen): New.
-	(install_new_value): Don't fetch values for 
+	(install_new_value): Don't fetch values for
 	frozen variable object, or children thereof.  Allow
 	a frozen variable object to have non-fetched value.
 	(varobj_update): Allow updating child variables.
 	Don't traverse frozen children.
 	(new_variable): Initialize the frozen field.
 	(c_value_of_variable): Return NULL for frozen
-	variable without any value yet. 
+	variable without any value yet.
 	* mi/mi-cmd-var.c (varobj_update_one): New parameter
 	'explicit'.
 	(mi_cmd_var_create): Output the 'frozen' field,
@@ -8382,7 +8382,7 @@
 	varobj_update_one.
 	* mi/mi-cmds.c (mi_cmds): Register '-var-set-frozen'.
 	* mi/mi-cmds.h (mi_cmd_var_set_frozen): Declare.
-	
+
 2007-04-13  Paul Brook  <paul@codesourcery.com>
 
 	* target-descriptions.c (tdesc_named_type): Add ieee_single and
@@ -8565,7 +8565,7 @@
 	removed members.  Set l_ld_offset to -1 if not present.
 
 2007-04-08  Vladimir Prus  <vladimir@codesourcery.com>
-        
+
 	Pass stderr of program run with "target remote |"
         via gdb_stderr.
 	* serial.c (serial_open): Set error_fd to -1.
@@ -8595,14 +8595,14 @@
 
 	* varobj.c (varobj_create): Keep varobj value
 	NULL when evaluating the type.
-	
+
 2007-03-31  Pedro Alves  <pedro_alves@portugalmail.pt>
 
 	* NEWS: Mention new Windows CE support.
 
 2007-03-30  Pedro Alves  <pedro_alves@portugalmail.pt>
 
-	* configure.tgt: Move mips*-*-pe and sh*-*-pe to 
+	* configure.tgt: Move mips*-*-pe and sh*-*-pe to
 	the obsoletion stanza.
 	* NEWS: Mention deleted targets.
 
@@ -8966,7 +8966,7 @@
 2007-03-21  Pierre Muller  <muller@ics.u-strasbg.fr>
 
 	Fix PR pascal/2232.
-	* p-valprint.c (pascal_object_print_value): Use type_name_no_tag 
+	* p-valprint.c (pascal_object_print_value): Use type_name_no_tag
 	instead of TYPE_NAME for object base class name.
 
 
@@ -9025,7 +9025,7 @@
 
 2007-03-08  Ulrich Weigand  <uweigand@de.ibm.com>
 
-	* cli/cli-dump.c (struct callback_data): load_offset needs to 
+	* cli/cli-dump.c (struct callback_data): load_offset needs to
 	have signed long type.
 
 2007-03-07  Joel Brobecker  <brobecker@adacore.com>
@@ -9219,8 +9219,8 @@
 
 2007-02-27  Fred Fish  <fnf@specifix.com>
 
-	* rs6000-tdep.c (skip_prologue): Recognize addi instructions that 
-	directly decrement the stack pointer, accumulate their operand into 
+	* rs6000-tdep.c (skip_prologue): Recognize addi instructions that
+	directly decrement the stack pointer, accumulate their operand into
 	the stack offset, and mark the function as not being frameless.
 
 2007-02-26  Daniel Jacobowitz  <dan@codesourcery.com>
@@ -9303,7 +9303,7 @@
 
 2007-02-22  Markus Deuling  <deuling@de.ibm.com>
 
-	* valops.c (value_ind): Fix unary * handling of TYPE_CODE_INT. 
+	* valops.c (value_ind): Fix unary * handling of TYPE_CODE_INT.
 
 2007-02-20  Joel Brobecker  <brobecker@adacore.com>
 
@@ -9634,7 +9634,7 @@
 	(timestamp, print_diff_now, print_diff, timeval_diff):
 	New static timing functions.
 	(mi_cmd_enable_timings): New function for new MI command.
-	(captured_mi_execute_command, mi_execute_async_cli_command): 
+	(captured_mi_execute_command, mi_execute_async_cli_command):
 	Call timing functions.
 
 	* mi/mi-cmds.c (mi_cmds): Add entry for new MI command
@@ -9655,7 +9655,7 @@
 	(do_restore_current_thread_cleanup): Add restoring of the selected
 	frame.
 	(make_cleanup_restore_current_thread): Likewise.
-	(thread_apply_all_command): backup the selected frame while 
+	(thread_apply_all_command): backup the selected frame while
 	entering the function and restore it at exit.
 	(thread_apply_command): Likewise.
 
@@ -9788,7 +9788,7 @@
 
 2007-01-24  Vladimir Prus  <vladimir@codesourcery.com>
 
-	Refactor getting children name, value and type access 
+	Refactor getting children name, value and type access
 	for varobjs in C++.
 	* varobj.c (get_type_deref): Remove.
 	(adjust_value_for_child_access): New.
@@ -9800,9 +9800,9 @@
 	(cplus_name_of_child, cplus_value_of_child)
 	(cplus_type_of_child): Reimplement in terms
 	of cplus_describe_child.
-	(cplus_number_of_children): Use 
+	(cplus_number_of_children): Use
 	adjust_value_for_child_access.
-	
+
 2007-01-24  Vladimir Prus  <vladimir@codesourcery.com>
 
 	Fix computation of the 'editable' attribute and
@@ -9810,7 +9810,7 @@
 	* varobj.c (get_value_type): New function.
 	(c_variable_editable): Use get_value_type.
 	(varobj_value_is_changeable): Likewise.
-		
+
 2007-01-24  Joel Brobecker  <brobecker@adacore.com>
 
 	* source.c (find_and_open_source): Try rewriting the source
@@ -9827,11 +9827,11 @@
 	* mi/mi-main.c (mi_cmd_execute): Call free_all_values.
 
 2007-01-23  Vladimir Prus  <vladimir@codesourcery.com>
-	
-	* value.c (value_primitive_field): Copy the full 'location' 
-	contents, instead of assuming that copying ADDRESS will 
+
+	* value.c (value_primitive_field): Copy the full 'location'
+	contents, instead of assuming that copying ADDRESS will
 	bring over everything in the union.  Remove obsolete comment.
-	
+
 2007-01-23  Masaki Muranaka  <monaka@monami-software.com>
 
 	* m32c-tdep.c (make_regs, m32c_analyze_prologue)
@@ -9980,7 +9980,7 @@
 
 2007-01-11  Vladimir Prus  <vladimir@codesourcery.com>
 
-	* gdb.texinfo (GDB/MI Variable Objects): Improve the 
+	* gdb.texinfo (GDB/MI Variable Objects): Improve the
 	introduction.  Specify -var-update more exactly.
 
 2007-01-11  Daniel Jacobowitz  <dan@codesourcery.com>
@@ -10327,7 +10327,7 @@
 2007-01-04  Vladimir Prus  <vladimir@codesourcery.com>
 
 	gdb/
-	* varobj.c: Include "vec.h". 
+	* varobj.c: Include "vec.h".
 	(varobj_p): New typedef, declare vector of those.
 	(struct varobj): Use vector for the 'children' member.
 	(child_exists): Remove.

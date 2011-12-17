@@ -1,4 +1,4 @@
-# Test LDR instructions with offsets misaligned by 2 bytes. 
+# Test LDR instructions with offsets misaligned by 2 bytes.
 # mach(): all
 
 	.macro invalid

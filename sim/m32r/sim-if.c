@@ -261,7 +261,7 @@ void
 sim_do_command (sd, cmd)
      SIM_DESC sd;
      char *cmd;
-{ 
+{
   char **argv;
 
   if (cmd == NULL)

@@ -87,7 +87,7 @@ gdb_test "break $srcfile:$bp_location" \
 
 gdb_test "condition 1 i==1" "" \
     "separate condition: set condition"
-    
+
 gdb_run_cmd
 gdb_expect {
     -re "Breakpoint \[0-9\]+,.*foo<int> \\(i=1\\).*$gdb_prompt $" {

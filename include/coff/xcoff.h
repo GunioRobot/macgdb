@@ -10,12 +10,12 @@
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -44,12 +44,12 @@
    another section header with STYP_OVRFLO set.  */
 #define STYP_OVRFLO 0x8000
 
-/* Specifies an exception section.  A section of this type provides 
-   information to identify the reason that a trap or ececptin occured within 
+/* Specifies an exception section.  A section of this type provides
+   information to identify the reason that a trap or ececptin occured within
    and executable object program */
 #define STYP_EXCEPT 0x0100
 
-/* Specifies a type check section.  A section of this type contains parameter 
+/* Specifies a type check section.  A section of this type contains parameter
    argument type check strings used by the AIX binder.  */
 #define STYP_TYPCHK 0x4000
 
@@ -57,8 +57,8 @@
 #define	RS6K_AOUTHDR_NMAGIC 0x0108 /* new: text r/o, data r/w */
 #define	RS6K_AOUTHDR_ZMAGIC 0x010B /* paged: text r/o, both page-aligned */
 
-/* XCOFF relocation types.  
-   The relocations are described in the function  
+/* XCOFF relocation types.
+   The relocations are described in the function
    xcoff[64]_ppc_relocate_section in coff64-rs6000.c and coff-rs6000.c  */
 
 #define R_POS   (0x00)
@@ -84,11 +84,11 @@
 #define R_RBR   (0x1a)
 #define R_RBRC  (0x1b)
 
-/* Storage class #defines, from /usr/include/storclass.h that are not already 
+/* Storage class #defines, from /usr/include/storclass.h that are not already
    defined in internal.h */
 
 /* Comment string in .info section */
-#define	C_INFO		110	
+#define	C_INFO		110
 
 /* Auxillary Symbol Entries  */
 
@@ -129,7 +129,7 @@
 
 struct internal_ldhdr
 {
-  /* The version number: 
+  /* The version number:
      1 : 32 bit
      2 : 64 bit */
   unsigned long l_version;
@@ -177,11 +177,11 @@ struct internal_ldsym
     {
       /* Zero if the symbol name is more than SYMNMLEN characters.  */
 	long _l_zeroes;
-      
+
       /* The offset in the string table if the symbol name is more
 	 than SYMNMLEN characters.  */
       long _l_offset;
-    } 
+    }
     _l_l;
   }
   _l;
@@ -253,11 +253,11 @@ struct xcoff_link_hash_entry
     /* If we have created a TOC entry (the XCOFF_SET_TOC flag is
        set), this is the offset in toc_section.  */
     bfd_vma toc_offset;
-    
+
     /* If the TOC entry comes from an input file, this is set to the
        symbol index of the C_HIDEXT XMC_TC or XMC_TD symbol.  */
     long toc_indx;
-  } 
+  }
   u;
 
   /* If this symbol is a function entry point which is called, this
@@ -317,7 +317,7 @@ struct xcoff_link_hash_entry
 /* Symbol is an imported 32 bit syscall.  */
 #define XCOFF_SYSCALL32        0x00008000
 /* Symbol is an imported 64 bit syscall.  */
-#define XCOFF_SYSCALL64        0x00010000 
+#define XCOFF_SYSCALL64        0x00010000
 /* Symbol was not explicitly defined by the time it was marked.  */
 #define XCOFF_WAS_UNDEFINED    0x00020000
 /* We have assigned an output XCOFF entry to this symbol.  */
@@ -327,7 +327,7 @@ struct xcoff_link_hash_entry
 
 #define XCOFF_NUMBER_OF_SPECIAL_SECTIONS 6
 #define XCOFF_SPECIAL_SECTION_TEXT       0
-#define XCOFF_SPECIAL_SECTION_ETEXT      1 
+#define XCOFF_SPECIAL_SECTION_ETEXT      1
 #define XCOFF_SPECIAL_SECTION_DATA       2
 #define XCOFF_SPECIAL_SECTION_EDATA      3
 #define XCOFF_SPECIAL_SECTION_END        4
@@ -372,37 +372,37 @@ struct xcoff_loader_info
 #define MINUS_ONE       (((bfd_vma) 0) - 1)
 
 /* __rtinit, from /usr/include/rtinit.h.  */
-struct __rtinit 
+struct __rtinit
 {
-  /* Pointer to runtime linker.     
+  /* Pointer to runtime linker.
      XXX: Is the parameter really void?  */
-  int	(*rtl) (void);	
+  int	(*rtl) (void);
 
   /* Offset to array of init functions, 0 if none. */
   int	init_offset;
 
-  /* Offset to array of fini functions, 0 if none. */		   
-  int	fini_offset;		
+  /* Offset to array of fini functions, 0 if none. */
+  int	fini_offset;
 
-  /* Size of __RTINIT_DESCRIPTOR. This value should be used instead of 
+  /* Size of __RTINIT_DESCRIPTOR. This value should be used instead of
      sizeof(__RTINIT_DESCRIPTOR). */
-  int	__rtinit_descriptor_size; 
+  int	__rtinit_descriptor_size;
 };
 
 #define RTINIT_DESCRIPTOR_SIZE (12)
 
-struct __rtinit_descriptor 
+struct __rtinit_descriptor
 {
   /* Init/fini function. */
   int	f;
 
-  /* Offset, relative to the start of the __rtinit symbol, to name of the 
+  /* Offset, relative to the start of the __rtinit symbol, to name of the
      function. */
 
-  int	name_offset;	
+  int	name_offset;
 
-  /* Flags */			   
-  unsigned char	flags;	
+  /* Flags */
+  unsigned char	flags;
 };
 
 /* Archive */
@@ -555,8 +555,8 @@ struct xcoff_ar_hdr_big
 
 /* We often have to distinguish between the old and big file format.
    Make it a bit cleaner.  We can use `xcoff_ardata' here because the
-   `hdr' member has the same size and position in both formats.  
-   <bigaf> is the default format, return TRUE even when xcoff_ardata is 
+   `hdr' member has the same size and position in both formats.
+   <bigaf> is the default format, return TRUE even when xcoff_ardata is
    NULL. */
 #ifndef SMALL_ARCHIVE
 /* Creates big archives by default */

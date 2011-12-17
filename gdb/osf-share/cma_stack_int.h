@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -39,7 +39,7 @@
 #define cma___c_end		(-1)	/* End of free list (flag) */
 #define cma__c_yellow_size	0
 
-/* 
+/*
  * Cluster types
  */
 #define cma___c_cluster  0	/* Default cluster */

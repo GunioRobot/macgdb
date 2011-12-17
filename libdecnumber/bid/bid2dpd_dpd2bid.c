@@ -114,10 +114,10 @@ _bid_to_dpd32 (_Decimal32 *pres, _Decimal32 *px) {
   b1 = b01 - 1000 * b0;
   dcoeff = b2d[b2] | b2d2[b1];
   if (b0 >= 8) { /* is b0 8 or 9? */
-    res = sign | ((0x600 | ((exp >> 6) << 7) | 
+    res = sign | ((0x600 | ((exp >> 6) << 7) |
         ((b0 & 1) << 6) | (exp & 0x3f)) << 20) | dcoeff;
   } else { /* else b0 is 0..7 */
-    res = sign | ((((exp >> 6) << 9) | (b0 << 6) | 
+    res = sign | ((((exp >> 6) << 9) | (b0 << 6) |
         (exp & 0x3f)) << 20) | dcoeff;
   }
   *pres = res;
@@ -212,10 +212,10 @@ _bid_to_dpd64 (_Decimal64 *pres, _Decimal64 *px) {
     b1 = (unsigned int) B01 - (unsigned int) dm103[b0];
     dcoeff = b2d[b5] | b2d2[b4] | b2d3[b3] | b2d4[b2] | b2d5[b1];
     if (b0 >= 8) /* is b0 8 or 9? */
-      res = sign | ((0x1800 | ((exp >> 8) << 9) | ((b0 & 1) << 8) | 
+      res = sign | ((0x1800 | ((exp >> 8) << 9) | ((b0 & 1) << 8) |
           (exp & 0xff)) << 50) | dcoeff;
     else /* else b0 is 0..7 */
-      res = sign | ((((exp >> 8) << 11) | (b0 << 8) | 
+      res = sign | ((((exp >> 8) << 11) | (b0 << 8) |
           (exp & 0xff)) << 50) | dcoeff;
   }
   *pres = res;
@@ -250,11 +250,11 @@ _dpd_to_bid64 (_Decimal64 *pres, _Decimal64 *px) {
   } else { /* normal number */
     if ((comb & 0x1800) == 0x1800) { /* G0..G1 = 11 -> d0 = 8 + G4 */
       d0 = d2b6[((comb >> 8) & 1) | 8]; /* d0 = (comb & 0x0100 ? 9 : 8); */
-      exp = (comb & 0x600) >> 1; /* exp = (comb & 0x0400 ? 1 : 0) * 0x200 + 
+      exp = (comb & 0x600) >> 1; /* exp = (comb & 0x0400 ? 1 : 0) * 0x200 +
           (comb & 0x0200 ? 1 : 0) * 0x100; exp leading bits are G2..G3 */
     } else {
       d0 = d2b6[(comb >> 8) & 0x7];
-      exp = (comb & 0x1800) >> 3; /* exp = (comb & 0x1000 ? 1 : 0) * 0x200 + 
+      exp = (comb & 0x1800) >> 3; /* exp = (comb & 0x1000 ? 1 : 0) * 0x200 +
           (comb & 0x0800 ? 1 : 0) * 0x100; exp loading bits are G0..G1 */
     }
     d1 = d2b5[(trailing >> 40) & 0x3ff];
@@ -347,16 +347,16 @@ _bid_to_dpd128 (_Decimal128 *pres, _Decimal128 *px) {
     BLL32 -= (unsigned int) k9 *1000000;
     k10 = ((UINT64) BLL32 * d103) >> (32 + 8);
     k11 = BLL32 - (unsigned int) k10 *1000;
-    dcoeff.w[1] = (b2d[k5] >> 4) | (b2d[k4] << 6) | (b2d[k3] << 16) | 
+    dcoeff.w[1] = (b2d[k5] >> 4) | (b2d[k4] << 6) | (b2d[k3] << 16) |
         (b2d[k2] << 26) | (b2d[k1] << 36);
-    dcoeff.w[0] = b2d[k11] | (b2d[k10] << 10) | (b2d[k9] << 20) | 
+    dcoeff.w[0] = b2d[k11] | (b2d[k10] << 10) | (b2d[k9] << 20) |
         (b2d[k8] << 30) | (b2d[k7] << 40) | (b2d[k6] << 50) | (b2d[k5] << 60);
     res.w[0] = dcoeff.w[0];
     if (k0 >= 8) {
-      res.w[1] = sign.w[1] | ((0x18000 | ((exp >> 12) << 13) | 
+      res.w[1] = sign.w[1] | ((0x18000 | ((exp >> 12) << 13) |
           ((k0 & 1) << 12) | (exp & 0xfff)) << 46) | dcoeff.w[1];
     } else {
-      res.w[1] = sign.w[1] | ((((exp >> 12) << 15) | (k0 << 12) | 
+      res.w[1] = sign.w[1] | ((((exp >> 12) << 15) | (k0 << 12) |
           (exp & 0xfff)) << 46) | dcoeff.w[1];
     }
   }

@@ -19,4 +19,4 @@ void __attribute__((weak))
 bar (void)
 {
   puts ("bar in u1");
-}                                                                                                       
+}

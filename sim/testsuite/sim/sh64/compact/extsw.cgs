@@ -12,7 +12,7 @@ extsw:
 	mov #42, r1
 	exts.w r1, r2
 	assert r2, #42
-	
+
 another:
 	mov #0, r0
 	or #255, r0
@@ -23,10 +23,10 @@ another:
 	shll8 r7
 	cmp/eq r1, r7
 	bf wrong
-	
+
 okay:
 	pass
 
 wrong:
 	fail
-	
+

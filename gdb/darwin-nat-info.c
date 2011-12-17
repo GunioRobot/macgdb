@@ -247,7 +247,7 @@ info_mach_ports_command (char *args, int from_tty)
 	      printf_unfiltered (_("%u"), ref);
 	    printf_unfiltered (_(" refs)"));
 	  }
-      
+
       if (task == task_self ())
 	{
 	  if (port == task_self())
@@ -663,9 +663,9 @@ darwin_debug_regions_recurse (task_t task)
 
       ui_out_field_core_addr (uiout, "start", target_gdbarch, r_start);
       ui_out_field_core_addr (uiout, "end", target_gdbarch, r_start + r_size);
-      ui_out_field_string (uiout, "min-prot", 
+      ui_out_field_string (uiout, "min-prot",
 			   unparse_protection (r_info.protection));
-      ui_out_field_string (uiout, "max-prot", 
+      ui_out_field_string (uiout, "max-prot",
 			   unparse_protection (r_info.max_protection));
       ui_out_field_string (uiout, "inheritence",
 			   unparse_inheritance (r_info.inheritance));
@@ -709,7 +709,7 @@ info_mach_regions_command (char *args, int from_tty)
   task = get_task_from_args (args);
   if (task == TASK_NULL)
     return;
-  
+
   darwin_debug_regions (task, 0, -1);
 }
 
@@ -721,7 +721,7 @@ info_mach_regions_recurse_command (char *args, int from_tty)
   task = get_task_from_args (args);
   if (task == TASK_NULL)
     return;
-  
+
   darwin_debug_regions_recurse (task);
 }
 
@@ -836,7 +836,7 @@ info_mach_exceptions_command (char *args, int from_tty)
       if (ptid_equal (inferior_ptid, null_ptid))
 	printf_unfiltered (_("No inferior running\n"));
       inf = current_inferior ();
-      
+
       kret = task_get_exception_ports
 	(inf->private->task, EXC_MASK_ALL, info.masks,
 	 &info.count, info.ports, info.behaviors, info.flavors);

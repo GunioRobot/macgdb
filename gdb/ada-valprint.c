@@ -331,7 +331,7 @@ ada_print_floating (const gdb_byte *valaddr, struct type *type,
   len = strlen (result);
 
   /* Modify for Ada rules.  */
-  
+
   s = strstr (result, "inf");
   if (s == NULL)
     s = strstr (result, "Inf");
@@ -717,14 +717,14 @@ ada_val_print_1 (struct type *type, const gdb_byte *valaddr0,
 
     case TYPE_CODE_PTR:
       {
-	int ret = c_val_print (type, valaddr0, embedded_offset, address, 
+	int ret = c_val_print (type, valaddr0, embedded_offset, address,
 			       stream, recurse, options);
 	if (ada_is_tag_type (type))
 	  {
-	    struct value *val = 
+	    struct value *val =
 	      value_from_contents_and_address (type, valaddr, address);
 	    const char *name = ada_tag_name (val);
-	    if (name != NULL) 
+	    if (name != NULL)
 	      fprintf_filtered (stream, " (%s)", name);
 	    return 0;
 	}
@@ -887,7 +887,7 @@ ada_val_print_1 (struct type *type, const gdb_byte *valaddr0,
          So, for Ada values, we print the actual dereferenced value
          regardless.  */
       elttype = check_typedef (TYPE_TARGET_TYPE (type));
-      
+
       if (TYPE_CODE (elttype) != TYPE_CODE_UNDEF)
         {
           LONGEST deref_val_int = (LONGEST) unpack_pointer (type, valaddr);
@@ -952,7 +952,7 @@ ada_value_print (struct value *val0, struct ui_file *stream,
       /* Hack:  don't print (char *) for char strings.  Their
          type is indicated by the quoted string anyway.  */
       if (TYPE_LENGTH (TYPE_TARGET_TYPE (type)) != sizeof (char)
-	  || TYPE_CODE (TYPE_TARGET_TYPE (type)) != TYPE_CODE_INT 
+	  || TYPE_CODE (TYPE_TARGET_TYPE (type)) != TYPE_CODE_INT
 	  || TYPE_UNSIGNED (TYPE_TARGET_TYPE (type)))
 	{
 	  fprintf_filtered (stream, "(");

@@ -263,7 +263,7 @@ The program being debugged stopped while in a function called from GDB.*" \
     gdb_test "signal" \
 	"Argument required .signal number..*" \
 	"signal without arguments disallowed"
-    
+
     # Verify that we can successfully send a signal other than 0 to
     # the inferior.  (This probably causes the inferior to run away.
     # Be prepared to rerun to main for further testing.)

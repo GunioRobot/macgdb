@@ -40,4 +40,4 @@ inc:
 okay:
 	pass
 wrong:
-	fail	
+	fail

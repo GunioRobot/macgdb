@@ -20,10 +20,10 @@ signed:
 	not r7, r7
 	cmp/eq r1, r7
 	bf wrong
-	
+
 okay:
 	pass
 
 wrong:
 	fail
-	
+

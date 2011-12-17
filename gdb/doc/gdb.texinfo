@@ -1550,8 +1550,8 @@ left-hand-side:
 
 @smallexample
 (@value{GDBP}) p gdb_stdout.@kbd{M-?}
-magic      to_delete  to_fputs   to_put     to_rewind  
-to_data    to_flush   to_isatty  to_read    to_write   
+magic      to_delete  to_fputs   to_put     to_rewind
+to_data    to_flush   to_isatty  to_read    to_write
 @end smallexample
 
 @noindent
@@ -2471,7 +2471,7 @@ programs:
 @item @samp{thread apply [@var{threadno}] [@var{all}] @var{args}},
 a command to apply a command to a list of threads
 @item thread-specific breakpoints
-@item @samp{set print thread-events}, which controls printing of 
+@item @samp{set print thread-events}, which controls printing of
 messages on thread start and exit.
 @item @samp{set libthread-db-search-path @var{path}}, which lets
 the user specify which @code{libthread_db} to use if the default choice
@@ -2721,8 +2721,8 @@ If none of @code{libthread_db} libraries initialize successfully,
 Setting @code{libthread-db-search-path} is currently implemented
 only on some platforms.
 
-@kindex show libthread-db-search-path 
-@item show libthread-db-search-path 
+@kindex show libthread-db-search-path
+@item show libthread-db-search-path
 Display current libthread_db search path.
 @end table
 
@@ -2798,14 +2798,14 @@ retain debugger control over them both.
 @table @code
 @item on
 The child process (or parent process, depending on the value of
-@code{follow-fork-mode}) will be detached and allowed to run 
+@code{follow-fork-mode}) will be detached and allowed to run
 independently.  This is the default.
 
 @item off
 Both processes will be held under the control of @value{GDBN}.
-One process (child or parent, depending on the value of 
+One process (child or parent, depending on the value of
 @code{follow-fork-mode}) is debugged as usual, while the other
-is held suspended.  
+is held suspended.
 
 @end table
 
@@ -2864,15 +2864,15 @@ includes changes in memory, registers, and even (within some limits)
 system state.  Effectively, it is like going back in time to the
 moment when the checkpoint was saved.
 
-Thus, if you're stepping thru a program and you think you're 
+Thus, if you're stepping thru a program and you think you're
 getting close to the point where things go wrong, you can save
 a checkpoint.  Then, if you accidentally go too far and miss
 the critical statement, instead of having to restart your program
 from the beginning, you can just go back to the checkpoint and
 start again from there.
 
-This can be especially useful if it takes a lot of time or 
-steps to reach the point where you think the bug occurs.  
+This can be especially useful if it takes a lot of time or
+steps to reach the point where you think the bug occurs.
 
 To use the @code{checkpoint}/@code{restart} method of debugging:
 
@@ -2938,7 +2938,7 @@ different execution path this time.
 @cindex checkpoints and process id
 Finally, there is one bit of internal program state that will be
 different when you return to a checkpoint --- the program's process
-id.  Each checkpoint will have a unique process id (or @var{pid}), 
+id.  Each checkpoint will have a unique process id (or @var{pid}),
 and each will be different from the program's original @var{pid}.
 If your program has saved a local copy of its process id, this could
 potentially pose a problem.
@@ -2946,15 +2946,15 @@ potentially pose a problem.
 @subsection A Non-obvious Benefit of Using Checkpoints
 
 On some systems such as @sc{gnu}/Linux, address space randomization
-is performed on new processes for security reasons.  This makes it 
+is performed on new processes for security reasons.  This makes it
 difficult or impossible to set a breakpoint, or watchpoint, on an
-absolute address if you have to restart the program, since the 
+absolute address if you have to restart the program, since the
 absolute location of a symbol will change from one execution to the
 next.
 
-A checkpoint, however, is an @emph{identical} copy of a process. 
-Therefore if you create a checkpoint at (eg.@:) the start of main, 
-and simply return to that checkpoint instead of restarting the 
+A checkpoint, however, is an @emph{identical} copy of a process.
+Therefore if you create a checkpoint at (eg.@:) the start of main,
+and simply return to that checkpoint instead of restarting the
 process, you can avoid the effects of address randomization and
 your symbols will all stay in the same place.
 
@@ -4714,9 +4714,9 @@ Depending on target support, @code{$_siginfo} may also be writable.
 (@pxref{Threads,, Debugging Programs with Multiple Threads}).  There
 are two modes of controlling execution of your program within the
 debugger.  In the default mode, referred to as @dfn{all-stop mode},
-when any thread in your program stops (for example, at a breakpoint 
-or while being stepped), all other threads in the program are also stopped by 
-@value{GDBN}.  On some targets, @value{GDBN} also supports 
+when any thread in your program stops (for example, at a breakpoint
+or while being stepped), all other threads in the program are also stopped by
+@value{GDBN}.  On some targets, @value{GDBN} also supports
 @dfn{non-stop mode}, in which other threads can continue to run freely while
 you examine the stopped thread in the debugger.
 
@@ -4763,7 +4763,7 @@ Whenever @value{GDBN} stops your program, due to a breakpoint or a
 signal, it automatically selects the thread where that breakpoint or
 signal happened.  @value{GDBN} alerts you to the context switch with a
 message such as @samp{[Switching to Thread @var{n}]} to identify the
-thread.  
+thread.
 
 On some OSes, you can modify @value{GDBN}'s default behavior by
 locking the OS scheduler to allow only a single thread to run.
@@ -4775,8 +4775,8 @@ locking the OS scheduler to allow only a single thread to run.
 Set the scheduler locking mode.  If it is @code{off}, then there is no
 locking and any thread may run at any time.  If @code{on}, then only the
 current thread may run when the inferior is resumed.  The @code{step}
-mode optimizes for single-stepping; it prevents other threads 
-from preempting the current thread while you are stepping, so that 
+mode optimizes for single-stepping; it prevents other threads
+from preempting the current thread while you are stepping, so that
 the focus of debugging does not change unexpectedly.
 Other threads only rarely (or never) get a chance to run
 when you step.  They are more likely to run when you @samp{next} over a
@@ -4825,13 +4825,13 @@ multiple processes.
 @cindex non-stop mode
 
 @c This section is really only a place-holder, and needs to be expanded
-@c with more details.  
+@c with more details.
 
 For some multi-threaded targets, @value{GDBN} supports an optional
 mode of operation in which you can examine stopped program threads in
 the debugger while other threads continue to execute freely.  This
-minimizes intrusion when debugging live systems, such as programs 
-where some threads have real-time constraints or must continue to 
+minimizes intrusion when debugging live systems, such as programs
+where some threads have real-time constraints or must continue to
 respond to external events.  This is referred to as @dfn{non-stop} mode.
 
 In non-stop mode, when a thread stops to report a debugging event,
@@ -4840,16 +4840,16 @@ threads as well, in contrast to the all-stop mode behavior.  Additionally,
 execution commands such as @code{continue} and @code{step} apply by default
 only to the current thread in non-stop mode, rather than all threads as
 in all-stop mode.  This allows you to control threads explicitly in
-ways that are not possible in all-stop mode --- for example, stepping 
+ways that are not possible in all-stop mode --- for example, stepping
 one thread while allowing others to run freely, stepping
-one thread while holding all others stopped, or stepping several threads 
+one thread while holding all others stopped, or stepping several threads
 independently and simultaneously.
 
 To enter non-stop mode, use this sequence of commands before you run
 or attach to your program:
 
 @smallexample
-# Enable the async interface.  
+# Enable the async interface.
 set target-async 1
 
 # If using the CLI, pagination breaks non-stop.
@@ -4873,35 +4873,35 @@ Show the current non-stop enablement setting.
 @end table
 
 Note these commands only reflect whether non-stop mode is enabled,
-not whether the currently-executing program is being run in non-stop mode.  
+not whether the currently-executing program is being run in non-stop mode.
 In particular, the @code{set non-stop} preference is only consulted when
-@value{GDBN} starts or connects to the target program, and it is generally 
+@value{GDBN} starts or connects to the target program, and it is generally
 not possible to switch modes once debugging has started.  Furthermore,
 since not all targets support non-stop mode, even when you have enabled
 non-stop mode, @value{GDBN} may still fall back to all-stop operation by
 default.
 
 In non-stop mode, all execution commands apply only to the current thread
-by default.  That is, @code{continue} only continues one thread.  
+by default.  That is, @code{continue} only continues one thread.
 To continue all threads, issue @code{continue -a} or @code{c -a}.
 
-You can use @value{GDBN}'s background execution commands 
+You can use @value{GDBN}'s background execution commands
 (@pxref{Background Execution}) to run some threads in the background
-while you continue to examine or step others from @value{GDBN}.  
+while you continue to examine or step others from @value{GDBN}.
 The MI execution commands (@pxref{GDB/MI Program Execution}) are
 always executed asynchronously in non-stop mode.
 
 Suspending execution is done with the @code{interrupt} command when
-running in the background, or @kbd{Ctrl-c} during foreground execution.  
-In all-stop mode, this stops the whole process; 
-but in non-stop mode the interrupt applies only to the current thread.  
+running in the background, or @kbd{Ctrl-c} during foreground execution.
+In all-stop mode, this stops the whole process;
+but in non-stop mode the interrupt applies only to the current thread.
 To stop the whole program, use @code{interrupt -a}.
 
 Other execution commands do not currently support the @code{-a} option.
 
 In non-stop mode, when a thread stops, @value{GDBN} doesn't automatically make
 that thread current, as it does in all-stop mode.  This is because the
-thread stop notifications are asynchronous with respect to @value{GDBN}'s 
+thread stop notifications are asynchronous with respect to @value{GDBN}'s
 command interpreter, and it would be confusing if @value{GDBN} unexpectedly
 changed to a different thread just as you entered a command to operate on the
 previously current thread.
@@ -4916,7 +4916,7 @@ previously current thread.
 
 @value{GDBN}'s execution commands have two variants:  the normal
 foreground (synchronous) behavior, and a background
-(asynchronous) behavior.  In foreground execution, @value{GDBN} waits for 
+(asynchronous) behavior.  In foreground execution, @value{GDBN} waits for
 the program to report that some thread has stopped before prompting for
 another command.  In background execution, @value{GDBN} immediately gives
 a command prompt so that you can issue other commands while your program runs.
@@ -4998,9 +4998,9 @@ using the @code{interrupt} command.
 @item interrupt
 @itemx interrupt -a
 
-Suspend execution of the running program.  In all-stop mode, 
+Suspend execution of the running program.  In all-stop mode,
 @code{interrupt} stops the whole process, but in non-stop mode, it stops
-only the current thread.  To stop the whole program in non-stop mode, 
+only the current thread.  To stop the whole program in non-stop mode,
 use @code{interrupt -a}.
 @end table
 
@@ -5042,7 +5042,7 @@ breakpoint condition, like this:
 @end table
 
 @node Interrupted System Calls
-@subsection Interrupted System Calls 
+@subsection Interrupted System Calls
 
 @cindex thread breakpoints and system calls
 @cindex system calls and thread breakpoints
@@ -5119,7 +5119,7 @@ targets may be able undo things like device I/O, and some may not.
 
 The contract between @value{GDBN} and the reverse executing target
 requires only that the target do something reasonable when
-@value{GDBN} tells it to execute backwards, and then report the 
+@value{GDBN} tells it to execute backwards, and then report the
 results back to @value{GDBN}.  Whatever the target reports back to
 @value{GDBN}, @value{GDBN} will report back to the user.  @value{GDBN}
 assumes that the memory and registers that the target reports are in a
@@ -5172,7 +5172,7 @@ the current (innermost) stack frame.  If the line contains function
 calls, they will be ``un-executed'' without stopping.  Starting from
 the first line of a function, @code{reverse-next} will take you back
 to the caller of that function, @emph{before} the function was called,
-just as the normal @code{next} command would take you from the last 
+just as the normal @code{next} command would take you from the last
 line of a function back to its return to its caller
 @footnote{Unles the code is too heavily optimized.}.
 
@@ -8058,7 +8058,7 @@ an unrecognized tag.
 
 On some targets, @value{GDBN} can access operating-system-specific information
 and display it to user, without interpretation.  For remote targets,
-this functionality depends on the remote stub's support of the 
+this functionality depends on the remote stub's support of the
 @samp{qXfer:osdata:read} packet, see @ref{qXfer osdata read}.
 
 @table @code
@@ -8556,7 +8556,7 @@ character.
 remote target (@pxref{Remote Debugging}).  Such caching generally improves
 performance, because it reduces the overhead of the remote protocol by
 bundling memory reads and writes into large chunks.  Unfortunately, simply
-caching everything would lead to incorrect results, since @value{GDBN} 
+caching everything would lead to incorrect results, since @value{GDBN}
 does not necessarily know anything about volatile values, memory-mapped I/O
 addresses, etc.  Furthermore, in non-stop mode (@pxref{Non-Stop Mode})
 memory can be changed @emph{while} a gdb command is executing.
@@ -9400,8 +9400,8 @@ are prefixed with an @samp{A} so as to distinguish them from commands.
 (@value{GDBP}) @b{info trace}
 Num     Type           Disp Enb Address    What
 1       tracepoint     keep y   0x0804ab57 in foo() at main.cxx:7
-        pass count 1200 
-        step count 20 
+        pass count 1200
+        step count 20
       A while-stepping 20
       A collect globfoo, $regs
       A end
@@ -11688,7 +11688,7 @@ type = POINTER TO ARRAY [-2..2] OF foo = RECORD
     f1 : CARDINAL;
     f2 : CHAR;
     f3 : ARRAY [-2..2] OF CARDINAL;
-END 
+END
 @end smallexample
 
 @node M2 Defaults
@@ -11837,8 +11837,8 @@ to be difficult.
 
 @cindex expressions in Ada
 @menu
-* Ada Mode Intro::              General remarks on the Ada syntax 
-                                   and semantics supported by Ada mode 
+* Ada Mode Intro::              General remarks on the Ada syntax
+                                   and semantics supported by Ada mode
                                    in @value{GDBN}.
 * Omissions from Ada::          Restrictions on the Ada expression syntax.
 * Additions to Ada::            Extensions of the Ada expression syntax.
@@ -11852,22 +11852,22 @@ to be difficult.
 @subsubsection Introduction
 @cindex Ada mode, general
 
-The Ada mode of @value{GDBN} supports a fairly large subset of Ada expression 
+The Ada mode of @value{GDBN} supports a fairly large subset of Ada expression
 syntax, with some extensions.
-The philosophy behind the design of this subset is 
+The philosophy behind the design of this subset is
 
 @itemize @bullet
 @item
-That @value{GDBN} should provide basic literals and access to operations for 
-arithmetic, dereferencing, field selection, indexing, and subprogram calls, 
+That @value{GDBN} should provide basic literals and access to operations for
+arithmetic, dereferencing, field selection, indexing, and subprogram calls,
 leaving more sophisticated computations to subprograms written into the
 program (which therefore may be called from @value{GDBN}).
 
-@item 
+@item
 That type safety and strict adherence to Ada language restrictions
 are not particularly important to the @value{GDBN} user.
 
-@item 
+@item
 That brevity is important to the @value{GDBN} user.
 @end itemize
 
@@ -11877,21 +11877,21 @@ according to Ada rules, thus making it unnecessary to fully qualify most
 names with their packages, regardless of context.  Where this causes
 ambiguity, @value{GDBN} asks the user's intent.
 
-The debugger will start in Ada mode if it detects an Ada main program. 
+The debugger will start in Ada mode if it detects an Ada main program.
 As for other languages, it will enter Ada mode when stopped in a program that
 was translated from an Ada source file.
 
-While in Ada mode, you may use `@t{--}' for comments.  This is useful 
-mostly for documenting command files.  The standard @value{GDBN} comment 
-(@samp{#}) still works at the beginning of a line in Ada mode, but not in the 
+While in Ada mode, you may use `@t{--}' for comments.  This is useful
+mostly for documenting command files.  The standard @value{GDBN} comment
+(@samp{#}) still works at the beginning of a line in Ada mode, but not in the
 middle (to allow based literals).
 
 The debugger supports limited overloading.  Given a subprogram call in which
-the function symbol has multiple definitions, it will use the number of 
+the function symbol has multiple definitions, it will use the number of
 actual parameters and some information about their types to attempt to narrow
 the set of definitions.  It also makes very limited use of context, preferring
 procedures to functions in the context of the @code{call} command, and
-functions to procedures elsewhere. 
+functions to procedures elsewhere.
 
 @node Omissions from Ada
 @subsubsection Omissions from Ada
@@ -11909,10 +11909,10 @@ Only a subset of the attributes are supported:
  on array objects (not on types and subtypes).
 
 @item
-@t{'Min} and @t{'Max}.  
+@t{'Min} and @t{'Max}.
 
-@item 
-@t{'Pos} and @t{'Val}. 
+@item
+@t{'Pos} and @t{'Val}.
 
 @item
 @t{'Tag}.
@@ -11921,8 +11921,8 @@ Only a subset of the attributes are supported:
 @t{'Range} on array objects (not subtypes), but only as the right
 operand of the membership (@code{in}) operator.
 
-@item 
-@t{'Access}, @t{'Unchecked_Access}, and 
+@item
+@t{'Access}, @t{'Unchecked_Access}, and
 @t{'Unrestricted_Access} (a GNAT extension).
 
 @item
@@ -11932,7 +11932,7 @@ operand of the membership (@code{in}) operator.
 @item
 The names in
 @code{Characters.Latin_1} are not available and
-concatenation is not implemented.  Thus, escape characters in strings are 
+concatenation is not implemented.  Thus, escape characters in strings are
 not currently available.
 
 @item
@@ -11940,20 +11940,20 @@ Equality tests (@samp{=} and @samp{/=}) on arrays test for bitwise
 equality of representations.  They will generally work correctly
 for strings and arrays whose elements have integer or enumeration types.
 They may not work correctly for arrays whose element
-types have user-defined equality, for arrays of real values 
+types have user-defined equality, for arrays of real values
 (in particular, IEEE-conformant floating point, because of negative
 zeroes and NaNs), and for arrays whose elements contain unused bits with
-indeterminate values.  
+indeterminate values.
 
 @item
-The other component-by-component array operations (@code{and}, @code{or}, 
+The other component-by-component array operations (@code{and}, @code{or},
 @code{xor}, @code{not}, and relational tests other than equality)
-are not implemented. 
+are not implemented.
 
-@item 
+@item
 @cindex array aggregates (Ada)
 @cindex record aggregates (Ada)
-@cindex aggregates (Ada) 
+@cindex aggregates (Ada)
 There is limited support for array and record aggregates.  They are
 permitted only on the right sides of assignments, as in these examples:
 
@@ -11971,7 +11971,7 @@ discriminant's value by assigning an aggregate has an
 undefined effect if that discriminant is used within the record.
 However, you can first modify discriminants by directly assigning to
 them (which normally would not be allowed in Ada), and then performing an
-aggregate assignment.  For example, given a variable @code{A_Rec} 
+aggregate assignment.  For example, given a variable @code{A_Rec}
 declared to have a type such as:
 
 @smallexample
@@ -11991,7 +11991,7 @@ assignments:
 
 As this example also illustrates, @value{GDBN} is very loose about the usual
 rules concerning aggregates.  You may leave out some of the
-components of an array or record aggregate (such as the @code{Len} 
+components of an array or record aggregate (such as the @code{Len}
 component in the assignment to @code{A_Rec} above); they will retain their
 original values upon assignment.  You may freely use dynamic values as
 indices in component associations.  You may even use overlapping or
@@ -12015,16 +12015,16 @@ The @code{new} operator is not implemented.
 @item
 Entry calls are not implemented.
 
-@item 
-Aside from printing, arithmetic operations on the native VAX floating-point 
+@item
+Aside from printing, arithmetic operations on the native VAX floating-point
 formats are not supported.
 
 @item
 It is not possible to slice a packed array.
 
 @item
-The names @code{True} and @code{False}, when not part of a qualified name, 
-are interpreted as if implicitly prefixed by @code{Standard}, regardless of 
+The names @code{True} and @code{False}, when not part of a qualified name,
+are interpreted as if implicitly prefixed by @code{Standard}, regardless of
 context.
 Should your program
 redefine these names in a package or procedure (at best a dubious practice),
@@ -12033,7 +12033,7 @@ you will have to use fully qualified names to access their new definitions.
 
 @node Additions to Ada
 @subsubsection Additions to Ada
-@cindex Ada, deviations from 
+@cindex Ada, deviations from
 
 As it does for other languages, @value{GDBN} makes certain generic
 extensions to Ada (@pxref{Expressions}):
@@ -12054,12 +12054,12 @@ which certain debugging information has been optimized away.
 appears in function or file @var{B}.''  When @var{B} is a file name,
 you must typically surround it in single quotes.
 
-@item 
+@item
 The expression @code{@{@var{type}@} @var{addr}} means ``the variable of type
 @var{type} that appears at address @var{addr}.''
 
 @item
-A name starting with @samp{$} is a convenience variable 
+A name starting with @samp{$} is a convenience variable
 (@pxref{Convenience Vars}) or a machine register (@pxref{Registers}).
 @end itemize
 
@@ -12067,7 +12067,7 @@ In addition, @value{GDBN} provides a few other shortcuts and outright
 additions specific to Ada:
 
 @itemize @bullet
-@item 
+@item
 The assignment statement is allowed as an expression, returning
 its right-hand operand as its value.  Thus, you may enter
 
@@ -12076,8 +12076,8 @@ its right-hand operand as its value.  Thus, you may enter
 (@value{GDBP}) print A(tmp := y + 1)
 @end smallexample
 
-@item 
-The semicolon is allowed as an ``operator,''  returning as its value 
+@item
+The semicolon is allowed as an ``operator,''  returning as its value
 the value of its right-hand operand.
 This allows, for example,
 complex conditional breaks:
@@ -12087,13 +12087,13 @@ complex conditional breaks:
 (@value{GDBP}) condition 1 (report(i); k += 1; A(k) > 100)
 @end smallexample
 
-@item 
-Rather than use catenation and symbolic character names to introduce special 
-characters into strings, one may instead use a special bracket notation, 
-which is also used to print strings.  A sequence of characters of the form 
-@samp{["@var{XX}"]} within a string or character literal denotes the 
+@item
+Rather than use catenation and symbolic character names to introduce special
+characters into strings, one may instead use a special bracket notation,
+which is also used to print strings.  A sequence of characters of the form
+@samp{["@var{XX}"]} within a string or character literal denotes the
 (single) character whose numeric encoding is @var{XX} in hexadecimal.  The
-sequence of characters @samp{["""]} also denotes a single quotation mark 
+sequence of characters @samp{["""]} also denotes a single quotation mark
 in strings.   For example,
 @smallexample
    "One line.["0a"]Next line.["0a"]"
@@ -12112,7 +12112,7 @@ to write
 @end smallexample
 
 @item
-When printing arrays, @value{GDBN} uses positional notation when the 
+When printing arrays, @value{GDBN} uses positional notation when the
 array has a lower bound of 1, and uses a modified named notation otherwise.
 For example, a one-dimensional array of three integers with a lower bound
 of 3 might print as
@@ -12122,30 +12122,30 @@ of 3 might print as
 @end smallexample
 
 @noindent
-That is, in contrast to valid Ada, only the first component has a @code{=>} 
+That is, in contrast to valid Ada, only the first component has a @code{=>}
 clause.
 
 @item
 You may abbreviate attributes in expressions with any unique,
-multi-character subsequence of 
+multi-character subsequence of
 their names (an exact match gets preference).
 For example, you may use @t{a'len}, @t{a'gth}, or @t{a'lh}
 in place of  @t{a'length}.
 
 @item
 @cindex quoting Ada internal identifiers
-Since Ada is case-insensitive, the debugger normally maps identifiers you type 
-to lower case.  The GNAT compiler uses upper-case characters for 
+Since Ada is case-insensitive, the debugger normally maps identifiers you type
+to lower case.  The GNAT compiler uses upper-case characters for
 some of its internal identifiers, which are normally of no interest to users.
 For the rare occasions when you actually have to look at them,
-enclose them in angle brackets to avoid the lower-case mapping. 
+enclose them in angle brackets to avoid the lower-case mapping.
 For example,
 @smallexample
 (@value{GDBP}) print <JMPBUF_SAVE>[0]
 @end smallexample
 
 @item
-Printing an object of class-wide type or dereferencing an 
+Printing an object of class-wide type or dereferencing an
 access-to-class-wide value will display all the components of the object's
 specific type (as indicated by its run-time tag).  Likewise, component
 selection on such a value will operate on the specific type of the
@@ -12402,19 +12402,19 @@ file before inspecting it with @value{GDBN}.
 Besides the omissions listed previously (@pxref{Omissions from Ada}),
 we know of several problems with and limitations of Ada mode in
 @value{GDBN},
-some of which will be fixed with planned future releases of the debugger 
+some of which will be fixed with planned future releases of the debugger
 and the GNU Ada compiler.
 
 @itemize @bullet
 @item
-Currently, the debugger 
+Currently, the debugger
 has insufficient information to determine whether certain pointers represent
 pointers to objects or the objects themselves.
 Thus, the user may have to tack an extra @code{.all} after an expression
 to get it printed properly.
 
-@item 
-Static constants that the compiler chooses not to materialize as objects in 
+@item
+Static constants that the compiler chooses not to materialize as objects in
 storage are invisible to the debugger.
 
 @item
@@ -12425,22 +12425,22 @@ argument lists are treated as positional).
 Many useful library packages are currently invisible to the debugger.
 
 @item
-Fixed-point arithmetic, conversions, input, and output is carried out using 
-floating-point arithmetic, and may give results that only approximate those on 
+Fixed-point arithmetic, conversions, input, and output is carried out using
+floating-point arithmetic, and may give results that only approximate those on
 the host machine.
 
 @item
-The GNAT compiler never generates the prefix @code{Standard} for any of 
-the standard symbols defined by the Ada language.  @value{GDBN} knows about 
+The GNAT compiler never generates the prefix @code{Standard} for any of
+the standard symbols defined by the Ada language.  @value{GDBN} knows about
 this: it will strip the prefix from names when you use it, and will never
 look for a name you have so qualified among local symbols, nor match against
-symbols in other packages or subprograms.  If you have 
-defined entities anywhere in your program other than parameters and 
-local variables whose simple names match names in @code{Standard}, 
+symbols in other packages or subprograms.  If you have
+defined entities anywhere in your program other than parameters and
+local variables whose simple names match names in @code{Standard},
 GNAT's lack of qualification here can cause confusion.  When this happens,
-you can usually resolve the confusion 
+you can usually resolve the confusion
 by qualifying the problematic names with package
-@code{Standard} explicitly.  
+@code{Standard} explicitly.
 @end itemize
 
 @node Unsupported Languages
@@ -13734,7 +13734,7 @@ libraries, they need to be laid out in the same way that they are on
 the target, with e.g.@: a @file{/lib} and @file{/usr/lib} hierarchy
 under @var{path}.
 
-If @var{path} starts with the sequence @file{remote:}, @value{GDBN} will 
+If @var{path} starts with the sequence @file{remote:}, @value{GDBN} will
 retrieve the target libraries from the remote system.  This is only
 supported when using a remote target that supports the @code{remote get}
 command (@pxref{File Transfer,,Sending files to a remote system}).
@@ -15018,7 +15018,7 @@ debugging agent is launched in parallel with @value{GDBN}; there is a race
 condition because the agent may not become ready to accept the connection
 before @value{GDBN} attempts to connect.  When auto-retry is
 enabled, if the initial attempt to connect fails, @value{GDBN} reattempts
-to establish the connection using the timeout specified by 
+to establish the connection using the timeout specified by
 @code{set tcp connect-timeout}.
 
 @item set tcp auto-retry off
@@ -15031,7 +15031,7 @@ Show the current auto-retry setting.
 @cindex connection timeout, for remote TCP target
 @cindex timeout, for remote target connection
 Set the timeout for establishing a TCP connection to the remote target to
-@var{seconds}.  The timeout affects both polling to retry failed connections 
+@var{seconds}.  The timeout affects both polling to retry failed connections
 (enabled by @code{set tcp auto-retry on}) and waiting for connections
 that are merely slow to complete, and represents an approximate cumulative
 value.
@@ -17421,7 +17421,7 @@ Show the current CRIS version.
 @item set cris-dwarf2-cfi
 @cindex DWARF-2 CFI and CRIS
 Set the usage of DWARF-2 CFI for CRIS debugging.  The default is @samp{on}.
-Change to @samp{off} when using @code{gcc-cris} whose version is below 
+Change to @samp{off} when using @code{gcc-cris} whose version is below
 @code{R59}.
 
 @item show cris-dwarf2-cfi
@@ -17430,7 +17430,7 @@ Show the current state of using DWARF-2 CFI.
 @item set cris-mode @var{mode}
 @cindex CRIS mode
 Set the current CRIS mode to @var{mode}.  It should only be changed when
-debugging in guru mode, in which case it should be set to 
+debugging in guru mode, in which case it should be set to
 @samp{guru} (the default is @samp{normal}).
 
 @item show cris-mode
@@ -17698,7 +17698,7 @@ Proxy-DMA queue.  For each entry, opcode, tag, class IDs, effective
 and local store addresses and transfer size are shown.
 
 @end table
- 
+
 When @value{GDBN} is debugging a combined PowerPC/SPU application
 on the Cell Broadband Engine, it provides in addition the following
 special commands:
@@ -17730,7 +17730,7 @@ Show whether to automatically flush the software-managed cache.
 @subsection PowerPC
 @cindex PowerPC architecture
 
-When @value{GDBN} is debugging the PowerPC architecture, it provides a set of 
+When @value{GDBN} is debugging the PowerPC architecture, it provides a set of
 pseudo-registers to enable inspection of 128-bit wide Decimal Floating Point
 numbers stored in the floating point registers. These values must be stored
 in two consecutive registers, always starting at an even register like
@@ -18307,7 +18307,7 @@ Show the current state of @sc{gnu}/Hurd debugging messages.
 @item set debug infrun
 @cindex inferior debugging info
 Turns on or off display of @value{GDBN} debugging info for running the inferior.
-The default is off.  @file{infrun.c} contains GDB's runtime state machine used 
+The default is off.  @file{infrun.c} contains GDB's runtime state machine used
 for implementing operations such as single-stepping the inferior.
 @item show debug infrun
 Displays the current state of @value{GDBN} inferior debugging.
@@ -19521,11 +19521,11 @@ pretty-printer:
 @smallexample
 (@value{GDBP}) print s
 $1 = @{
-  static npos = 4294967295, 
+  static npos = 4294967295,
   _M_dataplus = @{
     <std::allocator<char>> = @{
-      <__gnu_cxx::new_allocator<char>> = @{<No data fields>@}, <No data fields>@}, 
-    members of std::basic_string<char, std::char_traits<char>, std::allocator<char> >::_Alloc_hider: 
+      <__gnu_cxx::new_allocator<char>> = @{<No data fields>@}, <No data fields>@},
+    members of std::basic_string<char, std::char_traits<char>, std::allocator<char> >::_Alloc_hider:
     _M_p = 0x804a014 "abcd"
   @}
 @}
@@ -19670,7 +19670,7 @@ def str_lookup_function (val):
         return None
     if regex.match (lookup_tag):
         return StdStringPrinter (val)
-    
+
     return None
 @end smallexample
 
@@ -20239,7 +20239,7 @@ is available.
 The TUI mode is enabled by default when you invoke @value{GDBN} as
 either @samp{@value{GDBTUI}} or @samp{@value{GDBP} -tui}.
 You can also switch in and out of TUI mode while @value{GDBN} runs by
-using various TUI commands and key bindings, such as @kbd{C-x C-a}. 
+using various TUI commands and key bindings, such as @kbd{C-x C-a}.
 @xref{TUI Keys, ,TUI Key Bindings}.
 
 @node TUI Overview
@@ -20805,7 +20805,7 @@ in the form of a reference manual.
 
 Note that @sc{gdb/mi} is still under construction, so some of the
 features described below are incomplete and subject to change
-(@pxref{GDB/MI Development and Front Ends, , @sc{gdb/mi} Development and Front Ends}).  
+(@pxref{GDB/MI Development and Front Ends, , @sc{gdb/mi} Development and Front Ends}).
 
 @unnumberedsec Notation and Terminology
 
@@ -20883,7 +20883,7 @@ a command and reported as part of that command response.
 The important examples of notifications are:
 @itemize @bullet
 
-@item 
+@item
 Exec notifications.  These are used to report changes in
 target state---when a target is resumed, or stopped.  It would not
 be feasible to include this information in response of resuming
@@ -20892,7 +20892,7 @@ different threads.  Also, quite some time may pass before any event
 happens in the target, while a frontend needs to know whether the resuming
 command itself was successfully executed.
 
-@item 
+@item
 Console output, and status notifications.  Console output
 notifications are used to report output of CLI commands, as well as
 diagnostics for other commands.  Status notifications are used to
@@ -20912,8 +20912,8 @@ orthogonal frontend design.
 There's no guarantee that whenever an MI command reports an error,
 @value{GDBN} or the target are in any specific state, and especially,
 the state is not reverted to the state before the MI command was
-processed.  Therefore, whenever an MI command results in an error, 
-we recommend that the frontend refreshes all the information shown in 
+processed.  Therefore, whenever an MI command results in an error,
+we recommend that the frontend refreshes all the information shown in
 the user interface.
 
 
@@ -20933,7 +20933,7 @@ be specified.  The CLI interface maintains the selected thread and frame,
 and supplies them to target on each command.  This is convenient,
 because a command line user would not want to specify that information
 explicitly on each command, and because user interacts with
-@value{GDBN} via a single terminal, so no confusion is possible as 
+@value{GDBN} via a single terminal, so no confusion is possible as
 to what thread and frame are the current ones.
 
 In the case of MI, the concept of selected thread and frame is less
@@ -20959,7 +20959,7 @@ one specified by user.  @value{GDBN} communicates the suggestion to
 change current thread using the @samp{=thread-selected} notification.
 No such notification is available for the selected frame at the moment.
 
-Note that historically, MI shares the selected thread with CLI, so 
+Note that historically, MI shares the selected thread with CLI, so
 frontends used the @code{-thread-select} to execute commands in the
 right context.  However, getting this to work right is cumbersome.  The
 simplest way is for frontend to emit @code{-thread-select} command
@@ -21020,8 +21020,8 @@ hardware systems, each one having several cores with several different
 processes running on each core.  This section describes the MI
 mechanism to support such debugging scenarios.
 
-The key observation is that regardless of the structure of the 
-target, MI can have a global list of threads, because most commands that 
+The key observation is that regardless of the structure of the
+target, MI can have a global list of threads, because most commands that
 accept the @samp{--thread} option do not need to know what process that
 thread belongs to.  Therefore, it is not necessary to introduce
 neither additional @samp{--process} option, nor an notion of the
@@ -21437,10 +21437,10 @@ The following is the list of possible async records:
 @item *running,thread-id="@var{thread}"
 The target is now running.  The @var{thread} field tells which
 specific thread is now running, and can be @samp{all} if all threads
-are running.  The frontend should assume that no interaction with a 
+are running.  The frontend should assume that no interaction with a
 running thread is possible after this notification is produced.
 The frontend should not assume that this notification is output
-only once for any command.  @value{GDBN} may emit this notification 
+only once for any command.  @value{GDBN} may emit this notification
 several times, either for different threads, because it cannot resume
 all threads together, or even for a single thread, if the thread must
 be stepped though some code before letting it run freely.
@@ -21456,7 +21456,7 @@ A breakpoint was reached.
 A watchpoint was triggered.
 @item read-watchpoint-trigger
 A read watchpoint was triggered.
-@item access-watchpoint-trigger 
+@item access-watchpoint-trigger
 An access watchpoint was triggered.
 @item function-finished
 An -exec-finish or similar CLI command was accomplished.
@@ -21465,15 +21465,15 @@ An -exec-until or similar CLI command was accomplished.
 @item watchpoint-scope
 A watchpoint has gone out of scope.
 @item end-stepping-range
-An -exec-next, -exec-next-instruction, -exec-step, -exec-step-instruction or 
+An -exec-next, -exec-next-instruction, -exec-step, -exec-step-instruction or
 similar CLI command was accomplished.
-@item exited-signalled 
+@item exited-signalled
 The inferior exited because of a signal.
-@item exited 
+@item exited
 The inferior exited.
-@item exited-normally 
+@item exited-normally
 The inferior exited normally.
-@item signal-received 
+@item signal-received
 A signal was received by the inferior.
 @end table
 
@@ -22465,7 +22465,7 @@ The corresponding @value{GDBN} command is @samp{pwd}.
  -thread-info [ @var{thread-id} ]
 @end smallexample
 
-Reports information about either a specific thread, if 
+Reports information about either a specific thread, if
 the @var{thread-id} parameter is present, or about all
 threads.  When printing information about all threads,
 also reports the current thread.
@@ -23432,10 +23432,10 @@ object, or to change display format.
 Variable objects have hierarchical tree structure.  Any variable object
 that corresponds to a composite type, such as structure in C, has
 a number of child variable objects, for example corresponding to each
-element of a structure.  A child variable object can itself have 
-children, recursively.  Recursion ends when we reach 
+element of a structure.  A child variable object can itself have
+children, recursively.  Recursion ends when we reach
 leaf variable objects, which always have built-in types.  Child variable
-objects are created only by explicit request, so if a frontend 
+objects are created only by explicit request, so if a frontend
 is not interested in the children of a particular variable object, no
 child will be created.
 
@@ -23444,7 +23444,7 @@ string, or set the value from a string.  String value can be also
 obtained for a non-leaf variable object, but it's generally a string
 that only indicates the type of the object, and does not list its
 contents.  Assignment to a non-leaf variable object is not allowed.
- 
+
 A frontend does not need to read the values of all variable objects each time
 the program stops.  Instead, MI provides an update command that lists all
 variable objects whose values has changed since the last update
@@ -23461,7 +23461,7 @@ relatively slow for embedded targets, so a frontend might want
 to disable automatic update for the variables that are either not
 visible on the screen, or ``closed''.  This is possible using so
 called ``frozen variable objects''.  Such variable objects are never
-implicitly updated.  
+implicitly updated.
 
 Variable objects can be either @dfn{fixed} or @dfn{floating}.  For the
 fixed variable object, the expression is parsed when the variable
@@ -23696,8 +23696,8 @@ The natural format is the default format choosen automatically
 based on the variable type (like decimal for an @code{int}, hex
 for pointers, etc.).
 
-For a variable with children, the format is set only on the 
-variable itself, and the children are not affected.  
+For a variable with children, the format is set only on the
+variable itself, and the children are not affected.
 
 @subheading The @code{-var-show-format} Command
 @findex -var-show-format
@@ -23805,7 +23805,7 @@ The type of the child.
 If values were requested, this is the value.
 
 @item thread-id
-If this variable object is associated with a thread, this is the thread id.  
+If this variable object is associated with a thread, this is the thread id.
 Otherwise this result is not present.
 
 @item frozen
@@ -23898,7 +23898,7 @@ Returns an expression that can be evaluated in the current
 context and will yield the same value that a variable object has.
 Compare this with the @code{-var-info-expression} command, which
 result can be used only for UI presentation.  Typical use of
-the @code{-var-info-path-expression} command is creating a 
+the @code{-var-info-path-expression} command is creating a
 watchpoint from a variable object.
 
 This command is currently not valid for children of a dynamic varobj,
@@ -23943,10 +23943,10 @@ where @var{attr} is @code{@{ @{ editable | noneditable @} | TBD @}}.
 
 Evaluates the expression that is represented by the specified variable
 object and returns its value as a string.  The format of the string
-can be specified with the @samp{-f} option.  The possible values of 
-this option are the same as for @code{-var-set-format} 
+can be specified with the @samp{-f} option.  The possible values of
+this option are the same as for @code{-var-set-format}
 (@pxref{-var-set-format}).  If the @samp{-f} option is not specified,
-the current display format will be used.  The current display format 
+the current display format will be used.  The current display format
 can be changed using the @code{-var-set-format} command.
 
 @smallexample
@@ -24117,12 +24117,12 @@ type_changed="false"@}]
 Set the frozenness flag on the variable object @var{name}.  The
 @var{flag} parameter should be either @samp{1} to make the variable
 frozen or @samp{0} to make it unfrozen.  If a variable object is
-frozen, then neither itself, nor any of its children, are 
-implicitly updated by @code{-var-update} of 
+frozen, then neither itself, nor any of its children, are
+implicitly updated by @code{-var-update} of
 a parent variable or by @code{-var-update *}.  Only
 @code{-var-update} of the variable itself will update its value and
 values of its children.  After a variable object is unfrozen, it is
-implicitly updated by all subsequent @code{-var-update} operations.  
+implicitly updated by all subsequent @code{-var-update} operations.
 Unfreezing a variable does not update it, only subsequent
 @code{-var-update} does.
 
@@ -25222,7 +25222,7 @@ Signal handling commands are not implemented.
 
 Attach to a process @var{pid} or a file @var{file} outside of
 @value{GDBN}, or a thread group @var{gid}.  If attaching to a thread
-group, the id previously returned by 
+group, the id previously returned by
 @samp{-list-thread-groups --available} must be used.
 
 @subsubheading @value{GDBN} Command
@@ -25769,11 +25769,11 @@ this version of gdb implements.  A feature can be a command,
 or a new field in an output of some command, or even an
 important bugfix.  While a frontend can sometimes detect presence
 of a feature at runtime, it is easier to perform detection at debugger
-startup. 
+startup.
 
 The command returns a list of strings, with each string naming an
 available feature.  Each returned string is just a name, it does not
-have any internal structure.  The list of possible feature names 
+have any internal structure.  The list of possible feature names
 is given below.
 
 Example output:
@@ -25787,8 +25787,8 @@ The current list of features is:
 
 @table @samp
 @item frozen-varobjs
-Indicates presence of the @code{-var-set-frozen} command, as well 
-as possible presense of the @code{frozen} field in the output 
+Indicates presence of the @code{-var-set-frozen} command, as well
+as possible presense of the @code{frozen} field in the output
 of @code{-varobj-create}.
 @item pending-breakpoints
 Indicates presence of the @option{-f} option to the @code{-break-insert} command.
@@ -25805,7 +25805,7 @@ Indicates presence of the @code{-thread-info} command.
 @findex -list-target-features
 
 Returns a list of particular features that are supported by the
-target.  Those features affect the permitted MI commands, but 
+target.  Those features affect the permitted MI commands, but
 unlike the features reported by the @code{-list-features} command, the
 features depend on which target GDB is using at the moment.  Whenever
 a target can change, due to commands such as @code{-target-select},
@@ -25871,7 +25871,7 @@ is not allowed.
 @smallexample
 -interpreter-exec @var{interpreter} @var{command}
 @end smallexample
-@anchor{-interpreter-exec} 
+@anchor{-interpreter-exec}
 
 Execute the specified @var{command} in the given @var{interpreter}.
 
@@ -26323,7 +26323,7 @@ depend on the language).
 This chapter documents @value{GDBN}'s @dfn{just-in-time} (JIT) compilation
 interface.  A JIT compiler is a program or library that generates native
 executable code at runtime and executes it, usually in order to achieve good
-performance while maintaining platform independence. 
+performance while maintaining platform independence.
 
 Programs that use JIT compilation are normally difficult to debug because
 portions of their code are generated at runtime, instead of being loaded from
@@ -26836,7 +26836,7 @@ MS-Windows shared libraries (@pxref{Shared Libraries})
 @end itemize
 
 @item zlib
-@cindex compressed debug sections 
+@cindex compressed debug sections
 @value{GDBN} will use the @samp{zlib} library, if available, to read
 compressed debug sections.  Some linkers, such as GNU gold, are capable
 of producing binaries with compressed debug sections.  If @value{GDBN}
@@ -27174,7 +27174,7 @@ If @value{GDBN} has been configured with the option @option{--prefix=$prefix},
 it may be subject to relocation.  Two possible cases:
 
 @itemize @bullet
-@item 
+@item
 If the default location of this init file contains @file{$prefix},
 it will be subject to relocation.  Suppose that the configure options
 are @option{--prefix=$prefix --with-system-gdbinit=$prefix/etc/gdbinit};
@@ -27556,7 +27556,7 @@ took to execute each command, following the command's own output.
 The time is not printed for the commands that run the target, since
 there's no mechanism currently to compute how much time was spend
 by @value{GDBN} and how much time was spend by the program been debugged.
-it's not possibly currently 
+it's not possibly currently
 This can also be requested by invoking @value{GDBN} with the
 @option{--statistics} command-line switch (@pxref{Mode Options}).
 
@@ -27676,7 +27676,7 @@ debugging stub incorporated in your program) sends a @var{response}.  In
 the case of step and continue @var{command}s, the response is only sent
 when the operation has completed, and the target has again stopped all
 threads in all attached processes.  This is the default all-stop mode
-behavior, but the remote protocol also supports @value{GDBN}'s non-stop 
+behavior, but the remote protocol also supports @value{GDBN}'s non-stop
 execution mode; see @ref{Remote Non-Stop}, for details.
 
 @var{packet-data} consists of a sequence of characters with the
@@ -27764,7 +27764,7 @@ bytes @samp{foo}, followed by a @var{bar}, followed directly by a
 @var{baz}.
 
 @cindex @var{thread-id}, in remote protocol
-@anchor{thread-id syntax} 
+@anchor{thread-id syntax}
 Several packets and replies include a @var{thread-id} field to identify
 a thread.  Normally these are positive numbers with a target-specific
 interpretation, formatted as big-endian hex strings.  A @var{thread-id}
@@ -27900,7 +27900,7 @@ Don't use this packet; instead, define a general set packet
 @item D
 @itemx D;@var{pid}
 @cindex @samp{D} packet
-The first form of the packet is used to detach @value{GDBN} from the 
+The first form of the packet is used to detach @value{GDBN} from the
 remote system.  It is sent to the remote target
 before @value{GDBN} disconnects via the @code{detach} command.
 
@@ -28145,10 +28145,10 @@ attached without being stopped if that is supported by the target.
 @c In non-stop mode, on a successful vAttach, the stub should set the
 @c current thread to a thread of the newly-attached process.  After
 @c attaching, GDB queries for the attached process's thread ID with qC.
-@c Also note that, from a user perspective, whether or not the 
-@c target is stopped on attach in non-stop mode depends on whether you 
-@c use the foreground or background version of the attach command, not 
-@c on what vAttach does; GDB does the right thing with respect to either 
+@c Also note that, from a user perspective, whether or not the
+@c target is stopped on attach in non-stop mode depends on whether you
+@c use the foreground or background version of the attach command, not
+@c on what vAttach does; GDB does the right thing with respect to either
 @c stopping or restarting threads.
 
 This packet is only available in extended mode (@pxref{extended mode}).
@@ -28189,7 +28189,7 @@ Step with signal @var{sig}.  The signal @var{sig} should be two hex digits.
 Stop.
 @end table
 
-The optional argument @var{addr} normally associated with the 
+The optional argument @var{addr} normally associated with the
 @samp{c}, @samp{C}, @samp{s}, and @samp{S} packets is
 not supported in @samp{vCont}.
 
@@ -28538,10 +28538,10 @@ list of loaded libraries.  @var{r} is ignored.
 
 @cindex replay log events, remote reply
 @item replaylog
-The packet indicates that the target cannot continue replaying 
+The packet indicates that the target cannot continue replaying
 logged execution events, because it has reached the end (or the
 beginning when executing backward) of the log.  The value of @var{r}
-will be either @samp{begin} or @samp{end}.  @xref{Reverse Execution}, 
+will be either @samp{begin} or @samp{end}.  @xref{Reverse Execution},
 for more information.
 
 
@@ -28649,7 +28649,7 @@ Return the current thread ID.
 Reply:
 @table @samp
 @item QC @var{thread-id}
-Where @var{thread-id} is a thread ID as documented in 
+Where @var{thread-id} is a thread ID as documented in
 @ref{thread-id syntax}.
 @item @r{(anything else)}
 Any other reply implies the old thread ID.
@@ -28706,7 +28706,7 @@ In response to each query, the target will reply with a list of one or
 more thread IDs, separated by commas.
 @value{GDBN} will respond to each reply with a request for more thread
 ids (using the @samp{qs} form of the query), until the target responds
-with @samp{l} (lower-case el, for @dfn{last}).  
+with @samp{l} (lower-case el, for @dfn{last}).
 Refer to @ref{thread-id syntax}, for the format of the @var{thread-id}
 fields.
 
@@ -28726,7 +28726,7 @@ information associated with the variable.)
 @var{lm} is the (big endian, hex encoded) OS/ABI-specific encoding of the
 the load module associated with the thread local storage.  For example,
 a @sc{gnu}/Linux system will pass the link map address of the shared
-object associated with the thread local storage under consideration. 
+object associated with the thread local storage under consideration.
 Other operating environments may choose to represent the load module
 differently, so the precise meaning of this parameter will vary.
 
@@ -28798,7 +28798,7 @@ kept at fixed offsets relative to the last relocated segment.
 @cindex thread information, remote request
 @cindex @samp{qP} packet
 Returns information on @var{thread-id}.  Where: @var{mode} is a hex
-encoded 32 bit mode; @var{thread-id} is a thread ID 
+encoded 32 bit mode; @var{thread-id} is a thread ID
 (@pxref{thread-id syntax}).
 
 Don't use this packet; use the @samp{qThreadExtraInfo} query instead
@@ -28829,14 +28829,14 @@ the stub.
 
 This packet is not probed by default; the remote stub must request it,
 by supplying an appropriate @samp{qSupported} response (@pxref{qSupported}).
-Use of this packet is controlled by the @code{set non-stop} command; 
+Use of this packet is controlled by the @code{set non-stop} command;
 @pxref{Non-Stop Mode}.
 
 @item QPassSignals: @var{signal} @r{[};@var{signal}@r{]}@dots{}
 @cindex pass signals to inferior, remote request
 @cindex @samp{QPassSignals} packet
 @anchor{QPassSignals}
-Each listed @var{signal} should be passed directly to the inferior process. 
+Each listed @var{signal} should be passed directly to the inferior process.
 Signals are numbered identically to continue packets and stop replies
 (@pxref{Stop Reply Packets}).  Each @var{signal} list item should be
 strictly greater than the previous item.  These signals do not need to stop
@@ -28987,11 +28987,11 @@ state, even if the stub had previously been communicating with
 a different version of @value{GDBN}.
 
 The following values of @var{gdbfeature} (for the packet sent by @value{GDBN})
-are defined:  
+are defined:
 
 @table @samp
 @item multiprocess
-This feature indicates whether @value{GDBN} supports multiprocess 
+This feature indicates whether @value{GDBN} supports multiprocess
 extensions to the remote protocol.  @value{GDBN} does not use such
 extensions unless the stub also reports that it supports them by
 including @samp{multiprocess+} in its @samp{qSupported} reply.
@@ -29255,7 +29255,7 @@ encoded).  @value{GDBN} will continue to supply the values of symbols
 @cindex thread attributes info, remote request
 @cindex @samp{qThreadExtraInfo} packet
 Obtain a printable string description of a thread's attributes from
-the target OS.  @var{thread-id} is a thread ID; 
+the target OS.  @var{thread-id} is a thread ID;
 see @ref{thread-id syntax}.  This
 string may contain anything that the target OS thinks is interesting
 for @value{GDBN} to tell the user about the thread.  The string is
@@ -29276,11 +29276,11 @@ the command by a @samp{,}, not a @samp{:}, contrary to the naming
 conventions above.  Please don't use this packet as a model for new
 packets.)
 
-@item QTStart    
-@itemx QTStop     
-@itemx QTinit     
-@itemx QTro       
-@itemx qTStatus   
+@item QTStart
+@itemx QTStop
+@itemx QTinit
+@itemx QTro
+@itemx qTStatus
 @xref{Tracepoint Packets}.
 
 @item qXfer:@var{object}:read:@var{annex}:@var{offset},@var{length}
@@ -29350,7 +29350,7 @@ by supplying an appropriate @samp{qSupported} response
 @item qXfer:spu:read:@var{annex}:@var{offset},@var{length}
 @anchor{qXfer spu read}
 Read contents of an @code{spufs} file on the target system.  The
-annex specifies which file to read; it must be of the form 
+annex specifies which file to read; it must be of the form
 @file{@var{id}/@var{name}}, where @var{id} specifies an SPU context ID
 in the target process, and @var{name} identifes the @code{spufs} file
 in that context to be accessed.
@@ -29361,7 +29361,7 @@ by supplying an appropriate @samp{qSupported} response
 
 @item qXfer:osdata:read::@var{offset},@var{length}
 @anchor{qXfer osdata read}
-Access the target's @dfn{operating system information}.  
+Access the target's @dfn{operating system information}.
 @xref{Operating System Information}.
 
 @end table
@@ -29535,7 +29535,7 @@ Replies:
 @table @samp
 @item OK
 The packet was understood and carried out.
-@item 
+@item
 The packet was not recognized.
 @end table
 
@@ -29599,7 +29599,7 @@ Replies:
 @table @samp
 @item OK
 The packet was understood and carried out.
-@item 
+@item
 The packet was not recognized.
 @end table
 
@@ -29804,7 +29804,7 @@ and does @emph{not} represent an interrupt.  E.g., an @samp{X} packet
 Stubs are not required to recognize these interrupt mechanisms and the
 precise meaning associated with receipt of the interrupt is
 implementation defined.  If the target supports debugging of multiple
-threads and/or processes, it should attempt to interrupt all 
+threads and/or processes, it should attempt to interrupt all
 currently-executing threads and processes.
 If the stub is successful at interrupting the
 running program, it should send one of the stop
@@ -29860,10 +29860,10 @@ defined:
 
 @table @samp
 @item Stop: @var{reply}
-Report an asynchronous stop event in non-stop mode.  
+Report an asynchronous stop event in non-stop mode.
 The @var{reply} has the form of a stop reply, as
 described in @ref{Stop Reply Packets}.  Refer to @ref{Remote Non-Stop},
-for information on how these notifications are acknowledged by 
+for information on how these notifications are acknowledged by
 @value{GDBN}.
 @end table
 
@@ -29898,7 +29898,7 @@ Only one stop reply notification at a time may be pending; if
 additional stop events occur before @value{GDBN} has acknowledged the
 previous notification, they must be queued by the stub for later
 synchronous transmission in response to @samp{vStopped} packets from
-@value{GDBN}.  Because the notification mechanism is unreliable, 
+@value{GDBN}.  Because the notification mechanism is unreliable,
 the stub is permitted to resend a stop reply notification
 if it believes @value{GDBN} may not have received it.  @value{GDBN}
 ignores additional stop reply notifications received before it has
@@ -29934,7 +29934,7 @@ send a new stop reply notification, @value{GDBN} shall accept the
 notification, and the process shall be repeated.
 
 In non-stop mode, the target shall respond to the @samp{?} packet as
-follows.  First, any incomplete stop reply notification/@samp{vStopped} 
+follows.  First, any incomplete stop reply notification/@samp{vStopped}
 sequence in progress is abandoned.  The target must begin a new
 sequence reporting stop events for all stopped threads, whether or not
 it has previously reported those events to @value{GDBN}.  The first
@@ -30055,12 +30055,12 @@ It uses its own internal representation of datatypes and values.  Both
 translating the system-dependent value representations into the internal
 protocol representations when data is transmitted.
 
-The communication is synchronous.  A system call is possible only when 
-@value{GDBN} is waiting for a response from the @samp{C}, @samp{c}, @samp{S} 
+The communication is synchronous.  A system call is possible only when
+@value{GDBN} is waiting for a response from the @samp{C}, @samp{c}, @samp{S}
 or @samp{s} packets.  While @value{GDBN} handles the request for a system call,
 the target is stopped to allow deterministic access to the target's
 memory.  Therefore File-I/O is not interruptible by target signals.  On
-the other hand, it is possible to interrupt File-I/O by a user interrupt 
+the other hand, it is possible to interrupt File-I/O by a user interrupt
 (@samp{Ctrl-C}) within @value{GDBN}.
 
 The target's request to perform a host system call does not finish
@@ -30078,7 +30078,7 @@ request from @value{GDBN} is required.
   <- target hits breakpoint and sends a Txx packet
 @end smallexample
 
-The protocol only supports I/O on the console and to regular files on 
+The protocol only supports I/O on the console and to regular files on
 the host file system.  Character or block special devices, pipes,
 named pipes, sockets or any other communication method on the host
 system are not supported by this protocol.
@@ -30091,7 +30091,7 @@ File I/O is not supported in non-stop mode.
 
 The File-I/O protocol uses the @code{F} packet as the request as well
 as reply packet.  Since a File-I/O system call can only occur when
-@value{GDBN} is waiting for a response from the continuing or stepping target, 
+@value{GDBN} is waiting for a response from the continuing or stepping target,
 the File-I/O request is a reply that @value{GDBN} has to expect as a result
 of a previous @samp{C}, @samp{c}, @samp{S} or @samp{s} packet.
 This @code{F} packet contains all information needed to allow @value{GDBN}
@@ -30113,7 +30113,7 @@ At this point, @value{GDBN} has to perform the following actions.
 
 @itemize @bullet
 @item
-If the parameters include pointer values to data needed as input to a 
+If the parameters include pointer values to data needed as input to a
 system call, @value{GDBN} requests this data from the target with a
 standard @code{m} packet request.  This additional communication has to be
 expected by the target implementation and is handled as any other @code{m}
@@ -30169,11 +30169,11 @@ The @code{F} request packet has the following format:
 @var{call-id} is the identifier to indicate the host system call to be called.
 This is just the name of the function.
 
-@var{parameter@dots{}} are the parameters to the system call.  
+@var{parameter@dots{}} are the parameters to the system call.
 Parameters are hexadecimal integer values, either the actual values in case
 of scalar datatypes, pointers to target buffer space in case of compound
 datatypes and unspecified memory areas, or pointer/length pairs in case
-of string parameters.  These are appended to the @var{call-id} as a 
+of string parameters.  These are appended to the @var{call-id} as a
 comma-delimited list.  All values are transmitted in ASCII
 string representation, pointer/length pairs separated by a slash.
 
@@ -30841,10 +30841,10 @@ The call was interrupted by the user.
 
 @end table
 
-@value{GDBN} takes over the full task of calling the necessary host calls 
-to perform the @code{system} call.  The return value of @code{system} on 
+@value{GDBN} takes over the full task of calling the necessary host calls
+to perform the @code{system} call.  The return value of @code{system} on
 the host is simplified before it's returned
-to the target.  Any termination signal information from the child process 
+to the target.  Any termination signal information from the child process
 is discarded, and the return value consists
 entirely of the exit status of the called command.
 
@@ -30880,9 +30880,9 @@ protocol.
 @unnumberedsubsubsec Integral Datatypes
 @cindex integral datatypes, in file-i/o protocol
 
-The integral datatypes used in the system calls are @code{int}, 
+The integral datatypes used in the system calls are @code{int},
 @code{unsigned int}, @code{long}, @code{unsigned long},
-@code{mode_t}, and @code{time_t}.  
+@code{mode_t}, and @code{time_t}.
 
 @code{int}, @code{unsigned int}, @code{mode_t} and @code{time_t} are
 implemented as 32 bit values in this protocol.
@@ -30926,10 +30926,10 @@ at address 0x123456 is transmitted as
 @cindex memory transfer, in file-i/o protocol
 
 Structured data which is transferred using a memory read or write (for
-example, a @code{struct stat}) is expected to be in a protocol-specific format 
+example, a @code{struct stat}) is expected to be in a protocol-specific format
 with all scalar multibyte datatypes being big endian.  Translation to
-this representation needs to be done both by the target before the @code{F} 
-packet is sent, and by @value{GDBN} before 
+this representation needs to be done both by the target before the @code{F}
+packet is sent, and by @value{GDBN} before
 it transfers memory to the target.  Transferred pointers to structured
 data should point to the already-coerced data at any time.
 
@@ -30938,7 +30938,7 @@ data should point to the already-coerced data at any time.
 @unnumberedsubsubsec struct stat
 @cindex struct stat, in file-i/o protocol
 
-The buffer of type @code{struct stat} used by the target and @value{GDBN} 
+The buffer of type @code{struct stat} used by the target and @value{GDBN}
 is defined as follows:
 
 @smallexample
@@ -31815,7 +31815,7 @@ Linux kernel to control restartable syscalls.
 @item @samp{org.gnu.gdb.m68k.core}
 @itemx @samp{org.gnu.gdb.coldfire.core}
 @itemx @samp{org.gnu.gdb.fido.core}
-One of those features must be always present. 
+One of those features must be always present.
 The feature that is present determines which flavor of m68k is
 used.  The feature that is present should contain registers
 @samp{d0} through @samp{d7}, @samp{a0} through @samp{a5}, @samp{fp},
@@ -31869,7 +31869,7 @@ user.
 Users of @value{GDBN} often wish to obtain information about the state of
 the operating system running on the target---for example the list of
 processes, or the list of open files.  This section describes the
-mechanism that makes it possible.  This mechanism is similar to the 
+mechanism that makes it possible.  This mechanism is similar to the
 target features mechanism (@pxref{Target Descriptions}), but focuses
 on a different aspect of target.
 

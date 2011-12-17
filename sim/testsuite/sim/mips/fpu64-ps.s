@@ -204,7 +204,7 @@ DIAG:
 
 	writemsg "movf.ps (y,y)"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (1 << 25)
 	xor	$2, $2, (1 << 23) | (1 << 25)
 	ctc1	$2, $31			# clear fcc0, clear fcc1
@@ -215,7 +215,7 @@ DIAG:
 
 	writemsg "movf.ps (y,n)"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (1 << 25)
 	xor	$2, $2, (0 << 23) | (1 << 25)
 	ctc1	$2, $31			# set fcc0, clear fcc1
@@ -226,7 +226,7 @@ DIAG:
 
 	writemsg "movf.ps (n,y)"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (1 << 25)
 	xor	$2, $2, (1 << 23) | (0 << 25)
 	ctc1	$2, $31			# clear fcc0, set fcc1
@@ -237,7 +237,7 @@ DIAG:
 
 	writemsg "movf.ps (n,n)"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (1 << 25)
 	xor	$2, $2, (0 << 23) | (0 << 25)
 	ctc1	$2, $31			# set fcc0, set fcc1
@@ -248,7 +248,7 @@ DIAG:
 
 	writemsg "movt.ps (n,n)"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (1 << 25)
 	xor	$2, $2, (1 << 23) | (1 << 25)
 	ctc1	$2, $31			# clear fcc0, clear fcc1
@@ -259,7 +259,7 @@ DIAG:
 
 	writemsg "movt.ps (n,y)"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (1 << 25)
 	xor	$2, $2, (0 << 23) | (1 << 25)
 	ctc1	$2, $31			# set fcc0, clear fcc1
@@ -270,7 +270,7 @@ DIAG:
 
 	writemsg "movt.ps (y,n)"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (1 << 25)
 	xor	$2, $2, (1 << 23) | (0 << 25)
 	ctc1	$2, $31			# clear fcc0, set fcc1
@@ -281,7 +281,7 @@ DIAG:
 
 	writemsg "movt.ps (y,y)"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (1 << 25)
 	xor	$2, $2, (0 << 23) | (0 << 25)
 	ctc1	$2, $31			# set fcc0, set fcc1
@@ -339,7 +339,7 @@ DIAG:
 
 	writemsg "c.f.ps"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (0x7f << 25)
 	ctc1	$2, $31			# set all fcc bits
 	c.f.ps	$fcc0, $f8, $f8		# -> f, f
@@ -348,10 +348,10 @@ DIAG:
 	bc1t	$fcc1, _fail
 	 nop
 
-	
+
 	writemsg "c.olt.ps"
 
-	cfc1	$2, $31	
+	cfc1	$2, $31
 	or	$2, $2, (1 << 23) | (0x7f << 25)
 	xor	$2, $2, (1 << 23) | (0x7f << 25)
 	ctc1	$2, $31			# clear all fcc bits
@@ -360,7 +360,7 @@ DIAG:
 	 nop
 	bc1f	$fcc1, _fail
 	 nop
-	
+
 
 	pass
 

@@ -238,7 +238,7 @@ mi_gdb_test "-var-update *" \
 	"update all vars: lsimple and others changed"
 
 
-### 
+###
 #
 # Test assignment to variables. More tests on assignment are in other files.
 #
@@ -366,7 +366,7 @@ mi_gdb_test "-var-update *" \
 
 # Check that assignment of function and array values
 # promotes the assigned value to function pointer/data
-# pointer before comparing with the existing value, 
+# pointer before comparing with the existing value,
 # and does not incorrectly make the value as changed.
 mi_gdb_test "-var-assign func do_block_tests" \
 	"\\^done,value=\"$hex <do_block_tests>\"" \
@@ -398,7 +398,7 @@ mi_gdb_test "-var-update *" \
 
 
 ######
-# End of assign tests 
+# End of assign tests
 #####
 
 set line_subroutine1_body [gdb_get_line_number "global_simple.integer = i + 3;"]

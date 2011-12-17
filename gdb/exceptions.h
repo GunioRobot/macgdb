@@ -191,7 +191,7 @@ extern NORETURN void deprecated_throw_reason (enum return_reason reason) ATTR_NO
 
    The variant catch_exceptions_with_msg() is the same as
    catch_exceptions() but adds the ability to return an allocated
-   copy of the gdb error message.  This is used when a silent error is 
+   copy of the gdb error message.  This is used when a silent error is
    issued and the caller wants to manually issue the error message.
 
    MASK specifies what to catch; it is normally set to
@@ -217,7 +217,7 @@ extern int catch_exceptions (struct ui_out *uiout,
 			     return_mask mask);
 typedef void (catch_exception_ftype) (struct ui_out *ui_out, void *args);
 extern int catch_exceptions_with_msg (struct ui_out *uiout,
-			     	      catch_exceptions_ftype *func, 
+			     	      catch_exceptions_ftype *func,
 			     	      void *func_args,
 			     	      char **gdberrmsg,
 				      return_mask mask);

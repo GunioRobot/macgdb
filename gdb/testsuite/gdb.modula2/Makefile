@@ -20,7 +20,7 @@
 
 srcdir = .
 
-EXECUTABLES = 
+EXECUTABLES =
 
 all info install-info dvi install uninstall installcheck check:
 	@echo "Nothing to be done for $@..."

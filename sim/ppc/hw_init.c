@@ -1,21 +1,21 @@
 /*  This file is part of the program psim.
-    
+
     Copyright 1994, 1997, 2003, 2004 Andrew Cagney
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-    
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-    
+
     */
 
 
@@ -288,7 +288,7 @@ static device_callbacks const hw_data_callbacks = {
 
    BUGS
 
-   
+
    When loading the binary the bfd virtual-address is used.  It should
    be using the bfd load-address.
 
@@ -299,7 +299,7 @@ static device_callbacks const hw_data_callbacks = {
    map-binary - map the binary into the users address space
 
    DESCRIPTION
-   
+
    Similar to load-binary except that memory for each segment is
    created before the corresponding data for the segment is loaded.
 
@@ -617,7 +617,7 @@ create_ppc_aix_stack_frame(device *me,
 
   /* cheat - create an elf stack frame */
   create_ppc_elf_stack_frame(me, bottom_of_stack, argv, envp);
-  
+
   /* extract argument addresses from registers */
   ASSERT (psim_read_register(device_system(me), 0,
 			     &top_of_stack, "r1", cooked_transfer) > 0);
@@ -687,7 +687,7 @@ hw_stack_ioctl(device *me,
 	create_ppc_chirp_bootargs(me, argv);
       else if (strcmp(stack_type, "none") != 0)
 	device_error(me, "Unknown initial stack frame type %s", stack_type);
-      DTRACE(stack, 
+      DTRACE(stack,
 	     ("stack_ioctl_callback() = void\n"));
       break;
     }

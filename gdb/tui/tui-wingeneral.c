@@ -78,7 +78,7 @@ tui_delete_win (WINDOW *window)
 
 /* Draw a border arround the window.  */
 static void
-box_win (struct tui_gen_win_info *win_info, 
+box_win (struct tui_gen_win_info *win_info,
 	 int highlight_flag)
 {
   if (win_info && win_info->handle)
@@ -111,7 +111,7 @@ box_win (struct tui_gen_win_info *win_info,
 void
 tui_unhighlight_win (struct tui_win_info *win_info)
 {
-  if (win_info != NULL 
+  if (win_info != NULL
       && win_info->generic.handle != (WINDOW *) NULL)
     {
       box_win ((struct tui_gen_win_info *) win_info, NO_HILITE);

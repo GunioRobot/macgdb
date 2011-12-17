@@ -16,7 +16,7 @@
 	mov #5, r5
 	mov #15, r15
 	.endm
-	
+
 	start
 
 	init
@@ -86,5 +86,5 @@ larget:
 	addc r0, r1
 	assert r1, #2
 
-okay:	
+okay:
 	pass

@@ -287,7 +287,7 @@ i386_darwin_dr_set (int regnum, uint32_t value)
   dr_regs.dsh.flavor = x86_DEBUG_STATE32;
   dr_regs.dsh.count = x86_DEBUG_STATE32_COUNT;
   dr_count = x86_DEBUG_STATE_COUNT;
-  ret = thread_get_state (current_thread, x86_DEBUG_STATE, 
+  ret = thread_get_state (current_thread, x86_DEBUG_STATE,
                           (thread_state_t) &dr_regs, &dr_count);
 
   if (ret != KERN_SUCCESS)
@@ -296,7 +296,7 @@ i386_darwin_dr_set (int regnum, uint32_t value)
       MACH_CHECK_ERROR (ret);
     }
 
-  switch (regnum) 
+  switch (regnum)
     {
       case 0:
         dr_regs.uds.ds32.__dr0 = value;
@@ -324,7 +324,7 @@ i386_darwin_dr_set (int regnum, uint32_t value)
         break;
     }
 
-  ret = thread_set_state (current_thread, x86_DEBUG_STATE, 
+  ret = thread_set_state (current_thread, x86_DEBUG_STATE,
                           (thread_state_t) &dr_regs, dr_count);
 
   if (ret != KERN_SUCCESS)
@@ -349,7 +349,7 @@ i386_darwin_dr_get (int regnum)
   dr_regs.dsh.flavor = x86_DEBUG_STATE32;
   dr_regs.dsh.count = x86_DEBUG_STATE32_COUNT;
   dr_count = x86_DEBUG_STATE_COUNT;
-  ret = thread_get_state (current_thread, x86_DEBUG_STATE, 
+  ret = thread_get_state (current_thread, x86_DEBUG_STATE,
                           (thread_state_t) &dr_regs, &dr_count);
 
   if (ret != KERN_SUCCESS)
@@ -358,7 +358,7 @@ i386_darwin_dr_get (int regnum)
       MACH_CHECK_ERROR (ret);
     }
 
-  switch (regnum) 
+  switch (regnum)
     {
       case 0:
         return dr_regs.uds.ds32.__dr0;
@@ -436,7 +436,7 @@ darwin_check_osabi (darwin_inferior *inf, thread_t thread)
 	info.bfd_arch_info = bfd_lookup_arch (bfd_arch_i386,
 					      bfd_mach_x86_64);
       else
-	info.bfd_arch_info = bfd_lookup_arch (bfd_arch_i386, 
+	info.bfd_arch_info = bfd_lookup_arch (bfd_arch_i386,
 					      bfd_mach_i386_i386);
       gdbarch_update_p (info);
     }
@@ -536,13 +536,13 @@ darwin_set_sstep (thread_t thread, int enable)
     case x86_THREAD_STATE32:
       {
 	__uint32_t bit = enable ? X86_EFLAGS_T : 0;
-	
+
 	if (enable && i386_darwin_sstep_at_sigreturn (&regs))
 	  return;
 	if ((regs.uts.ts32.__eflags & X86_EFLAGS_T) == bit)
 	  return;
 	regs.uts.ts32.__eflags = (regs.uts.ts32.__eflags & ~X86_EFLAGS_T) | bit;
-	kret = thread_set_state (thread, x86_THREAD_STATE, 
+	kret = thread_set_state (thread, x86_THREAD_STATE,
 				 (thread_state_t) &regs, count);
 	MACH_CHECK_ERROR (kret);
       }
@@ -557,7 +557,7 @@ darwin_set_sstep (thread_t thread, int enable)
 	if ((regs.uts.ts64.__rflags & X86_EFLAGS_T) == bit)
 	  return;
 	regs.uts.ts64.__rflags = (regs.uts.ts64.__rflags & ~X86_EFLAGS_T) | bit;
-	kret = thread_set_state (thread, x86_THREAD_STATE, 
+	kret = thread_set_state (thread, x86_THREAD_STATE,
 				 (thread_state_t) &regs, count);
 	MACH_CHECK_ERROR (kret);
       }

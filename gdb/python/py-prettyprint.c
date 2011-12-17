@@ -95,7 +95,7 @@ find_pretty_printer (PyObject *value)
 
     if (function != Py_None)
       goto done;
-    
+
     Py_DECREF (function);
     Py_XDECREF (pp_list);
   }
@@ -118,7 +118,7 @@ find_pretty_printer (PyObject *value)
 
  done:
   Py_XDECREF (pp_list);
-  
+
   return function;
 }
 /* Pretty-print a single value, via the printer object PRINTER.
@@ -196,7 +196,7 @@ print_string_repr (PyObject *printer, const char *hint,
 	{
 	  gdb_byte *output = PyString_AsString (string);
 	  int len = PyString_Size (string);
-	  
+
 	  if (hint && !strcmp (hint, "string"))
 	    LA_PRINT_STRING (stream, builtin_type (gdbarch)->builtin_char,
 			     output, len, 0, options);
@@ -356,7 +356,7 @@ print_children (PyObject *printer, const char *hint,
 	    gdbpy_print_stack ();
 	  /* Set a flag so we can know whether we printed all the
 	     available elements.  */
-	  else	  
+	  else
 	    done_flag = 1;
 	  break;
 	}
@@ -495,7 +495,7 @@ apply_val_pretty_printer (struct type *type, const gdb_byte *valaddr,
   val_obj = value_to_value_object (value);
   if (! val_obj)
     goto done;
-  
+
   /* Find the constructor.  */
   printer = find_pretty_printer (val_obj);
   Py_DECREF (val_obj);
@@ -549,7 +549,7 @@ apply_varobj_pretty_printer (PyObject *printer_obj,
 
 /* Find a pretty-printer object for the varobj module.  Returns a new
    reference to the object if successful; returns NULL if not.  VALUE
-   is the value for which a printer tests to determine if it 
+   is the value for which a printer tests to determine if it
    can pretty-print the value.  */
 PyObject *
 gdbpy_get_varobj_pretty_printer (struct value *value)
@@ -563,7 +563,7 @@ gdbpy_get_varobj_pretty_printer (struct value *value)
       value = value_copy (value);
     }
   GDB_PY_HANDLE_EXCEPTION (except);
-  
+
   val_obj = value_to_value_object (value);
   if (! val_obj)
     return NULL;

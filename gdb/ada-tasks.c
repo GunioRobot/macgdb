@@ -143,7 +143,7 @@ static struct tcb_fieldnos fieldno;
 static int ada_tasks_check_symbol_table = 1;
 
 /* The list of Ada tasks.
- 
+
    Note: To each task we associate a number that the user can use to
    reference it - this number is printed beside each task in the tasks
    info listing displayed by "info tasks".  This number is equal to
@@ -174,7 +174,7 @@ ada_get_task_number (ptid_t ptid)
 
 /* Return the task number of the task that matches TASK_ID, or zero
    if the task could not be found.  */
- 
+
 static int
 get_task_number_from_id (CORE_ADDR task_id)
 {
@@ -532,12 +532,12 @@ read_atcb (CORE_ADDR task_id, struct ada_task_info *task_info)
       value_as_address (value_field (common_value, fieldno.parent));
   else
     task_info->parent = 0;
-  
+
 
   /* If the ATCB contains some information about entry calls, then
      compute the "called_task" as well.  Otherwise, zero.  */
 
-  if (fieldno.atc_nesting_level > 0 && fieldno.entry_calls > 0) 
+  if (fieldno.atc_nesting_level > 0 && fieldno.entry_calls > 0)
     {
       /* Let My_ATCB be the Ada task control block of a task calling the
          entry of another task; then the Task_Id of the called task is
@@ -732,7 +732,7 @@ info_tasks (int from_tty)
   const int nb_tasks = VEC_length (ada_task_info_s, task_list);
 
   printf_filtered (_("  ID       TID P-ID Pri State                  Name\n"));
-  
+
   for (taskno = 1; taskno <= nb_tasks; taskno++)
     short_task_info (taskno);
 }
@@ -819,7 +819,7 @@ info_task (char *taskno_str, int from_tty)
 /* If ARG is empty or null, then print a list of all Ada tasks.
    Otherwise, print detailed information about the task whose ID
    is ARG.
-   
+
    Does nothing if the program doesn't use Ada tasking.  */
 
 static void
@@ -866,7 +866,7 @@ task_command_1 (char *taskno_str, int from_tty)
 
   if (!ada_task_is_alive (task_info))
     error (_("Cannot switch to task %d: Task is no longer running"), taskno);
-   
+
   /* On some platforms, the thread list is not updated until the user
      performs a thread-related operation (by using the "info threads"
      command, for instance).  So this thread list may not be up to date
@@ -922,7 +922,7 @@ Task switching not supported when debugging from core files\n\
 static void
 ada_task_list_changed (void)
 {
-  stale_task_list_p = 1;  
+  stale_task_list_p = 1;
 }
 
 /* The 'normal_stop' observer notification callback.  */

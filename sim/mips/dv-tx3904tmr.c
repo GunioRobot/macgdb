@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -25,20 +25,20 @@
 
 /* DEVICE
 
-   
+
    tx3904tmr - tx3904 timer
 
-   
+
    DESCRIPTION
 
-   
+
    Implements one tx3904 timer/counter described in the tx3904
    user guide.  Three instances are required for TMR0, TMR1, and
-   TMR3 within the tx3904, at different base addresses.  
+   TMR3 within the tx3904, at different base addresses.
 
    Both internal and system clocks are synthesized as divided versions
    of the simulator clock.
-   
+
    There is no support for:
     - edge sensitivity of external clock
     - different mode restrictions for TMR0..2
@@ -68,7 +68,7 @@
    Rate of timer clock signal.  This number is the number of simulator
    ticks per clock signal tick.  Default 1.
 
-   
+
    ext <ticks>
 
    Rate of "external input clock signal", the other clock input of the
@@ -106,7 +106,7 @@ static void deliver_tx3904tmr_tick (struct hw *me, void *data);
 
 
 /* register numbers; each is one word long */
-enum 
+enum
 {
   TCR_REG = 0,
   TISR_REG = 1,
@@ -131,7 +131,7 @@ enum
 };
 
 
-static const struct hw_port_descriptor tx3904tmr_ports[] = 
+static const struct hw_port_descriptor tx3904tmr_ports[] =
 {
   { "int", INT_PORT, 0, output_port, },
   { "ff", FF_PORT, 0, output_port, },
@@ -256,12 +256,12 @@ tx3904tmr_finish (struct hw *me)
   attach_tx3904tmr_regs (me, controller);
 
   /* Initialize to reset state */
-  controller->tcr = 
+  controller->tcr =
     controller->itmr =
     controller->ccdr =
-    controller->pmgr = 
+    controller->pmgr =
     controller->wtmr =
-    controller->tisr = 
+    controller->tisr =
     controller->trr = 0;
   controller->cpra = controller->cprb = 0x00FFFFFF;
   controller->ff = 0;
@@ -291,12 +291,12 @@ tx3904tmr_port_event (struct hw *me,
 	/* preset flip-flop to FFI value */
 	controller->ff = GET_PMGR_FFI(controller);
 
-	controller->tcr = 
+	controller->tcr =
 	  controller->itmr =
 	  controller->ccdr =
-	  controller->pmgr = 
+	  controller->pmgr =
 	  controller->wtmr =
-	  controller->tisr = 
+	  controller->tisr =
 	  controller->trr = 0;
 	controller->cpra = controller->cprb = 0x00FFFFFF;
 	controller->last_ticks = controller->roundoff_ticks = 0;
@@ -353,7 +353,7 @@ tx3904tmr_io_read_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 
@@ -447,9 +447,9 @@ tx3904tmr_io_write_buffer (struct hw *me,
 	      /* Send an "interrupt off" event on the interrupt port */
 	      if(controller->tisr != 0) /* any interrupts active? */
 		{
-		  hw_port_event(me, INT_PORT, 0);		  
+		  hw_port_event(me, INT_PORT, 0);
 		}
-	      
+
 	      /* clear interrupt status register */
 	      controller->tisr = 0;
 	    }
@@ -472,7 +472,7 @@ tx3904tmr_io_write_buffer (struct hw *me,
 	  /* HW_TRACE ((me, "cprb: %08lx", (long) controller->cprb)); */
 	  break;
 
-	default: 
+	default:
 	  HW_TRACE ((me, "write to illegal register %d", reg_number));
 	}
     } /* loop over bytes */
@@ -482,7 +482,7 @@ tx3904tmr_io_write_buffer (struct hw *me,
   hw_event_queue_schedule(me, 1, deliver_tx3904tmr_tick, NULL);
 
   return nr_bytes;
-}     
+}
 
 
 
@@ -548,7 +548,7 @@ deliver_tx3904tmr_tick (struct hw *me,
      reschedule dummy events here. */
 
 
-  /* find appropriate divisor etc. */ 
+  /* find appropriate divisor etc. */
   if(GET_TCR_CCS(controller) == 0) /* internal system clock */
     {
       /* apply internal clock divider */
@@ -580,7 +580,7 @@ deliver_tx3904tmr_tick (struct hw *me,
       /* next 24-bit counter value */
       unsigned_4 next_trr = (controller->trr + 1) % (1 << 24);
       quotient --;
-      
+
       switch((int) GET_TCR_TMODE(controller))
 	{
 	case 0: /* interval timer mode */

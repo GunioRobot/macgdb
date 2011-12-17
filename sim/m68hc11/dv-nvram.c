@@ -2,7 +2,7 @@
     Copyright (C) 1999, 2000, 2007, 2008, 2009 Free Software Foundation, Inc.
     Written by Stephane Carrez (stcarrez@worldnet.fr)
     (From a driver model Contributed by Cygnus Solutions.)
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -32,7 +32,7 @@
 
         nvram - Non Volatile Ram
 
-   
+
    DESCRIPTION
 
         Implements a generic battery saved CMOS ram. This ram device does
@@ -40,7 +40,7 @@
         The ram content is loaded from a file and saved when it is changed.
         It is intended to be generic.
 
-   
+
    PROPERTIES
 
    reg <base> <length>
@@ -58,7 +58,7 @@
            map            The file is mapped in memory
            save-modified  The simulator keeps an open file descriptor to
                           the file and saves portion of memory which are
-                          modified. 
+                          modified.
            save-all       The simulator saves the complete memory each time
                           it's modified (it does not keep an open file
                           descriptor).
@@ -100,7 +100,7 @@ enum nvram_mode
   NVRAM_MAP_FILE
 };
 
-struct nvram 
+struct nvram
 {
   address_word    base_address; /* Base address of ram.  */
   unsigned        size;         /* Size of ram.  */
@@ -153,11 +153,11 @@ attach_nvram_regs (struct hw *me, struct nvram *controller)
   controller->base_address = attach_address;
   controller->size         = attach_size;
   controller->fd           = -1;
-  
+
   /* Get the file where the ram content must be loaded/saved.  */
   if(hw_find_property (me, "file") == NULL)
     hw_abort (me, "Missing \"file\" property");
-  
+
   controller->file_name = hw_find_string_property (me, "file");
 
   /* Get the mode which defines how to save the memory.  */
@@ -261,7 +261,7 @@ nvram_io_read_buffer (struct hw *me,
                       unsigned nr_bytes)
 {
   struct nvram *controller = hw_data (me);
-  
+
   HW_TRACE ((me, "read 0x%08lx %d [%ld]",
              (long) base, (int) nr_bytes,
              (long) (base - controller->base_address)));
@@ -269,7 +269,7 @@ nvram_io_read_buffer (struct hw *me,
   base -= controller->base_address;
   if (base + nr_bytes > controller->size)
     nr_bytes = controller->size - base;
-  
+
   memcpy (dest, &controller->data[base], nr_bytes);
   return nr_bytes;
 }
@@ -292,13 +292,13 @@ nvram_io_write_buffer (struct hw *me,
   base -= controller->base_address;
   if (base + nr_bytes > controller->size)
     nr_bytes = controller->size - base;
-  
+
   switch (controller->mode)
     {
     case NVRAM_SAVE_ALL:
       {
         int fd, result, oerrno;
-        
+
         fd = open (controller->file_name, O_WRONLY, 0644);
         if (fd < 0)
           {
@@ -310,14 +310,14 @@ nvram_io_write_buffer (struct hw *me,
         oerrno = errno;
         close (fd);
         errno = oerrno;
-  
+
         if (result != controller->size)
           {
             return 0;
           }
         return nr_bytes;
       }
-      
+
     case NVRAM_SAVE_MODIFIED:
       {
         off_t pos;

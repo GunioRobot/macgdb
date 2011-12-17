@@ -90,7 +90,7 @@ struct block
       /* Contains information about namespace-related info relevant to
 	 this block: using directives and the current namespace
 	 scope.  */
-      
+
       struct block_namespace_info *namespace;
     }
     cplus_specific;
@@ -140,7 +140,7 @@ extern int contained_in (const struct block *, const struct block *);
 
 extern struct blockvector *blockvector_for_pc (CORE_ADDR, struct block **);
 
-extern struct blockvector *blockvector_for_pc_sect (CORE_ADDR, 
+extern struct blockvector *blockvector_for_pc_sect (CORE_ADDR,
 						    struct obj_section *,
 						    struct block **,
                                                     struct symtab *);

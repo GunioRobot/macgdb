@@ -14,7 +14,7 @@ extern int sum();
 static int my_list[num] = {3,4,2,0,2,1,8,3,6,7};
 
 #ifdef __STDC__
-void print_average(int *list, int low, int high) 
+void print_average(int *list, int low, int high)
 #else
 void print_average(list, low, high)
 int *list, low, high;

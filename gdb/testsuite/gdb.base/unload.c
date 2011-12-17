@@ -42,7 +42,7 @@ int main()
   const char *msg;
 
   handle = dlopen (SHLIB_NAME, RTLD_LAZY);
-  
+
   if (!handle)
     {
       fprintf (stderr, dlerror ());

@@ -5,7 +5,7 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
@@ -22,7 +22,7 @@ word_dst:
 
 	;;
 	;; Move word from immediate source
-	;; 
+	;;
 
 .if (sim_cpu == h8sx)
 mov_w_imm3_to_reg16:
@@ -81,7 +81,7 @@ mov_w_imm4_to_abs16:
 	set_ccr_zero
 
 	;; mov.w #xx:4, @aa:16
-	mov.w	#0xf:4, @word_dst:16	; 4-bit imm to 16-bit address-direct 
+	mov.w	#0xf:4, @word_dst:16	; 4-bit imm to 16-bit address-direct
 ;;;	.word	0x6bdf
 ;;;	.word	@word_dst
 
@@ -112,7 +112,7 @@ mov_w_imm4_to_abs32:
 	set_ccr_zero
 
 	;; mov.w #xx:4, @aa:32
-	mov.w	#0xf:4, @word_dst:32	; 4-bit imm to 32-bit address-direct 
+	mov.w	#0xf:4, @word_dst:32	; 4-bit imm to 32-bit address-direct
 ;;;	.word	0x6bff
 ;;;	.long	@word_dst
 
@@ -795,7 +795,7 @@ mov_w_imm16_to_abs32:
 
 	;;
 	;; Move word from register source
-	;; 
+	;;
 
 mov_w_reg16_to_reg16:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -1166,7 +1166,7 @@ mov_w_reg16_to_abs32:
 
 	;;
 	;; Move word to register destination.
-	;; 
+	;;
 
 mov_w_indirect_to_reg16:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -1301,7 +1301,7 @@ mov_w_predec_to_reg16:		; pre-decrement from mem to register
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 
-	
+
 mov_w_disp2_to_reg16:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -1436,7 +1436,7 @@ mov_w_abs32_to_reg16:
 
 	;;
 	;; Move word from memory to memory
-	;; 
+	;;
 
 mov_w_indirect_to_indirect:	; reg indirect, memory to memory
 	set_grs_a5a5		; Fill all general regs with a fixed pattern

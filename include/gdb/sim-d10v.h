@@ -124,7 +124,7 @@ enum sim_d10v_regs
   SIM_D10V_DMAP3_REGNUM,
   SIM_D10V_TS2_DMAP_REGNUM
 };
-  
+
 enum
 {
   SIM_D10V_NR_R_REGS = 16,

@@ -1,6 +1,6 @@
 /* Main simulator entry points specific to Lattice Mico32.
    Contributed by Jon Beniston <jon@beniston.com>
-   
+
    Copyright (C) 2009 Free Software Foundation, Inc.
 
    This file is part of GDB.

@@ -38,7 +38,7 @@ if [get_compiler_info ${binfile}] {
     return -1;
 }
 
- 
+
 if { $gcc_compiled } then { continue }
 
 
@@ -57,7 +57,7 @@ gdb_reinitialize_dir $srcdir/$subdir
 send_gdb "file $binfile\n"
 gdb_expect {
     -re ".*no debugging symbols found.*$gdb_prompt $" {
-        fail "Didn't find debug symbols; CHFts23488" 
+        fail "Didn't find debug symbols; CHFts23488"
     }
     -re ".*No header section (PXDB data).*$gdb_prompt $" {
         fail "pointless warning"
@@ -86,9 +86,9 @@ gdb_expect {
         fail "pointless warning"
     }
     -re ".*main.*2\[12].*$gdb_prompt $" {
-        # All the lines before line 21 or 22 are 
+        # All the lines before line 21 or 22 are
         # evaporated by the compiler.
-        # 
+        #
         pass "hit main"
     }
     -re ".*$gdb_prompt $" {

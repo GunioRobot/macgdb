@@ -155,22 +155,22 @@ int baud_rate = -1;
 
 /* Timeout limit for response from target. */
 
-/* The default value has been changed many times over the years.  It 
-   was originally 5 seconds.  But that was thought to be a long time 
+/* The default value has been changed many times over the years.  It
+   was originally 5 seconds.  But that was thought to be a long time
    to sit and wait, so it was changed to 2 seconds.  That was thought
-   to be plenty unless the connection was going through some terminal 
+   to be plenty unless the connection was going through some terminal
    server or multiplexer or other form of hairy serial connection.
 
-   In mid-1996, remote_timeout was moved from remote.c to top.c and 
+   In mid-1996, remote_timeout was moved from remote.c to top.c and
    it began being used in other remote-* targets.  It appears that the
    default was changed to 20 seconds at that time, perhaps because the
    Renesas E7000 ICE didn't always respond in a timely manner.
 
    But if 5 seconds is a long time to sit and wait for retransmissions,
-   20 seconds is far worse.  This demonstrates the difficulty of using 
+   20 seconds is far worse.  This demonstrates the difficulty of using
    a single variable for all protocol timeouts.
 
-   As remote.c is used much more than remote-e7000.c, it was changed 
+   As remote.c is used much more than remote-e7000.c, it was changed
    back to 2 seconds in 1999. */
 
 int remote_timeout = 2;
@@ -451,7 +451,7 @@ execute_command (char *p, int from_tty)
 	deprecated_call_command_hook (c, arg, from_tty & caution);
       else
 	cmd_func (c, arg, from_tty & caution);
-       
+
       /* If this command has been post-hooked, run the hook last. */
       execute_cmd_post_hook (c);
 
@@ -1146,7 +1146,7 @@ and \"show warranty\" for details.\n");
 
   if (REPORT_BUGS_TO[0])
     {
-      fprintf_filtered (stream, 
+      fprintf_filtered (stream,
 			_("\nFor bug reporting instructions, please see:\n"));
       fprintf_filtered (stream, "%s.", REPORT_BUGS_TO);
     }
@@ -1297,7 +1297,7 @@ quit_force (char *args, int from_tty)
   int exit_code = 0;
   struct qt_args qt;
 
-  /* An optional expression may be used to cause gdb to terminate with the 
+  /* An optional expression may be used to cause gdb to terminate with the
      value of that expression. */
   if (args)
     {

@@ -178,7 +178,7 @@ struct target_ops
      called through read_inferior_memory, which handles breakpoint shadowing.
 
      Read LEN bytes at MEMADDR into a buffer at MYADDR.
-  
+
      Returns 0 on success and errno on failure.  */
 
   int (*read_memory) (CORE_ADDR memaddr, unsigned char *myaddr, int len);

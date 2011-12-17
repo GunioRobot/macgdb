@@ -20,7 +20,7 @@ PROTOS = archive.p archures.p bfd.p \
 
 IPROTOS = cache.ip libbfd.ip reloc.ip init.ip archures.ip coffcode.ip
 
-# SRCDOC, SRCPROT, SRCIPROT only used to sidestep Sun Make bug in interaction 
+# SRCDOC, SRCPROT, SRCIPROT only used to sidestep Sun Make bug in interaction
 # between VPATH and suffix rules.  If you use GNU Make, perhaps other Makes,
 # you don't need these three:
 SRCDOC = $(srcdir)/../aoutx.h  $(srcdir)/../archive.c \

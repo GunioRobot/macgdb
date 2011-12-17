@@ -198,7 +198,7 @@ struct addrmap_mutable
      transition at address T if T-1 and T map to different objects.
 
      Any addresses below the first node map to NULL.  (Unlike
-     fixed maps, we have no entry at (CORE_ADDR) 0; it doesn't 
+     fixed maps, we have no entry at (CORE_ADDR) 0; it doesn't
      simplify enough.)
 
      The last region is assumed to end at CORE_ADDR_MAX.
@@ -423,7 +423,7 @@ addrmap_mutable_create_fixed (struct addrmap *this, struct obstack *obstack)
   fixed->transitions[0].addr = 0;
   fixed->transitions[0].value = NULL;
 
-  /* Copy all entries from the splay tree to the array, in order 
+  /* Copy all entries from the splay tree to the array, in order
      of increasing address.  */
   splay_tree_foreach (mutable->tree, splay_foreach_copy, fixed);
 
@@ -539,7 +539,7 @@ extern initialize_file_ftype _initialize_addrmap;
 void
 _initialize_addrmap (void)
 {
-  /* Make sure splay trees can actually hold the values we want to 
+  /* Make sure splay trees can actually hold the values we want to
      store in them.  */
   gdb_assert (sizeof (splay_tree_key) >= sizeof (CORE_ADDR *));
   gdb_assert (sizeof (splay_tree_value) >= sizeof (void *));

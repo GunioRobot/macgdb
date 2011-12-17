@@ -353,7 +353,7 @@ do { \
 
 #define DSR  (saved_state.asregs.sregs.named.fpscr)
 
-int 
+int
 fail ()
 {
   abort ();
@@ -617,7 +617,7 @@ set_sr (new_sr)
   SET_MOD (MOD);
 }
 
-static void INLINE 
+static void INLINE
 wlat_fast (memory, x, value, maskl)
      unsigned char *memory;
 {
@@ -627,7 +627,7 @@ wlat_fast (memory, x, value, maskl)
   *p = v;
 }
 
-static void INLINE 
+static void INLINE
 wwat_fast (memory, x, value, maskw, endianw)
      unsigned char *memory;
 {
@@ -637,7 +637,7 @@ wwat_fast (memory, x, value, maskw, endianw)
   *p = v;
 }
 
-static void INLINE 
+static void INLINE
 wbat_fast (memory, x, value, maskb)
      unsigned char *memory;
 {
@@ -649,7 +649,7 @@ wbat_fast (memory, x, value, maskb)
 
 /* Read functions */
 
-static int INLINE 
+static int INLINE
 rlat_fast (memory, x, maskl)
      unsigned char *memory;
 {
@@ -659,7 +659,7 @@ rlat_fast (memory, x, maskl)
   return *p;
 }
 
-static int INLINE 
+static int INLINE
 rwat_fast (memory, x, maskw, endianw)
      unsigned char *memory;
      int x, maskw, endianw;
@@ -670,7 +670,7 @@ rwat_fast (memory, x, maskw, endianw)
   return *p;
 }
 
-static int INLINE 
+static int INLINE
 riat_fast (insn_ptr, endianw)
      unsigned char *insn_ptr;
 {
@@ -679,7 +679,7 @@ riat_fast (insn_ptr, endianw)
   return *p;
 }
 
-static int INLINE 
+static int INLINE
 rbat_fast (memory, x, maskb)
      unsigned char *memory;
 {
@@ -1051,7 +1051,7 @@ trap (i, regs, insn_ptr, memory, maskl, maskw, endianw)
    Besides, it's quite dangerous.  */
 #if 0
 	  case SYS_execve:
-	    regs[0] = execve (ptr (regs[5]), (char **) ptr (regs[6]), 
+	    regs[0] = execve (ptr (regs[5]), (char **) ptr (regs[6]),
 			      (char **) ptr (regs[7]));
 	    break;
 	  case SYS_execv:
@@ -1080,10 +1080,10 @@ trap (i, regs, insn_ptr, memory, maskl, maskw, endianw)
 	  case SYS_write:
 	    strnswap (regs[6], regs[7]);
 	    if (regs[5] == 1)
-	      regs[0] = (int) callback->write_stdout (callback, 
+	      regs[0] = (int) callback->write_stdout (callback,
 						      ptr (regs[6]), regs[7]);
 	    else
-	      regs[0] = (int) callback->write (callback, regs[5], 
+	      regs[0] = (int) callback->write (callback, regs[5],
 					       ptr (regs[6]), regs[7]);
 	    strnswap (regs[6], regs[7]);
 	    break;
@@ -1371,7 +1371,7 @@ dmul (sign, rm, rn)
   if (Res0 < temp0)
     Res2 += 1;
   Res2 += ((Res1 >> 16) & 0xffff) + temp3;
-  
+
   if (sign)
     {
       if (rn & 0x80000000)
@@ -1478,7 +1478,7 @@ enum {
   B_BLDNOT = 11,
   B_BANDNOT = 12,
   B_BORNOT = 13,
-  
+
   MOVB_RM = 0x0000,
   MOVW_RM = 0x1000,
   MOVL_RM = 0x2000,
@@ -1505,41 +1505,41 @@ do_long_move_insn (int op, int disp12, int m, int n, int *thatlock)
 
   switch (op) {
   case MOVB_RM:		/* signed */
-    WBAT (disp12 * 1 + R[n], R[m]); 
+    WBAT (disp12 * 1 + R[n], R[m]);
     break;
   case MOVW_RM:
-    WWAT (disp12 * 2 + R[n], R[m]); 
+    WWAT (disp12 * 2 + R[n], R[m]);
     break;
   case MOVL_RM:
-    WLAT (disp12 * 4 + R[n], R[m]); 
+    WLAT (disp12 * 4 + R[n], R[m]);
     break;
   case FMOV_RM:		/* floating point */
-    if (FPSCR_SZ) 
+    if (FPSCR_SZ)
       {
         MA (1);
         WDAT (R[n] + 8 * disp12, m);
       }
-    else 
+    else
       WLAT (R[n] + 4 * disp12, FI (m));
     break;
   case MOVB_MR:
     R[n] = RSBAT (disp12 * 1 + R[m]);
-    L (n); 
+    L (n);
     break;
   case MOVW_MR:
     R[n] = RSWAT (disp12 * 2 + R[m]);
-    L (n); 
+    L (n);
     break;
   case MOVL_MR:
     R[n] = RLAT (disp12 * 4 + R[m]);
-    L (n); 
+    L (n);
     break;
   case FMOV_MR:
     if (FPSCR_SZ) {
       MA (1);
       RDAT (R[m] + 8 * disp12, n);
     }
-    else 
+    else
       SET_FI (n, RLAT (R[m] + 4 * disp12));
     break;
   case MOVU_BMR:	/* unsigned */
@@ -1560,7 +1560,7 @@ do_long_move_insn (int op, int disp12, int m, int n, int *thatlock)
 
 /* Do binary logical bit-manipulation insns.  */
 void
-do_blog_insn (int imm, int addr, int binop, 
+do_blog_insn (int imm, int addr, int binop,
 	      unsigned char *memory, int maskb)
 {
   int oldval = RBAT (addr);
@@ -1653,7 +1653,7 @@ fsrra_s (float in)
 
 /* GET_LOOP_BOUNDS {EXTENDED}
    These two functions compute the actual starting and ending point
-   of the repeat loop, based on the RS and RE registers (repeat start, 
+   of the repeat loop, based on the RS and RE registers (repeat start,
    repeat stop).  The extended version is called for LDRC, and the
    regular version is called for SETRC.  The difference is that for
    LDRC, the loop start and end instructions are literally the ones
@@ -1777,7 +1777,7 @@ init_dsp (abfd)
   int was_dsp = target_dsp;
   unsigned long mach = bfd_get_mach (abfd);
 
-  if (mach == bfd_mach_sh_dsp  || 
+  if (mach == bfd_mach_sh_dsp  ||
       mach == bfd_mach_sh4al_dsp ||
       mach == bfd_mach_sh3_dsp)
     {
@@ -1810,9 +1810,9 @@ init_dsp (abfd)
 	  saved_state.asregs.xyram_select = new_select;
 	  free (saved_state.asregs.xmem);
 	  free (saved_state.asregs.ymem);
-	  saved_state.asregs.xmem = 
+	  saved_state.asregs.xmem =
 	    (unsigned char *) calloc (1, ram_area_size);
-	  saved_state.asregs.ymem = 
+	  saved_state.asregs.ymem =
 	    (unsigned char *) calloc (1, ram_area_size);
 
 	  /* Disable use of X / Y mmeory if not allocated.  */
@@ -1848,7 +1848,7 @@ init_dsp (abfd)
     }
 
   if (saved_state.asregs.regstack == NULL)
-    saved_state.asregs.regstack = 
+    saved_state.asregs.regstack =
       calloc (512, sizeof *saved_state.asregs.regstack);
 
   if (target_dsp != was_dsp)
@@ -2049,7 +2049,7 @@ sim_resume (sd, step, siggnal)
 	      && (*callback->poll_quit) (callback))
 	    {
 	      sim_stop (sd);
-	    }	    
+	    }
 	}
 
 #ifndef ACE_FAST
@@ -2552,11 +2552,11 @@ sim_info (sd, verbose)
      SIM_DESC sd;
      int verbose;
 {
-  double timetaken = 
+  double timetaken =
     (double) saved_state.asregs.ticks / (double) now_persec ();
   double virttime = saved_state.asregs.cycles / 36.0e6;
 
-  callback->printf_filtered (callback, "\n\n# instructions executed  %10d\n", 
+  callback->printf_filtered (callback, "\n\n# instructions executed  %10d\n",
 			     saved_state.asregs.insts);
   callback->printf_filtered (callback, "# cycles                 %10d\n",
 			     saved_state.asregs.cycles);
@@ -2577,9 +2577,9 @@ sim_info (sd, verbose)
 
   if (timetaken != 0)
     {
-      callback->printf_filtered (callback, "# cycles/second          %10d\n", 
+      callback->printf_filtered (callback, "# cycles/second          %10d\n",
 				 (int) (saved_state.asregs.cycles / timetaken));
-      callback->printf_filtered (callback, "# simulation ratio       %10.4f\n", 
+      callback->printf_filtered (callback, "# simulation ratio       %10.4f\n",
 				 virttime / timetaken);
     }
 }
@@ -2746,14 +2746,14 @@ sim_do_command (sd, cmd)
     }
 
   cmdsize = strlen (sms_cmd);
-  if (strncmp (cmd, sms_cmd, cmdsize) == 0 
+  if (strncmp (cmd, sms_cmd, cmdsize) == 0
       && strchr (" \t", cmd[cmdsize]) != NULL)
     {
       parse_and_set_memory_size (cmd + cmdsize + 1);
     }
   else if (strcmp (cmd, "help") == 0)
     {
-      (callback->printf_filtered) (callback, 
+      (callback->printf_filtered) (callback,
 				   "List of SH simulator commands:\n\n");
       (callback->printf_filtered) (callback, "set-memory-size <n> -- Set the number of address bits to use\n");
       (callback->printf_filtered) (callback, "\n");

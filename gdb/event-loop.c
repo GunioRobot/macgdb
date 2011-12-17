@@ -100,7 +100,7 @@ file_handler;
    async_signal_handler for each interesting signal. */
 typedef struct async_signal_handler
   {
-    int ready;			/* If ready, call this handler from the main event loop, 
+    int ready;			/* If ready, call this handler from the main event loop,
 				   using invoke_async_handler. */
     struct async_signal_handler *next_handler;	/* Ptr to next handler */
     sig_handler_func *proc;	/* Function to call to do the work */
@@ -132,10 +132,10 @@ typedef struct async_event_handler
 async_event_handler;
 
 
-/* Event queue:  
-   - the first event in the queue is the head of the queue. 
+/* Event queue:
+   - the first event in the queue is the head of the queue.
    It will be the next to be serviced.
-   - the last event in the queue 
+   - the last event in the queue
 
    Events can be inserted at the front of the queue or at the end of
    the queue.  Events will be extracted from the queue for processing
@@ -267,7 +267,7 @@ static int gdb_wait_for_event (int);
 static void poll_timers (void);
 
 
-/* Insert an event object into the gdb event queue at 
+/* Insert an event object into the gdb event queue at
    the specified position.
    POSITION can be head or tail, with values TAIL, HEAD.
    EVENT_PTR points to the event to be inserted into the queue.
@@ -558,11 +558,11 @@ add_file_handler (int fd, handler_func * proc, gdb_client_data client_data)
 }
 
 /* Add a file handler/descriptor to the list of descriptors we are
-   interested in.  
-   FD is the file descriptor for the file/stream to be listened to.  
+   interested in.
+   FD is the file descriptor for the file/stream to be listened to.
    For the poll case, MASK is a combination (OR) of
    POLLIN, POLLRDNORM, POLLRDBAND, POLLPRI, POLLOUT, POLLWRNORM,
-   POLLWRBAND: these are the events we are interested in. If any of them 
+   POLLWRBAND: these are the events we are interested in. If any of them
    occurs, proc should be called.
    For the select case, MASK is a combination of READABLE, WRITABLE, EXCEPTION.
    PROC is the procedure that will be called when an event occurs for
@@ -638,7 +638,7 @@ create_file_handler (int fd, int mask, handler_func * proc, gdb_client_data clie
   file_ptr->mask = mask;
 }
 
-/* Remove the file descriptor FD from the list of monitored fd's: 
+/* Remove the file descriptor FD from the list of monitored fd's:
    i.e. we don't care anymore about events on the FD. */
 void
 delete_file_handler (int fd)
@@ -714,7 +714,7 @@ delete_file_handler (int fd)
 	}
     }
 
-  /* Deactivate the file descriptor, by clearing its mask, 
+  /* Deactivate the file descriptor, by clearing its mask,
      so that it will not fire again. */
 
   file_ptr->mask = 0;
@@ -966,11 +966,11 @@ gdb_wait_for_event (int block)
 }
 
 
-/* Create an asynchronous handler, allocating memory for it. 
+/* Create an asynchronous handler, allocating memory for it.
    Return a pointer to the newly created handler.
-   This pointer will be used to invoke the handler by 
+   This pointer will be used to invoke the handler by
    invoke_async_signal_handler.
-   PROC is the function to call with CLIENT_DATA argument 
+   PROC is the function to call with CLIENT_DATA argument
    whenever the handler is invoked. */
 async_signal_handler *
 create_async_signal_handler (sig_handler_func * proc, gdb_client_data client_data)
@@ -1039,7 +1039,7 @@ invoke_async_signal_handlers (void)
   return any_ready;
 }
 
-/* Delete an asynchronous handler (ASYNC_HANDLER_PTR). 
+/* Delete an asynchronous handler (ASYNC_HANDLER_PTR).
    Free the space allocated for it.  */
 void
 delete_async_signal_handler (async_signal_handler ** async_handler_ptr)

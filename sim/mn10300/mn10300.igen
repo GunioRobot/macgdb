@@ -2039,7 +2039,7 @@
   temp = State.regs[REG_MDR];
   temp <<= 32;
   temp |= State.regs[REG_D0 + DN0];
-  if ( !(v = (0 == denom)) ) 
+  if ( !(v = (0 == denom)) )
     {
       State.regs[REG_MDR] = temp % State.regs[REG_D0 + DM1];
       temp /= State.regs[REG_D0 + DM1];
@@ -2564,7 +2564,7 @@
 }
 
 
-// 1111 1010 1111 10An d8...... imm8....; 
+// 1111 1010 1111 10An d8...... imm8....;
 // btst imm8,(d8,An) (d8 is sign-extended,imm8 is zero-extended., processing unit: byte)
 8.0xfa+4.0xf,10,2.AN0+8.D8+8.IMM8:D2a:::btst
 "btst"

@@ -126,7 +126,7 @@ if test "x$cross_compiling" = "xyes"; then
 	cross_cache=${srcdir}/cross-build/cygwin.cache
 	LOCAL_CFLAGS="$LOCAL_CFLAGS -I${srcdir}/../libtermcap"
 	;;
-   *-mingw32*)	
+   *-mingw32*)
 	cross_cache=${srcdir}/cross-build/mingw.cache
         ;;
     *)  echo "configure: cross-compiling for a non-cygwin target is not supported" >&2
@@ -150,7 +150,7 @@ if test -z "$CC_FOR_BUILD"; then
     fi
 fi
 AC_SUBST(CC_FOR_BUILD)
- 
+
 dnl END changes for CYGNUS cross-building for Cygwin
 
 # If we're using gcc and the user hasn't specified CFLAGS, add -O to CFLAGS.
@@ -257,7 +257,7 @@ if test -f ${srcdir}/support/shobj-conf; then
 #	*curses*|*termcap*|*termlib*)	;;
 #	*)			SHLIB_LIBS="$SHLIB_LIBS $TERMCAP_LIB" ;;
 #	esac
-	
+
         AC_SUBST(SHOBJ_CC)
         AC_SUBST(SHOBJ_CFLAGS)
         AC_SUBST(SHOBJ_LD)

@@ -31,7 +31,7 @@ if test "${ERROR_ON_WARNING}" = yes ; then
     GCC_WARN_CFLAGS="$GCC_WARN_CFLAGS -Werror"
     NO_WERROR="-Wno-error"
 fi
-		   
+
 if test "${GCC}" = yes ; then
   WARN_CFLAGS="${GCC_WARN_CFLAGS}"
 fi

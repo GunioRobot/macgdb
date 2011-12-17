@@ -159,7 +159,7 @@ tui_event_modify_breakpoint (int number)
 /* Called when going to wait for the target.
    Leave curses mode and setup program mode.  */
 static ptid_t
-tui_target_wait_hook (ptid_t pid, 
+tui_target_wait_hook (ptid_t pid,
 		      struct target_waitstatus *status, int options)
 {
   ptid_t res;
@@ -202,7 +202,7 @@ tui_selected_frame_level_changed_hook (int level)
   if (fi)
     {
       struct symtab *s;
-      
+
       s = find_pc_symtab (get_frame_pc (fi));
       /* elz: This if here fixes the problem with the pc not being
          displayed in the tui asm layout, with no debug symbols.  The
@@ -228,7 +228,7 @@ tui_selected_frame_level_changed_hook (int level)
 static void
 tui_print_frame_info_listing_hook (struct symtab *s,
 				   int line,
-                                   int stopline, 
+                                   int stopline,
 				   int noerror)
 {
   select_source_symtab (s);

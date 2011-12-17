@@ -1,7 +1,7 @@
 # sh testcase for push/pop (mov,movml,movmu...) insns.
 # mach:	 all
 # as(sh):	-defsym sim_cpu=0
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -143,4 +143,3 @@ movmu_2:
 
 	exit 0
 
-	

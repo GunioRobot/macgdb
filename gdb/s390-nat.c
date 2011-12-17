@@ -68,7 +68,7 @@ supply_gregset (struct regcache *regcache, const gregset_t *regp)
   int i;
   for (i = 0; i < S390_NUM_REGS; i++)
     if (regmap_gregset[i] != -1)
-      regcache_raw_supply (regcache, i, 
+      regcache_raw_supply (regcache, i,
 			   (const char *)regp + regmap_gregset[i]
 			     + SUBOFF (gdbarch, i));
 }
@@ -84,7 +84,7 @@ fill_gregset (const struct regcache *regcache, gregset_t *regp, int regno)
   for (i = 0; i < S390_NUM_REGS; i++)
     if (regmap_gregset[i] != -1)
       if (regno == -1 || regno == i)
-	regcache_raw_collect (regcache, i, 
+	regcache_raw_collect (regcache, i,
 			      (char *)regp + regmap_gregset[i]
 				+ SUBOFF (gdbarch, i));
 }
@@ -111,7 +111,7 @@ fill_fpregset (const struct regcache *regcache, fpregset_t *regp, int regno)
   for (i = 0; i < S390_NUM_REGS; i++)
     if (regmap_fpregset[i] != -1)
       if (regno == -1 || regno == i)
-        regcache_raw_collect (regcache, i, 
+        regcache_raw_collect (regcache, i,
 			      (char *)regp + regmap_fpregset[i]);
 }
 
@@ -209,11 +209,11 @@ s390_linux_fetch_inferior_registers (struct target_ops *ops,
 {
   int tid = s390_inferior_tid ();
 
-  if (regnum == -1 
+  if (regnum == -1
       || (regnum < S390_NUM_REGS && regmap_gregset[regnum] != -1))
     fetch_regs (regcache, tid);
 
-  if (regnum == -1 
+  if (regnum == -1
       || (regnum < S390_NUM_REGS && regmap_fpregset[regnum] != -1))
     fetch_fpregs (regcache, tid);
 }
@@ -226,11 +226,11 @@ s390_linux_store_inferior_registers (struct target_ops *ops,
 {
   int tid = s390_inferior_tid ();
 
-  if (regnum == -1 
+  if (regnum == -1
       || (regnum < S390_NUM_REGS && regmap_gregset[regnum] != -1))
     store_regs (regcache, tid, regnum);
 
-  if (regnum == -1 
+  if (regnum == -1
       || (regnum < S390_NUM_REGS && regmap_fpregset[regnum] != -1))
     store_fpregs (regcache, tid, regnum);
 }
@@ -336,11 +336,11 @@ s390_insert_watchpoint (CORE_ADDR addr, int len, int type)
   struct watch_area *area = xmalloc (sizeof (struct watch_area));
 
   if (!area)
-    return -1; 
+    return -1;
 
   area->lo_addr = addr;
   area->hi_addr = addr + len - 1;
- 
+
   area->next = watch_base;
   watch_base = area;
 

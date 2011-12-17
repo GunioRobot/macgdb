@@ -93,7 +93,7 @@ proc cp_check_errata { expected_string actual_string errata_table } {
 # format of the errata table.  Note: the errata entries are not subject to
 # demangler syntax adjustment, so you have to make a bigger table
 # with lines for each output variation.
-# 
+#
 # gdb can vary the output of ptype in several ways:
 #
 # . CLASS/STRUCT
@@ -161,7 +161,7 @@ proc cp_check_errata { expected_string actual_string errata_table } {
 #   gcc 3.4.1 -gstabs+
 #   gcc HEAD 20040731 -gdwarf-2
 #   gcc HEAD 20040731 -gstabs+
-# 
+#
 # TODO
 #
 # Tagless structs.
@@ -410,7 +410,7 @@ proc cp_test_ptype_class { in_command in_testname in_key in_tag in_class_table {
 
 		# Update the count in list_synth.
 
-		incr synth_count 
+		incr synth_count
 		set synth [list $synth_count $synth_access "$synth_re"]
 		set list_synth [lreplace $list_synth $isynth $isynth $synth]
 

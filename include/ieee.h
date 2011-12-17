@@ -1,7 +1,7 @@
 /* IEEE Standard 695-1980 "Universal Format for Object Modules" header file
 
    Copyright 2001 Free Software Foundation, Inc.
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2, or (at your option)
@@ -16,7 +16,7 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor,
    Boston, MA 02110-1301, USA.
-   
+
    Contributed by Cygnus Support.  */
 
 #define N_W_VARIABLES 8
@@ -61,7 +61,7 @@ typedef union ieee_w_variable
 ieee_w_variable_type;
 
 typedef enum ieee_record
-  { 
+  {
     ieee_number_start_enum = 0x00,
     ieee_number_end_enum=0x7f,
     ieee_number_repeat_start_enum = 0x80,

@@ -72,7 +72,7 @@ proc local_compiler_xfail_check { } {
     if { [test_compiler_info gcc-2-*] } then {
 	if { ![test_debug_format "HP"] \
 		&& ![test_debug_format "DWARF 2"] } then {
-	    setup_xfail "*-*-*" 
+	    setup_xfail "*-*-*"
 	}
     }
 
@@ -137,7 +137,7 @@ gdb_expect {
     }
     -re ".*$gdb_prompt $" { fail "ptype qux1" }
     timeout           { fail "(timeout) ptype qux1" }
-}   
+}
 
 # test vars and pointers
 

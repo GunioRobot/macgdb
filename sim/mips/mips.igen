@@ -2482,7 +2482,7 @@
   TRACE_ALU_INPUT2 (GPR[RS], GPR[RT]);
   temp = (U8_4 (VL4_8 (HI), VL4_8 (LO))
           + ((unsigned64) VL4_8 (GPR[RS]) * (unsigned64) VL4_8 (GPR[RT])));
-  ACX += U8_4 (VL4_8 (HI), VL4_8 (LO)) < temp;  /* SmartMIPS */ 
+  ACX += U8_4 (VL4_8 (HI), VL4_8 (LO)) < temp;  /* SmartMIPS */
   LO = EXTEND32 (temp);
   HI = EXTEND32 (VH4_8 (temp));
   TRACE_ALU_RESULT2 (HI, LO);
@@ -4980,7 +4980,7 @@
   int fmt = FMT;
   check_fpu (SD_);
   check_u64 (SD_, instruction_0);
-  check_fmt_p (SD_, fmt, instruction_0); 
+  check_fmt_p (SD_, fmt, instruction_0);
   StoreFPR (FD, fmt, MultiplyAdd (ValueFPR (FS, fmt), ValueFPR (FT, fmt),
 				  ValueFPR (FR, fmt), fmt));
 }
@@ -4998,7 +4998,7 @@
   PENDING_FILL (RT, v);
   TRACE_ALU_RESULT (v);
 }
-  
+
 010001,00000,5.RT,5.FS,00000000000:COP1:32,f::MFC1b
 "mfc1 r<RT>, f<FS>"
 *mipsIV:
@@ -5010,7 +5010,7 @@
 *vr4100:
 *vr5000:
 *r3900:
-{ 
+{
   check_fpu (SD_);
   GPR[RT] = EXTEND32 (FGR[FS]);
   TRACE_ALU_RESULT (GPR[RT]);
@@ -5156,14 +5156,14 @@
 *mipsI:
 *mipsII:
 *mipsIII:
-{ 
+{
   check_fpu (SD_);
   if (SizeFGR () == 64)
     PENDING_FILL ((FS + FGR_BASE), (SET64HI (0xDEADC0DE) | VL4_8 (GPR[RT])));
   else
     PENDING_FILL ((FS + FGR_BASE), VL4_8 (GPR[RT]));
   TRACE_FP_RESULT (GPR[RT]);
-} 
+}
 
 010001,00100,5.RT,5.FS,00000000000:COP1:32,f::MTC1b
 "mtc1 r<RT>, f<FS>"
@@ -5177,7 +5177,7 @@
 *vr5000:
 *r3900:
 {
-  check_fpu (SD_); 
+  check_fpu (SD_);
   StoreFPR (FS, fmt_uninterpreted_32, VL4_8 (GPR[RT]));
 }
 

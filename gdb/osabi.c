@@ -113,7 +113,7 @@ osabi_from_tdesc_string (const char *name)
 
 /* Handler for a given architecture/OS ABI pair.  There should be only
    one handler for a given OS ABI each architecture family.  */
-struct gdb_osabi_handler  
+struct gdb_osabi_handler
 {
   struct gdb_osabi_handler *next;
   const struct bfd_arch_info *arch_info;
@@ -185,7 +185,7 @@ gdbarch_register_osabi (enum bfd_architecture arch, unsigned long machine,
 }
 
 
-/* Sniffer to find the OS ABI for a given file's architecture and flavour. 
+/* Sniffer to find the OS ABI for a given file's architecture and flavour.
    It is legal to have multiple sniffers for each arch/flavour pair, to
    disambiguate one OS's a.out from another, for example.  The first sniffer
    to return something other than GDB_OSABI_UNKNOWN wins, so a sniffer should
@@ -227,9 +227,9 @@ gdbarch_lookup_osabi (bfd *abfd)
   return gdbarch_lookup_osabi_from_bfd (abfd);
 }
 
-/* APPLE LOCAL: I factored out the part that just returns 
-   the user selected OSABI because sometimes you actually 
-   want to know what the ABI of THIS bfd is, so you can 
+/* APPLE LOCAL: I factored out the part that just returns
+   the user selected OSABI because sometimes you actually
+   want to know what the ABI of THIS bfd is, so you can
    see if it matches the one the user requested.  */
 
 enum gdb_osabi
@@ -242,7 +242,7 @@ gdbarch_lookup_osabi_from_bfd (bfd *abfd)
   /* If we don't have a binary, just return unknown.  The caller may
      have other sources the OSABI can be extracted from, e.g., the
      target description.  */
-  if (abfd == NULL) 
+  if (abfd == NULL)
     return GDB_OSABI_UNKNOWN;
 
   match = GDB_OSABI_UNKNOWN;
@@ -486,7 +486,7 @@ generic_elf_osabi_sniff_abi_tag_sections: unknown OS number %d"),
 
       return;
     }
-      
+
   /* .note.netbsd.ident notes, used by NetBSD.  */
   if (strcmp (name, ".note.netbsd.ident") == 0
       && check_note (abfd, sect, note, "NetBSD", 4, NT_NETBSD_IDENT))

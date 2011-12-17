@@ -122,9 +122,9 @@ typedef enum bfd_mach_o_load_command_type
   /* Load a dynamically linked shared library that is allowed to be
        missing (weak).  */
   BFD_MACH_O_LC_LOAD_WEAK_DYLIB = 0x18,
-  BFD_MACH_O_LC_SEGMENT_64 = 0x19,	/* 64-bit segment of this file to be 
+  BFD_MACH_O_LC_SEGMENT_64 = 0x19,	/* 64-bit segment of this file to be
                                            mapped.  */
-  BFD_MACH_O_LC_ROUTINES_64 = 0x1a,     /* Address of the dyld init routine 
+  BFD_MACH_O_LC_ROUTINES_64 = 0x1a,     /* Address of the dyld init routine
                                            in a dylib.  */
   BFD_MACH_O_LC_UUID = 0x1b,            /* 128-bit UUID of the executable.  */
   BFD_MACH_O_LC_RPATH = 0x1c,		/* Run path addiions.  */
@@ -290,7 +290,7 @@ bfd_mach_o_section_type;
 #define BFD_MACH_O_SECTION_ATTRIBUTES_MASK  0xffffff00
 /* System setable attributes.  */
 #define BFD_MACH_O_SECTION_ATTRIBUTES_SYS   0x00ffff00
-/* User attributes.  */   
+/* User attributes.  */
 #define BFD_MACH_O_SECTION_ATTRIBUTES_USR   0xff000000
 
 typedef enum bfd_mach_o_section_attribute
@@ -298,7 +298,7 @@ typedef enum bfd_mach_o_section_attribute
   /* Section has local relocation entries.  */
   BFD_MACH_O_S_ATTR_LOC_RELOC         = 0x00000100,
 
-  /* Section has external relocation entries.  */  
+  /* Section has external relocation entries.  */
   BFD_MACH_O_S_ATTR_EXT_RELOC         = 0x00000200,
 
   /* Section contains some machine instructions.  */
@@ -309,7 +309,7 @@ typedef enum bfd_mach_o_section_attribute
 
   /* Used with i386 stubs.  */
   BFD_MACH_O_S_SELF_MODIFYING_CODE    = 0x04000000,
-  
+
   /* Blocks are live if they reference live blocks.  */
   BFD_MACH_O_S_ATTR_LIVE_SUPPORT      = 0x08000000,
 
@@ -775,7 +775,7 @@ bfd_mach_o_str_command;
 typedef struct bfd_mach_o_dyld_info_command
 {
   /* File offset and size to rebase info.  */
-  unsigned int rebase_off; 
+  unsigned int rebase_off;
   unsigned int rebase_size;
 
   /* File offset and size of binding info.  */

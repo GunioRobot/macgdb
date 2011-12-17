@@ -37,6 +37,6 @@ gdb_load ${binfile}
 if ![runto_main] then {
     perror "couldn't run to breakpoint"
     continue
-} 
-gdb_test "print /x bar" "{x__0 = 0x0, y__0 = 0x0, z__1 = 0x0}" 
+}
+gdb_test "print /x bar" "{x__0 = 0x0, y__0 = 0x0, z__1 = 0x0}"
 

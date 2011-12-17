@@ -39,5 +39,5 @@ pex_one (int flags, const char *executable, char * const *argv,
 	}
     }
   pex_free (obj);
-  return errmsg;  
+  return errmsg;
 }

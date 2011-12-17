@@ -3,7 +3,7 @@ srcdir = @srcdir@
 
 EXECUTABLES = basicclass
 
-all: 
+all:
 	@echo "Nothing to be done for all..."
 
 info:

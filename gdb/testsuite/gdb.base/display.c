@@ -17,7 +17,7 @@ int do_loops()
                 sum++; f++;
             }
         }
-    } 
+    }
     return i;
 }
 
@@ -36,7 +36,7 @@ int do_vars()
     for( j = 0; j < LOOP; j++ ) {
         if( p_c[j] == c ) {
             j++;
-        } 
+        }
         else {
             i++;
         }
@@ -48,5 +48,5 @@ int do_vars()
 main()
 {
     do_loops();
-    do_vars();    
+    do_vars();
 }

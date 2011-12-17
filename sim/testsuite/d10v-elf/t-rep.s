@@ -3,10 +3,10 @@
 	start
 
 
-	
+
 	;; Check that the instruction @REP_E is executed when it
 	;; is reached using a branch instruction
-	
+
 	ldi r2, 1
 test_rep_1:
 	rep	r2, end_rep_1

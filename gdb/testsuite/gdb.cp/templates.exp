@@ -77,7 +77,7 @@ proc test_ptype_of_templates {} {
         -re "type = class T5<int> \\{${ws}public:${ws}static int X;${ws}int x;${ws}int val;\r\n${ws}T5\\(int\\);${ws}T5\\(T5<int> const ?&\\);${ws}~T5\\((void|)\\);${ws}static void \\* operator new\\(unsigned( int| long)?\\);${ws}static void operator delete\\(void ?\\*\\);${ws}int value\\((void|)\\);${ws}\\}\r\n$gdb_prompt $" { pass "ptype T5<int> -- with several fixes from 4.17" }
         -re "type = class T5<int> \\{${ws}public:${ws}static int X;${ws}int x;${ws}int val;\r\n${ws}T5 \\(int\\);${ws}T5 \\(const class T5<int> &\\);${ws}void ~T5 \\(int\\);${ws}static void \\* new \\(unsigned int\\);${ws}static void delete \\(void ?\\*\\);${ws}int value \\((void|)\\);${ws}\\}\r\n$gdb_prompt $" { pass "ptype t5i<int> -- new with unsigned int" }
         -re "type = class T5<int> \\{${ws}public:${ws}static int X;${ws}int x;${ws}int val;\r\n${ws}T5 \\(int\\);${ws}T5 \\(const class T5<int> &\\);${ws}void ~T5 \\(int\\);${ws}static void \\* new \\(unsigned long\\);${ws}static void delete \\(void ?\\*\\);${ws}int value \\((void|)\\);${ws}\\}\r\n$gdb_prompt $" { pass "ptype t5i<int> -- new with unsigned long" }
-        -re "type = class T5<int> \{.*public:.*static int X;.*int x;.*int val;.*.*T5 \\(int\\);.*.*void ~T5 \\(int\\).*.*.*int value \\((void|)\\);.*\}.*$gdb_prompt $" { 
+        -re "type = class T5<int> \{.*public:.*static int X;.*int x;.*int val;.*.*T5 \\(int\\);.*.*void ~T5 \\(int\\).*.*.*int value \\((void|)\\);.*\}.*$gdb_prompt $" {
             pass "ptype t5i"
         }
 	-re "type = class T5<int> \{${ws}public:${ws}static int X;${ws}int x;${ws}int val;${ws}T5<int> & operator=\\(T5<int> const ?&\\);${ws}T5\\(int\\);${ws}T5\\((T5<int> const|const T5<int>) ?&\\);${ws}~T5\\((void|)\\);${ws}static void \\* operator new\\(unsigned( int| long)?\\);${ws}static void operator delete\\(void ?\\*\\);${ws}int value\\((void|)\\);${ws}\}\r\n$gdb_prompt $" {
@@ -138,7 +138,7 @@ proc test_template_breakpoints {} {
 	-re ".*$gdb_prompt $" { fail "constructor breakpoint" }
 	default { fail "constructor breakpoint (timeout)" }
     }
-    
+
 # See CLLbs14792
     if {$hp_aCC_compiler} {setup_xfail hppa*-*-* CLLbs14792}
 
@@ -152,7 +152,7 @@ proc test_template_breakpoints {} {
 	    kfail "gdb/1112" "destructor breakpoint"
 	}
     }
-    
+
     gdb_test "break T5<int>::value" \
 	"Breakpoint.*at.* file .*${testfile}.cc, line.*" \
 	"value method breakpoint"
@@ -236,8 +236,8 @@ do_tests
 # templates with partial specializations, nested templates, etc.
 # These have been tested only with HP aCC.  They probably won't
 # work with other compilers because of differences in mangling
-# schemes. 
-# Added by Satish Pai <pai@apollo.hp.com> 1997-09-25 
+# schemes.
+# Added by Satish Pai <pai@apollo.hp.com> 1997-09-25
 # As of 2000-06-03, C++ support has been improved to the point that g++ can
 # pass all of theses, excluding what appears to be one that exposes a stabs bug. - djb
 
@@ -253,15 +253,15 @@ send_gdb "c\n"
 gdb_expect {
 		-re ".*$gdb_prompt $"
 }
-send_gdb "print fint\n"   
-gdb_expect {   
+send_gdb "print fint\n"
+gdb_expect {
    -re "\\$\[0-9\]* = \\{x = 0, t = 0\\}\r\n$gdb_prompt $" { pass "print fint" }
    -re "$gdb_prompt $"                     { fail "print fint" }
    timeout                             { fail "(timeout) print fint" }
 }
 
-send_gdb "print fvpchar\n"   
-gdb_expect {   
+send_gdb "print fvpchar\n"
+gdb_expect {
    -re "\\$\[0-9\]* = \\{x = 0, t = 0x0\\}\r\n$gdb_prompt $" { pass "print fvpchar" }
    -re "$gdb_prompt $"                     { fail "print fvpchar" }
    timeout                             { fail "(timeout) print fvpchar" }
@@ -279,8 +279,8 @@ gdb_expect {
 # NOTE: carlton/2003-02-26: However, because of a bug in the way GDB
 # handles nested types, we don't get this right in the DWARF-2 case.
 
-send_gdb "ptype Foo\n"   
-gdb_expect {   
+send_gdb "ptype Foo\n"
+gdb_expect {
     -re "type = template <(class |)T> (class |)Foo \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*T t;\r\n\\}\r\ntemplate instantiations:\r\n\[ \t\]*(class |)Foo<volatile char \\*>\r\n\[ \t\]*(class |)Foo<char>\r\n\[ \t\]*(class |)Foo<int>\r\n$gdb_prompt $" { pass "ptype Foo" }
     -re "type = template <(class |)T> (class |)Foo \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*T t;\r\n\\}\r\n$gdb_prompt $" { xfail "ptype Foo" }
     -re "type = class Foo<int> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int foo\\(int, int\\);\r\n\\}\r\n$gdb_prompt $"
@@ -296,8 +296,8 @@ gdb_expect {
 
 # ptype Foo<int>
 
-send_gdb "ptype fint\n"   
-gdb_expect {   
+send_gdb "ptype fint\n"
+gdb_expect {
    -re "type = (class |)Foo<int> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*.*int foo\\(int, int\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype fint" }
    -re "type = (class |)Foo<int> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int foo\\(int, int\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype fint" }
    -re "$gdb_prompt $"                     { fail "ptype fint" }
@@ -306,8 +306,8 @@ gdb_expect {
 
 # ptype Foo<char>
 
-send_gdb "ptype fchar\n"   
-gdb_expect {   
+send_gdb "ptype fchar\n"
+gdb_expect {
    -re "type = (class |)Foo<char> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*char t;\r\n\r\n\[ \t\]*.*char foo\\(int, char\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype fchar" }
    -re "type = (class |)Foo<char> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*char t;\r\n\r\n\[ \t\]*char foo\\(int, char\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype fchar" }
    -re "$gdb_prompt $"                     { fail "ptype fchar" }
@@ -316,8 +316,8 @@ gdb_expect {
 
 # ptype Foo<volatile char *>
 
-send_gdb "ptype fvpchar\n"   
-gdb_expect {   
+send_gdb "ptype fvpchar\n"
+gdb_expect {
    -re "type = (class |)Foo<volatile char ?\\*> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*.*char.*\\*t;\r\n\r\n\[ \t\]*.*char \\* foo\\(int,.*char.*\\*\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype fvpchar" }
    -re "type = (class |)Foo<volatile char ?\\*> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*.*char.*\\*t;\r\n\r\n\[ \t\]*.*char \\* foo\\(int,.*char.*\\*\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype fvpchar" }
    -re "type = (class |)Foo<char volatile ?\\*> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*.*char.*\\*t;\r\n\r\n\[ \t\]*.*char \\* foo\\(int,.*char.*\\*\\);\r\n\\}\r\n$gdb_prompt $" {
@@ -332,8 +332,8 @@ gdb_expect {
 # This test is sensitive to whitespace matching, so we'll do it twice,
 # varying the spacing, because of PR gdb/33.
 
-send_gdb "print Foo<volatile char *>::foo\n"   
-gdb_expect {   
+send_gdb "print Foo<volatile char *>::foo\n"
+gdb_expect {
     -re "\\$\[0-9\]* = \\{.*char \\*\\((class |)Foo<(volatile char|char volatile) ?\\*> \\*(| const), int, .*char \\*\\)\\} $hex <Foo<.*char.*\\*>::foo\\(int, .*char.*\\*\\)>\r\n$gdb_prompt $" { pass "print Foo<volatile char *>::foo" }
     -re "No symbol \"Foo<volatile char \\*>\" in current context.\r\n$gdb_prompt $"
     {
@@ -344,8 +344,8 @@ gdb_expect {
     timeout                             { fail "(timeout) print Foo<volatile char *>::foo" }
 }
 
-send_gdb "print Foo<volatile char*>::foo\n"   
-gdb_expect {   
+send_gdb "print Foo<volatile char*>::foo\n"
+gdb_expect {
     -re "\\$\[0-9\]* = \\{.*char \\*\\((class |)Foo<(volatile char|char volatile) ?\\*> \\*(| const), int, .*char \\*\\)\\} $hex <Foo<.*char.*\\*>::foo\\(int, .*char.*\\*\\)>\r\n$gdb_prompt $" { pass "print Foo<volatile char*>::foo" }
     -re "No symbol \"Foo<volatile char\\*>\" in current context.\r\n$gdb_prompt $"
     {
@@ -359,8 +359,8 @@ gdb_expect {
 # Template Bar<T, int>
 
 # same as Foo for g++
-send_gdb "ptype Bar\n"   
-gdb_expect {   
+send_gdb "ptype Bar\n"
+gdb_expect {
     -re "type = template <(class |)T, (class |)sz> (class |)Bar \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*T t;\r\n\\}\r\ntemplate instantiations:\r\n\[ \t\]*(class |)Bar<int,(\\(int\\)|)1>\r\n\[ \t\]*(class |)Bar<int,(\\(int\\)|)33>\r\n$gdb_prompt $" { pass "ptype Bar" }
     -re "type = <(class |)T, (class |)sz> (class |)Bar \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*T t;\r\n\\}\r\n$gdb_prompt $" { xfail "ptype Bar" }
     -re "ptype Bar\r\ntype = class Bar<int, ?33> {\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int bar\\(int, int\\);\r\n}\r\n$gdb_prompt $"
@@ -376,8 +376,8 @@ gdb_expect {
 
 # ptype Bar<int,33>
 
-send_gdb "ptype bint\n"   
-gdb_expect {   
+send_gdb "ptype bint\n"
+gdb_expect {
    -re "type = (class |)Bar<int, ?(\\(int\\)|)33> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*.*int bar\\(int, int\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype bint" }
    -re "type = (class |)Bar<int,(\\(int\\)|)33> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int bar\\(int, int\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype bint" }
    -re "$gdb_prompt $"                     { fail "ptype bint" }
@@ -386,8 +386,8 @@ gdb_expect {
 
 # ptype Bar<int, (4>3)>
 
-send_gdb "ptype bint2\n"   
-gdb_expect {   
+send_gdb "ptype bint2\n"
+gdb_expect {
    -re "type = (class |)Bar<int, ?(\\(int\\)|)1> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*.*int bar\\(int, int\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype bint2" }
    -re "type = (class |)Bar<int,(\\(int\\)|)1> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int bar\\(int, int\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype bint2" }
    -re "$gdb_prompt $"                     { fail "ptype bint2" }
@@ -397,8 +397,8 @@ gdb_expect {
 # Template Baz<T, char>
 
 # Same as Foo, for g++
-send_gdb "ptype Baz\n"   
-gdb_expect {   
+send_gdb "ptype Baz\n"
+gdb_expect {
     -re "type = template <(class |)T, ?(class |)sz> (class |)Baz \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*T t;\r\n\\}\r\ntemplate instantiations:\r\n\[ \t\]*(class |)Baz<char,(\\(char\\)|)97>\r\n\[ \t\]*(class |)Baz<int,(\\(char\\)|)115>\r\n$gdb_prompt $" { pass "ptype Baz" }
     -re "type = <(class |)T, ?(class |)sz> (class |)Baz \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*T t;\r\n\\}\r\n$gdb_prompt $" { xfail "ptype Baz" }
     -re "type = class Baz<int, ?'s'> {\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int baz\\(int, int\\);\r\n}\r\n$gdb_prompt $"
@@ -417,8 +417,8 @@ gdb_expect {
 
 # ptype Baz<int, 's'>
 
-send_gdb "ptype bazint\n"   
-gdb_expect {   
+send_gdb "ptype bazint\n"
+gdb_expect {
    -re "type = (class |)Baz<int, ?(\\(char\\)|)(115|\\'s\\')> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*.*int baz\\(int, int\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype bazint" }
    -re "type = (class |)Baz<int,(\\(char\\)|)(115|\\'s\\')> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int baz\\(int, int\\).*;\r\n\\}\r\n$gdb_prompt $" { pass "ptype bazint" }
    -re "$gdb_prompt $"                     { fail "ptype bazint" }
@@ -427,8 +427,8 @@ gdb_expect {
 
 # ptype Baz<char, 'a'>
 
-send_gdb "ptype bazint2\n"   
-gdb_expect {   
+send_gdb "ptype bazint2\n"
+gdb_expect {
    -re "type = (class |)Baz<char, ?(\\(char\\)|)(97|\\'a\\')> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*char t;\r\n\r\n\[ \t\]*.*char baz\\(int, char\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype bazint2" }
    -re "type = (class |)Baz<char,(\\(char\\)|)(97|\\'a\\')> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*char t;\r\n\r\n\[ \t\]*char baz\\(int, char\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype bazint2" }
    -re "$gdb_prompt $"                     { fail "ptype bazint2" }
@@ -437,8 +437,8 @@ gdb_expect {
 
 # Template Qux<T, int (*f)(int) >
 # Same as Foo for g++
-send_gdb "ptype Qux\n"   
-gdb_expect {   
+send_gdb "ptype Qux\n"
+gdb_expect {
     -re "type = template <(class |)T, ?(class |)sz> (class |)Qux \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*T t;\r\n\\}\r\ntemplate instantiations:\r\n\[ \t\]*(class |)Qux<int,&string>\r\n\[ \t\]*(class |)Qux<char,&string>\r\n$gdb_prompt $" { pass "ptype Qux" }
     -re ".*type = template <(class |)T.*, ?(class |)sz> (class |)Qux \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*T t;\r\n\\}.*$gdb_prompt $" { pass "ptype Qux" }
     -re "type = class Qux<char, ?&string> {\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*char t;\r\n\r\n\[ \t\]*char qux\\(int, char\\);\r\n}\r\n$gdb_prompt $"
@@ -456,8 +456,8 @@ gdb_expect {
 
 # pt Qux<int,&string>
 
-send_gdb "ptype quxint\n"   
-gdb_expect {   
+send_gdb "ptype quxint\n"
+gdb_expect {
    -re "type = class Qux<int, ?& ?string> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*.*int qux\\(int, int\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype quxint" }
    -re "type = class Qux<int, ?& ?string> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int qux\\(int, int\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype quxint" }
    -re "type = class Qux<int, ?\\(char ?\\*\\)\\(& ?\\(?string\\)?\\)> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int qux\\(int, int\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype quxint" }
@@ -472,8 +472,8 @@ gdb_expect {
 
 # commented out this as quxint2 declaration was commented out in
 # templates.exp -- ovidiu
-# send_gdb "ptype quxint2\n"   
-# gdb_expect {   
+# send_gdb "ptype quxint2\n"
+# gdb_expect {
 #    -re "type = class Qux<char,&string> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*char t;\r\n\r\n\[ \t\]*char qux\\(int, char\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype quxint2" }
 #    -re "$gdb_prompt $"                     { fail "ptype quxint2" }
 #    timeout                             { fail "(timeout) ptype quxint2" }
@@ -482,8 +482,8 @@ gdb_expect {
 # Template Spec<T1, T2>
 
 # Same as Foo for g++
-send_gdb "ptype Spec\n"   
-gdb_expect {   
+send_gdb "ptype Spec\n"
+gdb_expect {
     -re "type = template <(class |)T1, (class |)T2> (class |)Spec \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\\}\r\ntemplate instantiations:\r\n\[ \t\]*(class |)Spec<int,int \\*>\r\n\[ \t\]*(class |)Spec<int,char>\r\n$gdb_prompt $" { pass "ptype Spec" }
     -re "type = <(class |)T1, (class |)T2> (class |)Spec \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\\}\r\n$gdb_prompt $" { xfail "ptype Spec" }
     -re "type = class Spec<int, ?char> {\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\r\n\[ \t\]*int spec\\(char\\);\r\n}\r\n$gdb_prompt $"
@@ -498,8 +498,8 @@ gdb_expect {
 
 # pt Spec<char,0>
 
-send_gdb "ptype siip\n"   
-gdb_expect {   
+send_gdb "ptype siip\n"
+gdb_expect {
    -re "type = class Spec<int, ?int ?\\*> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\r\n\[ \t\]*.*int spec\\(int ?\\*\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype siip" }
    -re "type = class Spec<int,int ?\\*> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\r\n\[ \t\]*int spec\\(int ?\\*\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype siip" }
    -re "$gdb_prompt $"                     { fail "ptype siip" }
@@ -508,8 +508,8 @@ gdb_expect {
 
 # pt Garply<int>
 
-send_gdb "ptype Garply<int>\n"   
-gdb_expect {   
+send_gdb "ptype Garply<int>\n"
+gdb_expect {
    -re "type = class Garply<int> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*.*int garply\\(int, int\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype Garply<int>" }
    -re "type = class Garply<int> \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*int t;\r\n\r\n\[ \t\]*int garply\\(int, int\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype Garply<int>" }
    -re "$gdb_prompt $"                     { fail "ptype Garply<int>" }
@@ -518,8 +518,8 @@ gdb_expect {
 
 # ptype of nested template name
 
-send_gdb "ptype Garply<Garply<char> >\n"   
-gdb_expect {   
+send_gdb "ptype Garply<Garply<char> >\n"
+gdb_expect {
    -re "type = (class |)Garply<Garply<char> > \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*.*(class |)Garply<char> t;\r\n\r\n\[ \t\]*.*(class |)Garply<char> garply\\(int, (class |)Garply<char>\\);\r\n\\}\r\n$gdb_prompt $" { pass "ptype Garply<Garply<char> >" }
    -re "type = (class |)Garply<Garply<char> > \\{\r\n\[ \t\]*public:\r\n\[ \t\]*int x;\r\n\[ \t\]*.*(class |)Garply<char> t;\r\n\r\n\[ \t\]*(class |)Garply<char> garply\\(int, (class |)Garply<char>\\);.*\r\n\\}\r\n$gdb_prompt $" { pass "ptype Garply<Garply<char> >" }
    -re "$gdb_prompt $"                     { fail "ptype Garply<Garply<char> >" }

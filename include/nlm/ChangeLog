@@ -4,7 +4,7 @@
 	the GPL notices in the following files:
 	alpha-ext.h, common.h, external.h, i386-ext.h, internal.h,
 	ppc-ext.h, sparc32-ext.h
-	
+
 2003-08-07  Alan Modra  <amodra@bigpond.net.au>
 
 	* internal.h (Nlm_Internal_Custom_Header): Replace PTR with void *.

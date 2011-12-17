@@ -33,7 +33,7 @@ set testfile "call-strs"
 set srcfile ${testfile}.c
 set binfile ${objdir}/${subdir}/${testfile}
 
-# Test depends on printf, which the sparclet stub doesn't support.  
+# Test depends on printf, which the sparclet stub doesn't support.
 if { [istarget "sparclet-*-*"] } {
     return 0;
 }

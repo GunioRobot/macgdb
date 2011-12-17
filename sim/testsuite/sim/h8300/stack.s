@@ -14,7 +14,7 @@
 
 .data
 	.align 4
-stack:	
+stack:
 .if (sim_cpu == h8300)
 	.fill	128, 2, 0
 .else
@@ -37,7 +37,7 @@ push_w:
 	test_carry_clear
 	test_zero_clear
 	test_ovf_clear
-	
+
 	push.w	r1
 	push.w	r2
 	push.w	r3
@@ -46,7 +46,7 @@ push_w:
 	test_gr_a5a5 1
 	test_gr_a5a5 2
 	test_gr_a5a5 3
-	
+
 	mov	@stacktop-2, r0
 	test_gr_a5a5 0
 	mov	@stacktop-4, r0
@@ -63,7 +63,7 @@ push_w:
 
 	push.w	r1		; #1 is non-negative, non-zero
 	test_cc_clear
-	
+
 	push.w	r2
 	push.w	r3
 	push.w	r4
@@ -151,7 +151,7 @@ push_l:
 	test_carry_clear
 	test_zero_clear
 	test_ovf_clear
-	
+
 	push.l	er1
 	push.l	er2
 	push.l	er3
@@ -160,7 +160,7 @@ push_l:
 	test_gr_a5a5 1
 	test_gr_a5a5 2
 	test_gr_a5a5 3
-	
+
 	mov	@stacktop-4, er0
 	test_gr_a5a5 0
 	mov	@stacktop-8, er0
@@ -177,7 +177,7 @@ push_l:
 
 	push.l	er1		; #1 is non-negative, non-zero
 	test_cc_clear
-	
+
 	push.l	er2
 	push.l	er3
 	push.l	er4
@@ -242,7 +242,7 @@ pop_l:
 	;; Jump over subroutine
 	jmp	_bsr
 
-bsr_jsr_func:	
+bsr_jsr_func:
 	test_ccr 0		; call should not affect ccr
 	mov.w	#0, r0
 	mov.w	#1, r1

@@ -239,7 +239,7 @@ struct gdbarch_tdep
     int ppc_dl0_regnum;		/* First Decimal128 argument register pair.  */
 
     /* Offset to ABI specific location where link register is saved.  */
-    int lr_frame_offset;	
+    int lr_frame_offset;
 
     /* An array of integers, such that sim_regno[I] is the simulator
        register number for GDB register number I, or -1 if the

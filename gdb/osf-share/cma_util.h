@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -52,7 +52,7 @@
  * TYPEDEFS
  */
 
-/* 
+/*
  * Alternate eol routine
  */
 typedef void (*cma__t_eol_routine) (char *);
@@ -93,7 +93,7 @@ extern void cma__init_trace  (char *_env);
 #endif
 
 extern char * cma__memcpy  (char *,char *,cma_t_integer);
-	
+
 #ifndef cma__memset
 extern char * cma__memset  (char *,cma_t_integer,cma_t_integer);
 #endif

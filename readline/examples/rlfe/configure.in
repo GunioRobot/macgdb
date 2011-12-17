@@ -86,10 +86,10 @@ dnl    ****  select()  ****
 dnl
 
 AC_CHECKING(select)
-AC_TRY_LINK(,[select(0, 0, 0, 0, 0);],, 
+AC_TRY_LINK(,[select(0, 0, 0, 0, 0);],,
 LIBS="$LIBS -lnet -lnsl"
 AC_CHECKING(select with $LIBS)
-AC_TRY_LINK(,[select(0, 0, 0, 0, 0);],, 
+AC_TRY_LINK(,[select(0, 0, 0, 0, 0);],,
 AC_MSG_ERROR(!!! no select - no screen))
 )
 dnl
@@ -352,7 +352,7 @@ main()
       fi
     fi
     if test -n "$WRITEPATH$XTERMPATH"; then
-      found=`find $WRITEPATH $XTERMPATH $findfollow -perm -2000 -print` 
+      found=`find $WRITEPATH $XTERMPATH $findfollow -perm -2000 -print`
       if test -n "$found"; then
 	ptygrp=`ls -ln$lsfollow $found | sed -n -e 1p | $AWK '{print $4}'`
 	AC_NOTE([- pty mode: $ptymode, group: $ptygrp])

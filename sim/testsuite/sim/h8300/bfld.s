@@ -283,4 +283,4 @@ bfst_imm8_abs32:
 	exit 0
 
 fail1:	fail
-	
+

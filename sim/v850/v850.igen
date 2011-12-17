@@ -306,7 +306,7 @@ rrrrr,010011,iiiii:II:::cmp
 {
   int i;
   SAVE_2;
-      
+
   trace_input ("dispose", OP_PUSHPOP1, 0);
 
   SP += (OP[3] & 0x3e) << 1;
@@ -319,12 +319,12 @@ rrrrr,010011,iiiii:II:::cmp
 	State.regs[ 20 + i ] = load_mem (SP, 4);
 	SP += 4;
       }
-  
+
   if ((OP[3] & 0x1f0000) != 0)
     {
       nia = State.regs[ (OP[3] >> 16) & 0x1f];
     }
-  
+
   trace_output (OP_PUSHPOP1);
 }
 
@@ -355,7 +355,7 @@ rrrrr!0,000010,RRRRR!0:I:::divh
   /* Compute the result.  */
   op0 = EXTEND16 (State.regs[OP[0]]);
   op1 = State.regs[OP[1]];
-  
+
   if (op0 == -1 && op1 == 0x80000000)
     {
       PSW &= ~PSW_Z;
@@ -374,7 +374,7 @@ rrrrr!0,000010,RRRRR!0:I:::divh
       /* Compute the condition codes.  */
       z = (result == 0);
       s = (result & 0x80000000);
-  
+
       /* Store the result and condition codes.  */
       State.regs[OP[1]] = result;
       PSW &= ~(PSW_Z | PSW_S | PSW_OV);
@@ -446,7 +446,7 @@ rrrrr,11111100000 + wwwww,01101000100:XII:::hsw
   value = GR[reg2];
   value >>= 16;
   value |= (GR[reg2] << 16);
-  
+
   GR[reg3] = value;
 
   PSW &= ~(PSW_Z | PSW_S | PSW_CY | PSW_OV);
@@ -532,12 +532,12 @@ regID,111111,RRRRR + 0000000000100000:IX:::ldsr
 "ldsr r<reg1>, s<regID>"
 {
   TRACE_ALU_INPUT1 (GR[reg1]);
-  
+
   if (&PSW == &SR[regID])
     PSW = (GR[reg1] & (CPU)->psw_mask);
   else
     SR[regID] = GR[reg1];
-  
+
   TRACE_ALU_RESULT (SR[regID]);
 }
 
@@ -697,7 +697,7 @@ rrrrr,001000,RRRRR:I:::or
 
 
 
-// ORI 
+// ORI
 rrrrr,110100,RRRRR + iiiiiiiiiiiiiiii:VI:::ori
 "ori <uimm16>, r<reg1>, r<reg2>"
 {
@@ -714,9 +714,9 @@ rrrrr,110100,RRRRR + iiiiiiiiiiiiiiii:VI:::ori
 {
   int  i;
   SAVE_2;
-  
+
   trace_input ("prepare", OP_PUSHPOP1, 0);
-  
+
   /* Store the registers with lower number registers being placed at
      higher addresses.  */
   for (i = 0; i < 12; i++)
@@ -725,9 +725,9 @@ rrrrr,110100,RRRRR + iiiiiiiiiiiiiiii:VI:::ori
 	SP -= 4;
 	store_mem (SP, 4, State.regs[ 20 + i ]);
       }
-  
+
   SP -= (OP[3] & 0x3e) << 1;
-  
+
   trace_output (OP_PUSHPOP1);
 }
 

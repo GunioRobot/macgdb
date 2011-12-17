@@ -1,5 +1,5 @@
 # output(): Hello world!\n
-# mach(): cr16 
+# mach(): cr16
 
 	.globl _start
 _start:

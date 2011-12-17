@@ -56,7 +56,7 @@
 #ifdef HAVE_STRUCT_REG
 typedef struct reg gregset_t;
 typedef struct fpreg fpregset_t;
-#else 
+#else
 typedef struct regs gregset_t;
 typedef struct fp_status fpregset_t;
 #endif
@@ -319,7 +319,7 @@ sparc_xfer_partial (struct target_ops *ops, enum target_object object,
 		    const gdb_byte *writebuf, ULONGEST offset, LONGEST len)
 {
   if (object == TARGET_OBJECT_WCOOKIE)
-    return sparc_xfer_wcookie (ops, object, annex, readbuf, writebuf, 
+    return sparc_xfer_wcookie (ops, object, annex, readbuf, writebuf,
 			       offset, len);
 
   return inf_ptrace_xfer_partial (ops, object, annex, readbuf, writebuf,

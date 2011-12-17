@@ -77,7 +77,7 @@ proc do_attach_tests {} {
     global objdir
     global subdir
     global timeout
-    
+
     # Start the program running and then wait for a bit, to be sure
     # that it can be attached to.
 
@@ -98,7 +98,7 @@ proc do_attach_tests {} {
 	}
 	-re "Attaching to.*, process .*couldn't open /proc file.*$gdb_prompt $" {
 	    # Response expected from /proc-based systems.
-	    pass "$test" 
+	    pass "$test"
 	}
 	-re "Can't attach to process..*$gdb_prompt $" {
 	    # Response expected on Cygwin
@@ -146,7 +146,7 @@ proc do_attach_tests {} {
 	    pass "$test"
 	}
     }
-    
+
     # Verify that we can attach to the process by first giving its
     # executable name via the file command, and using attach with the
     # process ID.
@@ -154,7 +154,7 @@ proc do_attach_tests {} {
     # (Actually, the test system appears to do this automatically for
     # us.  So, we must also be prepared to be asked if we want to
     # discard an existing set of symbols.)
-    
+
     set test "set file, before attach1"
     gdb_test_multiple "file $binfile" "$test" {
 	-re "Load new symbol table from.*y or n. $" {
@@ -179,25 +179,25 @@ proc do_attach_tests {} {
 
     # Verify that we can "see" the variable "should_exit" in the
     # program, and that it is zero.
-   
+
     gdb_test "print should_exit" " = 0" "after attach1, print should_exit"
 
     # Detach the process.
-   
+
     gdb_test "detach" \
 	"Detaching from program: .*$escapedbinfile, process $testpid" \
 	"attach1 detach"
 
     # Wait a bit for gdb to finish detaching
-    
+
     exec sleep 5
 
     # Purge the symbols from gdb's brain.  (We want to be certain the
     # next attach, which won't be preceded by a "file" command, is
     # really getting the executable file without our help.)
-    
+
     set old_timeout $timeout
-    set timeout 15 
+    set timeout 15
     set test "attach1, purging symbols after detach"
     gdb_test_multiple "file" "$test" {
 	-re "No executable file now.*Discard symbol table.*y or n. $" {
@@ -208,7 +208,7 @@ proc do_attach_tests {} {
 
     # Verify that we can attach to the process just by giving the
     # process ID.
-   
+
     set test "set file, before attach2"
     gdb_test_multiple "attach $testpid" "$test" {
 	-re "Attaching to process $testpid.*Load new symbol table from \"$escapedbinfile\.exe\".*y or n. $" {
@@ -264,12 +264,12 @@ proc do_attach_tests {} {
     # the next test run (and prevent the compile by keeping
     # the text file busy), in case the "set should_exit" didn't
     # work.
-   
+
     remote_exec build "kill -9 ${testpid}"
 
     # Start the program running and then wait for a bit, to be sure
     # that it can be attached to.
-   
+
     set testpid [eval exec $binfile &]
     exec sleep 2
     if { [istarget "*-*-cygwin*"] } {
@@ -281,7 +281,7 @@ proc do_attach_tests {} {
     # Verify that we can attach to the process, and find its a.out
     # when we're cd'd to some directory that doesn't contain the
     # a.out.  (We use the source path set by the "dir" command.)
-    
+
     gdb_test "dir ${objdir}/${subdir}" "Source directories searched: .*" \
 	"set source path"
 
@@ -314,7 +314,7 @@ proc do_attach_tests {} {
 	    gdb_test "y" "" "$test"
 	}
     }
-    
+
     # Another "don't leave a process around"
     remote_exec build "kill -9 ${testpid}"
 }
@@ -322,10 +322,10 @@ proc do_attach_tests {} {
 proc do_call_attach_tests {} {
     global gdb_prompt
     global binfile2
-    
+
     # Start the program running and then wait for a bit, to be sure
     # that it can be attached to.
-   
+
     set testpid [eval exec $binfile2 &]
     exec sleep 2
     if { [istarget "*-*-cygwin*"] } {
@@ -335,7 +335,7 @@ proc do_call_attach_tests {} {
     }
 
     # Attach
-   
+
     gdb_test "file $binfile2" "" "force switch to gdb64, if necessary"
     set test "attach call"
     gdb_test_multiple "attach $testpid" "$test" {
@@ -351,7 +351,7 @@ proc do_call_attach_tests {} {
     }
 
     # See if other registers are problems
-    
+
     set test "info other register"
     gdb_test_multiple "i r r3" "$test" {
 	-re "warning: reading register.*$gdb_prompt $" {
@@ -363,12 +363,12 @@ proc do_call_attach_tests {} {
     }
 
     # Get rid of the process
-    
+
     gdb_test "p should_exit = 1"
     gdb_test "c" "Program exited normally."
-   
+
     # Be paranoid
-   
+
     remote_exec build "kill -9 ${testpid}"
 }
 

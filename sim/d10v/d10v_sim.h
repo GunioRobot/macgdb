@@ -36,7 +36,7 @@ typedef signed64 int64;
 /* FIXME: D10V defines */
 typedef uint16 reg_t;
 
-struct simops 
+struct simops
 {
   long opcode;
   int  is_long;
@@ -397,10 +397,10 @@ enum
 #define SIG_D10V_EXIT	-2
 #define SIG_D10V_BUS    -3
 
-#define SEXT3(x)	((((x)&0x7)^(~3))+4)	
+#define SEXT3(x)	((((x)&0x7)^(~3))+4)
 
 /* sign-extend a 4-bit number */
-#define SEXT4(x)	((((x)&0xf)^(~7))+8)	
+#define SEXT4(x)	((((x)&0xf)^(~7))+8)
 
 /* sign-extend an 8-bit number */
 #define SEXT8(x)	((((x)&0xff)^(~0x7f))+0x80)

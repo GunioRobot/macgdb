@@ -47,7 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
      US Software goFast library.  If this is not defined, the entry points use
      the same names as libgcc1.c.
    _DEBUG_BITFLOAT: This makes debugging the code a little easier, by adding
-     two integers to the FLO_union_type.  
+     two integers to the FLO_union_type.
    NO_NANS: Disable nan and infinity handling
    SMALL_MACHINE: Useful when operations on QIs and HIs are faster
      than on an SI */
@@ -310,7 +310,7 @@ iszero ( fp_number_type *  x)
   return x->class == CLASS_ZERO;
 }
 
-INLINE 
+INLINE
 static void
 flip_sign ( fp_number_type *  x)
 {
@@ -713,13 +713,13 @@ _fpmul_parts ( fp_number_type *  a,
 	  x >>= 1;
 	}
     }
-#elif defined(FLOAT) 
+#elif defined(FLOAT)
     {
-      /* Multiplying two 32 bit numbers to get a 64 bit number  on 
+      /* Multiplying two 32 bit numbers to get a 64 bit number  on
         a machine with DI, so we're safe */
 
       DItype answer = (DItype)(a->fraction.ll) * (DItype)(b->fraction.ll);
-      
+
       high = answer >> 32;
       low = answer;
     }
@@ -1140,7 +1140,7 @@ si_to_float (SItype arg_a)
   else
     {
       in.normal_exp = FRACBITS + NGARDS;
-      if (in.sign) 
+      if (in.sign)
 	{
 	  /* Special case for minint, since there is no +ve integer
 	     representation for it */
@@ -1235,7 +1235,7 @@ negate (FLO_type arg_a)
 SFtype
 __make_fp(fp_class_type class,
 	     unsigned int sign,
-	     int exp, 
+	     int exp,
 	     USItype frac)
 {
   fp_number_type in;

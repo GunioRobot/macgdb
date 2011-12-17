@@ -48,7 +48,7 @@ if { [istarget "spu*-*-*"] } {
 set testfile "exception"
 set srcfile ${testfile}.cc
 set binfile ${objdir}/${subdir}/${testfile}
- 
+
 if { [gdb_compile "${srcdir}/${subdir}/${srcfile}" "${binfile}" executable {debug c++}] != "" } {
      untested exception.exp
      return -1
@@ -130,7 +130,7 @@ gdb_test_multiple "info breakpoints" $name {
 }
 
 # Get the first exception thrown
-       
+
 set name "continue to first throw"
 gdb_test_multiple "continue" $name {
     -re "Continuing.${ws}Catchpoint \[0-9\]+ \\(exception thrown\\), throw location.*${srcfile}:30, catch location .*${srcfile}:50\r\n$gdb_prompt $" {
@@ -218,7 +218,7 @@ gdb_test_multiple "backtrace" $name {
 }
 
 # That is all for now.
-# 
+#
 # The original code had:
 #
 #    continue to re-throw ; backtrace

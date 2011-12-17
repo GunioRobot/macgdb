@@ -185,7 +185,7 @@ cpu | decode | cpu-decode)
 
 defs)
 	rm -f ${tmp}-defs.h1 ${tmp}-defs.h
-	
+
 	${cgen} ${cgendir}/cgen-sim.scm \
 		-s ${cgendir} \
 		${cgenflags} \

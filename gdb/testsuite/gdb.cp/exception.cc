@@ -32,7 +32,7 @@ int foo (int i)
 }
 
 extern "C" int bar (int k, unsigned long eharg, int flag);
-    
+
 int bar (int k, unsigned long eharg, int flag)
 {
   cout << "k is " << k << " eharg is " << eharg << " flag is " << flag << endl;
@@ -49,7 +49,7 @@ int main()
   catch (int x) {
     cout << "Got an except " << x << endl;
   }
-  
+
   try {
     try {
       j = foo (20);
@@ -63,6 +63,6 @@ int main()
     cout << "Got an except (rethrown) " << y << endl;
   }
 
-  // Not caught 
+  // Not caught
   foo (20);
 }

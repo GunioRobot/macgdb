@@ -143,7 +143,7 @@ proc dbx_reinitialize_dir { subdir } {
 # I'm leaving it as it is for now because at the moment it
 # is the only test we have of the use of the combination of
 # "symbol-file" and "exec-file" to load a debugging target (the
-# other definition uses "file". 
+# other definition uses "file".
 #
 # Symbol-file and exec-file should be tested explicitly, not
 # as a side effect of running a particular test (in this case,
@@ -196,7 +196,7 @@ proc gdb_file_cmd {arg} {
     gdb_expect {
 	-re "Detected 64-bit symbol file.\r\nInvoking.*gdb64.*$gdb_prompt $" {
             verbose "\t\tLoaded $arg into the $GDB"
-            send_gdb "exec-file $arg\n" 
+            send_gdb "exec-file $arg\n"
             gdb_expect {
                 -re ".*$gdb_prompt $" {
                     verbose "\t\tLoaded $arg with new symbol table into $GDB"
@@ -211,7 +211,7 @@ proc gdb_file_cmd {arg} {
         }
         -re "Reading symbols from.*done.*$gdb_prompt $" {
             verbose "\t\tLoaded $arg into the $GDB"
-            send_gdb "exec-file $arg\n" 
+            send_gdb "exec-file $arg\n"
             gdb_expect {
 	        -re "A program is being debugged already.*Kill it.*y or n. $" {
 	            send_gdb "y\n"

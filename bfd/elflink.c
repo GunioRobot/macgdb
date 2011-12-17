@@ -12495,7 +12495,7 @@ _bfd_elf_get_dynamic_reloc_section (bfd *       abfd,
    section does not exist it is created and attached to the DYNOBJ
    bfd and stored in the SRELOC field of SEC's elf_section_data
    structure.
-   
+
    ALIGNMENT is the alignment for the newly created section and
    IS_RELA defines whether the name should be .rela.<SEC's name>
    or .rel.<SEC's name>.  The section name is looked up in the

@@ -127,7 +127,7 @@
 
 2002-12-23  Adam Fedor  <fedor@gnu.org>
 
-	* objc-lang.c (lookup_objc_class, lookup_child_selector): Remove 
+	* objc-lang.c (lookup_objc_class, lookup_child_selector): Remove
 	last argument from complaint function call.
 
 2002-12-23  Kevin Buettner  <kevinb@redhat.com>
@@ -248,7 +248,7 @@
 
 2002-12-18  Andrew Cagney  <ac131313@redhat.com>
 
-	* frame.c (deprecated_update_current_frame_pc_hack): Replace 
+	* frame.c (deprecated_update_current_frame_pc_hack): Replace
 	deprecated_update_current_frame_pc_hack.
 	(deprecated_update_frame_base_hack): New function.
 	* frame.h (deprecated_update_frame_pc_hack): Replace
@@ -455,7 +455,7 @@
 	* d30v-tdep.c, arc-tdep.c, cxux-nat.c, dst.h, dstread.c: Delete.
 	* ch-exp.c, ch-lang.c, ch-lang.h, ch-typeprint.c: Delete.
 	* ch-valprint.c: Delete.
-	
+
 2002-12-15  Daniel Jacobowitz  <drow@mvista.com>
 
 	* infrun.c (handle_inferior_event): Rearrange code to resume if
@@ -484,11 +484,11 @@
 2002-12-14  Richard Earnshaw  <rearnsha@arm.com>
 
 	* arm-tdep.c (convert_from_extended): New argument to hold the
-	type of floating point result we want to convert to.  Make input 
+	type of floating point result we want to convert to.  Make input
 	argument const.  Fix all callers.
 	(convert_to_extended): Similarly.
 	(arm_extract_return_value): Now takes a regcache argument.  Change
-	code to use regcache accessor functions.  Correctly extract 
+	code to use regcache accessor functions.  Correctly extract
 	smaller-than-word results on big-endian machines.
 	(arm_store_return_value): Now takes a regcache argument.  Change
 	code to use regcache accessor functions.  Correctly zero/sign extend
@@ -519,7 +519,7 @@
 	* frame.h (deprecated_update_current_frame_pc_hack): Declare.
 	* infrun.c (normal_stop): Use said function instead of directly
 	modifying the frame's PC.
-	
+
 2002-12-13  Alexandre Oliva  <aoliva@redhat.com>
 
 	* frame.h (frame_id_unwind_ftype): Fix typo in return type.
@@ -801,7 +801,7 @@
 2002-12-10  Andrew Cagney  <ac131313@redhat.com>
 
 	* PROBLEMS: Delete reference to PR gdb/725.
-	
+
 	* MAINTAINERS (gdb.c++): Add David Carlton.
 
 2002-12-09  David Carlton  <carlton@math.stanford.edu>
@@ -906,15 +906,15 @@
 	(event-top.o): Ditto.
 	(exec.o): Ditto.
 	(solib.o): Ditto.
-	(source.o): Ditto. 
-	(symfile.o): Ditto. 
-	(symmisc.o): Ditto. 
+	(source.o): Ditto.
+	(symfile.o): Ditto.
+	(symmisc.o): Ditto.
 	(top.o): Ditto.
-	(tracepoint.o): Ditto. 
+	(tracepoint.o): Ditto.
 	(utils.o): Ditto.
 	(cli-dump.o): Ditto.
-	(tui-hooks.o): Ditto. 
-	(tuiWin.o): Ditto. 
+	(tui-hooks.o): Ditto.
+	(tuiWin.o): Ditto.
 
 2002-12-08  Elena Zannoni  <ezannoni@redhat.com>
 
@@ -972,7 +972,7 @@
 	the format name.
 	(TARGET_DOUBLE_FORMAT, TARGET_LONG_DOUBLE_FORMAT): Ditto.
 	* gdbarch.c: Regenerate.
-	
+
 2002-12-06  Andrew Cagney  <ac131313@redhat.com>
 
 	* gdbarch.sh (DEPRECATED_INIT_FRAME_PC_FIRST): Rename
@@ -986,7 +986,7 @@
 	* config/sparc/tm-sparc.h (DEPRECATED_INIT_FRAME_PC_FIRST): Update.
 	* config/rs6000/tm-rs6000.h (DEPRECATED_INIT_FRAME_PC_FIRST): Update.
 	* alpha-tdep.c (alpha_gdbarch_init): Update.
-	
+
 2002-12-06  Elena Zannoni  <ezannoni@redhat.com>
 
 	* ia64-linux-nat.c: Include gdb_string.h.
@@ -1044,7 +1044,7 @@
 	* gdbarch.sh: Dump the predicate function and macro values.
 	(read): Print error on standard error.
 	* gdbarch.c: Regenerate.
-	
+
 2002-12-04  Kevin Buettner  <kevinb@redhat.com>
 
 	* Makefile.in (mips_tdep_h): Define.
@@ -1089,7 +1089,7 @@
 	* sparc-nat.c (fetch_inferior_registers)
 	(store_inferior_registers): Add comment on problem of LWP vs
 	threads.
-	
+
 	From 2002-11-21 Daniel Jacobowitz <drow@mvista.com>
 	* lin-lwp.c (lin_lwp_fetch_registers): Remove.
 	(lin_lwp_store_registers): Remove.
@@ -1155,13 +1155,13 @@
 	Fixes a build failure on HP/UX.
 
 	* hpread.c (told_objfile): Replace boolean type by int. Fixes a build
-	failure on HP/UX. 
+	failure on HP/UX.
 	(hpread_has_name): Advance declaration to avoid a compilation warning.
 	(pst_syms_count): Add missing variable type. By change, the compiler
 	was defaulting to int, which seems a good choice. Fixes a compilation
 	warning.
 	(pst_syms_size): Likewise.
- 
+
 2002-12-02  J. Brobecker  <brobecker@gnat.com>
 
 	* hppa-tdep.c: Add #include "osabi.h" (for hppa_gdbarch_init).
@@ -1241,7 +1241,7 @@
 	(m68k_frame_init_saved_regs, m68k_saved_pc_after_call): Use
 	read_memory_unsigned_integer instead of read_memory_integer when
 	dealing with addresses and instruction opcodes.
-	* m68klinux-tdep.c (m68k_linux_sigtramp_saved_pc) 
+	* m68klinux-tdep.c (m68k_linux_sigtramp_saved_pc)
 	(m68k_linux_frame_saved_pc): Likewise.
 
 2002-11-29  Andrew Cagney  <ac131313@redhat.com>
@@ -1261,7 +1261,7 @@
 	* remote-mips.c, remote-rdp.c, sh-tdep.c, sparc-tdep.c: Update.
 	* stack.c, thread.c, tracepoint.c, valops.c, varobj.c: Update.
 	* z8k-tdep.c, cli/cli-cmds.c: Update.
-	
+
 2002-11-29  Andrew Cagney  <ac131313@redhat.com>
 
 	* frame.h (get_selected_block): Add comments.
@@ -1319,7 +1319,7 @@
 	* inferior.h (USE_GENERIC_DUMMY_FRAMES): Delete macro definition.
 	(CALL_DUMMY_LOCATION): Delete macro definition.
 	(PC_IN_CALL_DUMMY): Delete macro definitions.
-	
+
 	* arm-tdep.c (arm_gdbarch_init): Do not set pc_in_call_dummy,
 	default is already generic_pc_in_call_dummy.
 	* xstormy16-tdep.c (xstormy16_gdbarch_init): Ditto.
@@ -1333,7 +1333,7 @@
 	* h8300-tdep.c (h8300_gdbarch_init): Ditto.
 	* d10v-tdep.c (d10v_gdbarch_init): Ditto.
 	* avr-tdep.c (avr_gdbarch_init): Ditto.
-	
+
 	* arm-tdep.c (arm_gdbarch_init): Do not set
 	use_generic_dummy_frames, default is already 1.
 	* xstormy16-tdep.c (xstormy16_gdbarch_init): Ditto.
@@ -1381,7 +1381,7 @@
 	* frame.h: Update comments on set_current_frame, create_new_frame,
 	flush_cached_frames, reinit_frame_cache, select_frame and
 	selected_frame.
-	
+
 2002-11-27  Andrew Cagney  <cagney@redhat.com>
 
 	* config/z8k/tm-z8k.h (PC_IN_CALL_DUMMY): Update definition to use
@@ -1399,13 +1399,13 @@
 	* aclocal.m4: Ditto.
 	* configure.in: Ditto.
 	* configure: Regenerated.
-	
+
 2002-11-26  Andrew Cagney  <ac131313@redhat.com>
 
 	* gdbarch.sh (TARGET_FLOAT_FORMAT): Print the float format name.
 	(TARGET_DOUBLE_FORMAT, TARGET_LONG_DOUBLE_FORMAT): Ditto.
 	* gdbarch.c: Re-generate.
-	
+
 2002-11-26  Andrew Cagney  <ac131313@redhat.com>
 
 	* config/h8500/tm-h8500.h (CALL_DUMMY_LOCATION): Define as ON_STACK.
@@ -1424,7 +1424,7 @@
 	* config/z8k/tm-z8k.h (CALL_DUMMY_LOCATION): Define as ON_STACK.
 	(USE_GENERIC_DUMMY_FRAMES): Define as zero.
 	(PC_IN_CALL_DUMMY): Defile as pc_in_call_dummy_on_stack.
-	
+
 2002-11-26  Andrew Cagney  <ac131313@redhat.com>
 
 	* inferior.h (deprecated_pc_in_call_dummy_before_text_end): Rename
@@ -1557,7 +1557,7 @@
 	* stack.c (print_frame_info_base): Ditto.
 	(frame_info): Ditto.
 	(print_frame_info_base): Ditto.  Delete dead code.
-	
+
 2002-11-23  Andreas Schwab  <schwab@suse.de>
 
 	* Makefile.in (m68k_tdep_h): Define.
@@ -1662,7 +1662,7 @@
 	GDB_TARGET_UNMASK_DISAS_PC and GDB_TARGET_MASK_DISAS_PC.
 	(address_info): Ditto.
 	Fix PR gdb/773.
-	
+
 2002-11-19  Klee Dienes  <kdienes@apple.com>
             Adam Fedor  <fedor@gnu.org>
 
@@ -1681,9 +1681,9 @@
 
 2002-11-19  Andreas Schwab  <schwab@suse.de>
 
-	* m68klinux-nat.c (IS_SIGTRAMP, IS_RT_SIGTRAMP) 
-	(m68k_linux_in_sigtramp, SIGCONTEXT_PC_OFFSET) 
-	(UCONTEXT_PC_OFFSET, m68k_linux_sigtramp_saved_pc) 
+	* m68klinux-nat.c (IS_SIGTRAMP, IS_RT_SIGTRAMP)
+	(m68k_linux_in_sigtramp, SIGCONTEXT_PC_OFFSET)
+	(UCONTEXT_PC_OFFSET, m68k_linux_sigtramp_saved_pc)
 	(m68k_linux_frame_saved_pc): Move to ...
 	* m68klinux-tdep.c: ... here.  New file.
 	* Makefile.in (m68klinux-tdep.o): Add dependencies.
@@ -1700,19 +1700,19 @@
 	(YYFILES): Add objc-exp.tab.c.
 	(local-maintainer-clean): Remove objc-exp.tab.c.
 	(objc-exp.tab.c, objc-exp.tab.o, objc-lang.o): New target.
-	
+
 2002-11-19  Pierre Muller  <muller@ics.u-strasbg.fr>
 
 	* p-exp.y (typecast rule): Add automatic dereference of
 	pascal classes if needed.
 	(THIS): Set current_type.
-	Automatically dereference pascal classes. 
+	Automatically dereference pascal classes.
 	(typebase rule): Add ^typebase recognition.
 
 2002-11-18  Adam Fedor  <fedor@gnu.org>
 
 	* expprint.c (print_subexp): Handle OP_OBJC_NSSTRING,
-	OP_OBJC_MSGCALL, and OP_OBJC_SELF.	
+	OP_OBJC_MSGCALL, and OP_OBJC_SELF.
 	(op_name): Handle OP_OBJC_SELF.
 	* Makefile.in (expprint.o): Add additional depends.
 
@@ -1721,7 +1721,7 @@
 	* expression.h: Rename ObjC ops to OP_OBJC_MSGCALL,
 	OP_OBJC_SELECTOR, OP_OBJC_NSSTRING, and OP_OBJC_SELF.
 	* parse.c (length_of_subexp, prefixify_subexp): Likewise.
-	* objc-exp.y: Likewise.	
+	* objc-exp.y: Likewise.
 
 2002-11-18  Adam Fedor  <fedor@gnu.org>
 
@@ -1777,7 +1777,7 @@
 2002-11-18  Klee Dienes  <kdienes@apple.com>
 
 	* buildsym.c (pop_context): Add comment.
-	
+
 2002-11-18  Klee Dienes  <kdienes@apple.com>
 
         * buildsym.h (pop_context): Convert to function, defined in
@@ -2104,7 +2104,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-11-11  Elena Zannoni  <ezannoni@redhat.com>
             Jim Blandy  <jimb@redhat.com>
-	
+
 	* gdb_thread_db.h (enum): Add TD_NOTALLOC.
 	* target.c (update_current_target): Add
 	to_get_thread_local_address.
@@ -2171,7 +2171,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	(sparc_frame_saved_pc): Update.
 	* ada-lang.c (find_printable_frame): Update.
 	* breakpoint.c (deprecated_frame_in_dummy): Update.
-	
+
 2002-11-09  Mark Kettenis  <kettenis@gnu.org>
 
 	* i386-linux-nat.c (ORIG_EAX): Define to -1 if not already
@@ -2210,7 +2210,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	builtin_type_void_code_ptr, not builtin_type_void_data_ptr (we are
 	extracting the PC).  Use TYPE_LENGTH (builtin_type_void_code_ptr)
 	instead of (TARGET_PTR_BIT / TARGET_CHAR_BIT).
-	
+
 2002-11-09  Andrew Cagney  <ac131313@redhat.com>
 
 	* frame.c (get_prev_frame): Test prev_p to identify a previously
@@ -2540,7 +2540,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	* varobj.c (child_exists, cplus_number_of_children): Change
 	STREQ macro references to strcmp.
 	(cplus_name_of_child): Change code to handle the fact that
-	fields are not necessarily contiguous with regards to their 
+	fields are not necessarily contiguous with regards to their
 	access control. This is a fix for PR gdb/792.
 
 2002-11-05  Andrew Cagney  <ac131313@redhat.com>
@@ -2556,7 +2556,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	get_saved_register.
 
 2002-11-05  Elena Zannoni  <ezannoni@redhat.com>
-	
+
         From Jim Ingham  <jingham@apple.com>:
 	* event-top.c (gdb_disable_readline): New function.
 	(_initialize_event_loop): Move comment.
@@ -2605,8 +2605,8 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-11-05  Pierre Muller  <muller@ics.u-strasbg.fr>
 
-	* values.c (value_change_enclosing_type): Set 
-	enclosing_type field correctly also for the case where 
+	* values.c (value_change_enclosing_type): Set
+	enclosing_type field correctly also for the case where
 	more memory needs to be allocated.
 
 2002-11-03  Mark Kettenis  <kettenis@gnu.org>
@@ -2861,7 +2861,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	multi-arch predicate.
 	(address_class_name_to_type_flags): Ditto.
 	* gdbarch.h, gdbarch.c: Re-generate.
-	
+
 	* MAINTAINERS: Check all warnings when h8300hms and alpha-elf.
 
 2002-10-24  Martin M. Hunt  <hunt@redhat.com>
@@ -2877,22 +2877,22 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	* ada-lang.c (ada_finish_decode_line_1): Change INIT_SAL macro
 	to init_sal function call.
 	(find_sal_from_funcs_and_line): Ditto.
-	(all_sals_for_line): Ditto. 
-	* breakpoint.c (create_internal_breakpoint): Ditto. 
-	(create_fork_vfork_event_catchpoint): Ditto. 
-	(create_exec_event_catchpoint): Ditto. 
-	(parse_breakpoint_sals): Ditto. 
-	(watch_command_1): Ditto. 
+	(all_sals_for_line): Ditto.
+	* breakpoint.c (create_internal_breakpoint): Ditto.
+	(create_fork_vfork_event_catchpoint): Ditto.
+	(create_exec_event_catchpoint): Ditto.
+	(parse_breakpoint_sals): Ditto.
+	(watch_command_1): Ditto.
 	(handle_gnu_4_16_catch_command): Ditto.
-	(clear_command): Ditto. 
-	* hppa-tdep.c (child_enable_exception_callback): Ditto. 
-	* infcmd.c (run_stack_dummy): Ditto. 
+	(clear_command): Ditto.
+	* hppa-tdep.c (child_enable_exception_callback): Ditto.
+	* infcmd.c (run_stack_dummy): Ditto.
 	* infrun.c (process_event_stop_test): Ditto.
 	(check_sigtramp2): Ditto.
-	(step_over_function): Ditto. 
-	* linespec.c (decode_line_2): Ditto. 
-	(decode_line_1): Ditto. 
-	* source.c (line_info): Ditto. 
+	(step_over_function): Ditto.
+	* linespec.c (decode_line_2): Ditto.
+	(decode_line_1): Ditto.
+	* source.c (line_info): Ditto.
 	* symtab.c (find_pc_sect_line): Ditto.
 
 2002-10-24  Michal Ludvig  <mludvig@suse.cz>
@@ -2913,12 +2913,12 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	(x86_64_linux_in_sigtramp, x86_64_linux_frame_chain)
 	(x86_64_init_frame_pc, x86_64_init_extra_frame_info): New.
 	* x86-64-tdep.c (x86_64_gdbarch_init): Several
-	set_gdbarch_*() calls now use x86-64 specific functions 
+	set_gdbarch_*() calls now use x86-64 specific functions
 	instead of DWARF2 CFI ones.
 	* x86-64-tdep.h (x86_64_linux_in_sigtramp)
 	(x86_64_linux_frame_chain, x86_64_init_frame_pc)
 	(x86_64_init_extra_frame_info): New prototypes.
-	
+
 2002-10-23  David Carlton  <carlton@math.stanford.edu>
 
 	* linespec.c: #include "parser-defs.h".
@@ -3019,7 +3019,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 2002-10-21  Elena Zannoni  <ezannoni@redhat.com>
 
         * solib-svr4.c (svr4_fetch_objfile_link_map): New function.
-        * solib-svr4.h (svr4_fetch_objfile_link_map): Export.   
+        * solib-svr4.h (svr4_fetch_objfile_link_map): Export.
 
 2002-10-21  Elena Zannoni  <ezannoni@redhat.com>
 
@@ -3050,7 +3050,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-10-19  Adam Fedor  <fedor@gnu.org>
 
-	* objc-exp.y (name_not_typename): Fix invalid comment.	
+	* objc-exp.y (name_not_typename): Fix invalid comment.
 
 2002-10-20  Mark Kettenis  <kettenis@gnu.org>
 
@@ -3127,8 +3127,8 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	* c-typeprint.c (c_type_print_varspec_prefix): Make static.  Add
 	``need_post_space'' parameter.  Adjust all callers.
 
-2002-10-14  Daniel Jacobowitz  <drow@mvista.com>  
- 
+2002-10-14  Daniel Jacobowitz  <drow@mvista.com>
+
 	* config/mips/nm-irix4.h (HAVE_NONSTEPPABLE_WATCHPOINT): Define to 1.
 	* config/mips/nm-irix5.h (HAVE_NONSTEPPABLE_WATCHPOINT): Likewise.
 	* config/mips/tm-embed.h (HAVE_NONSTEPPABLE_WATCHPOINT): Likewise.
@@ -3430,8 +3430,8 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-09-30  Fernando Nasser  <fnasser@redhat.com>
 
-	* disasm.c: New file.  
-	* disasm.h: New file.  
+	* disasm.c: New file.
+	* disasm.h: New file.
 	* mi/mi-cmd-disas.c (gdb_dis_asm_read_memory): Moved to disasm.c.
 	(compare_lines): Ditto.
 	(dump_insns): Ditto.
@@ -3463,7 +3463,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	(do_mach_notify_port_destroyed, do_mach_notify_send_once): Ditto.
 	(S_proc_setmsgport_reply, S_proc_getmsgport_reply): Ditto.
 	(S_msg_sig_post_reply): Ditto.
-	
+
 2002-09-28  Corinna Vinschen  <vinschen@redhat.com>
 
 	* sh-tdep.c (sh_use_struct_convention): Use definition according
@@ -3611,7 +3611,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	(clear_complaints): When a SUBSEQUENT_MESSAGE, force a line break.
 
 2002-09-20  Nick Clifton  <nickc@redhat.com>
-	
+
 	* NEWS: Announce that V850EA ISA is no longer supported.
         * v850-tdep.c: Remove reference to bfd_mach_v850ea.
 
@@ -3699,7 +3699,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	Check where to find iconv, and what its argument types might be.
 	* acinclude.m4 (AM_ICONV): New macro, borrowed from GCC.
 	* Makefile.in (SFILES): List charset.c.
-	(COMMON_OBS): List charset.o.	
+	(COMMON_OBS): List charset.o.
 	(charset.o): New rule.
 	(charset_h): New header dependency variable.
 	(c-lang.o, utils.o, c-exp.tab.o): Note dependency on $(charset_h).
@@ -3726,7 +3726,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	jv-exp.y, language.c, language.h, p-exp.y, parse.c, parser-defs.h,
 	printcmd.c, source.c, stabsread.c, symfile.c, symtab.h, utils.c,
 	valops.c, value.h: Revert previous change.
-	
+
 2002-09-18  Michael Snyder  <msnyder@redhat.com>
 
 	Preliminary support for Objective-C:
@@ -3736,7 +3736,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	* c-exp.y: Include completer.h.
 	* p-exp.y: Ditto.
 	* jv-exp.y: Ditto.
-	* expression.h (OP_MSGCALL, OP_SELECTOR, OP_SELF, OP_NSSTRING): 
+	* expression.h (OP_MSGCALL, OP_SELECTOR, OP_SELF, OP_NSSTRING):
 	New operator enum values.
 	* language.h (CAST_IS_CONVERSION): Test for language_objc.
 	* language.c (binop_result_type): Handle language_objc case.
@@ -3749,7 +3749,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 	* parser-defs.h (struct objc_class_str): New struct type.
 	(start_msglist, end_msglist, add_msglist): Declaration only,
 	exported from objc-lang.c.
-	* value.h (value_of_local, value_nsstring, 
+	* value.h (value_of_local, value_nsstring,
 	call_function_by_hand_expecting_type): Exported from valops.c.
 	* valops.c (find_function_addr): Export.
 	(call_function_by_hand_expecting_type): New function.
@@ -3810,7 +3810,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 
 	Contributed by Apple Computer, Inc.  Merged with current sources
 	by Adam Fedor <fedor@doc.com> [cagney].
-	
+
 	* objc-lang.c: First clean-up round: comments, indentation.
 	* objc-lang.h: Ditto.
 	* objc-lang.y: Ditto.
@@ -3846,7 +3846,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* h8300-tdep.c (h8300_gdbarch_init): Use C instead of C++
 	comments.
-	
+
 	* config/djgpp/fnchange.lst: Handle name clashes between
 	bfd/coff-tic30.c, bfd/coff-tic4x.c, bfd/coff-tic54x.c and
 	bfd/coff-tic80.c.
@@ -3910,7 +3910,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-09-17  Theodore A. Roth  <troth@verinet.com>
 
-	* gdb/avr-tdep.c(avr_scan_prologue): Fix bad call to 
+	* gdb/avr-tdep.c(avr_scan_prologue): Fix bad call to
 	generic_read_register_dummy() (PR gdb/703).
 	(avr_push_return_address): #if 0 out unused vars.
 	(avr_gdbarch_init): Enable use of avr_push_return_address().
@@ -4025,7 +4025,7 @@ Wed Nov 13 19:51:05 2002  Andrew Cagney  <cagney@redhat.com>
 2002-09-14  Corinna Vinschen  <vinschen@redhat.com>
 
 	* arch-utils.c (legacy_pc_in_sigtramp): Move preprocessor expression
-	for IN_SIGTRAMP to here.  Use IN_SIGTRAMP only if it's defined. 
+	for IN_SIGTRAMP to here.  Use IN_SIGTRAMP only if it's defined.
 	Guard usage of SIGTRAMP_START() by using SIGTRAMP_START_P.
 
 2002-09-13  Christopher Faylor  <cgf@redhat.com>
@@ -4081,7 +4081,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 2002-09-12  Joel Brobecker  <brobecker@gnat.com>
 
 	* gdbarch.sh (NAME_OF_MALLOC): New variable in the architecture
-	vector. Will be useful for Interix.  
+	vector. Will be useful for Interix.
 	* gdbarch.h, gdbarch.c: Regenerate.
 
 	* valops.c (value_allocate_space_in_inferior): Replace hard-coded
@@ -4167,7 +4167,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	_initialize_ada_language): Fix K&R definitions.
 	* ada-tasks.c (get_current_task): Fix K&R definitions.
 	* ada-valprint.c (adjust_type_signedness): Fix K&R definitions.
-			
+
 2002-09-07  Christopher Faylor  <cgf@redhat.com>
 
 	* MAINTAINERS: Remove CE from list of maintainership responsibilities.
@@ -4244,7 +4244,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 2002-09-02  Jason Thorpe  <thorpej@wasabisystems.com>
 
 	* ada-exp.y (yyname, yyrule): Remap global variables that appear
-	when YYDEBUG is set to 1.  
+	when YYDEBUG is set to 1.
 	* c-exp.y: Likewise.
 	* f-exp.y: Likewise.
 	* jv-exp.y: Likewise.
@@ -4266,22 +4266,22 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-09-02  Jason Thorpe  <thorpej@wasabisystems.com>
 
-	* configure.tgt (i[3456]86-*-netbsdelf*): Merge with... 
-	(i[3456]86-*-netbsd*): ...this.  Set gdb_target to nbsd. 
+	* configure.tgt (i[3456]86-*-netbsdelf*): Merge with...
+	(i[3456]86-*-netbsd*): ...this.  Set gdb_target to nbsd.
 	(i[3456]86-*-openbsd*): Make this a separate entry.  Add a
 	comment noting that this needs its own target configuration.
 	* config/i386/nbsd.mt: New file.
 	* config/i386/nbsdaout.mt: Remove.
 	* config/i386/nbsdelf.mt: Ditto.
-	* config/i386/tm-nbsdaout.h: Ditto. 
+	* config/i386/tm-nbsdaout.h: Ditto.
 
 2002-09-02  Jason Thorpe  <thorpej@wasabisystems.com>
 
-	* i386nbsd-tdep.c (i386nbsd_sigtramp_offset): New function. 
-	(i386nbsd_pc_in_sigtramp): Rewrite to use i386nbsd_sigtramp_offset. 
+	* i386nbsd-tdep.c (i386nbsd_sigtramp_offset): New function.
+	(i386nbsd_pc_in_sigtramp): Rewrite to use i386nbsd_sigtramp_offset.
 	(i386nbsd_init_abi): Don't initialize tdep->sigtramp_start or
 	tdep->sigtramp_end.
-	(i386nbsd_sigtramp_start, i386nbsd_sigtramp_end): Remove. 
+	(i386nbsd_sigtramp_start, i386nbsd_sigtramp_end): Remove.
 	* config/i386/tm-nbsd.h (SIGTRAMP_START, SIGTRAMP_END)
 	(i386bsd_sigtramp_start, i386bsd_sigtramp_end): Remove.
 
@@ -4322,31 +4322,31 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	* Makefile.in (alphanbsd-tdep.o): Add $(frame_h) to dependency
 	list.
 	* alphanbsd-tdep.c (alphanbsd_sigcontext_addr)
-	(alphanbsd_skip_sigtramp_frame): New functions. 
+	(alphanbsd_skip_sigtramp_frame): New functions.
 	(alphanbsd_init_abi): Set tdep->skip_sigtramp_frame to
 	alphanbsd_skip_sigtramp_frame.  Set tdep->sigcontext_addr
-	to alphanbsd_sigcontext_addr. 
+	to alphanbsd_sigcontext_addr.
 
 2002-08-31  Jason Thorpe  <thorpej@wasabisystems.com>
 
 	* Makefile.in (mipsnbsd-tdep.o): Add nbsd-tdep.h to dependency
 	list.
-	(nbsd-tdep.o): Add $(gdb_string_h) to dependency list. 
+	(nbsd-tdep.o): Add $(gdb_string_h) to dependency list.
 	* alphanbsd-tdep.c (alphanbsd_pc_in_sigtramp): Use
-	nbsd_pc_in_sigtramp. 
+	nbsd_pc_in_sigtramp.
 	* mipsnbsd-tdep.c: Include nbsd-tdep.h.
 	(mipsnbsd_pc_in_sigtramp): Use nbsd_pc_in_sigtramp.
 	* nbsd-tdep.c: Include gdb_string.h.
-	(nbsd_pc_in_sigtramp): New function. 
-	* nbsd-tdep.h (nbsd_pc_in_sigtramp): New prototype. 
+	(nbsd_pc_in_sigtramp): New function.
+	* nbsd-tdep.h (nbsd_pc_in_sigtramp): New prototype.
 	* ppcnbsd-tdep.c (ppcnbsd_pc_in_sigtramp): New function.
 	(ppcnbsd_init_abi): Set gdbarch_pc_in_sigtramp to
-	ppcnbsd_pc_in_sigtramp. 
+	ppcnbsd_pc_in_sigtramp.
 	* shnbsd-tdep.c (shnbsd_pc_in_sigtramp): New function.
 	(shnbsd_init_abi): Set gdbarch_pc_in_sigtramp to
-	shnbsd_pc_in_sigtramp. 
+	shnbsd_pc_in_sigtramp.
 	* sparcnbsd-tdep.c (sparcnbsd_init_abi_elf): Set
-	gdbarch_pc_in_sigtramp to nbsd_pc_in_sigtramp. 
+	gdbarch_pc_in_sigtramp to nbsd_pc_in_sigtramp.
 	* config/mips/nbsd.mt (TDEPFILES): Add nbsd-tdep.o.
 
 2002-08-30  Pierre Muller  <muller@ics.u-strasbg.fr>
@@ -4421,10 +4421,10 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	* testsuite/gdb.base/commands.exp: New tests for commands
 	attached to a temporary breakpoint, and for commands that
 	delete the breakpoint they are attached to.
-	
+
 2002-08-26  Michael Snyder  <msnyder@redhat.com>
 
-	* breakpoint.c (bpstat_stop_status): Instead of copying the 
+	* breakpoint.c (bpstat_stop_status): Instead of copying the
 	pointer to the breakpoint commands struct, make a new copy
 	of the struct and point to that.
 	(bpstat_clear): Free the commands struct.
@@ -4445,7 +4445,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	* gdb-events.sh: Add selected-frame-level-changed event.
 	* gdb-events.c: Regenerated.
 	* gdb-events.h: Regenerated.
-	
+
 2002-08-26  Stephane Carrez  <stcarrez@nerim.fr>
 
 	Fix PR gdb/393:
@@ -4609,7 +4609,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* infrun.c (normal_stop, proceed): Remove call to print_sys_errmsg
 	when breakpoints fail. Move general breakpoint error messages to
-	insert_breakpoints.  
+	insert_breakpoints.
 	* breakpoint.c (insert_breakpoints): Change warnings when
 	breakpoints are nto inserted to specify the type. Remove call to
 	memory_error when hardware breakpoints can't be inserted. Remove
@@ -4653,7 +4653,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	register bytes directly.
 	Assign VALUE_CONTENTS to a variable and use that.
 	The GPR numbers are now dependent on the architecture.
-	
+
 2002-08-22  Elena Zannoni  <ezannoni@redhat.com>
 
 	* rs6000-tdep.c (struct rs6000_framedata): Add saved_ev and
@@ -4667,7 +4667,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	deprecated_extract_return_value and store_return_value.  Overwrite
 	init of store_return_value with e500 specific version.
 	Set extract_return_value for e500.
-	
+
 2002-08-22  Elena Zannoni  <ezannoni@redhat.com>
 
 	* blockframe.c (generic_call_dummy_register_unwind): Use
@@ -4739,7 +4739,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	* gdbarch.sh (PRINT_REGISTERS_INFO): New method.
 	(DO_REGISTERS_INFO): Change to a predicate function.
 	* gdbarch.h, gdbarch.c: Regenerate.
-	
+
 2002-08-21  Keith Seitz  <keiths@redhat.com>
 
 	* gdb-events.sh: Add target-changed event.
@@ -4770,8 +4770,8 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* mips-tdep.c (MSYMBOL_IS_SPECIAL, MSYMBOL_SIZE): These are only
 	used locally, so move them from the target machine header to here.
-	(mips_set_processor_type, mips_register_name, mips32_next_pc, 
-	mips16_next_pc, cached_proc_desc, mips_set_processor_type): 
+	(mips_set_processor_type, mips_register_name, mips32_next_pc,
+	mips16_next_pc, cached_proc_desc, mips_set_processor_type):
 	Make static.
 	* config/mips/tm-mips.h (MSYMBOL_IS_SPECIAL, MSYMBOL_SIZE): Delete.
 
@@ -4814,7 +4814,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 2002-08-20  Michael Snyder  <msnyder@redhat.com>
 
 	* mips-tdep.c (mips_skip_stub, mips_in_call_stub): Make static.
-	(mips_gdbarch_init): Set skip_trampoline_code, 
+	(mips_gdbarch_init): Set skip_trampoline_code,
 	in_solib_call_trampoline.
 	* config/mips/tm-mips.h (REGISTER_NAME): Delete.
 	(IN_SOLIB_CALL_TRAMPOLINE, SKIP_TRAMPOLINE_CODE): Delete.
@@ -4873,13 +4873,13 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	CALL_DUMMY_ADDRESS): Delete.
 	* mips-tdep.c (mips_elf_make_msymbol_special, mips_msymbol_size,
 	mips_msymbol_is_special, mips_fix_call_dummy): New functions.
-	(mips_gdbarch_init): Set elf_make_msymbol_special, pop_frame, 
-	push_dummy_frame, fix_call_dummy, init_extra_frame_info, 
+	(mips_gdbarch_init): Set elf_make_msymbol_special, pop_frame,
+	push_dummy_frame, fix_call_dummy, init_extra_frame_info,
 	push_return_address.
-	(mips_register_raw_size, mips_eabi_use_struct_convention, 
+	(mips_register_raw_size, mips_eabi_use_struct_convention,
 	mips_n32n64_use_struct_convention, mips_o32_use_struct_convention,
 	mips_o32_reg_struct_has_addr, mips_frame_saved_pc, mips_frame_chain,
-	mips_init_extra_frame_info, mips_eabi_push_arguments, 
+	mips_init_extra_frame_info, mips_eabi_push_arguments,
 	mips_n32n64_push_arguments, mips_push_return_address,
 	mips_push_dummy_frame, mips_pop_frame, mips_skip_prologue,
 	mips_breakpoint_from_pc, mips_call_dummy_address): Make static.
@@ -4888,10 +4888,10 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* mips-tdep.c (mips_frame_num_args): New function.
 	(mips_gdbarch_init): Set frame_chain, frameless_function_invocation,
-	frame_saved_pc, frame_args_address, frame_locals_address, 
+	frame_saved_pc, frame_args_address, frame_locals_address,
 	frame_num_args, and frame_args_skip.
 	* config/mips/tm-mips.h (FRAME_CHAIN, FRAMELESS_FUNCTION_INVOCATION,
-	FRAME_SAVED_PC, FRAME_ARGS_ADDRESS, FRAME_LOCALS_ADDRESS, 
+	FRAME_SAVED_PC, FRAME_ARGS_ADDRESS, FRAME_LOCALS_ADDRESS,
 	FRAME_NUM_ARGS, FRAME_ARGS_SKIP): Delete.
 	* config/mips/tm-mipsv4.h (FRAME_CHAIN_VALID): Delete.
 
@@ -5031,7 +5031,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	(ada-exp.tab.c ada-lex.c ada-lang.o): New target.
 	(ada-tasks.o ada-typeprint.o ada-valprint.o): New target.
 	(ada-exp.tab.o): New target.
-		
+
 2002-08-18  Andrew Cagney  <ac131313@redhat.com>
 
 	* regcache.c (regcache_xfer_part): New function.
@@ -5115,7 +5115,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* ada-lang.c: Use gdb_string.h instead of <string.h>.
 	* ada-typeprint.c: Use gdb_string.h instead of <string.h>.
-		
+
 2002-08-18  Aidan Skinner <aidan@velvet.net>
 
         * ada-lang.c: Run through gdb_indent.sh.
@@ -5245,7 +5245,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 2002-08-16  Joel Brobecker  <brobecker@gnat.com>
 
 	* i386-tdep.c (i386_pe_skip_trampoline_code): renamed from
-	skip_trampoline_code, for better namespace-proofing.   
+	skip_trampoline_code, for better namespace-proofing.
 
 	* i386-tdep.h (i386_pe_skip_trampoline_code): Add declaration.
 
@@ -5283,9 +5283,9 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	* irix5-nat.c (supply_gregset): Allocate plenty-big buffer
 	(32 bytes) instead of using MAX_REGISTER_RAW_SIZE.
 	(supply_fpregset): Ditto.
-	
-	* config/mips/tm-mips.h (REGISTER_CONVERT_TO_VIRTUAL, 
-	REGISTER_CONVERT_TO_RAW, REGISTER_CONVERTIBLE, 
+
+	* config/mips/tm-mips.h (REGISTER_CONVERT_TO_VIRTUAL,
+	REGISTER_CONVERT_TO_RAW, REGISTER_CONVERTIBLE,
 	MAX_REGISTER_RAW_SIZE, MAX_REGISTER_VIRTUAL_SIZE): Delete.
 	(TARGET_READ_SP): Delete.
 	(DO_REGISTERS_INFO): Delete.
@@ -5304,7 +5304,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	(in_sigtramp): Make static, rename to mips_pc_in_sigtramp.
 	(mips_register_convert_from_type, mips_register_convert_to_type):
 	New functions.
-	(mips_gdbarch_init): Set up function_start_offset, 
+	(mips_gdbarch_init): Set up function_start_offset,
 	register_virtual_size, pc_in_sigtramp.
 
 2002-08-15  Andrew Cagney  <ac131313@redhat.com>
@@ -5329,16 +5329,16 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	* gdbarch.sh (PRINT_FLOAT_INFO): Change to a predicate method.
 	Add `args' parameter.
 	* gdbarch.h, gdbarch.c: Regenerate.
-	
+
 	* arm-tdep.c (arm_print_float_info): Add the parameter `args'.
-	
+
 	* infcmd.c (float_info): Call print_float_info.
 	(print_float_info): New function.  By default, print the
 	floating-point registers.
 
 	* arch-utils.h (default_print_float_info): Delete declaration.
 	* arch-utils.c (default_print_float_info): Delete function.
-	
+
 2002-08-16  Mark Kettenis  <kettenis@gnu.org>
 
 	* config/i386/nm-i386v.h (FLOAT_INFO): Remove already commented
@@ -5384,7 +5384,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	* config/i386/nm-i386sco5.h: ... here.
 	(kernel_u_size): Add prototype.  Improve a few comments and add
 	protection against multiple inclusion.
-	
+
 	* config/i386/nm-i386sco.h (FLOAT_INFO): Remove already commented
 	out define.
 
@@ -5430,7 +5430,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-08-13  Michael Snyder  <msnyder@redhat.com>
 
-	* mips-tdep.c (mips_o32o64_push_arguments):  New function, 
+	* mips-tdep.c (mips_o32o64_push_arguments):  New function,
 	cloned from mips_push_arguments, tuned for o32/o64 ABI.
 	(mips_gdbarch_init): Set gdbarch_push_arguments to new func.
 
@@ -5492,7 +5492,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	(MSYMBOL_SIZE): New for documentation.
 	(insn_return_kind): Enum to specify how a function returns.
 	(frame_extra_info): Cleanup and record the return mode.
-	(gdbarch_tdep, USE_PAGE_REGISTER): New to control the use of page 
+	(gdbarch_tdep, USE_PAGE_REGISTER): New to control the use of page
 	register in address computation.
 	(m68hc11_get_return_insn): New to obtain the return instruction used
 	by the function.
@@ -5580,7 +5580,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* ada-valprint.c (val_print_packed_array_elements) (ada_val_print_1):
 	Fix prototype names so that grep ^func works properly.
- 	
+
 2002-08-10  Andrew Cagney  <cagney@redhat.com>
 	    Elena Zannoni  <ezannoni@redhat.com>
 	    Martin M. Hunt  <hunt@redhat.com>
@@ -5639,7 +5639,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-08-08  Michael Snyder  <msnyder@redhat.com>
 
-	* mips-tdep.c (mips_n32n64_use_struct_convention): N32 only 
+	* mips-tdep.c (mips_n32n64_use_struct_convention): N32 only
 	returns structs by ref if they're too big to fit in two registers.
 
 2002-08-09  Kevin Buettner  <kevinb@redhat.com>
@@ -5657,7 +5657,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 	frames are in use.
 
 2002-08-09  Grace Sainsbury  <graces@redhat.com>
-        
+
 	* remote.c: (remote_wait, remote_async_wait): Add check for awatch
         T-packets; the 'a' is not taken as a register number.
 	(remote_check_watch_resources, remote_stopped_by_watchpoint)
@@ -5727,7 +5727,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 2002-08-06  Michael Snyder  <msnyder@redhat.com>
 
 	* config/mips/tm-mips.h: Remove #define USE_STRUCT_CONVENTION.
-	* mips-tdep.c (mips_EABI_use_struct_convention, 
+	* mips-tdep.c (mips_EABI_use_struct_convention,
 	mips_OABI_use_struct_convention, mips_NABI_use_struct_convention):
 	New functions.  (mips_use_struct_convention): Delete.
 	(mips_gdbarch_init): set use_gdbarch_convention.
@@ -5735,7 +5735,7 @@ Fri Sep 13 07:42:09 2002  Andrew Cagney  <cagney@redhat.com>
 2002-08-06  Michael Snyder  <msnyder@redhat.com>
 
 	*  mips-tdep.c: gdbarch-ify reg_struct_has_addr.
-	(mips_eabi_reg_struct_has_addr, mips_n32n64_reg_struct_has_addr, 
+	(mips_eabi_reg_struct_has_addr, mips_n32n64_reg_struct_has_addr,
 	mips_o32_reg_struct_has_addr): New functions.
 	(mips_gdbarch_init): Set gdbarch reg_struct_has_addr.
 
@@ -5923,7 +5923,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	to_region_size_ok_for_hw_watchpoint, to_can_use_hw_breakpoint to
 	target vecctor. Define their corresponding macros so they call
 	them.
-	
+
 	* target.c: Add default and debug versions of for
 	to_insert_hw_breakpoint, to_remove_hw_breakpoint,
 	to_insert_watchpoint, to_remove_watchpoint,
@@ -6023,7 +6023,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* mips-tdep.c (mips_find_abi_section): Add N64 ABI recognition
 	test.  (Thanks to Daniel Jacobowitz.)
-	
+
 2002-07-31  Kevin Buettner  <kevinb@redhat.com>
 
 	* mips-tdep.c (enum mips_abi): Add MIPS_ABI_N64.
@@ -6102,7 +6102,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* Makefile.in (gdb_obstack_h): Define.
 	(symtab_h): Add $(gdb_obstack_h).
 	(objfiles_h): Add $(gdb_obstack_h).
-	
+
 	* objfiles.c: Include "gdb_obstack.h" instead of "obstack.h".
 	* macrotab.c, cp-valprint.c, dbxread.c: Ditto.
 	* ch-typeprint.c, ch-valprint.c, dstread.c: Ditto.
@@ -6215,7 +6215,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	refer to FIRST_UISA_SP_REGNUM or LAST_UISA_SP_REGNUM.
 	* config/rs6000/tm-rs6000.h (FIRST_UISA_SP_REGNUM)
 	(LAST_UISA_SP_REGNUM): Delete.
-	
+
 2002-07-25  Kevin Buettner  <kevinb@redhat.com>
 
 	* rs6000-nat.c (ppc-tdep.h): Include.
@@ -6252,7 +6252,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	form.
 	* ada-valprint.c: Change k&r style function definitions to prototyped
 	form.
-	
+
 2002-07-24  Andrew Cagney  <cagney@redhat.com>
 
 	* README: Remove reference to remote-bug.
@@ -6398,7 +6398,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* aix-thread.c (ops_prepare_to_store): Eliminate.
 	(init_ops): Don't initialize ops.prepare_to_store.
-	(store_regs_kern): Pre-fetch register buffers from child, 
+	(store_regs_kern): Pre-fetch register buffers from child,
 	because some registers may not be in the cache.  Copy
 	regs from register cache only if they are cached.
 	(store_regs_lib): Copy regs from register cache only
@@ -6423,7 +6423,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(supply_sprs32): Cosmetic change.
 	(fill_gprs64, fill_gprs32, fill_fprs, fill_sprs32): New funcs.
 	(fill_sprs64): Use regcache_collect instead of read_register.
-	(store_regs_lib): Use regcache_collect instead of 
+	(store_regs_lib): Use regcache_collect instead of
 	read_register.  Use fill_sprs32 instead of fill_sprs64,
 	if debugging a 32-bit architecture.
 	(store_regs_kern): Use fill_gprs64 etc. to pull the values
@@ -6435,13 +6435,13 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-07-20  Aidan Skinner <aidan@velvet.net>
 
-	* MAINTAINERS: Add self under write after approval. 
-		
+	* MAINTAINERS: Add self under write after approval.
+
 2002-07-20  Aidan Skinner <aidan@velvet.net>
 
 	* ada-tasks.c: Change k&r style function definitions to prototyped
 	form.
-		
+
 2002-07-19  Andrew Cagney  <ac131313@redhat.com>
 
 	* Makefile.in (x86-64-tdep.o): Add $(objfiles_h).
@@ -6456,7 +6456,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-07-17  Michael Snyder  <msnyder@redhat.com>
 
-	* aix-thread.c: Shorten some long lines.  
+	* aix-thread.c: Shorten some long lines.
 	Bring comments into line with code spec.
 
 2002-07-18  Joel Brobecker  <brobecker@gnat.com>
@@ -6599,14 +6599,14 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* ada-tasks.c (add_task_entry): replace calls to
 	malloc() with xmalloc
 	* ada-tasks.c (init_task_list): replace calls to free with xfree()
-	
+
 	* ada-lang.c (replace_operator_with_call, fill_in_ada_prototype,
 	ada_finish_decode_line_1, all_sals_for_line
 	ada_breakpoint_rewrite): replace calls to free() with xfree()
-		
+
 2002-07-12  Kevin Buettner  <kevinb@redhat.com>
 
-	From Nicholas Duffek (with minor changes by Martin Hunt, 
+	From Nicholas Duffek (with minor changes by Martin Hunt,
 	Louis Hamilton, and Kevin Buettner):
 	* aix-thread.c: New file.
 
@@ -6662,13 +6662,13 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	Replaced by opaque declaration.
 	(bcache_xfree): Replace free_bcache.
 	(bcache_xmalloc, bcache_memory_used): Declare.
-	
+
 	* bcache.c: Update copyright.
 	(struct bstring, struct bcache): Moved to here from "bcache.h".
 	Update comments.
 	(bcache_xmalloc, bcache_memory_used): New functions.
 	(bcache_xfree): Replace function free_bcache.
-	
+
 	* Makefile.in (objfiles.o): Add $(bcache_h).
 	(objfiles_h): Remove $(bcache_h).
 	(symfile.o): Add $(bcache_h).
@@ -6790,13 +6790,13 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* os9kread.c: Adjust indentation.
 
 2002-07-10  Andrew Cagney  <ac131313@redhat.com>
-	
+
 	* wince.c (_initialize_wince): Rename _initialize_inftarg.
 	* win32-nat.c (_initialize_win32_nat): Rename _initialize_inftarg.
 
 2002-07-10  Grace Sainsbury  <graces@redhat.com>
-	
-	* NEWS: Mention m68k, mcore multi-arching.  
+
+	* NEWS: Mention m68k, mcore multi-arching.
 	* MAINTAINERS: Change status of m68k, mcore to reflect
 	multi-arching.
 
@@ -6813,8 +6813,8 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-07-09  Grace Sainsbury  <graces@redhat.com>
 
-	* config/m68k/tm-m68k.h: Remove macros wrapped in 
-	#if !GDB_MULTI_ARCH. 
+	* config/m68k/tm-m68k.h: Remove macros wrapped in
+	#if !GDB_MULTI_ARCH.
 
 2002-07-08  Andrew Cagney  <ac131313@redhat.com>
 
@@ -6977,11 +6977,11 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* infcmd.c (print_return_value): Remove compatibility code calling
 	deprecated_grub_regcache_for_registers.
-	
+
 	* values.c: Include "regcache.h".
 	(value_being_returned): Update.  Use
 	deprecated_grub_regcache_for_registers to extract the register
-	buffer address.  
+	buffer address.
 	* value.h (value_being_returned): Change ``retbuf'' parameter to a
 	``struct regcache''.
 	* Makefile.in (values.o): Add dependency on $(regcache_h).
@@ -7004,9 +7004,9 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
         beginning of buffer.
 
 2002-07-03  Martin M. Hunt  <hunt@redhat.com>
-	
-        * varobj.c (struct varobj_root): Change frame from CORE_ADDR to 
-        struct frame_id. 
+
+        * varobj.c (struct varobj_root): Change frame from CORE_ADDR to
+        struct frame_id.
         (varobj_create): Store frame_id for root.
         (varobj_gen_name): Use xasprintf.
         (varobj_update): Save and restore frame using get_frame_id() and
@@ -7031,8 +7031,8 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* cli/cli-decode.c (cmd_func_p): New function.
 	(cmd_func): New function.
 
-	* command.h: Add cmd_func() and cmd_func_p().	
-	
+	* command.h: Add cmd_func() and cmd_func_p().
+
 2002-07-03  Grace Sainsbury  <graces@redhat.com>
 
 	* config/mcore/tm-mcore.h (GDB_MULTI_ARCH): Add macro. Set to 0.
@@ -7077,11 +7077,11 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	the frame pc address against the block boundaries rather than
 	the frame pc directly. This prevents a failure when a frame pc
 	is actually a return-address pointing immediately after the end
-	of the given block. 
+	of the given block.
 
 2002-07-02  Grace Sainsbury  <graces@redhat.com>
 
-	* MAINTAINERS: Add self under write after approval. 
+	* MAINTAINERS: Add self under write after approval.
 
 2002-07-02  Grace Sainsbury  <graces@redhat.com>
 
@@ -7091,7 +7091,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
         (m68k_local_breakpoint_from_pc): Add.
         (enum): Add register numbers from tm-m68k.h.
         (m68k_gdbarch_init): Add breakpoint_from_pc to architecture
-	vector.  
+	vector.
 	* config/m68k/tm-m68k.h (GDB_MULTI_ARCH): Set to
 	GDB_MULTI_ARCH_PARTIAL.
         (BPT_VECTOR, REGISTER_BYTES_FP, REGISTER_BYTES_NOFP)
@@ -7147,7 +7147,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* config/i386/nm-x86-64.h: Rename to ...
 	* config/i386/nm-x86-64linux.h: ... this one.
 	* config/i386/x86-64linux.mh: Reflect the above change.
-	
+
 2002-07-01  Mark Kettenis  <kettenis@gnu.org>
 
 	* i386-tdep.h (struct gdbarch_tdep): Replace sigtramp_saved_pc
@@ -7197,7 +7197,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* ada-exp.tab.c: remove as it's a generated file
 	* ada-lex.c: remove as it's a generated file
-		
+
 2002-06-30  Mark Kettenis  <kettenis@gnu.org>
 
 	* config/i386/tm-i386.h (struct frame_info, struct
@@ -7321,13 +7321,13 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-06-26  Jason Thorpe  <thorpej@wasabisystems.com>
 
-	* Makefile.in (vax_tdep_h): Define.  
+	* Makefile.in (vax_tdep_h): Define.
 	(vax-tdep.o): Use $(vax_tdep_h).
 	* vax-tdep.c (vax_gdbarch_init): Use generic OS ABI framework.
-	(vax_dump_tdep): New function. 
+	(vax_dump_tdep): New function.
 	(_initialize_vax_tdep): Register vax_dump_tdep.
-	* vax-tdep.h: Include osabi.h.     
-	(struct gdbarch_tdep): New. 
+	* vax-tdep.h: Include osabi.h.
+	(struct gdbarch_tdep): New.
 
 2002-06-26  Andrew Cagney  <cagney@redhat.com>
 
@@ -7352,7 +7352,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(FRAME_ARGS_ADDRESS): Remove.
 	(FRAME_LOCALS_ADDRESS): Remove.
 	(FRAME_NUM_ARGS): Remove.
-	(FRAME_ARGS_SKIP): Remove.  
+	(FRAME_ARGS_SKIP): Remove.
 	* m68k-tdep.c (enum): Add eumeration of special register numbers.
 	(m68k_gdbarch_init): Add gdbarch initializations for macros
 	undefined in tm-m68k.h
@@ -7372,9 +7372,9 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(init_abug_cmds): Same.
 	* dbug-rom.c (dbug_regname): Same as above.
 	(init_dbug_cmds): Same.
-	* remote-est.c (est_regname): Same. 
+	* remote-est.c (est_regname): Same.
 	(init_est_cmds): Same.
-	* rom68k-rom.c (rom68k_regname): Same. 
+	* rom68k-rom.c (rom68k_regname): Same.
 	(init_rom68k_cmds): Same.
 
 2002-06-25  Tom Tromey  <tromey@redhat.com>
@@ -7441,7 +7441,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(DEPRECATED_EXTRACT_STRUCT_VALUE_ADDRESS): Remove.
 	(FRAME_CHAIN): Remove.
 	(FRAMELESS_FUNCTION_INVOCATION): Remove.
-	(FRAME_SAVED_PC): Remove.  
+	(FRAME_SAVED_PC): Remove.
 	* m68k-tdep.c (m68k_register_bytes_ok):Add.
 	(m68k_store_struct_return): Add.
 	(m68k_deprecated_extract_return_value): Add.
@@ -7450,7 +7450,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(m68k_frame_chain): Add.
 	(m68k_frameless_function_invocation): Add.
 	(m68k_frame_saved_pc): Add.
-	(m68k_gdbarch_init): added set_gdbarch calls for new 
+	(m68k_gdbarch_init): added set_gdbarch calls for new
 	functions and deleted macros.
 
 2002-06-23  Tom Tromey  <tromey@redhat.com>
@@ -7543,7 +7543,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
         references to it with frame->saved_regs.
         (m68k_gdbarch_init): Added function calls to initialize the
         gdbarch structure.
-	(m68k_fix_call_dummy): Add. 
+	(m68k_fix_call_dummy): Add.
 	* config/m68k/tm-m68k.h: (FRAME_FIND_SAVED_REGS): Remove.
        	(CALL_DUMMY): Remove.
 	(CALL_DUMMY_LENGTH): Remove.
@@ -7564,17 +7564,17 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-06-21  Michal Ludvig  <mludvig@suse.cz>
 
-	* dwarf2cfi.c (read_encoded_pointer): Don't handle pointer 
+	* dwarf2cfi.c (read_encoded_pointer): Don't handle pointer
 	encoding anymore.
 	(pointer_encoding, enum ptr_encoding): New.
-	(execute_cfa_program): Take care about pointer encoding.	
-	(dwarf2_build_frame_info): Only call parse_frame_info for 
+	(execute_cfa_program): Take care about pointer encoding.
+	(dwarf2_build_frame_info): Only call parse_frame_info for
 	.debug_frame and .eh_frame.
 	(parse_frame_info): New, derived from former dwarf2_build_frame_info.
-	fixed augmentation handling, added relative addressing, 
+	fixed augmentation handling, added relative addressing,
 	ignore duplicate FDEs. Added comments.
 	* dwarf2cfi.c: Reindented.
-	
+
 2002-06-20  Elena Zannoni  <ezannoni@redhat.com>
 
 	* event-top.c (command_handler): Don't use space_at_cmd_start
@@ -7583,7 +7583,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-06-20  Michal Ludvig  <mludvig@suse.cz>
 
-	* x86-64-tdep.c (x86_64_register_nr2name): Rename to 
+	* x86-64-tdep.c (x86_64_register_nr2name): Rename to
 	x86_64_register_name. Return type changed to 'const char *'.
 	(x86_64_register_name2nr): Rename to x86_64_register_number.
 	(x86_64_gdbarch_init): Update to reflect the change.
@@ -7604,7 +7604,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(deprecated_grub_regcache_for_registers)
 	(deprecated_grub_regcache_for_register_valid)
 	(regcache_valid_p): Add function declarations.
-	
+
 	* regcache.c: Update copyright.
 	(regcache_descr_handle): New global variable.
 	(struct regcache_descr): Define.
@@ -7630,7 +7630,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	functions.
 	(_initialize_regcache): Create the regcache_data_handle. Swap
 	current_regcache global variable.
-	
+
 	* sh-tdep.c (sh_pseudo_register_read): Add current_regcache
 	parameter to regcache_read and regcache_write calls.
 	(sh4_register_read): Ditto.
@@ -7664,7 +7664,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	O32 if no ABI is found.
 	(mips_dump_tdep): Use mips_abi_strings.
 	(mips_abi_update): New function.
-	(_initialize_mips_tdep): Initialize mips_abi_string.  Add  
+	(_initialize_mips_tdep): Initialize mips_abi_string.  Add
 	``set mips abi'' and ``show mips abi''.  Check the size of
 	mips_abi_strings.
 
@@ -7675,7 +7675,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-06-18  Joel Brobecker  <brobecker@gnat.com>
 
-	* alpha-tdep.c (heuristic_proc_desc): Compute the size of the  
+	* alpha-tdep.c (heuristic_proc_desc): Compute the size of the
 	current frame using only the first stack size adjustment. All
 	subsequent size adjustments are not considered to be part of
 	the "static" part of the current frame.
@@ -7684,7 +7684,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	in use in this frame.
 
 2002-06-18  Don Howard  <dhoward@redhat.com>
- 
+
         * valops.c (value_ind): Use value_at_lazy() when dereferencing
         type int expressions.  Thanks to Jim Blandy <jimb@redhat.com> for
         suggesting this solution.
@@ -7716,7 +7716,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-06-18  Michal Ludvig  <mludvig@suse.cz>
 
-	* frame.h (struct frame_info): Change type of context to 
+	* frame.h (struct frame_info): Change type of context to
 	'struct context'.
 
 2002-06-17  Andrew Cagney  <cagney@redhat.com>
@@ -7893,7 +7893,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(show_packet_config_cmd): Update.
 	(packet_ok): Update.
 	(add_packet_config_cmd): Update.
-	(_initialize_remote): 
+	(_initialize_remote):
 	* command.h: Update.
 	* cli/cli-setshow.c (parse_auto_binary_operation): Update.
 	(do_setshow_command): Update.
@@ -7977,12 +7977,12 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(DEPRECATED_EXTRACT_STRUCT_VALUE_ADDRESS): Rename
 	EXTRACT_STRUCT_VALUE_ADDRESS.
 	* gdbarch.h, gdbarch.c: Regenerate.
-	
+
 	* values.c (value_being_returned): Handle
 	DEPRECATED_EXTRACT_STRUCT_VALUE_ADDRESS.
 	(EXTRACT_RETURN_VALUE): Define as DEPRECATED_EXTRACT_RETURN_VALUE.
 
-	* arm-linux-tdep.c (arm_linux_init_abi): Update. 
+	* arm-linux-tdep.c (arm_linux_init_abi): Update.
 	* arm-tdep.c (arm_gdbarch_init): Update.
 	* avr-tdep.c (avr_gdbarch_init): Update.
 	* cris-tdep.c (cris_gdbarch_init): Update.
@@ -8051,7 +8051,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	(SIGCONTEXT_PC_OFFSET): Remove define.
 	(IN_SIGTRAMP): Remove define.
 	* i386-sol2-tdep.c: New file.
-	
+
 	* config/i386/i386nw.mt (TM_FILE): Change to tm-i386.h.
 	* config/i386/tm-i386nw.h: Removed.
 
@@ -8370,7 +8370,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* frame.h (record_selected_frame): Delete declaration.
 	* stack.c (record_selected_frame): Delete function.
-	
+
 	* frame.h (struct frame_id): Define.
 	(get_frame_id): Declare.
 	(frame_find_by_id): Declare.
@@ -8379,9 +8379,9 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-06-10  Andrey Volkov <avolkov@transas.com>
 
-	* ser-e7kpc.c: Fix duplicated define and call of 
+	* ser-e7kpc.c: Fix duplicated define and call of
         _initialize_ser_e7000pc
-	    
+
 2002-06-09  Daniel Jacobowitz  <drow@mvista.com>
 
 	* signals/signals.c (target_signal_from_host): Fix #ifdef
@@ -8447,7 +8447,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* gdbarch.sh (GET_SAVED_REGISTER): Set default to
 	generic_unwind_get_saved_register.
 	* gdbarch.h, gdbarch.c: Re-generate.
-	
+
 2002-06-08  Andrew Cagney  <ac131313@redhat.com>
 
 	* gdbarch.sh (FRAME_CHAIN_VALID): Set default to
@@ -8558,7 +8558,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* ada-tasks.c: New file
 	* ada-typeprint.c: New file
 	* ada-valprint.c: New file
-	
+
 2002-06-02  Jason Thorpe  <thorpej@wasabisystems.com>
 
 	* ppcnbsd-tdep.c (ppcnbsd_init_abi): Don't set
@@ -8762,10 +8762,10 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 	* x86-64-tdep.c (x86_64_skip_prologue): Remove obsolete note.
 	Let PC point right after the prologue before looking up symbols.
-	
+
 2002-05-27  Martin M. Hunt  <hunt@redhat.com>
 
-	* i386-tdep.c (i386_register_virtual_type): Return 
+	* i386-tdep.c (i386_register_virtual_type): Return
 	builtin_type_vec128i for SSE registers.
 
 	* gdbtypes.h (builtin_type_vec128i): Declare.
@@ -8893,7 +8893,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 2002-05-23  Michael Snyder  <msnyder@redhat.com>
 
 	* cli/cli-dump.c (restore_command): Use parse_and_eval_long
-	for input, rather than parse_and_eval_address.  
+	for input, rather than parse_and_eval_address.
 
 2002-05-23  Andrew Cagney  <ac131313@redhat.com>
 
@@ -8935,11 +8935,11 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* dwarf2cfi.c (frame_state_for): Added safety check for a valid
 	fde->cie_ptr.
 	(dwarf2_build_frame_info): Corrected handling of eh_frame.
-	(dwarf2_build_frame_info): Add offset to fde->initial_location 
+	(dwarf2_build_frame_info): Add offset to fde->initial_location
 	so that frames of shared libraries are mapped correctly.
 	(execute_stack_op): Change type of 'result' from ULONGEST to
 	CORE_ADDR.
-	
+
 2002-05-22  Jason Thorpe  <thorpej@wasabisystems.com>
 
 	* config/alpha/tm-nbsd.h: Include solib.h.
@@ -8967,7 +8967,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* configure.tgt (i[3456]86-*-netbsd*, m68*-*-netbsd*,
 	ns32k-*-netbsd*, sparc-*-netbsdelf*, sparc-*-netbsd*) Use
 	nbsdaout.mt and nbsdelf.mh consistently.
-	* armnbsd-tdep.c: Include nbsd-tdep.h and solib-svr4.h. 
+	* armnbsd-tdep.c: Include nbsd-tdep.h and solib-svr4.h.
 	(arm_netbsd_elf_init_abi): Use set_solib_svr4_fetch_link_map_offsets
 	to set nbsd_ilp32_solib_svr4_fetch_link_map_offsets.
 	* config/nm-nbsd.h: Garbage-collect SVR4_SHARED_LIBS.  Move
@@ -8978,7 +8978,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* config/arm/nbsd.mh: Remove.
 	* config/arm/nbsd.mt (TDEPFILES): Remove solib-sunos.o, add
 	nbsd-tdep.o.
-	* config/arm/nbsdaout.mh: New file. 
+	* config/arm/nbsdaout.mh: New file.
 	* config/arm/nbsdelf.mh: New file.
 	* config/arm/nm-nbsdaout.h: New file.
 	* config/i386/nbsd.mh: Remove.
@@ -8987,7 +8987,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* config/i386/nbsdaout.mt: New file.
 	* config/i386/nbsdelf.mh (NAT_FILE): Use nm-nbsd.h.
 	* config/i386/nbsdelf.mt (TM_FILE): Use tm-nbsd.h.
-	* config/i386/nm-nbsd.h (REGISTER_U_ADDR, 
+	* config/i386/nm-nbsd.h (REGISTER_U_ADDR,
 	i386_register_u_addr): Remove.
 	* config/i386/nm-nbsdaout.h: New file.
 	* config/i386/nm-nbsdelf.h: Remove.
@@ -8998,18 +8998,18 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* config/m68k/nbsd.mh: Remove.
 	* config/m68k/nbsd.mt: Remove.
 	* config/m68k/nbsdaout.mh: New file.
-	* config/m68k/nbsdaout.mt: New file. 
+	* config/m68k/nbsdaout.mt: New file.
 	* config/m68k/nm-nbsd.h: Use config/nm-nbsd.h.
 	* config/m68k/nm-nbsdaout.h: New file.
 	* config/m68k/tm-nbsd.h: Don't include config/tm-nbsd.h.
 	(IN_SOLIB_CALL_TRAMPOLINE): Define.
 	* config/ns32k/nbsd.mh: Remove.
-	* config/ns32k/nbsd.mt: Remove. 
+	* config/ns32k/nbsd.mt: Remove.
 	* config/ns32k/nbsdaout.mh: New file.
 	* config/ns32k/nbsdaout.mt: New file.
-	* config/ns32k/nm-nbsd.h: Include config/nm-nbsd.h. 
+	* config/ns32k/nm-nbsd.h: Include config/nm-nbsd.h.
 	* config/ns32k/nm-nbsdaout.h: New file.
-	* config/ns32k/tm-nbsd.h: Don't include config/tm-nbsd.h.  
+	* config/ns32k/tm-nbsd.h: Don't include config/tm-nbsd.h.
 	(IN_SOLIB_CALL_TRAMPOLINE): Define.
 	* config/powerpc/nm-nbsd.h: Include config/nm-nbsd.h.
 	(SVR4_SHARED_LIBS): Remove.
@@ -9020,7 +9020,7 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 	* config/sparc/nbsdaout.mt: New file.
 	* config/sparc/nbsdelf.mh (NAT_FILE): Use nm-nbsd.h.
 	* config/sparc/nbsdelf.mt: New file.
-	* config/sparc/nm-nbsdaout.h: New file.   
+	* config/sparc/nm-nbsdaout.h: New file.
 	* config/sparc/nm-nbsdelf.h: Remove.
 	* config/sparc/tm-nbsd.h: Don't include config/tm-nbsd.h.
 	* config/sparc/tm-nbsdaout.h: New file.
@@ -9039,9 +9039,9 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 
 2002-05-21  Jason Thorpe  <thorpej@wasabisystems.com>
 
-	* NEWS: Note new MIPS NetBSD native configuration. 
-	* configure.host (mips*-*-netbsd*): New host. 
-	* configure.tgt (mips*-*-netbsd*): New target. 
+	* NEWS: Note new MIPS NetBSD native configuration.
+	* configure.host (mips*-*-netbsd*): New host.
+	* configure.tgt (mips*-*-netbsd*): New target.
 	* mipsnbsd-nat.c: New file.
 	* mipsnbsd-tdep.c: New file.
 	* mipsnbsd-tdep.h: New file.
@@ -9153,16 +9153,16 @@ Fri Aug  2 15:53:50 2002  Andrew Cagney  <cagney@redhat.com>
 2002-05-17  Andrey Volkov <avolkov@transas.com>
 
 	* h8300-tdep.c: Add support of EXR register
-	* config/h8300/tm-h8300.h: Ditto. 
-	
+	* config/h8300/tm-h8300.h: Ditto.
+
 2002-05-17  Andrey Volkov <avolkov@transas.com>
 
-	* h8300-tdep.c: Add additional CCR flags (I,UI,H,U) 
-	
+	* h8300-tdep.c: Add additional CCR flags (I,UI,H,U)
+
 2002-05-17  Andrey Volkov <avolkov@transas.com>
 
 	* h8300-tdep.c: Change literal regnums to REGNO.
-	
+
 2002-05-17  Jim Blandy  <jimb@redhat.com>
 
 	* NEWS: Note addition of macro support.
@@ -9282,7 +9282,7 @@ Fri May 17 14:26:19 2002  J"orn Rennecke <joern.rennecke@superh.com>
 	to store/restore current_type in expression on specific tokens.
 	(search_field): New static variable. Set to one after parsing a point
 	as at that point only a FIELDNAME token should be searched.
-	(FIELDNAME): New token. After a point only a token belonging to 
+	(FIELDNAME): New token. After a point only a token belonging to
 	current_type type definition is allowed.
 	(all over token rules): reset and change current_type according
 	to rules.
@@ -9375,7 +9375,7 @@ Fri May 17 14:26:19 2002  J"orn Rennecke <joern.rennecke@superh.com>
 	* macroexp.c (init_buffer, gather_arguments, expand): Use NULL, not 0.
 	* macrotab.c (macro_lookup_inclusion, find_definition,
 	new_macro_table): Same.
-	
+
 	* macroexp.c (currently_rescanning, expand): Use `strcmp () == 0',
 	not `! strcmp ()'.  This is a dubious improvement.
 	* macrotab.c (macro_lookup_inclusion, find_definition): Same.
@@ -9427,7 +9427,7 @@ Fri May 17 14:26:19 2002  J"orn Rennecke <joern.rennecke@superh.com>
 
 	* dwarf2cfi.c (context_cpy): Copy registers correctly.
 	(update_context): Use __func__ in warnings.
-	
+
 2002-05-14  Daniel Jacobowitz  <drow@mvista.com>
 
 	* ser-tcp.c: Include <netinet/udp.h>.  Rename tcp_open
@@ -9558,7 +9558,7 @@ Fri May 17 14:26:19 2002  J"orn Rennecke <joern.rennecke@superh.com>
 
 	* solib.c: Update copyright.
 	* memattr.c: Update copyright.
-	
+
 2002-05-11  Andrew Cagney  <ac131313@redhat.com>
 
 	* arch-utils.h (legacy_register_to_value): Declare.
@@ -9606,7 +9606,7 @@ Fri May 17 14:26:19 2002  J"orn Rennecke <joern.rennecke@superh.com>
 	* gdbarch.sh (REGISTER_RAW_SIZE, REGISTER_VIRTUAL_SIZE): Make
 	default generic_register_size.
 	* gdbarch.h, gdbarch.c: Re-generate.
-	
+
 	* d10v-tdep.c (d10v_gdbarch_init): Use generic_register_size for
 	register_virtual_size.
 	* x86-64-tdep.c (x86_64_gdbarch_init): Ditto.
@@ -9623,7 +9623,7 @@ Fri May 17 14:26:19 2002  J"orn Rennecke <joern.rennecke@superh.com>
 	* solib-svr4.c (svr4_fetch_link_map_offsets): Update.
 	(init_fetch_link_map_offsets): Update.
 	* remote.c (get_remote_state): Update.
-	
+
 2002-05-11  Daniel Jacobowitz  <drow@mvista.com>
 
 	* TODO: Remove value_headof/value_from_vtable_info comment.
@@ -9708,7 +9708,7 @@ Fri May 17 14:26:19 2002  J"orn Rennecke <joern.rennecke@superh.com>
 
 	* shnbsd-nat.c (fetch_inferior_registers): Use shnbsd_supply_reg.
 	(store_inferior_registers): Use shnbsd_fill_reg.
-	* shnbsd-tdep.c (sh_nbsd_supply_registers, 
+	* shnbsd-tdep.c (sh_nbsd_supply_registers,
 	sh_nbsd_supply_register): Collapse into...
 	(shnbsd_supply_reg): ...this.
 	(sh_nbsd_fill_registers, sh_nbsd_fill_register): Collapse into...

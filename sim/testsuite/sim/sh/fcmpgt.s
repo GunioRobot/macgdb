@@ -1,4 +1,4 @@
-# sh testcase for fcmpgt 
+# sh testcase for fcmpgt
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 

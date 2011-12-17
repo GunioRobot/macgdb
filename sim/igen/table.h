@@ -38,7 +38,7 @@
 
      The leading tab at the start of each line is discarded.
      fields[i] is the i'th line with the <nl> discarded.
-     
+
 
    Code block:
 

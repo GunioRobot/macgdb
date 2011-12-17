@@ -33,7 +33,7 @@ set srcfile ${testfile}.c
 set binfile ${objdir}/${subdir}/${testfile}
 
 
-# Test depends on printf, which the sparclet stub doesn't support.  
+# Test depends on printf, which the sparclet stub doesn't support.
 if { [istarget "sparclet-*-*"] } {
     return 0;
 }
@@ -115,7 +115,7 @@ send_gdb "continue\n"
 gdb_expect {
  -re  "Continuing\\..*Breakpoint.*loop_count \\(\\) at.*call-rt-st.c:128\[ \t\r\n\]+128\[\t \]+for \\(index=0; index.4; index..\\);\[\r\n \]+$gdb_prompt $" {
                  pass "continue to loop_count"}
-      -re ".*$gdb_prompt $" { fail "continue to loop_count"}           
+      -re ".*$gdb_prompt $" { fail "continue to loop_count"}
       timeout           { fail "(timeout) continue to loop_count"}
 }
 

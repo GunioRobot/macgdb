@@ -4,8 +4,8 @@
 # as(h8300h):	--defsym sim_cpu=1
 # as(h8300s):	--defsym sim_cpu=2
 # as(h8sx):	--defsym sim_cpu=3
-# ld(h8300h):	-m h8300helf	
-# ld(h8300s):	-m h8300self	
+# ld(h8300h):	-m h8300helf
+# ld(h8300s):	-m h8300self
 # ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
@@ -468,6 +468,6 @@ bnot_imm3_abs8:
 	test_grs_a5a5
 	mov	@0x20, r0l
 	test_h_gr16 0xa555 r0
-	
+
 	pass
 	exit 0

@@ -50,7 +50,7 @@ You can build GDB right in the source directory:
 
 However, we recommend that an empty directory be used instead.
 This way you do not clutter your source tree with binary files
-and will be able to create different builds with different 
+and will be able to create different builds with different
 configuration options.
 
 You can build GDB in any empty build directory:
@@ -144,7 +144,7 @@ use depends on your system; `lpr -d' is common; another (for PostScript
 devices) is `dvips'.  The DVI print command may require a file name
 without any extension or a `.dvi' extension.
 
-   TeX also requires a macro definitions file called `texinfo.tex'. 
+   TeX also requires a macro definitions file called `texinfo.tex'.
 This file tells TeX how to typeset a document written in Texinfo
 format.  On its own, TeX cannot read, much less typeset a Texinfo file.
  `texinfo.tex' is distributed with GDB and is located in the
@@ -337,7 +337,7 @@ three pieces of information in the following pattern:
 `sparc-sun-sunos4'.
 
    The `configure' script accompanying GDB does not provide any query
-facility to list all supported host and target names or aliases. 
+facility to list all supported host and target names or aliases.
 `configure' calls the Bourne shell script `config.sub' to map
 abbreviations to full names; you can read the script, if you wish, or
 you can use it to test your guesses on abbreviations--for example:
@@ -529,7 +529,7 @@ prefer; but you may abbreviate option names if you use `--'.
      FILE should be an absolute file name.  If FILE is in a directory
      under the configured prefix, and GDB is moved to another location
      after being built, the location of the system-wide init file will
-     be adjusted accordingly. 
+     be adjusted accordingly.
 
 `configure' accepts other options, for compatibility with configuring
 other GNU tools recursively; but these are the only options that affect

@@ -398,7 +398,7 @@ String::operator()
 --format=gnu --no-params
 __cm__3fooRT0
 foo::operator, (foo &)
-foo::operator, 
+foo::operator,
 #
 --format=gnu --no-params
 __co__3foo
@@ -1228,7 +1228,7 @@ foo::operator()
 --format=lucid --no-params
 __cm__3fooFR3foo
 foo::operator, (foo &)
-foo::operator, 
+foo::operator,
 #
 --format=lucid --no-params
 __co__3fooFv
@@ -3382,12 +3382,12 @@ typeinfo for a_class
 U4_farrVKPi
 int* const volatile restrict _far
 int* const volatile restrict _far
-# 
+#
 --format=gnu-v3 --no-params
 _Z3fooILi2EEvRAplT_Li1E_i
 void foo<2>(int (&) [(2)+(1)])
 foo<2>
-# 
+#
 --format=gnu-v3 --no-params
 _Z1fM1AKFvvE
 f(void (A::*)() const)
@@ -3437,7 +3437,7 @@ N::f(int)::p
 _ZZN1N1fEiEs
 N::f(int)::string literal
 N::f(int)::string literal
-# 
+#
 --format=gnu-v3 --no-params
 _Z1fPFvvEM1SFvvE
 f(void (*)(), void (S::*)())
@@ -3447,12 +3447,12 @@ f
 _ZN1N1TIiiE2mfES0_IddE
 N::T<int, int>::mf(N::T<double, double>)
 N::T<int, int>::mf
-# 
+#
 --format=gnu-v3 --no-params
 _ZSt5state
 std::state
 std::state
-# 
+#
 --format=gnu-v3 --no-params
 _ZNSt3_In4wardE
 std::_In::ward

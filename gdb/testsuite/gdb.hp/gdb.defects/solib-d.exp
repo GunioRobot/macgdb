@@ -13,20 +13,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-# This file was written by srikanth (with huge chunks borrowed from old ones) 
+# This file was written by srikanth (with huge chunks borrowed from old ones)
 #
-# Regression test for 
+# Regression test for
 #
 #     CLLbs14756
 #
 #         o catch load command does not stop for implicit loads.
 #
-#     CLLbs15382  
+#     CLLbs15382
 #
 #         o sharedlibrary command ignores its argument and ends
 #           up loading every shared library there is ...
 #
-#     CLLbs15582  
+#     CLLbs15582
 #
 #         o info line non-existent-function dumps core
 #         o clear non-existent function dumps core
@@ -155,10 +155,10 @@ gdb_test "p global_from_secondary" " = 9012" \
 
 # verify that we print static variables from shlibs correctly.
 if { ![runto function_from_primary] } { return }
-gdb_test "p file_static" " = 1234" "print file static variable (CLLbs15725)" 
+gdb_test "p file_static" " = 1234" "print file static variable (CLLbs15725)"
 
 if { ![runto function_from_secondary] } { return }
-gdb_test "p local_static" " = 3456" "print local static variable (CLLbs15725)" 
+gdb_test "p local_static" " = 3456" "print local static variable (CLLbs15725)"
 
 gdb_exit
 gdb_start
@@ -187,7 +187,7 @@ gdb_test "list function_from_primary" \
     "No line number known for function_from_primary.*" \
     "turning off auto shlib debug loading"
 
-send_gdb "sharedlibrary solib-d1\n" 
+send_gdb "sharedlibrary solib-d1\n"
 gdb_expect {
     -re "Reading symbols from.*solib-d1.*$gdb_prompt $" {
 	pass "loading primary library on demand (1)"
@@ -200,7 +200,7 @@ gdb_expect {
 }
 
 # make sure that load above of primary also did not pull in secondary.
-send_gdb "list function_from_secondary\n" 
+send_gdb "list function_from_secondary\n"
 gdb_expect {
     -re "No symbol.*context.*$gdb_prompt $" {
         pass "loaded only what we needed (1)"
@@ -270,7 +270,7 @@ gdb_expect {
     timeout { fail "(timeout) load all libraries " }
 }
 
-# do we stop at garbage ? If yes ok. 
+# do we stop at garbage ? If yes ok.
 gdb_test "cont" "Breakpoint.*garbage.*" "deferred breakpoint enabled"
 
 gdb_exit

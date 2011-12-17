@@ -1,4 +1,4 @@
-# sh testcase for fldi1 $frn 
+# sh testcase for fldi1 $frn
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 

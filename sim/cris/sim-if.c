@@ -406,7 +406,7 @@ cris_set_section_offset_iterator (bfd *abfd, asection *s, void *vp)
   if ((bfd_get_section_flags (abfd, s) & SEC_ALLOC))
     {
       bfd_vma vma = bfd_get_section_vma (abfd, s);
-      
+
       bfd_set_section_vma (abfd, s, vma + offset);
     }
 
@@ -516,7 +516,7 @@ cris_get_progbounds (struct bfd *abfd, struct progbounds *pbp)
       if (phdr[i].p_memsz > phdr[i].p_filesz
 	  && phdr[i].p_paddr + phdr[i].p_filesz < pbp->start_nonloadmem)
 	pbp->start_nonloadmem = phdr[i].p_paddr + phdr[i].p_filesz;
-    }  
+    }
 }
 
 /* Parameter communication by static variables, hmm...  Oh well, for

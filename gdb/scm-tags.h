@@ -17,19 +17,19 @@
 
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  
+
    As a special exception, the Free Software Foundation gives permission
    for additional uses of the text contained in its release of GUILE.
-  
+
    The exception is that, if you link the GUILE library with other files
    to produce an executable, this does not by itself cause the
    resulting executable to be covered by the GNU General Public License.
    Your use of that executable is in no way restricted on account of
    linking the GUILE library code into it.
-  
+
    This exception does not however invalidate any other reasons why
    the executable file might be covered by the GNU General Public License.
-  
+
    This exception applies only to the code released by the
    Free Software Foundation under the name GUILE.  If you copy
    code from other Free Software Foundation releases into a copy of
@@ -37,20 +37,20 @@
    not apply to the code that you add in this way.  To avoid misleading
    anyone as to the status of such modified files, you must delete
    this exception notice from them.
-  
+
    If you write modifications of your own for GUILE, it is your choice
    whether to permit this exception to apply to your modifications.
    If you do not wish that, delete this exception notice.  */
 
 
-/** This file defines the format of SCM values and cons pairs.  
+/** This file defines the format of SCM values and cons pairs.
  ** It is here that tag bits are assigned for various purposes.
  **/
 
 
 /* Three Bit Tags
 
- * 000 -- a non-immediate value.  Points into the pair heap.  
+ * 000 -- a non-immediate value.  Points into the pair heap.
  *
  * 001 -- a gloc (i.e., a resolved global variable in a CAR in a code graph)
  *        or the CAR of an object handle (i.e., the tagged pointer to the
@@ -62,7 +62,7 @@
  *        about glocs.  In most cases, when a value in the CAR of a pair
  *        has the tag 001, it means that the pair is an object handle.
  *
- * 010 -- the tag for immediate, exact integers. 
+ * 010 -- the tag for immediate, exact integers.
  *
  * 011 -- in the CAR of a pair, this tag indicates that the pair is a closure.
  *        The remaining bits of the CAR are a pointer into the pair heap
@@ -199,7 +199,7 @@ typedef long SCM;
 
 
 
-/* Immediate? Predicates 
+/* Immediate? Predicates
  */
 #define SCM_IMP(x) 	(6 & (int)(x))
 #define SCM_NIMP(x) 	(!SCM_IMP(x))
@@ -244,7 +244,7 @@ enum scm_tags
 #define SCM_MAKISYM(n) 		(((n)<<9)+0x74L)
 #define SCM_MAKIFLAG(n) 	(((n)<<9)+0x174L)
 
-/* This table must agree with the declarations 
+/* This table must agree with the declarations
  * in repl.c: {Names of immediate symbols}.
  *
  * These are used only in eval but their values
@@ -335,14 +335,14 @@ enum scm_tags
 
 
 
-/* Lvectors 
+/* Lvectors
  */
 #define SCM_LVECTORP(x) (TYP7(x)==tc7_lvector)
 
 
 #if 0
 
-/* Sockets 
+/* Sockets
  */
 #define tc_socket (tc7_port | OPN)
 #define SCM_SOCKP(x) (((0x7f | OPN | RDNG | WRTNG) & CAR(x))==(tc_socket))

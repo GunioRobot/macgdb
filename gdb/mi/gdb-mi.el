@@ -125,7 +125,7 @@ detailed description of this mode.
   (set (make-local-variable 'gud-minor-mode) 'gdbmi)
   (set (make-local-variable 'gud-marker-filter) 'gud-gdbmi-marker-filter)
   ;;
-  (gud-def gud-step   "-exec-step %p"              "\C-s" 
+  (gud-def gud-step   "-exec-step %p"              "\C-s"
 	   "Step one source line with display.")
   (gud-def gud-stepi  "-exec-step-instruction %p"  "\C-i"
 	   "Step one instruction with display.")
@@ -313,7 +313,7 @@ detailed description of this mode.
     ;; Start accumulating output for the GUD buffer
     (let ((output "") running)
 
-      (if (string-match gdb-running-regexp gud-marker-acc) 
+      (if (string-match gdb-running-regexp gud-marker-acc)
 	  (setq
 	   gud-marker-acc
 	   (concat (substring gud-marker-acc 0 (match-beginning 0))
@@ -337,26 +337,26 @@ detailed description of this mode.
       (when (eq gdb-output-sink 'user)
 	(while (string-match gdb-error-regexp gud-marker-acc)
 	  (message (read (match-string 1 gud-marker-acc)))
-	  (setq 
+	  (setq
 	   gud-marker-acc
 	   (concat (substring gud-marker-acc 0 (match-beginning 0))
 		   (substring gud-marker-acc (match-end 0)))))
 
 	(if (string-match gdb-done-regexp gud-marker-acc)
-	    (setq 
+	    (setq
 	     gud-marker-acc
 	     (concat (substring gud-marker-acc 0 (match-beginning 0))
 		     (substring gud-marker-acc (match-end 0))))))
 
       (when (string-match gdb-gdb-regexp gud-marker-acc)
-	(setq 
+	(setq
 	 gud-marker-acc
 	 (concat (substring gud-marker-acc 0 (match-beginning 0))
 		   (substring gud-marker-acc (match-end 0))))
 
 	;; Remove the trimmings from the console stream.
-	(while (string-match gdb-console-regexp gud-marker-acc) 
-	  (setq 
+	(while (string-match gdb-console-regexp gud-marker-acc)
+	  (setq
 	   gud-marker-acc (concat
 			   (substring gud-marker-acc 0 (match-beginning 0))
 			   (read (match-string 1 gud-marker-acc))
@@ -364,8 +364,8 @@ detailed description of this mode.
 
 	;; Remove the trimmings from log stream containing debugging messages
 	;; being produced by GDB's internals and use warning face.
-	(while (string-match gdb-internals-regexp gud-marker-acc) 
-	  (setq 
+	(while (string-match gdb-internals-regexp gud-marker-acc)
+	  (setq
 	   gud-marker-acc
 	   (concat (substring gud-marker-acc 0 (match-beginning 0))
 		   (let ((error-message
@@ -604,6 +604,6 @@ buffers, if required."
   (setq gdb-prompt-name nil)
   (re-search-forward gdb-prompt-name-regexp nil t)
   (setq gdb-prompt-name (match-string 1)))
-	       
+
 (provide 'gdb-mi)
 ;;; gdbmi.el ends here

@@ -70,7 +70,7 @@ struct stat;
 
 typedef struct host_callback_struct host_callback;
 
-struct host_callback_struct 
+struct host_callback_struct
 {
   int (*close) PARAMS ((host_callback *,int));
   int (*get_errno) PARAMS ((host_callback *));

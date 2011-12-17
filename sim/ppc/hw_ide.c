@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -97,7 +97,7 @@
    (<<assigned-addresses>>); Apart from restrictions placed by the
    <<pci>> specification, no restrictions are placed on the number of
    base registers specified by the <<assigned-addresses>> property.
-   
+
    Attach a <<disk>> to the primary and a <<cdrom>> to the secondary
    <<ide>> controller.
 
@@ -110,11 +110,11 @@
 
    |  -o '/phb@0x80000000/glue@2/reg 2 0 ni0,0,0,0 8' \
    |  -o '/phb@0x80000000/ide@1 > a 0 /phb@0x80000000/glue@2' \
-   |  -o '/phb@0x80000000/ide@1 > b 1 /phb@0x80000000/glue@2' 
+   |  -o '/phb@0x80000000/ide@1 > b 1 /phb@0x80000000/glue@2'
 
-   
+
    BUGS
-   
+
 
    While the DMA registers are present, DMA support has not yet been
    implemented.
@@ -141,7 +141,7 @@
 
    */
 
-   
+
 
 typedef enum _io_direction {
   is_read,
@@ -297,7 +297,7 @@ schedule_ready_event(device *me,
   if (controller->event_tag != 0)
     device_error(me, "controller %d - attempting to schedule multiple events",
 		 controller->nr);
-  controller->event_tag = 
+  controller->event_tag =
     device_event_queue_schedule(me, controller->ready_delay,
 				do_event, controller);
 }
@@ -461,7 +461,7 @@ setup_fifo(device *me,
   case is_read:
     /* force a primeing read */
     controller->current_transfer += 1;
-    controller->state = draining_state; 
+    controller->state = draining_state;
     controller->fifo_pos = controller->fifo_size;
     do_fifo_read(me, controller, NULL, 0);
     break;
@@ -507,7 +507,7 @@ get_status(device *me,
     return 0;
   }
 }
-	  
+
 
 /* The address presented to the IDE controler is decoded and then
    mapped onto a controller:reg pair */
@@ -643,7 +643,7 @@ build_address_decoder(device *me,
     }
   }
 }
-		      
+
 
 
 typedef struct _hw_ide_device {
@@ -658,7 +658,7 @@ hw_ide_init_address(device *me)
   hw_ide_device *ide = device_data(me);
   int controller;
   int drive;
- 
+
   /* zero some things */
   for (controller = 0; controller < nr_ide_controllers; controller++) {
     memset(&ide->controller[controller], 0, sizeof(ide_controller));

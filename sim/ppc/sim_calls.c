@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -116,9 +116,9 @@ sim_load (SIM_DESC sd, char *prog, bfd *abfd, int from_tty)
     {
       abfd = bfd_openr (prog, 0);
       if (abfd == NULL)
-	error ("psim: can't open \"%s\": %s\n", 
+	error ("psim: can't open \"%s\": %s\n",
 	       prog, bfd_errmsg (bfd_get_error ()));
-      if (!bfd_check_format (abfd, bfd_object)) 
+      if (!bfd_check_format (abfd, bfd_object))
 	{
 	  const char *errmsg = bfd_errmsg (bfd_get_error ());
 	  bfd_close (abfd);
@@ -277,7 +277,7 @@ sim_io_poll_quit (void)
 
 /* Map simulator IO operations onto the corresponding GDB I/O
    functions.
-   
+
    NB: Only a limited subset of operations are mapped across.  More
    advanced operations (such as dup or write) must either be mapped to
    one of the below calls or handled internally */

@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA. 
                 Western Washington University
                 Bellingham, WA 98226
         phone:  (206) 676-3035
-       
+
 *************************************************************************/
 
 /* Parameters to gdbm_open for READERS, WRITERS, and WRITERS who

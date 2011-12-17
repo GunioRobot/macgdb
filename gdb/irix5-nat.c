@@ -211,7 +211,7 @@ fill_fpregset (const struct regcache *regcache, fpregset_t *fpregsetp, int regno
 /* Provide registers to GDB from a core file.
 
    CORE_REG_SECT points to an array of bytes, which were obtained from
-   a core file which BFD thinks might contain register contents. 
+   a core file which BFD thinks might contain register contents.
    CORE_REG_SIZE is its size.
 
    Normally, WHICH says which register set corelow suspects this is:

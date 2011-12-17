@@ -673,7 +673,7 @@ irix_open_symbol_file_object (void *from_ttyp)
    DESCRIPTION
 
    Once the symbols from a shared object have been loaded in the usual
-   way, we are called to do any system specific symbol handling that 
+   way, we are called to do any system specific symbol handling that
    is needed.
 
    For SunOS4, this consisted of grunging around in the dynamic

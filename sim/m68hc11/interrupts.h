@@ -89,7 +89,7 @@ struct interrupt_history
   enum M6811_INT   type;
 
   /* CPU cycle when interrupt handler is called.  */
-  signed64         taken_cycle;   
+  signed64         taken_cycle;
 
   /* CPU cycle when the interrupt is first raised by the device.  */
   signed64         raised_cycle;

@@ -27,7 +27,7 @@ case "${target}" in
 	SIM_SUBTARGET="$SIM_SUBTARGET -DTARGET_M68HC11=1"
 	;;
   *)
-	m68hc11_extra_objs="" 
+	m68hc11_extra_objs=""
 	;;
 esac
 SIM_AC_OPTION_HARDWARE($hw_enabled,$hw_devices,$hw_extra_devices)

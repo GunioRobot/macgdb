@@ -8,7 +8,7 @@
 	start
 
 	.global fstd
-fstd:	
+fstd:
 	movi 0x1020, r0
 	shlli r0, 8, r0
 	ori r0, 0x30, r0

@@ -1,16 +1,16 @@
 /* IBM RS/6000 "XCOFF64" file definitions for BFD.
-   Copyright (C) 2000, 2001, 2002 Free Software Foundation, Inc.  
+   Copyright (C) 2000, 2001, 2002 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -38,7 +38,7 @@ struct external_filehdr
 
 /********************** AOUT "OPTIONAL HEADER" **********************/
 
-typedef struct 
+typedef struct
 {
   unsigned char	magic[2];		/* type of file			*/
   unsigned char	vstamp[2];		/* version stamp		*/
@@ -85,7 +85,7 @@ struct external_scnhdr
   char	s_nreloc[4];	/* number of relocation entries	*/
   char	s_nlnno[4];	/* number of line number entries*/
   char	s_flags[4];	/* flags			*/
-  char  s_pad[4];	/* padding */  
+  char  s_pad[4];	/* padding */
 };
 
 #define	SCNHDR	struct external_scnhdr
@@ -120,7 +120,7 @@ struct external_lineno
 #define E_FILNMLEN	14	/* # characters in a file name		*/
 #define E_DIMNUM	4	/* # array dimensions in auxiliary entry */
 
-struct external_syment 
+struct external_syment
 {
   char e_value[8];
   char e_offset[4];
@@ -150,7 +150,7 @@ union external_auxent
 	    } x_fcn;
  	} x_fcnary;
     } x_sym;
-         
+
     union {
 	char x_fname[E_FILNMLEN];
 	struct {
@@ -177,7 +177,7 @@ union external_auxent
 	    unsigned char x_smclas[1];
 	    unsigned char x_scnlen_hi[4];
 	    unsigned char x_pad[1];
-    } x_csect;	
+    } x_csect;
 
     struct {
 	char x_pad[17];
@@ -186,7 +186,7 @@ union external_auxent
 };
 
 #define	SYMENT	struct external_syment
-#define	SYMESZ	18	
+#define	SYMESZ	18
 #define	AUXENT	union external_auxent
 #define	AUXESZ	18
 #define DBXMASK 0x80		/* for dbx storage mask */

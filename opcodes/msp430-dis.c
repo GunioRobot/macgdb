@@ -1,8 +1,8 @@
 /* Disassemble MSP430 instructions.
    Copyright (C) 2002, 2004, 2005, 2007, 2009 Free Software Foundation, Inc.
-   
+
    Contributed by Dmitry Diky <diwil@mail.ru>
-        
+
    This file is part of the GNU opcodes library.
 
    This library is free software; you can redistribute it and/or modify
@@ -312,7 +312,7 @@ msp430_doubleoperand (disassemble_info *info,
 	 Rm       	Register,
          x(Rm)     	Indexed,
          0xXXXX    	Relative,
-         &0xXXXX    	Absolute 
+         &0xXXXX    	Absolute
          emulated_ins   dst
          basic_ins      dst, dst.  */
 

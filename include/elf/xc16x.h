@@ -1,6 +1,6 @@
 /* Infineon XC16X ELF support for BFD.
    Copyright 2006 Free Software Foundation, Inc.
-   Contributed by KPIT Cummins Infosystems 
+   Contributed by KPIT Cummins Infosystems
 
    This file is part of BFD, the Binary File Descriptor library.
 

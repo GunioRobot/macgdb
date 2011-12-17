@@ -15,7 +15,7 @@ wcmpgt:
 	mcr        p15, 0, r1, cr15, cr1, 0
 
 	# Test Unsigned Byte Wide Compare Greater Than
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -28,20 +28,20 @@ wcmpgt:
 	tmcrr	   wr2, r4, r5
 
 	wcmpgtub   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xffffffff
 	test_h_gr  r5, 0xffffff00
-	
+
 	# Test Signed Byte Wide Compare Greater Than
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -54,20 +54,20 @@ wcmpgt:
 	tmcrr	   wr2, r4, r5
 
 	wcmpgtsb   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xffffffff
 	test_h_gr  r5, 0x00000000
-	
+
 	# Test Unsigned Half Word Wide Compare Greater Than
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -80,20 +80,20 @@ wcmpgt:
 	tmcrr	   wr2, r4, r5
 
 	wcmpgtuh   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xffffffff
 	test_h_gr  r5, 0xffffffff
-	
+
 	# Test Signed Half Word Wide Compare Greater Than
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -106,20 +106,20 @@ wcmpgt:
 	tmcrr	   wr2, r4, r5
 
 	wcmpgtsh   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xffffffff
 	test_h_gr  r5, 0x00000000
-	
+
 	# Test Unsigned Word Wide Compare Greater Than
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -132,20 +132,20 @@ wcmpgt:
 	tmcrr	   wr2, r4, r5
 
 	wcmpgtuw   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xffffffff
 	test_h_gr  r5, 0xffffffff
-	
+
 	# Test Signed Word Wide Compare Greater Than
-	
+
 	mvi_h_gr   r0, 0x12345678
 	mvi_h_gr   r1, 0x9abcde00
 	mvi_h_gr   r2, 0x11111111
@@ -158,16 +158,16 @@ wcmpgt:
 	tmcrr	   wr2, r4, r5
 
 	wcmpgtsw   wr2, wr0, wr1
-	
+
 	tmrrc	   r0, r1, wr0
 	tmrrc	   r2, r3, wr1
 	tmrrc	   r4, r5, wr2
-	
+
 	test_h_gr  r0, 0x12345678
 	test_h_gr  r1, 0x9abcde00
 	test_h_gr  r2, 0x11111111
 	test_h_gr  r3, 0x22222222
 	test_h_gr  r4, 0xffffffff
 	test_h_gr  r5, 0x00000000
-	
+
 	pass

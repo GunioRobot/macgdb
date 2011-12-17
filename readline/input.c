@@ -339,8 +339,8 @@ _rl_input_queued (t)
 
 void
 _rl_insert_typein (c)
-     int c;     
-{    	
+     int c;
+{
   int key, t, i;
   char *string;
 
@@ -524,7 +524,7 @@ _rl_read_mbchar (mbchar, size)
 
   memset(&ps, 0, sizeof (mbstate_t));
   memset(&ps_back, 0, sizeof (mbstate_t));
-  
+
   while (mb_len < size)
     {
       RL_SETSTATE(RL_STATE_MOREINPUT);
@@ -539,7 +539,7 @@ _rl_read_mbchar (mbchar, size)
 	  /* shorted bytes */
 	  ps = ps_back;
 	  continue;
-	} 
+	}
       else if (mbchar_bytes_length == 0)
 	{
 	  mbchar[0] = '\0';	/* null wide character */

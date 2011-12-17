@@ -114,8 +114,8 @@ svr4_same_1 (const char *gdb_so_name, const char *inferior_so_name)
     return 1;
 
   /* On Solaris, when starting inferior we think that dynamic linker is
-     /usr/lib/ld.so.1, but later on, the table of loaded shared libraries 
-     contains /lib/ld.so.1.  Sometimes one file is a link to another, but 
+     /usr/lib/ld.so.1, but later on, the table of loaded shared libraries
+     contains /lib/ld.so.1.  Sometimes one file is a link to another, but
      sometimes they have identical content, but are not linked to each
      other.  We don't restrict this check for Solaris, but the chances
      of running into this situation elsewhere are very low.  */
@@ -1502,7 +1502,7 @@ enable_break (struct svr4_info *info)
    DESCRIPTION
 
    Once the symbols from a shared object have been loaded in the usual
-   way, we are called to do any system specific symbol handling that 
+   way, we are called to do any system specific symbol handling that
    is needed.
 
    For SunOS4, this consisted of grunging around in the dynamic
@@ -1520,10 +1520,10 @@ svr4_special_symbol_handling (void)
 }
 
 /* Relocate the main executable.  This function should be called upon
-   stopping the inferior process at the entry point to the program. 
+   stopping the inferior process at the entry point to the program.
    The entry point from BFD is compared to the PC and if they are
-   different, the main executable is relocated by the proper amount. 
-   
+   different, the main executable is relocated by the proper amount.
+
    As written it will only attempt to relocate executables which
    lack interpreter sections.  It seems likely that only dynamic
    linker executables will get relocated, though it should work
@@ -1556,7 +1556,7 @@ svr4_relocate_main_executable (void)
      interpreter section and the start address obtained from the
      executable is different from the address at which GDB is
      currently stopped.
-     
+
      [ The astute reader will note that we also test to make sure that
        the executable in question has the DYNAMIC flag set.  It is my
        opinion that this test is unnecessary (undesirable even).  It
@@ -1572,7 +1572,7 @@ svr4_relocate_main_executable (void)
      */
 
   interp_sect = bfd_get_section_by_name (exec_bfd, ".interp");
-  if (interp_sect == NULL 
+  if (interp_sect == NULL
       && (bfd_get_file_flags (exec_bfd) & DYNAMIC) != 0
       && (exec_entry_point (exec_bfd, &exec_ops) != pc))
     {
@@ -1580,13 +1580,13 @@ svr4_relocate_main_executable (void)
       struct section_offsets *new_offsets;
       int i, changed;
       CORE_ADDR displacement;
-      
+
       /* It is necessary to relocate the objfile.  The amount to
 	 relocate by is simply the address at which we are stopped
 	 minus the starting address from the executable.
 
 	 We relocate all of the sections by the same amount.  This
-	 behavior is mandated by recent editions of the System V ABI. 
+	 behavior is mandated by recent editions of the System V ABI.
 	 According to the System V Application Binary Interface,
 	 Edition 4.1, page 5-5:
 
@@ -1838,7 +1838,7 @@ svr4_have_link_map_offsets (void)
 
 /* Fetch (and possibly build) an appropriate `struct link_map_offsets'
    for an ILP32 SVR4 system.  */
-  
+
 struct link_map_offsets *
 svr4_ilp32_fetch_link_map_offsets (void)
 {
@@ -1869,7 +1869,7 @@ svr4_ilp32_fetch_link_map_offsets (void)
 
 /* Fetch (and possibly build) an appropriate `struct link_map_offsets'
    for an LP64 SVR4 system.  */
-  
+
 struct link_map_offsets *
 svr4_lp64_fetch_link_map_offsets (void)
 {

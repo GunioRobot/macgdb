@@ -561,7 +561,7 @@ win32_spawn (const char *executable,
       /* Count the number of environment bindings supplied.  */
       for (env_size = 0; env[env_size]; env_size++)
         continue;
-    
+
       /* Assemble an environment block, if required.  This consists of
          VAR=VALUE strings juxtaposed (with one null character between each
          pair) and an additional null at the end.  */
@@ -570,21 +570,21 @@ win32_spawn (const char *executable,
           int var;
           int total_size = 1; /* 1 is for the final null.  */
           char *bufptr;
-    
+
           /* Windows needs the members of the block to be sorted by variable
              name.  */
           env_copy = (char **) alloca (sizeof (char *) * env_size);
           memcpy (env_copy, env, sizeof (char *) * env_size);
           qsort (env_copy, env_size, sizeof (char *), env_compare);
-    
+
           for (var = 0; var < env_size; var++)
             total_size += strlen (env[var]) + 1;
-    
+
           env_block = XNEWVEC (char, total_size);
           bufptr = env_block;
           for (var = 0; var < env_size; var++)
             bufptr = stpcpy (bufptr, env_copy[var]) + 1;
-    
+
           *bufptr = '\0';
         }
     }
@@ -595,9 +595,9 @@ win32_spawn (const char *executable,
   cmdline = argv_to_cmdline (argv);
   if (!cmdline)
     goto error;
-    
-  /* Create the child process.  */  
-  if (!CreateProcess (full_executable, cmdline, 
+
+  /* Create the child process.  */
+  if (!CreateProcess (full_executable, cmdline,
 		      /*lpProcessAttributes=*/NULL,
 		      /*lpThreadAttributes=*/NULL,
 		      /*bInheritHandles=*/TRUE,
@@ -662,7 +662,7 @@ spawn_script (const char *executable, char *const *argv,
 	  eol = strchr (buf, '\n');
 	  if (eol && strncmp (buf, "#!", 2) == 0)
 	    {
-            
+
 	      /* Header format is OK. */
 	      char *executable1;
               int new_argc;
@@ -755,12 +755,12 @@ pex_win32_exec_child (struct pex_obj *obj ATTRIBUTE_UNUSED, int flags,
   in = _dup (orig_in);
   if (orig_in != STDIN_FILENO)
     _close (orig_in);
-  
+
   orig_out = out;
   out = _dup (orig_out);
   if (orig_out != STDOUT_FILENO)
     _close (orig_out);
-  
+
   if (separate_stderr)
     {
       orig_err = errdes;
@@ -781,7 +781,7 @@ pex_win32_exec_child (struct pex_obj *obj ATTRIBUTE_UNUSED, int flags,
     stderr_handle = stdout_handle;
 
   /* Determine the version of Windows we are running on.  */
-  version_info.dwOSVersionInfoSize = sizeof (version_info); 
+  version_info.dwOSVersionInfoSize = sizeof (version_info);
   GetVersionEx (&version_info);
   if (version_info.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS)
     /* On Windows 95/98/ME the CREATE_NO_WINDOW flag is not
@@ -792,7 +792,7 @@ pex_win32_exec_child (struct pex_obj *obj ATTRIBUTE_UNUSED, int flags,
       HANDLE conout_handle;
 
       /* Determine whether or not we have an associated console.  */
-      conout_handle = CreateFile("CONOUT$", 
+      conout_handle = CreateFile("CONOUT$",
 				 GENERIC_WRITE,
 				 FILE_SHARE_WRITE,
 				 /*lpSecurityAttributes=*/NULL,
@@ -804,9 +804,9 @@ pex_win32_exec_child (struct pex_obj *obj ATTRIBUTE_UNUSED, int flags,
 	   the child is a console process, the OS would normally
 	   create a new console Window for the child.  Since we'll be
 	   redirecting the child's standard streams, we do not need
-	   the console window.  */ 
+	   the console window.  */
 	dwCreationFlags = CREATE_NO_WINDOW;
-      else 
+      else
 	{
 	  /* There is a console associated with the process, so the OS
 	     will not create a new console.  And, if we use
@@ -832,7 +832,7 @@ pex_win32_exec_child (struct pex_obj *obj ATTRIBUTE_UNUSED, int flags,
   si.hStdOutput = stdout_handle;
   si.hStdError = stderr_handle;
 
-  /* Create the child process.  */  
+  /* Create the child process.  */
   pid = win32_spawn (executable, (flags & PEX_SEARCH) != 0,
 		     argv, env, dwCreationFlags, &si, &pi);
   if (pid == (pid_t) -1)
@@ -845,7 +845,7 @@ pex_win32_exec_child (struct pex_obj *obj ATTRIBUTE_UNUSED, int flags,
     }
 
   /* Close the standard input, standard output and standard error handles
-     in the parent.  */ 
+     in the parent.  */
 
   _close (in);
   _close (out);
@@ -888,7 +888,7 @@ pex_win32_wait (struct pex_obj *obj ATTRIBUTE_UNUSED, pid_t pid,
 
   GetExitCodeProcess (h, &termstat);
   CloseHandle (h);
- 
+
   /* A value of 3 indicates that the child caught a signal, but not
      which one.  Since only SIGABRT, SIGFPE and SIGINT do anything, we
      report SIGABRT.  */

@@ -140,7 +140,7 @@ i386_fpc_regnum_p (struct gdbarch *gdbarch, int regnum)
   if (I387_ST0_REGNUM (tdep) < 0)
     return 0;
 
-  return (I387_FCTRL_REGNUM (tdep) <= regnum 
+  return (I387_FCTRL_REGNUM (tdep) <= regnum
 	  && regnum < I387_XMM0_REGNUM (tdep));
 }
 
@@ -690,7 +690,7 @@ i386_analyze_struct_return (CORE_ADDR pc, CORE_ADDR current_pc,
       cache->pc_in_eax = 1;
       return current_pc;
     }
-  
+
   if (buf[1] == proto1[1])
     return pc + 4;
   else
@@ -705,7 +705,7 @@ i386_skip_probe (CORE_ADDR pc)
         pushl constant
         call _probe
 	addl $4, %esp
-	   
+
      followed by
 
         pushl %ebp
@@ -764,7 +764,7 @@ i386_analyze_stack_align (CORE_ADDR pc, CORE_ADDR current_pc,
 		pushl -4(%reg)
 
      "andl $-XXX, %esp" can be either 3 bytes or 6 bytes:
-     
+
      	0x83 0xe4 0xf0			andl $-16, %esp
      	0x81 0xe4 0x00 0xff 0xff 0xff	andl $-256, %esp
    */
@@ -815,7 +815,7 @@ i386_analyze_stack_align (CORE_ADDR pc, CORE_ADDR current_pc,
       /* MOD must be binary 10 and R/M must be binary 100.  */
       if ((buf[2] & 0xc7) != 0x44)
 	return pc;
-      
+
       /* REG has register number.  Registers in pushl and leal have to
 	 be the same.  */
       if (reg != ((buf[2] >> 3) & 7))
@@ -911,8 +911,8 @@ i386_match_insn (CORE_ADDR pc, struct i386_insn *skip_insns)
 
 struct i386_insn i386_frame_setup_skip_insns[] =
 {
-  /* Check for `movb imm8, r' and `movl imm32, r'. 
-    
+  /* Check for `movb imm8, r' and `movl imm32, r'.
+
      ??? Should we handle 16-bit operand-sizes here?  */
 
   /* `movb imm8, %al' and `movb imm8, %ah' */
@@ -968,11 +968,11 @@ i386_skip_noop (CORE_ADDR pc)
 
   target_read_memory (pc, &op, 1);
 
-  while (check) 
+  while (check)
     {
       check = 0;
       /* Ignore `nop' instruction.  */
-      if (op == 0x90) 
+      if (op == 0x90)
 	{
 	  pc += 1;
 	  target_read_memory (pc, &op, 1);
@@ -1000,7 +1000,7 @@ i386_skip_noop (CORE_ADDR pc)
 	    }
 	}
     }
-  return pc; 
+  return pc;
 }
 
 /* Check whether PC points at a code that sets up a new stack frame.
@@ -1086,7 +1086,7 @@ i386_analyze_frame_setup (struct gdbarch *gdbarch,
       if (limit <= pc)
 	return limit;
 
-      /* Check for stack adjustment 
+      /* Check for stack adjustment
 
 	    subl $XXX, %esp
 
@@ -1184,7 +1184,7 @@ i386_analyze_register_saves (CORE_ADDR pc, CORE_ADDR current_pc,
    %ebx (and sometimes a harmless bug causes it to also save but not
    restore %eax); however, the code below is willing to see the pushes
    in any order, and will handle up to 8 of them.
- 
+
    If the setup sequence is at the end of the function, then the next
    instruction will be a branch back to the start.  */
 
@@ -1536,7 +1536,7 @@ i386_epilogue_frame_cache (struct frame_info *this_frame, void **this_cache)
 
   /* Cache base will be %esp plus cache->sp_offset (-4).  */
   get_frame_register (this_frame, I386_ESP_REGNUM, buf);
-  cache->base = extract_unsigned_integer (buf, 4, 
+  cache->base = extract_unsigned_integer (buf, 4,
 					  byte_order) + cache->sp_offset;
 
   /* Cache pc will be the frame func.  */
@@ -1567,7 +1567,7 @@ static const struct frame_unwind i386_epilogue_frame_unwind =
   NORMAL_FRAME,
   i386_epilogue_frame_this_id,
   i386_frame_prev_register,
-  NULL, 
+  NULL,
   i386_epilogue_frame_sniffer
 };
 
@@ -2814,7 +2814,7 @@ i386_register_reggroup_p (struct gdbarch *gdbarch, int regnum,
 /* Get the ARGIth function argument for the current function.  */
 
 static CORE_ADDR
-i386_fetch_pointer_argument (struct frame_info *frame, int argi, 
+i386_fetch_pointer_argument (struct frame_info *frame, int argi,
 			     struct type *type)
 {
   struct gdbarch *gdbarch = get_frame_arch (frame);
@@ -5444,7 +5444,7 @@ i386_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
      alignment.  */
   set_gdbarch_long_double_bit (gdbarch, 96);
 
-  /* The default ABI includes general-purpose registers, 
+  /* The default ABI includes general-purpose registers,
      floating-point registers, and the SSE registers.  */
   set_gdbarch_num_regs (gdbarch, I386_SSE_NUM_REGS);
   set_gdbarch_register_name (gdbarch, i386_register_name);

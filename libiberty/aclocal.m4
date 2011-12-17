@@ -49,7 +49,7 @@ main ()
   dev_zero = open ("/dev/zero", O_RDONLY);
   if (dev_zero < 0)
     exit (1);
-  
+
   p = (char *) mmap (0, MAP_LEN, PROT_READ|PROT_WRITE,
 		     MAP_ANON|MAP_PRIVATE, dev_zero, 0);
   if (p == (char *)-1)
@@ -137,8 +137,8 @@ wenotbecray
 ], ac_cv_os_cray=yes, ac_cv_os_cray=no)])
 if test $ac_cv_os_cray = yes; then
   for ac_func in _getb67 GETB67 getb67; do
-    AC_CHECK_FUNC($ac_func, 
-      [AC_DEFINE_UNQUOTED(CRAY_STACKSEG_END, $ac_func, 
+    AC_CHECK_FUNC($ac_func,
+      [AC_DEFINE_UNQUOTED(CRAY_STACKSEG_END, $ac_func,
   [Define to one of _getb67, GETB67, getb67 for Cray-2 and Cray-YMP
    systems. This function is required for alloca.c support on those
    systems.])  break])
@@ -161,7 +161,7 @@ AC_CACHE_CHECK(stack direction for C alloca, ac_cv_c_stack_direction,
 main ()
 {
   exit (find_stack_direction() < 0);
-}], 
+}],
   ac_cv_c_stack_direction=1,
   ac_cv_c_stack_direction=-1,
   ac_cv_c_stack_direction=0)])

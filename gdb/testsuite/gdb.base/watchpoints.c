@@ -13,7 +13,7 @@ int ival2 = -1;
 int ival3 = -1;
 int ival4 = -1;
 
-int 
+int
 main ()
 {
 #ifdef usestubs

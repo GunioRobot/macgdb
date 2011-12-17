@@ -2,7 +2,7 @@
    Copyright (C) 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1997, 1998, 1999,
    2000, 2007, 2008, 2009 Free Software Foundation, Inc.
    Contributed by Lynx Real-Time Systems, Inc.  Los Gatos, CA.
-   
+
 
    This file is part of GDB.
 
@@ -33,7 +33,7 @@ struct thread_info
 {
   struct thread_info *next;
   ptid_t ptid;			/* "Actual process id";
-				    In fact, this may be overloaded with 
+				    In fact, this may be overloaded with
 				    kernel thread id, etc.  */
   int num;			/* Convenient handle (GDB thread id) */
 
@@ -194,7 +194,7 @@ extern void init_thread_list (void);
 
 /* Add a thread to the thread list, print a message
    that a new thread is found, and return the pointer to
-   the new thread.  Caller my use this pointer to 
+   the new thread.  Caller my use this pointer to
    initialize the private thread data.  */
 extern struct thread_info *add_thread (ptid_t ptid);
 
@@ -221,7 +221,7 @@ extern void delete_step_resume_breakpoint (struct thread_info *);
    into a "pid" (which may be overloaded with extra thread information).  */
 extern ptid_t thread_id_to_pid (int);
 
-/* Translate a 'pid' (which may be overloaded with extra thread information) 
+/* Translate a 'pid' (which may be overloaded with extra thread information)
    into the integer thread id (GDB's homegrown id, not the system's).  */
 extern int pid_to_thread_id (ptid_t ptid);
 
@@ -229,7 +229,7 @@ extern int pid_to_thread_id (ptid_t ptid);
    extra thread information).  */
 extern int in_thread_list (ptid_t ptid);
 
-/* Boolean test for an already-known thread id (GDB's homegrown id, 
+/* Boolean test for an already-known thread id (GDB's homegrown id,
    not the system's).  */
 extern int valid_thread_id (int thread);
 
@@ -259,7 +259,7 @@ extern int thread_count (void);
 /* Switch from one thread to another.  */
 extern void switch_to_thread (ptid_t ptid);
 
-/* Marks thread PTID is running, or stopped. 
+/* Marks thread PTID is running, or stopped.
    If PIDGET (PTID) is -1, marks all threads.  */
 extern void set_running (ptid_t ptid, int running);
 

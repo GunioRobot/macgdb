@@ -48,7 +48,7 @@ rotr:
 	rotr r1
 	rotr r1
 
-okay:	
+okay:
 	pass
 
 wrong:

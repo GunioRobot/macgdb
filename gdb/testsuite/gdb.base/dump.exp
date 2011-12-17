@@ -81,8 +81,8 @@ if { ! [ runto checkpoint1 ] } then {
 
 send_gdb "show endian\n"
 gdb_expect {
-    -re ".* (big|little) endian.*$gdb_prompt $" { 
-	set endian $expect_out(1,string) 
+    -re ".* (big|little) endian.*$gdb_prompt $" {
+	set endian $expect_out(1,string)
 	pass "endianness: $endian"
     }
     default {
@@ -214,7 +214,7 @@ gdb_file_cmd ${binfile}
 
 send_gdb "set endian $endian\n"
 gdb_expect {
-    -re ".* (big|little) endian.*$gdb_prompt $" { 
+    -re ".* (big|little) endian.*$gdb_prompt $" {
 	pass "setting $endian endianness"
     }
     default {
@@ -240,10 +240,10 @@ if { ![string compare $struct_val \
 
 proc test_reload_saved_value { filename msg oldval newval } {
     global gdb_prompt
-    
+
     gdb_file_cmd $filename
     if { ![string compare $oldval \
-	       [capture_value $newval "$msg"]] } then { 
+	       [capture_value $newval "$msg"]] } then {
 	pass "$msg; value restored ok"
     } else {
 	fail "$msg; value restored ok"
@@ -252,12 +252,12 @@ proc test_reload_saved_value { filename msg oldval newval } {
 
 proc test_restore_saved_value { restore_args msg oldval newval } {
     global gdb_prompt
-    
+
     gdb_test "restore $restore_args" \
 	"Restoring .*" \
 	"$msg; file restored ok"
     if { ![string compare $oldval \
-	       [capture_value $newval "$msg"]] } then { 
+	       [capture_value $newval "$msg"]] } then {
 	pass "$msg; value restored ok"
     } else {
 	fail "$msg; value restored ok"
@@ -451,7 +451,7 @@ test_restore_saved_value "intstr1.bin binary $struct2_start" \
 #
 # test restore with start/stop addresses.
 #
-# For this purpose, we will restore just the third element of the array, 
+# For this purpose, we will restore just the third element of the array,
 # and check to see that adjacent elements are not modified.
 #
 # We will need the address and offset of the third and fourth elements.
@@ -502,7 +502,7 @@ gdb_test "print intarray\[4\] == 0" " = 1" "element 4 not changed - 4"
 if ![string compare $is64bitonly "no"] then {
   gdb_test "print zero_all ()" "" ""
 
-  # restore with expressions 
+  # restore with expressions
   test_restore_saved_value \
 	"intarr3.srec (char*)${array2_start}-(char*)${array_start} &intarray\[3\] &intarray\[4\]" \
 	"array partial with expressions" 4 "intarray2\[3\]"

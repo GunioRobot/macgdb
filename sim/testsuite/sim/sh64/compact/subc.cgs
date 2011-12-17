@@ -85,7 +85,7 @@ subc3t:
 	# Again, invert ..
 	not r1, r1
 	assert r1, #0
-	
+
 large:
 	mov #2, r0
 	mov #10, r1

@@ -243,13 +243,13 @@ sim_analyze_program (sd, prog_name, prog_bfd)
   prog_bfd = bfd_openr (prog_name, STATE_TARGET (sd));
   if (prog_bfd == NULL)
     {
-      sim_io_eprintf (sd, "%s: can't open \"%s\": %s\n", 
+      sim_io_eprintf (sd, "%s: can't open \"%s\": %s\n",
 		      STATE_MY_NAME (sd),
 		      prog_name,
 		      bfd_errmsg (bfd_get_error ()));
       return SIM_RC_FAIL;
     }
-  if (!bfd_check_format (prog_bfd, bfd_object)) 
+  if (!bfd_check_format (prog_bfd, bfd_object))
     {
       sim_io_eprintf (sd, "%s: \"%s\" is not an object file: %s\n",
 		      STATE_MY_NAME (sd),

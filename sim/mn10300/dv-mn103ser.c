@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 #include "sim-main.h"
@@ -25,17 +25,17 @@
 
 /* DEVICE
 
-   
+
    mn103ser - mn103002 serial devices 0, 1 and 2.
 
-   
+
    DESCRIPTION
-   
+
    Implements the mn103002 serial interfaces as described in the
-   mn103002 user guide. 
+   mn103002 user guide.
 
 
-   PROPERTIES   
+   PROPERTIES
 
    reg = <serial-addr> <serial-size>
 
@@ -226,7 +226,7 @@ decode_addr (struct hw *me,
     case 0x29: return SC2RXB;
     case 0x2C: return SC2STR;
     case 0x2D: return SC2TIM;
-    default: 
+    default:
       {
 	hw_abort (me, "bad address");
 	return -1;
@@ -298,7 +298,7 @@ read_control_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes from SC%dCTR.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes from SC%dCTR.", nr_bytes,
 		serial_reg);
     }
 }
@@ -317,7 +317,7 @@ read_intmode_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes from SC%dICR.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes from SC%dICR.", nr_bytes,
 		serial_reg);
     }
 }
@@ -336,7 +336,7 @@ read_txb (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes from SC%dTXB.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes from SC%dTXB.", nr_bytes,
 		serial_reg);
     }
 }
@@ -357,7 +357,7 @@ read_rxb (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes from SC%dRXB.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes from SC%dRXB.", nr_bytes,
 		serial_reg);
     }
 }
@@ -433,7 +433,7 @@ read_status_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes from SC%dSTR.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes from SC%dSTR.", nr_bytes,
 		serial_reg);
     }
 }
@@ -498,7 +498,7 @@ mn103ser_io_read_buffer (struct hw *me,
       break;
 
     /* reception buffers */
-    case SC0RXB: 
+    case SC0RXB:
     case SC1RXB:
     case SC2RXB:
       read_rxb(me, serial, serial_reg-SC0RXB, dest, nr_bytes);
@@ -507,9 +507,9 @@ mn103ser_io_read_buffer (struct hw *me,
      break;
 
     /* status registers */
-    case SC0STR: 
-    case SC1STR: 
-    case SC2STR: 
+    case SC0STR:
+    case SC1STR:
+    case SC2STR:
       read_status_reg(me, serial, serial_reg-SC0STR, dest, nr_bytes);
       HW_TRACE ((me, "read - status reg%d has 0x%x\n", serial_reg-SC0STR,
 		 *(unsigned8 *)dest));
@@ -525,7 +525,7 @@ mn103ser_io_read_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 static void
@@ -551,7 +551,7 @@ write_control_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad read size of %d bytes from SC%dSTR.", nr_bytes, 
+      hw_abort (me, "bad read size of %d bytes from SC%dSTR.", nr_bytes,
 		serial_reg);
     }
 }
@@ -582,7 +582,7 @@ unsigned8 val = *(unsigned8 *)source;
     }
   else
     {
-      hw_abort (me, "bad write size of %d bytes to SC%dICR.", nr_bytes, 
+      hw_abort (me, "bad write size of %d bytes to SC%dICR.", nr_bytes,
 		serial_reg);
     }
 }
@@ -613,7 +613,7 @@ write_txb (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad write size of %d bytes to SC%dTXB.", nr_bytes, 
+      hw_abort (me, "bad write size of %d bytes to SC%dTXB.", nr_bytes,
 		serial_reg);
     }
 }
@@ -631,7 +631,7 @@ write_serial2_timer_reg (struct hw *me,
     }
   else
     {
-      hw_abort (me, "bad write size of %d bytes to SC2TIM.", nr_bytes); 
+      hw_abort (me, "bad write size of %d bytes to SC2TIM.", nr_bytes);
     }
 }
 
@@ -678,16 +678,16 @@ mn103ser_io_write_buffer (struct hw *me,
       break;
 
     /* reception buffers */
-    case SC0RXB: 
+    case SC0RXB:
     case SC1RXB:
     case SC2RXB:
       hw_abort(me, "Cannot write to reception buffer.");
      break;
 
     /* status registers */
-    case SC0STR: 
-    case SC1STR: 
-    case SC2STR: 
+    case SC0STR:
+    case SC1STR:
+    case SC2STR:
       hw_abort(me, "Cannot write to status register.");
       break;
 
@@ -702,7 +702,7 @@ mn103ser_io_write_buffer (struct hw *me,
     }
 
   return nr_bytes;
-}     
+}
 
 
 const struct hw_descriptor dv_mn103ser_descriptor[] = {

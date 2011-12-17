@@ -39,7 +39,7 @@ see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 
 static enum rounding __dfp_rounding_mode = DEC_ROUND_HALF_EVEN;
 
-/* Set the decNumber rounding mode from the FE_DEC_* value in MODE.  */ 
+/* Set the decNumber rounding mode from the FE_DEC_* value in MODE.  */
 
 void
 __dfp_set_round (int mode)

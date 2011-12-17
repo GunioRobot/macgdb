@@ -31,7 +31,7 @@ proc gdb_find_gnatmake {} {
         set file [lookfor_file $root gnatmake]
         if { $file != "" } {
             set GM "$file -I$root/ada/rts --GCC=$root/xgcc --GNATBIND=$root/gnatbind --GNATLINK=$root/gnatlink -cargs -B$root -largs --GCC=$root/xgcc -margs";
-        }   
+        }
     }
 
     if {$GM == ""} {
@@ -39,7 +39,7 @@ proc gdb_find_gnatmake {} {
     }
 
     return $GM
-}   
+}
 
 # FIXME:brobecker/2004-03-31:
 # The following function is a copy of the function of the same name provided
@@ -170,7 +170,7 @@ proc gdb_default_target_compile {source destfile type options} {
     global CXX_FOR_TARGET
     global F77_FOR_TARGET
     global GNATMAKE_FOR_TARGET
-    
+
     if [info exists CC_FOR_TARGET] {
 	if { $compiler == "" } {
 	    set compiler $CC_FOR_TARGET
@@ -215,7 +215,7 @@ proc gdb_default_target_compile {source destfile type options} {
     if { $type == "preprocess" } {
 	append add_flags " -E"
     }
-    
+
     if { $type == "assembly" } {
 	append add_flags " -S"
     }

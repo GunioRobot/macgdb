@@ -472,12 +472,12 @@ static union GDB_UNION_TEST
 
 void gdb_recursion_test (int, int, int, int,  int,  int,  int);
 
-void gdb_recursion_test (int depth, 
-			 int q1, 
-			 int q2, 
-			 int q3, 
-			 int q4, 
-			 int q5, 
+void gdb_recursion_test (int depth,
+			 int q1,
+			 int q2,
+			 int q3,
+			 int q4,
+			 int q5,
 			 int q6)
 {	/* gdb_recursion_test line 0 */
   int q = q1;						/* gdbtestline 1 */
@@ -504,13 +504,13 @@ ULONG   gdb_c_test( ULONG *parm )
    unsigned long *stack_ptr;
    unsigned long end_of_stack;
 
-   ridiculously_long_variable_name_with_equally_long_string_assignment = 
+   ridiculously_long_variable_name_with_equally_long_string_assignment =
      "ridiculously long variable name with equally long string assignment";
    local_static = 9;
    local_static_sizeof = sizeof (struct GDB_STRUCT_TEST);
    local_long = local_reg + 1;
    stack_ptr  = (unsigned long *) &local_long;
-   end_of_stack = 
+   end_of_stack =
      (unsigned long) &stack_ptr + sizeof(stack_ptr) + sizeof(end_of_stack) - 1;
 
    printp ("\n$Id: gdb_c_test.c,v 1.1 1998/09/15 22:25:00 msnyder Exp $\n");
@@ -3005,7 +3005,7 @@ handle_request( char *request )
       break;
 
     case 'T':
-      /* call test function: TAAA,BBB,CCC 
+      /* call test function: TAAA,BBB,CCC
 	 A, B, and C are arguments to pass to gdb_c_test.  Reply is
 	 "E01" (bad arguments) or "OK" (test function called).  */
       putpacket (handle_test (request));
@@ -3151,7 +3151,7 @@ handle_format (char **request, COLLECTION_FORMAT_DEF *format)
 		    m.typecode);
 	  gdb_note ("offset = 0x%X, ", m.offset);
 	  gdb_note ("size = %d);\n", m.size);
-	  if ((ret = add_format_mem_ranges (format->id, &m)) != 
+	  if ((ret = add_format_mem_ranges (format->id, &m)) !=
 	      OK_TARGET_RESPONSE)
 	    {
 	      dtc_error_ret (-1, "add_format_mem_ranges", ret);
@@ -3171,12 +3171,12 @@ handle_format (char **request, COLLECTION_FORMAT_DEF *format)
 	    hexToInt(request, &length);
 
 	    if ((length <= 0) || (length > MAX_BYTE_CODES))
-	      return error_ret (-1, 
+	      return error_ret (-1,
 				"Bytecode expression length (%d) too large\n",
 				length);
 
 	    if (*(*request)++ != ',')
-	      return error_ret (-1, 
+	      return error_ret (-1,
 				"Malformed bytecode expr (comma#%d missing)\n",
 				1);
 	    t_expr->next = NULL;
@@ -3270,13 +3270,13 @@ handle_trace_set (char *request)
       /* state variable, required for splitting TDP packets. */
       static int doing_step_formats;
 
-      /* 
+      /*
        * TDP: packets may now be split into multiple packets.
        * If a TDP packet is to be continued in another packet, it
        * must end in a "-" character.  The subsequent continuation
        * packet will then begin with a "-" character, between the
        * token "TDP:" and the tdp_id field.  The ID and address
-       * will be repeated in each sub-packet.  The step_count, 
+       * will be repeated in each sub-packet.  The step_count,
        * pass_count, and 'enabled' field must appear in the first
        * packet.  The boundary between sub-packets may not appear
        * between the "S" that denotes the start of stepping "formats",
@@ -3285,7 +3285,7 @@ handle_trace_set (char *request)
        * bytecode string.  -- MVS
        */
 
-      if (*request == '-')	/* this is a continuation of a 
+      if (*request == '-')	/* this is a continuation of a
 				   trace definition in progress */
 	{
 	  unsigned long temp_id, temp_addr;
@@ -3388,7 +3388,7 @@ handle_trace_set (char *request)
 	  gdb_note ("stepc %d, ",        tdp_temp.stepcount);
 	  gdb_note ("TDP fmt #%d, ",     tdp_temp.tdp_format_p);
 	  gdb_note ("TP fmt #%d);\n",    tdp_temp.tp_format_p);
-	  
+
 	  ret = define_tdp (tdp_temp.id, &tdp_temp, 0);
 
 	  if (ret == OK_TARGET_RESPONSE)

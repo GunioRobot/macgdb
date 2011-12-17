@@ -69,10 +69,10 @@
  test_cc \N \Z \V \C
  .endm
 
- test_get_cc 1 0 0 0 
- test_get_cc 0 1 0 0 
- test_get_cc 0 0 1 0 
- test_get_cc 0 0 0 1 
+ test_get_cc 1 0 0 0
+ test_get_cc 0 1 0 0
+ test_get_cc 0 0 1 0
+ test_get_cc 0 0 0 1
 
  move.d 0x42,r3
  dumpr3

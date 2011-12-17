@@ -487,7 +487,7 @@
 #define elf_backend_hide_symbol		_bfd_elf_link_hash_hide_symbol
 #endif
 #ifndef elf_backend_fixup_symbol
-#define elf_backend_fixup_symbol		NULL	
+#define elf_backend_fixup_symbol		NULL
 #endif
 #ifndef elf_backend_merge_symbol_attribute
 #define elf_backend_merge_symbol_attribute	NULL

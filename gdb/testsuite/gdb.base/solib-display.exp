@@ -91,7 +91,7 @@ gdb_test "" "3: c_global = 43\\r\\nwarning: .*b_global.*\\r\\n1: a_global = 41" 
 # are not cleared permaturely.
 
 gdb_test "break [gdb_get_line_number "break here" ${testfile}.c]" \
-	".*Breakpoint.* at .*" 
+	".*Breakpoint.* at .*"
 
 gdb_test "continue"
 gdb_test "display main_global" "4: main_global = 44"
@@ -105,7 +105,7 @@ if { [gdb_start_cmd] < 0 } {
 
 gdb_test "" "6: a_static = 46\\r\\n4: main_global = 44\\r\\n.*"
 gdb_test "break [gdb_get_line_number "break here" ${testfile}.c]" \
-	".*Breakpoint.* at .*" 
+	".*Breakpoint.* at .*"
 gdb_test "continue" "6: a_static = 46\\r\\n5: a_local = 45\\r\\n4: main_global = 44\\r\\n.*"
 
 gdb_exit

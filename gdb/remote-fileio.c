@@ -847,7 +847,7 @@ remote_fileio_func_write (char *buf)
       return;
     }
   length = (size_t) num;
-    
+
   buffer = (gdb_byte *) xmalloc (length);
   retlength = remote_read_bytes (ptrval, buffer, length);
   if (retlength != length)
@@ -929,7 +929,7 @@ remote_fileio_func_lseek (char *buf)
       remote_fileio_reply (-1, FILEIO_EINVAL);
       return;
     }
-  
+
   remote_fio_no_longjmp = 1;
   ret = lseek (fd, offset, flag);
 
@@ -954,14 +954,14 @@ remote_fileio_func_rename (char *buf)
       remote_fileio_ioerror ();
       return;
     }
-  
+
   /* 2. Parameter: Ptr to newpath / length incl. trailing zero */
   if (remote_fileio_extract_ptr_w_len (&buf, &new_ptr, &new_len))
     {
       remote_fileio_ioerror ();
       return;
     }
-  
+
   /* Request oldpath using 'm' packet */
   oldpath = alloca (old_len);
   retlength = remote_read_bytes (old_ptr, (gdb_byte *) oldpath, old_len);
@@ -970,7 +970,7 @@ remote_fileio_func_rename (char *buf)
       remote_fileio_ioerror ();
       return;
     }
-  
+
   /* Request newpath using 'm' packet */
   newpath = alloca (new_len);
   retlength = remote_read_bytes (new_ptr, (gdb_byte *) newpath, new_len);
@@ -979,7 +979,7 @@ remote_fileio_func_rename (char *buf)
       remote_fileio_ioerror ();
       return;
     }
-  
+
   /* Only operate on regular files and directories */
   of = stat (oldpath, &ost);
   nf = stat (newpath, &nst);
@@ -1098,7 +1098,7 @@ remote_fileio_func_stat (char *buf)
       return;
     }
   statptr = (CORE_ADDR) lnum;
-  
+
   /* Request pathname using 'm' packet */
   pathname = alloca (namelength);
   retlength = remote_read_bytes (nameptr, (gdb_byte *) pathname, namelength);
@@ -1126,7 +1126,7 @@ remote_fileio_func_stat (char *buf)
     {
       remote_fileio_to_fio_stat (&st, &fst);
       remote_fileio_to_fio_uint (0, fst.fst_dev);
-      
+
       retlength = remote_fileio_write_bytes (statptr,
 					     (gdb_byte *) &fst, sizeof fst);
       if (retlength != sizeof fst)
@@ -1316,7 +1316,7 @@ remote_fileio_func_system (char *buf)
 	  return;
 	}
     }
-  
+
   /* Check if system(3) has been explicitely allowed using the
      `set remote system-call-allowed 1' command.  If length is 0,
      indicating a NULL parameter to the system call, return zero to

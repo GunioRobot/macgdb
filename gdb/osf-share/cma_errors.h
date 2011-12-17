@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -14,7 +14,7 @@
  * any purpose.
  */
 /*
- *	This module is the interface between CMA services and 
+ *	This module is the interface between CMA services and
  * 	the platform-specific error reporting mechanism.
  */
 

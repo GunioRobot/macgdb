@@ -1,5 +1,5 @@
 #
-# Makefile template for rlfe 
+# Makefile template for rlfe
 #
 # See machine dependant config.h for more configuration options.
 #
@@ -7,7 +7,7 @@
 srcdir = @srcdir@
 VPATH = @srcdir@
 
-DESTDIR = 
+DESTDIR =
 
 # Where to install screen.
 
@@ -89,7 +89,7 @@ term.h: term.c term.sh
 
 kmapdef.c: term.h
 
-tty.c:	tty.sh 
+tty.c:	tty.sh
 	sh $(srcdir)/tty.sh tty.c
 
 mostlyclean:
@@ -98,7 +98,7 @@ mostlyclean:
 clean celan: mostlyclean
 	rm -f tty.c term.h comm.h osdef.h kmapdef.c core
 
-# Delete all files from the current directory that are created by 
+# Delete all files from the current directory that are created by
 # configuring or building the program.
 # building of term.h/comm.h requires awk. Keep it in the distribution
 # we keep config.h, as this file knows where 'make dist' finds the ETCSCREENRC.
@@ -167,7 +167,7 @@ depend: depend.in
 depend.in: $(CFILES) term.h
 	cp Makefile.in Makefile.in~
 	sed -e '/\#\#\# Dependencies/q' < Makefile.in > tmp_make
-	for i in $(CFILES); do echo $$i; $(CPP_DEPEND) $$i >> tmp_make; done 
+	for i in $(CFILES); do echo $$i; $(CPP_DEPEND) $$i >> tmp_make; done
 	mv tmp_make Makefile.in
 
 ###############################################################################

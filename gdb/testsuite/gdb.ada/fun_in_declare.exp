@@ -37,7 +37,7 @@ gdb_load ${binfile}
 if ![runto main] then {
   perror "Couldn't run ${testfile}"
   return
-} 
+}
 
 # Some variables used to simplify the maintenance of some of
 # the regular expressions below.

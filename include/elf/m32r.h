@@ -55,7 +55,7 @@ START_RELOC_NUMBERS (elf_m32r_reloc_type)
   RELOC_NUMBER (R_M32R_RELA_GNU_VTENTRY, 44)
 
   RELOC_NUMBER (R_M32R_REL32, 45)
-                                                                                
+
   RELOC_NUMBER (R_M32R_GOT24, 48)
   RELOC_NUMBER (R_M32R_26_PLTREL, 49)
   RELOC_NUMBER (R_M32R_COPY, 50)

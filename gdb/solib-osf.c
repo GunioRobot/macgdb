@@ -329,7 +329,7 @@ osf_solib_create_inferior_hook (void)
      which point all of the libraries will have been mapped in and we
      can go groveling around in the rld structures to find
      out what we need to know about them.
-     
+
      If debugging from a core file, we cannot resume the execution
      of the inferior.  But this is actually not an issue, because
      shared libraries have already been mapped anyways, which means

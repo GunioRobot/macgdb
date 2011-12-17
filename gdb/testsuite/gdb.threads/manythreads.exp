@@ -157,7 +157,7 @@ gdb_test_multiple "" "stop threads 2" {
   timeout {
     fail "$message (timeout)"
   }
-} 
+}
 
 gdb_test_multiple "quit" "GDB exits after stopping multithreaded program" {
     -re "Quit anyway\\? \\(y or n\\) $" {

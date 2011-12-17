@@ -415,7 +415,7 @@ get_field (const unsigned char *data, enum floatformat_byteorders order,
 
   lo_bit = start % FLOATFORMAT_CHAR_BIT;
   hi_bit = min (lo_bit + len, FLOATFORMAT_CHAR_BIT);
-  
+
   do
     {
       unsigned int shifted = *(data + cur_byte) >> lo_bit;
@@ -432,7 +432,7 @@ get_field (const unsigned char *data, enum floatformat_byteorders order,
 
   return result;
 }
-  
+
 /* Convert from FMT to a double.
    FROM is the address of the extended float.
    Store the double in *TO.  */
@@ -564,7 +564,7 @@ put_field (unsigned char *data, enum floatformat_byteorders order,
 
   lo_bit = start % FLOATFORMAT_CHAR_BIT;
   hi_bit = min (lo_bit + len, FLOATFORMAT_CHAR_BIT);
-  
+
   do
     {
       unsigned char *byte_ptr = data + cur_byte;

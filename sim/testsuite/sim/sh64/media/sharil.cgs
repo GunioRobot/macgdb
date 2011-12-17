@@ -37,7 +37,7 @@ sharil1:
 	shari.l r0, 20, r0
 	bnei r0, 5, tr0
 
-okay:	
+okay:
 	pass
 
 wrong:

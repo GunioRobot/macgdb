@@ -111,14 +111,14 @@ arch.h ${srcdir}/arch.c cpuall.h: $(CGEN_MAINT) stamp-arch
 	@true
 
 stamp-desc: $(CGEN_READ_SCM) $(CGEN_CPU_SCM) $(CGEN_CPU_DIR)/sh.cpu $(CGEN_CPU_DIR)/sh.opc $(CGEN_CPU_DIR)/sh64-compact.cpu $(CGEN_CPU_DIR)/sh64-media.cpu $(CGEN_CPU_DIR)/sh-sim.cpu Makefile
-	$(MAKE) cgen-desc $(CGEN_FLAGS_TO_PASS) cpu=sh64 mach=all isa=compact,media archfile=$(CGEN_CPU_DIR)/sh.cpu 
+	$(MAKE) cgen-desc $(CGEN_FLAGS_TO_PASS) cpu=sh64 mach=all isa=compact,media archfile=$(CGEN_CPU_DIR)/sh.cpu
 	touch $@
 desc.h: $(CGEN_MAINT) stamp-desc
 	@true
 
 stamp-cpu: $(CGEN_READ_SCM) $(CGEN_CPU_SCM) $(CGEN_CPU_DIR)/sh.cpu $(CGEN_CPU_DIR)/sh.opc $(CGEN_CPU_DIR)/sh64-compact.cpu $(CGEN_CPU_DIR)/sh64-media.cpu $(CGEN_CPU_DIR)/sh-sim.cpu Makefile
 	$(MAKE) cgen-cpu $(CGEN_FLAGS_TO_PASS) \
-	  cpu=sh64 mach=sh4,sh5 isa=compact,media FLAGS="with-multiple-isa with-scache" archfile=$(CGEN_CPU_DIR)/sh.cpu 
+	  cpu=sh64 mach=sh4,sh5 isa=compact,media FLAGS="with-multiple-isa with-scache" archfile=$(CGEN_CPU_DIR)/sh.cpu
 	rm -f $(srcdir)/model.c
 	touch $@
 cpu.h: $(CGEN_MAINT) stamp-cpu
@@ -126,14 +126,14 @@ cpu.h: $(CGEN_MAINT) stamp-cpu
 
 stamp-defs-compact: $(CGEN_READ_SCM) $(CGEN_CPU_SCM) $(CGEN_CPU_DIR)/sh.cpu $(CGEN_CPU_DIR)/sh.opc $(CGEN_CPU_DIR)/sh64-compact.cpu $(CGEN_CPU_DIR)/sh-sim.cpu Makefile
 	$(MAKE) cgen-defs $(CGEN_FLAGS_TO_PASS) \
-	  cpu=sh64 mach=sh5 isa=compact FLAGS="with-scache" SUFFIX="-compact" archfile=$(CGEN_CPU_DIR)/sh.cpu 
+	  cpu=sh64 mach=sh5 isa=compact FLAGS="with-scache" SUFFIX="-compact" archfile=$(CGEN_CPU_DIR)/sh.cpu
 	touch $@
 defs-compact.h: $(CGEN_MAINT) stamp-defs-compact
 	@true
 
 stamp-defs-media: $(CGEN_READ_SCM) $(CGEN_CPU_SCM) $(CGEN_CPU_DIR)/sh.cpu $(CGEN_CPU_DIR)/sh.opc $(CGEN_CPU_DIR)/sh64-media.cpu $(CGEN_CPU_DIR)/sh-sim.cpu Makefile
 	$(MAKE) cgen-defs $(CGEN_FLAGS_TO_PASS) \
-	  cpu=sh64 mach=sh5 isa=media FLAGS="with-scache" SUFFIX="-media" archfile=$(CGEN_CPU_DIR)/sh.cpu 
+	  cpu=sh64 mach=sh5 isa=media FLAGS="with-scache" SUFFIX="-media" archfile=$(CGEN_CPU_DIR)/sh.cpu
 	touch $@
 defs-media.h: $(CGEN_MAINT) stamp-defs-media
 

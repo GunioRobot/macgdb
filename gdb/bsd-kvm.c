@@ -359,7 +359,7 @@ Optionally specify the filename of a core dump.");
   bsd_kvm_ops.to_magic = OPS_MAGIC;
 
   add_target (&bsd_kvm_ops);
-  
+
   add_prefix_cmd ("kvm", class_obscure, bsd_kvm_cmd, _("\
 Generic command for manipulating the kernel memory interface."),
 		  &bsd_kvm_cmdlist, "kvm ", 0, &cmdlist);

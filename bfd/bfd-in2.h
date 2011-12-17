@@ -1,7 +1,7 @@
-/* DO NOT EDIT!  -*- buffer-read-only: t -*-  This file is automatically 
-   generated from "bfd-in.h", "init.c", "opncls.c", "libbfd.c", 
-   "bfdio.c", "bfdwin.c", "section.c", "archures.c", "reloc.c", 
-   "syms.c", "bfd.c", "archive.c", "corefile.c", "targets.c", "format.c", 
+/* DO NOT EDIT!  -*- buffer-read-only: t -*-  This file is automatically
+   generated from "bfd-in.h", "init.c", "opncls.c", "libbfd.c",
+   "bfdio.c", "bfdwin.c", "section.c", "archures.c", "reloc.c",
+   "syms.c", "bfd.c", "archive.c", "corefile.c", "targets.c", "format.c",
    "linker.c", "simple.c" and "compress.c".
    Run "make headers" in your build bfd/ to regenerate.  */
 
@@ -62,7 +62,7 @@ extern "C" {
    problem for example when trying to use STRING_COMMA_LEN to build
    the arguments to the strncmp() macro.  Hence this alternative
    definition of strncmp is provided here.
-   
+
    Note - these macros do NOT work if STR2 is not a constant string.  */
 #define CONST_STRNEQ(STR1,STR2) (strncmp ((STR1), (STR2), sizeof (STR2) - 1) == 0)
   /* strcpy() can have a similar problem, but since we know we are
@@ -1502,12 +1502,12 @@ typedef struct bfd_section
 } asection;
 
 /* Relax table contains information about instructions which can
-   be removed by relaxation -- replacing a long address with a 
+   be removed by relaxation -- replacing a long address with a
    short address.  */
 struct relax_table {
   /* Address where bytes may be deleted. */
   bfd_vma addr;
-  
+
   /* Number of bytes to be deleted.  */
   int size;
 };
@@ -1812,7 +1812,7 @@ enum bfd_architecture
 #define bfd_mach_sparc_64bit_p(mach) \
   ((mach) >= bfd_mach_sparc_v9 && (mach) != bfd_mach_sparc_v8plusb)
   bfd_arch_spu,       /* PowerPC SPU */
-#define bfd_mach_spu           256 
+#define bfd_mach_spu           256
   bfd_arch_mips,      /* MIPS Rxxxx */
 #define bfd_mach_mips3000              3000
 #define bfd_mach_mips3900              3900
@@ -2050,7 +2050,7 @@ enum bfd_architecture
   bfd_arch_s390,      /* IBM s390 */
 #define bfd_mach_s390_31       31
 #define bfd_mach_s390_64       64
-  bfd_arch_score,     /* Sunplus score */ 
+  bfd_arch_score,     /* Sunplus score */
 #define bfd_mach_score3         3
 #define bfd_mach_score7         7
   bfd_arch_openrisc,  /* OpenRISC */
@@ -3794,7 +3794,7 @@ of 32 bit value) into 8 bit immediate value of LDI insn.  */
 command address) into 8 bit immediate value of LDI insn.  */
   BFD_RELOC_AVR_LO8_LDI_PM,
 
-/* This is a 16 bit reloc for the AVR that stores 8 bit value 
+/* This is a 16 bit reloc for the AVR that stores 8 bit value
 (command address) into 8 bit immediate value of LDI insn. If the address
 is beyond the 128k boundary, the linker inserts a jump stub for this reloc
 in the lower 128k.  */
@@ -4533,52 +4533,52 @@ BFD_RELOC_MACH_O_PAIR.  */
 /* Mach-O generic relocations.  */
   BFD_RELOC_MACH_O_PAIR,
 
-/* This is a 32 bit reloc for the microblaze that stores the 
+/* This is a 32 bit reloc for the microblaze that stores the
 low 16 bits of a value  */
   BFD_RELOC_MICROBLAZE_32_LO,
 
-/* This is a 32 bit pc-relative reloc for the microblaze that 
+/* This is a 32 bit pc-relative reloc for the microblaze that
 stores the low 16 bits of a value  */
   BFD_RELOC_MICROBLAZE_32_LO_PCREL,
 
-/* This is a 32 bit reloc for the microblaze that stores a 
+/* This is a 32 bit reloc for the microblaze that stores a
 value relative to the read-only small data area anchor  */
   BFD_RELOC_MICROBLAZE_32_ROSDA,
 
-/* This is a 32 bit reloc for the microblaze that stores a 
+/* This is a 32 bit reloc for the microblaze that stores a
 value relative to the read-write small data area anchor  */
   BFD_RELOC_MICROBLAZE_32_RWSDA,
 
-/* This is a 32 bit reloc for the microblaze to handle 
+/* This is a 32 bit reloc for the microblaze to handle
 expressions of the form "Symbol Op Symbol"  */
   BFD_RELOC_MICROBLAZE_32_SYM_OP_SYM,
 
-/* This is a 64 bit reloc that stores the 32 bit pc relative 
-value in two words (with an imm instruction).  No relocation is 
+/* This is a 64 bit reloc that stores the 32 bit pc relative
+value in two words (with an imm instruction).  No relocation is
 done here - only used for relaxing  */
   BFD_RELOC_MICROBLAZE_64_NONE,
 
-/* This is a 64 bit reloc that stores the 32 bit pc relative 
+/* This is a 64 bit reloc that stores the 32 bit pc relative
 value in two words (with an imm instruction).  The relocation is
 PC-relative GOT offset  */
   BFD_RELOC_MICROBLAZE_64_GOTPC,
 
-/* This is a 64 bit reloc that stores the 32 bit pc relative 
+/* This is a 64 bit reloc that stores the 32 bit pc relative
 value in two words (with an imm instruction).  The relocation is
 GOT offset  */
   BFD_RELOC_MICROBLAZE_64_GOT,
 
-/* This is a 64 bit reloc that stores the 32 bit pc relative 
+/* This is a 64 bit reloc that stores the 32 bit pc relative
 value in two words (with an imm instruction).  The relocation is
 PC-relative offset into PLT  */
   BFD_RELOC_MICROBLAZE_64_PLT,
 
-/* This is a 64 bit reloc that stores the 32 bit GOT relative 
+/* This is a 64 bit reloc that stores the 32 bit GOT relative
 value in two words (with an imm instruction).  The relocation is
 relative offset from _GLOBAL_OFFSET_TABLE_  */
   BFD_RELOC_MICROBLAZE_64_GOTOFF,
 
-/* This is a 32 bit reloc that stores the 32 bit GOT relative 
+/* This is a 32 bit reloc that stores the 32 bit GOT relative
 value in a word.  The relocation is relative offset from  */
   BFD_RELOC_MICROBLAZE_32_GOTOFF,
 

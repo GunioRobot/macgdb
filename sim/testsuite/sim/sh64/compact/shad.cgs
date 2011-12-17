@@ -51,7 +51,7 @@ fillneg:
 	# check result.
 	not r0, r0
 	assert r0, #0
-	
+
 okay:
 	pass
 wrong:

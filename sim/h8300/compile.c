@@ -545,7 +545,7 @@ bitfrom (int x)
   return 0;
 }
 
-/* Simulate an indirection / dereference.  
+/* Simulate an indirection / dereference.
    return 0 for success, -1 for failure.
 */
 
@@ -731,14 +731,14 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 		      ((looking_for & MODE) == VBR  && (thisnib != C_VBR))  ||
 		      ((looking_for & MODE) == SBR  && (thisnib != C_SBR)))
 		    goto fail;
-		  if (((looking_for & MODE) == CCR_EXR && 
+		  if (((looking_for & MODE) == CCR_EXR &&
 		       (thisnib != C_CCR && thisnib != C_EXR)) ||
-		      ((looking_for & MODE) == VBR_SBR && 
+		      ((looking_for & MODE) == VBR_SBR &&
 		       (thisnib != C_VBR && thisnib != C_SBR)) ||
-		      ((looking_for & MODE) == MACREG && 
+		      ((looking_for & MODE) == MACREG &&
 		       (thisnib != C_MACH && thisnib != C_MACL)))
 		    goto fail;
-		  if (((looking_for & MODE) == CC_EX_VB_SB && 
+		  if (((looking_for & MODE) == CC_EX_VB_SB &&
 		       (thisnib != C_CCR && thisnib != C_EXR &&
 			thisnib != C_VBR && thisnib != C_SBR)))
 		    goto fail;
@@ -758,14 +758,14 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 		      cst[opnum] = (data[len / 2] << 8) + data[len / 2 + 1];
 		      break;
 		    case L_32:
-		      cst[opnum] = 
-			(data[len / 2 + 0] << 24) + 
+		      cst[opnum] =
+			(data[len / 2 + 0] << 24) +
 			(data[len / 2 + 1] << 16) +
-			(data[len / 2 + 2] <<  8) +  
+			(data[len / 2 + 2] <<  8) +
 			(data[len / 2 + 3]);
 		      break;
 		    default:
-		      printf ("decode: bad size ABS: %d\n", 
+		      printf ("decode: bad size ABS: %d\n",
 			      (looking_for & SIZE));
 		      goto end;
 		    }
@@ -792,14 +792,14 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 		      cst[opnum] = (data[len / 2] << 8) + data[len / 2 + 1];
 		      break;
 		    case L_32:
-		      cst[opnum] = 
-			(data[len / 2 + 0] << 24) + 
+		      cst[opnum] =
+			(data[len / 2 + 0] << 24) +
 			(data[len / 2 + 1] << 16) +
-			(data[len / 2 + 2] <<  8) +  
+			(data[len / 2 + 2] <<  8) +
 			(data[len / 2 + 3]);
 		      break;
 		    default:
-		      printf ("decode: bad size DISP/PCREL/INDEX: %d\n", 
+		      printf ("decode: bad size DISP/PCREL/INDEX: %d\n",
 			      (looking_for & SIZE));
 		      goto end;
 		    }
@@ -820,14 +820,14 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 		    cst[opnum] = (data[1] << 16) | (data[2] << 8) | (data[3]);
 		    break;
 		  case L_32:
-		    cst[opnum] = 
-		      (data[len / 2 + 0] << 24) + 
+		    cst[opnum] =
+		      (data[len / 2 + 0] << 24) +
 		      (data[len / 2 + 1] << 16) +
-		      (data[len / 2 + 2] <<  8) +  
+		      (data[len / 2 + 2] <<  8) +
 		      (data[len / 2 + 3]);
 		    break;
 		  default:
-		    printf ("decode: bad size ABSJMP: %d\n", 
+		    printf ("decode: bad size ABSJMP: %d\n",
 			    (looking_for & SIZE));
 		      goto end;
 		  }
@@ -848,7 +848,7 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 		{
 		  int i = len / 2;
 
-		  cst[opnum] = 
+		  cst[opnum] =
 		    (data[i + 0] << 24) |
 		    (data[i + 1] << 16) |
 		    (data[i + 2] <<  8) |
@@ -858,9 +858,9 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 		{
 		  int i = len / 2;
 
-		  cst[opnum] = 
-		    (data[i + 0] << 16) | 
-		    (data[i + 1] << 8) | 
+		  cst[opnum] =
+		    (data[i + 0] << 16) |
+		    (data[i + 1] << 8) |
 		    (data[i + 2]);
 		}
 	      else if (looking_for & DISPREG)
@@ -928,8 +928,8 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 		    int hadone = 0;
 		    int nargs;
 
-		    for (nargs = 0; 
-			 nargs < 3 && *args != E; 
+		    for (nargs = 0;
+			 nargs < 3 && *args != E;
 			 nargs++)
 		      {
 			int x = *args;
@@ -948,7 +948,7 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 			    (x & MODE) == KBIT ||
 			    (x & MODE) == DBIT)
 			  {
-			    /* Use the instruction to determine 
+			    /* Use the instruction to determine
 			       the operand size.  */
 			    p->type = X (OP_IMM, OP_SIZE (q->how));
 			    p->literal = cst[opnum];
@@ -958,7 +958,7 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 				 (x & MODE) == CONST_8 ||
 				 (x & MODE) == CONST_16)
 			  {
-			    /* Use the instruction to determine 
+			    /* Use the instruction to determine
 			       the operand size.  */
 			    p->type = X (OP_IMM, OP_SIZE (q->how));
 			    switch (x & MODE) {
@@ -980,28 +980,28 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 			  }
 			else if ((x & MODE) == PREINC)
 			  {
-			    /* Use the instruction to determine 
+			    /* Use the instruction to determine
 			       the operand size.  */
 			    p->type = X (OP_PREINC, OP_SIZE (q->how));
 			    p->reg = reg[opnum] & 0x7;
 			  }
 			else if ((x & MODE) == POSTINC)
 			  {
-			    /* Use the instruction to determine 
+			    /* Use the instruction to determine
 			       the operand size.  */
 			    p->type = X (OP_POSTINC, OP_SIZE (q->how));
 			    p->reg = reg[opnum] & 0x7;
 			  }
 			else if ((x & MODE) == PREDEC)
 			  {
-			    /* Use the instruction to determine 
+			    /* Use the instruction to determine
 			       the operand size.  */
 			    p->type = X (OP_PREDEC, OP_SIZE (q->how));
 			    p->reg = reg[opnum] & 0x7;
 			  }
 			else if ((x & MODE) == POSTDEC)
 			  {
-			    /* Use the instruction to determine 
+			    /* Use the instruction to determine
 			       the operand size.  */
 			    p->type = X (OP_POSTDEC, OP_SIZE (q->how));
 			    p->reg = reg[opnum] & 0x7;
@@ -1009,9 +1009,9 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 			else if ((x & MODE) == IND)
 			  {
 			    /* Note: an indirect is transformed into
-			       a displacement of zero.  
+			       a displacement of zero.
 			    */
-			    /* Use the instruction to determine 
+			    /* Use the instruction to determine
 			       the operand size.  */
 			    p->type = X (OP_DISP, OP_SIZE (q->how));
 			    p->reg = reg[opnum] & 0x7;
@@ -1023,12 +1023,12 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 			  }
 			else if ((x & MODE) == ABS)
 			  {
-			    /* Note: a 16 or 32 bit ABS is transformed into a 
+			    /* Note: a 16 or 32 bit ABS is transformed into a
 			       displacement from pseudo-register ZERO_REGNUM,
 			       which is always zero.  An 8 bit ABS becomes
 			       a displacement from SBR_REGNUM.
 			    */
-			    /* Use the instruction to determine 
+			    /* Use the instruction to determine
 			       the operand size.  */
 			    p->type = X (OP_DISP, OP_SIZE (q->how));
 			    p->literal = cst[opnum];
@@ -1170,7 +1170,7 @@ decode (SIM_DESC sd, int addr, unsigned char *data, decoded_inst *dst)
 		  dst->opcode = q->how;
 		  dst->cycles = q->time;
 
-		  /* And jsr's to these locations are turned into 
+		  /* And jsr's to these locations are turned into
 		     magic traps.  */
 
 		  if (OP_KIND (dst->opcode) == O_JSR)
@@ -1367,7 +1367,7 @@ fetch_1 (SIM_DESC sd, ea_type *arg, int *val, int twice)
       *val = GET_L_REG (rn) & 0xff;
       break;
     case X (OP_LOWREG, SW):
-      *val = GET_L_REG (rn) & 0xffff; 
+      *val = GET_L_REG (rn) & 0xffff;
       break;
 
     case X (OP_REG, SB):	/* Register direct, byte.  */
@@ -1452,21 +1452,21 @@ fetch_1 (SIM_DESC sd, ea_type *arg, int *val, int twice)
       SET_L_REG (rn, t);
       *val = GET_MEMORY_B (t);
       break;
-      
+
     case X (OP_PREDEC, SW):	/* Register indirect w/pre-decr: word.  */
       t = GET_L_REG (rn) - 2;
       t &= h8_get_mask (sd);
       SET_L_REG (rn, t);
       *val = GET_MEMORY_W (t);
       break;
-      
+
     case X (OP_PREDEC, SL):	/* Register indirect w/pre-decr: long.  */
       t = GET_L_REG (rn) - 4;
       t &= h8_get_mask (sd);
       SET_L_REG (rn, t);
       *val = GET_MEMORY_L (t);
       break;
-      
+
     case X (OP_PREINC, SB):	/* Register indirect w/pre-incr: byte.  */
       t = GET_L_REG (rn) + 1;
       t &= h8_get_mask (sd);
@@ -1786,9 +1786,9 @@ init_pointers (SIM_DESC sd)
       /* `msize' must be a power of two.  */
       if ((memory_size & (memory_size - 1)) != 0)
 	{
-	  (*sim_callback->printf_filtered) 
+	  (*sim_callback->printf_filtered)
 	    (sim_callback,
-	     "init_pointers: bad memory size %d, defaulting to %d.\n", 
+	     "init_pointers: bad memory size %d, defaulting to %d.\n",
 	     memory_size, memory_size = H8300S_MSIZE);
 	}
 
@@ -1799,9 +1799,9 @@ init_pointers (SIM_DESC sd)
       if (h8_get_eightbit_buf (sd))
 	free (h8_get_eightbit_buf (sd));
 
-      h8_set_memory_buf (sd, (unsigned char *) 
+      h8_set_memory_buf (sd, (unsigned char *)
 			 calloc (sizeof (char), memory_size));
-      h8_set_cache_idx_buf (sd, (unsigned short *) 
+      h8_set_cache_idx_buf (sd, (unsigned short *)
 			    calloc (sizeof (short), memory_size));
       sd->memory_size = memory_size;
       h8_set_eightbit_buf (sd, (unsigned char *) calloc (sizeof (char), 256));
@@ -1847,7 +1847,7 @@ init_pointers (SIM_DESC sd)
 	    }
 
 	  if (wreg[i] == 0 || wreg[i + 8] == 0)
-	    (*sim_callback->printf_filtered) (sim_callback, 
+	    (*sim_callback->printf_filtered) (sim_callback,
 					      "init_pointers: internal error.\n");
 
 	  h8_set_reg (sd, i, 0);
@@ -1965,7 +1965,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
       if (cidx == (unsigned short) -1 ||
 	  cidx >= sd->sim_cache_size)
 	goto illegal;
-	  
+
       code = sd->sim_cache + cidx;
 
 #if ADEBUG
@@ -2006,10 +2006,10 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	     5) Store result in 3rd argument (op3).
 	  */
 
-	  /* Alas, since this is the only instruction with 3 arguments, 
+	  /* Alas, since this is the only instruction with 3 arguments,
 	     decode doesn't handle them very well.  Some fix-up is required.
 
-	     a) The size of dst is determined by whether src is 
+	     a) The size of dst is determined by whether src is
 	        INDEXB or INDEXW.  */
 
 	  if (OP_KIND (code->src.type) == OP_INDEXB)
@@ -2061,13 +2061,13 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	  case O (O_MOVAL, SL):     ea = ea << 2;	break;
 	  default: 		    goto illegal;
 	  }
-	  
+
 	  ea = ea + code->src.literal;
 
 	  if (store (sd, &code->op3, ea))
 	    goto end;
 
-	  goto next;	  
+	  goto next;
 
 	case O (O_SUBX, SB):	/* subx, extended sub */
 	  if (fetch2 (sd, &code->dst, &rd))
@@ -2125,7 +2125,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	case O (O_SUB, SB):		/* sub.b */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  ea = -ea;
 	  res = rd + ea;
@@ -2133,7 +2133,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	case O (O_SUB, SW):		/* sub.w */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  ea = -ea;
 	  res = rd + ea;
@@ -2141,7 +2141,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	case O (O_SUB, SL):		/* sub.l */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  ea = -ea;
 	  res = rd + ea;
@@ -2149,7 +2149,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	case O (O_NEG, SB):		/* neg.b */
 	  /* Fetch ea.  */
-	  if (fetch2 (sd, &code->src, &ea)) 
+	  if (fetch2 (sd, &code->src, &ea))
 	    goto end;
 	  ea = -ea;
 	  rd = 0;
@@ -2158,7 +2158,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	case O (O_NEG, SW):		/* neg.w */
 	  /* Fetch ea.  */
-	  if (fetch2 (sd, &code->src, &ea)) 
+	  if (fetch2 (sd, &code->src, &ea))
 	    goto end;
 	  ea = -ea;
 	  rd = 0;
@@ -2167,7 +2167,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	case O (O_NEG, SL):		/* neg.l */
 	  /* Fetch ea.  */
-	  if (fetch2 (sd, &code->src, &ea)) 
+	  if (fetch2 (sd, &code->src, &ea))
 	    goto end;
 	  ea = -ea;
 	  rd = 0;
@@ -2200,63 +2200,63 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	case O (O_AND, SB):		/* and.b */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd & ea;
 	  goto log8;
 
 	case O (O_AND, SW):		/* and.w */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd & ea;
 	  goto log16;
 
 	case O (O_AND, SL):		/* and.l */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd & ea;
 	  goto log32;
 
 	case O (O_OR, SB):		/* or.b */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd | ea;
 	  goto log8;
 
 	case O (O_OR, SW):		/* or.w */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd | ea;
 	  goto log16;
 
 	case O (O_OR, SL):		/* or.l */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd | ea;
 	  goto log32;
 
 	case O (O_XOR, SB):		/* xor.b */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd ^ ea;
 	  goto log8;
 
 	case O (O_XOR, SW):		/* xor.w */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd ^ ea;
 	  goto log16;
 
 	case O (O_XOR, SL):		/* xor.l */
 	  /* Fetch rd and ea.  */
-	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd)) 
+	  if (fetch (sd, &code->src, &ea) || fetch2 (sd, &code->dst, &rd))
 	    goto end;
 	  res = rd ^ ea;
 	  goto log32;
@@ -2342,7 +2342,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	      SET_MEMORY_B (GET_L_REG (6), rd);
 	      SET_L_REG (5, GET_L_REG (5) + 1);
 	      SET_L_REG (6, GET_L_REG (6) + 1);
-	      SET_W_REG (4, ea); 
+	      SET_W_REG (4, ea);
 	      if (rd == 0)
 		goto condtrue;
 	    }
@@ -2359,7 +2359,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	      _src = (h8_get_reg (sd, R5_REGNUM) < memory_size
 		      ? h8_get_memory_buf   (sd) + h8_get_reg (sd, R5_REGNUM)
-		      : h8_get_eightbit_buf (sd) + 
+		      : h8_get_eightbit_buf (sd) +
 		       (h8_get_reg (sd, R5_REGNUM) & 0xff));
 	      if ((_src + count) >= (h8_get_memory_buf (sd) + memory_size))
 		{
@@ -2368,7 +2368,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 		}
 	      _dst = (h8_get_reg (sd, R6_REGNUM) < memory_size
 		      ? h8_get_memory_buf   (sd) + h8_get_reg (sd, R6_REGNUM)
-		      : h8_get_eightbit_buf (sd) + 
+		      : h8_get_eightbit_buf (sd) +
 		       (h8_get_reg (sd, R6_REGNUM) & 0xff));
 
 	      if ((_dst + count) >= (h8_get_memory_buf (sd) + memory_size))
@@ -2391,7 +2391,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_ADDS, SL):		/* adds (.l) */
 	  /* FIXME fetch.
 	   * This insn only uses register operands, but still
-	   * it would be cleaner to use fetch and store...  */	  
+	   * it would be cleaner to use fetch and store...  */
 	  SET_L_REG (code->dst.reg,
 		     GET_L_REG (code->dst.reg)
 		     + code->src.literal);
@@ -2401,7 +2401,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_SUBS, SL):		/* subs (.l) */
 	  /* FIXME fetch.
 	   * This insn only uses register operands, but still
-	   * it would be cleaner to use fetch and store...  */	  
+	   * it would be cleaner to use fetch and store...  */
 	  SET_L_REG (code->dst.reg,
 		     GET_L_REG (code->dst.reg)
 		     - code->src.literal);
@@ -2437,7 +2437,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_DEC, SB):		/* dec.b */
 	  /* FIXME fetch.
 	   * This insn only uses register operands, but still
-	   * it would be cleaner to use fetch and store...  */	  
+	   * it would be cleaner to use fetch and store...  */
 	  rd = GET_B_REG (code->src.reg);
 	  ea = -1;
 	  res = rd + ea;
@@ -2447,7 +2447,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_DEC, SW):		/* dec.w */
 	  /* FIXME fetch.
 	   * This insn only uses register operands, but still
-	   * it would be cleaner to use fetch and store...  */	  
+	   * it would be cleaner to use fetch and store...  */
 	  rd = GET_W_REG (code->dst.reg);
 	  ea = -code->src.literal;
 	  res = rd + ea;
@@ -2457,7 +2457,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_DEC, SL):		/* dec.l */
 	  /* FIXME fetch.
 	   * This insn only uses register operands, but still
-	   * it would be cleaner to use fetch and store...  */	  
+	   * it would be cleaner to use fetch and store...  */
 	  rd = GET_L_REG (code->dst.reg);
 	  ea = -code->src.literal;
 	  res = rd + ea;
@@ -2467,7 +2467,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_INC, SB):		/* inc.b */
 	  /* FIXME fetch.
 	   * This insn only uses register operands, but still
-	   * it would be cleaner to use fetch and store...  */	  
+	   * it would be cleaner to use fetch and store...  */
 	  rd = GET_B_REG (code->src.reg);
 	  ea = 1;
 	  res = rd + ea;
@@ -2477,7 +2477,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_INC, SW):		/* inc.w */
 	  /* FIXME fetch.
 	   * This insn only uses register operands, but still
-	   * it would be cleaner to use fetch and store...  */	  
+	   * it would be cleaner to use fetch and store...  */
 	  rd = GET_W_REG (code->dst.reg);
 	  ea = code->src.literal;
 	  res = rd + ea;
@@ -2487,7 +2487,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_INC, SL):		/* inc.l */
 	  /* FIXME fetch.
 	   * This insn only uses register operands, but still
-	   * it would be cleaner to use fetch and store...  */	  
+	   * it would be cleaner to use fetch and store...  */
 	  rd = GET_L_REG (code->dst.reg);
 	  ea = code->src.literal;
 	  res = rd + ea;
@@ -2816,7 +2816,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 		size_cmdline += ind_arg_len;
 
 		/* As we have only 256 bytes, we need to provide a graceful
-		   exit. Anyways, a program using command line arguments 
+		   exit. Anyways, a program using command line arguments
 		   where we cannot store all the command line arguments
 		   given may behave unpredictably.  */
 		if (size_cmdline >= 256)
@@ -2833,7 +2833,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 		      {
 			SET_MEMORY_B ((current_location +
 				       (sizeof (char) * j)),
-				      *(h8_get_cmdline_arg (sd, i) + 
+				      *(h8_get_cmdline_arg (sd, i) +
 				       sizeof (char) * j));
 		      }
 
@@ -2873,9 +2873,9 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 		  {
 		    SET_MEMORY_W (argv_ptrs_location, argv_ptrs[i]);
 		  }
-	
+
 		/* The next location where the pointer to the next argv
-		   string has to be stored.  */    
+		   string has to be stored.  */
 		argv_ptrs_location += char_ptr_size;
 	      }
 
@@ -3001,7 +3001,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	    char temp_char;	/* Temporary character */
 	    int len;		/* Length of write, Parameter II to write.  */
 	    int char_ptr;	/* Character Pointer, Parameter I of write.  */
-	    char *ptr;		/* Where characters to be written are stored. 
+	    char *ptr;		/* Where characters to be written are stored.
 				 */
 	    int write_return;	/* Return value from callback to write.  */
 	    int i = 0;		/* Loop counter */
@@ -3158,10 +3158,10 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	    /* Have stat_ptr point to starting of stat_rec.  */
 	    temp_stat_ptr = (char *) (&stat_rec);
- 
+
 	    /* Freeing memory used for filename.  */
 	    free (filename);
- 
+
 	    /* Setting up the stat structure returned.  */
 	    SET_MEMORY_W (stat_ptr, stat_rec.st_dev);
 	    stat_ptr += 2;
@@ -3184,7 +3184,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	    SET_MEMORY_L (stat_ptr, stat_rec.st_mtime);
 	    stat_ptr += 8;
 	    SET_MEMORY_L (stat_ptr, stat_rec.st_ctime);
- 
+
 	    /* Return value in register 0.  */
 	    h8_set_reg (sd, 0, stat_return);
 	  }
@@ -3194,21 +3194,21 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_NOT, SB):		/* not.b */
 	  if (fetch2 (sd, &code->src, &rd))
 	    goto end;
-	  rd = ~rd; 
+	  rd = ~rd;
 	  v = 0;
 	  goto shift8;
 
 	case O (O_NOT, SW):		/* not.w */
 	  if (fetch2 (sd, &code->src, &rd))
 	    goto end;
-	  rd = ~rd; 
+	  rd = ~rd;
 	  v = 0;
 	  goto shift16;
 
 	case O (O_NOT, SL):		/* not.l */
 	  if (fetch2 (sd, &code->src, &rd))
 	    goto end;
-	  rd = ~rd; 
+	  rd = ~rd;
 	  v = 0;
 	  goto shift32;
 
@@ -3298,7 +3298,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	    {
 	      c = rd & (0x80 >> (ea - 1));
 	      res = rd >> (7 - ea);
-	      v = ((res & 1) && !(res & 2)) 
+	      v = ((res & 1) && !(res & 2))
 		|| (!(res & 1) && (res & 2));
 	      rd <<= ea;
 	    }
@@ -3324,7 +3324,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	    {
 	      c = rd & (0x8000 >> (ea - 1));
 	      res = rd >> (15 - ea);
-	      v = ((res & 1) && !(res & 2)) 
+	      v = ((res & 1) && !(res & 2))
 		|| (!(res & 1) && (res & 2));
 	      rd <<= ea;
 	    }
@@ -3350,7 +3350,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	    {
 	      c = rd & (0x80000000 >> (ea - 1));
 	      res = rd >> (31 - ea);
-	      v = ((res & 1) && !(res & 2)) 
+	      v = ((res & 1) && !(res & 2))
 		|| (!(res & 1) && (res & 2));
 	      rd <<= ea;
 	    }
@@ -3638,17 +3638,17 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	      SIM_WIFEXITED (h8_get_reg (sd, 0)))
 	    {
 	      /* This trap comes from _exit, not from gdb.  */
-	      sim_engine_set_run_state (sd, sim_exited, 
+	      sim_engine_set_run_state (sd, sim_exited,
 					SIM_WEXITSTATUS (h8_get_reg (sd, 0)));
 	    }
 #if 0
 	  /* Unfortunately this won't really work, because
-	     when we take a breakpoint trap, R0 has a "random", 
+	     when we take a breakpoint trap, R0 has a "random",
 	     user-defined value.  Don't see any immediate solution.  */
 	  else if (SIM_WIFSTOPPED (h8_get_reg (sd, 0)))
 	    {
 	      /* Pass the stop signal up to gdb.  */
-	      sim_engine_set_run_state (sd, sim_stopped, 
+	      sim_engine_set_run_state (sd, sim_stopped,
 					SIM_WSTOPSIG (h8_get_reg (sd, 0)));
 	    }
 #endif
@@ -3662,7 +3662,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_TRAPA, SB):		/* trapa */
 	  if (fetch (sd, &code->src, &res))
    	    goto end;			/* res is vector number.  */
-  
+
    	  tmp = h8_get_reg (sd, SP_REGNUM);
    	  if(h8300_normal_mode)
    	    {
@@ -3680,7 +3680,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
    	    }
    	  intMaskBit = 1;
    	  BUILDSR (sd);
- 
+
 	  if (h8300smode)
 	    {
 	      tmp -= 4;
@@ -3804,12 +3804,12 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 
 	case O (O_STMAC, SL):		/* stmac, 260 */
 	  switch (code->src.type) {
-	  case X (OP_MACH, SL): 
+	  case X (OP_MACH, SL):
 	    res = h8_get_mach (sd);
 	    if (res & 0x200)		/* sign extend */
 	      res |= 0xfffffc00;
 	    break;
-	  case X (OP_MACL, SL): 
+	  case X (OP_MACL, SL):
 	    res = h8_get_macl (sd);
 	    break;
 	  default:	goto illegal;
@@ -3828,11 +3828,11 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	    goto end;
 
 	  switch (code->dst.type) {
-	  case X (OP_MACH, SL):	
+	  case X (OP_MACH, SL):
 	    rd &= 0x3ff;		/* Truncate to 10 bits */
 	    h8_set_mach (sd, rd);
 	    break;
-	  case X (OP_MACL, SL):	
+	  case X (OP_MACL, SL):
 	    h8_set_macl (sd, rd);
 	    break;
 	  default:	goto illegal;
@@ -3873,7 +3873,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 		mac |= 0xfffffc0000000000LL;
 
 	      mac += res;
-	      if (mac > 0x1ffffffffffLL || 
+	      if (mac > 0x1ffffffffffLL ||
 		  mac < (long long) 0xfffffe0000000000LL)
 		h8_set_macV (sd, 1);
 	      h8_set_macZ (sd, (mac == 0));
@@ -4319,31 +4319,31 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_DAA, SB):
 	  /* Decimal Adjust Addition.  This is for BCD arithmetic.  */
 	  res = GET_B_REG (code->src.reg);	/* FIXME fetch? */
-	  if (!c && (0 <= (res >>  4) && (res >>  4) <= 9) && 
+	  if (!c && (0 <= (res >>  4) && (res >>  4) <= 9) &&
 	      !h && (0 <= (res & 0xf) && (res & 0xf) <= 9))
 	    res = res;		/* Value added == 0.  */
-	  else if (!c && (0  <= (res >>  4) && (res >>  4) <=  8) && 
+	  else if (!c && (0  <= (res >>  4) && (res >>  4) <=  8) &&
 		   !h && (10 <= (res & 0xf) && (res & 0xf) <= 15))
 	    res = res + 0x6;		/* Value added == 6.  */
-	  else if (!c && (0 <= (res >>  4) && (res >>  4) <= 9) && 
+	  else if (!c && (0 <= (res >>  4) && (res >>  4) <= 9) &&
 		    h && (0 <= (res & 0xf) && (res & 0xf) <= 3))
 	    res = res + 0x6;		/* Value added == 6.  */
-	  else if (!c && (10 <= (res >>  4) && (res >>  4) <= 15) && 
+	  else if (!c && (10 <= (res >>  4) && (res >>  4) <= 15) &&
 		   !h && (0  <= (res & 0xf) && (res & 0xf) <=  9))
 	    res = res + 0x60;		/* Value added == 60.  */
-	  else if (!c && (9  <= (res >>  4) && (res >>  4) <= 15) && 
+	  else if (!c && (9  <= (res >>  4) && (res >>  4) <= 15) &&
 		   !h && (10 <= (res & 0xf) && (res & 0xf) <= 15))
 	    res = res + 0x66;		/* Value added == 66.  */
-	  else if (!c && (10 <= (res >>  4) && (res >>  4) <= 15) && 
+	  else if (!c && (10 <= (res >>  4) && (res >>  4) <= 15) &&
 		    h && (0  <= (res & 0xf) && (res & 0xf) <=  3))
 	    res = res + 0x66;		/* Value added == 66.  */
-	  else if ( c && (1 <= (res >>  4) && (res >>  4) <= 2) && 
+	  else if ( c && (1 <= (res >>  4) && (res >>  4) <= 2) &&
 		   !h && (0 <= (res & 0xf) && (res & 0xf) <= 9))
 	    res = res + 0x60;		/* Value added == 60.  */
-	  else if ( c && (1  <= (res >>  4) && (res >>  4) <=  2) && 
+	  else if ( c && (1  <= (res >>  4) && (res >>  4) <=  2) &&
 		   !h && (10 <= (res & 0xf) && (res & 0xf) <= 15))
 	    res = res + 0x66;		/* Value added == 66.  */
-	  else if (c && (1 <= (res >>  4) && (res >>  4) <= 3) && 
+	  else if (c && (1 <= (res >>  4) && (res >>  4) <= 3) &&
 		   h && (0 <= (res & 0xf) && (res & 0xf) <= 3))
 	    res = res + 0x66;		/* Value added == 66.  */
 
@@ -4352,16 +4352,16 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O (O_DAS, SB):
 	  /* Decimal Adjust Subtraction.  This is for BCD arithmetic.  */
 	  res = GET_B_REG (code->src.reg); /* FIXME fetch, fetch2... */
-	  if (!c && (0 <= (res >>  4) && (res >>  4) <= 9) && 
+	  if (!c && (0 <= (res >>  4) && (res >>  4) <= 9) &&
 	      !h && (0 <= (res & 0xf) && (res & 0xf) <= 9))
 	    res = res;		/* Value added == 0.  */
-	  else if (!c && (0 <= (res >>  4) && (res >>  4) <=  8) && 
+	  else if (!c && (0 <= (res >>  4) && (res >>  4) <=  8) &&
 		    h && (6 <= (res & 0xf) && (res & 0xf) <= 15))
 	    res = res + 0xfa;		/* Value added == 0xfa.  */
-	  else if ( c && (7 <= (res >>  4) && (res >>  4) <= 15) && 
+	  else if ( c && (7 <= (res >>  4) && (res >>  4) <= 15) &&
 		   !h && (0 <= (res & 0xf) && (res & 0xf) <=  9))
 	    res = res + 0xa0;		/* Value added == 0xa0.  */
-	  else if (c && (6 <= (res >>  4) && (res >>  4) <= 15) && 
+	  else if (c && (6 <= (res >>  4) && (res >>  4) <= 15) &&
 		   h && (6 <= (res & 0xf) && (res & 0xf) <= 15))
 	    res = res + 0x9a;		/* Value added == 0x9a.  */
 
@@ -4561,7 +4561,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	case O_ADDX:
 	  v = ((rd & 0x80000000) == (ea & 0x80000000)
 	       && (rd & 0x80000000) != (res & 0x80000000));
-	  c = ((unsigned) res < (unsigned) rd) || 
+	  c = ((unsigned) res < (unsigned) rd) ||
 	    ((unsigned) res < (unsigned) ea);
 	  break;
 	case O_SUB:
@@ -4588,7 +4588,7 @@ sim_resume (SIM_DESC sd, int step, int siggnal)
 	pc = code->next_pc;
 
     end:
-      
+
       if (--poll_count < 0)
 	{
 	  poll_count = POLL_QUIT_INTERVAL;
@@ -4678,7 +4678,7 @@ sim_store_register (SIM_DESC sd, int rn, unsigned char *value, int length)
         h8_set_pc (sd, intval);
       break;
     default:
-      (*sim_callback->printf_filtered) (sim_callback, 
+      (*sim_callback->printf_filtered) (sim_callback,
 					"sim_store_register: bad regnum %d.\n",
 					rn);
     case R0_REGNUM:
@@ -4737,7 +4737,7 @@ sim_fetch_register (SIM_DESC sd, int rn, unsigned char *buf, int length)
   switch (rn)
     {
     default:
-      (*sim_callback->printf_filtered) (sim_callback, 
+      (*sim_callback->printf_filtered) (sim_callback,
 					"sim_fetch_register: bad regnum %d.\n",
 					rn);
       v = 0;
@@ -4867,7 +4867,7 @@ sim_info (SIM_DESC sd, int verbose)
       for (i = 0; i < O_LAST; i++)
 	{
 	  if (h8_get_stats (sd, i))
-	    (*sim_callback->printf_filtered) (sim_callback, "%d: %d\n", 
+	    (*sim_callback->printf_filtered) (sim_callback, "%d: %d\n",
 					      i, h8_get_stats (sd, i));
 	}
     }
@@ -4912,9 +4912,9 @@ free_state (SIM_DESC sd)
 }
 
 SIM_DESC
-sim_open (SIM_OPEN_KIND kind, 
-	  struct host_callback_struct *callback, 
-	  struct bfd *abfd, 
+sim_open (SIM_OPEN_KIND kind,
+	  struct host_callback_struct *callback,
+	  struct bfd *abfd,
 	  char **argv)
 {
   SIM_DESC sd;
@@ -5046,9 +5046,9 @@ sim_load (SIM_DESC sd, char *prog, bfd *abfd, int from_tty)
   if (h8_get_eightbit_buf (sd))
     free (h8_get_eightbit_buf (sd));
 
-  h8_set_memory_buf (sd, (unsigned char *) 
+  h8_set_memory_buf (sd, (unsigned char *)
 		     calloc (sizeof (char), memory_size));
-  h8_set_cache_idx_buf (sd, (unsigned short *) 
+  h8_set_cache_idx_buf (sd, (unsigned short *)
 			calloc (sizeof (short), memory_size));
   sd->memory_size = memory_size;
   h8_set_eightbit_buf (sd, (unsigned char *) calloc (sizeof (char), 256));
@@ -5056,7 +5056,7 @@ sim_load (SIM_DESC sd, char *prog, bfd *abfd, int from_tty)
   /* `msize' must be a power of two.  */
   if ((memory_size & (memory_size - 1)) != 0)
     {
-      (*sim_callback->printf_filtered) (sim_callback, 
+      (*sim_callback->printf_filtered) (sim_callback,
 					"sim_load: bad memory size.\n");
       return SIM_RC_FAIL;
     }
@@ -5109,7 +5109,7 @@ sim_create_inferior (SIM_DESC sd, struct bfd *abfd, char **argv, char **env)
 	}
       h8_set_cmdline_arg (sd, i, NULL);
     }
-  
+
   return SIM_RC_OK;
 }
 

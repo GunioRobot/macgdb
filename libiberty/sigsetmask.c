@@ -29,7 +29,7 @@ sigsetmask (int set)
 {
     sigset_t new_sig;
     sigset_t old_sig;
-    
+
     sigemptyset (&new_sig);
     if (set != 0) {
       abort();	/* FIXME, we don't know how to translate old mask to new */

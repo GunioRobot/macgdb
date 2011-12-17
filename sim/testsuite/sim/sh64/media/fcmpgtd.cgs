@@ -18,7 +18,7 @@ fcmpgt1:
 	float.qd dr0, dr4
 	float.qd dr2, dr6
 	fcmpgt.d dr4, dr6, r7
-	bnei r7, 1, tr0 
+	bnei r7, 1, tr0
 
 fcmpgt2:
 	movi 1, r0

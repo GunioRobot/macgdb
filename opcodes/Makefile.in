@@ -231,10 +231,10 @@ am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
 archdefs = @archdefs@
-@INSTALL_LIBBFD_FALSE@bfdincludedir = 
+@INSTALL_LIBBFD_FALSE@bfdincludedir =
 @INSTALL_LIBBFD_TRUE@bfdincludedir = @bfdincludedir@
 # Empty these so that the respective installation directories will not be created.
-@INSTALL_LIBBFD_FALSE@bfdlibdir = 
+@INSTALL_LIBBFD_FALSE@bfdlibdir =
 @INSTALL_LIBBFD_TRUE@bfdlibdir = @bfdlibdir@
 bindir = @bindir@
 build = @build@
@@ -559,29 +559,29 @@ CGENDEPS = \
 	cgen-asm.in cgen-dis.in cgen-ibld.in
 
 CGEN_CPUS = fr30 frv ip2k m32c m32r mep mt openrisc xc16x xstormy16
-@CGEN_MAINT_FALSE@IP2K_DEPS = 
+@CGEN_MAINT_FALSE@IP2K_DEPS =
 @CGEN_MAINT_TRUE@IP2K_DEPS = stamp-ip2k
-@CGEN_MAINT_FALSE@LM32_DEPS = 
+@CGEN_MAINT_FALSE@LM32_DEPS =
 @CGEN_MAINT_TRUE@LM32_DEPS = stamp-lm32
-@CGEN_MAINT_FALSE@M32C_DEPS = 
+@CGEN_MAINT_FALSE@M32C_DEPS =
 @CGEN_MAINT_TRUE@M32C_DEPS = stamp-m32c
-@CGEN_MAINT_FALSE@M32R_DEPS = 
+@CGEN_MAINT_FALSE@M32R_DEPS =
 @CGEN_MAINT_TRUE@M32R_DEPS = stamp-m32r
-@CGEN_MAINT_FALSE@FR30_DEPS = 
+@CGEN_MAINT_FALSE@FR30_DEPS =
 @CGEN_MAINT_TRUE@FR30_DEPS = stamp-fr30
-@CGEN_MAINT_FALSE@FRV_DEPS = 
+@CGEN_MAINT_FALSE@FRV_DEPS =
 @CGEN_MAINT_TRUE@FRV_DEPS = stamp-frv
-@CGEN_MAINT_FALSE@MEP_DEPS = 
+@CGEN_MAINT_FALSE@MEP_DEPS =
 @CGEN_MAINT_TRUE@MEP_DEPS = stamp-mep
-@CGEN_MAINT_FALSE@MT_DEPS = 
+@CGEN_MAINT_FALSE@MT_DEPS =
 @CGEN_MAINT_TRUE@MT_DEPS = stamp-mt
-@CGEN_MAINT_FALSE@OPENRISC_DEPS = 
+@CGEN_MAINT_FALSE@OPENRISC_DEPS =
 @CGEN_MAINT_TRUE@OPENRISC_DEPS = stamp-openrisc
-@CGEN_MAINT_FALSE@IQ2000_DEPS = 
+@CGEN_MAINT_FALSE@IQ2000_DEPS =
 @CGEN_MAINT_TRUE@IQ2000_DEPS = stamp-iq2000
-@CGEN_MAINT_FALSE@XC16X_DEPS = 
+@CGEN_MAINT_FALSE@XC16X_DEPS =
 @CGEN_MAINT_TRUE@XC16X_DEPS = stamp-xc16x
-@CGEN_MAINT_FALSE@XSTORMY16_DEPS = 
+@CGEN_MAINT_FALSE@XSTORMY16_DEPS =
 @CGEN_MAINT_TRUE@XSTORMY16_DEPS = stamp-xstormy16
 MOSTLYCLEANFILES = i386-gen$(EXEEXT_FOR_BUILD) ia64-gen$(EXEEXT_FOR_BUILD) \
 	s390-mkopc$(EXEEXT_FOR_BUILD) z8kgen$(EXEEXT_FOR_BUILD)
@@ -644,7 +644,7 @@ config.h: stamp-h1
 stamp-h1: $(srcdir)/config.in $(top_builddir)/config.status
 	@rm -f stamp-h1
 	cd $(top_builddir) && $(SHELL) ./config.status config.h
-$(srcdir)/config.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps) 
+$(srcdir)/config.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	($(am__cd) $(top_srcdir) && $(AUTOHEADER))
 	rm -f stamp-h1
 	touch $@
@@ -696,7 +696,7 @@ clean-noinstLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libopcodes.la: $(libopcodes_la_OBJECTS) $(libopcodes_la_DEPENDENCIES) 
+libopcodes.la: $(libopcodes_la_OBJECTS) $(libopcodes_la_DEPENDENCIES)
 	$(libopcodes_la_LINK) $(am_libopcodes_la_rpath) $(libopcodes_la_OBJECTS) $(libopcodes_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
@@ -1301,7 +1301,7 @@ i386-gen.o: i386-gen.c i386-opc.h $(srcdir)/../include/opcode/i386.h \
 	config.h i386-opc.h sysdep.h
 	$(COMPILE_FOR_BUILD) -c $(srcdir)/i386-gen.c
 
-$(srcdir)/i386-tbl.h: $(srcdir)/i386-init.h 
+$(srcdir)/i386-tbl.h: $(srcdir)/i386-init.h
 	@echo $@
 
 $(srcdir)/i386-init.h: @MAINT@ i386-gen$(EXEEXT_FOR_BUILD) i386-opc.tbl i386-reg.tbl

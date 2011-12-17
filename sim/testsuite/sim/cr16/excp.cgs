@@ -8,7 +8,7 @@
 	.global excp
 excp:
         pass # pass macro use the excp 8
- 
+
 ## Test 1: bbpsw = 0, bpsw = 1, psw = 0
 #
 #	# bbsm = 0, bie = 0, bbcond = 0

@@ -108,7 +108,7 @@ proc process_saved_regs { current inner outer } {
 	}
 	incr level
     }
-    
+
     # Now iterate through the list of OUTER frames checking that the
     # "info frame" output from each still matches what was captured
     # during an early query.  To avoid cascading failures, checking is

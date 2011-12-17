@@ -553,7 +553,7 @@ pascal_value_print (struct value *val, struct ui_file *stream,
     {
       /* Hack:  remove (char *) for char strings.  Their
          type is indicated by the quoted string anyway. */
-      if (TYPE_CODE (type) == TYPE_CODE_PTR 
+      if (TYPE_CODE (type) == TYPE_CODE_PTR
 	  && TYPE_NAME (type) == NULL
 	  && TYPE_NAME (TYPE_TARGET_TYPE (type)) != NULL
 	  && strcmp (TYPE_NAME (TYPE_TARGET_TYPE (type)), "char") == 0)

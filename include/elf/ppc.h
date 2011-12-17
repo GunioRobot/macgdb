@@ -184,7 +184,7 @@ enum
 {
   /* 0-3 are generic.  */
   Tag_GNU_Power_ABI_FP = 4, /* Value 1 for hard-float, 2 for
-			       soft-float, 3 for single=precision 
+			       soft-float, 3 for single=precision
 			       hard-float; 0 for not tagged or not
 			       using any ABIs affected by the
 			       differences.  */

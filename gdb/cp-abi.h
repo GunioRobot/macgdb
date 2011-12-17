@@ -72,7 +72,7 @@ enum dtor_kinds {
   /* A destructor which finalizes a subobject of some larger object.  */
   base_object_dtor
 };
-  
+
 /* Return non-zero iff NAME is the mangled name of a destructor.
    Actually, return an `enum dtor_kind' value describing what *kind*
    of destructor it is.  */
@@ -145,7 +145,7 @@ extern struct type *value_rtti_type (struct value *value,
 
 extern int baseclass_offset (struct type *type, int index,
 			     const bfd_byte *valaddr, CORE_ADDR address);
-                  
+
 /* Describe the target of a pointer to method.  CONTENTS is the byte
    pattern representing the pointer to method.  TYPE is the pointer to
    method type.  STREAM is the stream to print it to.  */

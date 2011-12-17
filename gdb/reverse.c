@@ -35,7 +35,7 @@ exec_direction_default (void *notused)
   execution_direction = EXEC_FORWARD;
 }
 
-/* exec_reverse_once -- accepts an arbitrary gdb command (string), 
+/* exec_reverse_once -- accepts an arbitrary gdb command (string),
    and executes it with exec-direction set to 'reverse'.
 
    Used to implement reverse-next etc. commands.  */

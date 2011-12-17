@@ -1288,7 +1288,7 @@ yyparse ()
 #endif
 #endif
 {
-  
+
   register int yystate;
   register int yyn;
   int yyresult;
@@ -1608,7 +1608,7 @@ yyreduce:
 
   case 14:
 #line 292 "ada-exp.y"
-    { if (yyvsp[-5].tval == NULL) 
+    { if (yyvsp[-5].tval == NULL)
                             write_exp_elt_opcode (TERNOP_SLICE);
 			  else
 			    error (_("Cannot slice a type"));
@@ -1683,7 +1683,7 @@ yyreduce:
 
   case 29:
 #line 361 "ada-exp.y"
-    { 
+    {
 			  if (yyvsp[-2].tval == NULL)
 			    error (_("Type required within braces in coercion"));
 			  write_exp_elt_opcode (UNOP_MEMVAL);
@@ -1767,7 +1767,7 @@ yyreduce:
 
   case 45:
 #line 431 "ada-exp.y"
-    { 
+    {
 			  if (yyvsp[0].tval == NULL)
 			    error (_("Right operand of 'in' must be type"));
 			  write_exp_elt_opcode (UNOP_IN_RANGE);
@@ -1794,7 +1794,7 @@ yyreduce:
 
   case 48:
 #line 449 "ada-exp.y"
-    { 
+    {
 			  if (yyvsp[0].tval == NULL)
 			    error (_("Right operand of 'in' must be type"));
 			  write_exp_elt_opcode (UNOP_IN_RANGE);
@@ -1948,7 +1948,7 @@ yyreduce:
 
   case 82:
 #line 562 "ada-exp.y"
-    { 
+    {
 			  if (yyvsp[0].tval == NULL)
 			    error (_("Prefix must be type"));
 			  write_exp_elt_opcode (OP_TYPE);
@@ -1971,7 +1971,7 @@ yyreduce:
   case 86:
 #line 584 "ada-exp.y"
     { write_int (convert_char_literal (type_qualifier, yyvsp[0].typed_val.val),
-			       (type_qualifier == NULL) 
+			       (type_qualifier == NULL)
 			       ? yyvsp[0].typed_val.type : type_qualifier);
 		  }
     break;
@@ -1992,7 +1992,7 @@ yyreduce:
 
   case 89:
 #line 603 "ada-exp.y"
-    { 
+    {
 			  write_exp_op_with_string (OP_STRING, yyvsp[0].sval);
 			}
     break;
@@ -2024,7 +2024,7 @@ yyreduce:
 
   case 95:
 #line 623 "ada-exp.y"
-    { 
+    {
 			  yyval.tval = write_var_or_type (NULL, yyvsp[-1].sval);
 			  if (yyval.tval == NULL)
 			    write_exp_elt_opcode (UNOP_ADDR);
@@ -2035,7 +2035,7 @@ yyreduce:
 
   case 96:
 #line 631 "ada-exp.y"
-    { 
+    {
 			  yyval.tval = write_var_or_type (yyvsp[-2].bval, yyvsp[-1].sval);
 			  if (yyval.tval == NULL)
 			    write_exp_elt_opcode (UNOP_ADDR);
@@ -2096,7 +2096,7 @@ yyreduce:
     { write_exp_elt_opcode (OP_POSITIONAL);
 			  write_exp_elt_longcst (yyvsp[-2].lval);
 			  write_exp_elt_opcode (OP_POSITIONAL);
-			  yyval.lval = yyvsp[-2].lval + 1; 
+			  yyval.lval = yyvsp[-2].lval + 1;
 			}
     break;
 
@@ -2537,13 +2537,13 @@ write_exp_op_with_string (enum exp_opcode opcode, struct stoken token)
   write_exp_string (token);
   write_exp_elt_opcode (opcode);
 }
-  
-/* Emit expression corresponding to the renamed object named 
+
+/* Emit expression corresponding to the renamed object named
  * designated by RENAMED_ENTITY[0 .. RENAMED_ENTITY_LEN-1] in the
  * context of ORIG_LEFT_CONTEXT, to which is applied the operations
  * encoded by RENAMING_EXPR.  MAX_DEPTH is the maximum number of
  * cascaded renamings to allow.  If ORIG_LEFT_CONTEXT is null, it
- * defaults to the currently selected block. ORIG_SYMBOL is the 
+ * defaults to the currently selected block. ORIG_SYMBOL is the
  * symbol that originally encoded the renaming.  It is needed only
  * because its prefix also qualifies any index variables used to index
  * or slice an array.  It should not be necessary once we go to the
@@ -2566,7 +2566,7 @@ write_object_renaming (struct block *orig_left_context,
     orig_left_context = get_selected_block (NULL);
 
   name = obsavestring (renamed_entity, renamed_entity_len, &temp_parse_space);
-  sym = ada_lookup_encoded_symbol (name, orig_left_context, VAR_DOMAIN, 
+  sym = ada_lookup_encoded_symbol (name, orig_left_context, VAR_DOMAIN,
 				   &block);
   if (sym == NULL)
     error (_("Could not find renamed variable: %s"), ada_decode (name));
@@ -2580,7 +2580,7 @@ write_object_renaming (struct block *orig_left_context,
     int inner_renamed_entity_len;
     const char *inner_renaming_expr;
 
-    switch (ada_parse_renaming (sym, &inner_renamed_entity, 
+    switch (ada_parse_renaming (sym, &inner_renamed_entity,
 				&inner_renamed_entity_len,
 				&inner_renaming_expr))
       {
@@ -2739,7 +2739,7 @@ select_possible_type_sym (struct ada_symbol_info *syms, int nsyms)
   int i;
   int preferred_index;
   struct type *preferred_type;
-	  
+
   preferred_index = -1; preferred_type = NULL;
   for (i = 0; i < nsyms; i += 1)
     switch (SYMBOL_CLASS (syms[i].sym))
@@ -2782,7 +2782,7 @@ find_primitive_type (char *name)
 	 type that just didn't happen to have been read yet.  */
       int ntypes;
       struct symbol *sym;
-      char *expanded_name = 
+      char *expanded_name =
 	(char *) alloca (strlen (name) + sizeof ("standard__"));
       strcpy (expanded_name, "standard__");
       strcat (expanded_name, name);
@@ -2831,7 +2831,7 @@ write_selectors (char *sels)
       struct stoken field_name;
       char *p = chop_separator (sels);
       sels = p;
-      while (*sels != '\0' && *sels != '.' 
+      while (*sels != '\0' && *sels != '.'
 	     && (sels[0] != '_' || sels[1] != '_'))
 	sels += 1;
       field_name.length = sels - p;
@@ -2907,7 +2907,7 @@ get_symbol_field_type (struct symbol *sym, char *encoded_field_name)
         return TYPE_FIELD_TYPE (type, fieldno);
 
       subfield_name = field_name;
-      while (*subfield_name != '\0' && *subfield_name != '.' 
+      while (*subfield_name != '\0' && *subfield_name != '.'
 	     && (subfield_name[0] != '_' || subfield_name[1] != '_'))
 	subfield_name += 1;
 
@@ -2926,14 +2926,14 @@ get_symbol_field_type (struct symbol *sym, char *encoded_field_name)
   return NULL;
 }
 
-/* Look up NAME0 (an unencoded identifier or dotted name) in BLOCK (or 
+/* Look up NAME0 (an unencoded identifier or dotted name) in BLOCK (or
    expression_block_context if NULL).  If it denotes a type, return
    that type.  Otherwise, write expression code to evaluate it as an
    object and return NULL. In this second case, NAME0 will, in general,
    have the form <name>(.<selector_name>)*, where <name> is an object
    or renaming encoded in the debugging data.  Calls error if no
    prefix <name> matches a name in the debugging data (i.e., matches
-   either a complete name or, as a wild-card match, the final 
+   either a complete name or, as a wild-card match, the final
    identifier).  */
 
 static struct type*
@@ -2952,7 +2952,7 @@ write_var_or_type (struct block *block, struct stoken name0)
   for (depth = 0; depth < MAX_RENAMING_CHAIN_LENGTH; depth += 1)
     {
       int tail_index;
-      
+
       tail_index = name_len;
       while (tail_index > 0)
 	{
@@ -2977,7 +2977,7 @@ write_var_or_type (struct block *block, struct stoken name0)
 	  if (nsyms == 1)
 	    {
 	      struct symbol *renaming =
-		ada_find_renaming_symbol (SYMBOL_LINKAGE_NAME (syms[0].sym), 
+		ada_find_renaming_symbol (SYMBOL_LINKAGE_NAME (syms[0].sym),
 					  syms[0].block);
 
 	      if (renaming != NULL)
@@ -2990,7 +2990,7 @@ write_var_or_type (struct block *block, struct stoken name0)
 	    renaming_sym = type_sym;
 	  else if (nsyms == 1)
 	    renaming_sym = syms[0].sym;
-	  else 
+	  else
 	    renaming_sym = NULL;
 
 	  switch (ada_parse_renaming (renaming_sym, &renaming,
@@ -3010,9 +3010,9 @@ write_var_or_type (struct block *block, struct stoken name0)
 		encoded_name = new_name;
 		name_len = renaming_len + name_len - tail_index;
 		goto TryAfterRenaming;
-	      }	
+	      }
 	    case ADA_OBJECT_RENAMING:
-	      write_object_renaming (block, renaming, renaming_len, 
+	      write_object_renaming (block, renaming, renaming_len,
 				     renaming_expr, MAX_RENAMING_CHAIN_LENGTH);
 	      write_selectors (encoded_name + tail_index);
 	      return NULL;
@@ -3024,7 +3024,7 @@ write_var_or_type (struct block *block, struct stoken name0)
 	  if (type_sym != NULL)
 	    {
               struct type *field_type;
-              
+
               if (tail_index == name_len)
                 return SYMBOL_TYPE (type_sym);
 
@@ -3035,7 +3035,7 @@ write_var_or_type (struct block *block, struct stoken name0)
                 = get_symbol_field_type (type_sym, encoded_name + tail_index);
               if (field_type != NULL)
                 return field_type;
-	      else 
+	      else
 		error (_("Invalid attempt to select from type: \"%s\"."),
                        name0.ptr);
 	    }
@@ -3053,10 +3053,10 @@ write_var_or_type (struct block *block, struct stoken name0)
 	      write_selectors (encoded_name + tail_index);
 	      return NULL;
 	    }
-	  else if (nsyms == 0) 
+	  else if (nsyms == 0)
 	    {
 	      int i;
-	      struct minimal_symbol *msym 
+	      struct minimal_symbol *msym
 		= ada_lookup_simple_minsym (encoded_name);
 	      if (msym != NULL)
 		{
@@ -3067,12 +3067,12 @@ write_var_or_type (struct block *block, struct stoken name0)
 		}
 
 	      if (tail_index == name_len
-		  && strncmp (encoded_name, "standard__", 
+		  && strncmp (encoded_name, "standard__",
 			      sizeof ("standard__") - 1) == 0)
 		error (_("No definition of \"%s\" found."), name0.ptr);
 
 	      tail_index = chop_selector (encoded_name, tail_index);
-	    } 
+	    }
 	  else
 	    {
 	      write_ambiguous_var (block, encoded_name, tail_index);
@@ -3087,7 +3087,7 @@ write_var_or_type (struct block *block, struct stoken name0)
 	error (_("No definition of \"%s\" in current context."), name0.ptr);
       else
 	error (_("No definition of \"%s\" in specified context."), name0.ptr);
-      
+
     TryAfterRenaming: ;
     }
 
@@ -3109,7 +3109,7 @@ write_var_or_type (struct block *block, struct stoken name0)
    As a result, in the (one hopes) rare case that one writes an
    aggregate such as (R => 42) where R renames an object or is an
    ambiguous name, one must write instead ((R) => 42). */
-   
+
 static void
 write_name_assoc (struct stoken name)
 {
@@ -3201,7 +3201,7 @@ type_boolean (void)
 static struct type *
 type_system_address (void)
 {
-  struct type *type 
+  struct type *type
     = language_lookup_primitive_type_by_name (parse_language,
 					      parse_gdbarch,
 					      "system__address");
@@ -3219,11 +3219,11 @@ _initialize_ada_exp (void)
 
 /* FIXME: hilfingr/2004-10-05: Hack to remove warning.  The function
    string_to_operator is supposed to be used for cases where one
-   calls an operator function with prefix notation, as in 
+   calls an operator function with prefix notation, as in
    "+" (a, b), but at some point, this code seems to have gone
    missing. */
 
-struct stoken (*dummy_string_to_ada_operator) (struct stoken) 
+struct stoken (*dummy_string_to_ada_operator) (struct stoken)
      = string_to_operator;
 
 

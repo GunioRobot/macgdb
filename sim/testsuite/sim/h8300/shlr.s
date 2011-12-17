@@ -681,7 +681,7 @@ shlr_b_reg8_4:
 	test_ovf_clear
 	test_neg_clear
 
-	test_h_gr16 0xa50a r0	; 1010 0101 -> 0000 1010 
+	test_h_gr16 0xa50a r0	; 1010 0101 -> 0000 1010
 	test_h_gr32 0xa5a5a50a er0
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -735,7 +735,7 @@ shlr_b_ind_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbind4
 	fail
@@ -765,7 +765,7 @@ shlr_b_postinc_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbpostinc4
 	fail
@@ -795,7 +795,7 @@ shlr_b_postdec_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbpostdec4
 	fail
@@ -825,7 +825,7 @@ shlr_b_preinc_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbpreinc4
 	fail
@@ -855,7 +855,7 @@ shlr_b_predec_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbpredec4
 	fail
@@ -885,7 +885,7 @@ shlr_b_disp2_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbdisp24
 	fail
@@ -916,7 +916,7 @@ shlr_b_disp16_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbdisp164
 	fail
@@ -947,7 +947,7 @@ shlr_b_disp32_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbdisp324
 	fail
@@ -976,7 +976,7 @@ shlr_b_abs16_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbabs164
 	fail
@@ -1005,7 +1005,7 @@ shlr_b_abs32_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 -> 0000 1010 
+	; 1010 0101 -> 0000 1010
 	cmp.b	#0x0a, @byte_dest
 	beq	.Lbabs324
 	fail
@@ -1014,7 +1014,7 @@ shlr_b_abs32_4:
 .endif
 
 .if (sim_cpu == h8sx)
-shlr_w_imm5_1:	
+shlr_w_imm5_1:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
 
@@ -1085,7 +1085,7 @@ shlr_w_ind_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwind1
 	fail
@@ -1115,7 +1115,7 @@ shlr_w_postinc_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwpostinc1
 	fail
@@ -1145,7 +1145,7 @@ shlr_w_postdec_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwpostdec1
 	fail
@@ -1175,7 +1175,7 @@ shlr_w_preinc_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwpreinc1
 	fail
@@ -1205,7 +1205,7 @@ shlr_w_predec_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwpredec1
 	fail
@@ -1235,7 +1235,7 @@ shlr_w_disp2_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwdisp21
 	fail
@@ -1266,7 +1266,7 @@ shlr_w_disp16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwdisp161
 	fail
@@ -1297,7 +1297,7 @@ shlr_w_disp32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwdisp321
 	fail
@@ -1326,7 +1326,7 @@ shlr_w_abs16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwabs161
 	fail
@@ -1355,14 +1355,14 @@ shlr_w_abs32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 0101 0010 1101 0010
 	cmp.w	#0x52d2, @word_dest
 	beq	.Lwabs321
 	fail
 .Lwabs321:
 	mov.w	#0xa5a5, @word_dest
 .endif
-	
+
 shlr_w_reg16_2:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -1408,7 +1408,7 @@ shlr_w_ind_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwind2
 	fail
@@ -1438,7 +1438,7 @@ shlr_w_postinc_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwpostinc2
 	fail
@@ -1468,7 +1468,7 @@ shlr_w_postdec_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwpostdec2
 	fail
@@ -1498,7 +1498,7 @@ shlr_w_preinc_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwpreinc2
 	fail
@@ -1528,7 +1528,7 @@ shlr_w_predec_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwpredec2
 	fail
@@ -1558,7 +1558,7 @@ shlr_w_disp2_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwdisp22
 	fail
@@ -1589,7 +1589,7 @@ shlr_w_disp16_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwdisp162
 	fail
@@ -1620,7 +1620,7 @@ shlr_w_disp32_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwdisp322
 	fail
@@ -1649,7 +1649,7 @@ shlr_w_abs16_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwabs162
 	fail
@@ -1678,13 +1678,13 @@ shlr_w_abs32_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0010 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 0010 1001 0110 1001
 	cmp.w	#0x2969, @word_dest
 	beq	.Lwabs322
 	fail
 .Lwabs322:
 	mov.w	#0xa5a5, @word_dest
-	
+
 shlr_w_reg16_4:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -1697,7 +1697,7 @@ shlr_w_reg16_4:
 	test_ovf_clear
 	test_neg_clear
 
-	test_h_gr16 0x0a5a r0	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	test_h_gr16 0x0a5a r0	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	test_h_gr32 0xa5a50a5a er0
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -1751,7 +1751,7 @@ shlr_w_ind_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwind4
 	fail
@@ -1781,7 +1781,7 @@ shlr_w_postinc_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwpostinc4
 	fail
@@ -1811,7 +1811,7 @@ shlr_w_postdec_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwpostdec4
 	fail
@@ -1841,7 +1841,7 @@ shlr_w_preinc_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwpreinc4
 	fail
@@ -1871,7 +1871,7 @@ shlr_w_predec_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwpredec4
 	fail
@@ -1901,7 +1901,7 @@ shlr_w_disp2_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwdisp24
 	fail
@@ -1932,7 +1932,7 @@ shlr_w_disp16_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwdisp164
 	fail
@@ -1963,7 +1963,7 @@ shlr_w_disp32_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwdisp324
 	fail
@@ -1992,7 +1992,7 @@ shlr_w_abs16_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwabs164
 	fail
@@ -2021,7 +2021,7 @@ shlr_w_abs32_4:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 1010 0101 1010 
+	; 1010 0101 1010 0101 -> 0000 1010 0101 1010
 	cmp.w	#0x0a5a, @word_dest
 	beq	.Lwabs324
 	fail
@@ -2040,7 +2040,7 @@ shlr_w_reg16_8:
 	test_ovf_clear
 	test_neg_clear
 
-	test_h_gr16 0x00a5 r0	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	test_h_gr16 0x00a5 r0	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	test_h_gr32 0xa5a500a5 er0
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -2072,7 +2072,7 @@ shlr_w_ind_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwind8
 	fail
@@ -2102,7 +2102,7 @@ shlr_w_postinc_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwpostinc8
 	fail
@@ -2132,7 +2132,7 @@ shlr_w_postdec_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwpostdec8
 	fail
@@ -2162,7 +2162,7 @@ shlr_w_preinc_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwpreinc8
 	fail
@@ -2192,7 +2192,7 @@ shlr_w_predec_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwpredec8
 	fail
@@ -2222,7 +2222,7 @@ shlr_w_disp2_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwdisp28
 	fail
@@ -2253,7 +2253,7 @@ shlr_w_disp16_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwdisp168
 	fail
@@ -2284,7 +2284,7 @@ shlr_w_disp32_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwdisp328
 	fail
@@ -2313,7 +2313,7 @@ shlr_w_abs16_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwabs168
 	fail
@@ -2342,14 +2342,14 @@ shlr_w_abs32_8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 0000 0000 1010 0101 
+	; 1010 0101 1010 0101 -> 0000 0000 1010 0101
 	cmp.w	#0x00a5, @word_dest
 	beq	.Lwabs328
 	fail
 .Lwabs328:
 	mov.w	#0xa5a5, @word_dest
 
-shlr_l_imm5_1:	
+shlr_l_imm5_1:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
 
@@ -2362,7 +2362,7 @@ shlr_l_imm5_1:
 	test_ovf_clear
 	test_neg_clear
 
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0000 0000 0000 0000 0000 0000 0000 0001
 	test_h_gr32 0x1 er0
 
@@ -2387,7 +2387,7 @@ shlr_l_reg32_1:
 	test_ovf_clear
 	test_neg_clear
 
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0101 0010 1101 0010 1101 0010 1101 0010
 	test_h_gr32 0x52d2d2d2 er0
 
@@ -3049,7 +3049,7 @@ shlr_l_abs32_2:
 	fail
 .Llabs322:
 	mov	#0xa5a5a5a5, @long_dest
-	
+
 shlr_l_reg32_4:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -3062,7 +3062,7 @@ shlr_l_reg32_4:
 	test_ovf_clear
 	test_neg_clear
 	; 1010 0101 1010 0101 1010 0101 1010 0101
-	; -> 0000 1010 0101 1010 0101 1010 0101 1010 
+	; -> 0000 1010 0101 1010 0101 1010 0101 1010
 	test_h_gr32 0x0a5a5a5a er0
 
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
@@ -3420,7 +3420,7 @@ shlr_l_reg32_8:
 	test_ovf_clear
 	test_neg_clear
 	; 1010 0101 1010 0101 1010 0101 1010 0101
-	; -> 0000 0000 1010 0101 1010 0101 1010 0101 
+	; -> 0000 0000 1010 0101 1010 0101 1010 0101
 	test_h_gr32 0x00a5a5a5 er0
 
 	test_gr_a5a5 1		; Make sure other general regs not disturbed

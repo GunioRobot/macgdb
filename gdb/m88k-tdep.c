@@ -99,7 +99,7 @@ m88k_addr_bits_remove (struct gdbarch *gdbarch, CORE_ADDR addr)
    encode a breakpoint instruction, store the length of the string in
    *LEN and optionally adjust *PC to point to the correct memory
    location for inserting the breakpoint.  */
-   
+
 static const gdb_byte *
 m88k_breakpoint_from_pc (struct gdbarch *gdbarch, CORE_ADDR *pc, int *len)
 {

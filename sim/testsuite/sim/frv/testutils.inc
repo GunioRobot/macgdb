@@ -327,7 +327,7 @@ test_gr\@:
 	srli		gr28,\shift,gr29
 	test_gr_immed	\val,gr29
 	.endm
-	
+
 
 ; Test the value of an accumulator against an integer immediate
 	.macro test_acc_immed val reg

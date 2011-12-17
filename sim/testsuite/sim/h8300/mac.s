@@ -92,7 +92,7 @@ mac_2x2:
 	clrmac
 	mac	@er1+, @er2+
 	test_cc_clear
-	
+
 	test_h_gr32 0xa5a5a5a5 er0
 	test_h_gr32 src1+2     er1
 	test_h_gr32 src2+2     er2
@@ -128,7 +128,7 @@ mac_same_reg_2x4:
 	clrmac
 	mac	@er1+, @er1+	; same register for src and dst
 	test_cc_clear
-	
+
 	test_h_gr32 0xa5a5a5a5 er0
 	test_h_gr32 src1+4     er1
 	test_h_gr32 0xa5a50004 er2
@@ -162,7 +162,7 @@ mac_0x0:
 	clrmac
 	mac	@er1+, @er2+
 	test_cc_clear
-	
+
 	test_h_gr32 0xa5a5a5a5 er0
 	test_h_gr32 src1+2     er1
 	test_h_gr32 src2+2     er2
@@ -196,7 +196,7 @@ mac_neg2x2:
 	clrmac
 	mac	@er1+, @er2+
 	test_cc_clear
-	
+
 	test_h_gr32 0xa5a5a5a5 er0
 	test_h_gr32 src1+2     er1
 	test_h_gr32 src2+2     er2
@@ -234,7 +234,7 @@ mac_array:
 	mac	@er1+, @er1+
 	mac	@er1+, @er1+
 	test_cc_clear
-	
+
 	test_h_gr32 0xa5a5a5a5 er0
 	test_h_gr32 array+32     er1
 	test_h_gr32 0xa5a5a5a5 er2

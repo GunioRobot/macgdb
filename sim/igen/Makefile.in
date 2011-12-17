@@ -88,7 +88,7 @@ BUILD_CFLAGS = \
 	$(IGEN_WARN_CFLAGS) \
 	$(IGEN_WERROR_CFLAGS) \
 	$(INCLUDES)
-BUILD_LDFLAGS = 
+BUILD_LDFLAGS =
 
 all:	igen
 #all:	tmp-filter tmp-table tmp-ld-insn tmp-ld-cache tmp-ld-decode tmp-gen
@@ -119,10 +119,10 @@ IGEN_OBJS=\
 igen: igen.o $(IGEN_OBJS)
 	$(CC_FOR_BUILD) $(BUILD_LDFLAGS) -o igen igen.o $(IGEN_OBJS) $(LIBIBERTY_LIB)
 
-igen.o: igen.c misc.h filter_host.h lf.h table.h ld-decode.h ld-cache.h ld-insn.h filter.h gen-model.h gen-itable.h gen-icache.h gen-idecode.h gen-engine.h gen-semantics.h gen-support.h gen.h igen.h 
+igen.o: igen.c misc.h filter_host.h lf.h table.h ld-decode.h ld-cache.h ld-insn.h filter.h gen-model.h gen-itable.h gen-icache.h gen-idecode.h gen-engine.h gen-semantics.h gen-support.h gen.h igen.h
 	$(CC_FOR_BUILD) $(BUILD_CFLAGS) -c $(srcdir)/igen.c
 
-tmp-table: table.c table.h misc.o lf.o filter_host.o 
+tmp-table: table.c table.h misc.o lf.o filter_host.o
 	$(CC_FOR_BUILD) $(BUILD_CFLAGS) $(BUILD_LDFLAGS) -o tmp-table -DMAIN $(srcdir)/table.c misc.o lf.o  filter_host.o $(BUILD_LIBS)
 
 tmp-filter: filter.c filter.h lf.o misc.o filter_host.o

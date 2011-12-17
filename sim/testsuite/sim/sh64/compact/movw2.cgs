@@ -16,7 +16,7 @@ init:
 	mov #1, r2
 	shll8 r2
 	add #12, r2
-store:	
+store:
 	mov.w r2, @-r1
 check:
 	# Read it back.

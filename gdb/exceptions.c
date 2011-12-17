@@ -256,7 +256,7 @@ deprecated_throw_reason (enum return_reason reason)
     default:
       internal_error (__FILE__, __LINE__, _("bad switch"));
     }
-  
+
   throw_exception (exception);
 }
 
@@ -309,7 +309,7 @@ print_exception (struct ui_file *file, struct gdb_exception e)
 	  end++;
 	  ui_file_write (file, start, end - start);
 	}
-    }					    
+    }
   fprintf_filtered (file, "\n");
 
   /* Now append the annotation.  */

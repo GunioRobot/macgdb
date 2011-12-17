@@ -7,10 +7,10 @@
 
         .arm
         blx thumb
-	
+
         .thumb
 	.thumb_func
-thumb:  
+thumb:
 	nop
         blx     next
         blx     PASS
@@ -25,7 +25,7 @@ next:
 
 FAIL:
 	fail
-PASS:   
+PASS:
 	pass
 
 

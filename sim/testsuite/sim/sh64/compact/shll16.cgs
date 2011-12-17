@@ -36,7 +36,7 @@ another:
 	shll r7
 	cmp/eq r1, r7
 	bf wrong
-		
+
 okay:
 	pass
 

@@ -55,7 +55,7 @@ enum gdb_regnum {
   /* Other useful registers.  */
   ARM_FP_REGNUM = 11,		/* Frame register in ARM code, if used.  */
   THUMB_FP_REGNUM = 7,		/* Frame register in Thumb code, if used.  */
-  ARM_NUM_ARG_REGS = 4, 
+  ARM_NUM_ARG_REGS = 4,
   ARM_LAST_ARG_REGNUM = ARM_A4_REGNUM,
   ARM_NUM_FP_ARG_REGS = 4,
   ARM_LAST_FP_ARG_REGNUM = ARM_F3_REGNUM
@@ -69,7 +69,7 @@ enum gdb_regnum {
    bits.  DWORD aligned they use 96 bits.  */
 #define FP_REGISTER_SIZE	12
 
-/* Number of machine registers.  The only define actually required 
+/* Number of machine registers.  The only define actually required
    is gdbarch_num_regs.  The other definitions are used for documentation
    purposes and code readability.  */
 /* For 26 bit ARM code, a fake copy of the PC is placed in register 25 (PS)
@@ -109,11 +109,11 @@ enum gdb_regnum {
 /* Type of floating-point code in use by inferior.  There are really 3 models
    that are traditionally supported (plus the endianness issue), but gcc can
    only generate 2 of those.  The third is APCS_FLOAT, where arguments to
-   functions are passed in floating-point registers.  
+   functions are passed in floating-point registers.
 
-   In addition to the traditional models, VFP adds two more. 
+   In addition to the traditional models, VFP adds two more.
 
-   If you update this enum, don't forget to update fp_model_strings in 
+   If you update this enum, don't forget to update fp_model_strings in
    arm-tdep.c.  */
 
 enum arm_float_model
@@ -161,7 +161,7 @@ struct gdbarch_tdep
 				   have_vfp_pseudos.  */
   int have_neon;		/* Do we have a NEON unit?  */
 
-  CORE_ADDR lowest_pc;		/* Lowest address at which instructions 
+  CORE_ADDR lowest_pc;		/* Lowest address at which instructions
 				   will appear.  */
 
   const char *arm_breakpoint;	/* Breakpoint pattern for an ARM insn.  */
@@ -169,7 +169,7 @@ struct gdbarch_tdep
   const char *thumb_breakpoint;	/* Breakpoint pattern for an ARM insn.  */
   int thumb_breakpoint_size;	/* And its size.  */
 
-  int jb_pc;			/* Offset to PC value in jump buffer. 
+  int jb_pc;			/* Offset to PC value in jump buffer.
 				   If this is negative, longjmp support
 				   will be disabled.  */
   size_t jb_elt_size;		/* And the size of each entry in the buf.  */

@@ -34,7 +34,7 @@ struct frame_unwind_cache
 void *
 sentinel_frame_cache (struct regcache *regcache)
 {
-  struct frame_unwind_cache *cache = 
+  struct frame_unwind_cache *cache =
     FRAME_OBSTACK_ZALLOC (struct frame_unwind_cache);
   cache->regcache = regcache;
   return cache;

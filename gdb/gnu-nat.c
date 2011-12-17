@@ -599,7 +599,7 @@ make_proc (struct inf *inf, mach_port_t port, int tid)
   return proc;
 }
 
-/* Frees PROC and any resources it uses, and returns the value of PROC's 
+/* Frees PROC and any resources it uses, and returns the value of PROC's
    next field.  */
 struct proc *
 _proc_free (struct proc *proc)
@@ -875,7 +875,7 @@ inf_set_traced (struct inf *inf, int on)
 {
   if (on == inf->traced)
     return;
-  
+
   if (inf->task && !inf->task->dead)
     /* Make it take effect immediately.  */
     {
@@ -2076,7 +2076,7 @@ cur_inf (void)
 }
 
 static void
-gnu_create_inferior (struct target_ops *ops, 
+gnu_create_inferior (struct target_ops *ops,
 		     char *exec_file, char *allargs, char **env,
 		     int from_tty)
 {
@@ -3073,14 +3073,14 @@ The default value is \"off\"."),
   add_cmd ("pause", no_class, show_thread_default_pause_cmd, _("\
 Show whether new threads are suspended while gdb has control."),
 	   &show_thread_default_cmd_list);
-  
+
   add_cmd ("run", class_run, set_thread_default_run_cmd, _("\
 Set whether new threads are allowed to run (once gdb has noticed them)."),
 	   &set_thread_default_cmd_list);
   add_cmd ("run", no_class, show_thread_default_run_cmd, _("\
 Show whether new threads are allowed to run (once gdb has noticed them)."),
 	   &show_thread_default_cmd_list);
-  
+
   add_cmd ("detach-suspend-count", class_run, set_thread_default_detach_sc_cmd,
 	   _("Set the default detach-suspend-count value for new threads."),
 	   &set_thread_default_cmd_list);

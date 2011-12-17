@@ -74,7 +74,7 @@ __attribute__ ((mode (SI)));
 typedef __char_ptr32 *__char_ptr_char_ptr32
 __attribute__ ((mode (SI)));
 
-/* Return a 32 bit pointer to an array of 32 bit pointers 
+/* Return a 32 bit pointer to an array of 32 bit pointers
    given a 64 bit pointer to an array of 64 bit pointers.  */
 
 static __char_ptr_char_ptr32

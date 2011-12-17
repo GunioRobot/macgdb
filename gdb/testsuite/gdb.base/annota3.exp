@@ -61,7 +61,7 @@ if [target_info exists gdb_stub] {
 #
 set main_line 32
 
-# The commands we test here produce many lines of output; disable "press 
+# The commands we test here produce many lines of output; disable "press
 # <return> to continue" prompts.
 send_gdb "set height 0\n"
 gdb_expect -re "$gdb_prompt $"
@@ -94,7 +94,7 @@ set gdb_prompt "\r\n\032\032pre-prompt\r\n$gdb_prompt \r\n\032\032prompt\r\n"
 # annotate-prompt
 # annotate-post-prompt (in the next block)
 #
-send_gdb "set annotate 3\n" 
+send_gdb "set annotate 3\n"
 gdb_expect_list "annotation set at level 3" "\r\n$gdb_prompt$" {
     "set annotate 3"
 }
@@ -125,7 +125,7 @@ gdb_expect {
 #
 # info break:
 #
-send_gdb "info break\n" 
+send_gdb "info break\n"
 gdb_expect_list "breakpoint info" "$gdb_prompt$" {
     "\r\n\032\032post-prompt\r\n"
     "Num     Type           Disp Enb Address    +What\r\n"
@@ -158,7 +158,7 @@ gdb_expect_list "run until main breakpoint" "$gdb_prompt$" {
 # We don't care about the annotated output for this operation, it is the same as
 # the one produced by run above
 #
-send_gdb "next\n" 
+send_gdb "next\n"
 gdb_expect_list "go after array init line" "$gdb_prompt$" {
     "\r\n\032\032post-prompt\r\n"
     "\r\n\032\032starting\r\n"
@@ -203,7 +203,7 @@ gdb_expect_list "breakpoint handle_USR1" "$gdb_prompt$" {
 }
 
 #
-# break at printf. When we are stopped at printf, we can test 
+# break at printf. When we are stopped at printf, we can test
 #
 send_gdb "break printf\n"
 gdb_expect_list "breakpoint printf" "$gdb_prompt$" {
@@ -234,7 +234,7 @@ gdb_expect_list "backtrace from shlibrary" "$gdb_prompt$" {
 
 
 #
-# test printing a frame with some arguments: 
+# test printing a frame with some arguments:
 #
 
 if [target_info exists gdb,nosignals] {

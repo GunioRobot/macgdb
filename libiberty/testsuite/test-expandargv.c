@@ -25,7 +25,7 @@
 
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA. 
+   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.
 */
 
 #ifdef HAVE_CONFIG_H
@@ -57,13 +57,13 @@ int run_tests (const char **);
 void erase_test (int);
 
 /* Test input data, argv before, and argv after:
- 
+
    The \n is an important part of test_data since expandargv
    may have to work in environments where \n is translated
-   as \r\n. Thus \n is included in the test data for the file. 
+   as \r\n. Thus \n is included in the test data for the file.
 
    We use \b to indicate that the test data is the null character.
-   This is because we use \0 normally to represent the end of the 
+   This is because we use \0 normally to represent the end of the
    file data, so we need something else for this. */
 
 #define FILENAME_PATTERN "test-expandargv-%d.lst"
@@ -171,7 +171,7 @@ writeout_test (int test, const char * test_data)
   parse = malloc (sizeof (char) * (len + 1));
   if (parse == NULL)
     fatal_error (__LINE__, "Failed to malloc parse.", errno);
-      
+
   memcpy (parse, test_data, sizeof (char) * len);
   /* Run all possible replaces */
   run_replaces (parse);
@@ -184,10 +184,10 @@ writeout_test (int test, const char * test_data)
 /* erase_test:
      Erase the test file */
 
-void 
+void
 erase_test (int test)
 {
-  char filename[256]; 
+  char filename[256];
   sprintf (filename, FILENAME_PATTERN, test);
   if (unlink (filename) != 0)
     fatal_error (__LINE__, "Failed to erase test file.", errno);
@@ -269,10 +269,10 @@ run_tests (const char **test_data)
 }
 
 /* main:
-    Run tests. 
+    Run tests.
     Check result and exit with appropriate code. */
 
-int 
+int
 main(int argc, char **argv)
 {
   int fails;
@@ -284,7 +284,7 @@ main(int argc, char **argv)
      - Run expandargv.
      - Compare output of expandargv argv to after argv.
        - If they compare the same then test passes
-         else the test fails. 
+         else the test fails.
      - Erase test file. */
 
   fails = run_tests (test_data);

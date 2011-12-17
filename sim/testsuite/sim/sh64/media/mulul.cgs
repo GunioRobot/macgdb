@@ -10,7 +10,7 @@
 	.global mulul
 init:
 	pta wrong, tr0
-	
+
 mulul1:
 	movi 0, r0
 	mulu.l r0, r0, r1
@@ -51,4 +51,4 @@ okay:
 
 wrong:
 	fail
-	
+

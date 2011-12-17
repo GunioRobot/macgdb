@@ -12,7 +12,7 @@
 
 	start
 
-.if (sim_cpu == h8sx)		; 
+.if (sim_cpu == h8sx)		;
 sub_l_imm3:			; 3-bit immediate mode only for h8sx
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
@@ -29,7 +29,7 @@ sub_l_imm3:			; 3-bit immediate mode only for h8sx
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 sub_l_imm16:			; sub immediate 16-bit value
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
@@ -47,9 +47,9 @@ sub_l_imm16:			; sub immediate 16-bit value
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .endif
-	
+
 sub_l_imm32:
 	;; sub.l immediate not available in h8300 mode.
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -67,7 +67,7 @@ sub_l_imm32:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 sub.l.reg:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
@@ -85,7 +85,7 @@ sub.l.reg:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 	pass
 
 	exit 0

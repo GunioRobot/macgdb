@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -32,71 +32,71 @@
 
    htab - pseudo-device describing a PowerPC hash table
 
-   
+
    DESCRIPTION
-   
-   
+
+
    During the initialization of the device tree, the pseudo-device
    <<htab>>, in conjunction with any child <<pte>> pseudo-devices,
    will create a PowerPC hash table in memory.  The hash table values
    are written using dma transfers.
-   
+
    The size and address of the hash table are determined by properties
    of the htab node.
-    
+
    By convention, the htab device is made a child of the
    <</openprom/init>> node.
-   
+
    By convention, the real address of the htab is used as the htab
    nodes unit address.
-   
-   
+
+
    PROPERTIES
-   
+
 
    real-address = <address> (required)
 
    The physical address of the hash table.  The PowerPC architecture
    places limitations on what is a valid hash table real-address.
 
-   
+
    nr-bytes = <size> (required)
 
    The size of the hash table (in bytes) that is to be created at
    <<real-address>>.  The PowerPC architecture places limitations on
    what is a valid hash table size.
 
-   
+
    claim = <anything> (optional)
 
    If this property is present, the memory used to construct the hash
    table will be claimed from the memory device.  The memory device
    being specified by the <</chosen/memory>> ihandle property.
 
-   
+
    EXAMPLES
-   
+
    Enable tracing.
-   
+
    |  $  psim -t htab-device \
-   
-   
+
+
    Create a htab specifying the base address and minimum size.
-   
+
    |    -o '/openprom/init/htab@0x10000/real-address 0x10000' \
    |    -o '/openprom/init/htab@0x10000/claim 0' \
    |    -o '/openprom/init/htab@0x10000/nr-bytes 65536' \
-   
-   
+
+
    BUGS
-   
-   
+
+
    See the <<pte>> device.
-   
-   
+
+
    */
 
-   
+
 /* DEVICE
 
 
@@ -105,42 +105,42 @@
 
    DESCRIPTION
 
-   
+
    The <<pte>> pseudo-device, which must be a child of a <<htabl>>
    node, describes a virtual to physical mapping that is to be entered
    into the parents hash table.
-   
+
    Two alternative specifications of the mapping are allowed.  Either
    a section of physical memory can be mapped to a virtual address, or
    the header of an executible image can be used to define the
    mapping.
-   
+
    By convention, the real address of the map is specified as the pte
    devices unit address.
-   
-   
+
+
    PROPERTIES
 
-   
+
    real-address = <address> (required)
 
    The starting physical address that is to be mapped by the hash
    table.
 
-   
+
    wimg = <int> (required)
    pp = <int> (required)
 
    The value of hash table protection bits that are to be used when
    creating the virtual to physical address map.
 
-   
+
    claim = <anything> (optional)
 
-   If this property is present, the real memory that is being mapped by the 
-   hash table will be claimed from the memory node (specified by the 
+   If this property is present, the real memory that is being mapped by the
+   hash table will be claimed from the memory node (specified by the
    ihandle <</chosen/memory>>).
-   
+
 
    virtual-address = <integer> [ <integer> ]  (option A)
    nr-bytes = <size>  (option A)
@@ -150,7 +150,7 @@
    virtual address then they are concatenated to gether to form a
    longer virtual address.
 
-   
+
    file-name = <string>  (option B)
 
    Option B - An executable image that is to be loaded (starting at
@@ -158,46 +158,46 @@
    informatioin taken from the executables header.  information found
    in the files header.
 
-   
+
    EXAMPLES
-   
-   
-   Enable tracing (note that both the <<htab>> and <<pte>> device use the 
+
+
+   Enable tracing (note that both the <<htab>> and <<pte>> device use the
    same trace option).
-   
+
    |   -t htab-device \
-   
-   
+
+
    Map a block of physical memory into a specified virtual address:
- 	
+
    |  -o '/openprom/init/htab/pte@0x0/real-address 0' \
    |  -o '/openprom/init/htab/pte@0x0/nr-bytes 4096' \
    |  -o '/openprom/init/htab/pte@0x0/virtual-address 0x1000000' \
    |  -o '/openprom/init/htab/pte@0x0/claim 0' \
    |  -o '/openprom/init/htab/pte@0x0/wimg 0x7' \
    |  -o '/openprom/init/htab/pte@0x0/pp 0x2' \
-   
-   
+
+
    Map a file into memory.
-   
+
    |  -o '/openprom/init/htab/pte@0x10000/real-address 0x10000' \
    |  -o '/openprom/init/htab/pte@0x10000/file-name "netbsd.elf' \
    |  -o '/openprom/init/htab/pte@0x10000/wimg 0x7' \
    |  -o '/openprom/init/htab/pte@0x10000/pp 0x2' \
-   
-   
+
+
    BUGS
-   
-   
-   For an ELF executable, the header defines both the virtual and real 
-   address at which each file section should be loaded.  At present, the 
-   real addresses that are specified in the header are ignored, the file 
+
+
+   For an ELF executable, the header defines both the virtual and real
+   address at which each file section should be loaded.  At present, the
+   real addresses that are specified in the header are ignored, the file
    instead being loaded in to physical memory in a linear fashion.
-   
+
    When claiming memory, this device assumes that the #address-cells
    and #size-cells is one.  For future implementations, this may not
    be the case.
-   
+
    */
 
 
@@ -374,7 +374,7 @@ htab_map_region(device *me,
     htab_map_page(me, ra, va, wimg, pp, htaborg, htabmask);
   }
 }
-  
+
 typedef struct _htab_binary_sizes {
   unsigned_word text_ra;
   unsigned_word text_base;
@@ -452,7 +452,7 @@ htab_dma_binary(bfd *abfd,
     section_ra = (section_vma - sizes->text_base + sizes->text_ra);
   else if ((bfd_get_section_flags (abfd, sec) & SEC_DATA))
     section_ra = (section_vma - sizes->data_base + sizes->data_ra);
-  else 
+  else
     return; /* just ignore it */
 
   DTRACE(htab,
@@ -531,7 +531,7 @@ htab_map_binary(device *me,
   /* if needed, determine the real addresses of the sections */
   if (ra != -1) {
     sizes.text_ra = ra;
-    sizes.data_ra = ALIGN_PAGE(sizes.text_ra + 
+    sizes.data_ra = ALIGN_PAGE(sizes.text_ra +
 			       (sizes.text_bound - sizes.text_base));
   }
 

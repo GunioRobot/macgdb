@@ -1,4 +1,4 @@
-# sh testcase for fmul 
+# sh testcase for fmul
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 
@@ -69,7 +69,7 @@ fmul_single:
 	_s2d fr2, dr2
 	_s2d fr4, dr4
 	.endm
-	
+
 fmul_double:
 	double_prec
 	# 0.0 * 0.0 = 0.0.

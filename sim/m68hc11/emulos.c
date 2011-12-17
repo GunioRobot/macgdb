@@ -65,7 +65,7 @@ emul_bench (struct _sim_cpu* cpu)
         t_start += (double) (bench_start.tv_usec);
         t_stop  = (double) (bench_stop.tv_sec) * 1.0e6;
         t_stop  += (double) (bench_stop.tv_usec);
-        
+
         while (sz < 1024)
           {
             buf[sz] = memory_read8 (cpu, addr);
@@ -103,7 +103,7 @@ emul_write(struct _sim_cpu* state)
   while (size)
     {
       uint8 val = memory_read8 (state, addr);
-        
+
       write(0, &val, 1);
       addr ++;
       size--;
@@ -152,7 +152,7 @@ emul_os (int code, sim_cpu *proc)
       emul_bench (proc);
 #endif
       break;
-        
+
     default:
       break;
     }

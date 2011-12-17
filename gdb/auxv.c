@@ -112,7 +112,7 @@ target_auxv_parse (struct target_ops *ops, gdb_byte **readptr,
   for (t = ops; t != NULL; t = t->beneath)
     if (t->to_auxv_parse != NULL)
       return t->to_auxv_parse (t, readptr, endptr, typep, valp);
-  
+
   return default_auxv_parse (ops, readptr, endptr, typep, valp);
 }
 

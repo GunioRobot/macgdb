@@ -89,7 +89,7 @@ installcheck:
 check:  check-DEJAGNU check-recursive
 
 #test1:
-check-recursive: 
+check-recursive:
 	@for i in . ${SUBDIRS}; do \
 		if [ $$i = . ] ; then continue ; fi ; \
 		if [ -d ./$$i ] ; then \
@@ -102,7 +102,7 @@ check-recursive:
 		else true ; fi ; \
 	done
 
-#test2:	
+#test2:
 check-DEJAGNU: site.exp
 	echo "Dejagnu-checking in `pwd` directory ..."
 	rootme=`pwd`; export rootme; echo rootme = $$rootme; \

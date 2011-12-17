@@ -43,7 +43,7 @@ if { [gdb_compile "$srcdir/$subdir/$srcfile" $binfile \
 # 3) Meet and exceed artificial limit on bytes  of bytecode data
 # [NOTE: number four is moved out into its own separate test module.]
 # 4) Meet and exceed artificial limit on bytes  of trace buffer storage
-#    (circular and non-circular modes).  However note that a more 
+#    (circular and non-circular modes).  However note that a more
 #    thorough test of the circular mode can be made separately.
 
 set cr "\[\r\n\]+"
@@ -268,28 +268,28 @@ proc gdb_bytecode_limit_test { } {
 proc gdb_trace_limits_tests { } {
     global gdb_prompt
 
-    # We generously give ourselves one "pass" if we successfully 
+    # We generously give ourselves one "pass" if we successfully
     # detect that this test cannot be run on this target!
 
-    if { ![gdb_target_supports_trace] } then { 
+    if { ![gdb_target_supports_trace] } then {
 	pass "Current target does not support trace"
 	return 1;
     }
 
     if [gdb_test "maint packet QTLimit:tp:ffffffff" \
-	    "received: .OK." ""] then { 
+	    "received: .OK." ""] then {
 	pass "This test cannot be run on this target"
 	return 1;
     }
 
     if [gdb_test "maint packet QTLimit:memrange:ffffffff" \
-	    "received: .OK." ""] then { 
+	    "received: .OK." ""] then {
 	pass "This test cannot be run on this target"
 	return 1;
     }
 
     if [gdb_test "maint packet QTLimit:bytecode:ffffffff" \
-	    "received: .OK." ""] then { 
+	    "received: .OK." ""] then {
 	pass "This test cannot be run on this target"
 	return;
     }
@@ -305,7 +305,7 @@ gdb_exit
 gdb_start
 gdb_reinitialize_dir $srcdir/$subdir
 gdb_load $binfile
- 
+
 if [target_info exists gdb_stub] {
     gdb_step_for_stub;
 }

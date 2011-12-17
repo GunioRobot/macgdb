@@ -123,7 +123,7 @@ test_expr "set language c++" \
     "print as bool"
 
 # Test bool type printing, etc.
-# Note: Language is already set to C++ above! 
+# Note: Language is already set to C++ above!
 gdb_test "print v_bool" "\\$\[0-9\]* = false" "print a bool var"
 
 # set a bool variable

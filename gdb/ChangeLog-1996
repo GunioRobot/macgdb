@@ -46,7 +46,7 @@ Thu Dec 26 15:15:21 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* config/sparc/tm-sparclet.h: make registers ASR15, ASR19 invisible
           (they're not useful, you can't change, write or even read them)
-	
+
 Thu Dec 26 15:20:48 1996  Fred Fish  <fnf@cygnus.com>
 
 	* config/pa/hppahpux.mh (TERMCAP): Always link to libc before
@@ -54,7 +54,7 @@ Thu Dec 26 15:20:48 1996  Fred Fish  <fnf@cygnus.com>
 	on some versions of HPUX.
 
 Thu Dec 26 15:14:41 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
-	
+
 	* sparclet-rom.c: Remove includes of Unix system files.
 	  Add function "sparclet_supply_register" so that parse_register_dump
 	  will not seg-fault by calling a null function pointer.
@@ -262,7 +262,7 @@ Tue Dec  3 13:02:08 1996  Fred Fish  <fnf@ninemoons.com>
 	routines as similar in structure as possible.
 	(fetch_inferior_registers, store_inferior_registers): Eliminate
 	local variable numregs and just use ARCH_NUM_REGS directly.
-	
+
 Tue Dec  3 11:38:14 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* blockframe.c: add macro USE_GENERIC_DUMMY_FRAMES to enable/disable
@@ -371,7 +371,7 @@ Sun Dec  1 00:18:59 1996  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 	(read_tag_pointer_type, read_tag_reference_type):
 	Use lookup_pointer_type and lookup_reference_type instead
 	of handcrafting a type.
-	(read_tag_ptr_to_member_type):  New function to handle 
+	(read_tag_ptr_to_member_type):  New function to handle
 	DW_TAG_ptr_to_member_type.
 	(read_subroutine_type):  Handle parameter dies.
 	Use lookup_function_type instead of handcrafting a type.
@@ -496,7 +496,7 @@ Wed Nov 27 11:29:06 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	* m32r-tdep.c, config/m32r/tm-m32r.h: Ditto.
 	* sh-tdep.c, config/sh/tm-sh.h: Ditto.
 	* v850-tdep.c, config/v850/tm-v850.h: Ditto.
-	
+
 Wed Nov 27 10:32:14 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* breakpoint.c: DELETE command will not delete CALL_DUMMY breakpoint.
@@ -522,7 +522,7 @@ Tue Nov 26 19:21:35 1996  Mark Alexander  <marka@cygnus.com>
 	errors when hitting breakpoints during inferior function calls
 	in 64-bit programs.
 	(fix_sign_extension): Make public, rename to mips_addr_bits_remove.
-	* utils.c (paddr_nz, preg_nz): New functions, similar to 
+	* utils.c (paddr_nz, preg_nz): New functions, similar to
 	paddr and preg but don't print leading zeroes.
 	* defs.h (paddr_nz, preg_nz): Declare.
 	* remote-mips.c: Use paddr_nz instead of paddr throughout
@@ -540,11 +540,11 @@ Mon Nov 25 13:17:16 1996  Fred Fish  <fnf@ninemoons.com>
 
 Fri Nov 22 15:55:22 1996  Martin M. Hunt  <hunt@pizza.cygnus.com>
 
-	* valops.c (value_at, value_fetch_lazy): Put in D10V call 
+	* valops.c (value_at, value_fetch_lazy): Put in D10V call
 	to fix up address pointers.
 	* values.c (value_from_longest): Removed previous d10v changes.
 	* config/d10v/tm-d10v.h (TARGET_PTR_BIT): Change to 4 bytes.
-	
+
 Fri Nov 22 10:06:19 1996  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* config/i386/nm-i386v4.h (LOSING_POLL):  Define, needed for
@@ -564,14 +564,14 @@ Thu Nov 21 19:13:58 1996  Mark Alexander  <marka@cygnus.com>
 Wed Nov 20 19:09:16 1996  Martin M. Hunt  <hunt@pizza.cygnus.com>
 
 	* infcmd.c (do_registers_info): Call val_print with the
-	virtual buf instead of the raw buf.  Needed for REGISTER_CONVERT 
+	virtual buf instead of the raw buf.  Needed for REGISTER_CONVERT
 	to work with non-floating point regs.
 
-	* d10v-tdep.c (d10v_skip_prologue): If we have line debugging 
-	information, then the end of the prologue should the first 
+	* d10v-tdep.c (d10v_skip_prologue): If we have line debugging
+	information, then the end of the prologue should the first
 	assembly instruction of the first source line.
-	
-	* values.c (value_from_longest): Put in D10V call to 
+
+	* values.c (value_from_longest): Put in D10V call to
 	fix up address pointers.
 
 	* config/d10v/tm-d10v.h (REGISTER_VIRTUAL_SIZE): Modified.
@@ -633,7 +633,7 @@ Tue Nov 12 12:25:27 1996  Jim Wilson  <wilson@cygnus.com>
 
 	* c-typeprint.c (cp_type_print_method_args): Pass -1 for show in
 	recursive call to type_print.
-	
+
 Tue Nov 12 12:18:29 1996  Jim Wilson  <wilson@cygnus.com>
 
 	* defs.h (ULONGEST): New macro.
@@ -646,18 +646,18 @@ Tue Nov 12 12:18:29 1996  Jim Wilson  <wilson@cygnus.com>
  	Change all occurances of unsigned LONGEST to ULONGEST.
 
 	* configure.host (mips-sgi-irix6): Add.
-	
+
 Tue Nov 12 12:16:40 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* sh-tdep.c: Add functionality for target function calls.
 	* config/sh/tm-sh.h: Add support for target function calls.
 
 Tue Nov 12 12:06:58 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
-	 
+
 	* m32r-tdep.c: Add functionality for target function calls.
 	* valops.c:    Small change to support target function calls.
 	* config/m32r/tm-m32r.h: Add support for target function calls.
-	 
+
 Mon Nov 11 17:15:59 1996  Geoffrey Noer  <noer@cygnus.com>
 
 	* defs.h: Modify Nov 11 12:59:00 change so _MSC_VER is checked
@@ -683,13 +683,13 @@ Mon Nov 11 12:59:00 1996  Dawn Perchik <dawn@critters.cygnus.com>
 	* defs.h: Cleanup; add prototypes.
 	* corefile.c: Change FIXME #ifdef
 	* win32-nat.c: Include windefs instead of windows.h.
-	* utils.c: Add routines for printing addresses and registers 
+	* utils.c: Add routines for printing addresses and registers
 	based on type size.
 
 Sat Nov  9 01:05:10 1996  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* alpha-tdep.c (heuristic_proc_desc):  Stop examining the prologue
-	if we encounter a positive stack adjustment. 
+	if we encounter a positive stack adjustment.
 	(find_proc_desc):  If heuristic_fence_post is non-zero, use
 	heuristic_proc_start to determine the start of a function before
 	calling heuristic_proc_desc.
@@ -729,7 +729,7 @@ Thu Nov  7 15:19:08 1996  Martin M. Hunt  <hunt@pizza.cygnus.com>
 	* d10v-tdep.c: Fix some problems with inferior function calls.
 	* config/d10v/tm-d10v.h (EXTRA_FRAME_INFO): Change dummy to be
 	a pointer to the dummy's stack instead of just a flag.
-	
+
 Tue Nov  5 10:21:02 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* m32r-tdep.c: Improved frame_chain and fn prologue analysis.
@@ -810,10 +810,10 @@ Tue Oct 29 14:59:20 1996  Stan Shebs  <shebs@andros.cygnus.com>
 Tue Oct 29 12:48:04 1996  Martin M. Hunt  <hunt@pizza.cygnus.com>
 
 	* d10v-tdep.c: Snapshot that supports D10V-EVA board.
- 	
+
 	* config/d10v/tm-d10v.h (REGISTER_NAMES): Add imap0,imap1,dmap.
-	(TARGET_READ_FP,TARGET_WRITE_FP): Define. 
-	
+	(TARGET_READ_FP,TARGET_WRITE_FP): Define.
+
 Mon Oct 28 17:34:24 1996  Stu Grossman  (grossman@critters.cygnus.com)
 
 	* mswin/genmakes mswin/recordit:  New scripts to generate make
@@ -859,7 +859,7 @@ Thu Oct 24 10:06:58 1996  Stu Grossman  (grossman@critters.cygnus.com)
 	external forms may have different sizes.  Don't assume that an
 	internal_nlist has the same layout as an external_nlist.  Create
 	symbol for n_strx element so to hide specifics of nlist from
-	partial-stab.h. 
+	partial-stab.h.
 	* partial-stab.h:  Don't reference dbxread symbols directly.  Use
 	CUR_SYMBOL_STRX instead.
 	* config/i386/xm-windows.h:  Define SIGQUIT and SIGTRAP.
@@ -909,7 +909,7 @@ Mon Oct 21 14:40:50 1996  Stu Grossman  (grossman@critters.cygnus.com)
 Mon Oct 21 14:01:38 1996  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* top.c: Add new commands "set annotate" and "show annotate".
-	
+
 Sun Oct 20 04:38:39 1996  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* corelow.c (core_close):  Clear inferior_pid only if there is
@@ -1040,7 +1040,7 @@ Tue Oct  8 11:47:13 1996  Fred Fish  <fnf@cygnus.com>
 	(free_pendings): Remove declaration of global symbol.
 	(make_blockvector): Declare here.
 	(record_pending_block): Declare here.
-	
+
 	* dstread.c (make_blockvector): Remove static copy that was old
 	clone of version in buildsym.c.
 	(process_dst_block): Call record_pending_block rather than doing
@@ -1054,7 +1054,7 @@ Tue Oct  8 11:47:13 1996  Fred Fish  <fnf@cygnus.com>
 	(really_free_pendings): Call free_pending_blocks.
 	(pending_blocks): Make static instead of global.
 	(free_pendings): Make static instead of global.
-	
+
 Tue Oct  8 09:03:22 1996  Stu Grossman  (grossman@critters.cygnus.com)
 
 	* config/i386/windows.mh config/i386/xm-windows.h::  New config
@@ -1106,7 +1106,7 @@ Sun Oct  6 15:48:09 1996  Fred Fish  <fnf@cygnus.com>
 	address, in case any such conditions slip through our fixup mechanism.
 	* symmisc.c (dump_symtab): Only print blockvector for primary
  	symtabs, to avoid massive duplication of output due to secondary
- 	symtabs that point to same blockvector.  Also do some minor 
+ 	symtabs that point to same blockvector.  Also do some minor
 	formatting tweaks.
 
 Mon Oct  7 10:42:32 1996  Per Bothner  <bothner@deneb.cygnus.com>
@@ -1133,7 +1133,7 @@ Wed Oct  2 22:07:16 1996  Fred Fish  <fnf@cygnus.com>
 
 	* inferior.h (IN_SIGTRAMP): Pass pc to SIGTRAMP_START and
 	SIGTRAMP_END.
-	* config/i386/tm-i386os9k.h (SIGTRAMP_START, SIGTRAMP_END): 
+	* config/i386/tm-i386os9k.h (SIGTRAMP_START, SIGTRAMP_END):
 	Define with dummy pc arg.
 	* config/m68k/tm-nbsd.h: Ditto.
 	* doc/gdbint.texinfo: Document that SIGTRAMP_START and
@@ -1152,7 +1152,7 @@ Mon Sep 30 11:16:34 1996  Jeffrey A Law  (law@cygnus.com)
 	* top.c (execute_control_command):  Free values from while_control
 	and if_control conditions after evaluation to avoid storage leaks.
 	From Peter Schauer.
- 
+
 Fri Sep 27 17:43:06 1996  Stu Grossman  (grossman@critters.cygnus.com)
 
 	* configure configure.in:  Recognize v850 target.
@@ -1175,7 +1175,7 @@ Fri Sep 27 10:25:30 1996  Fred Fish  <fnf@cygnus.com>
 	add prototype.
 	(main): Call print_gdb_help rather than inlining it.
 	(main): Remove call to print_gnu_advertisement.
-	
+
 Fri Sep 27 13:32:53 1996  Michael Meissner  <meissner@tiktok.cygnus.com>
 
 	* config/d10v/tm-d10v.h (TARGET_{INT,PTR}_BIT): Define.
@@ -1195,7 +1195,7 @@ Wed Sep 25 18:31:33 1996  Stan Shebs  <shebs@andros.cygnus.com>
 
 Mon Sep 23 16:13:50 1996  Martin M. Hunt  <hunt@pizza.cygnus.com>
 
-	* config/d10v/tm-d10v.h (SAVED_PC_AFTER_CALL): Fixed.  
+	* config/d10v/tm-d10v.h (SAVED_PC_AFTER_CALL): Fixed.
 	Now single-steps correctly.
 	* d10v-tdep.c (d10v_pop_frame): Fixed.
 
@@ -1211,11 +1211,11 @@ Fri Sep 20 16:10:58 1996  Stan Shebs  <shebs@andros.cygnus.com>
 
 Thu Sep 19 16:19:01 1996  Martin M. Hunt  <hunt@pizza.cygnus.com>
 
-	* d10v-tdep.c:  Stack chain should work now. 
+	* d10v-tdep.c:  Stack chain should work now.
 
 Tue Sep 17 18:46:57 1996  Martin M. Hunt  <hunt@pizza.cygnus.com>
 
-	* d10v-tdep.c, config/d10v/tm-d10v.h: Snapshot. 
+	* d10v-tdep.c, config/d10v/tm-d10v.h: Snapshot.
 
 Tue Sep 17 12:20:50 1996  Ian Lance Taylor  <ian@cygnus.com>
 
@@ -1235,7 +1235,7 @@ Mon Sep 16 14:32:58 1996  James G. Smith  <jsmith@cygnus.co.uk>
 
 	* remote-mips.c (mips_load): Ensure that the PC is explicitly
  	loaded after a load to a DDB PMON system.
- 	
+
 Fri Sep 13 12:02:39 1996  Fred Fish  <fnf@cygnus.com>
 
 	* Makefile.in (INTERNAL_LDFLAGS): Add @HLDFLAGS@ to list.
@@ -1415,9 +1415,9 @@ Tue Aug 27 04:25:08 1996  Geoffrey Noer  <noer@cygnus.com>
 Mon Aug 26 18:36:54 1996  Martin M. Hunt  <hunt@pizza.cygnus.com>
 
 	* config/d10v/d10v.mt: New file.
-	* config/d10v/tm-d10v.h: New file.	
-	* configure.in: New target D10V.	 
-	* d10v-tdep.c: New file. 
+	* config/d10v/tm-d10v.h: New file.
+	* configure.in: New target D10V.
+	* d10v-tdep.c: New file.
 
 Sun Aug 25 00:09:47 1996  Fred Fish  <fnf@rtl.cygnus.com>
 
@@ -1438,7 +1438,7 @@ Sun Aug 25 00:09:47 1996  Fred Fish  <fnf@rtl.cygnus.com>
 	* config/rs6000/tm-rs6000.h (STACK_ALIGN): Remove completely,
 	handled by PUSH_ARGUMENTS.
 	(PUSH_ARGUMENTS): Enclose args in ()'s.
-	
+
 Fri Aug 23 13:55:05 1996  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* infrun.c (wait_for_inferior):  Try to reenable shared library
@@ -1452,7 +1452,7 @@ Wed Aug 21 16:31:27 1996  Fred Fish  <fnf@cygnus.com>
 	* configure.in: Fix check for long long support in compiler to
 	use a function body, not a nested function.
 	* configure: Rebuild with autoconf.
-	
+
 Tue Aug 20 17:59:42 1996  Ian Lance Taylor  <ian@cygnus.com>
 
 	* aclocal.m4: Include ../bfd/aclocal.m4.
@@ -1485,7 +1485,7 @@ Fri Aug 16 17:54:26 1996  Stan Shebs  <shebs@andros.cygnus.com>
 
 Fri Aug 16 17:24:35 1996  Dawn Perchik <dawn@critters.cygnus.com>
 
-        * symtab.h: changed namespace to _namespace for compiling under 
+        * symtab.h: changed namespace to _namespace for compiling under
 	MFC v4.0.
 
 Fri Aug 16 13:52:21 1996  Stan Shebs  <shebs@andros.cygnus.com>
@@ -1667,7 +1667,7 @@ Wed Aug  7 17:18:37 1996  Stu Grossman  (grossman@critters.cygnus.com)
 	* utils.c (fatal_dump_core):  Can't kill ourselves under windows.
 	Just exit.
 	* (pollquit notice_quit):  #ifdef out stuff that doesn't exist
-	under windows. 
+	under windows.
 
 Wed Aug  7 09:59:19 1996  Jeffrey A Law  (law@cygnus.com)
 
@@ -1680,12 +1680,12 @@ Wed Aug  7 09:59:19 1996  Jeffrey A Law  (law@cygnus.com)
 	(STACK_ALIGN): Define.
 	* hppa-tdep.c (hppa_alignof): Don't demand a minumim two byte
 	alignment on structs/unions.
-	
+
 Sun Aug  4 16:22:42 1996  Fred Fish  <fnf@cygnus.com>
 
 	* config/powerpc/nm-aix.h (PTRACE_ARG3_TYPE): Define to "int *",
 	which is the documented type under at least AIX 3 and AIX 4.
-	
+
 Sat Aug  3 04:02:46 1996  Fred Fish  <fnf@cygnus.com>
 
 	* config/alpha/alpha-osf3.mh (XM_FILE): Change from xm-alpha.h to
@@ -1826,14 +1826,14 @@ Sat Jul 27 17:47:35 1996  Fred Fish  <fnf@cygnus.com>
 	(frame_saved_regs): Ditto.
 	(struct value): Ditto.
 	(struct type): Ditto.
-	(struct inferior_status): Ditto.	
+	(struct inferior_status): Ditto.
 	(init_extra_frame_info): Add prototype.
 	(skip_prologue): Ditto.
 	(frameless_function_invocation): Ditto.
 	(frame_chain): Ditto.
 	(frame_chain_valid): Ditto.
 	(saved_pc_after_call): Ditto.
-	(hppa_fix_call_dummy): Ditto.	
+	(hppa_fix_call_dummy): Ditto.
 	(hppa_push_arguments): Ditto.
 	(pa_do_registers_info): Ditto.
 	(in_solib_call_trampoline): Ditto.
@@ -1950,7 +1950,7 @@ Thu Jul 25 19:41:31 1996  Fred Fish  <fnf@cygnus.com>
 	(m2-valprint.o): Depends upon m2-lang.h.
 	(sparc-tdep.o): Depends upon gdb_string.h
 	(valprint.o): Depends upon valprint.h
-	
+
 	* remote-e7000.c (notice_quit): Remove prototype.
 	* top.c (initialize_targets): Remove prototype, now in target.h.
 	* stabsread.c (resolve_cfront_continuation): Remove prototype.
@@ -2009,7 +2009,7 @@ Thu Jul 25 19:41:31 1996  Fred Fish  <fnf@cygnus.com>
  	(allocate_saved_bf_node): Ditto.
 	(allocate_common_entry_node): Ditto.
 	(allocate_saved_f77_common_node): Ditto.
-	
+
 	* arm-tdep.c (gdbcore.h): Include for necessary prototypes.
 	* dcache.c (gdbcore.h): Ditto.
 	* i386ly-tdep.c (gdbcore.h): Ditto.
@@ -2465,7 +2465,7 @@ Fri Jul 19 14:05:57 1996  Stan Shebs  <shebs@andros.cygnus.com>
 
 Thu Jul 18 01:22:01 1996  Geoffrey Noer  <noer@cygnus.com>
 
-	* symfile.c (symfile_bfd_open): 
+	* symfile.c (symfile_bfd_open):
 	* exec.c (exec_file_command): for __GO32__ and __WIN32__ systems,
 	free the user from having to type the .exe extension.
 
@@ -2552,7 +2552,7 @@ Wed Jul 10 16:54:41 1996  Fred Fish  <fnf@cygnus.com>
 	* config/alpha/alpha-osf2.mh (MMALLOC_CFLAGS): Set to -DNO_MMCHECK.
 
 	* config/sparc/xm-sun4os4.h (MMAP_BASE_ADDRESS, MMAP_INCREMENT):
-	* config/i386/xm-i386v4.h (MMAP_BASE_ADDRESS, MMAP_INCREMENT): 
+	* config/i386/xm-i386v4.h (MMAP_BASE_ADDRESS, MMAP_INCREMENT):
 	* config/i386/xm-linux.h (MMAP_BASE_ADDRESS, MMAP_INCREMENT):
 	* config/m68k/xm-hp300hpux.h (MMAP_BASE_ADDRESS, MMAP_INCREMENT):
 	* config/m68k/xm-m68kv4.h (MMAP_BASE_ADDRESS, MMAP_INCREMENT);
@@ -2609,7 +2609,7 @@ Sun Jul  7 14:57:34 1996  Fred Fish  <fnf@cygnus.com>
 	It now handles saving the string itself.
 	* dbxread.c (record_minimal_symbol): Ditto.
 	* elfread.c (record_minimal_symbol_and_info): Ditto.
-	
+
 	* dstread.c (record_minimal_symbol): Remove static function that just
 	called prim_record_minimal_symbol with the same args (after change to
  	prim_record_minimal_symbol to do it's own name string saves).
@@ -2643,7 +2643,7 @@ Wed Jul  3 15:56:08 1996  Stu Grossman  (grossman@critters.cygnus.com)
 
 Tue Jul 02 21:41:20 1996  Mark Alexander  <marka@cygnus.com>
 
-	* coffread.c, dbxread.c, elfread.c, mipsread.c, nlmread.c, 
+	* coffread.c, dbxread.c, elfread.c, mipsread.c, nlmread.c,
 	os9kread.c: Replace identical sym_offsets functions with
 	default_symfile_offsets.
 	* somread.c (som_symfile_offsets): Use new SIZEOF_SECTION_OFFSETS
@@ -2718,8 +2718,8 @@ Fri Jun 28 05:25:18 1996  Dawn Perchik  <dawn@cygnus.com>
 Fri Jun 28 04:32:18 1996  Dawn Perchik  <dawn@cygnus.com>
 
         * remote-e7000.c (e7000_parse_device): New function.
-	Add option "tcp_remote" to target command if using 
-	tcp to connect to a remote host which is then connected 
+	Add option "tcp_remote" to target command if using
+	tcp to connect to a remote host which is then connected
 	via serial port to the e7000 (for exampole, a port master).
 	(e7000_open): Change to call e7000_parse_device.
 
@@ -2754,7 +2754,7 @@ Tue Jun 25 22:05:38 1996  Jason Molenda  (crash@godzilla.cygnus.co.jp)
 	Use autoconf set values.
 	(docdir): Removed.
 	* configure.in (AC_PREREQ): autoconf 2.5 or higher.
-	* nlm/Makefile.in (bindir, libdir, datadir, mandir, infodir, 
+	* nlm/Makefile.in (bindir, libdir, datadir, mandir, infodir,
 	includedir): Use autoconf set values.
 	(docdir): Removed.
 	* nlm/configure.in (AC_PREREQ): autoconf 2.5 or higher.
@@ -2837,7 +2837,7 @@ Wed Jun  5 01:52:57 1996  James G. Smith  <jsmith@cygnus.co.uk>
 
 	* config/mips/vr4300el.mt (SIM_OBS): Include simulator in
  	little-endian builds.
-	
+
 Mon Jun  3 11:48:29 1996  Jeffrey A Law  (law@cygnus.com)
 
 	* inftarg.c (child_thread_alive): Protect declaration with
@@ -2920,7 +2920,7 @@ Sun May 26 14:14:49 1996  Fred Fish  <fnf@cygnus.com>
  	SIGTRAMP_START and SIGTRAMP_END macros for the benefit of systems
  	that detect sigtramp code via designated code sequences (as is the
  	case for Linux/Alpha, for example).
-	
+
 	* config/i386/tm-i386bsd.h: Change SIGTRAMP_START and SIGTRAMP_END
 	to ignore new PC argument.
 	* config/m68k/tm-hp300bsd.h: Ditto.
@@ -3192,7 +3192,7 @@ Mon May  6 13:52:52 1996  Stu Grossman  (grossman@critters.cygnus.com)
 	the removal of all symbol tables.
 	* target.c (push_target):  Make sure that to_close is non-zero
 	before calling it.
-	* target.h (target_new_objfile):  Provide default.	
+	* target.h (target_new_objfile):  Provide default.
 	* config/alpha/nm-osf2.h:  Define LOSING_POLL because this version
 	of OSF can't hack using poll with /proc.
 	* config/sparc/nm-sun4sol2.h (target_new_objfile):  Define to be
@@ -3256,7 +3256,7 @@ Tue Apr 30 13:22:02 1996  Michael Meissner  <meissner@tiktok.cygnus.com>
 
 Mon Apr 29 16:17:31 1996  Dawn Perchik <dawn@cygnus.com>
 
-	* c-valprint.c (c_val_print): Fix printing for arrays defined 
+	* c-valprint.c (c_val_print): Fix printing for arrays defined
 	with 0 length.
 
 Sun Apr 28 15:08:05 1996  Stan Shebs  <shebs@andros.cygnus.com>
@@ -3312,17 +3312,17 @@ Sat Apr 27 00:12:05 1996  Dawn Perchik  (dawn@cygnus.com)
 	Add prototypes for static functions.
 	Enhance comments to show what each function expects to parse.
 	Cleanup code.
-	* stabsread.c(resolve_cont),dbxread.c(resolve_cont): Rename 
+	* stabsread.c(resolve_cont),dbxread.c(resolve_cont): Rename
 	function to resolve_cfront_continuation.
 
 Fri Apr 26 23:58:26 1996  Jeffrey A Law  (law@cygnus.com)
 
 	* infrun.c (wait_for_inferior): Call registers_changed when
 	restarting the inferior to get over a nullified instruction.
-	
+
 Tue Apr 24 12:12:55 1996  Dawn Perchik (dawn@cygnus.com)
 
-	* dbxread.c,stabsread.c,gdbtypes.c,partial-stab.h,valops.c: 
+	* dbxread.c,stabsread.c,gdbtypes.c,partial-stab.h,valops.c:
 	Add new support for parsing cfront stabs.
 
 Wed Apr 24 00:32:55 1996  Jeffrey A Law  (law@cygnus.com)
@@ -3480,7 +3480,7 @@ Thu Apr 11 13:47:52 1996  Stu Grossman  (grossman@critters.cygnus.com)
 	problems with turning off dcache.  dcache_peek is now unnecessary,
 	so it goes away.
 
-	* defs.h:  Define new macros HOST_{FLOAT DOUBLE	LONG_DOUBLE}_FORMAT 
+	* defs.h:  Define new macros HOST_{FLOAT DOUBLE	LONG_DOUBLE}_FORMAT
 	and TARGET_{FLOAT DOUBLE LONG_DOUBLE}_FORMAT to specify a pointer
 	to a struct floatformat.  This allows for better handling of
 	targets whose floating point formats differ from the host by more
@@ -3562,7 +3562,7 @@ Sun Apr  7 13:32:41 1996  Fred Fish  <fnf@cygnus.com>
 
 	* configure.in (case host): Add i386sco5 host.
 	* configure: Regenerate.
-	
+
 	From: Robert Lipe <robertl@dgii.com>
 	Add support for SCO OpenServer 5 (a.k.a. 3.2v5*)  This
 	target is an SVR3.2 with COFF, ELF, and shared libes, but
@@ -3771,7 +3771,7 @@ Fri Mar 29 21:39:56 1996  Fred Fish  <fnf@cygnus.com>
 	GET_LONGJMP_TARGET define, unused otherwise.
 	* config/i386/nm-linux.h: Add prototypes for i386_insert_watchpoint,
 	i386_remove_watchpoint and i386_stopped_by_watchpoint.
-	
+
 Thu Mar 28 12:53:19 1996  Doug Evans  <dje@canuck.cygnus.com>
 
 	* configure.in (sparc64-*-solaris2*): Delete.
@@ -3781,7 +3781,7 @@ Thu Mar 28 12:53:19 1996  Doug Evans  <dje@canuck.cygnus.com>
 Thu Mar 28 06:51:26 1996  Fred Fish  <fnf@cygnus.com>
 
 	* valops.c (value_assign): Make copy of internal variable value
-	before returning it as a new value, since it is owned by the 
+	before returning it as a new value, since it is owned by the
 	internal variable and will be freed along with it.
 
 Wed Mar 27 08:36:17 1996  Jeffrey A Law  (law@cygnus.com)
@@ -3850,7 +3850,7 @@ Mon Mar 18 13:47:09 1996  Fred Fish  <fnf@cygnus.com>
 Sat Mar 16 19:47:36 1996  Fred Fish  <fnf@cygnus.com>
 
 	* configure.in: Add fragment to create stamp-h.
-	
+
 	From Peter Schauer <Peter.Schauer@Regent.E-Technik.TU-Muenchen.DE>
 	* configure.in (AC_CHECK_HEADERS):  Check for link.h.
 	* configure:  Regenerate with autoconf.
@@ -3885,7 +3885,7 @@ Sat Mar 16 13:33:17 1996  Fred Fish  <fnf@cygnus.com>
 
 	* configure.in: Add gdbserver to configdirs under linux.
 	* configure: Regenerate.
-	
+
 Fri Mar 15 12:06:58 1996  J.T. Conklin  <jtc@rtl.cygnus.com>
 
 	* config/i386/nm-nbsd.h (FLOAT_INFO): Comment out.
@@ -3902,16 +3902,16 @@ Mon Mar 11 14:24:57 1996  Dawn Perchik  <dawn@critters.cygnus.com>
 	* monitor.c (monitor_debug): Change remotedebug to buffer strings.
 	* monitor.c (monitor_open): Add test for flag MO_NO_ECHO_ON_OPEN before
 	epecting prompt and echo during open.
-	* monitor.c (monitor_stop): Add test for flag MO_SEND_BREAK_ON_OPEN to 
+	* monitor.c (monitor_stop): Add test for flag MO_SEND_BREAK_ON_OPEN to
 	determine if break should be sent as stop command.
 	* monitor.h: Add flags MO_NO_ECHO_ON_OPEN and MO_SEND_BREAK_ON_OPEN.
-	* i960-tdep.c (mon960_frame_chain_valid): New function for getting 
+	* i960-tdep.c (mon960_frame_chain_valid): New function for getting
 	stack frame on mon960.
 	* Makefile.in: Add mon960 files.
 	* configure.in: Changed i960-*-coff* and i960-*-elf* to target mon960;
  	added i960-nindy-coff* and i960-nindy-elf* for target nindy.
 	* configure: Regenerated.
-	* config/i960/mon960.mt, config/i960/tm-mon960.h: New files; 
+	* config/i960/mon960.mt, config/i960/tm-mon960.h: New files;
 	support mon960 rom monitor on i960.
 
 Mon Mar 11 11:02:47 1996  Steve Chamberlain  <sac@slash.cygnus.com>
@@ -3934,7 +3934,7 @@ Mon Mar 11 09:19:58 1996  Jeffrey A Law  (law@cygnus.com)
 	(re_enable_breakpoints_in_shlibs): Don't reenable a breakpoint
 	if we still can't read the memory for that breakpoint.
 	(mention): Add bp_shlib_event case to keep gcc quiet.
-	
+
 Fri Mar  8 12:08:12 1996  Jeffrey A Law  (law@cygnus.com)
 
 	* breakpoint.h (enum enable): New enum shlib_disabled for
@@ -4206,7 +4206,7 @@ Mon Nov  6 16:42:09 1995  Miles Bader  <miles@gnu.ai.mit.edu>
 
 Thu Nov  2 18:05:00 1995  Miles Bader  <miles@gnu.ai.mit.edu>
 
-	* target.c (signals, target_signal_from_host, target_signal_to_host): 
+	* target.c (signals, target_signal_from_host, target_signal_to_host):
 	Add mach exceptions.
 	* target.h (enum target_signal): Add mach exceptions.
 
@@ -4252,7 +4252,7 @@ Sat Feb 24 12:30:28 1996  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* partial-stab.h (case N_FUN):  Function symbols generated
 	by SPARCworks cc have a meaningless zero value, do not update
-	pst->textlow if the function symbol value is zero. 
+	pst->textlow if the function symbol value is zero.
 
 	* stabsread.c (define_symbol):  Initialize SYMBOL_TYPE field
 	for function prototype declaration symbols.
@@ -4303,14 +4303,14 @@ Tue Feb 20 18:54:08 1996  Fred Fish  <fnf@cygnus.com>
 	* config/pa/tm-hppa.h: Ditto.
 	* config/rs6000/tm-rs6000.h: Ditto.
 	* config/sparc/tm-sparc.h: Ditto.
-	
+
 Tue Feb 20 17:32:05 1996  J.T. Conklin  <jtc@rtl.cygnus.com>
 
 	* config/{i386,ns32k}/nbsd.mh (NATDEPFILES): Remove core-aout.o.
 
 	* config/nm-nbsd.h (FETCH_INFERIOR_REGISTERS): Defined.
 	* config/xm-nbsd.h (CC_HAS_LONG_LONG, PRINTF_HAS_LONG_LONG):
-	#ifdef'd out definitions ---  Causes serious gdb failures on 
+	#ifdef'd out definitions ---  Causes serious gdb failures on
 	the i386.  Need to investigate further before enabling.
 
 	* i386b-nat.c (fetch_inferior_registers, store_inferior_registers,
@@ -4337,11 +4337,11 @@ Mon Feb 19 10:32:05 1996  Jeffrey A Law  (law@cygnus.com)
 	* somsolib.c (solib_create_inferior_hook): Remove all solib event
 	breakpoints before inserting any new ones.  Use a solib event
 	breakpoint for the breakpoint at "_start".
-	Remove extraneous "\n" from calls to warning.  
-	
+	Remove extraneous "\n" from calls to warning.
+
 	* breakpoint.c (breakpoint_1): Add missing "sigtramp" to bptypes
 	name array.
-	
+
 Mon Feb 19 01:09:32 1996  Doug Evans  <dje@cygnus.com>
 
 	* dwarfread.c (add_partial_symbol): Use ADD_PSYMBOL_ADDR_TO_LIST
@@ -4444,7 +4444,7 @@ Fri Feb 16 14:00:54 1996  Fred Fish  <fnf@cygnus.com>
 	and free pointers.
 	* solib.c (allocate_rt_common_objfile): Ditto.
 	* symfile.c (reread_symbols):  Ditto.
-	(free_objfile): Free psymbol bcache when objfile is freed.	
+	(free_objfile): Free psymbol bcache when objfile is freed.
 	(objfile_relocate): Use new indirect psymbol pointers.
 	* objfiles.h (struct objfile): Add psymbol cache.
 	* symfile.c (compare_psymbols): Now passed pointers to pointers to
@@ -4467,7 +4467,7 @@ Fri Feb 16 14:00:54 1996  Fred Fish  <fnf@cygnus.com>
  	maintenance_check_symtabs, extend_psymbol_list):
  	Account for change to pointer to pointer to partial symbol.
 	* symtab.c (find_pc_psymbol, lookup_partial_symbol, decode_line_2,
-	make_symbol_completion_list): 
+	make_symbol_completion_list):
  	Account for change to pointer to pointer to partial symbol.
 	* symtab.h (bcache.h): Include.
 	* xcoffread.c (xcoff_start_psymtab): Make global_syms & static_syms
@@ -4562,7 +4562,7 @@ Mon Feb  5 18:24:28 1996  Steve Chamberlain  <sac@slash.cygnus.com>
 	From Michael_Snyder@NeXT.COM (Michael Snyder):
 	* valops.c (value_arg_coerce): Coerce float to double, unless the
  	function prototype specifies float.
-	
+
 Mon Feb  5 09:51:55 1996  Tom Tromey  <tromey@creche.cygnus.com>
 
 	* language.c (set_language_command): Use languages table when
@@ -4644,7 +4644,7 @@ Wed Jan 31 17:20:26 1996  Jeffrey A Law  (law@cygnus.com)
 
 Wed Jan 31 13:34:52 1996  Fred Fish  <fnf@cygnus.com>
 
-	* config/i386/xm-linux.h (MMAP_BASE_ADDRESS, MMAP_INCREMENT): 
+	* config/i386/xm-linux.h (MMAP_BASE_ADDRESS, MMAP_INCREMENT):
 	Define to what should be reasonable values.  However, apparently
 	a bug in linux mmap prevents mapped symbol tables from working.
 
@@ -4778,7 +4778,7 @@ Wed Jan 24 13:19:10 1996  Fred Fish  <fnf@cygnus.com>
 	* gdbserver/gdbreplay.c: New file.
 	* gdbserver/README: Give example of recording a remote
 	debug session with gdb and then replaying it with gdbreplay.
-	
+
 Tue Jan 23 18:02:35 1996  Per Bothner  <bothner@kalessin.cygnus.com>
 
 	* stabsread.c (rs6000_builtin_type):  Make bool type unsigned.
@@ -4859,7 +4859,7 @@ Fri Jan 19 07:19:38 1996  Fred Fish  <fnf@cygnus.com>
 	(hp300ux_core_fns):  Remove, is unused.
 	(_initialize_core_hp300ux):  Remove, is unused.
 	(gdbcore.h):  Remove #include, no longer needed.
-	
+
 Fri Jan 19 00:59:53 1996  Jeffrey A Law  (law@cygnus.com)
 
 	* rs6000-nat.c (exec_one_dummy_insn): Rework to avoid
@@ -4882,7 +4882,7 @@ Tue Jan 16 18:00:35 1996  James G. Smith  <jsmith@cygnus.co.uk>
 	(mips_send_packet): Scan out-of-sequence packets.
 	(mips_enter_debug, mips_exit_debug): New functions.
 	(pmon_ops): New target definition structure.
-	
+
 Tue Jan 16 11:22:58 1996  Stu Grossman  (grossman@cygnus.com)
 
 	* Makefile.in (CLIBS):  Add LIBS to allow libraries to be
@@ -4966,7 +4966,7 @@ Wed Jan 10 11:25:37 1996  Fred Fish  <fnf@cygnus.com>
 
 Tue Jan  9 09:33:53 1996  Jeffrey A Law  (law@cygnus.com)
 
-	* hpread.c (hpread_build_psymtabs): Finish Jan 4th 
+	* hpread.c (hpread_build_psymtabs): Finish Jan 4th
 	enum namespace -> enum_namespace change.
 
 Tue Jan  9 04:44:47 1996  Wilfried Moser  <moser@rtl.cygnus.com>
@@ -5068,7 +5068,7 @@ Thu Jan  4 11:00:01 1996  steve chamberlain  <sac@slash.cygnus.com>
 	(add_psymbol_addr_to_list): Ditto.
 	* symtab.c (lookup_partial_symbol): Ditto.
 	(lookup_symbol): Ditto.
-	(lookup_block_symbol): Ditto.	
+	(lookup_block_symbol): Ditto.
 	* win32-nat.c (handle_load_dll): Use incoming dll base.
 	(child_wait): Catch DLL load errors.
 	(create_child_inferior): Translated between paths correctly.
@@ -5087,12 +5087,12 @@ Wed Jan  3 19:49:54 1996  steve chamberlain  <sac@slash.cygnus.com>
 	* config/i386/xm-win32.h (CANT_FORK): Deleted.
 	(SLASH*) Changed to use unix style slash.
 	* symtab.h (namespace enum): becomes typedef to avoid namespace
-	collision in C++. 
+	collision in C++.
 	* infcmd.c (path_command): Use empty string if PATH name not set.
 	* i386-tdep.c (skip_trampoline_code): New function.
 	* srec.c: Renamed dsrec.c to avoid filename collision.
 	* Makefile.in: Cope with renaming.
-	
+
 Wed Jan  3 13:09:04 1996  Fred Fish  <fnf@cygnus.com>
 
 	* symmisc.c (print_objfile_statistics): Print memory use statistics

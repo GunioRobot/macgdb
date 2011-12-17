@@ -141,11 +141,11 @@ extra_host_args=
 ### or a host dependent tool.  Then put it into the appropriate list
 ### (library or tools, host or target), doing a dependency sort.
 
-# Subdirs will be configured in the order listed in build_configdirs, 
+# Subdirs will be configured in the order listed in build_configdirs,
 # configdirs, or target_configdirs; see the serialization section below.
 
-# Dependency sorting is only needed when *configuration* must be done in 
-# a particular order.  In all cases a dependency should be specified in 
+# Dependency sorting is only needed when *configuration* must be done in
+# a particular order.  In all cases a dependency should be specified in
 # the Makefile, whether or not it's implicitly specified here.
 
 # Double entries in build_configdirs, configdirs, or target_configdirs may
@@ -231,7 +231,7 @@ if test x"${host}" = x"${target}" ; then
   is_cross_compiler=no
 else
   is_cross_compiler=yes
-fi	
+fi
 
 # Find the build and target subdir names.
 GCC_TOPLEV_SUBDIRS
@@ -255,7 +255,7 @@ if test x$with_gnu_as = xno ; then
   noconfigdirs="$noconfigdirs gas"
 fi
 
-# some tools are so dependent upon X11 that if we're not building with X, 
+# some tools are so dependent upon X11 that if we're not building with X,
 # it's not even worth trying to configure, much less build, that tool.
 
 case ${with_x} in
@@ -263,13 +263,13 @@ case ${with_x} in
   no)
     skipdirs="${skipdirs} tk itcl libgui"
     # We won't be able to build gdbtk without X.
-    enable_gdbtk=no 
+    enable_gdbtk=no
     ;;
   *)  echo "*** bad value \"${with_x}\" for -with-x flag; ignored" 1>&2 ;;
 esac
 
 # Some tools are only suitable for building in a "native" situation.
-# Remove these if host!=target.  
+# Remove these if host!=target.
 native_only="autoconf automake libtool fileutils find gawk gettext gzip hello indent m4 rcs recode sed shellutils tar textutils uudecode wdiff target-groff guile perl time ash bash bzip2 prms gnuserv target-gperf"
 
 # Similarly, some are only suitable for cross toolchains.
@@ -339,7 +339,7 @@ esac
 # Only spaces may be used in this macro; not newlines or tabs.
 unsupported_languages=
 
-# Remove more programs from consideration, based on the host or 
+# Remove more programs from consideration, based on the host or
 # target this usually means that a port of the program doesn't
 # exist yet.
 
@@ -543,7 +543,7 @@ case "${target}" in
     ;;
   sh-*-linux*)
     noconfigdirs="$noconfigdirs ${libgcj} target-newlib target-libgloss"
-    ;;    
+    ;;
   sh*-*-pe|mips*-*-pe|*arm-wince-pe)
     noconfigdirs="$noconfigdirs ${libgcj}"
     noconfigdirs="$noconfigdirs target-examples"
@@ -732,11 +732,11 @@ case "${target}" in
   i[[3456789]]86-*-mingw32*)
     target_configdirs="$target_configdirs target-winsup"
     noconfigdirs="$noconfigdirs expect target-libgloss target-newlib ${libgcj}"
-    ;;    
+    ;;
   x86_64-*-mingw*)
     target_configdirs="$target_configdirs target-winsup"
     noconfigdirs="$noconfigdirs expect target-libgloss target-newlib ${libgcj}"
-    ;;    
+    ;;
   *-*-cygwin*)
     target_configdirs="$target_configdirs target-libtermcap target-winsup"
     noconfigdirs="$noconfigdirs target-gperf target-libgloss"
@@ -746,7 +746,7 @@ case "${target}" in
     elif test -d "$srcdir/newlib"; then
       echo "Warning: winsup/cygwin is missing so newlib can't be built."
     fi
-    ;;    
+    ;;
   i[[3456789]]86-moss-msdos | i[[3456789]]86-*-moss* | \
   i[[3456789]]86-*-uwin* | i[[3456789]]86-*-interix* )
     ;;
@@ -948,7 +948,7 @@ case "${target}" in
     ;;
   *-*-lynxos*)
     noconfigdirs="$noconfigdirs target-newlib target-libgloss ${libgcj}"
-    ;; 
+    ;;
   *-*-*)
     noconfigdirs="$noconfigdirs ${libgcj}"
     ;;
@@ -1100,7 +1100,7 @@ case "${host}" in
     tentative_cc="cc -Wp,-H256000"
     host_makefile_frag="config/mh-pa"
     ;;
-  hppa*-*)	
+  hppa*-*)
     host_makefile_frag="config/mh-pa"
     ;;
   *-hp-hpux* | *-*-hiux*)
@@ -1505,7 +1505,7 @@ AC_ARG_WITH(ppl, [  --with-ppl=PATH         Specify prefix directory for the ins
 AC_ARG_WITH(ppl_include, [  --with-ppl-include=PATH Specify directory for installed PPL include files])
 AC_ARG_WITH(ppl_lib, [  --with-ppl-lib=PATH     Specify the directory for the installed PPL library])
 
-case $with_ppl in 
+case $with_ppl in
   no)
     ppllibs=
     ;;
@@ -1560,7 +1560,7 @@ AC_ARG_WITH(cloog, [  --with-cloog=PATH       Specify prefix directory for the i
 AC_ARG_WITH(cloog_include, [  --with-cloog-include=PATH Specify directory for installed CLooG include files])
 AC_ARG_WITH(cloog_lib, [  --with-cloog-lib=PATH   Specify the directory for the installed CLooG library])
 
-case $with_cloog in 
+case $with_cloog in
   no)
     clooglibs=
     clooginc=
@@ -1683,7 +1683,7 @@ if test -d ${srcdir}/gcc; then
       # an apparent bug in bash 1.12 on linux.
       ${srcdir}/gcc/[[*]]/config-lang.in) ;;
       *)
-        # From the config-lang.in, get $language, $target_libs, 
+        # From the config-lang.in, get $language, $target_libs,
         # $lang_dirs, $boot_language, and $build_by_default
         language=
         target_libs=
@@ -1927,7 +1927,7 @@ fi
 build_configdirs_all="$build_configdirs"
 build_configdirs=
 for i in ${build_configdirs_all} ; do
-  j=`echo $i | sed -e s/build-//g` 
+  j=`echo $i | sed -e s/build-//g`
   if test -f ${srcdir}/$j/configure ; then
     build_configdirs="${build_configdirs} $i"
   fi
@@ -1944,7 +1944,7 @@ done
 target_configdirs_all="$target_configdirs"
 target_configdirs=
 for i in ${target_configdirs_all} ; do
-  j=`echo $i | sed -e s/target-//g` 
+  j=`echo $i | sed -e s/target-//g`
   if test -f ${srcdir}/$j/configure ; then
     target_configdirs="${target_configdirs} $i"
   fi
@@ -1995,7 +1995,7 @@ ACX_TOOL_DIRS
 
 copy_dirs=
 
-AC_ARG_WITH([build-sysroot], 
+AC_ARG_WITH([build-sysroot],
   [  --with-build-sysroot=SYSROOT
                           use sysroot as the system root during the build],
   [if test x"$withval" != x ; then
@@ -2084,11 +2084,11 @@ fi
 # This is done by determining whether or not the appropriate directory
 # is available, and by checking whether or not specific configurations
 # have requested that this magic not happen.
-# 
-# The command line options always override the explicit settings in 
+#
+# The command line options always override the explicit settings in
 # configure.in, and the settings in configure.in override this magic.
 #
-# If the default for a toolchain is to use GNU as and ld, and you don't 
+# If the default for a toolchain is to use GNU as and ld, and you don't
 # want to do that, then you should use the --without-gnu-as and
 # --without-gnu-ld options for the configure script.
 
@@ -2219,7 +2219,7 @@ case "${target}" in
     target_makefile_frag="config/mt-gnu"
     ;;
   *-*-aix4.[[3456789]]* | *-*-aix[[56789]].*)
-    # nm and ar from AIX 4.3 and above require -X32_64 flag to all ar and nm 
+    # nm and ar from AIX 4.3 and above require -X32_64 flag to all ar and nm
     # commands to handle both 32-bit and 64-bit objects.  These flags are
     # harmless if we're using GNU nm or ar.
     extra_arflags_for_target=" -X32_64"
@@ -2279,7 +2279,7 @@ fi
 # hpux11 in 64bit mode has libraries in a weird place.  Arrange to find
 # them automatically.
 case "${host}" in
-  hppa*64*-*-hpux11*)	
+  hppa*64*-*-hpux11*)
     extra_host_args="$extra_host_args -x-libraries=/usr/lib/pa20_64 -x-includes=/usr/X11R6/include"
     ;;
 esac
@@ -2316,7 +2316,7 @@ if test $? = 0 ; then
   if test -s conftest || test -s conftest.exe ; then
     we_are_ok=yes
   fi
-fi 
+fi
 case $we_are_ok in
   no)
     echo 1>&2 "*** The command '${CC} -o conftest ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} conftest.c' failed."
@@ -2695,7 +2695,7 @@ baseargs=`echo "x$baseargs" | sed -e 's/^x *//' -e 's,\\$,$$,g'`
 # --program-suffix have been applied to it.  Autoconf has already
 # doubled dollar signs and backslashes in program_transform_name; we want
 # the backslashes un-doubled, and then the entire thing wrapped in single
-# quotes, because this will be expanded first by make and then by the shell. 
+# quotes, because this will be expanded first by make and then by the shell.
 # Also, because we want to override the logic in subdir configure scripts to
 # choose program_transform_name, replace any s,x,x, with s,y,y,.
 sed -e "s,\\\\\\\\,\\\\,g; s,','\\\\'',g; s/s,x,x,/s,y,y,/" <<EOF_SED > conftestsed.out
@@ -3000,7 +3000,7 @@ AC_SUBST(CFLAGS)
 AC_SUBST(CXXFLAGS)
 
 # Target tools.
-AC_ARG_WITH([build-time-tools], 
+AC_ARG_WITH([build-time-tools],
   [  --with-build-time-tools=PATH
                           use given path to find target tools during the build],
   [case x"$withval" in
@@ -3098,7 +3098,7 @@ if test "$USE_MAINTAINER_MODE" = yes; then
 else
   MAINTAINER_MODE_TRUE='#'
   MAINTAINER_MODE_FALSE=
-fi	
+fi
 MAINT=$MAINTAINER_MODE_TRUE
 AC_SUBST(MAINT)dnl
 

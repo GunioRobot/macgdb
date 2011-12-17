@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -51,6 +51,6 @@ typedef struct CMA__T_SEQUENCE {
 
 extern cma_t_natural cma__assign_sequence (cma__t_sequence *);
 
-extern void cma__init_sequence (cma__t_sequence *);	
+extern void cma__init_sequence (cma__t_sequence *);
 
 #endif

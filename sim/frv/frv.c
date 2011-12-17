@@ -172,7 +172,7 @@ check_register_alignment (SIM_CPU *current_cpu, UINT reg, int align_mask)
       SIM_DESC sd = CPU_STATE (current_cpu);
       switch (STATE_ARCHITECTURE (sd)->mach)
 	{
-	  /* Note: there is a discrepancy between V2.2 of the FR400 
+	  /* Note: there is a discrepancy between V2.2 of the FR400
 	     instruction manual and the various FR4xx LSI specs.
 	     The former claims that unaligned registers cause a
 	     register_exception while the latter say it's an

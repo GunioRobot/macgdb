@@ -4,9 +4,9 @@
 # as(h8300h):	--defsym sim_cpu=1
 # as(h8300s):	--defsym sim_cpu=2
 # as(h8sx):	--defsym sim_cpu=3
-# ld(h8300h):	-m h8300helf	
-# ld(h8300s):	-m h8300self	
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8300h):	-m h8300helf
+# ld(h8300s):	-m h8300self
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
@@ -34,7 +34,7 @@ byte_dest:	.byte 0xa5
 post_byte:	.byte 0
 
 	start
-	
+
 .if (0)				; Guess what?  Sub.b immediate reg8 is illegal!
 sub_b_imm8_reg:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -72,7 +72,7 @@ sub_b_imm8_rdind:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_set
-	
+
 	test_h_gr32 byte_dest, er0	; er0 still contains address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -105,7 +105,7 @@ sub_b_imm8_rdpostinc:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_set
-	
+
 	test_h_gr32 post_byte, er0	; er0 still contains address plus one
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -138,7 +138,7 @@ sub_b_imm8_rdpostdec:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_set
-	
+
 	test_h_gr32 pre_byte, er0	; er0 still contains address minus one
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2

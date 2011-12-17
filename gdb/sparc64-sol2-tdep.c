@@ -74,7 +74,7 @@ sparc64_sol2_sigtramp_frame_cache (struct frame_info *this_frame,
   cache->saved_regs[SPARC64_PC_REGNUM].addr = mcontext_addr + 1 * 8;
   cache->saved_regs[SPARC64_NPC_REGNUM].addr = mcontext_addr + 2 * 8;
   cache->saved_regs[SPARC64_Y_REGNUM].addr = mcontext_addr + 3 * 8;
-  cache->saved_regs[SPARC64_ASI_REGNUM].addr = mcontext_addr + 19 * 8; 
+  cache->saved_regs[SPARC64_ASI_REGNUM].addr = mcontext_addr + 19 * 8;
   cache->saved_regs[SPARC64_FPRS_REGNUM].addr = mcontext_addr + 20 * 8;
 
   /* Since %g0 is always zero, keep the identity encoding.  */

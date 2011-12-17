@@ -24,7 +24,7 @@ zeroone:
 	mov #1, r1
 	cmp/gt r0, r1
 	bf wrong
-	
+
 equal:
 	mov #192, r0
 	mov #192, r1
@@ -40,7 +40,7 @@ eqlarge:
 	add #85, r1
 	cmp/gt r0, r1
 	bt wrong
-	
+
 large2:
 	mov #1, r0
 	rotr r0
@@ -66,4 +66,4 @@ okay:
 
 wrong:
 	fail
-	
+

@@ -5,7 +5,7 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
@@ -22,7 +22,7 @@ long_dst:
 
 	;;
 	;; Move long from immediate source
-	;; 
+	;;
 
 .if (sim_cpu == h8sx)
 mov_l_imm3_to_reg32:
@@ -1091,7 +1091,7 @@ mov_l_imm32_to_abs32:
 
 	;;
 	;; Move long from register source
-	;; 
+	;;
 
 mov_l_reg32_to_reg32:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -1463,7 +1463,7 @@ mov_l_reg32_to_abs32:
 
 	;;
 	;; Move long to register destination.
-	;; 
+	;;
 
 mov_l_indirect_to_reg32:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -1600,7 +1600,7 @@ mov_l_predec_to_reg32:		; pre-decrement from mem to register
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 
-	
+
 mov_l_disp2_to_reg32:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -1739,7 +1739,7 @@ mov_l_abs32_to_reg32:
 
 	;;
 	;; Move long from memory to memory
-	;; 
+	;;
 
 mov_l_indirect_to_indirect:	; reg indirect, memory to memory
 	set_grs_a5a5		; Fill all general regs with a fixed pattern

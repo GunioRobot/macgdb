@@ -3,7 +3,7 @@
 	start
 
 	PSW_BITS = PSW_C|PSW_F0|PSW_F1
-	
+
 	ldi	r6, #success@word
 	mvtc	r6, bpc
 	ldi	r6, #PSW_BITS

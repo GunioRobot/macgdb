@@ -6,7 +6,7 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
@@ -18,7 +18,7 @@
 
 	start
 .if (sim_cpu)			; 32 bit only
-adds_1:	
+adds_1:
 	set_grs_a5a5
 	set_ccr_zero
 
@@ -52,7 +52,7 @@ adds_2:
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 
-adds_4:	
+adds_4:
 	set_grs_a5a5
 	set_ccr_zero
 
@@ -70,5 +70,5 @@ adds_4:
 	test_gr_a5a5 7
 
 	pass
-.endif	
+.endif
 	exit 0

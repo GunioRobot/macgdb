@@ -122,7 +122,7 @@ Fri Dec  1 05:16:42 1989  Jim Kingdon  (kingdon at hobbes.ai.mit.edu)
 
 	* valops.c (check_field): When following pointers, just get
 	their types; don't call value_ind.
-	
+
 Thu Nov 30 14:45:29 1989  Jim Kingdon  (kingdon at hobbes.ai.mit.edu)
 
 	* config.gdb (pyr): New machine.
@@ -495,7 +495,7 @@ Fri Sep  8 14:24:01 1989  Jim Kingdon  (kingdon at hobbes.ai.mit.edu)
 	print symbolic address.
 
 	* sparc-opcode.h (sethi, set): Change lose from 0xc0000000 to
-	0xc0c00000000. 
+	0xc0c00000000.
 
 	* remote.c (remote_desc): Initialize to -1.
 
@@ -921,7 +921,7 @@ Mon Aug 14 15:27:01 1989  Jim Kingdon  (kingdon at hobbes.ai.mit.edu)
 
 	* utils.c (fputs_filtered): Check for linebuffer null before
 	checking whether to call fputs.  Remove later check for linebuffer
-	null.  
+	null.
 
 Sun Aug 13 15:56:50 1989  Jim Kingdon  (kingdon at hobbes.ai.mit.edu)
 
@@ -994,7 +994,7 @@ Wed Aug  9 14:20:39 1989  Jim Kingdon  (kingdon at hobbes.ai.mit.edu)
 	* m-sun3os4.h: Define BROKEN_LARGE_ALLOCA.
 
 	* values.c (modify_field): Check for value too large to fit in
-	bitfield. 
+	bitfield.
 
 	* utils.c (fputs_filtered): Allow LINEBUFFER to be NULL.
 
@@ -1021,12 +1021,12 @@ Wed Aug  9 11:56:05 1989  Randy Smith  (randy at hobbes.ai.mit.edu)
 
 	* blockframe.c (outside_startup_file): Reverse the sense of the
 	return value to make the functionality implied by the name
-	correct. 
+	correct.
 
 Tue Aug  8 11:48:38 1989  Jim Kingdon  (kingdon at hobbes.ai.mit.edu)
 
 	* coffread.c (symbol_file_command): Do  not assume presence of a.out
-	header. 
+	header.
 
 	* blockframe.c: Replace first_object_file_end with
 	startup_file_{start,end}
@@ -1124,7 +1124,7 @@ Fri Jul 28 00:07:48 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 Thu Jul 27 15:14:03 1989  Randy Smith  (randy at hobbes.ai.mit.edu)
 
 	* infrun.c (signals_info): Error if signal number passed is out of
-	bounds. 
+	bounds.
 
 	* defs.h: Define alloca to be __builtin_alloca if compiling with
 	gcc and localized inclusion of alloca.h on the sparc with the
@@ -1169,14 +1169,14 @@ Tue Jul 18 22:57:43 1989  Randy Smith  (roland at hobbes.ai.mit.edu)
 
 	* m-news.h [REGISTER_U_ADDR]: Decreased the assumed offset of fp0
 	by 4 to bring it into (apparently) appropriate alignment with
-	reality. 
+	reality.
 
 Tue Jul 18 18:14:42 1989  Randy Smith  (randy at hobbes.ai.mit.edu)
 
 	* Makefile: pinsn.o should depend on opcode.h
 
 	* m68k-opcode.h: Moved fmovemx with register lists to before other
-	fmovemx. 
+	fmovemx.
 
 Tue Jul 18 11:21:42 1989  Jim Kingdon  (kingdon at susie)
 
@@ -1252,7 +1252,7 @@ Mon Jul 10 00:34:29 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	though they should never happen).
 
 	* source.c (openp): If the path is null, use the current
-	directory. 
+	directory.
 
 	* dbxread.c (read_dbx_symtab): Put N_SETV symbols into the misc
 	function vector ...
@@ -1269,7 +1269,7 @@ Mon Jul 10 00:34:29 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	isn't integral.
 
 	* Makefile: Added removal of core and gdb[0-9] files to clean
-	target. 
+	target.
 
 	* Makefile: Made a new target "distclean", which cleans things up
 	correctly for making a distribution.
@@ -1297,12 +1297,12 @@ Sat Jul  8 18:12:01 1989  Randy Smith  (randy at hobbes.ai.mit.edu)
 
 	* valprint.c (val_print): Changed assignment of pretty to use
 	prettyprint as a conditional rather than rely on values of the
-	enum. 
+	enum.
 
 	* Projects: Cleaned up a little for release.
 
 	* main.c (initialize_main): Initialize
-	rl_completion_entry_function instead of completion_entry_function. 
+	rl_completion_entry_function instead of completion_entry_function.
 
 	* Makefile: Modified to use the new readline library setup.
 
@@ -1311,7 +1311,7 @@ Sat Jul  8 18:12:01 1989  Randy Smith  (randy at hobbes.ai.mit.edu)
 	xgdb usage triggered off of xgdb_verbose.
 	* main.c (main): Added check for flag to set xgdb_verbose.
 	* stack.c (frame_command): Set frame_changed when frame command
-	used. 
+	used.
 
 Fri Jul  7 16:20:58 1989  Jim Kingdon  (kingdon at hobbes.ai.mit.edu)
 
@@ -1372,7 +1372,7 @@ Thu Jul  6 14:28:11 1989  Jim Kingdon  (kingdon at apple-gunkies.ai.mit.edu)
 	prettyprinting parameter to val{,ue}_print.
 	expprint.c, infcmd.c, printcmd.c, valprint.c, values.c:
 	Change all calls to val{,ue}_print to use new parameter.
-	
+
 Mon Jul  3 22:38:11 1989  Randy Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* dbxread.c (,process_one_symbol): Moved extern declaration for
@@ -1508,7 +1508,7 @@ Fri Jun 23 13:12:08 1989  Randall Smith  (randy at plantaris.ai.mit.edu)
 	(since it's defined in utils.c).
 
 	* remote.c (remote_open): Close remote_desc if it's already been
-	opened. 
+	opened.
 
 	* Remote_Makefile, remote_gutils.c, remote_inflow.c,
 	remote_server.c, remote_utils.c: Combined into remote-multi.shar.
@@ -1518,7 +1518,7 @@ Fri Jun 23 13:12:08 1989  Randall Smith  (randy at plantaris.ai.mit.edu)
 
 	* dbxread.c (read_dbx_symtab): Put an N_FN in with N_FN | N_EXT to
 	account for those machines which don't use the external bit here.
-	Sigh. 
+	Sigh.
 
 	* m-symmetry.h: Defined NO_SIGINTERRUPT.
 
@@ -1538,7 +1538,7 @@ Wed Jun 21 10:30:01 1989  Randy Smith  (randy at tartarus.uchicago.edu)
 
 	* expread.y (parse_number, [exp]): Allowed for the return of a
 	number marked as unsigned; this will allow inclusion of unsigned
-	constants. 
+	constants.
 
 	* symtab.h: Put in default definitions for BUILTIN_TYPE_LONGEST
 	and BUILTIN_TYPE_UNSIGNED_LONGEST.
@@ -1555,7 +1555,7 @@ Tue Jun 20 14:25:54 1989  Randy Smith  (randy at tartarus.uchicago.edu)
 	to go through printf_filtered.
 
 	* symtab.c (list_symbols): Placed header message after all calls
-	to psymtab_to_symtab. 
+	to psymtab_to_symtab.
 
 	* symtab.c (smash_to_{function, reference, pointer}_type): Carried
 	attribute of permanence for the type being smashed over the bzero
@@ -1574,10 +1574,10 @@ Mon Jun 19 17:10:16 1989  Randy Smith  (randy at tartarus.uchicago.edu)
 	* Makefile: Fixed typo.
 
 	* valops.c (call_function): Error if the inferior has not been
-	started. 
+	started.
 
 	* ns32k-opcode.h [check[wc], cmpm[bwd], movm[bwd], skpsb]: Fixed
-	typos. 
+	typos.
 
 Fri Jun  9 16:23:04 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -1643,7 +1643,7 @@ Thu Jun  1 16:33:07 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* infrun.c (wait_for_inferior), symtab.c (decode_line_1),
 	m-convex.h: Changed name of FIRSTLINE_DEBUG_BROKEN to
-	PROLOGUE_FIRSTLINE_OVERLAP. 
+	PROLOGUE_FIRSTLINE_OVERLAP.
 
 	* m-merlin.h: Fixed typo.
 	* ns32k-opcode.h: Added ns32381 opcodes and "cinv" insn, and fixed
@@ -1741,7 +1741,7 @@ Mon May 22 13:08:25 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 	that the debugging symbols output by the compiler for the first
 	line of a function were broken.
 	* infrun.c (wait_for_inferior), symtab.c (decode_line_1): Used.
-	
+
 	* gdb.texinfo [Data, Memory]: Minor cleanups of phrasing.
 
 Fri May 19 00:16:59 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
@@ -1773,14 +1773,14 @@ Wed May 17 13:37:45 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	==> strncmp.
 
 	* dbxread.c (read_dbx_symtab): Change 'G' case to mark symbols as
-	LOC_EXTERNAL. 
+	LOC_EXTERNAL.
 
 	* expread.y [variables]: Changed default type of text symbols to
 	function returning int so that one can use, eg. strcmp.
 
 	* infrun.c (wait_for_inferior): Include a special flag indicating
 	that one shouldn't insert the breakpoints on the next step for
-	returning from a sigtramp and forcing at least one move forward. 
+	returning from a sigtramp and forcing at least one move forward.
 
 	* infrun.c (wait_for_inferior): Change test for nexting into a
 	function to check for current stack pointer inner than previous
@@ -1794,12 +1794,12 @@ Wed May 17 13:37:45 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	before inserting breakpoints.
 
 	* infrun.c (wait_for_inferior): Inserted special case to keep
-	going after taking a signal we are supposed to be taking.  
+	going after taking a signal we are supposed to be taking.
 
 Tue May 16 12:49:55 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 
 	* inflow.c (terminal_ours_1): Cast result of signal to (int
-	(*)()). 
+	(*)()).
 
 	* gdb.texinfo: Made sure that references to the program were in
 	upper case.  Modify description of the "set prompt" command.
@@ -1824,7 +1824,7 @@ Tue May 16 12:49:55 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 Mon May 15 12:11:33 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* symtab.c (lookup_symtab): Fixed typo (name ==> copy) in call to
-	lookup_symtab_1. 
+	lookup_symtab_1.
 
 	* gdb.texinfo: Added documentation for "break [+-]n" and for new
 	actions of "directory" command (taking multiple directory names at
@@ -1844,7 +1844,7 @@ Mon May 15 12:11:33 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	(_initialize_printcmd): Changed to use second as command to call.
 	(delete_current_display, disable_current_display): Changed name of
 	first to second, and changed functionality to match.
-	* infrun.c (normal_stop), main.c (return_to_top_level): Changed to 
+	* infrun.c (normal_stop), main.c (return_to_top_level): Changed to
 	call disable_current_display.
 
 	* dbxread.c (process_one_symbol, read_dbx_symtab): Changed N_FN to
@@ -1857,7 +1857,7 @@ Mon May 15 12:11:33 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* README: Included a note about them.
 
 	* printcmd.c (print_address): Use find_pc_partial_function to
-	remove need to readin symtabs for symbolic addresses.  
+	remove need to readin symtabs for symbolic addresses.
 
 	* source.c (directory_command): Replaced function with new one
 	that can accept lists of directories seperated by spaces or :'s.
@@ -1879,20 +1879,20 @@ Sun May 14 12:33:16 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	argument list.
 
 	* dbxread.c (read_dbx_symtab, ): Moved HASH_OFFSET define out of
-	read_dbx_symtab. 
+	read_dbx_symtab.
 
 	* expread.y [variable]: Changed default type of misc function in
 	text space to be (void ()).
 
 	* Makefile: Modified for proper number of s/r conflicts (order is
 	confusing; the mod that necessitated this change was on May 12th,
-	not today). 
+	not today).
 
 	* expread.y (yylex): Added SIGNED, LONG, SHORT, and INT keywords.
 	[typename]: Created.
 	[typebase]: Added rules for LONG, LONG INT, SHORT, SHORT INT,
 	SIGNED name, and UNSIGNED name (a good approximation of ansi
-	standard). 	
+	standard).
 
 	* Makefile: Included .c.o rule to avoid sun's make from throwing
 	any curves at us.
@@ -1901,8 +1901,8 @@ Sun May 14 12:33:16 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* command.c (lookup_cmd): Clear out trailing whitespace.
 
-	* command.c (lookup_cmd_1): Changed malloc to alloca.  
-	
+	* command.c (lookup_cmd_1): Changed malloc to alloca.
+
 Fri May 12 12:13:12 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* printcmd.c (print_frame_args): Only print nameless args when you
@@ -1911,7 +1911,7 @@ Fri May 12 12:13:12 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	printed args.
 
 	* symtab.c (make_symbol_completion_function): Fixed typo (= ==>
-	==). 
+	==).
 
 	* remote.c (remote_open): ifdef'd out siginterrupt call by #ifndef
 	NO_SIGINTERRUPT.
@@ -1941,12 +1941,12 @@ Thu May 11 13:11:49 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	called with EVAL_AVOID_SIDE_EFFECTS.
 
 	* Makefile: Moved dbxread.c ahead of coffread.c in the list of
-	source files. 
+	source files.
 
 Wed May 10 11:29:19 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* munch: Make sure that sysv version substitutes for the whole
-	line. 
+	line.
 
 	* symtab.h: Created an enum misc_function_type to hold the type of
 	the misc function being recorded.
@@ -1991,7 +1991,7 @@ Fri May  5 16:49:01 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* valprint.c (type_print_varspec_{prefix,suffix}): Arrange to
 	parenthesisze pointers to arrays as well as pointers to other
-	objects. 
+	objects.
 
 	* valprint.c (type_print_varspec_suffix): Make sure to print
 	subscripts of multi-dimensional arrays in the right order.
@@ -2000,7 +2000,7 @@ Fri May  5 16:49:01 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	within remote debugging branch.
 
 	* Makefile: Added Convex.notes to the list of extra files to carry
-	around. 
+	around.
 
 	* dbxread.c (symbol_file_command): Made use of alloca or malloc
 	dependent on macro define.
@@ -2015,7 +2015,7 @@ Thu May  4 15:47:04 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* coffread.c: Made fclose be of type int.
 
 	* breakpoint.c (_initialize_breakpoint): Put "unset" into class
-	alias. 
+	alias.
 
 Wed May  3 14:09:12 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -2047,29 +2047,29 @@ Mon May  1 13:07:03 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	reading in registers.
 
 	* expread.y: Allowed a BLOCKNAME to be ok for a variable name (as
-	per C syntax). 
+	per C syntax).
 
 	* dbxread.c (psymtab_to_symtab): Flushed stdout after printing
 	starting message about reading in symbols.
 
 	* printcmd.c (print_frame_args): Switched starting place for
 	printing of frameless args to be sizeof int above last real arg
-	printed. 
+	printed.
 
 	* printcmd.c (print_frame_args): Modified final call to
 	print_nameless_args to not use frame slots used array if none had
-	been used. 
+	been used.
 
 	* infrun.c (wait_for_inferior):  Take FUNCTION_START_OFFSET into
 	account when dealing with comparison of pc values to function
-	addresses. 
+	addresses.
 
 	* Makefile: Added note about compiling gdb on a Vax running 4.3.
 
 Sun Apr 30 12:59:46 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* command.c (lookup_cmd): Got correct error message on bad
-	command.  
+	command.
 
 	* m-sun3.h [ABOUT_TO_RETURN]: Modified to allow any of the return
 	instructions, including trapv and return from interupt.
@@ -2093,10 +2093,10 @@ Wed Apr 26 13:03:20 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* default-dep.c (core_file_command): Fixed typo.
 
 	* utils.c (fprintf_filtered): Don't use return value from
-	numchars. 
+	numchars.
 
 	* main.c, command.c (complete_on_cmdlist): Moved function to
-	command.c. 
+	command.c.
 
 	* command.c (lookup_cmd): Modified to use my new routine.  Old
 	version is still there, ifdef'd out.
@@ -2109,7 +2109,7 @@ Tue Apr 25 12:37:54 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 
 	* breakpoint.c (_initialize_breakpoint): Change "delete
 	breakpionts" to be in class alias and not have the abbrev flag
-	set. 
+	set.
 
 	* main.c (symbol_completion_function): Fix to correctly complete
 	things that correspond to multiword aliases.
@@ -2151,10 +2151,10 @@ Thu Apr 20 11:12:34 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 	* breakpoint.c (break_command_1): Only give decode_line_1 the
 	default_breakpoint_defaults if there's nothing better (ie. make
 	the default be off of the current_source notes if at all
-	possible). 
+	possible).
 
 	* blockframe.c (get_prev_frame_info): Clean up comments and
-	delete code ifdefed out around FRAMELESS_FUNCTION_INVOCATION test. 
+	delete code ifdefed out around FRAMELESS_FUNCTION_INVOCATION test.
 
 	* remote.c: Added a "?" message to protocol.
 	(remote_open): Used at startup.
@@ -2311,7 +2311,7 @@ Wed Apr 12 15:30:29 1989  Randall Smith  (randy at plantaris.ai.mit.edu)
 	when a "frame" is called without a frame pointer being setup.
 
 	* Makefile [clean]: Made sure to delete gnu malloc if it was being
-	used. 
+	used.
 
 Mon Apr 10 12:43:49 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -2325,7 +2325,7 @@ Mon Apr 10 12:43:49 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	would be used if USG was defined and HAVE_VFORK was not defined.
 
 	* defs.h: Added comment about enum command_class element
-	class_alias. 
+	class_alias.
 
 	* dbxread.c (process_one_symbol): Fixed a typo with interesting
 	implications for associative processing in the brain (':' ==> 'c').
@@ -2365,7 +2365,7 @@ Fri Apr  7 15:22:18 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* infrun.c (wait_for_inferior): Used instead of
 	find_pc_function_start.
 	* stack.c (print_frame_info): Used instead of hand coding for same
-	thing. 
+	thing.
 
 	* dbxread.c (psymtab_to_symtab): No longer patch readin pst's out
 	of the partial_symtab_list; need them there for some checks.
@@ -2401,7 +2401,7 @@ Thu Apr  6 12:42:28 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	saved).
 	(read_command_lines): Fixed typo; you don't what to repeat when
 	reading command lines from the input stream unless it's standard
-	input. 
+	input.
 
         John Gilmore's (gnu@toad.com) mods for USG gdb:
 	* inflow.c: Removed inclusion of sys/user.h; no longer necessary.
@@ -2430,14 +2430,14 @@ Wed Apr  5 13:47:24 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* Makefile: Added explicit directions for alloca addition.
 	Included alloca.c in list of possible library files. Cleaned up
 	possible library usage.  Included additional information on gcc
-	and include files.  
+	and include files.
 
 	* source.c, remote.c, inflow.c, dbxread.c, core.c, coffread.c:
 	Changed include of sys/fcntl.h to an include of fcntl.h (as per
 	posix; presumably this will break fewer machines.  I hopw).
 	* README: Added a pointer to comments at top of Makefile.
 	* Makefile: Added a comment about machines which need fcntl.h in
-	sys. 
+	sys.
 
 Tue Apr  4 11:29:04 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -2501,7 +2501,7 @@ Mon Apr  3 12:48:16 1989  Randall Smith  (randy at plantaris.ai.mit.edu)
 	off the the start sp is 0.
 
 	* blockframe.c (get_prev_frame_info): Removed check to see if we
-	were in start.  Screws up sparc.  
+	were in start.  Screws up sparc.
 
 	* m-sparc.h (FRAME_FIND_SAVED_REGISTERS): Changed test for dummy
 	frame to not need frame to be innermost.
@@ -2630,7 +2630,7 @@ Thu Mar 16 15:39:42 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	frame to value of fp (rather than value of sp in current frame).
 
 	* expread.y: Allow "unsigned" as a type itself, as well as a type
-	modifier. 
+	modifier.
 
 	* coffread.c: Added declaration for fclose
 
@@ -2643,7 +2643,7 @@ Fri Mar  3 00:31:27 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 
 	* remote.c (remote_open): Cast return from signal to (void (*)) to
 	avoid problems on machines where the return type of signal is (int
-	(*)). 
+	(*)).
 
 	* Makefile: Removed deletion of version control from it (users
 	will need it for their changes).
@@ -2687,7 +2687,7 @@ Wed Mar  1 17:01:01 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 Fri Feb 24 14:58:45 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* hp9k320-dep.c (store_inferior_registers,
-	fetch_inferior_registers): Added support for remote debugging. 
+	fetch_inferior_registers): Added support for remote debugging.
 
 	* remote.c (remote_timer): Created.
 	(remote_open, readchar): Setup to timeout reads if they take
@@ -2708,13 +2708,13 @@ Fri Feb 24 14:58:45 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	is not defined.
 
 	* gdb.texinfo: Added cross reference from attach command to remote
-	debugging. 
+	debugging.
 
 Thu Feb 23 12:37:59 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* remote.c (remote_close): Created to close the remote connection
 	and set the remote_debugging flag to 0.
-	* infcmd.c (detach_command): Now calls the above when appropriate. 
+	* infcmd.c (detach_command): Now calls the above when appropriate.
 
 	* gdb.texinfo: Removed references to the ``Distribution'' section
 	in the copyright.
@@ -2768,7 +2768,7 @@ Sat Feb 18 16:35:14 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	(pagination); changing "Input" section to "User Interface"
 	section.  Changed many inappropriate subsubsection nodes into
 	subsections nodes (in the readline and history expansion
-	sections). 
+	sections).
 
 Fri Feb 17 11:10:54 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -2780,7 +2780,7 @@ Fri Feb 17 11:10:54 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	sys/stat.h for this.
 
 	* valprint.c (type_print_base): Changed calls to print_spaces to
-	print_spaces_filtered. 
+	print_spaces_filtered.
 
 	* main.c (command_line_input): Chaned test for command line
 	editing to check for stdin and isatty.
@@ -2822,7 +2822,7 @@ Wed Feb 15 15:27:36 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 	filter, prompting the user for a <return> whenever the page length
 	is overflowed.
 
-	* symtab.c (list_symbols): Elminated some code inside of an #if 0. 
+	* symtab.c (list_symbols): Elminated some code inside of an #if 0.
 
 Tue Feb 14 11:11:24 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 
@@ -2930,12 +2930,12 @@ Thu Feb  9 13:21:19 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* readline.c, readline.h, history.c, history.h, general.h,
 	emacs_keymap.c, vi_keymap.c, keymaps.c, funmap.c: Made all of
 	these links to /gp/gnu/bash/* to keep them updated.
-	* main.c (initialize_main): Made default be command editing on. 
+	* main.c (initialize_main): Made default be command editing on.
 
 Wed Feb  8 13:32:04 1989  & Smith  (randy at hobbes)
 
 	* dbxread.c (read_dbx_symtab): Ignore N_BSLINE on first
-	readthrough. 
+	readthrough.
 
 	* Makefile: Removed convex-dep.c from list of distribution files.
 
@@ -2966,14 +2966,14 @@ Mon Feb  6 16:25:25 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	write_history_p, history_filename.  Initialized them to default
 	values in initialize_main.
 
-	* infcmd.c (registers_info), infrun.c (signals_info), 
+	* infcmd.c (registers_info), infrun.c (signals_info),
 	* main.c (gdb_read_line): Changed name to command_line_input.
 	(readline): Changed name to gdb_readline; added second argument
 	indicating that the read value shouldn't be saved (via malloc).
 	* infcmd.c (registers_info), infrun.c (signals_info), main.c
 	(copying_info), symtab.c (output_source_filename, MORE,
 	list_symbols): Converted to use gdb_readline in place of
-	gdb_read_line. 
+	gdb_read_line.
 
 
 Sun Feb  5 17:34:38 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
@@ -2986,7 +2986,7 @@ Sat Feb  4 17:54:14 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* main.c (gdb_read_line, readline): Added function readline and
 	converted gdb_read_line to use it.  This was a conversion to the
 	line at a time style of input, in preparation for full command
-	editing. 
+	editing.
 
 Fri Feb  3 12:39:03 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -2999,7 +2999,7 @@ Fri Feb  3 12:39:03 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* m-sun2os2.h: Deleted; not needed.
 
 	* config.gdb: Added a couple of aliases for machines in the
-	script. 
+	script.
 
 	* infrun.c: Added inclusion of aouthdr.h inside of #ifdef UMAX
 	because ptrace needs to know about the a.out header.
@@ -3022,7 +3022,7 @@ Thu Feb  2 16:27:06 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	defined since 1) We *may* (recent mail message) want to define
 	AOUTHDR under a basically BSD system, and 2) AOUTHDR is sometimes
 	a typedef in coff encapsulation setups.  Also removed #define's of
-	AOUTHDR if AOUTHDR is already defined (inside of coff format).  
+	AOUTHDR if AOUTHDR is already defined (inside of coff format).
 	* core.c, dbxread.c: Removed #define's of AOUTHDR if AOUTHDR is
 	already defined (inside of coff format).
 
@@ -3032,7 +3032,7 @@ Tue Jan 31 12:56:01 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* values.c (modify_field): Changed test for endianness to assign
 	to integer and reference character (so that all bits would be
-	defined). 
+	defined).
 
 Mon Jan 30 11:41:21 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -3043,7 +3043,7 @@ Mon Jan 30 11:41:21 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	COFF_FORMAT.
 
 	* config.gdb: Added checks for several different operating
-	systems. 
+	systems.
 
 	* coffread.c (read_struct_type): Put in a flag variable so that
 	one could tell when you got to the end of a structure.
@@ -3086,7 +3086,7 @@ Thu Jan 26 15:08:03 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 	DECLARE_FILE_HEADERS.  Changed access to use STRING_TABLE_SIZE and
 	SYMBOL_TABLE_SIZE.
 	* gld-pinsn.c (findframe): Added declaration of framechain() as
-	FRAME_ADDR. 
+	FRAME_ADDR.
 
 	* coffread.c (read_coff_symtab): Avoided treating typedefs as
 	external symbol definitions.
@@ -3142,7 +3142,7 @@ Mon Jan 23 15:08:51 1989  Randall Smith  (randy at plantaris.ai.mit.edu)
 	if they are defined.  Assumed that the length of a range type is
 	the length of the target type; this is a lie, but will do until
 	somebody gets back to me as to what these silly dbx symbols mean.
-	
+
 	* dbxread.c (read_range_type): Added code to be more picky about
 	recognizing builtins as range types, to treat types defined as
 	subranges of themselves to be subranges of int, and to recognize
@@ -3179,7 +3179,7 @@ Fri Jan 20 12:25:35 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	isn't any frame selected.
 
 	* core.c: Made a change for the UMAX system; needs a different
-	file included if using that core format. 
+	file included if using that core format.
 
 	* Makefile: Deleted duplicate obstack.h in dbxread.c dependency.
 
@@ -3190,7 +3190,7 @@ Fri Jan 20 12:25:35 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* defs.h: Declared the new functions.
 	* main.c (catch_errors): Made sure that the only cleanups which
 	would be done were the ones put on the chain *after* the current
-	location. 
+	location.
 
 	* m-*.h (FRAME_CHAIN_VALID): Removed check on pc in the current
 	frame being valid.
@@ -3221,11 +3221,11 @@ Fri Jan 20 12:25:35 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 Thu Jan 19 11:01:22 1989  Randall Smith  (randy at plantaris.ai.mit.edu)
 
 	* infcmd.c (run_command): Changed error message to "Program not
-	restarted." 
+	restarted."
 
 	* value.h: Changed "frame" field in value structure to be a
 	FRAME_ADDR (actually CORE_ADDR) so that it could survive across
-	calls. 
+	calls.
 
 	* m-sun.h (FRAME_FIND_SAVED_REGS): Fixed a typo.
 
@@ -3251,7 +3251,7 @@ Thu Jan 19 11:01:22 1989  Randall Smith  (randy at plantaris.ai.mit.edu)
 Wed Jan 18 20:09:39 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* value.h: Deleted struct partial_storage; left over from
-	yesterday. 
+	yesterday.
 
 	* findvar.c (value_from_register): Added code to create a value of
 	type lval_reg_partsaved if a value is in seperate registers and
@@ -3275,13 +3275,13 @@ Tue Jan 17 13:50:18 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* Makefile: Added dependencies on a.out.encap.h.  Made
 	a.out.encap.h dependent on a.out.gnu.h and dbxread.c dependent on
-	stab.gnu.h. 
+	stab.gnu.h.
 
 	* infrun.c, remote.c: Removed inclusion of any a.out.h files in
 	these files; they aren't needed.
 
 	* README: Added comment about bug reporting and comment about
-	xgdb. 
+	xgdb.
 
 	* Makefile: Added note to HPUX dependent section warning about
 	problems if compiled with gcc and mentioning the need to add
@@ -3292,7 +3292,7 @@ Tue Jan 17 13:50:18 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* Makefile: Added TSOBS NTSOBS OBSTACK and REGEX to list of things
 	to delete in "make clean".  Also changed "squeakyclean" target as
-	"realclean". 
+	"realclean".
 
 	* findvar.c (value_from_register): Added assignment of VALUE_LVAL
 	to be lval_memory when that is appropriate (original code didn't
@@ -3339,7 +3339,7 @@ Fri Jan 13 12:22:05 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* config.gdb: Added i386-dep.c as depfile for i386gas choice.
 
 	* munch: Added -I. to cc to pick up things included by the param
-	file. 
+	file.
 
 	* stab.gnu.def: Changed name to stab.def (stab.gnu.h needs this name).
 	* Makefile: Changed name here also.
@@ -3404,7 +3404,7 @@ Wed Jan 11 12:51:00 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* infrun.c (wait_for_inferior): Removed test in "Have we hit
 	step_resume_breakpoint" for sp values in proper orientation.  Was
 	in there for recursive calls in functions without frame pointers
-	and it was screwing up calls to alloca.  
+	and it was screwing up calls to alloca.
 
 	* dbxread.c: Added #ifdef COFF_ENCAPSULATE to include
 	a.out.encap.h.
@@ -3428,7 +3428,7 @@ Wed Jan 11 12:51:00 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 Tue Jan 10 17:04:04 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* xgdb.c (xgdb_create_window): Removed third arg (XtDepth) to
-	frameArgs.  
+	frameArgs.
 
 	* infrun.c (handle_command): Error if signal number is less or
 	equal to 0 or greater or equal to NSIG or a signal number is not
@@ -3441,7 +3441,7 @@ Tue Jan 10 17:04:04 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 Fri Jan  6 17:57:34 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* dbxread.c: Changed "text area" to "data area" in comments on
-	N_SETV. 
+	N_SETV.
 
 Wed Jan  4 12:29:54 1989  Randall Smith  (randy at gluteus.ai.mit.edu)
 
@@ -3466,7 +3466,7 @@ Mon Jan  2 20:38:31 1989  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* m-*.h (FRAME_SAVED_PC): Changed name of argument from "frame" to
 	"FRAME" to avoid problems with replacement of "->frame" part of
-	macro. 
+	macro.
 
 	* i386-dep.c (i386_get_frame_setup): Added codestream_get() to
 	move codestream pointer up to the correct location in "subl $X,
@@ -3486,7 +3486,7 @@ Fri Dec 30 12:13:35 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* Checkpointed distribution.
 
 	* Makefile: Added expread.tab.c to the list of things slated for
-	distribution. 
+	distribution.
 
 Thu Dec 29 10:06:41 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -3523,7 +3523,7 @@ Wed Dec 28 11:43:09 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	you next off of the end of a function.
 
 	* sparc-dep.c (single_step): Fixed typo; "break_insn" ==> "sizeof
-	break_insn". 
+	break_insn".
 
 	* m-sparc.h (INIT_EXTRA_FRAME_INFO): Set the bottom of a stack
 	frame to be the bottom of the stack frame inner from this, if that
@@ -3545,7 +3545,7 @@ Tue Dec 27 17:02:09 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	conform to above.
 	* m-sparc.h (FRAME_SAVED_PC), sparc-dep.c (frame_saved_pc):
 	Changed frame_saved_pc to have a frame info pointer as an
-	argument. 
+	argument.
 
 	* m-vax.h, m-umax.h, m-npl.h, infrun.c (wait_for_inferior),
 	blockframe.c (get_prev_frame_info): Modified SAVED_PC_AFTER_CALL
@@ -3601,8 +3601,8 @@ Mon Dec 19 17:44:35 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	(i386_get_frame_setup): Expanded to deal with more wide ranging
 	function prologue.
 	(i386_frame_find_saved_regs, i386_skip_prologue): Changed to use
-	i386_get_frame_setup. 
-	
+	i386_get_frame_setup.
+
 
 Sun Dec 18 11:15:03 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -3638,7 +3638,7 @@ Sat Dec 17 15:31:38 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 	by that failure.
 
 	* values.c (value_static_field): Fixed dereferencing of null
-	pointer. 
+	pointer.
 
 	* i386-dep.c (i386_follow_jump): Modified to deal with
 	unconditional byte offsets also.
@@ -3658,7 +3658,7 @@ Fri Dec 16 15:21:58 1988  Randy Smith  (randy at calvin)
 
 	* findvar.c (value_of_register): Added an error check for calling
 	this when the inferior isn't active and a core file isn't being
-	read. 
+	read.
 
 	* config.gdb: Added reminder about modifying REGEX in the
 	makefile for the 386.
@@ -3677,7 +3677,7 @@ Thu Dec 15 14:04:25 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	hexadecimal format on machines without an 8 byte integer type.  It
 	seems to be non-trivial to implement /g for other formats.
 	(decode_format): Allowed hexadecimal format to make it through /g
-	fileter. 
+	fileter.
 
 Wed Dec 14 13:27:04 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 
@@ -3728,7 +3728,7 @@ Tue Dec 13 14:48:14 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	software indentation conventions.
 
 	* sparc-dep.c (skip_prologue): Added capability of recognizign
-	stores of input register parameters into stack slots. 
+	stores of input register parameters into stack slots.
 
 	* sparc-dep.c: Added an include of sparc-opcode.h.
 	* sparc-pinsn.c, sparc-opcode.h: Moved insn_fmt structures and
@@ -3773,7 +3773,7 @@ Mon Dec 12 13:21:02 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 	TIOCSPGRP ioctl call.  Just notifies if bad.
 
 	* dbxread.c (symbol_file_command): Close was getting called twice;
-	once directly and once through cleanup.  Killed the direct call.  
+	once directly and once through cleanup.  Killed the direct call.
 
 Sun Dec 11 19:40:40 1988  & Smith  (randy at hobbes.ai.mit.edu)
 
@@ -3806,7 +3806,7 @@ Fri Dec  9 10:33:24 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	being placed on the misc_function_list, this will go away.
 
 	* inferior.h, infrun.c: Added fields to save in inferior_status
-	structure. 
+	structure.
 
 	* maketarfile: Deleted; functionality is in Makefile now.
 
@@ -3866,7 +3866,7 @@ Wed Dec  7 12:07:54 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* blockframe.c: Put allocation on an obstack and eliminated fancy
 	reallocation routines, several variables, and various nasty
-	things. 
+	things.
 
 	* frame.h, stack.c, infrun.c, blockframe.c, sparc-dep.c: Changed
 	type FRAME to be a typedef to "struct frame_info *".  Had to also
@@ -3875,7 +3875,7 @@ Wed Dec  7 12:07:54 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* infcmd.c (finish_command): Used proper method of getting from
 	function symbol to start of function.  Was treating a symbol as a
-	value. 
+	value.
 
 	* blockframe.c, breakpoint.c, findvar.c, infcmd.c, stack.c,
 	xgdb.c, i386-pinsn.c, frame.h, m-hp9k320.h, m-i386.h, m-isi.h,
@@ -3902,7 +3902,7 @@ Wed Dec  7 12:07:54 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	read_dbx_symtab (oops).
 
 	* coffread.c (fill_in_vptr_fieldno): Rewrote TYPE_BASECLASS as
-	necessary. 
+	necessary.
 
 Tue Dec  6 13:03:43 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -4010,7 +4010,7 @@ Wed Nov 23 13:27:34 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 
 	* blockframe.c (create_new_frame, get_prev_frame_cache_item):
 	Added code to reset pointers within frame cache if it must be
-	realloc'd. 
+	realloc'd.
 
 	* dbxread.c (read_dbx_symtab): Added in optimization comparing
 	last couple of characters instead of first couple to avoid
@@ -4021,7 +4021,7 @@ Wed Nov 23 13:27:34 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 Tue Nov 22 16:40:14 1988  Randall Smith  (randy at cream-of-wheat.ai.mit.edu)
 
 	* dbxread.c (read_dbx_symtab): Took out optimization for ignoring
-	LSYM's; was disallowing typedefs.  Silly me.  
+	LSYM's; was disallowing typedefs.  Silly me.
 
 	* Checkpointed distribution (mostly for sending to Tiemann).
 
@@ -4034,7 +4034,7 @@ Tue Nov 22 16:40:14 1988  Randall Smith  (randy at cream-of-wheat.ai.mit.edu)
 		base class).
 	* symtab.h: Added macros to access new fields defined in symseg.h.
 		Added decl for lookup_basetype_type.
-	* dbxread.c 
+	* dbxread.c
 	(condense_addl_misc_bunches): Function added to condense the misc
 		function bunches added by reading in a new .o file.
 	(read_addl_syms): Function added to read in symbols
@@ -4081,10 +4081,10 @@ Tue Nov 22 16:40:14 1988  Randall Smith  (randy at cream-of-wheat.ai.mit.edu)
 		derivation info a a type.
 	(type_print_base): Modified to use type_print_derivation_info and
 		to handle multiple baseclasses.
-	
+
 Mon Nov 21 10:32:07 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
-	* inflow.c (term_status_command): Add trailing newline to output. 
+	* inflow.c (term_status_command): Add trailing newline to output.
 
 	* sparc-dep.c (do_save_insn, do_restore_insn): Saved
 	"stop_registers" over the call for the sake of normal_stop and
@@ -4103,7 +4103,7 @@ Mon Nov 21 10:32:07 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	been read in.
 
 	* dbxread.c (psymtab_to_symtab): Changed error to fatal in
-	psymtab_to_symtab. 
+	psymtab_to_symtab.
 
 	* expread.y (parse_number): Fixed bug which treated 'l' at end of
 	number as '0'.
@@ -4128,7 +4128,7 @@ Wed Nov 16 11:43:10 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* infrun.c (wait_for_inferior): Moved call to set_current_frame up
 	to guarrantee that the current frame will always be set when a
-	POP_FRAME is done.  
+	POP_FRAME is done.
 
 	* infrun.c (normal_stop): Added something to reset the pc of the
 	current frame (was incorrect because of DECR_PC_AFTER_BREAK).
@@ -4138,7 +4138,7 @@ Wed Nov 16 11:43:10 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* convex-dep.c (read_inferior_memory): Changed to return the value
 	of errno if the call failed (which will be 0 if the call
-	suceeded). 
+	suceeded).
 
 Tue Nov 15 10:17:15 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -4150,7 +4150,7 @@ Tue Nov 15 10:17:15 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	(which it generally doesn't).
 
 	* m-sparc.h (INIT_EXTRA_FRAME_INFO): Bottom set correctly for leaf
-	parents. 
+	parents.
 
 	* blockframe.c (get_prev_frame_cache_item): Put in mod to check
 	for a leaf node (by presence or lack of function prologue).  If
@@ -4169,7 +4169,7 @@ Tue Nov 15 10:17:15 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* blockframe.c, sparc-dep.c, stack.c: Created the function
 	create_new_frame and used it in place of bad calls to
-	frame_id_from_addr. 
+	frame_id_from_addr.
 
 	* blockframe.c, inflow.c, infrun.c, i386-pinsn.c, m-hp9k320.h,
 	m-npl.h, m-pn.h, m-sparc.h, m-sun3.h, m-vax.h, default-dep.c,
@@ -4188,7 +4188,7 @@ Mon Nov 14 14:19:32 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* frame.h, blockframe.c, stack.c, m-sparc.h, sparc-dep.c: Added
 	mechanisms to deal with possible specification of frames
-	dyadically. 
+	dyadically.
 
 Sun Nov 13 16:03:32 1988  Richard Stallman  (rms at sugar-bombs.ai.mit.edu)
 
@@ -4199,7 +4199,7 @@ Sun Nov 13 15:09:58 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	* breakpoint.c: Changed breakpoint structure to use the address of
 	a given frame (constant across inferior runs) as the criteria for
 	stopping instead of the frame ident (which varies across inferior
-	calls). 
+	calls).
 
 Fri Nov 11 13:00:22 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
@@ -4217,7 +4217,7 @@ Fri Nov 11 13:00:22 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	i386-pinsn.c, inflow.c, infrun.c, news-dep.c, sparc-dep.c,
 	sun3-dep.c, umax-dep.c, m-hp9k320.h, m-npl.h, m-pn.h, m-sparc.h,
 	m-sun3.h, m-vax.h: Changed calls of the form set_current_frame
-	(read_register (FP_REGNUM)) to set_current_frame_by_address (...). 
+	(read_register (FP_REGNUM)) to set_current_frame_by_address (...).
 
 Thu Nov 10 16:57:57 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 
@@ -4253,7 +4253,7 @@ Wed Nov  9 12:11:37 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 	handle negative pc's now.
 
 	* command.c: Deleted local copy of savestring; code in utils.c is
-	identical. 
+	identical.
 
 Tue Nov  8 11:12:16 1988  Randall Smith  (randy at plantaris.ai.mit.edu)
 
@@ -4302,7 +4302,7 @@ Mon Oct 31 16:23:06 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 Sat Oct 29 17:47:10 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* breakpoint.c, infcmd.c: Added UNTIL_COMMAND and subroutines of
-	it. 
+	it.
 
 	* breakpoint.c, infcmd.c, infrun.c: Added new field to breakpoint
 	structure (silent, indicating a silent breakpoint), and modified
@@ -4313,13 +4313,13 @@ Fri Oct 28 17:45:33 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 
 	* dbxread.c, symmisc.c: Assorted speedups for readin, including
 	special casing most common symbols, and doing buffering instead of
-	calling malloc.  
+	calling malloc.
 
 Thu Oct 27 11:11:15 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 
 	* stack.c, sparc-dep.c, m-sparc.h: Modified to allow "info frame"
 	to take two arguments on the sparc and do the right thing with
-	them. 
+	them.
 
 	* dbxread.c (read_dbx_symtab, process_symbol_for_psymtab): Put
 	stuff to put only symbols that didn't have debugging info on the
@@ -4366,7 +4366,7 @@ Mon Oct 24 12:28:29 1988  Randall Smith  (randy at apple-gunkies.ai.mit.edu)
 
 	* findvar.c, m-sparc.h: Created the macro REGISTER_SAVED_UNIQUELY
 	to handle register window issues (ie. that find_saved_register
-	wasn't checking the selected frame itself for shit). 
+	wasn't checking the selected frame itself for shit).
 
 	* sparc-dep.c (core_file_command): Offset target of o & g register
 	bcopy by 1 to hit correct registers.
@@ -4462,7 +4462,7 @@ Mon Oct 10 15:32:42 1988  Randy Smith  (randy at gargoyle.uchicago.edu)
 	the two macros I recently defined in blockframe.c to m-sparc.h.
 	Have yet to compile this thing on a sparc, but I've now merged in
 	everything that I received from tiemann, either exactly, or simply
-	effectively. 
+	effectively.
 
 	* source.c: Added code to allocated space to sals.sals in the case
 	where no line was specified.
@@ -4482,7 +4482,7 @@ Mon Oct  3 23:01:22 1988  Randall Smith  (randy at cream-of-wheat.ai.mit.edu)
 	valops.c, values.c: Did initial merge of sparc port.  This will
 	not compile; have to do stack frame caching and finish port.
 
-	* inflow.c, gdb.texinfo: `tty' now resets the controling terminal. 
+	* inflow.c, gdb.texinfo: `tty' now resets the controling terminal.
 
 Fri Sep 30 11:31:16 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 
@@ -4547,21 +4547,21 @@ Tue Sep 27 15:10:26 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 	rewrite of read_dbx_symtab, a modification of the partial_symtab
 	data type, deletion of select_source_symtab from
 	symbol_file_command, and optimiztion of the call to strcmp in
-	compare_psymbols. 
+	compare_psymbols.
 
 Thu Sep 22 11:08:54 1988  Randall Smith  (randy at gluteus.ai.mit.edu)
 
 	* dbxread.c (psymtab_to_symtab): Removed call to
-	init_misc_functions. 
+	init_misc_functions.
 
 	* dbxread.c: Fixed enumeration type clash (used enum instead of
 	integer constant).
 
 	* breakpoint.c: Fixed typo; lack of \ at end of line in middle of
-	string constant. 
+	string constant.
 
 	* symseg.h: Fixed typo; lack of semicolon after structure
-	definition. 
+	definition.
 
 	* command.c, breakpoint.c, printcmd.c: Added cmdlist editing
 	functions to add commands with the abbrev flag set.  Changed
@@ -4695,7 +4695,7 @@ Tue Jul 19 02:17:18 1988  Peter TerMaat  (pete at corn-chex.ai.mit.edu)
 
 	* core.c, *-dep.c (*-infdep moved to *-dep): machine-dependent
 	parts of core.c (core_file_command, exec_file_command) moved to
-	*-dep.c. 
+	*-dep.c.
 
 Mon Jul 18 19:45:51 1988  Peter TerMaat  (pete at corn-chex.ai.mit.edu)
 
@@ -4712,7 +4712,7 @@ Sun Jul 17 22:27:32 1988  Peter TerMaat  (pete at corn-chex.ai.mit.edu)
 	expressions with inactive variables can be skipped.  `info display'
 	tells the user which displays are active and which are not.  New
 	fn `contained_in' returns nonzero if one block is contained within
-	another. 
+	another.
 
 Fri Jul 15 01:53:14 1988  Peter TerMaat  (pete at corn-chex.ai.mit.edu)
 
@@ -4751,7 +4751,7 @@ Tue Jul 12 19:52:16 1988  Peter TerMaat  (pete at corn-chex.ai.mit.edu)
 	* Makefile, *.c, munch, config.gdb, README: New initialization
 	scheme uses nm to find functions whose names begin with
 	`_initialize_'.  Files `initialize.h', `firstfile.c',
-	`lastfile.c', `m-*init.h' no longer needed. 
+	`lastfile.c', `m-*init.h' no longer needed.
 
 	* eval.c, symtab.c, valarith.c, valops.c, value.h, values.c: Bug
 	fixes from gdb+ 2.5.4.  evaluate_subexp takes a new arg, type
@@ -4815,19 +4815,19 @@ Fri Jul  1 02:44:20 1988  Peter TerMaat  (pete at corn-chex.ai.mit.edu)
 	a modified lookup_symbol which checks for fields of the current
 	implied argument `this'.  printcmd.c, source.c, symtab.c,
 	valops.c: Need to change callers once callers are
-	installed. 
+	installed.
 
 Wed Jun 29 01:26:56 1988  Peter TerMaat  (pete at frosted-flakes.ai.mit.edu)
 
-	* C++: eval.c, expprint.c, expread.y, expression.h, valarith.c, 
+	* C++: eval.c, expprint.c, expread.y, expression.h, valarith.c,
 	Merged code to deal with evaluation of user-defined operators,
 	member functions, and virtual functions.
-	binop_must_be_user_defined tests for user-defined binops, 
-	value_x_binop calls the appropriate operator function. 
+	binop_must_be_user_defined tests for user-defined binops,
+	value_x_binop calls the appropriate operator function.
 
 Tue Jun 28 02:56:42 1988  Peter TerMaat  (pete at frosted-flakes.ai.mit.edu)
 
-	* C++: Makefile: changed the echo: expect 101 shift/reduce conflicts 
+	* C++: Makefile: changed the echo: expect 101 shift/reduce conflicts
 	and 1 reduce/reduce conflict.
 
 Local Variables:

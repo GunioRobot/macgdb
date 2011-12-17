@@ -345,10 +345,10 @@ struct mips_opcode
    "l" 32 bit floating point constant in .lit4
 
    MDMX instruction operands (note that while these use the FP register
-   fields, they accept both $fN and $vN names for the registers):  
+   fields, they accept both $fN and $vN names for the registers):
    "O"	MDMX alignment offset (OP_*_ALN)
    "Q"	MDMX vector/scalar/immediate source (OP_*_VSEL and OP_*_FT)
-   "X"	MDMX destination register (OP_*_FD) 
+   "X"	MDMX destination register (OP_*_FD)
    "Y"	MDMX source register (OP_*_FS)
    "Z"	MDMX source register (OP_*_FT)
 
@@ -551,7 +551,7 @@ static const unsigned int mips_isa_table[] =
 /* Masks used for MIPS-defined ASEs.  */
 #define INSN_ASE_MASK		  0x3c00f000
 
-/* DSP ASE */ 
+/* DSP ASE */
 #define INSN_DSP                  0x00001000
 #define INSN_DSP64                0x00002000
 /* MIPS 16 ASE */
@@ -580,7 +580,7 @@ static const unsigned int mips_isa_table[] =
 /* NEC VR5500 instruction.  */
 #define INSN_5500		  0x02000000
 
-/* MDMX ASE */ 
+/* MDMX ASE */
 #define INSN_MDMX                 0x04000000
 /* MT ASE */
 #define INSN_MT                   0x08000000

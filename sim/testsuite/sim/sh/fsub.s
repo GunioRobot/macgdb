@@ -78,7 +78,7 @@ fsub_double:
 	fcmp/eq	dr2, dr4
 	bt	.L10
 	fail
-.L10:	
+.L10:
 	# 1.0 - 0.0 = 1.0.
 	fldi0	fr0
 	fldi1	fr2
@@ -90,7 +90,7 @@ fsub_double:
 	fcmp/eq	dr2, dr4
 	bt	.L11
 	fail
-.L11:	
+.L11:
 	# 1.0 - 1.0 = 0.0.
 	fldi1	fr0
 	fldi1	fr2
@@ -102,7 +102,7 @@ fsub_double:
 	fcmp/eq	dr2, dr4
 	bt	.L12
 	fail
-.L12:	
+.L12:
 	# 0.0 - 1.0 = -1.0.
 	fldi1	fr0
 	fldi0	fr2

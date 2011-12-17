@@ -47,7 +47,7 @@ lib02-so-thresh.sl: lib02-so-thresh.o
 SHLIB_SOURCES = \
 	lib00-so-thresh.c \
 	lib01-so-thresh.c \
-	lib02-so-thresh.c 
+	lib02-so-thresh.c
 
 SHLIB_OBJECTS = $(SHLIB_SOURCES:.c=.o)
 SHLIBS = $(SHLIB_SOURCES:.c=.sl)

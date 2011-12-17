@@ -132,7 +132,7 @@ static int
 in_eval_c (void)
 {
   struct symtab_and_line cursal = get_current_source_symtab_and_line ();
-  
+
   if (cursal.symtab && cursal.symtab->filename)
     {
       char *filename = cursal.symtab->filename;
@@ -229,7 +229,7 @@ nosideret:
   return value_from_longest (builtin_type (exp->gdbarch)->builtin_int, 1);
 }
 
-const struct exp_descriptor exp_descriptor_scm = 
+const struct exp_descriptor exp_descriptor_scm =
 {
   print_subexp_standard,
   operator_length_standard,

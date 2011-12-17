@@ -13,7 +13,7 @@
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
- 
+
    You should have received a copy of the GNU General Public License
    along with this program. If not, see <http://www.gnu.org/licenses/>.  */
 
@@ -45,7 +45,7 @@ main (int argc, char *argv[])
 static void
 write_header ()
 {
-  int i = 0; 
+  int i = 0;
 
   /* Start searching from end of instruction table.  */
   const inst *instruction = &cr16_instruction[NUMOPCODES - 1];
@@ -58,7 +58,7 @@ write_header ()
 }
 
 
-/* write_template creates a file all required functions, 
+/* write_template creates a file all required functions,
    ready to be filled out.  */
 
 static void
@@ -74,7 +74,7 @@ write_template ()
       if (cr16_instruction[i].size != 0)
 {
   printf("/* %s */\nvoid\nOP_%X_%X ()\n{\n",cr16_instruction[i].mnemonic,cr16_instruction[i].match,(32 - cr16_instruction[i].match_bits));
-  
+
   /* count operands.  */
   j = 0;
   for (k=0;k<5;k++)
@@ -124,23 +124,23 @@ static void
 write_opcodes ()
 {
   int i = 0, j = 0, k;
-  
+
   /* write out opcode table.  */
   printf ("#include \"cr16_sim.h\"\n");
   printf ("#include \"simops.h\"\n\n");
   printf ("struct simops Simops[] = {\n");
-  
+
   for (i = NUMOPCODES-1; i >= 0; --i)
     {
       if (cr16_instruction[i].size != 0)
 {
-           printf ("  { \"%s\", %ld, %d, %d, %d, \"OP_%X_%X\", OP_%X_%X, ", 
-                    cr16_instruction[i].mnemonic, cr16_instruction[i].size, 
+           printf ("  { \"%s\", %ld, %d, %d, %d, \"OP_%X_%X\", OP_%X_%X, ",
+                    cr16_instruction[i].mnemonic, cr16_instruction[i].size,
                     cr16_instruction[i].match_bits, cr16_instruction[i].match,
                      cr16_instruction[i].flags, ((BIN(cr16_instruction[i].match, cr16_instruction[i].match_bits))>>(cr16_instruction[i].match_bits)),
              (32 - cr16_instruction[i].match_bits),
                      ((BIN(cr16_instruction[i].match, cr16_instruction[i].match_bits))>>(cr16_instruction[i].match_bits)), (32 - cr16_instruction[i].match_bits));
-      
+
   j = 0;
   for (k=0;k<5;k++)
     {
@@ -150,7 +150,7 @@ write_opcodes ()
                 j++;
     }
   printf ("%d, ",j);
-  
+
   j = 0;
   for (k=0;k<4;k++)
     {

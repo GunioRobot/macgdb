@@ -146,7 +146,7 @@ get_lines_to_list (void)
 
 /* Return the current source file for listing and next line to list.
    NOTE: The returned sal pc and end fields are not valid. */
-   
+
 struct symtab_and_line
 get_current_source_symtab_and_line (void)
 {
@@ -156,7 +156,7 @@ get_current_source_symtab_and_line (void)
   cursal.line = current_source_line;
   cursal.pc = 0;
   cursal.end = 0;
-  
+
   return cursal;
 }
 
@@ -167,7 +167,7 @@ get_current_source_symtab_and_line (void)
    process of determining a new default may call the caller!
    Use get_current_source_symtab_and_line only to get whatever
    we have without erroring out or trying to get a default. */
-   
+
 void
 set_default_source_symtab_and_line (void)
 {
@@ -185,12 +185,12 @@ set_default_source_symtab_and_line (void)
    (the returned sal pc and end fields are not valid.)
    and set the current default to whatever is in SAL.
    NOTE: The returned sal pc and end fields are not valid. */
-   
+
 struct symtab_and_line
 set_current_source_symtab_and_line (const struct symtab_and_line *sal)
 {
   struct symtab_and_line cursal = { 0 };
-  
+
   cursal.symtab = current_source_symtab;
   cursal.line = current_source_line;
 
@@ -198,7 +198,7 @@ set_current_source_symtab_and_line (const struct symtab_and_line *sal)
   current_source_line = sal->line;
   cursal.pc = 0;
   cursal.end = 0;
-  
+
   return cursal;
 }
 
@@ -579,7 +579,7 @@ add_path (char *dirname, char **which_path, int parse_separators)
 	    tinybuf[0] = DIRNAME_SEPARATOR;
 	    tinybuf[1] = '\0';
 
-	    /* If we have already tacked on a name(s) in this command, be sure they stay 
+	    /* If we have already tacked on a name(s) in this command, be sure they stay
 	       on the front as we tack on some more.  */
 	    if (prefix)
 	      {
@@ -673,7 +673,7 @@ is_regular_file (const char *name)
    the actual file opened (this string will always start with a "/").  We
    have to take special pains to avoid doubling the "/" between the directory
    and the file, sigh!  Emacs gets confuzzed by this when we print the
-   source file name!!! 
+   source file name!!!
 
    If a file is found, return the descriptor.
    Otherwise, return -1, with errno set for the last name we tried to open.  */
@@ -866,7 +866,7 @@ substitute_path_rule_matches (const struct substitute_path_rule *rule,
   /* Make sure that the region in the path that matches the substitution
      rule is immediately followed by a directory separator (or the end of
      string character).  */
-  
+
   if (path[from_len] != '\0' && !IS_DIR_SEPARATOR (path[from_len]))
     return 0;
 
@@ -889,18 +889,18 @@ get_substitute_path_rule (const char *path)
 
 /* If the user specified a source path substitution rule that applies
    to PATH, then apply it and return the new path.  This new path must
-   be deallocated afterwards.  
-   
+   be deallocated afterwards.
+
    Return NULL if no substitution rule was specified by the user,
    or if no rule applied to the given PATH.  */
-   
+
 static char *
 rewrite_source_path (const char *path)
 {
   const struct substitute_path_rule *rule = get_substitute_path_rule (path);
   char *new_path;
   int from_len;
-  
+
   if (rule == NULL)
     return NULL;
 
@@ -918,7 +918,7 @@ rewrite_source_path (const char *path)
 
 /* This function is capable of finding the absolute path to a
    source file, and opening it, provided you give it a FILENAME. Both the
-   DIRNAME and FULLNAME are only added suggestions on where to find the file. 
+   DIRNAME and FULLNAME are only added suggestions on where to find the file.
 
    FILENAME should be the filename to open.
    DIRNAME is the compilation directory of a particular source file.
@@ -927,13 +927,13 @@ rewrite_source_path (const char *path)
      Space for the path must have been malloc'd.  If a path substitution
      is applied we free the old value and set a new one.
 
-   On Success 
+   On Success
      A valid file descriptor is returned. ( the return value is positive )
      FULLNAME is set to the absolute path to the file just opened.
      The caller is responsible for freeing FULLNAME.
 
    On Failure
-     An invalid file descriptor is returned. ( the return value is negative ) 
+     An invalid file descriptor is returned. ( the return value is negative )
      FULLNAME is set to NULL.  */
 
 static int
@@ -980,7 +980,7 @@ find_and_open_source (const char *filename,
           make_cleanup (xfree, rewritten_dirname);
           dirname = rewritten_dirname;
         }
-      
+
       /* Replace a path entry of  $cdir  with the compilation directory name */
 #define	cdir_len	5
       /* We cast strstr's result in case an ANSIhole has made it const,
@@ -1026,8 +1026,8 @@ find_and_open_source (const char *filename,
 }
 
 /* Open a source file given a symtab S.  Returns a file descriptor or
-   negative number for error.  
-   
+   negative number for error.
+
    This function is a convience function to find_and_open_source. */
 
 int
@@ -1054,7 +1054,7 @@ symtab_to_fullname (struct symtab *s)
   if (!s)
     return NULL;
 
-  /* Don't check s->fullname here, the file could have been 
+  /* Don't check s->fullname here, the file could have been
      deleted/moved/..., look for it again */
   r = find_and_open_source (s->filename, s->dirname, &s->fullname);
 
@@ -1151,7 +1151,7 @@ find_source_lines (struct symtab *s, int desc)
   {
     struct cleanup *old_cleanups;
 
-    /* st_size might be a large type, but we only support source files whose 
+    /* st_size might be a large type, but we only support source files whose
        size fits in an int.  */
     size = (int) st.st_size;
 
@@ -1802,7 +1802,7 @@ show_substitute_path_command (char *args, int from_tty)
   struct substitute_path_rule *rule = substitute_path_rules;
   char **argv;
   char *from = NULL;
-  
+
   argv = gdb_buildargv (args);
   make_cleanup_freeargv (argv);
 
@@ -1872,7 +1872,7 @@ unset_substitute_path_command (char *args, int from_tty)
 
       rule = next;
     }
-  
+
   /* If the user asked for a specific rule to be deleted but
      we could not find it, then report an error.  */
 
@@ -1890,7 +1890,7 @@ set_substitute_path_command (char *args, int from_tty)
   char *from_path, *to_path;
   char **argv;
   struct substitute_path_rule *rule;
-  
+
   argv = gdb_buildargv (args);
   make_cleanup_freeargv (argv);
 
@@ -1914,7 +1914,7 @@ set_substitute_path_command (char *args, int from_tty)
   rule = find_substitute_path_rule (argv[0]);
   if (rule != NULL)
     delete_substitute_path_rule (rule);
-      
+
   /* Insert the new substitution rule.  */
 
   add_substitute_path_rule (argv[0], argv[1]);

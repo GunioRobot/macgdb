@@ -586,7 +586,7 @@ c_val_print (struct type *type, const gdb_byte *valaddr, int embedded_offset,
 }
 
 int
-c_value_print (struct value *val, struct ui_file *stream, 
+c_value_print (struct value *val, struct ui_file *stream,
 	       const struct value_print_options *options)
 {
   struct type *type, *real_type, *val_type;
@@ -657,7 +657,7 @@ c_value_print (struct value *val, struct ui_file *stream,
 	      /* NOTE: cagney/2005-01-02: THIS IS BOGUS.  */
               value_contents_writeable (val)[0] -= top;
 
-              /* Note: When we look up RTTI entries, we don't get any 
+              /* Note: When we look up RTTI entries, we don't get any
                  information on const or volatile attributes */
             }
           type_print (type, "", stream, -1);

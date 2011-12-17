@@ -149,7 +149,7 @@ proc do_function_calls {} {
 		setup_xfail "alpha-dec-osf2*" "i*86-*-sysv4*" 5318
 	    }
 	}
-        
+
 	gdb_test "p t_float_values2(3.14159,float_val2)" " = 1"
 
 	gdb_test "p t_float_many_args (float_val1, float_val2, float_val3, float_val4, float_val5, float_val6, float_val7, float_val8, float_val9, float_val10, float_val11, float_val12, float_val13, float_val14, float_val15)" " = 1" "Call function with many float arguments."

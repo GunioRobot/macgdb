@@ -54,7 +54,7 @@ compatible (const bfd_arch_info_type * a,
 
       if (a->mach <= b->mach)
        return b;
-       
+
       if (a->mach >= b->mach)
        return a;
     }
@@ -63,7 +63,7 @@ compatible (const bfd_arch_info_type * a,
     return a;
   if (a->mach == bfd_mach_avr25 && b->mach == bfd_mach_avr2)
     return b;
-    
+
   if (a->mach == bfd_mach_avr3 && b->mach == bfd_mach_avr31)
     return a;
   if (a->mach == bfd_mach_avr31 && b->mach == bfd_mach_avr3)
@@ -111,7 +111,7 @@ static const bfd_arch_info_type arch_info_struct[] =
   N (16, bfd_mach_avr25, "avr:25", FALSE, & arch_info_struct[3]),
 
   /* Classic, > 8K, <= 64K.  */
-  /* TODO:  addr_bits should be 16, but set to 22 for some following 
+  /* TODO:  addr_bits should be 16, but set to 22 for some following
      version of GCC (from 4.3) for backward compatibility.  */
   N (22, bfd_mach_avr3, "avr:3", FALSE, & arch_info_struct[4]),
 
@@ -125,10 +125,10 @@ static const bfd_arch_info_type arch_info_struct[] =
   N (16, bfd_mach_avr4, "avr:4", FALSE, & arch_info_struct[7]),
 
   /* Enhanced, > 8K, <= 64K.  */
-  /* TODO:  addr_bits should be 16, but set to 22 for some following 
+  /* TODO:  addr_bits should be 16, but set to 22 for some following
      version of GCC (from 4.3) for backward compatibility.  */
   N (22, bfd_mach_avr5, "avr:5", FALSE, & arch_info_struct[8]),
-  
+
   /* Enhanced, == 128K.  */
   N (22, bfd_mach_avr51, "avr:51", FALSE, & arch_info_struct[9]),
 

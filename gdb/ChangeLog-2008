@@ -87,7 +87,7 @@
 2008-12-22  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* python/python-internal.h (PyEval_ReleaseLock): New define.
-	
+
 2008-12-22  Tom Tromey  <tromey@redhat.com>
 
 	* c-exp.y (ident_tokens): New global.
@@ -437,7 +437,7 @@
 2008-11-25  Jan Kratochvil  <jan.kratochvil@redhat.com>
 
 	Fix automatic restoration of breakpoints memory for ia64.
-	* ia64-tdep.c: New #if check on BREAKPOINT_MAX vs. BUNDLE_LEN.  
+	* ia64-tdep.c: New #if check on BREAKPOINT_MAX vs. BUNDLE_LEN.
 	(ia64_memory_insert_breakpoint): New comment part for SHADOW_CONTENTS
 	content.  Remove variable instr.  New variable cleanup.  Disable
 	automatic breakpoints restoration.  PLACED_SIZE and SHADOW_LEN are now
@@ -467,7 +467,7 @@
 
 	* valprint.c (val_print_array_elements): Pass correct
 	element address to val_print.
-	
+
 2008-11-24  Jan Kratochvil  <jan.kratochvil@redhat.com>
 
 	Fix access of an already freed memory.
@@ -559,7 +559,7 @@
 	and executable loadmap addresses are zero.
 
 2008-11-19  Bob Wilson  <bob.wilson@acm.org>
-	
+
 	* xtensa-config.c (rmap): Remove entries for ar32 through ar63.  Add
 	threadptr, scompare1, mmid, epc5, epc6, epc7, eps5, eps6, eps7,
 	excsave5, excsave6, excsave7, cpenable, and vecbase registers.
@@ -572,7 +572,7 @@
 	(xtensa_regmap_table): Add entry for scompare1.
 	* regformats/reg-xtensa.dat: Remove ar32 through ar63.  Add threadptr
 	and scompare1.
-	
+
 2008-11-19  Pedro Alves  <pedro@codesourcery.com>
 
 	* remote.c (escape_buffer): New.
@@ -585,7 +585,7 @@
 2008-11-18  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* maint.c (maintenance_translate_address): Fix a buglet.
-	
+
 2008-11-18  Thiago Jung Bauermann  <bauerman@br.ibm.com>
 
 	* features/Makefile (rs6000/powerpc-isa205-32l-expedite,
@@ -636,7 +636,7 @@
 	* objfiles.h: New MULTI_OBJFILE_P macro.
 	* printcmd.c (sym_info): Print object name.
 	* maint.c (maintenance_translate_address): Likewise.
-	
+
 2008-11-18  Joel Brobecker  <brobecker@adacore.com>
 
 	* NEWS: Document the removal of "catch load" and "catch unload".
@@ -1503,7 +1503,7 @@
 2008-10-23  Paul Pluzhnikov  <ppluzhnikov@google.com>
 
 	* python/python-value (valpy_getitem): Fix heap corruption.
-	
+
 2008-10-23  Aleksandar Ristovski  <aristovski@qnx.com>
 
 	* nto-procfs.c (do_attach): Form proper ptid including pid and tid.
@@ -1519,7 +1519,7 @@
 	* python/python-value.c (value_to_value_object): Initialize
 	owned_by_gdb field.
 	(valpy_new): Likewise.
-	
+
 2008-10-23  Jan Kratochvil  <jan.kratochvil@redhat.com>
 	    Joel Brobecker  <brobecker@adacore.com>
 
@@ -1622,7 +1622,7 @@
 
 2008-10-17  Michael Snyder  <msnyder@vmware.com>
 	Target interface for reverse debugging.
-	* target.h (enum target_waitkind): 
+	* target.h (enum target_waitkind):
 	Add new wait event, TARGET_WAITKIND_NO_HISTORY.
 	(struct target_ops): New method to_can_execute_reverse.
 	(target_can_execute_reverse): New macro.
@@ -1630,7 +1630,7 @@
 
 	Remote interface for reverse debugging.
 	* remote.c (remote_can_execute_reverse): New target method.
-	(remote_resume): Check for reverse exec direction, and send 
+	(remote_resume): Check for reverse exec direction, and send
 	appropriate command to target.
 	(remote_wait_as): Check target response for NO_HISTORY status.
 	Also check for empty reply (target doesn't understand "bs" or "bc).
@@ -1651,7 +1651,7 @@
 	(set_exec_direction_func, show_exec_direction_func): New funcs.
 	(proceed): No need to singlestep over a breakpoint
 	when resuming in reverse.
-	
+
 	* inferior.h (enum exec_direction_kind): New enum.
 	(execution_direction): Export new execution state variable.
 
@@ -1939,13 +1939,13 @@
 	PR gdb/2384:
 	* gdbtypes.c (get_vptr_fieldno): baseclass and basetype may have
 	different lifetimes.
-	
+
 2008-10-03  Joel Brobecker  <brobecker@adacore.com>
 
 	* solib-osf.c: Include "solib.h".
 
 2008-10-03  Paul Pluzhnikov  <ppluzhnikov@google.com>
-	
+
 	* utils.c, defs.h (gdb_buildargv): New fn. Wrap buildargv
 	and check for out-of-memory condition.
 	* exec.c (exec_file_command): Call it.
@@ -2235,7 +2235,7 @@
 2008-09-24  Vladimir Prus  <vladimir@codesourcery.com>
 
 	* remote-sim.c (gdbsim_create_inferior): Fix missing parenthesis.
-	
+
 2008-09-24  Andreas Schwab  <schwab@suse.de>
 
 	* frame.c (get_frame_register_bytes): Take pseudo registers into
@@ -2331,7 +2331,7 @@
 
 	* linux-nat.c (linux_nat_resume, linux_nat_wait): Always pass
 	signals to common code if starting up the inferior.
-	
+
 	* inferior.h (struct inferior_info): Added stop_soon member.
 	* inferior.c (add_inferior) Clear stop_soon.
 
@@ -2770,7 +2770,7 @@
 	* cris-tdep.c (cris_register_type, crisv32_register_type): Likewise.
 	* frv-tdep.c (frv_register_type): Likewise.
 	* h8300-tdep.c (h8300_register_type): Likewise.
-	* hppa-tdep.c (hppa32_convert_from_func_ptr_addr, 
+	* hppa-tdep.c (hppa32_convert_from_func_ptr_addr,
 	hppa_skip_trampoline_code): Likewise.
 	* i386-tdep.c (i386_register_type): Likewise.
 	(i386_unwind_pc, i386_sse_type): Likewise.
@@ -2910,7 +2910,7 @@
 	of builtin_type_double.
 	(ada_value_cast): Use cast_from_fixed instead of casting result
 	of cast_from_fixed_to_double.
-	(ada_evaluate_subexp): Update calls to cast_from_fixed_to_double. 
+	(ada_evaluate_subexp): Update calls to cast_from_fixed_to_double.
 
 2008-09-11  Ulrich Weigand  <uweigand@de.ibm.com>
 
@@ -3152,7 +3152,7 @@
 	the type of the tag instead of doing forcing an EVAL_NORMAL
 	expression evaluation.
 
-2008-09-10  Paul N. Hilfinger  <hilfinger@adacore.com> 
+2008-09-10  Paul N. Hilfinger  <hilfinger@adacore.com>
 	    Joel Brobecker  <brobecker@adacore.com>
 
 	* ada-lang.c (is_digits_suffix): New function.
@@ -3407,7 +3407,7 @@
 	* inferior.h (stop_bpstat): Delete.
 
 	* breakpoint.h (bpstat_do_actions): Remove bpstat* argument.
-	
+
 	* breakpoint.c (bpstat_do_actions): Rename to ...
 	(bpstat_do_actions_1): ... this.  Make static.  Change return type
 	to int.  Return true if a breakpoint proceeded.
@@ -3651,7 +3651,7 @@
 	* rs6000-tdep.c (rs6000_fetch_instruction)
 	(rs6000_skip_stack_check): New functions.
 	(skip_prologue): Skip stack check sequence.
-	
+
 2008-09-08  David Daney  <ddaney@avtrex.com>
 
 	* dummy-frame.h (frame.h): Include it.
@@ -4027,7 +4027,7 @@
 	of current_gdbarch.
 	* target-descriptions.c (target_find_description): Likewise.
 	* arm-tdep.c (arm_update_current_architecture): Likewise.
-	(show_fp_model, arm_show_abi, arm_show_fallback_mode, 
+	(show_fp_model, arm_show_abi, arm_show_fallback_mode,
 	arm_show_force_mode): Likewise.
 	* mips-tdep.c (show_mask_address, show_mipsfpu_command,
 	show_mips_abi): Likewise.
@@ -4045,7 +4045,7 @@
 	* cris-tdep.c (cris_can_use_hardware_watchpoint): Likewise.
 
 	* solib.c (solib_open, solib_map_sections, solib_read_symbols,
-	solib_add, info_sharedlibrary_command, solib_address, 
+	solib_add, info_sharedlibrary_command, solib_address,
 	solib_create_inferior_hook, in_solib_dynsym_resolve_code,
 	solib_global_lookup): Likewise.
 	* solib-frv.c (enable_break2, frv_relocate_main_executable): Likewise.
@@ -4574,32 +4574,32 @@
         to_create_inferiour, to_is_async_p.
 
 2008-08-19  Paul N. Hilfinger  <hilfinger@adacore.com>
-	
+
 	Changes for supporting boolean types in debugging data.
-	* ada-lang.c (discrete_type_high_bound,discrete_type_low_bound): Change 
+	* ada-lang.c (discrete_type_high_bound,discrete_type_low_bound): Change
 	API to return LONGEST values rather than struct values.
 	(ada_evaluate_subexp): Change to use new API of discrete_type_low_bound
 	and discrete_type_high_bound.
-	(to_fixed_range_type): Create a range type in cases where 
+	(to_fixed_range_type): Create a range type in cases where
 	argument is base type and its limits are representable as ints.
 	(ada_is_modular_type): Correct so that base type must be integral.
-	* ada-lex.l (TRUEKEYWORD,FALSEKEYWORD): Make 'true' and 'false' 
-	keywords when they appear alone, since we are phasing out 
+	* ada-lex.l (TRUEKEYWORD,FALSEKEYWORD): Make 'true' and 'false'
+	keywords when they appear alone, since we are phasing out
 	direct representation of these identifiers in debugging data.
 	* ada-exp.y: Define 'true' and 'false' as primaries.
 	(type_boolean): New function.
 	(type_int,type_long,type_long_long,type_floattype_double)
 	(type_long_double): Remove uses of current_gdbarch for consistency
 	with type_boolean.
-	(write_int): Change comment to indicate that it might write boolean 
+	(write_int): Change comment to indicate that it might write boolean
 	constant as well.
 	* ada-typeprint.c (ada_print_type): Print '(false, true)' for boolean
-	type, since will no longer be represented as enumerated type in 
+	type, since will no longer be represented as enumerated type in
 	debugging data.
 	* ada-valprint.c (print_optional_low_bound): Handle boolean case
 	as well.
 	* NEWS: Note support boolean types.
-	
+
 2008-08-18  Pedro Alves  <pedro@codesourcery.com>
 
 	* bsd-uthread.c (bsd_uthread_close): New.
@@ -4716,7 +4716,7 @@
 
 2008-08-16  Paul N. Hilfinger  <hilfinger@adacore.com>
 
-	* ada-lang.c (pos_atr): Account for the possibility that the 
+	* ada-lang.c (pos_atr): Account for the possibility that the
 	argument may be a reference.
 
 2008-08-16  Paul N. Hilfinger  <hilfingr@adacore.com>
@@ -4724,7 +4724,7 @@
 	* xcoffread.c (scan_xcoff_symtab): Do not include global symbols
 	('F' format) for @FIX names generated by the loader, retaining only
 	the minimal symbols (and no partial symbol tables) for these names.
-	Fixes warning messages about symbols that are found in partial 
+	Fixes warning messages about symbols that are found in partial
 	symbol tables, but not full symbol tables.
 
 2008-08-16  Pedro Alves  <pedro@codesourcery.com>
@@ -4828,7 +4828,7 @@
 
 	* nto-tdep.c (lm_info): Updated struct lm_info definition from
 	solib-svr4.c
-	(LM_ADDR): Use l_addr if available; if not, use link map and set 
+	(LM_ADDR): Use l_addr if available; if not, use link map and set
 	l_addr.
 
 2008-08-14  Tom Tromey  <tromey@redhat.com>

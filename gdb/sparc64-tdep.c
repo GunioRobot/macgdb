@@ -221,7 +221,7 @@ static const char *sparc64_register_names[] =
   "f48", "f50", "f52", "f54", "f56", "f58", "f60", "f62",
 
   "pc", "npc",
-  
+
   /* FIXME: Give "state" a name until we start using register groups.  */
   "state",
   "fsr",

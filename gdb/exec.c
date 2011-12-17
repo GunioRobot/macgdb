@@ -1,4 +1,4 @@
-/* Work with executable files, for GDB. 
+/* Work with executable files, for GDB.
 
    Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997,
    1998, 1999, 2000, 2001, 2002, 2003, 2007, 2008, 2009
@@ -237,10 +237,10 @@ exec_file_attach (char *filename, int from_tty)
 	     &scratch_pathname);
 	}
 #endif
-	
+
 	  /* APPLE LOCAL: Look for a wrapped executable of the form
 	     Foo.app/Contents/MacOS/Foo, where the user gave us up to
-	     Foo.app.  The ".app" is optional. */	
+	     Foo.app.  The ".app" is optional. */
       if (scratch_chan < 0)
 	{
 	  char *wrapped_filename = macosx_filename_in_bundle (filename, 1);
@@ -254,7 +254,7 @@ exec_file_attach (char *filename, int from_tty)
 	    }
 	}
 	  /* END APPLE LOCAL */
-		
+
       if (scratch_chan < 0)
 	perror_with_name (filename);
       exec_bfd = bfd_fopen (scratch_pathname, gnutarget,
@@ -267,7 +267,7 @@ exec_file_attach (char *filename, int from_tty)
 	  error (_("\"%s\": could not open as an executable file: %s"),
 		 scratch_pathname, bfd_errmsg (bfd_get_error ()));
 	}
-		
+
 	  /* APPLE LOCAL begin fat binaries */
       /* If the file is an archive file (i.e. fat binary), look for
 	 sub-files that match the current osabi. */
@@ -348,7 +348,7 @@ exec_file_attach (char *filename, int from_tty)
    Note that we have to explicitly ignore additional args, since we can
    be called from file_command(), which also calls symbol_file_command()
    which can take multiple args.
-   
+
    If ARGS is NULL, we just want to close the exec file. */
 
 static void
@@ -388,7 +388,7 @@ exec_file_command (char *args, int from_tty)
     exec_file_attach (NULL, from_tty);
 }
 
-/* Set both the exec file and the symbol file, in one command.  
+/* Set both the exec file and the symbol file, in one command.
    What a novelty.  Why did GDB go through four major releases before this
    command was added?  */
 
@@ -404,7 +404,7 @@ file_command (char *arg, int from_tty)
 }
 
 
-/* Locate all mappable sections of a BFD file. 
+/* Locate all mappable sections of a BFD file.
    table_pp_char is a char * to get it through bfd_map_over_sections;
    we cast it back to its proper type.  */
 
@@ -829,9 +829,9 @@ exec_has_memory (struct target_ops *ops)
 /* Find mapped memory. */
 
 extern void
-exec_set_find_memory_regions (int (*func) (int (*) (CORE_ADDR, 
-						    unsigned long, 
-						    int, int, int, 
+exec_set_find_memory_regions (int (*func) (int (*) (CORE_ADDR,
+						    unsigned long,
+						    int, int, int,
 						    void *),
 					   void *))
 {

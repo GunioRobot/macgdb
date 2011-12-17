@@ -1,4 +1,4 @@
-# sh testcase for fcmpeq 
+# sh testcase for fcmpeq
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 
@@ -8,7 +8,7 @@
 fcmpeq_single:
 	set_grs_a5a5
 	set_fprs_a5a5
-	# 1.0 == 1.0.	
+	# 1.0 == 1.0.
 	fldi1	fr0
 	fldi1	fr1
 	fcmp/eq	fr0, fr1
@@ -54,7 +54,7 @@ fcmpeq_single:
 	test_fpr_a5a5	fr13
 	test_fpr_a5a5	fr14
 	test_fpr_a5a5	fr15
-	
+
 fcmpeq_double:
 	# 1.0 == 1.0
 	set_grs_a5a5

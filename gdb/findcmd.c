@@ -254,7 +254,7 @@ find_command (char *args, int from_tty)
   CORE_ADDR last_found_addr;
   struct cleanup *old_cleanups;
 
-  parse_find_args (args, &max_count, &pattern_buf, &pattern_len, 
+  parse_find_args (args, &max_count, &pattern_buf, &pattern_len,
 		   &start_addr, &search_space_len, big_p);
 
   old_cleanups = make_cleanup (free_current_contents, &pattern_buf);

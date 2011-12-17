@@ -28,7 +28,7 @@ pclr_cc:
 	set_dctrue
 	dct	pclr	x1
 	assert_sreg	0, x1
-	
+
 	set_dctrue
 	dcf	pclr	y0
 	assert_sreg	0xa5a5a5a5, y0
@@ -60,6 +60,6 @@ pclr_pmuls:
 	assert_sreg	0x3fc838b2, a0	! 0xa5a5 x 0xa5a5
 
 	test_grs_a5a5
-	
+
 	pass
 	exit 0

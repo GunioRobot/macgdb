@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 struct hw_port_descriptor {
   const char *name;
-  int number; 
+  int number;
   int nr_ports;
   port_direction direction;
 };
@@ -98,7 +98,7 @@ void hw_port_traverse
 (struct hw *me,
  hw_port_traverse_function *handler,
  void *data);
- 
+
 
 /* DESTINATION is attached (detached) to LINE of the device ME
 
@@ -123,6 +123,6 @@ int hw_port_encode
  char *buf,
  int sizeof_buf,
  port_direction direction);
- 
+
 
 #endif

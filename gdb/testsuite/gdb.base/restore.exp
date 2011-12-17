@@ -65,10 +65,10 @@ proc restore_tests { } {
 
             gdb_test "tbreak callee$e" "Temporary breakpoint.*\[0-9\]*\\." \
 		"caller$c calls callee$e; tbreak callee"
-            
+
   	    gdb_test "continue" " callee$e prologue .*/" \
 		"caller$c calls callee$e; continue to callee"
-	    
+
             # Do a forced return from the callee.
 	    set test "caller$c calls callee$e; return callee now"
 	    gdb_test_multiple "return 0" "$test" {
@@ -98,7 +98,7 @@ proc restore_tests { } {
 	    -re "exiting" {
 		pass "run to completion"
 	    }
-	    timeout { 
+	    timeout {
 		fail "(timeout) run to completion"
 	    }
 	}

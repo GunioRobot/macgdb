@@ -99,7 +99,7 @@ alpha_register_type (struct gdbarch *gdbarch, int regno)
   if (regno == ALPHA_PC_REGNUM)
     return builtin_type (gdbarch)->builtin_func_ptr;
 
-  /* Don't need to worry about little vs big endian until 
+  /* Don't need to worry about little vs big endian until
      some jerk tries to port to alpha-unicosmk.  */
   if (regno >= ALPHA_FP0_REGNUM && regno < ALPHA_FP0_REGNUM + 31)
     return builtin_type (gdbarch)->builtin_double;
@@ -113,7 +113,7 @@ static int
 alpha_register_reggroup_p (struct gdbarch *gdbarch, int regnum,
 			   struct reggroup *group)
 {
-  /* Filter out any registers eliminated, but whose regnum is 
+  /* Filter out any registers eliminated, but whose regnum is
      reserved for backward compatibility, e.g. the vfp.  */
   if (gdbarch_register_name (gdbarch, regnum) == NULL
       || *gdbarch_register_name (gdbarch, regnum) == '\0')
@@ -497,7 +497,7 @@ alpha_extract_return_value (struct type *valtype, struct regcache *regcache,
     }
 }
 
-/* Insert the given value into REGCACHE as if it was being 
+/* Insert the given value into REGCACHE as if it was being
    returned by a function.  */
 
 static void
@@ -781,7 +781,7 @@ alpha_sigtramp_frame_unwind_cache (struct frame_info *this_frame,
 static CORE_ADDR
 alpha_sigtramp_register_address (struct gdbarch *gdbarch,
 				 CORE_ADDR sigcontext_addr, int regnum)
-{ 
+{
   struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);
 
   if (regnum >= 0 && regnum < 32)
@@ -789,7 +789,7 @@ alpha_sigtramp_register_address (struct gdbarch *gdbarch,
   else if (regnum >= ALPHA_FP0_REGNUM && regnum < ALPHA_FP0_REGNUM + 32)
     return sigcontext_addr + tdep->sc_fpregs_offset + regnum * 8;
   else if (regnum == ALPHA_PC_REGNUM)
-    return sigcontext_addr + tdep->sc_pc_offset; 
+    return sigcontext_addr + tdep->sc_pc_offset;
 
   return 0;
 }
@@ -993,7 +993,7 @@ Otherwise, you told GDB there was a function where there isn't one, or\n\
    something about the traditional layout of alpha stack frames.  */
 
 struct alpha_heuristic_unwind_cache
-{ 
+{
   CORE_ADDR vfp;
   CORE_ADDR start_pc;
   struct trad_frame_saved_reg *saved_regs;
@@ -1198,7 +1198,7 @@ alpha_heuristic_frame_prev_register (struct frame_info *this_frame,
      the correct place.  */
   if (regnum == ALPHA_PC_REGNUM)
     regnum = info->return_reg;
-  
+
   return trad_frame_get_prev_register (this_frame, info->saved_regs, regnum);
 }
 
@@ -1338,7 +1338,7 @@ alpha_fill_fp_regs (const struct regcache *regcache,
 
 /* Return nonzero if the G_floating register value in REG is equal to
    zero for FP control instructions.  */
-   
+
 static int
 fp_register_zero_p (LONGEST reg)
 {
@@ -1413,7 +1413,7 @@ alpha_next_pc (struct frame_info *frame, CORE_ADDR pc)
           case 0x35:              /* FBNE */
             regno += gdbarch_fp0_regnum (gdbarch);
 	}
-      
+
       rav = get_frame_register_signed (frame, regno);
 
       switch (op)
@@ -1452,7 +1452,7 @@ alpha_next_pc (struct frame_info *frame, CORE_ADDR pc)
 	  break;
 
         /* Floating point branches.  */
-        
+
         case 0x31:              /* FBEQ */
           if (fp_register_zero_p (rav))
             goto branch_taken;

@@ -6,7 +6,7 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
@@ -130,7 +130,7 @@ exts_w_ind_n:
 	fail
 .Lswindn:
 	;; Note: leave the value as 0xff80, so that extu has work to do.
-	
+
 extu_w_ind_n:
 	set_grs_a5a5
 	set_ccr_zero
@@ -205,7 +205,7 @@ exts_w_postinc_n:
 	fail
 .Lswpostincn:
 	;; Note: leave the value as 0xff80, so that extu has work to do.
-	
+
 extu_w_postinc_n:
 	set_grs_a5a5
 	set_ccr_zero
@@ -280,7 +280,7 @@ exts_w_postdec_n:
 	fail
 .Lswpostdecn:
 	;; Note: leave the value as 0xff80, so that extu has work to do.
-	
+
 extu_w_postdec_n:
 	set_grs_a5a5
 	set_ccr_zero
@@ -355,7 +355,7 @@ exts_w_preinc_n:
 	fail
 .Lswpreincn:
 	;; Note: leave the value as 0xff80, so that extu has work to do.
-	
+
 extu_w_preinc_n:
 	set_grs_a5a5
 	set_ccr_zero
@@ -430,7 +430,7 @@ exts_w_predec_n:
 	fail
 .Lswpredecn:
 	;; Note: leave the value as 0xff80, so that extu has work to do.
-	
+
 extu_w_predec_n:
 	set_grs_a5a5
 	set_ccr_zero

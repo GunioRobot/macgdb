@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 #include "misc.h"
@@ -309,7 +309,7 @@ print_goto_switch_table(lf *file,
 
 
 void print_idecode_switch
-(lf *file, 
+(lf *file,
  insn_table *table,
  const char *result);
 
@@ -539,7 +539,7 @@ idecode_switch_padding(insn_table *table,
 
 
 void
-print_idecode_switch(lf *file, 
+print_idecode_switch(lf *file,
 		     insn_table *table,
 		     const char *result)
 {
@@ -645,7 +645,7 @@ print_idecode_lookups(lf *file,
 			   1,
 			   idecode_declare_if_switch, /* START */
 			   NULL, NULL, NULL);
-  
+
   /* output tables where needed */
   for (depth = insn_table_depth(table);
        depth > 0;
@@ -658,7 +658,7 @@ print_idecode_lookups(lf *file,
 			     print_idecode_table_end,
 			     print_idecode_table_padding);
   }
-  
+
   /* output switch functions where needed */
   insn_table_traverse_tree(table,
 			   file, NULL,
@@ -864,7 +864,7 @@ print_run_until_stop_body(lf *file,
     lf_indent(file, -2);
     lf_putstr(file, "}\n");
   }
-    
+
   if (generate_smp) {
 
     lf_putstr(file, "\n\
@@ -888,7 +888,7 @@ print_run_until_stop_body(lf *file,
     lf_putstr(file, "  current_cpu = last_cpu;\n");
     lf_putstr(file, "  ASSERT(current_cpu >= -1 && current_cpu < nr_cpus);\n");
     lf_putstr(file, "}\n");
-    
+
 
     lf_putstr(file, "\n");
     lf_putstr(file, "while (1) {\n");
@@ -1007,7 +1007,7 @@ print_jump(lf *file,
     lf_putstr(file, "if (keep_running != NULL && !*keep_running)\n");
     lf_putstr(file, "  cpu_halt(processor, nia, was_continuing, 0/*na*/);\n");
   }
-  
+
   if (!generate_smp) {
     lf_putstr(file, "if (WITH_EVENTS) {\n");
     lf_putstr(file, "  if (event_queue_tick(events)) {\n");
@@ -1249,7 +1249,7 @@ print_jump_until_stop_body(lf *file,
 
   /* all the switches and tables - they know about jumping */
   print_idecode_lookups(file, table, cache_rules);
- 
+
   /* start the simulation up */
   if ((code & generate_with_icache)) {
     lf_putstr(file, "\n");
@@ -1355,7 +1355,7 @@ print_idecode_validate(lf *file,
      If any constant fields in the instruction were not checked by the
      idecode tables, output code to check that they have the correct
      value here */
-  { 
+  {
     unsigned check_mask = 0;
     unsigned check_val = 0;
     insn_field *field;

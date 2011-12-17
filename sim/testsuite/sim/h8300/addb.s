@@ -46,7 +46,7 @@ byte_dest:	.byte 0
 post_byte:	.byte 0
 
 	start
-	
+
 add_b_imm8_reg:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
@@ -66,7 +66,7 @@ add_b_imm8_reg:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .if (sim_cpu == h8sx)
 add_b_imm8_rdind:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -82,7 +82,7 @@ add_b_imm8_rdind:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32 byte_dest, er0	; er0 still contains address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -115,7 +115,7 @@ add_b_imm8_rdpostinc:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32 post_byte, er0	; er0 contains address plus one
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -148,7 +148,7 @@ add_b_imm8_rdpostdec:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32 pre_byte, er0	; er0 contains address minus one
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -181,8 +181,8 @@ add_b_imm8_rdpreinc:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
-	test_h_gr32 byte_dest, er0	; er0 contains destination address 
+
+	test_h_gr32 byte_dest, er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -214,8 +214,8 @@ add_b_imm8_rdpredec:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
-	test_h_gr32 byte_dest, er0	; er0 contains destination address 
+
+	test_h_gr32 byte_dest, er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
 	test_gr_a5a5 3
@@ -248,7 +248,7 @@ add_b_imm8_disp16:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32   post_byte, er0	; er0 contains address plus one
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -283,7 +283,7 @@ add_b_imm8_disp32:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32 pre_byte, er0	; er0 contains address minus one
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -320,7 +320,7 @@ add_b_imm8_abs8:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32  byte_dest-100, er0	; reg 0 has base address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -352,7 +352,7 @@ add_b_imm8_abs16:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
 	test_gr_a5a5 2
@@ -384,7 +384,7 @@ add_b_imm8_abs32:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
 	test_gr_a5a5 2
@@ -544,7 +544,7 @@ add_b_reg8_rdpreinc:
 	test_zero_clear
 	test_neg_clear
 
-	test_h_gr32 byte_dest er0	; er0 contains destination address 
+	test_h_gr32 byte_dest er0	; er0 contains destination address
 	test_h_gr32 0xa5a5a505 er1	; er1 has the test load
 
 	test_gr_a5a5 2		; Make sure other general regs not disturbed
@@ -578,7 +578,7 @@ add_b_reg8_rdpredec:
 	test_zero_clear
 	test_neg_clear
 
-	test_h_gr32 byte_dest er0	; er0 contains destination address 
+	test_h_gr32 byte_dest er0	; er0 contains destination address
 	test_h_gr32 0xa5a5a505 er1	; er1 has the test load
 
 	test_gr_a5a5 2		; Make sure other general regs not disturbed
@@ -687,7 +687,7 @@ add_b_reg8_abs8:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32  byte_dest-100, er0	; reg 0 has base address
 	test_h_gr32  0xa5a5a505 er1	; reg 1 has test load
 	test_gr_a5a5 2		; Make sure other general regs not disturbed
@@ -720,7 +720,7 @@ add_b_reg8_abs16:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_clear
-	
+
 	test_h_gr32  0xa5a5a505 er0	; reg 0 has test load
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2

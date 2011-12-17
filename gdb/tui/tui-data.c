@@ -57,11 +57,11 @@ static int win_resized = FALSE;
 /*********************************
 ** Static function forward decls
 **********************************/
-static void free_content (tui_win_content, 
-			  int, 
+static void free_content (tui_win_content,
+			  int,
 			  enum tui_win_type);
-static void free_content_elements (tui_win_content, 
-				   int, 
+static void free_content_elements (tui_win_content,
+				   int,
 				   enum tui_win_type);
 
 
@@ -85,12 +85,12 @@ tui_win_is_auxillary (enum tui_win_type win_type)
 int
 tui_win_has_locator (struct tui_win_info *win_info)
 {
-  return (win_info != NULL 
+  return (win_info != NULL
 	  && win_info->detail.source_info.has_locator);
 }
 
 void
-tui_set_win_highlight (struct tui_win_info *win_info, 
+tui_set_win_highlight (struct tui_win_info *win_info,
 		       int highlight)
 {
   if (win_info != NULL)
@@ -314,7 +314,7 @@ tui_set_current_layout_to (enum tui_layout_type new_layout)
 
 /* Set the origin of the window.  */
 void
-set_gen_win_origin (struct tui_gen_win_info *win_info, 
+set_gen_win_origin (struct tui_gen_win_info *win_info,
 		    int x, int y)
 {
   win_info->origin.x = x;
@@ -485,7 +485,7 @@ tui_init_generic_part (struct tui_gen_win_info *win)
 /* init_content_element().
  */
 static void
-init_content_element (struct tui_win_element *element, 
+init_content_element (struct tui_win_element *element,
 		      enum tui_win_type type)
 {
   element->highlight = FALSE;
@@ -637,7 +637,7 @@ tui_alloc_content (int num_elements, enum tui_win_type type)
    there is a memory allocation error, in which case, (-1) is
    returned.  */
 int
-tui_add_content_elements (struct tui_gen_win_info *win_info, 
+tui_add_content_elements (struct tui_gen_win_info *win_info,
 			  int num_elements)
 {
   struct tui_win_element *element_ptr;
@@ -820,7 +820,7 @@ tui_free_win_content (struct tui_gen_win_info *win_info)
 
 
 void
-tui_del_data_windows (tui_win_content content, 
+tui_del_data_windows (tui_win_content content,
 		      int content_size)
 {
   int i;
@@ -843,7 +843,7 @@ tui_del_data_windows (tui_win_content content,
 
 
 void
-tui_free_data_content (tui_win_content content, 
+tui_free_data_content (tui_win_content content,
 		       int content_size)
 {
   int i;
@@ -874,8 +874,8 @@ tui_free_data_content (tui_win_content content,
 
 
 static void
-free_content (tui_win_content content, 
-	      int content_size, 
+free_content (tui_win_content content,
+	      int content_size,
 	      enum tui_win_type win_type)
 {
   if (content != (tui_win_content) NULL)
@@ -889,8 +889,8 @@ free_content (tui_win_content content,
 /* free_content_elements().
  */
 static void
-free_content_elements (tui_win_content content, 
-		       int content_size, 
+free_content_elements (tui_win_content content,
+		       int content_size,
 		       enum tui_win_type type)
 {
   if (content != (tui_win_content) NULL)

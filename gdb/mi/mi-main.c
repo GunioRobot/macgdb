@@ -88,7 +88,7 @@ static void mi_cmd_execute (struct mi_parse *parse);
 
 static void mi_execute_cli_command (const char *cmd, int args_p,
 				    const char *args);
-static void mi_execute_async_cli_command (char *cli_command, 
+static void mi_execute_async_cli_command (char *cli_command,
 							char **argv, int argc);
 static int register_changed_p (int regnum, struct regcache *,
 			       struct regcache *);
@@ -175,7 +175,7 @@ mi_cmd_exec_jump (char *args, char **argv, int argc)
   /* FIXME: Should call a libgdb function, not a cli wrapper.  */
   return mi_execute_async_cli_command ("jump", argv, argc);
 }
- 
+
 static int
 proceed_thread_callback (struct thread_info *thread, void *arg)
 {
@@ -212,7 +212,7 @@ mi_cmd_exec_continue (char *command, char **argv, int argc)
 
       old_chain = make_cleanup_restore_current_thread ();
       iterate_over_threads (proceed_thread_callback, &pid);
-      do_cleanups (old_chain);            
+      do_cleanups (old_chain);
     }
   else
     error ("Usage: -exec-continue [--all|--thread-group id]");
@@ -252,7 +252,7 @@ mi_cmd_exec_interrupt (char *command, char **argv, int argc)
     {
       if (!any_running ())
 	error ("Inferior not running.");
-      
+
       interrupt_target_1 (1);
     }
   else if (argc == 2 && strcmp (argv[0], "--thread-group") == 0)
@@ -349,7 +349,7 @@ void
 mi_cmd_thread_info (char *command, char **argv, int argc)
 {
   int thread = -1;
-  
+
   if (argc != 0 && argc != 1)
     error ("Invalid MI command");
 
@@ -367,7 +367,7 @@ print_one_inferior (struct inferior *inferior, void *arg)
   ui_out_field_fmt (uiout, "id", "%d", inferior->pid);
   ui_out_field_string (uiout, "type", "process");
   ui_out_field_int (uiout, "pid", inferior->pid);
-  
+
   do_cleanups (back_to);
   return 0;
 }
@@ -433,14 +433,14 @@ mi_cmd_list_thread_groups (char *command, char **argv, int argc)
       int pid = atoi (id);
       if (!in_inferior_list (pid))
 	error ("Invalid thread group id '%s'", id);
-      print_thread_info (uiout, -1, pid);    
+      print_thread_info (uiout, -1, pid);
     }
   else
     {
       make_cleanup_ui_out_list_begin_end (uiout, "groups");
       iterate_over_inferiors (print_one_inferior, NULL);
     }
-  
+
   do_cleanups (back_to);
 }
 
@@ -713,7 +713,7 @@ get_register (struct frame_info *frame, int regnum, int format)
 }
 
 /* Write given values into registers. The registers and values are
-   given as pairs.  The corresponding MI command is 
+   given as pairs.  The corresponding MI command is
    -data-write-register-values <format> [<regnum1> <value1>...<regnumN> <valueN>]*/
 void
 mi_cmd_data_write_register_values (char *command, char **argv, int argc)
@@ -810,7 +810,7 @@ mi_cmd_data_evaluate_expression (char *command, char **argv, int argc)
 /* DATA-MEMORY-READ:
 
    ADDR: start address of data to be dumped.
-   WORD-FORMAT: a char indicating format for the ``word''.  See 
+   WORD-FORMAT: a char indicating format for the ``word''.  See
    the ``x'' command.
    WORD-SIZE: size of each ``word''; 1,2,4, or 8 bytes.
    NR_ROW: Number of rows.
@@ -823,7 +823,7 @@ mi_cmd_data_evaluate_expression (char *command, char **argv, int argc)
 
    {addr="...",rowN={wordN="..." ,... [,ascii="..."]}, ...}
 
-   Returns: 
+   Returns:
    The number of bytes read is SIZE*ROW*COL. */
 
 void
@@ -1019,7 +1019,7 @@ mi_cmd_data_read_memory (char *command, char **argv, int argc)
    ADDR: start address of the row in the memory grid where the memory
    cell is, if OFFSET_COLUMN is specified.  Otherwise, the address of
    the location to write to.
-   FORMAT: a char indicating format for the ``word''.  See 
+   FORMAT: a char indicating format for the ``word''.  See
    the ``x'' command.
    WORD_SIZE: size of each ``word''; 1,2,4, or 8 bytes
    VALUE: value to be written into the memory address.
@@ -1112,7 +1112,7 @@ mi_cmd_enable_timings (char *command, char **argv, int argc)
     }
   else
     goto usage_error;
-    
+
   return;
 
  usage_error:
@@ -1125,16 +1125,16 @@ mi_cmd_list_features (char *command, char **argv, int argc)
   if (argc == 0)
     {
       struct cleanup *cleanup = NULL;
-      cleanup = make_cleanup_ui_out_list_begin_end (uiout, "features");      
+      cleanup = make_cleanup_ui_out_list_begin_end (uiout, "features");
 
       ui_out_field_string (uiout, NULL, "frozen-varobjs");
       ui_out_field_string (uiout, NULL, "pending-breakpoints");
       ui_out_field_string (uiout, NULL, "thread-info");
-      
+
 #if HAVE_PYTHON
       ui_out_field_string (uiout, NULL, "python");
 #endif
-      
+
       do_cleanups (cleanup);
       return;
     }
@@ -1148,11 +1148,11 @@ mi_cmd_list_target_features (char *command, char **argv, int argc)
   if (argc == 0)
     {
       struct cleanup *cleanup = NULL;
-      cleanup = make_cleanup_ui_out_list_begin_end (uiout, "features");      
+      cleanup = make_cleanup_ui_out_list_begin_end (uiout, "features");
 
       if (target_can_async_p ())
 	ui_out_field_string (uiout, NULL, "async");
-      
+
       do_cleanups (cleanup);
       return;
     }
@@ -1196,8 +1196,8 @@ captured_mi_execute_command (struct ui_out *uiout, void *data)
       /* Print the result if there were no errors.
 
 	 Remember that on the way out of executing a command, you have
-	 to directly use the mi_interp's uiout, since the command could 
-	 have reset the interpreter, in which case the current uiout 
+	 to directly use the mi_interp's uiout, since the command could
+	 have reset the interpreter, in which case the current uiout
 	 will most likely crash in the mi_out_* routines.  */
       if (!running_result_record_printed)
 	{
@@ -1244,7 +1244,7 @@ captured_mi_execute_command (struct ui_out *uiout, void *data)
 		mi_out_put (uiout, raw_stdout);
 		mi_out_rewind (uiout);
 		mi_print_timing_maybe ();
-		fputs_unfiltered ("\n", raw_stdout);		
+		fputs_unfiltered ("\n", raw_stdout);
 	      }
 	    else
 	      mi_out_rewind (uiout);
@@ -1302,9 +1302,9 @@ mi_execute_command (char *cmd, int from_tty)
 	}
 
       if (/* The notifications are only output when the top-level
-	     interpreter (specified on the command line) is MI.  */      
+	     interpreter (specified on the command line) is MI.  */
 	  ui_out_is_mi_like_p (interp_ui_out (top_level_interpreter ()))
-	  /* Don't try report anything if there are no threads -- 
+	  /* Don't try report anything if there are no threads --
 	     the program is dead.  */
 	  && thread_count () != 0
 	  /* -thread-select explicitly changes thread. If frontend uses that
@@ -1328,10 +1328,10 @@ mi_execute_command (char *cmd, int from_tty)
 	    }
 
 	  if (report_change)
-	    {     
+	    {
 	      struct thread_info *ti = inferior_thread ();
 	      target_terminal_ours ();
-	      fprintf_unfiltered (mi->event_channel, 
+	      fprintf_unfiltered (mi->event_channel,
 				  "thread-selected,id=\"%d\"",
 				  ti->num);
 	      gdb_flush (mi->event_channel);
@@ -1447,7 +1447,7 @@ mi_execute_async_cli_command (char *cli_command, char **argv, int argc)
     run = xstrprintf ("%s %s&", cli_command, argc ? *argv : "");
   else
     run = xstrprintf ("%s %s", cli_command, argc ? *argv : "");
-  old_cleanups = make_cleanup (xfree, run);  
+  old_cleanups = make_cleanup (xfree, run);
 
   execute_command ( /*ui */ run, 0 /*from_tty */ );
 
@@ -1552,7 +1552,7 @@ mi_load_progress (const char *section_name,
   uiout = saved_uiout;
 }
 
-static void 
+static void
 timestamp (struct mi_timestamp *tv)
   {
     long usec;
@@ -1572,7 +1572,7 @@ timestamp (struct mi_timestamp *tv)
 #endif
   }
 
-static void 
+static void
 print_diff_now (struct mi_timestamp *start)
   {
     struct mi_timestamp now;
@@ -1589,20 +1589,20 @@ mi_print_timing_maybe (void)
     print_diff_now (current_command_ts);
 }
 
-static long 
+static long
 timeval_diff (struct timeval start, struct timeval end)
   {
     return ((end.tv_sec - start.tv_sec) * 1000000L)
       + (end.tv_usec - start.tv_usec);
   }
 
-static void 
+static void
 print_diff (struct mi_timestamp *start, struct mi_timestamp *end)
   {
     fprintf_unfiltered
       (raw_stdout,
-       ",time={wallclock=\"%0.5f\",user=\"%0.5f\",system=\"%0.5f\"}", 
-       timeval_diff (start->wallclock, end->wallclock) / 1000000.0, 
-       timeval_diff (start->utime, end->utime) / 1000000.0, 
+       ",time={wallclock=\"%0.5f\",user=\"%0.5f\",system=\"%0.5f\"}",
+       timeval_diff (start->wallclock, end->wallclock) / 1000000.0,
+       timeval_diff (start->utime, end->utime) / 1000000.0,
        timeval_diff (start->stime, end->stime) / 1000000.0);
   }

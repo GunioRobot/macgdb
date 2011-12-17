@@ -13,7 +13,7 @@
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
- 
+
    You should have received a copy of the GNU General Public License
    along with this program. If not, see <http://www.gnu.org/licenses/>.  */
 
@@ -84,7 +84,7 @@ enum op_types {
   OP_RP_INDEX_DISP0,
   OP_RP_INDEX_DISP14,
   OP_RP_INDEX_DISP20,
-  OP_RP_INDEX_DISPS20, 
+  OP_RP_INDEX_DISPS20,
 
   OP_REG,
   OP_REGP,
@@ -118,7 +118,7 @@ enum {
  * CC      Carry Clear               C flag is 0
  * HI      Higher                    L flag is 1
  * LS      Lower or Same             L flag is 0
- * GT      Greater Than              N flag is 1 
+ * GT      Greater Than              N flag is 1
  * LE      Less Than or Equal To     N flag is 0
  * FS      Flag Set                  F flag is 1
  * FC      Flag Clear                F flag is 0
@@ -129,7 +129,7 @@ enum {
 
 int cond_stat(int cc)
 {
-  switch (cc) 
+  switch (cc)
     {
       case 0: return  PSR_Z; break;
       case 1: return !PSR_Z; break;
@@ -979,7 +979,7 @@ OP_1_4 ()
 	tmp =  (PC - (OP[1]));
       else
         tmp =  (PC + (OP[1]));
-      /* If the resulting PC value is less than 0x00_0000 or greater 
+      /* If the resulting PC value is less than 0x00_0000 or greater
          than 0xFF_FFFF, this instruction causes an IAD trap.*/
 
       if ((tmp < 0x000000) || (tmp > 0xFFFFFF))
@@ -1008,7 +1008,7 @@ OP_18_8 ()
 	tmp =  (PC - OP[1]);
       else
         tmp =  (PC + OP[1]);
-      /* If the resulting PC value is less than 0x00_0000 or greater 
+      /* If the resulting PC value is less than 0x00_0000 or greater
          than 0xFF_FFFF, this instruction causes an IAD trap.*/
 
       if ((tmp < 0x000000) || (tmp > 0xFFFFFF))
@@ -1037,7 +1037,7 @@ OP_10_10 ()
 	tmp =  (PC - (OP[1]));
       else
         tmp =  (PC + (OP[1]));
-      /* If the resulting PC value is less than 0x00_0000 or greater 
+      /* If the resulting PC value is less than 0x00_0000 or greater
          than 0xFF_FFFF, this instruction causes an IAD trap.*/
 
       if ((tmp < 0x000000) || (tmp > 0xFFFFFF))
@@ -1067,7 +1067,7 @@ OP_C0_8 ()
   else
     tmp =  (PC + (OP[1]));
 
-  /* If the resulting PC value is less than 0x00_0000 or greater 
+  /* If the resulting PC value is less than 0x00_0000 or greater
      than 0xFF_FFFF, this instruction causes an IAD trap.  */
 
   if ((tmp < 0x000000) || (tmp > 0xFFFFFF))
@@ -1096,7 +1096,7 @@ OP_102_14 ()
     tmp =  ((PC) - (OP[1]));
   else
     tmp =  ((PC) + (OP[1]));
-  /* If the resulting PC value is less than 0x00_0000 or greater 
+  /* If the resulting PC value is less than 0x00_0000 or greater
      than 0xFF_FFFF, this instruction causes an IAD trap.*/
 
   if ((tmp < 0x000000) || (tmp > 0xFFFFFF))
@@ -1121,7 +1121,7 @@ OP_148_14 ()
   SET_GPR32 (OP[0], (((PC) + 4) >> 1)); /* Store next PC in RA */
   tmp = GPR32 (OP[1]);
   tmp = SEXT24(tmp << 1);
-  /* If the resulting PC value is less than 0x00_0000 or greater 
+  /* If the resulting PC value is less than 0x00_0000 or greater
      than 0xFF_FFFF, this instruction causes an IAD trap.*/
 
   if ((tmp < 0x0) || (tmp > 0xFFFFFF))
@@ -1147,7 +1147,7 @@ OP_D_C ()
   SET_GPR32 (14, (((PC) + 2) >> 1)); /* Store next PC in RA */
   tmp = GPR32 (OP[0]);
   tmp = SEXT24(tmp << 1);
-  /* If the resulting PC value is less than 0x00_0000 or greater 
+  /* If the resulting PC value is less than 0x00_0000 or greater
      than 0xFF_FFFF, this instruction causes an IAD trap.*/
 
   if ((tmp < 0x0) || (tmp > 0xFFFFFF))
@@ -1172,7 +1172,7 @@ OP_C_8 ()
   uint8 a = (GPR (OP[0]) & 0xFF);
   trace_input ("beq0b", OP_REG, OP_DISP5, OP_VOID);
   addr = OP[1];
-  if (a == 0) 
+  if (a == 0)
   {
     if (sign_flag)
       addr = (PC - OP[1]);
@@ -1193,7 +1193,7 @@ OP_D_8 ()
   uint8 a = (GPR (OP[0]) & 0xFF);
   trace_input ("bne0b", OP_REG, OP_DISP5, OP_VOID);
   addr = OP[1];
-  if (a != 0) 
+  if (a != 0)
   {
     if (sign_flag)
       addr = (PC - OP[1]);
@@ -1214,7 +1214,7 @@ OP_E_8()
   uint16 a = GPR (OP[0]);
   trace_input ("beq0w", OP_REG, OP_DISP5, OP_VOID);
   addr = OP[1];
-  if (a == 0) 
+  if (a == 0)
   {
     if (sign_flag)
       addr = (PC - OP[1]);
@@ -1235,7 +1235,7 @@ OP_F_8 ()
   uint16 a = GPR (OP[0]);
   trace_input ("bne0w", OP_REG, OP_DISP5, OP_VOID);
   addr = OP[1];
-  if (a != 0) 
+  if (a != 0)
   {
     if (sign_flag)
       addr = (PC - OP[1]);
@@ -2416,7 +2416,7 @@ OP_7_8 ()
 void
 OP_50_8 ()
 {
-  uint8 a = (OP[0]) & 0xFF; 
+  uint8 a = (OP[0]) & 0xFF;
   uint8 b = (GPR (OP[1])) & 0xFF;
   trace_input ("cmpb", OP_CONSTANT4, OP_REG, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2429,7 +2429,7 @@ OP_50_8 ()
 void
 OP_50B_C ()
 {
-  uint8 a = (OP[0]) & 0xFF; 
+  uint8 a = (OP[0]) & 0xFF;
   uint8 b = (GPR (OP[1])) & 0xFF;
   trace_input ("cmpb", OP_CONSTANT16, OP_REG, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2442,7 +2442,7 @@ OP_50B_C ()
 void
 OP_51_8 ()
 {
-  uint8 a = (GPR (OP[0])) & 0xFF; 
+  uint8 a = (GPR (OP[0])) & 0xFF;
   uint8 b = (GPR (OP[1])) & 0xFF;
   trace_input ("cmpb", OP_REG, OP_REG, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2455,7 +2455,7 @@ OP_51_8 ()
 void
 OP_52_8 ()
 {
-  uint16 a = (OP[0]); 
+  uint16 a = (OP[0]);
   uint16 b = GPR (OP[1]);
   trace_input ("cmpw", OP_CONSTANT4, OP_REG, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2468,7 +2468,7 @@ OP_52_8 ()
 void
 OP_52B_C ()
 {
-  uint16 a = (OP[0]); 
+  uint16 a = (OP[0]);
   uint16 b = GPR (OP[1]);
   trace_input ("cmpw", OP_CONSTANT16, OP_REG, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2481,7 +2481,7 @@ OP_52B_C ()
 void
 OP_53_8 ()
 {
-  uint16 a = GPR (OP[0]) ; 
+  uint16 a = GPR (OP[0]) ;
   uint16 b = GPR (OP[1]) ;
   trace_input ("cmpw", OP_REG, OP_REG, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2494,7 +2494,7 @@ OP_53_8 ()
 void
 OP_56_8 ()
 {
-  uint32 a = (OP[0]); 
+  uint32 a = (OP[0]);
   uint32 b = GPR32 (OP[1]);
   trace_input ("cmpd", OP_CONSTANT4, OP_REGP, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2507,7 +2507,7 @@ OP_56_8 ()
 void
 OP_56B_C ()
 {
-  uint32 a = (SEXT16(OP[0])); 
+  uint32 a = (SEXT16(OP[0]));
   uint32 b = GPR32 (OP[1]);
   trace_input ("cmpd", OP_CONSTANT16, OP_REGP, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2520,7 +2520,7 @@ OP_56B_C ()
 void
 OP_57_8 ()
 {
-  uint32 a = GPR32 (OP[0]) ; 
+  uint32 a = GPR32 (OP[0]) ;
   uint32 b = GPR32 (OP[1]) ;
   trace_input ("cmpd", OP_REGP, OP_REGP, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2533,7 +2533,7 @@ OP_57_8 ()
 void
 OP_9_C()
 {
-  uint32 a = (OP[0]); 
+  uint32 a = (OP[0]);
   uint32 b = GPR32 (OP[1]);
   trace_input ("cmpd", OP_CONSTANT32, OP_REGP, OP_VOID);
   SET_PSR_Z (a == b);
@@ -2762,12 +2762,12 @@ OP_15_D ()
 void
 OP_88_8 ()
 {
-  /* loadb ABS20, REG 
+  /* loadb ABS20, REG
    * ADDR = zext24(abs20) | remap (ie 0xF00000)
-   * REG  = [ADDR] 
-   * NOTE: remap is 
-   * If (abs20 > 0xEFFFF) the resulting address is logically ORed 
-   * with 0xF00000 i.e. addresses from 1M-64k to 1M are re-mapped 
+   * REG  = [ADDR]
+   * NOTE: remap is
+   * If (abs20 > 0xEFFFF) the resulting address is logically ORed
+   * with 0xF00000 i.e. addresses from 1M-64k to 1M are re-mapped
    * by the core to 16M-64k to 16M. */
 
   uint16 tmp, a = (GPR (OP[1])) & 0xFF00;
@@ -2783,7 +2783,7 @@ OP_88_8 ()
 void
 OP_127_14 ()
 {
-  /* loadb ABS24, REG 
+  /* loadb ABS24, REG
    * ADDR = abs24
    * REGR = [ADDR].   */
 
@@ -2822,7 +2822,7 @@ OP_45_7 ()
 void
 OP_B_4 ()
 {
-  /* loadb DIPS4(REGP)   REG 
+  /* loadb DIPS4(REGP)   REG
    * ADDR = RPBASE + zext24(DISP4)
    * REG = [ADDR].  */
   uint16 tmp, a = (GPR (OP[2])) & 0xFF00;
@@ -2990,15 +2990,15 @@ OP_126_14 ()
 void
 OP_89_8 ()
 {
-  /* loadw ABS20, REG 
+  /* loadw ABS20, REG
    * ADDR = zext24(abs20) | remap
-   * REGR = [ADDR] 
-   * NOTE: remap is 
-   * If (abs20 > 0xEFFFF) the resulting address is logically ORed 
-   * with 0xF00000 i.e. addresses from 1M-64k to 1M are re-mapped 
+   * REGR = [ADDR]
+   * NOTE: remap is
+   * If (abs20 > 0xEFFFF) the resulting address is logically ORed
+   * with 0xF00000 i.e. addresses from 1M-64k to 1M are re-mapped
    * by the core to 16M-64k to 16M. */
 
-  uint16 tmp; 
+  uint16 tmp;
   uint32 addr = OP[0];
   trace_input ("loadw", OP_ABS20, OP_REG, OP_VOID);
   if (addr > 0xEFFFF) addr |= 0xF00000;
@@ -3012,10 +3012,10 @@ OP_89_8 ()
 void
 OP_12F_14 ()
 {
-  /* loadw ABS24, REG 
+  /* loadw ABS24, REG
    * ADDR = abs24
    * REGR = [ADDR]  */
-  uint16 tmp; 
+  uint16 tmp;
   uint32 addr = OP[0];
   trace_input ("loadw", OP_ABS24, OP_REG, OP_VOID);
   tmp = (RW (addr));
@@ -3032,7 +3032,7 @@ OP_47_7 ()
    * REGR = [ADDR]  */
 
   uint32 addr;
-  uint16 tmp; 
+  uint16 tmp;
   trace_input ("loadw", OP_R_INDEX8_ABS20, OP_REG, OP_VOID);
 
   if (OP[0] == 0)
@@ -3126,7 +3126,7 @@ OP_18C_14 ()
    * REGP = [DISPE20+[REG]]   */
 
   uint16 tmp;
-  uint32 addr, a; 
+  uint32 addr, a;
   trace_input ("loadw", OP_R_BASE_DISPE20, OP_REGP, OP_VOID);
   addr = OP[0] + (GPR (OP[1]));
   tmp = (RW (addr));
@@ -3137,7 +3137,7 @@ OP_18C_14 ()
    }
   else
     SET_GPR (OP[2], tmp);
-   
+
   trace_output_16 (tmp);
 }
 
@@ -3266,10 +3266,10 @@ OP_87_8 ()
 {
   /* loadd ABS20, REGP
    * ADDR = zext24(abs20) | remap
-   * REGP = [ADDR] 
-   * NOTE: remap is 
-   * If (abs20 > 0xEFFFF) the resulting address is logically ORed 
-   * with 0xF00000 i.e. addresses from 1M-64k to 1M are re-mapped 
+   * REGP = [ADDR]
+   * NOTE: remap is
+   * If (abs20 > 0xEFFFF) the resulting address is logically ORed
+   * with 0xF00000 i.e. addresses from 1M-64k to 1M are re-mapped
    * by the core to 16M-64k to 16M. */
 
   uint32 addr, tmp;
@@ -3327,7 +3327,7 @@ OP_46_7 ()
 void
 OP_A_4 ()
 {
-  /* loadd dips4(regp)   REGP 
+  /* loadd dips4(regp)   REGP
    * ADDR = Rpbase + zext24(disp4)
    * REGP = [ADDR] */
 
@@ -3480,7 +3480,7 @@ OP_12A_14 ()
   if (OP[0] == 0)
      addr = (GPR32 (12)) + OP[1] + (GPR32 (OP[2]));
   else
-     addr = (GPR32 (13)) + OP[1] + (GPR32 (OP[2])); 
+     addr = (GPR32 (13)) + OP[1] + (GPR32 (OP[2]));
 
   tmp = RLW (addr);
   tmp = ((tmp << 16) & 0xffff)| ((tmp >> 16) & 0xffff);
@@ -3495,7 +3495,7 @@ OP_C8_8 ()
 {
   /* storb REG, ABS20
    * ADDR = zext24(abs20) | remap
-   * [ADDR] = REGR 
+   * [ADDR] = REGR
    * NOTE: remap is
    * If (abs20 > 0xEFFFF) the resulting address is logically ORed
    * with 0xF00000 i.e. addresses from 1M-64k to 1M are re-mapped
@@ -3527,7 +3527,7 @@ OP_137_14 ()
 void
 OP_65_7 ()
 {
-  /* storb REG, [Rindex]ABS20 
+  /* storb REG, [Rindex]ABS20
    * ADDR = Rindex + zext24(disp20)
    * [ADDR] = REGR  */
 
@@ -3599,7 +3599,7 @@ OP_319_A ()
 void
 OP_194_14 ()
 {
-  /* storb REG, DISPE20(REG) 
+  /* storb REG, DISPE20(REG)
    * zext24(Rbase) + zext24(dispe20)
    * [ADDR] = REG  */
 
@@ -3648,7 +3648,7 @@ OP_135_14 ()
    * ADDR = RPbase + zext24(disp20)
    * [ADDR] = REGP   */
 
-  uint8 a = ((GPR (OP[0])) & 0xff); 
+  uint8 a = ((GPR (OP[0])) & 0xff);
   trace_input ("storb", OP_REG, OP_RP_BASE_DISPS20, OP_VOID);
   uint32 addr = (GPR32 (OP[2])) + OP[1];
   SB (addr, a);
@@ -3663,7 +3663,7 @@ OP_195_14 ()
    * ADDR = RPbase + zext24(-disp20)
    * [ADDR] = REGP  */
 
-  uint8 a = (GPR (OP[0]) & 0xff); 
+  uint8 a = (GPR (OP[0]) & 0xff);
   trace_input ("storb", OP_REG, OP_RP_BASE_DISPE20, OP_VOID);
   uint32 addr = (GPR32 (OP[2])) + OP[1];
   SB (addr, a);
@@ -3838,7 +3838,7 @@ OP_D_4 ()
 {
   uint16 a = (GPR (OP[0]));
   trace_input ("storw", OP_REGP, OP_RP_BASE_DISPE4, OP_VOID);
-  uint32 addr = (GPR32 (OP[2])) + OP[1]; 
+  uint32 addr = (GPR32 (OP[2])) + OP[1];
   SW (addr, a);
   trace_output_32 (addr);
 }
@@ -4043,7 +4043,7 @@ OP_132_14 ()
 void
 OP_C7_8 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_ABS20_OUTPUT, OP_VOID);
   uint32 addr =  OP[1];
   SLW (addr, a);
@@ -4054,7 +4054,7 @@ OP_C7_8 ()
 void
 OP_13B_14 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_ABS24_OUTPUT, OP_VOID);
   uint32 addr =  OP[1];
   SLW (addr, a);
@@ -4065,7 +4065,7 @@ OP_13B_14 ()
 void
 OP_66_7 ()
 {
-  uint32 addr, a = GPR32 (OP[0]); 
+  uint32 addr, a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_R_INDEX8_ABS20, OP_VOID);
 
   if (OP[1] == 0)
@@ -4081,7 +4081,7 @@ OP_66_7 ()
 void
 OP_E_4 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_RP_BASE_DISPE4, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4092,7 +4092,7 @@ OP_E_4 ()
 void
 OP_EE_8 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_RP_INDEX_DISP0, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4103,7 +4103,7 @@ OP_EE_8 ()
 void
 OP_31A_A ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_RP_INDEX_DISP14, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4114,7 +4114,7 @@ OP_31A_A ()
 void
 OP_198_14 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_R_BASE_DISPE20, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4125,7 +4125,7 @@ OP_198_14 ()
 void
 OP_138_14 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_R_BASE_DISPS20, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4136,7 +4136,7 @@ OP_138_14 ()
 void
 OP_EF_8 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_RP_BASE_DISP16, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4147,7 +4147,7 @@ OP_EF_8 ()
 void
 OP_139_14 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_RP_BASE_DISPS20, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4158,7 +4158,7 @@ OP_139_14 ()
 void
 OP_199_14 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_RP_BASE_DISPE20, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4169,7 +4169,7 @@ OP_199_14 ()
 void
 OP_13A_14 ()
 {
-  uint32 a = GPR32 (OP[0]); 
+  uint32 a = GPR32 (OP[0]);
   trace_input ("stord", OP_REGP, OP_RP_INDEX_DISPS20, OP_VOID);
   uint32 addr =  (GPR32 (OP[2])) + OP[1];
   SLW (addr, a);
@@ -4316,7 +4316,7 @@ OP_B_8 ()
 void
 OP_62_8 ()
 {
-  int32 tmp; 
+  int32 tmp;
   int16 a = (GPR (OP[0])), b = (GPR (OP[1]));
   trace_input ("mulsw", OP_REG, OP_REGP, OP_VOID);
   tmp = a * b;
@@ -4568,7 +4568,7 @@ OP_47_8 ()
 void
 OP_80_9 ()
 {
-  uint16 a = OP[0]; 
+  uint16 a = OP[0];
   int8 tmp, b = (GPR (OP[1])) & 0xFF;
   trace_input ("ashub", OP_CONSTANT4, OP_REG, OP_VOID);
   /* A positive count specifies a shift to the left;
@@ -4588,7 +4588,7 @@ OP_80_9 ()
 void
 OP_81_9 ()
 {
-  uint16 a = OP[0]; 
+  uint16 a = OP[0];
   int8 tmp, b = (GPR (OP[1])) & 0xFF;
   trace_input ("ashub", OP_CONSTANT4, OP_REG, OP_VOID);
   /* A positive count specifies a shift to the left;
@@ -5032,7 +5032,7 @@ OP_3_C ()
   /* see ../common/sim-alu.h for a more extensive discussion on how to
      compute the carry/overflow bits. */
   SET_PSR_C (tmp > 0xffffffff);
-  SET_PSR_F (((a & 0x80000000) != (b & 0x80000000)) && 
+  SET_PSR_F (((a & 0x80000000) != (b & 0x80000000)) &&
 	     ((b & 0x80000000) != (tmp & 0x80000000)));
   SET_GPR32 (OP[1], tmp);
   trace_output_32 (tmp);
@@ -5049,7 +5049,7 @@ OP_14C_14 ()
   /* see ../common/sim-alu.h for a more extensive discussion on how to
      compute the carry/overflow bits. */
   SET_PSR_C (tmp > 0xffffffff);
-  SET_PSR_F (((a & 0x80000000) != (b & 0x80000000)) && 
+  SET_PSR_F (((a & 0x80000000) != (b & 0x80000000)) &&
 	     ((b & 0x80000000) != (tmp & 0x80000000)));
   SET_GPR32 (OP[1], tmp);
   trace_output_32 (tmp);
@@ -5346,7 +5346,7 @@ OP_C_C ()
 	  case TARGET_SYS_lseek:
 	    trace_input ("<lseek>", OP_REG, OP_REGP, OP_REG);
 	    RETVAL32 (cr16_callback->lseek (cr16_callback, PARM1,
-					    ((((long) PARM3) << 16) | PARM2), 
+					    ((((long) PARM3) << 16) | PARM2),
 					    PARM4));
 	    trace_output_32 (result);
 	    break;
@@ -5359,15 +5359,15 @@ OP_C_C ()
 
 	  case TARGET_SYS_open:
 	    trace_input ("<open>", OP_MEMREF, OP_REG, OP_VOID);
-	    RETVAL32 (cr16_callback->open (cr16_callback, 
-				 MEMPTR ((((unsigned long)PARM2)<<16)|PARM1), 
+	    RETVAL32 (cr16_callback->open (cr16_callback,
+				 MEMPTR ((((unsigned long)PARM2)<<16)|PARM1),
 				 PARM3));
 	    trace_output_32 (result);
 	    break;
 
 	  case TARGET_SYS_rename:
 	    trace_input ("<rename>", OP_MEMREF, OP_MEMREF, OP_VOID);
-	    RETVAL (cr16_callback->rename (cr16_callback, 
+	    RETVAL (cr16_callback->rename (cr16_callback,
 				   MEMPTR ((((unsigned long)PARM2)<<16) |PARM1),
 				   MEMPTR ((((unsigned long)PARM4)<<16) |PARM3)));
 	    trace_output_16 (result);
@@ -5387,7 +5387,7 @@ OP_C_C ()
 
 	  case TARGET_SYS_unlink:
 	    trace_input ("<unlink>", OP_MEMREF, OP_VOID, OP_VOID);
-	    RETVAL (cr16_callback->unlink (cr16_callback, 
+	    RETVAL (cr16_callback->unlink (cr16_callback,
 				 MEMPTR (((unsigned long)PARM2<<16)|PARM1)));
 	    trace_output_16 (result);
 	    break;
@@ -5453,7 +5453,7 @@ OP_C_C ()
 	    trace_output_32 (result);
 	    break;
 #endif
-	    
+
 	  default:
 	    cr16_callback->error (cr16_callback, "Unknown syscall %d", FUNC);
 	  }
@@ -5508,7 +5508,7 @@ OP_3_9 ()
   sp_addr +=4;
 
   /* Store RA address.  */
-  tmp = (GPR32 (14)); 
+  tmp = (GPR32 (14));
   SLW(sp_addr,tmp);
 
   sp_addr = (GPR32 (15)) - (a * 2) - 4;
@@ -5562,7 +5562,7 @@ OP_1_8 ()
   if (c == 1)
    {
       /* Store RA address.  */
-      tmp = (GPR32 (14)); 
+      tmp = (GPR32 (14));
       SLW(sp_addr,tmp);
       sp_addr = (GPR32 (15)) - (a * 2) - 4;
     }
@@ -5581,7 +5581,7 @@ OP_11E_10 ()
 {
   uint32 sp_addr = (GPR32 (15)), tmp;
   trace_input ("push", OP_VOID, OP_VOID, OP_VOID);
-  tmp = (GPR32 (14)); 
+  tmp = (GPR32 (14));
   SLW(sp_addr-4,tmp);                /* Store RA address.   */
   SET_GPR32 (15, (sp_addr - 4));     /* Update SP address.   */
   trace_output_void ();
@@ -5607,12 +5607,12 @@ OP_5_9 ()
 	{
 	  if ((a-i) > 1)
 	    {
-              tmp =  RLW(sp_addr); 
+              tmp =  RLW(sp_addr);
               sp_addr +=4;
 	    }
 	  else
 	    {
-              tmp =  RW(sp_addr); 
+              tmp =  RW(sp_addr);
               sp_addr +=2;
 
 	      if (is_regp == 0)
@@ -5660,12 +5660,12 @@ OP_2_8 ()
 	{
 	  if ((a-i) > 1)
 	    {
-              tmp =  RLW(sp_addr); 
+              tmp =  RLW(sp_addr);
               sp_addr +=4;
 	    }
 	  else
 	    {
-              tmp =  RW(sp_addr); 
+              tmp =  RW(sp_addr);
               sp_addr +=2;
 
 	      if (is_regp == 0)
@@ -5703,7 +5703,7 @@ OP_21E_10 ()
   uint32 tmp;
   trace_input ("pop", OP_VOID, OP_VOID, OP_VOID);
 
-  tmp =  RLW(sp_addr); 
+  tmp =  RLW(sp_addr);
   SET_GPR32 (14, (((tmp & 0xffff) << 16)| ((tmp >> 16) & 0xffff)));
   SET_GPR32 (15, (sp_addr+4));    /* Update SP address.  */
 
@@ -5742,7 +5742,7 @@ OP_31E_10 ()
   trace_input ("popret", OP_VOID, OP_VOID, OP_VOID);
   OP_21E_10 ();
   tmp = (((GPR32(14)) << 1) & 0xffffff);
-  /* If the resulting PC value is less than 0x00_0000 or greater 
+  /* If the resulting PC value is less than 0x00_0000 or greater
      than 0xFF_FFFF, this instruction causes an IAD trap.*/
 
   if ((tmp < 0x0) || (tmp > 0xFFFFFF))

@@ -23,7 +23,7 @@
 	lds	r0, x0
 	pand	x0, y0, a0
 	assert_sreg	0, a0
-		
+
 	set_dcfalse
 	dct pand x0, y0, m0
 	assert_sreg2	0xa5a5a5a5, m0

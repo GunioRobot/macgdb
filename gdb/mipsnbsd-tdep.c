@@ -124,7 +124,7 @@ mipsnbsd_regset_from_core_section (struct gdbarch *gdbarch,
 				   const char *sect_name, size_t sect_size)
 {
   size_t regsize = mips_isa_regsize (gdbarch);
-  
+
   if (strcmp (sect_name, ".reg") == 0
       && sect_size >= MIPSNBSD_NUM_GREGS * regsize)
     return &mipsnbsd_gregset;
@@ -188,7 +188,7 @@ mipsnbsd_supply_fpreg (struct regcache *regcache, const char *fpregs, int regno)
 	    regcache_raw_supply (regcache, i, NULL);
 	  else
             regcache_raw_supply (regcache, i,
-				 fpregs 
+				 fpregs
 				 + ((i - gdbarch_fp0_regnum (gdbarch))
 				    * mips_isa_regsize (gdbarch)));
 	}
@@ -204,7 +204,7 @@ mipsnbsd_fill_fpreg (const struct regcache *regcache, char *fpregs, int regno)
   for (i = gdbarch_fp0_regnum (gdbarch);
        i <= mips_regnum (gdbarch)->fp_control_status;
        i++)
-    if ((regno == i || regno == -1) 
+    if ((regno == i || regno == -1)
 	&& ! gdbarch_cannot_store_register (gdbarch, i))
       regcache_raw_collect (regcache, i,
 			    fpregs + ((i - gdbarch_fp0_regnum (gdbarch))
@@ -219,7 +219,7 @@ mipsnbsd_fill_fpreg (const struct regcache *regcache, char *fpregs, int regno)
 	addu	a0, sp, 16
 	li	v0, 295			# __sigreturn14
 	syscall
-   
+
    Each instruction has a unique encoding, so we simply attempt to match
    the instruction the PC is pointing to with any of the above instructions.
    If there is a hit, we know the offset to the start of the designated
@@ -336,7 +336,7 @@ mipsnbsd_ilp32_fetch_link_map_offsets (void)
   static struct link_map_offsets lmo;
   static struct link_map_offsets *lmp = NULL;
 
-  if (lmp == NULL) 
+  if (lmp == NULL)
     {
       lmp = &lmo;
 
@@ -377,7 +377,7 @@ mipsnbsd_lp64_fetch_link_map_offsets (void)
       /* Everything we need is in the first 40 bytes.  */
       lmo.link_map_size = 48;
       lmo.l_addr_offset = 0;
-      lmo.l_name_offset = 16; 
+      lmo.l_name_offset = 16;
       lmo.l_ld_offset = 24;
       lmo.l_next_offset = 32;
       lmo.l_prev_offset = 40;

@@ -1,21 +1,21 @@
 /*  This file is part of the program psim.
-    
+
     Copyright (C) 1994-1996, Andrew Cagney <cagney@highland.com.au>
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-    
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-    
+
     */
 
 
@@ -44,30 +44,30 @@
 #endif
 
 /* DEVICE
-   
+
 
    com - '550 compatible serial device
-   
+
 
    DESCRIPTION
-   
 
-   Models the basics of the 8 register '550 serial device.  The model 
-   includes an interrupt line, input and output fifos, and status 
+
+   Models the basics of the 8 register '550 serial device.  The model
+   includes an interrupt line, input and output fifos, and status
    information.
 
-   Independent configuration of the devices input and output streams is 
-   allowed: use either the console or a file (buffered or unbuffered) as 
-   the data source/sink; specify the real-time delay between each character 
+   Independent configuration of the devices input and output streams is
+   allowed: use either the console or a file (buffered or unbuffered) as
+   the data source/sink; specify the real-time delay between each character
    transfer.
 
-   When the devices input stream is being taken from a file, the end of 
-   file is signaled by a loss of carrier (the loss of carrier may be 
+   When the devices input stream is being taken from a file, the end of
+   file is signaled by a loss of carrier (the loss of carrier may be
    incorrectly proceeded by a single null character).
-   
+
 
    PROPERTIES
-   
+
 
    reg = <address> <size> ... (optional - note 1)
 
@@ -81,15 +81,15 @@
 
 
    assigned-addresses = <address> <size> ... (optional - note 1)
-   
-   On a PCI bus, this property specifies the addresses assigned to the 
+
+   On a PCI bus, this property specifies the addresses assigned to the
    device.  The values reflect the devices configuration base registers.
-   
-   Note 1: At least one of "assigned-addresses", "reg" or "alternative-reg" 
-   must be specified.  If "assigned-addresses" is specified the other 
+
+   Note 1: At least one of "assigned-addresses", "reg" or "alternative-reg"
+   must be specified.  If "assigned-addresses" is specified the other
    address specifications are ignored.
-   
-   
+
+
    input-file = <file-name> (optional)
 
    File to take all serial port input from (instead of the simulation
@@ -110,8 +110,8 @@
 
    output-buffering = "unbuffered" (optional)
 
-   Specifying "unbuffered" buffering disables buffering on the serial 
-   devices output stream (all data is immediatly written).  In the future, 
+   Specifying "unbuffered" buffering disables buffering on the serial
+   devices output stream (all data is immediatly written).  In the future,
    this option may be extended to include other buffering alternatives.
 
 
@@ -139,8 +139,8 @@
    <<iobus>>.  Since iobus starts at address <<0xf0000000>> the
    absolute address of the serial port will be <<0xf0003000>>.
 
-   The device will always be ready for I/O (no delay properties specified) 
-   and both the input and output streams will use the simulation console 
+   The device will always be ready for I/O (no delay properties specified)
+   and both the input and output streams will use the simulation console
    (no file properties).
 
 
@@ -155,31 +155,31 @@
    The serial port (at address <<0xf0004000>> is configured so that it
    takes its input from the file <</etc/passwd>> while its output is
    allowed to appear on the simulation console.
-   
-   The node <</cpus/cpu@0>> was explicitly specified to ensure that it had 
+
+   The node <</cpus/cpu@0>> was explicitly specified to ensure that it had
    been created before any interrupts were attached to it.
 
-   The program <<psim-test/hw-com/cat>> copies any characters on the serial 
-   port's input (<</etc/passwd>>) to its output (the console).  
-   Consequently, the aove program will display the contents of the file 
+   The program <<psim-test/hw-com/cat>> copies any characters on the serial
+   port's input (<</etc/passwd>>) to its output (the console).
+   Consequently, the aove program will display the contents of the file
    <</etc/passwd>> on the screen.
 
 
    BUGS
 
 
-   IEEE 1275 requires that a device on a PCI bus have, as its first reg 
-   entry, the address of its configuration space registers.  Currently, 
+   IEEE 1275 requires that a device on a PCI bus have, as its first reg
+   entry, the address of its configuration space registers.  Currently,
    this device does not even implement configuration registers.
-   
-   This model does not attempt to model the '550's input and output fifos.  
-   Instead, the input fifo is limited to a single character at a time, 
-   while the output fifo is effectivly infinite.  Consequently, unlike the 
-   '550, this device will not discard output characters once a stream of 16 
+
+   This model does not attempt to model the '550's input and output fifos.
+   Instead, the input fifo is limited to a single character at a time,
+   while the output fifo is effectivly infinite.  Consequently, unlike the
+   '550, this device will not discard output characters once a stream of 16
    have been written to the data output register.
 
-   The input and output can only be taken from a file (or the current 
-   terminal device).  In the future, the <<com>> device should allow the 
+   The input and output can only be taken from a file (or the current
+   terminal device).  In the future, the <<com>> device should allow the
    specification of other data streams (such as an xterm or TK window).
 
    The input blocks if no data is available.
@@ -314,7 +314,7 @@ read_com(device *me,
   }
 
   switch (addr) {
-  
+
   case 0:
     /* fifo */
     if (!com->modem.carrier)
@@ -429,7 +429,7 @@ write_com(device *me,
   }
 
   switch (addr) {
-  
+
   case 0:
     /* fifo */
     if (com->output.file == NULL) {

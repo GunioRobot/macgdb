@@ -27,7 +27,7 @@ beqi2:
 	# We should branch over this.
 	fail
 
-beqi3:	
+beqi3:
 	movi 27, r7
 	# We shouldn't branch here.
 	beqi/u r7, 23, tr2
@@ -35,6 +35,6 @@ beqi3:
 
 okay:
 	pass
-	
+
 wrong:
 	fail

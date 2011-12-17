@@ -544,7 +544,7 @@ typedef struct insn_template
   /* extension_opcode is the 3 bit extension for group <n> insns.
      This field is also used to store the 8-bit opcode suffix for the
      AMD 3DNow! instructions.
-     If this template has no extension opcode (the usual case) use None 
+     If this template has no extension opcode (the usual case) use None
      Instructions */
   unsigned int extension_opcode;
 #define None 0xffff		/* If no extension_opcode is possible.  */

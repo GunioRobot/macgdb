@@ -212,7 +212,7 @@
 	internal.h, m68k.h, m88k.h, maxq.h, mcore.h, mips.h, mipspe.h,
 	or32.h, pe.h, powerpc.h, rs6k64.h, sh.h, sparc.h, ti.h, tic30.h,
 	tic4x.h, tic54x.h, tic80.h, w65.h, we32k.h, xcoff.h, z8k.h
-	
+
 2005-02-21  Alan Modra  <amodra@bigpond.net.au>
 
 	* xcoff.h (struct xcoff_loader_info): Warning fix.

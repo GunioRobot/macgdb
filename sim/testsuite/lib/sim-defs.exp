@@ -82,9 +82,9 @@ proc sim_run { prog sim_opts prog_opts redir options } {
 	} elseif [regexp {^timeout=(.*)} $o full val] {
 	    set testcase_timeout $val
 	}
-	
+
     }
-	
+
     verbose "testcase timeout is set to $testcase_timeout" 1
 
     set sim [board_info target sim]

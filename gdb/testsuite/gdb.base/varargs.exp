@@ -82,11 +82,11 @@ if { $hp_aCC_compiler } {
     # When compiled w/ aCC we need to disable overload resolution
     # for command line calls.
     # We need it for vararg calls since the aCC compiler gives us no
-    # information about the undeclared arguments, or even that there 
+    # information about the undeclared arguments, or even that there
     # _are_ undeclared arguments. As far as gdb is concerned it only
     # knows about the declared arguments. So we need to force the call
     # even though the overload resolution mechanism says that the types
-    # don't match. 
+    # don't match.
     # - guo
     gdb_test "set overload-resolution 0" ""
 }

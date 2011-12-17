@@ -109,7 +109,7 @@ main (void)
 {
   char buf[128];
   int status;
-  
+
   CLEAR (buf);
   status = checkit (buf, 10, "%s:%d", "foobar", 9);
   VERIFY (status==8 && memcmp (buf, "foobar:9\0XXXXX\0", 15) == 0);

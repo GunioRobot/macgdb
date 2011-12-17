@@ -32,7 +32,7 @@ another:
 	mov #1, r1
 	shll2 r1
 	assert r1, #4
-	
+
 okay:
 	pass
 

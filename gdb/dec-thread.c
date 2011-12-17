@@ -70,11 +70,11 @@ static int
 resume_clbk (void *caller_context)
 {
   return ESUCCESS;
-} 
+}
 
 static int
 hold_clbk (void *caller_context, pthreadDebugKId_t kernel_tid)
-{ 
+{
   return ESUCCESS;
 }
 
@@ -101,7 +101,7 @@ write_clbk (void *caller_context, void *address, void *buffer,
             unsigned long size)
 {
   int status = target_write_memory ((CORE_ADDR) address, buffer, size);
-  
+
   if (status != 0)
     return EINVAL;
 
@@ -333,7 +333,7 @@ update_dec_thread_list (void)
       else if (info.kind == PTHREAD_DEBUG_THD_KIND_INITIAL
                || info.kind == PTHREAD_DEBUG_THD_KIND_NORMAL)
         {
-          struct dec_thread_info *item = 
+          struct dec_thread_info *item =
             xmalloc (sizeof (struct dec_thread_info));
 
           item->thread = thread;
@@ -364,7 +364,7 @@ static int
 dec_thread_add_gdb_thread (struct thread_info *info, void *context)
 {
   struct thread_info ***listp = (struct thread_info ***) context;
-  
+
   **listp = info;
   *listp++;
   return 0;
@@ -421,7 +421,7 @@ resync_thread_list (void)
 
 static void
 dec_thread_detach (struct target_ops *ops, char *args, int from_tty)
-{   
+{
   struct target_ops *beneath = find_target_beneath (ops);
 
   debug ("dec_thread_detach");
@@ -596,7 +596,7 @@ dec_thread_store_registers (struct target_ops *ops,
      sets.  */
   fill_gregset (regcache, &gregset, -1);
   fill_fpregset (regcache, &fpregset, -1);
-  
+
   res = dec_thread_set_regsets (tid, gregset, fpregset);
   if (res != 0)
     warning (_("failed to store registers."));
@@ -675,7 +675,7 @@ dec_thread_get_ada_task_ptid (long lwp, long thread)
        i++)
     if (info->info.teb == (pthread_t) thread)
       return ptid_build_from_info (*info);
-  
+
   warning (_("Could not find thread id from THREAD = 0x%lx\n"), thread);
   return inferior_ptid;
 }

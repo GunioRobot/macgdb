@@ -28,10 +28,10 @@
    This header file defines and describes only the data structures
    necessary to read debug symbols produced by the HP C compiler,
    HP ANSI C++ compiler, and HP FORTRAN 90 compiler using the
-   SOM object file format.  
+   SOM object file format.
    (For a full description of the debug format, ftp hpux-symtab.h from
    jaguar.cs.utah.edu:/dist).
-   
+
    Additional notes (Rich Title)
    This file is a reverse-engineered version of a file called
    "symtab.h" which exists internal to HP's Computer Languages Organization
@@ -39,15 +39,15 @@
    the file is copyrighted and not distributed, it is necessary for
    GDB to use the reverse-engineered version that follows.
    Work was done by Cygnus to reverse-engineer the C subset of symtab.h.
-   The WDB project has extended this to also contain the C++ 
-   symbol definitions, the F90 symbol definitions, 
+   The WDB project has extended this to also contain the C++
+   symbol definitions, the F90 symbol definitions,
    and the DOC (debugging-optimized-code) symbol definitions.
    In some cases (the C++ symbol definitions)
    I have added internal documentation here that
    goes beyond what is supplied in HP's symtab.h. If we someday
    unify these files again, the extra comments should be merged back
    into HP's symtab.h.
-  
+
    -------------------------------------------------------------------
 
    Debug symbols are contained entirely within an unloadable space called
@@ -125,7 +125,7 @@ enum hp_type
   HP_TYPE_GLOBAL_ANYPOINTER, /* 17 */
   HP_TYPE_LOCAL_ANYPOINTER, /* 18 */
   HP_TYPE_COMPLEXS3000, /* 19 */
-  HP_TYPE_FTN_STRING_S300_COMPAT, /* 20 */ 
+  HP_TYPE_FTN_STRING_S300_COMPAT, /* 20 */
   HP_TYPE_FTN_STRING_VAX_COMPAT, /* 21 */
   HP_TYPE_BOOLEAN_S300_COMPAT, /* 22 */
   HP_TYPE_BOOLEAN_VAX_COMPAT, /* 23 */
@@ -316,7 +316,7 @@ struct dntt_type_srcfile
 
    A DNTT_TYPE_MODULE symbol is emitted for the start of a pascal
    module or C source file. A module indicates a compilation unit
-   for name-scoping purposes; in that regard there should be 
+   for name-scoping purposes; in that regard there should be
    a 1-1 correspondence between GDB "symtab"'s and MODULE symbol records.
 
    Each DNTT_TYPE_MODULE must have an associated DNTT_TYPE_END symbol.
@@ -349,7 +349,7 @@ struct dntt_type_module
    a DNTT_TYPE_ENTRY symbols is used for secondary entry points.  Both
    symbols used the dntt_type_function structure.
    A DNTT_TYPE_BLOCKDATA symbol is emitted ...?
-   A DNTT_TYPE_MEMFUNC symbol is emitted for inlined member functions (C++). 
+   A DNTT_TYPE_MEMFUNC symbol is emitted for inlined member functions (C++).
 
    Each of DNTT_TYPE_FUNCTION must have a matching DNTT_TYPE_END.
 
@@ -616,7 +616,7 @@ struct dntt_type_const
 
    DNTT_TYPE_TAGDEFs are associated with C "struct", "union", and "enum"
    tags, which may have the same name as a typedef in the same scope.
-   Also they are associated with C++ "class" tags, which implicitly have 
+   Also they are associated with C++ "class" tags, which implicitly have
    the same name as the class type.
 
    GLOBAL is nonzero if the typedef/tagdef has global scope.
@@ -632,7 +632,7 @@ struct dntt_type_const
 struct dntt_type_type
 {
   unsigned int extension:	1;
-  unsigned int kind:		10;    /* DNTT_TYPE_TYPEDEF or 
+  unsigned int kind:		10;    /* DNTT_TYPE_TYPEDEF or
                                           DNTT_TYPE_TAGDEF.  */
   unsigned int global:		1;
   unsigned int typeinfo:	1;
@@ -640,7 +640,7 @@ struct dntt_type_type
   vtpointer name;
   dnttpointer type;                    /* Underlying type, which for TAGDEF's may be
                                           DNTT_TYPE_STRUCT, DNTT_TYPE_UNION,
-                                          DNTT_TYPE_ENUM, or DNTT_TYPE_CLASS. 
+                                          DNTT_TYPE_ENUM, or DNTT_TYPE_CLASS.
                                           For TYPEDEF's other underlying types
                                           are also possible.  */
 };
@@ -715,7 +715,7 @@ struct dntt_type_memenum
 
    SUBTYPE points to a DNTT entry describing the type of the members.
 
-   BITLENGTH is the size of the set.  */ 
+   BITLENGTH is the size of the set.  */
 
 struct dntt_type_set
 {
@@ -919,15 +919,15 @@ struct dntt_type_functype
 
 /* DNTT_TYPE_WITH is emitted by C++ to indicate "with" scoping semantics.
    (Probably also emitted by PASCAL to support "with"...).
-   
+
    C++ example: Say "memfunc" is a method of class "c", and say
    "m" is a data member of class "c". Then from within "memfunc",
    it is legal to reference "m" directly (e.g. you don't have to
    say "this->m". The symbol table indicates
    this by emitting a DNTT_TYPE_WITH symbol within the function "memfunc",
    pointing to the type symbol for class "c".
- 
-   In GDB, this symbol record is unnecessary, 
+
+   In GDB, this symbol record is unnecessary,
    because GDB's symbol lookup algorithm
    infers the "with" semantics when it sees a "this" argument to the member
    function. So GDB can safely ignore the DNTT_TYPE_WITH record.
@@ -951,7 +951,7 @@ struct dntt_type_with
   dnttpointer type;                   /* type of with expression      */
   vtpointer name;                     /* name of with expression      */
   unsigned long  offset;              /* byte offset from location    */
-};                                   
+};
 
 /* DNTT_TYPE_COMMON is unsupported by GDB.  */
 /* A DNTT_TYPE_COMMON symbol must have a matching DNTT_TYPE_END symbol */
@@ -990,7 +990,7 @@ struct dntt_type_with
     via the simple "break memfunc". Since "memfunc" otherwise looks
     like a normal FUNCTION in the symbol table, the bracketing
     CLASS_SCOPE is what is used to indicate it is really a method.
-    
+
 
    A DNTT_TYPE_CLASS_SCOPE symbol must have a matching DNTT_TYPE_END symbol.  */
 
@@ -998,16 +998,16 @@ struct dntt_type_class_scope
 {
   unsigned int extension:   1;	   /* Always zero.  */
   unsigned int kind:       10;     /* Always DNTT_TYPE_CLASS_SCOPE.  */
-  unsigned int unused:     21; 
+  unsigned int unused:     21;
   sltpointer address         ;     /* Pointer to SLT entry.  */
   dnttpointer type           ;     /* Pointer to class type DNTT.  */
 };
 
 /* C++ reference parameter.
-   The structure of this record is the same as DNTT_TYPE_POINTER - 
+   The structure of this record is the same as DNTT_TYPE_POINTER -
    refer to struct dntt_type_pointer.  */
 
-/* The next two describe C++ pointer-to-data-member type, and 
+/* The next two describe C++ pointer-to-data-member type, and
    pointer-to-member-function type, respectively.
    DNTT_TYPE_PTRMEM and DNTT_TYPE_PTRMEMFUNC have the same structure.  */
 
@@ -1035,14 +1035,14 @@ struct dntt_type_ptrmemfunc
    of INHERITANCE records indicating classes from which we inherit
    fields.  */
 
-struct dntt_type_class 
+struct dntt_type_class
 {
   unsigned int extension:   1;     /* Always zero.  */
   unsigned int kind:       10;     /* Always DNTT_TYPE_CLASS.  */
   unsigned int abstract:    1;     /* Is this an abstract class?  */
   unsigned int class_decl:  2;     /* 0=class,1=union,2=struct.  */
   unsigned int expansion:   1;     /* 1=template expansion.  */
-  unsigned int unused:     17;     
+  unsigned int unused:     17;
   dnttpointer memberlist     ;     /* Ptr to chain of [GEN]FIELDs.  */
   unsigned long vtbl_loc     ;     /* Offset in obj of ptr to vtbl.  */
   dnttpointer parentlist     ;     /* Ptr to K_INHERITANCE list.  */
@@ -1093,7 +1093,7 @@ struct dntt_type_memaccess
 
 /* The DNTT_TYPE_INHERITANCE record describes derived classes.
    In particular, the "parentlist" field of the CLASS record points
-   to a list of INHERITANCE records for classes from which we 
+   to a list of INHERITANCE records for classes from which we
    inherit members.  */
 
 struct dntt_type_inheritance
@@ -1194,9 +1194,9 @@ struct dntt_type_template
 /* Template-class arguments are a list of TEMPL_ARG records
    chained together. The "name" field is the name of the formal.
    E.g.:
-   
+
      template <class T> class q { ... };
-   
+
    Then "T" is the name of the formal argument.  */
 
 struct dntt_type_templ_arg
@@ -1213,17 +1213,17 @@ struct dntt_type_templ_arg
 
 /* FUNC_TEMPLATE records are sort of like FUNCTION, but are emitted
    for template member functions. E.g.,
-   
+
      template <class T> class q
      {
         ...
         void f();
-        ... 
+        ...
      };
-   
+
    Within the list of FIELDs/GENFIELDs defining the member list
    of the template "q", "f" would appear as a FUNC_TEMPLATE.
-   We'll also see instances of FUNCTION "f" records for each 
+   We'll also see instances of FUNCTION "f" records for each
    instantiation of the template.  */
 
 struct dntt_type_func_template
@@ -1234,7 +1234,7 @@ struct dntt_type_func_template
   unsigned int language:    4;     /* type of language             */
   unsigned int level:       5;     /* nesting level (top level = 0)*/
   unsigned int optimize:    2;     /* level of optimization        */
-  unsigned int varargs:     1;     /* ellipses.  Pascal/800 later  */ 
+  unsigned int varargs:     1;     /* ellipses.  Pascal/800 later  */
   unsigned int info:        4;     /* lang-specific stuff; F_xxxx  */
   unsigned int inlined:     1;
   unsigned int localloc:    1;     /* 0 at top, 1 at end of block  */
@@ -1249,7 +1249,7 @@ struct dntt_type_func_template
 /* LINK is apparently intended to link together function template
    definitions with their instantiations. However, it is not clear
    why this would be needed, except to provide the information on
-   a "ptype" command. And as far as I can tell, aCC does not 
+   a "ptype" command. And as far as I can tell, aCC does not
    generate this record.  */
 
 struct dntt_type_link
@@ -1318,7 +1318,7 @@ struct dntt_type_block
   unsigned int word[2];
 };
 
-/* One entry in a DNTT (either the LNTT or GNTT).  
+/* One entry in a DNTT (either the LNTT or GNTT).
    This is a union of the above 60 or so structure definitions.  */
 
 union dnttentry
@@ -1447,12 +1447,12 @@ union sltentry
 };
 
 /* $LINES$ declarations
-   This is the line table used for optimized code, which is only present 
+   This is the line table used for optimized code, which is only present
    in the new $PROGRAM_INFO$ debug space.  */
 
 #define DST_LN_ESCAPE_FLAG1   15
 #define DST_LN_ESCAPE_FLAG2   14
-#define DST_LN_CTX_SPEC1      13  
+#define DST_LN_CTX_SPEC1      13
 #define DST_LN_CTX_SPEC2      12
 
 /* Escape function codes:  */
@@ -1496,7 +1496,7 @@ typedef enum
   dst_ln_init_base3,   	/* next 4 bytes are absolute PC, followed by 3 bytes of line number */
   dst_ln_escape2_END_OF_ENUM
 }
-dst_ln_escape2_t;           
+dst_ln_escape2_t;
 
 typedef union
 {
@@ -1517,7 +1517,7 @@ typedef union
   struct
   {
     unsigned int     esc_flag   : 4;      /* dst_ln_ctx_spec1, or dst_ln_ctx_spec2 */
-    unsigned int     run_length : 2;      
+    unsigned int     run_length : 2;
     unsigned int     ctx_index  : 2;      /* ...spec2 contains index;  ...spec1, index - 4 */
   }
   ctx_spec;
@@ -1561,28 +1561,28 @@ typedef struct
 
 
 /*  PXDB definitions.
-  
+
    PXDB is a post-processor which takes the executable file
    and massages the debug information so that the debugger may
    start up and run more efficiently.  Some of the tasks
    performed by PXDB are:
-  
+
    o   Remove duplicate global type and variable information
        from the GNTT,
-  
+
    o   Append the GNTT onto the end of the LNTT and place both
        back in the LNTT section,
-  
+
    o   Build quick look-up tables (description follows) for
        files, procedures, modules, and paragraphs (for Cobol),
        placing these in the GNTT section,
-  
+
    o   Reconstruct the header appearing in the header section
        to access this information.
-  
+
    The "quick look-up" tables are in the $GNTT$ sub-space, in
    the following order:
-  
+
        Procedures    -sorted by address
        Source files  -sorted by address (of the
                       generated code from routines)
@@ -1590,10 +1590,10 @@ typedef struct
        Classes       -<unsorted?>
        Address Alias -sorted by index <?>
        Object IDs    -sorted by object identifier
-  
+
    Most quick entries have (0-based) indices into the LNTT tables to
    the full entries for the item it describes.
-  
+
    The post-PXDB header is in the $HEADER$ sub-space.  Alas, it
    occurs in different forms, depending on the optimization level
    in the compilation step and whether PXDB was run or not. The
@@ -1643,11 +1643,11 @@ typedef struct PXDB_struct
 
 typedef struct XDB_header_struct
 {
-  long gntt_length; 
-  long lntt_length; 
-  long slt_length; 
-  long vt_length; 
-  long xt_length; 
+  long gntt_length;
+  long lntt_length;
+  long slt_length;
+  long vt_length;
+  long xt_length;
 } XDB_header;
 
 /* Header version for the case that there is DOC info and the
@@ -1655,16 +1655,16 @@ typedef struct XDB_header_struct
 
 typedef struct DOC_info_PXDB_header_struct
 {
-  unsigned int xdb_header: 1; 	      /* bit set if this is post-3.1 xdb */ 
+  unsigned int xdb_header: 1; 	      /* bit set if this is post-3.1 xdb */
   unsigned int doc_header: 1;         /* bit set if this is doc-style header */
   unsigned int version: 8;            /* version of pxdb see defines
 				         PXDB_VERSION_* in this file.  */
-  unsigned int reserved_for_flags: 16;/* for future use; -- must be 
+  unsigned int reserved_for_flags: 16;/* for future use; -- must be
                                          set to zero.  */
   unsigned int has_aux_pd_table: 1;   /* $GNTT$ has aux PD table */
-  unsigned int has_expr_table: 1;     /* space has $EXPR$ */       
-  unsigned int has_range_table: 1;    /* space has $RANGE$ */       
-  unsigned int has_context_table: 1;  /* space has $SRC_CTXT$ */    
+  unsigned int has_expr_table: 1;     /* space has $EXPR$ */
+  unsigned int has_range_table: 1;    /* space has $RANGE$ */
+  unsigned int has_context_table: 1;  /* space has $SRC_CTXT$ */
   unsigned int has_lines_table: 1;    /* space contains a $LINES$
                                          subspace for line tables.  */
   unsigned int has_lt_offset_map: 1;  /* space contains an lt_offset
@@ -1694,10 +1694,10 @@ typedef struct DOC_info_PXDB_header_struct
 
 typedef struct DOC_info_header_struct
 {
-  unsigned int xdb_header: 1; 	/* bit set if this is post-3.1 xdb */ 
+  unsigned int xdb_header: 1; 	/* bit set if this is post-3.1 xdb */
   unsigned int doc_header: 1;     /* bit set if this is doc-style header*/
-  unsigned int version: 8;      /* version of debug/header 
-                                   format. For 10.0 the value 
+  unsigned int version: 8;      /* version of debug/header
+                                   format. For 10.0 the value
                                    will be 1. For "Davis" the value is 2.  */
   unsigned int reserved_for_flags: 18; /* for future use; -- must be set to zero.  */
   unsigned int has_range_table: 1;     /* space contains a $RANGE$ subspace for variable ranges.  */
@@ -1731,7 +1731,7 @@ typedef union GenericDebugHeader_union
 typedef struct quick_procedure
 {
   long           isym;		/* 0-based index of first symbol
-                                   for procedure in $LNTT$, 
+                                   for procedure in $LNTT$,
                                    i.e. the procedure itself.  */
   CORE_ADDR	 adrStart;	/* memory adr of start of proc	*/
   CORE_ADDR	 adrEnd;	/* memory adr of end of proc	*/
@@ -1739,7 +1739,7 @@ typedef struct quick_procedure
   char          *sbProc;	/* real name of procedure	*/
   CORE_ADDR	 adrBp;		/* address of entry breakpoint  */
   CORE_ADDR	 adrExitBp;	/* address of exit breakpoint   */
-  int            icd;           /* member of this class (index) */	
+  int            icd;           /* member of this class (index) */
   unsigned int	 ipd;		/* index of template for this   */
                                 /* function (index)           */
   unsigned int	 unused:    5;

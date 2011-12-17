@@ -42,7 +42,7 @@
    disassemble the function that contins that line.
    HOW_MANY: Number of disassembly lines to display. In mixed mode, it
    is the number of disassembly lines only, not counting the source
-   lines.  
+   lines.
 
    always required:
 

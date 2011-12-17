@@ -1,7 +1,7 @@
 # sh testcase for clips, clipu
 # mach:	 all
 # as(sh):	-defsym sim_cpu=0
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -44,7 +44,7 @@ clipu_b:
 	test_gr_a5a5 r12
 	test_gr_a5a5 r13
 	test_gr_a5a5 r14
-	
+
 clips_w:
 	set_grs_a5a5
 	clips.w	r1
@@ -82,7 +82,7 @@ clipu_w:
 	test_gr_a5a5 r12
 	test_gr_a5a5 r13
 	test_gr_a5a5 r14
-	
+
 	pass
 
 	exit 0

@@ -12,7 +12,7 @@ public:
   const char *ccpfoo;
 
 int overload1arg (void);
-int overload1arg (char);         
+int overload1arg (char);
 int overload1arg (signed char);
 int overload1arg (unsigned char);
 int overload1arg (short);
@@ -78,7 +78,7 @@ namespace XXX {
   void marker2() {}
 }
 
-int main () 
+int main ()
 {
     char arg2 = 2;
     signed char arg3 =3;
@@ -136,47 +136,47 @@ int foo::overload1arg (double arg)          { arg = 0; return 12;}
 
 int foo::overloadfnarg (void) { return ifoo * 20; }
 int foo::overloadfnarg (int arg) { arg = 0; return 13;}
-int foo::overloadfnarg (int arg, int (*foo) (int))    { return foo(arg); } 
+int foo::overloadfnarg (int arg, int (*foo) (int))    { return foo(arg); }
 
 /* Some functions to test overloading by varying argument count. */
 
-int foo::overloadargs (int a1)                 
-{ a1 = 0; 
+int foo::overloadargs (int a1)
+{ a1 = 0;
 return 1;}
 
-int foo::overloadargs (int a1, int a2)          
-{ a1 = a2 = 0; 
+int foo::overloadargs (int a1, int a2)
+{ a1 = a2 = 0;
 return 2;}
 
-int foo::overloadargs (int a1, int a2, int a3)              
-{ a1 = a2 = a3 = 0; 
+int foo::overloadargs (int a1, int a2, int a3)
+{ a1 = a2 = a3 = 0;
 return 3;}
 
 int foo::overloadargs (int a1, int a2, int a3, int a4)
-{ a1 = a2 = a3 = a4 = 0; 
+{ a1 = a2 = a3 = a4 = 0;
 return 4;}
 
 int foo::overloadargs (int a1, int a2, int a3, int a4, int a5)
-{ a1 = a2 = a3 = a4 = a5 = 0; 
+{ a1 = a2 = a3 = a4 = a5 = 0;
 return 5;}
 
 int foo::overloadargs (int a1, int a2, int a3, int a4, int a5, int a6)
-{ a1 = a2 = a3 = a4 = a5 = a6 = 0; 
+{ a1 = a2 = a3 = a4 = a5 = a6 = 0;
 return 6;}
 
 int foo::overloadargs (int a1, int a2, int a3, int a4, int a5, int a6, int a7)
-{ a1 = a2 = a3 = a4 = a5 = a6 = a7 = 0; 
+{ a1 = a2 = a3 = a4 = a5 = a6 = a7 = 0;
 return 7;}
 
 int foo::overloadargs (int a1, int a2, int a3, int a4, int a5, int a6, int a7,
                    int a8)
-{ a1 = a2 = a3 = a4 = a5 = a6 = a7 = a8 = 0; 
+{ a1 = a2 = a3 = a4 = a5 = a6 = a7 = a8 = 0;
 return 8;}
 
 int foo::overloadargs (int a1, int a2, int a3, int a4, int a5, int a6, int a7,
                    int a8, int a9)
-{ 
-  a1 = a2 = a3 = a4 = a5 = a6 = a7 = a8 = a9 = 0; 
+{
+  a1 = a2 = a3 = a4 = a5 = a6 = a7 = a8 = a9 = 0;
   return 9;
 }
 

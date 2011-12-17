@@ -8,12 +8,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
@@ -48,7 +48,7 @@ TEXIDIR=${gdbdir}/../texinfo
 # where to find makeinfo, preferably one designed for texinfo-2
 MAKEINFO=makeinfo
 
-MAKEHTML = $(MAKEINFO) --html 
+MAKEHTML = $(MAKEINFO) --html
 MAKEHTMLFLAGS =
 
 # where to find texi2roff, ditto
@@ -61,7 +61,7 @@ TEXI2DVI=texi2dvi
 PKGVERSION = @PKGVERSION@
 BUGURL_TEXI = @REPORT_BUGS_TEXI@
 
-# Where is the source dir for the READLINE library doc?  
+# Where is the source dir for the READLINE library doc?
 # Traditionally readline is in .. or .
 READLINE_DIR = ${gdbdir}/../readline/doc
 
@@ -362,7 +362,7 @@ gdb.info: ${GDB_DOC_FILES}
 
 # GDB MANUAL: roff translations
 # Try to use a recent texi2roff.  v2 was put on prep in jan91.
-# If you want an index, see texi2roff doc for postprocessing 
+# If you want an index, see texi2roff doc for postprocessing
 # and add -i to texi2roff invocations below.
 # Workarounds for texi2roff-2 (probably fixed in later texi2roff's, delete
 #    corresponding -e lines when later texi2roff's are current)
@@ -371,7 +371,7 @@ gdb.info: ${GDB_DOC_FILES}
 # + @   (that's at-BLANK) not recognized by texi2roff, turned into blank
 # + @alphaenumerate is ridiculously new, turned into @enumerate
 
-# texi2roff doesn't have a notion of include dirs, so we have to fake 
+# texi2roff doesn't have a notion of include dirs, so we have to fake
 # it out for gdb manual's include files---but only if not configured
 # in main sourcedir.
 links2roff: $(GDB_DOC_SOURCE_INCLUDES)
@@ -395,7 +395,7 @@ gdb.me: $(GDB_DOC_FILES) links2roff
 		$(srcdir)/gdb.texinfo | \
 	$(TEXI2ROFF) -me | \
 	sed -e 's/---/\\(em/g' \
-	>gdb.me 
+	>gdb.me
 
 # gdb manual suitable for [gtn]roff -ms
 gdb.ms: $(GDB_DOC_FILES) links2roff
@@ -410,10 +410,10 @@ gdb.ms: $(GDB_DOC_FILES) links2roff
 		$(srcdir)/gdb.texinfo | \
 	$(TEXI2ROFF) -ms | \
 	sed -e 's/---/\\(em/g' \
-	>gdb.ms 
+	>gdb.ms
 
 # gdb manual suitable for [tn]roff -mm
-# '@noindent's removed due to texi2roff-2 mm bug; if yours is newer, 
+# '@noindent's removed due to texi2roff-2 mm bug; if yours is newer,
 #   try leaving them in
 gdb.mm: $(GDB_DOC_FILES) links2roff
 	sed -e '/\\input texinfo/d' \
@@ -428,7 +428,7 @@ gdb.mm: $(GDB_DOC_FILES) links2roff
 		$(srcdir)/gdb.texinfo | \
 	$(TEXI2ROFF) -mm | \
 	sed -e 's/---/\\(em/g' \
-	>gdb.mm 
+	>gdb.mm
 
 # GDB MANUAL: HTML file
 
@@ -536,7 +536,7 @@ clean: mostlyclean
 distclean: clean
 	rm -f Makefile config.status config.log
 
-# GDBvn.texi, the dvi files, the info files, and the postscript files, 
+# GDBvn.texi, the dvi files, the info files, and the postscript files,
 # are all part of the distribution, so it should not be removed by
 # "clean" or "distclean".  Use maintainer-clean to remove them.
 

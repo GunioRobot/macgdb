@@ -1,7 +1,7 @@
 # sh testcase for movua
 # mach:	 all
 # as(sh):	-defsym sim_cpu=0
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
@@ -129,7 +129,7 @@ movua_1:
 
 	bra	movua_4:
 	nop
-	
+
 	.align 0
 src:	.byte	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
 	.align 2

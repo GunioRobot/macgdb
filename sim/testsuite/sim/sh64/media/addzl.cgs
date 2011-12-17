@@ -31,7 +31,7 @@ addzl3:
 	addi r0, 2, r0
 	movi 2, r1
 	addz.l r0, r1, r2
-	
+
 okay:
 	pass
 

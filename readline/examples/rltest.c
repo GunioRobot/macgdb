@@ -33,7 +33,7 @@
 
 #ifdef HAVE_STDLIB_H
 #  include <stdlib.h>
-#else 
+#else
 extern void exit();
 #endif
 

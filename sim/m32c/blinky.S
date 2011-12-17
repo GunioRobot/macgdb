@@ -1,5 +1,5 @@
 ;;; blinky.S --- sample program to blink LED's on M32C simulator
-;;; 
+;;;
 ;;; Copyright (C) 2005, 2007, 2008, 2009 Free Software Foundation, Inc.
 ;;; Contributed by Red Hat, Inc.
 ;;;

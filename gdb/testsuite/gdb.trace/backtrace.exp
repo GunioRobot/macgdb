@@ -62,7 +62,7 @@ if [istarget "m68k-*-elf"] then {
 }
 gdb_reinitialize_dir $srcdir/$subdir
 
-# We generously give ourselves one "pass" if we successfully 
+# We generously give ourselves one "pass" if we successfully
 # detect that this test cannot be run on this target!
 if { ![gdb_target_supports_trace] } then {
     pass "Current target does not support trace"
@@ -131,7 +131,7 @@ all tests in this module will fail."
 	    untested backtrace.exp
 	    return -1
 all tests in this module will fail."
-    } 
+    }
 }
 
 #
@@ -187,13 +187,13 @@ gdb_test "tstop" "" ""
 
 proc gdb_backtrace_tdp_1 { msg } {
     global gdb_prompt
-    
+
     # We are in a trace frame at which we didn't collect anything
     # except $PC.  Therefore we expect to be able to identify stack
     # frame #0, but that's about all.  In particular we do not expect
     # to be able to display the function's arguments or locals, and we
     # do not expect to be able to identify the caller of this function.
-    
+
     send_gdb "backtrace\n"
     gdb_expect {
 	-re "#0\[\t \]+gdb_recursion_test.*depth=.*$gdb_prompt $" {

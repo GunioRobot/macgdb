@@ -1,23 +1,23 @@
 /*
  * func.c, misc simulator functions. This file is part of SIS.
- * 
+ *
  * SIS, SPARC instruction simulator V1.8 Copyright (C) 1995 Jiri Gaisler,
  * European Space Agency
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
  * more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 675
  * Mass Ave, Cambridge, MA 02139, USA.
- * 
+ *
  */
 
 #include <signal.h>
@@ -74,7 +74,7 @@ static void	disp_regs PARAMS ((struct pstate  *sregs, int cwp));
 static void	disp_ctrl PARAMS ((struct pstate *sregs));
 static void	disp_mem PARAMS ((uint32 addr, uint32 len));
 
-static int 
+static int
 batch(sregs, fname)
     struct pstate  *sregs;
     char           *fname;
@@ -325,9 +325,9 @@ errinj()
 	case 2: errtt = 0x63; break;
 	case 3: errtt = 0x64; break;
 	case 4: errtt = 0x65; break;
-	case 5: 
-	case 6: 
-	case 7: errftt = err; 
+	case 5:
+	case 6:
+	case 7: errftt = err;
 		break;
 	case 8: errmec = 1; break;
 	case 9: errmec = 2; break;
@@ -363,7 +363,7 @@ limcalc (freq)
       	    if (strcmp(cmd2,"ms")==0) unit = 1000;
             if (strcmp(cmd2,"s")==0)  unit = 1000000;
         }
-        flim = (double) lim * (double) unit * (double) freq + 
+        flim = (double) lim * (double) unit * (double) freq +
 	   (double) ebase.simtime;
         if ((flim > ebase.simtime) && (flim < 4294967296.0)) {
             lim = (uint32) flim;
@@ -374,7 +374,7 @@ limcalc (freq)
     }
     return (lim);
 }
-    
+
 int
 exec_cmd(sregs, cmd)
     char           *cmd;
@@ -455,7 +455,7 @@ exec_cmd(sregs, cmd)
 	        if (errper) {
 		    event(errinj, 0, (len = (random()%errper)));
 		    printf("Error injection started with period %d\n",len);
-	        } 
+	        }
 	     } else printf("Injected errors: %d\n",errcnt);
 #endif
 	} else if (strncmp(cmd1, "float", clen) == 0) {

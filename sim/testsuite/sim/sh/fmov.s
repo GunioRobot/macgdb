@@ -63,7 +63,7 @@ fmov4:	# Test xd -> xd.
 	# FIXME: test fmov.s fr -> @-gr,     fmov dr -> @-gr
 	# FIXME: test fmov.s @(r0,gr) -> fr, fmov @(r0,gr) -> dr
 	# FIXME: test fmov.s fr -> @(r0,gr), fmov dr -> @(r0,gr)
-	
+
 .L0:
 	test_grs_a5a5
 	sz_32

@@ -81,7 +81,7 @@ bfd_mach_o_wide_p (bfd *abfd)
 {
   return mach_o_wide_p (&bfd_mach_o_get_data (abfd)->header);
 }
-      
+
 /* Tables to translate well known Mach-O segment/section names to bfd
    names.  Use of canonical names (such as .text or .debug_frame) is required
    by gdb.  */
@@ -528,7 +528,7 @@ bfd_mach_o_canonicalize_one_reloc (bfd *abfd, char *buf,
 
   addr = bfd_get_32 (abfd, buf + 0);
   symnum = bfd_get_32 (abfd, buf + 4);
-  
+
   if (addr & BFD_MACH_O_SR_SCATTERED)
     {
       unsigned int j;
@@ -572,7 +572,7 @@ bfd_mach_o_canonicalize_one_reloc (bfd *abfd, char *buf,
       reloc.r_pcrel = (symnum & BFD_MACH_O_R_PCREL) ? 1 : 0;
       reloc.r_scattered = 0;
     }
-  
+
   if (!(*bed->_bfd_mach_o_swap_reloc_in)(res, &reloc))
     return -1;
   return 0;
@@ -842,9 +842,9 @@ bfd_mach_o_scan_write_segment_32 (bfd *abfd, bfd_mach_o_load_command *command)
   bfd_h_put_32 (abfd, seg->initprot, buf + 36);
   bfd_h_put_32 (abfd, seg->nsects, buf + 40);
   bfd_h_put_32 (abfd, seg->flags, buf + 44);
-  
+
   if (bfd_seek (abfd, command->offset + 8, SEEK_SET) != 0
-      || (bfd_bwrite ((PTR) buf, BFD_MACH_O_LC_SEGMENT_SIZE - 8, abfd) 
+      || (bfd_bwrite ((PTR) buf, BFD_MACH_O_LC_SEGMENT_SIZE - 8, abfd)
           != BFD_MACH_O_LC_SEGMENT_SIZE - 8))
     return -1;
 
@@ -1000,7 +1000,7 @@ bfd_mach_o_mangle_symbols (bfd *abfd)
             s->n_type = BFD_MACH_O_N_UNDF | BFD_MACH_O_N_EXT;
           else
             s->n_type = BFD_MACH_O_N_SECT;
-          
+
           if (s->symbol.flags & BSF_GLOBAL)
             s->n_type |= BFD_MACH_O_N_EXT;
         }
@@ -1161,12 +1161,12 @@ bfd_mach_o_build_commands (bfd *abfd)
 
   /* Set symtab command.  */
   symtab_cmd = &mdata->commands[1];
-  
+
   symtab_cmd->type = BFD_MACH_O_LC_SYMTAB;
   symtab_cmd->offset = cmd->offset + cmd->len;
   symtab_cmd->len = 6 * 4;
   symtab_cmd->type_required = FALSE;
-  
+
   mdata->header.sizeofcmds += symtab_cmd->len;
   mdata->filelen += symtab_cmd->len;
 
@@ -2019,7 +2019,7 @@ bfd_mach_o_scan_read_dysymtab (bfd *abfd, bfd_mach_o_load_command *command)
             }
         }
     }
-  
+
   if (cmd->ntoc != 0)
     {
       char buf[8];
@@ -3098,7 +3098,7 @@ static bfd_mach_o_xlat_name bfd_mach_o_cpu_name[] =
   { NULL, 0}
 };
 
-static bfd_mach_o_xlat_name bfd_mach_o_filetype_name[] = 
+static bfd_mach_o_xlat_name bfd_mach_o_filetype_name[] =
 {
   { "object", BFD_MACH_O_MH_OBJECT },
   { "execute", BFD_MACH_O_MH_EXECUTE },
@@ -3114,7 +3114,7 @@ static bfd_mach_o_xlat_name bfd_mach_o_filetype_name[] =
   { NULL, 0}
 };
 
-static bfd_mach_o_xlat_name bfd_mach_o_header_flags_name[] = 
+static bfd_mach_o_xlat_name bfd_mach_o_header_flags_name[] =
 {
   { "noundefs", BFD_MACH_O_MH_NOUNDEFS },
   { "incrlink", BFD_MACH_O_MH_INCRLINK },
@@ -3141,7 +3141,7 @@ static bfd_mach_o_xlat_name bfd_mach_o_header_flags_name[] =
   { NULL, 0}
 };
 
-static bfd_mach_o_xlat_name bfd_mach_o_section_type_name[] = 
+static bfd_mach_o_xlat_name bfd_mach_o_section_type_name[] =
 {
   { "regular", BFD_MACH_O_S_REGULAR},
   { "zerofill", BFD_MACH_O_S_ZEROFILL},
@@ -3163,7 +3163,7 @@ static bfd_mach_o_xlat_name bfd_mach_o_section_type_name[] =
   { NULL, 0}
 };
 
-static bfd_mach_o_xlat_name bfd_mach_o_section_attribute_name[] = 
+static bfd_mach_o_xlat_name bfd_mach_o_section_attribute_name[] =
 {
   { "loc_reloc", BFD_MACH_O_S_ATTR_LOC_RELOC },
   { "ext_reloc", BFD_MACH_O_S_ATTR_EXT_RELOC },
@@ -3178,7 +3178,7 @@ static bfd_mach_o_xlat_name bfd_mach_o_section_attribute_name[] =
   { NULL, 0}
 };
 
-static bfd_mach_o_xlat_name bfd_mach_o_load_command_name[] = 
+static bfd_mach_o_xlat_name bfd_mach_o_load_command_name[] =
 {
   { "segment", BFD_MACH_O_LC_SEGMENT},
   { "symtab", BFD_MACH_O_LC_SYMTAB},
@@ -3416,23 +3416,23 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
   fprintf (file, "           table of content: off: 0x%08lx  num: %-8lu",
            dysymtab->tocoff, dysymtab->ntoc);
   fprintf (file, " (endoff: 0x%08lx)\n",
-           dysymtab->tocoff 
-           + dysymtab->ntoc * BFD_MACH_O_TABLE_OF_CONTENT_SIZE); 
+           dysymtab->tocoff
+           + dysymtab->ntoc * BFD_MACH_O_TABLE_OF_CONTENT_SIZE);
   fprintf (file, "               module table: off: 0x%08lx  num: %-8lu",
            dysymtab->modtaboff, dysymtab->nmodtab);
   fprintf (file, " (endoff: 0x%08lx)\n",
-           dysymtab->modtaboff + dysymtab->nmodtab 
-           * (mach_o_wide_p (&mdata->header) ? 
+           dysymtab->modtaboff + dysymtab->nmodtab
+           * (mach_o_wide_p (&mdata->header) ?
               BFD_MACH_O_DYLIB_MODULE_64_SIZE : BFD_MACH_O_DYLIB_MODULE_SIZE));
   fprintf (file, "   external reference table: off: 0x%08lx  num: %-8lu",
            dysymtab->extrefsymoff, dysymtab->nextrefsyms);
   fprintf (file, " (endoff: 0x%08lx)\n",
-           dysymtab->extrefsymoff 
+           dysymtab->extrefsymoff
            + dysymtab->nextrefsyms * BFD_MACH_O_REFERENCE_SIZE);
   fprintf (file, "      indirect symbol table: off: 0x%08lx  num: %-8lu",
            dysymtab->indirectsymoff, dysymtab->nindirectsyms);
   fprintf (file, " (endoff: 0x%08lx)\n",
-           dysymtab->indirectsymoff 
+           dysymtab->indirectsymoff
            + dysymtab->nindirectsyms * BFD_MACH_O_INDIRECT_SYMBOL_SIZE);
   fprintf (file, "  external relocation table: off: 0x%08lx  num: %-8lu",
            dysymtab->extreloff, dysymtab->nextrel);
@@ -3442,7 +3442,7 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
            dysymtab->locreloff, dysymtab->nlocrel);
   fprintf (file, " (endoff: 0x%08lx)\n",
            dysymtab->locreloff + dysymtab->nlocrel * BFD_MACH_O_RELENT_SIZE);
-  
+
   if (dysymtab->ntoc > 0
       || dysymtab->nindirectsyms > 0
       || dysymtab->nextrefsyms > 0)
@@ -3455,7 +3455,7 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
       /* Try to read the strtab to display modules name.  */
       bfd_mach_o_scan_read_symtab_strtab (abfd);
     }
-  
+
   for (i = 0; i < dysymtab->nmodtab; i++)
     {
       bfd_mach_o_dylib_module *module = &dysymtab->dylib_module[i];
@@ -3485,12 +3485,12 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
   if (dysymtab->ntoc > 0)
     {
       bfd_mach_o_symtab_command *symtab = mdata->symtab;
-      
+
       fprintf (file, "  table of content: (symbol/module)\n");
       for (i = 0; i < dysymtab->ntoc; i++)
         {
           bfd_mach_o_dylib_table_of_content *toc = &dysymtab->dylib_toc[i];
-          
+
           fprintf (file, "   %4u: ", i);
           if (symtab && symtab->symbols && toc->symbol_index < symtab->nsyms)
             {
@@ -3500,7 +3500,7 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
             }
           else
             fprintf (file, "%lu", toc->symbol_index);
-          
+
           fprintf (file, " / ");
           if (symtab && symtab->strtab
               && toc->module_index < dysymtab->nmodtab)
@@ -3513,7 +3513,7 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
             }
           else
             fprintf (file, "%lu", toc->module_index);
-          
+
           fprintf (file, "\n");
         }
     }
@@ -3529,7 +3529,7 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
           bfd_mach_o_symtab_command *symtab = mdata->symtab;
           bfd_vma addr;
           bfd_vma entry_size;
-      
+
           switch (sec->flags & BFD_MACH_O_SECTION_TYPE_MASK)
             {
             case BFD_MACH_O_S_NON_LAZY_SYMBOL_POINTERS:
@@ -3544,7 +3544,7 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
               for (j = first; j < last; j++)
                 {
                   unsigned int isym = dysymtab->indirect_syms[j];
-                  
+
                   fprintf (file, "   ");
                   fprintf_vma (file, addr);
                   fprintf (file, " %5u: 0x%08x", j, isym);
@@ -3568,12 +3568,12 @@ bfd_mach_o_print_dysymtab (bfd *abfd ATTRIBUTE_UNUSED,
   if (dysymtab->nextrefsyms > 0)
     {
       bfd_mach_o_symtab_command *symtab = mdata->symtab;
-      
+
       fprintf (file, "  external reference table: (symbol flags)\n");
       for (i = 0; i < dysymtab->nextrefsyms; i++)
         {
           bfd_mach_o_dylib_reference *ref = &dysymtab->ext_refs[i];
-          
+
           fprintf (file, "   %4u: %5lu 0x%02lx", i, ref->isym, ref->flags);
           if (symtab && symtab->symbols
               && ref->isym < symtab->nsyms
@@ -3616,7 +3616,7 @@ bfd_mach_o_bfd_print_private_bfd_data (bfd *abfd, PTR ptr)
   for (i = 0; i < mdata->header.ncmds; i++)
     {
       bfd_mach_o_load_command *cmd = &mdata->commands[i];
-      
+
       fprintf (file, "Load command %s:",
                bfd_mach_o_get_name (bfd_mach_o_load_command_name, cmd->type));
       switch (cmd->type)
@@ -3661,8 +3661,8 @@ bfd_mach_o_bfd_print_private_bfd_data (bfd *abfd, PTR ptr)
                      "\n"
 		     "   symoff: 0x%08x    nsyms: %8u  (endoff: 0x%08x)\n",
                      symtab->symoff, symtab->nsyms,
-                     symtab->symoff + symtab->nsyms 
-                     * (mach_o_wide_p (&mdata->header) 
+                     symtab->symoff + symtab->nsyms
+                     * (mach_o_wide_p (&mdata->header)
                         ? BFD_MACH_O_NLIST_64_SIZE : BFD_MACH_O_NLIST_SIZE));
 	    fprintf (file,
 		     "   stroff: 0x%08x  strsize: %8u  (endoff: 0x%08x)\n",
@@ -3716,7 +3716,7 @@ bfd_mach_o_bfd_print_private_bfd_data (bfd *abfd, PTR ptr)
 
                     if (buf
                         && bfd_seek (abfd, flavour->offset, SEEK_SET) == 0
-                        && (bfd_bread (buf, flavour->size, abfd) 
+                        && (bfd_bread (buf, flavour->size, abfd)
                             == flavour->size))
                       (*bed->_bfd_mach_o_print_thread)(abfd, flavour,
                                                        file, buf);
@@ -3853,7 +3853,7 @@ bfd_mach_o_core_file_failing_signal (bfd *abfd ATTRIBUTE_UNUSED)
   return 0;
 }
 
-#define bfd_mach_o_bfd_reloc_type_lookup _bfd_norelocs_bfd_reloc_type_lookup 
+#define bfd_mach_o_bfd_reloc_type_lookup _bfd_norelocs_bfd_reloc_type_lookup
 #define bfd_mach_o_bfd_reloc_name_lookup _bfd_norelocs_bfd_reloc_name_lookup
 
 #define bfd_mach_o_swap_reloc_in NULL

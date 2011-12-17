@@ -64,16 +64,16 @@ if ![runto_main] then {
 # Test for millicode routines
 # hppa64 does not support dyncall
 if ![istarget "hppa64*-*-*"] {
-send_gdb "print \$\$dyncall\n"   
-gdb_expect {   
+send_gdb "print \$\$dyncall\n"
+gdb_expect {
    -re "\\$\[0-9\]* = \\{<text variable, no debug info>\\} $hex <>.*$gdb_prompt $" { pass "print \$\$dyncall" }
    -re "\\$\[0-9\]* = \\{<text variable, no debug info>\\} $hex <.*dyncall>.*$gdb_prompt $" { pass "print \$\$dyncall" }
    -re "\\$\[0-9\]* = void"            { fail "print \$\$dyncall -- interpreted as convenience var" }
    -re "$gdb_prompt $"                     { fail "print \$\$dyncall" }
    timeout                             { fail "(timeout) print \$\$dyncall" }
 }
-send_gdb "print \$\$dyncall_external\n"   
-gdb_expect {   
+send_gdb "print \$\$dyncall_external\n"
+gdb_expect {
    -re "\\$\[0-9\]* = \\{<text variable, no debug info>\\} $hex <>.*$gdb_prompt $" { pass "print \$\$dyncall_external" }
 	-re "\\$\[0-9\]* = \\{<text variable, no debug info>\\} $hex <.*dyncall_external>.*$gdb_prompt $" { pass "print \$\$dyncall_external" }
    -re "\\$\[0-9\]* = void"            { fail "print \$\$dyncall_external -- interpreted as convenience var" }
@@ -82,28 +82,28 @@ gdb_expect {
 }
 
 # Set a breakpoint on a millicode routine
-send_gdb "break \$\$dyncall\n"   
-gdb_expect {   
+send_gdb "break \$\$dyncall\n"
+gdb_expect {
    -re "Breakpoint \[0-9\]* at $hex.*$gdb_prompt $" { pass "break \$\$dyncall" }
    -re "Function.*not defined.*$gdb_prompt $" {fail "break \$\$dyncall -- no \$\$dyncall?" }
    -re "Convenience variables used in line specs must have integer values\\..*$gdb_prompt $" {
              fail "break \$\$dyncall -- treated as convenince variable"
-       }          
+       }
    -re "$gdb_prompt $"                     { fail "print break \$\$dyncall" }
    timeout                             { fail "(timeout) print break \$\$dyncall" }
 }
 
 # Disassemble $$dyncall
-send_gdb "disassemble \$\$dyncall\n"   
-gdb_expect {   
+send_gdb "disassemble \$\$dyncall\n"
+gdb_expect {
    -re "Dump of assembler code for function.*$gdb_prompt $" { pass "disas \$\$dyncall" }
    -re "$gdb_prompt $"                     { fail "disas \$\$dyncall" }
    timeout                             { fail "(timeout) disas \$\$dyncall" }
 }
 
 # Try to set $$dyncall like a convenience var.
-send_gdb "set \$\$dyncall = 77\n"   
-gdb_expect {   
+send_gdb "set \$\$dyncall = 77\n"
+gdb_expect {
    -re "Invalid cast.*$gdb_prompt $" { pass "set \$\$dyncall = 77" }
    -re "$gdb_prompt $"                     { fail "set \$\$dyncall = 77" }
    timeout                             { fail "(timeout) set \$\$dyncall = 77" }
@@ -113,8 +113,8 @@ gdb_expect {
 # Try out some other $ name, not millicode
 if [istarget "hppa64*-*-*"] {
     #hppa64 uses __argv instead of $ARGV.
-    send_gdb "print \__argv\n"   
-    gdb_expect {   
+    send_gdb "print \__argv\n"
+    gdb_expect {
         -re "\\$\[0-9\]* = \[0-9\]*.*$gdb_prompt $" { pass "print \__argv" }
         -re "\\$\[0-9\]* = void.*$gdb_prompt $" {
 	    fail "print \__argv (interpreted as convenience var)"
@@ -123,8 +123,8 @@ if [istarget "hppa64*-*-*"] {
         timeout { fail "(timeout) print \__argv" }
     }
 
-    send_gdb "ptype \__argv\n"   
-    gdb_expect {   
+    send_gdb "ptype \__argv\n"
+    gdb_expect {
         -re "type = <data variable, no debug info>.*$gdb_prompt $" {
 	    pass "ptype \__argv"
 	}
@@ -135,15 +135,15 @@ if [istarget "hppa64*-*-*"] {
         timeout { fail "(timeout) ptype \__argv" }
     }
 } else {
-send_gdb "print \$ARGV\n"   
-gdb_expect {   
+send_gdb "print \$ARGV\n"
+gdb_expect {
    -re "\\$\[0-9\]* = \[0-9\]*.*$gdb_prompt $" { pass "print \$ARGV" }
    -re "\\$\[0-9\]* = void.*$gdb_prompt $" { fail "print \$ARGV (interpreted as convenience var)" }
    -re "$gdb_prompt $"                     { fail "print \$ARGV" }
    timeout                             { fail "(timeout) print \$ARGV" }
 }
-send_gdb "ptype \$ARGV\n"   
-gdb_expect {   
+send_gdb "ptype \$ARGV\n"
+gdb_expect {
    -re "type = <data variable, no debug info>.*$gdb_prompt $" { pass "ptype \$ARGV" }
    -re "type = void.*$gdb_prompt $" { fail "ptype \$ARGV (interpreted as convenience var)" }
    -re "$gdb_prompt $"                     { fail "ptype \$ARGV" }

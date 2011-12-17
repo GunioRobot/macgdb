@@ -73,8 +73,8 @@ mi_getopt (const char *prefix,
   error (_("%s: Unknown option ``%s''"), prefix, arg + 1);
 }
 
-int 
-mi_valid_noargs (const char *prefix, int argc, char **argv) 
+int
+mi_valid_noargs (const char *prefix, int argc, char **argv)
 {
   int optind = 0;
   char *optarg;

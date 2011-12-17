@@ -38,7 +38,7 @@ T foo = '1', L;
 
 T fun()
 {
-  return foo;  
+  return foo;
 }
 
 #ifdef PROTOTYPES
@@ -64,7 +64,7 @@ int main()
 #endif
   int i;
 
-  Fun(foo);	
+  Fun(foo);
 
   /* An infinite loop that first clears all the variables and then
      calls the function.  This "hack" is to make re-testing easier -
@@ -74,7 +74,7 @@ int main()
   zed ();
   while (1)
     {
-      L = fun ();	
+      L = fun ();
       zed ();
     }
 

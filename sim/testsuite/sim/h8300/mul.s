@@ -6,14 +6,14 @@
 # as(h8sx):	--defsym sim_cpu=3
 # ld(h8300h):	-m h8300helf
 # ld(h8300s):	-m h8300self
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
 	start
 
-.if (sim_cpu == h8sx)	
-muls_w_reg_reg:	
+.if (sim_cpu == h8sx)
+muls_w_reg_reg:
 	set_grs_a5a5
 
 	;; muls.w rs, rd
@@ -27,7 +27,7 @@ muls_w_reg_reg:
 	test_carry_clear
 	test_zero_clear
 	test_ovf_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr16	-64	r1
 	test_h_gr32	0xa5a5fffe	er2
@@ -60,7 +60,7 @@ muls_w_imm4_reg:
 	test_gr_a5a5	6
 	test_gr_a5a5	7
 
-muls_l_reg_reg:	
+muls_l_reg_reg:
 	set_grs_a5a5
 
 	;; muls.l ers, erd
@@ -74,7 +74,7 @@ muls_l_reg_reg:
 	test_carry_clear
 	test_zero_clear
 	test_ovf_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr32	-640000	er1
 	test_h_gr32	-2	er2
@@ -121,7 +121,7 @@ muls_u_l_reg_reg:
 	test_carry_clear
 	test_zero_clear
 	test_ovf_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr32	-1	er1
 	test_h_gr32	-16	er2
@@ -154,7 +154,7 @@ muls_u_l_imm4_reg:
 	test_gr_a5a5	6
 	test_gr_a5a5	7
 
-mulu_w_reg_reg:	
+mulu_w_reg_reg:
 	set_grs_a5a5
 
 	;; mulu.w rs, rd
@@ -165,7 +165,7 @@ mulu_w_reg_reg:
 
 	;; test ccr		; H=0 N=0 Z=0 V=0 C=0
 	test_cc_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr16	-64	r1
 	test_h_gr32	0xa5a5fffe	er2
@@ -195,7 +195,7 @@ mulu_w_imm4_reg:
 	test_gr_a5a5	6
 	test_gr_a5a5	7
 
-mulu_l_reg_reg:	
+mulu_l_reg_reg:
 	set_grs_a5a5
 
 	;; mulu.l ers, erd
@@ -206,7 +206,7 @@ mulu_l_reg_reg:
 
 	;; test ccr		; H=0 N=0 Z=0 V=0 C=0
 	test_cc_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr32	-640000	er1
 	test_h_gr32	-2	er2
@@ -247,7 +247,7 @@ mulu_u_l_reg_reg:
 
 	;; test ccr		; H=0 N=0 Z=0 V=0 C=0
 	test_cc_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr32	1	er1
 	test_h_gr32	16	er2
@@ -293,7 +293,7 @@ mulxs_b_reg_reg:
 	test_carry_clear
 	test_zero_clear
 	test_ovf_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr16	-64	r1
 	test_h_gr32	0xa5a5a5fe	er2
@@ -303,7 +303,7 @@ mulxs_b_reg_reg:
 	test_gr_a5a5	6
 	test_gr_a5a5	7
 
-.if (sim_cpu == h8sx)	
+.if (sim_cpu == h8sx)
 mulxs_b_imm4_reg:
 	set_grs_a5a5
 
@@ -328,7 +328,7 @@ mulxs_b_imm4_reg:
 	test_gr_a5a5	7
 .endif				; h8sx
 
-mulxs_w_reg_reg:	
+mulxs_w_reg_reg:
 	set_grs_a5a5
 
 	;; mulxs.w ers, erd
@@ -342,7 +342,7 @@ mulxs_w_reg_reg:
 	test_carry_clear
 	test_zero_clear
 	test_ovf_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr32	0xff000000	er1
 	test_h_gr32	0xa5a5f000	er2
@@ -389,7 +389,7 @@ mulxu_b_reg_reg:
 
 	;; test ccr		; H=0 N=0 Z=0 V=0 C=0
 	test_cc_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr16	0x1fc0	r1
 	test_h_gr16	0xa5fe  r2
@@ -425,7 +425,7 @@ mulxu_b_imm4_reg:
 	test_gr_a5a5	7
 .endif				; h8sx
 
-mulxu_w_reg_reg:	
+mulxu_w_reg_reg:
 	set_grs_a5a5
 
 	;; mulxu.w ers, erd
@@ -436,7 +436,7 @@ mulxu_w_reg_reg:
 
 	;; test ccr		; H=0 N=0 Z=0 V=0 C=0
 	test_cc_clear
-	
+
 	test_gr_a5a5	0
 	test_h_gr32	0x0f000000	er1
 	test_h_gr32	0xa5a5f000	er2

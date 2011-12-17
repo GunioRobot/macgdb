@@ -1,7 +1,7 @@
 VPATH = @srcdir@
 srcdir = @srcdir@
 
-all: 
+all:
 	@echo "Nothing to be done for all..."
 
 #### host, target, and site specific Makefile frags come in here.

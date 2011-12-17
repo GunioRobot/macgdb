@@ -296,7 +296,7 @@ gdbsim_fetch_register (struct target_ops *ops,
 	regcache_raw_supply (regcache, regno, buf);
 	break;
       }
-      
+
     default:
       {
 	static int warn_user = 1;

@@ -186,10 +186,10 @@ main ()
 #endif
   t_structs_c(struct_val1);
   return 0;
-  
+
 }
 
-/* Functions that expect specific values to be passed and return 
+/* Functions that expect specific values to be passed and return
    either 0 or 1, depending upon whether the values were
    passed incorrectly or correctly, respectively. */
 
@@ -258,7 +258,7 @@ long long_arg1, long_arg2;
    There must be one version of "t_float_values" (this one)
    that is not prototyped, and one (if supported) that is (following).
    That way GDB can be tested against both cases.  */
-   
+
 int t_float_values (float_arg1, float_arg2)
 float float_arg1, float_arg2;
 {

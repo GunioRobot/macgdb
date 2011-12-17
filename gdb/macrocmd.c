@@ -139,7 +139,7 @@ info_macro_command (char *name, int from_tty)
   struct macro_scope *ms = NULL;
   struct cleanup *cleanup_chain = make_cleanup (free_current_contents, &ms);
   struct macro_definition *d;
-  
+
   if (! name || ! *name)
     error (_("You must follow the `info macro' command with the name"
            " of the macro\n"
@@ -231,7 +231,7 @@ extract_identifier (char **expp, int is_parameter)
 	;
     }
 
-  if (is_parameter && !strncmp (p, "...", 3))      
+  if (is_parameter && !strncmp (p, "...", 3))
     p += 3;
 
   len = p - *expp;

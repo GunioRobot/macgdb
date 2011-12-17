@@ -1,7 +1,7 @@
 /* Table of opcodes for the OpenRISC 1000 ISA.
    Copyright 2002, 2003 Free Software Foundation, Inc.
    Contributed by Damjan Lampret (lampret@opencores.org).
-   
+
    This file is part of or1k_gen_isa, or1ksim, GDB and GAS.
 
    This program is free software; you can redistribute it and/or modify
@@ -64,7 +64,7 @@ struct or32_opcode
      N	 An immediate operand, range -33554432 to 33554431.
      O	 An immediate operand, range . (unused).  */
   char *args;
-  
+
   /* Opcode and operand encoding.  */
   char *encoding;
   void (*exec) (void);
@@ -164,10 +164,10 @@ extern int insn_index (char *);
 /* MM: Returns instruction name from index.  */
 extern const char *insn_name (int);
 
-/* MM: Constructs new FSM, based on or32_opcodes.  */ 
+/* MM: Constructs new FSM, based on or32_opcodes.  */
 extern void build_automata (void);
 
-/* MM: Destructs FSM.  */ 
+/* MM: Destructs FSM.  */
 extern void destruct_automata (void);
 
 /* MM: Decodes instruction using FSM.  Call build_automata first.  */

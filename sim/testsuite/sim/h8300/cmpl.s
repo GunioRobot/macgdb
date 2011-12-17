@@ -11,9 +11,9 @@
 	.include "testutils.inc"
 
 	start
-	
+
 .if (sim_cpu == h8sx)		; 3-bit immediate mode only for h8sx
-cmp_l_imm3:			; 
+cmp_l_imm3:			;
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
 
@@ -30,7 +30,7 @@ lt3:
 	cmp.l	#4, er0
 	bgt	gt3
 	fail
-gt3:	
+gt3:
 
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
 
@@ -58,7 +58,7 @@ eqi:	cmp.l	#0xa5a5a5a6, er0
 lti:	cmp.l	#0xa5a5a5a4, er0
 	bgt	gti
 	fail
-gti:	
+gti:
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
 
 	test_h_gr32 0xa5a5a5a5 er0	; er0 unchanged
@@ -100,7 +100,7 @@ gtr:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 	pass
 
 	exit 0

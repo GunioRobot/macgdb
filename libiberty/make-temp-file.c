@@ -110,7 +110,7 @@ choose_tmpdir (void)
       const char *base = 0;
       char *tmpdir;
       unsigned int len;
-      
+
 #ifdef VMS
       /* Try VMS standard temp logical.  */
       base = try_dir ("/sys$scratch", base);
@@ -119,7 +119,7 @@ choose_tmpdir (void)
       base = try_dir (getenv ("TMP"), base);
       base = try_dir (getenv ("TEMP"), base);
 #endif
-      
+
 #ifdef P_tmpdir
       base = try_dir (P_tmpdir, base);
 #endif
@@ -128,7 +128,7 @@ choose_tmpdir (void)
       base = try_dir (vartmp, base);
       base = try_dir (usrtmp, base);
       base = try_dir (tmp, base);
-      
+
       /* If all else fails, use the current directory!  */
       if (base == 0)
 	base = ".";

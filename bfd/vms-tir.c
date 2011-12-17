@@ -2271,7 +2271,7 @@ _bfd_vms_decode_relocs (bfd *abfd, arelent *relocs, asection *section,
 	relocs->addend = 0;
 
       vaddr += bfd_get_reloc_size (relocs->howto);
-      relocs++;     
+      relocs++;
     }
 
   #undef PUSH_CMD
@@ -2677,7 +2677,7 @@ _bfd_vms_write_tir (bfd * abfd, int objtype ATTRIBUTE_UNUSED)
 		  sto_imm (abfd, size, curr_data, curr_addr,
 			   section->index, section->name);
 		  break;
-		
+
 		case ALPHA_R_LINKAGE:
 		  etir_output_check (abfd, section, curr_addr, 64);
 		  _bfd_vms_output_begin (abfd, ETIR_S_C_STC_LP_PSB, -1);
@@ -2795,7 +2795,7 @@ _bfd_vms_write_tir (bfd * abfd, int objtype ATTRIBUTE_UNUSED)
 		}
 	    }
 	}
-  
+
       else /* (section->flags & SEC_RELOC) */
 	sto_imm (abfd, section->size, section->contents, 0,
 		 section->index, section->name);

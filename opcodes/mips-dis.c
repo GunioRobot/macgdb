@@ -505,11 +505,11 @@ const struct mips_arch_choice mips_arch_choices[] =
     mips_hwr_names_numeric },
 
   { "loongson2e",   1, bfd_mach_mips_loongson_2e, CPU_LOONGSON_2E,
-    ISA_MIPS3 | INSN_LOONGSON_2E, mips_cp0_names_numeric, 
+    ISA_MIPS3 | INSN_LOONGSON_2E, mips_cp0_names_numeric,
     NULL, 0, mips_hwr_names_numeric },
 
   { "loongson2f",   1, bfd_mach_mips_loongson_2f, CPU_LOONGSON_2F,
-    ISA_MIPS3 | INSN_LOONGSON_2F, mips_cp0_names_numeric, 
+    ISA_MIPS3 | INSN_LOONGSON_2F, mips_cp0_names_numeric,
     NULL, 0, mips_hwr_names_numeric },
 
   { "octeon",   1, bfd_mach_mips_octeon, CPU_OCTEON,
@@ -676,7 +676,7 @@ parse_mips_dis_option (const char *option, unsigned int len)
       no_aliases = 1;
       return;
     }
-  
+
   /* Look for the = that delimits the end of the option name.  */
   for (i = 0; i < len; i++)
     if (option[i] == '=')
@@ -845,7 +845,7 @@ print_insn_args (const char *d,
 	      lsb = (l >> OP_SH_SHAMT) & OP_MASK_SHAMT;
 	      (*info->fprintf_func) (info->stream, "0x%x", lsb);
 	      break;
-	
+
 	    case 'B':
 	      msb = (l >> OP_SH_INSMSB) & OP_MASK_INSMSB;
 	      (*info->fprintf_func) (info->stream, "0x%x", msb - lsb + 1);
@@ -855,22 +855,22 @@ print_insn_args (const char *d,
 	      (*info->fprintf_func) (info->stream, "0x%lx",
 				     (l >> OP_SH_UDI1) & OP_MASK_UDI1);
 	      break;
-	      
+
 	    case '2':
 	      (*info->fprintf_func) (info->stream, "0x%lx",
 				     (l >> OP_SH_UDI2) & OP_MASK_UDI2);
 	      break;
-	      
+
 	    case '3':
 	      (*info->fprintf_func) (info->stream, "0x%lx",
 				     (l >> OP_SH_UDI3) & OP_MASK_UDI3);
 	      break;
-      
+
 	    case '4':
 	      (*info->fprintf_func) (info->stream, "0x%lx",
 				     (l >> OP_SH_UDI4) & OP_MASK_UDI4);
 	      break;
-	      
+
 	    case 'C':
 	    case 'H':
 	      msbd = (l >> OP_SH_EXTMSBD) & OP_MASK_EXTMSBD;
@@ -903,7 +903,7 @@ print_insn_args (const char *d,
 	      lsb = ((l >> OP_SH_SHAMT) & OP_MASK_SHAMT) + 32;
 	      (*info->fprintf_func) (info->stream, "0x%x", lsb);
 	      break;
-	
+
 	    case 'F':
 	      msb = ((l >> OP_SH_INSMSB) & OP_MASK_INSMSB) + 32;
 	      (*info->fprintf_func) (info->stream, "0x%x", msb - lsb + 1);
@@ -1390,7 +1390,7 @@ print_insn_mips (bfd_vma memaddr,
     {
       for (; op < &mips_opcodes[NUMOPCODES]; op++)
 	{
-	  if (op->pinfo != INSN_MACRO 
+	  if (op->pinfo != INSN_MACRO
 	      && !(no_aliases && (op->pinfo2 & INSN2_ALIAS))
 	      && (word & op->mask) == op->match)
 	    {
@@ -1892,7 +1892,7 @@ print_mips16_insn_arg (char type,
       if (framesz == 0 && !use_extend)
         framesz = 128;
 
-      (*info->fprintf_func) (info->stream, "%s%d", 
+      (*info->fprintf_func) (info->stream, "%s%d",
                              need_comma ? "," : "",
                              framesz);
 
@@ -1928,8 +1928,8 @@ print_mips16_insn_arg (char type,
       /* Statics $ax - $a3.  */
       if (statics == 1)
         (*info->fprintf_func) (info->stream, ",%s", mips_gpr_names[7]);
-      else if (statics > 0) 
-        (*info->fprintf_func) (info->stream, ",%s-%s", 
+      else if (statics > 0)
+        (*info->fprintf_func) (info->stream, ",%s-%s",
                                mips_gpr_names[7 - statics + 1],
                                mips_gpr_names[7]);
       }

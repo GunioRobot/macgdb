@@ -1,18 +1,18 @@
 /* ECOFF support on MIPS machines.
    coff/ecoff.h must be included before this file.
-   
+
    Copyright 1999, 2004 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -106,7 +106,7 @@ struct external_reloc
 #define MIPS_R_LITERAL	7
 
 /* FIXME: This relocation is used (internally only) to represent branches
-   when assembling.  It should never appear in output files, and  
+   when assembling.  It should never appear in output files, and
    be removed.  (It used to be used for embedded-PIC support.)  */
 #define MIPS_R_PCREL16	12
 

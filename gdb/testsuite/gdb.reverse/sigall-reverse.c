@@ -386,7 +386,7 @@ gen_ABRT (void)
 {
   kill (getpid (), SIGABRT);
   return 0;
-}  
+}
 
 int
 gen_HUP (void)
@@ -397,7 +397,7 @@ gen_HUP (void)
   handle_HUP (0);
 #endif
 return 0;
-}  
+}
 
 int
 gen_QUIT (void)
@@ -672,7 +672,7 @@ gen_USR2 (void)
   handle_USR2 (0);
 #endif
 return 0;
-}  
+}
 
 int
 gen_PWR (void)
@@ -1163,7 +1163,7 @@ gen_TERM (void)
 {
   kill (getpid (), SIGTERM);
 return 0;
-}  
+}
 
 int
 main ()

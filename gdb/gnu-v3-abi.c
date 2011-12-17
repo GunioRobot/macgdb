@@ -240,14 +240,14 @@ gnuv3_rtti_type (struct value *value,
   vtable
     = value_at_lazy (vtable_type,
 		     vtable_address - vtable_address_point_offset (gdbarch));
-  
+
   /* Find the linker symbol for this vtable.  */
   vtable_symbol
     = lookup_minimal_symbol_by_pc (value_address (vtable)
                                    + value_embedded_offset (vtable));
   if (! vtable_symbol)
     return NULL;
-  
+
   /* The symbol's demangled name should be something like "vtable for
      CLASS", where CLASS is the name of the run-time type of VALUE.
      If we didn't like this approach, we could instead look in the
@@ -716,7 +716,7 @@ gnuv3_method_ptr_to_value (struct value **this_p, struct value *method_ptr)
 /* Determine if we are currently in a C++ thunk.  If so, get the address
    of the routine we are thunking to and continue to there instead.  */
 
-static CORE_ADDR 
+static CORE_ADDR
 gnuv3_skip_trampoline (struct frame_info *frame, CORE_ADDR stop_pc)
 {
   CORE_ADDR real_stop_pc, method_stop_pc;
@@ -724,7 +724,7 @@ gnuv3_skip_trampoline (struct frame_info *frame, CORE_ADDR stop_pc)
   struct minimal_symbol *thunk_sym, *fn_sym;
   struct obj_section *section;
   char *thunk_name, *fn_name;
-  
+
   real_stop_pc = gdbarch_skip_trampoline_code (gdbarch, frame, stop_pc);
   if (real_stop_pc == 0)
     real_stop_pc = stop_pc;

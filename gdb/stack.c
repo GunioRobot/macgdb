@@ -144,7 +144,7 @@ print_stack_frame (struct frame_info *frame, int print_level,
   args.print_args = 1;
 
   catch_errors (print_stack_frame_stub, &args, "", RETURN_MASK_ERROR);
-}  
+}
 
 struct print_args_args
 {
@@ -513,7 +513,7 @@ do_gdb_disassembly (struct gdbarch *gdbarch,
 /* Print information about frame FRAME.  The output is format according
    to PRINT_LEVEL and PRINT_WHAT and PRINT ARGS.  The meaning of
    PRINT_WHAT is:
-   
+
    SRC_LINE: Print only source line.
    LOCATION: Print only location.
    LOC_AND_SRC: Print location and source line.
@@ -585,7 +585,7 @@ print_frame_info (struct frame_info *frame, int print_level,
      to get the line containing FRAME->pc.  */
   find_frame_sal (frame, &sal);
 
-  location_print = (print_what == LOCATION 
+  location_print = (print_what == LOCATION
 		    || print_what == LOC_AND_ADDRESS
 		    || print_what == SRC_AND_LOC);
 
@@ -614,8 +614,8 @@ print_frame_info (struct frame_info *frame, int print_level,
       if (!done)
 	{
 	  if (deprecated_print_frame_info_listing_hook)
-	    deprecated_print_frame_info_listing_hook (sal.symtab, 
-						      sal.line, 
+	    deprecated_print_frame_info_listing_hook (sal.symtab,
+						      sal.line,
 						      sal.line + 1, 0);
 	  else
 	    {
@@ -727,7 +727,7 @@ find_frame_funname (struct frame_info *frame, char **funname,
     }
   else
     {
-      struct minimal_symbol *msymbol = 
+      struct minimal_symbol *msymbol =
 	lookup_minimal_symbol_by_pc (get_frame_address_in_block (frame));
 
       if (msymbol != NULL)
@@ -782,7 +782,7 @@ print_frame (struct frame_info *frame, int print_level,
   ui_out_field_stream (uiout, "func", stb);
   ui_out_wrap_hint (uiout, "   ");
   annotate_frame_args ();
-      
+
   ui_out_text (uiout, " (");
   if (print_args)
     {
@@ -884,7 +884,7 @@ parse_frame_specification_1 (const char *frame_exp, const char *message,
 	  addr_string = savestring (frame_exp, p - frame_exp);
 	  frame_exp = p;
 	  cleanup = make_cleanup (xfree, addr_string);
-	  
+
 	  /* NOTE: Parse and evaluate expression, but do not use
 	     functions such as parse_and_eval_long or
 	     parse_and_eval_address to also extract the value.

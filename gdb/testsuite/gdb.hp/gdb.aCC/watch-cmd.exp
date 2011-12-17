@@ -51,7 +51,7 @@ gdb_load ${binfile}
 proc watchpoint_command_test {} {
     global gdb_prompt
 
-    if [target_info exists noargs] { 
+    if [target_info exists noargs] {
         verbose "Skipping watchpoint_command_test because of noargs."
         return
     }

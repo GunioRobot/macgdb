@@ -178,7 +178,7 @@ int
 spe_register_p (struct gdbarch *gdbarch, int regno)
 {
   struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);
-  
+
   /* Is it a reference to EV0 -- EV31, and do we have those?  */
   if (IS_SPE_PSEUDOREG (tdep, regno))
     return 1;
@@ -276,7 +276,7 @@ init_sim_regno_table (struct gdbarch *arch)
   /* General-purpose registers.  */
   for (i = 0; i < ppc_num_gprs; i++)
     set_sim_regno (sim_regno, tdep->ppc_gp0_regnum + i, sim_ppc_r0_regnum + i);
-  
+
   /* Floating-point registers.  */
   if (tdep->ppc_fp0_regnum >= 0)
     for (i = 0; i < ppc_num_fprs; i++)
@@ -359,7 +359,7 @@ rs6000_register_sim_regno (struct gdbarch *gdbarch, int reg)
   if (tdep->sim_regno == NULL)
     init_sim_regno_table (gdbarch);
 
-  gdb_assert (0 <= reg 
+  gdb_assert (0 <= reg
 	      && reg <= gdbarch_num_regs (gdbarch)
 			+ gdbarch_num_pseudo_regs (gdbarch));
   sim_regno = tdep->sim_regno[reg];
@@ -378,7 +378,7 @@ rs6000_register_sim_regno (struct gdbarch *gdbarch, int reg)
    Write the register to REGCACHE.  */
 
 void
-ppc_supply_reg (struct regcache *regcache, int regnum, 
+ppc_supply_reg (struct regcache *regcache, int regnum,
 		const gdb_byte *regs, size_t offset, int regsize)
 {
   if (regnum != -1 && offset != -1)
@@ -423,7 +423,7 @@ ppc_collect_reg (const struct regcache *regcache, int regnum,
       regcache_raw_collect (regcache, regnum, regs + offset);
     }
 }
-    
+
 static int
 ppc_greg_offset (struct gdbarch *gdbarch,
 		 struct gdbarch_tdep *tdep,
@@ -936,7 +936,7 @@ rs6000_in_function_epilogue_p (struct gdbarch *gdbarch, CORE_ADDR pc)
 
 /* Get the ith function argument for the current function.  */
 static CORE_ADDR
-rs6000_fetch_pointer_argument (struct frame_info *frame, int argi, 
+rs6000_fetch_pointer_argument (struct frame_info *frame, int argi,
 			       struct type *type)
 {
   return get_frame_register_unsigned (frame, 3 + argi);
@@ -1077,10 +1077,10 @@ ppc_displaced_step_hw_singlestep (struct gdbarch *gdbarch,
 
 /* Checks for an atomic sequence of instructions beginning with a LWARX/LDARX
    instruction and ending with a STWCX/STDCX instruction.  If such a sequence
-   is found, attempt to step through it.  A breakpoint is placed at the end of 
+   is found, attempt to step through it.  A breakpoint is placed at the end of
    the sequence.  */
 
-int 
+int
 ppc_deal_with_atomic_sequence (struct frame_info *frame)
 {
   struct gdbarch *gdbarch = get_frame_arch (frame);
@@ -1092,7 +1092,7 @@ ppc_deal_with_atomic_sequence (struct frame_info *frame)
   int insn = read_memory_integer (loc, PPC_INSN_SIZE, byte_order);
   int insn_count;
   int index;
-  int last_breakpoint = 0; /* Defaults to 0 (no breakpoints placed).  */  
+  int last_breakpoint = 0; /* Defaults to 0 (no breakpoints placed).  */
   const int atomic_sequence_length = 16; /* Instruction sequence length.  */
   int opcode; /* Branch instruction's OPcode.  */
   int bc_insn_count = 0; /* Conditional branch instruction count.  */
@@ -1102,7 +1102,7 @@ ppc_deal_with_atomic_sequence (struct frame_info *frame)
       && (insn & LWARX_MASK) != LDARX_INSTRUCTION)
     return 0;
 
-  /* Assume that no atomic sequence is longer than "atomic_sequence_length" 
+  /* Assume that no atomic sequence is longer than "atomic_sequence_length"
      instructions.  */
   for (insn_count = 0; insn_count < atomic_sequence_length; ++insn_count)
     {
@@ -1110,7 +1110,7 @@ ppc_deal_with_atomic_sequence (struct frame_info *frame)
       insn = read_memory_integer (loc, PPC_INSN_SIZE, byte_order);
 
       /* Assume that there is at most one conditional branch in the atomic
-         sequence.  If a conditional branch is found, put a breakpoint in 
+         sequence.  If a conditional branch is found, put a breakpoint in
          its destination address.  */
       if ((insn & BRANCH_MASK) == BC_INSN)
         {
@@ -1118,9 +1118,9 @@ ppc_deal_with_atomic_sequence (struct frame_info *frame)
           int absolute = ((insn >> 1) & 1);
 
           if (bc_insn_count >= 1)
-            return 0; /* More than one conditional branch found, fallback 
+            return 0; /* More than one conditional branch found, fallback
                          to the standard single-step code.  */
- 
+
 	  if (absolute)
 	    breaks[1] = immediate;
 	  else
@@ -1148,10 +1148,10 @@ ppc_deal_with_atomic_sequence (struct frame_info *frame)
   breaks[0] = loc;
 
   /* Check for duplicated breakpoints.  Check also for a breakpoint
-     placed (branch instruction's destination) at the stwcx/stdcx 
-     instruction, this resets the reservation and take us back to the 
+     placed (branch instruction's destination) at the stwcx/stdcx
+     instruction, this resets the reservation and take us back to the
      lwarx/ldarx instruction at the beginning of the atomic sequence.  */
-  if (last_breakpoint && ((breaks[1] == breaks[0]) 
+  if (last_breakpoint && ((breaks[1] == breaks[0])
       || (breaks[1] == closing_insn)))
     last_breakpoint = 0;
 
@@ -1209,7 +1209,7 @@ store_param_on_stack_p (unsigned long op, int framep, int *r0_contains_arg)
 
       return (rx_regno >= 3 && rx_regno <= 10);
     }
-           
+
   /* Save a General Purpose Register on stack via the Frame Pointer.  */
 
   if (framep &&
@@ -1247,7 +1247,7 @@ store_param_on_stack_p (unsigned long op, int framep, int *r0_contains_arg)
 
 /* Assuming that INSN is a "bl" instruction located at PC, return
    nonzero if the destination of the branch is a "blrl" instruction.
-   
+
    This sequence is sometimes found in certain function prologues.
    It allows the function to load the LR register with a value that
    they can use to access PIC data using PC-relative offsets.  */
@@ -1274,13 +1274,13 @@ bl_to_blrl_insn_p (CORE_ADDR pc, int insn, enum bfd_endian byte_order)
   return 0;
 }
 
-/* Masks for decoding a branch-and-link (bl) instruction.  
+/* Masks for decoding a branch-and-link (bl) instruction.
 
    BL_MASK and BL_INSTRUCTION are used in combination with each other.
    The former is anded with the opcode in question; if the result of
    this masking operation is equal to BL_INSTRUCTION, then the opcode in
    question is a ``bl'' instruction.
-   
+
    BL_DISPLACMENT_MASK is anded with the opcode in order to extract
    the branch displacement.  */
 
@@ -1307,7 +1307,7 @@ rs6000_fetch_instruction (struct gdbarch *gdbarch, const CORE_ADDR pc)
    of each function prologue when compiling with -fstack-check.  If one of
    such sequences starts at START_PC, then return the address of the
    instruction immediately past this sequence.  Otherwise, return START_PC.  */
-   
+
 static CORE_ADDR
 rs6000_skip_stack_check (struct gdbarch *gdbarch, const CORE_ADDR start_pc)
 {
@@ -1318,7 +1318,7 @@ rs6000_skip_stack_check (struct gdbarch *gdbarch, const CORE_ADDR start_pc)
          stw 0, -<some immediate>(1)
          [repeat this instruction any (small) number of times]
   */
-  
+
   if ((op & 0xffff0000) == 0x90010000)
     {
       while ((op & 0xffff0000) == 0x90010000)
@@ -1449,7 +1449,7 @@ rs6000_skip_stack_check (struct gdbarch *gdbarch, const CORE_ADDR start_pc)
       op = rs6000_fetch_instruction (gdbarch, pc);
       if ((op & 0xffff0000) != 0x3d800000)
         break;
-      
+
       /* lwz 12,<some immediate>(12) */
       pc = pc + 4;
       op = rs6000_fetch_instruction (gdbarch, pc);
@@ -1698,7 +1698,7 @@ skip_prologue (struct gdbarch *gdbarch, CORE_ADDR pc, CORE_ADDR lim_pc,
 	  continue;
 	}
       else if (op == 0x48000005)
-	{			/* bl .+4 used in 
+	{			/* bl .+4 used in
 				   -mrelocatable */
 	  fdata->used_bl = 1;
 	  continue;
@@ -1717,7 +1717,7 @@ skip_prologue (struct gdbarch *gdbarch, CORE_ADDR pc, CORE_ADDR lim_pc,
 
 	}
       else if ((op & 0xfc000001) == 0x48000001)
-	{			/* bl foo, 
+	{			/* bl foo,
 				   to save fprs??? */
 
 	  fdata->frameless = 0;
@@ -1752,7 +1752,7 @@ skip_prologue (struct gdbarch *gdbarch, CORE_ADDR pc, CORE_ADDR lim_pc,
 	     was part of the function prologue. */
 
 	  if (op == 0x4def7b82 || op == 0)	/* crorc 15, 15, 15 */
-	    break;		/* don't skip over 
+	    break;		/* don't skip over
 				   this branch */
 
 	  fdata->used_bl = 1;
@@ -1896,7 +1896,7 @@ skip_prologue (struct gdbarch *gdbarch, CORE_ADDR pc, CORE_ADDR lim_pc,
              record this insn as part of the prologue yet.  */
           prev_insn_was_prologue_insn = 0;
 	}
-      /* Store vector register S at (r31+r0) aligned to 16 bytes.  */      
+      /* Store vector register S at (r31+r0) aligned to 16 bytes.  */
       /* 011111 sssss 11111 00000 00111001110 */
       else if ((op & 0xfc1fffff) == 0x7c1f01ce)   /* stvx Vs, R31, R0 */
         {
@@ -2229,7 +2229,7 @@ rs6000_skip_trampoline_code (struct frame_info *frame, CORE_ADDR pc)
 
   /* Check for bigtoc fixup code.  */
   msymbol = lookup_minimal_symbol_by_pc (pc);
-  if (msymbol 
+  if (msymbol
       && rs6000_in_solib_return_trampoline (gdbarch, pc,
 					    SYMBOL_LINKAGE_NAME (msymbol)))
     {
@@ -2505,7 +2505,7 @@ rs6000_register_to_value (struct frame_info *frame,
 {
   struct gdbarch *gdbarch = get_frame_arch (frame);
   gdb_byte from[MAX_REGISTER_SIZE];
-  
+
   gdb_assert (TYPE_CODE (type) == TYPE_CODE_FLT);
 
   get_frame_register (frame, regnum, from);
@@ -2559,7 +2559,7 @@ e500_move_ev_register (void (*move) (struct regcache *regcache,
                        gdb_byte *buffer)
 {
   struct gdbarch *arch = get_regcache_arch (regcache);
-  struct gdbarch_tdep *tdep = gdbarch_tdep (arch); 
+  struct gdbarch_tdep *tdep = gdbarch_tdep (arch);
   int reg_index;
   gdb_byte *byte_buffer = buffer;
 
@@ -2737,7 +2737,7 @@ rs6000_pseudo_register_read (struct gdbarch *gdbarch, struct regcache *regcache,
 			     int reg_nr, gdb_byte *buffer)
 {
   struct gdbarch *regcache_arch = get_regcache_arch (regcache);
-  struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch); 
+  struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);
 
   gdb_assert (regcache_arch == gdbarch);
 
@@ -2762,7 +2762,7 @@ rs6000_pseudo_register_write (struct gdbarch *gdbarch,
 			      int reg_nr, const gdb_byte *buffer)
 {
   struct gdbarch *regcache_arch = get_regcache_arch (regcache);
-  struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch); 
+  struct gdbarch_tdep *tdep = gdbarch_tdep (gdbarch);
 
   gdb_assert (regcache_arch == gdbarch);
 
@@ -2801,13 +2801,13 @@ rs6000_stab_reg_to_regnum (struct gdbarch *gdbarch, int num)
   else
     switch (num)
       {
-      case 64: 
+      case 64:
         return tdep->ppc_mq_regnum;
       case 65:
         return tdep->ppc_lr_regnum;
-      case 66: 
+      case 66:
         return tdep->ppc_ctr_regnum;
-      case 76: 
+      case 76:
         return tdep->ppc_xer_regnum;
       case 109:
         return tdep->ppc_vrsave_regnum;
@@ -2817,7 +2817,7 @@ rs6000_stab_reg_to_regnum (struct gdbarch *gdbarch, int num)
         return tdep->ppc_acc_regnum;
       case 112:
         return tdep->ppc_spefscr_regnum;
-      default: 
+      default:
         return num;
       }
 }
@@ -3885,7 +3885,7 @@ rs6000_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 
   /* Handles single stepping of atomic sequences.  */
   set_gdbarch_software_single_step (gdbarch, ppc_deal_with_atomic_sequence);
-  
+
   /* Not sure on this. FIXMEmgo */
   set_gdbarch_frame_args_skip (gdbarch, 8);
 

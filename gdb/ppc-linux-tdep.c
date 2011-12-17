@@ -96,7 +96,7 @@
    actually called, the code in the PLT is hit and the function is
    resolved.  In order to better illustrate this, an example is in
    order; the following example is from the gdb testsuite.
-	    
+
 	We start the program shmain.
 
 	    [kev@arroyo testsuite]$ ../gdb gdb.base/shmain
@@ -120,7 +120,7 @@
 	Now run 'til main.
 
 	    (gdb) r
-	    Starting program: gdb.base/shmain 
+	    Starting program: gdb.base/shmain
 	    Breakpoint 1 at 0xffaf790: file gdb.base/shr1.c, line 19.
 
 	    Breakpoint 2, main ()
@@ -146,7 +146,7 @@
 	Now we've hit the breakpoint at shr1.  (The breakpoint was
 	reset from the PLT entry to the actual shr1 function after the
 	shared library was loaded.) Note that the PLT entry has been
-	resolved to contain a branch that takes us directly to shr1. 
+	resolved to contain a branch that takes us directly to shr1.
 	(The real one, not the PLT entry.)
 
 	    (gdb) x/2i 0x100409d4
@@ -157,7 +157,7 @@
    changed twice.
 
    Now the problem should be obvious.  GDB places a breakpoint (a
-   trap instruction) on the zero value of the PLT entry for shr1. 
+   trap instruction) on the zero value of the PLT entry for shr1.
    Later on, after the shared library had been loaded and the PLT
    initialized, GDB gets a signal indicating this fact and attempts
    (as it always does when it stops) to remove all the breakpoints.
@@ -180,7 +180,7 @@
    that the latter does not is check to make sure that the breakpoint
    location actually contains a breakpoint (trap instruction) prior
    to attempting to write back the old contents.  If it does contain
-   a trap instruction, we allow the old contents to be written back. 
+   a trap instruction, we allow the old contents to be written back.
    Otherwise, we silently do nothing.
 
    The big question is whether memory_remove_breakpoint () should be
@@ -232,7 +232,7 @@ static enum return_value_convention
 ppc_linux_return_value (struct gdbarch *gdbarch, struct type *func_type,
 			struct type *valtype, struct regcache *regcache,
 			gdb_byte *readbuf, const gdb_byte *writebuf)
-{  
+{
   if ((TYPE_CODE (valtype) == TYPE_CODE_STRUCT
        || TYPE_CODE (valtype) == TYPE_CODE_UNION)
       && !((TYPE_LENGTH (valtype) == 16 || TYPE_LENGTH (valtype) == 8)
@@ -380,7 +380,7 @@ static struct insn_pattern ppc64_standard_linkage1[] =
 
     /* ld r11, <any>(r12) */
     { insn_ds (-1, -1, -1, 0, -1), insn_ds (58, 11, 12, 0, 0), 0 },
-      
+
     /* bctr */
     { -1, 0x4e800420, 0 },
 
@@ -411,7 +411,7 @@ static struct insn_pattern ppc64_standard_linkage2[] =
 
     /* ld r11, <any>(r12) */
     { insn_ds (-1, -1, -1, 0, -1), insn_ds (58, 11, 12, 0, 0), 0 },
-      
+
     /* bctr */
     { -1, 0x4e800420, 0 },
 
@@ -436,7 +436,7 @@ static struct insn_pattern ppc64_standard_linkage3[] =
 
     /* ld r11, <any>(r2) */
     { insn_ds (-1, -1, -1, 0, -1), insn_ds (58, 11, 2, 0, 0), 0 },
-      
+
     /* ld r2, <any>(r2) */
     { insn_ds (-1, -1, -1, 0, -1), insn_ds (58, 2, 2, 0, 0), 0 },
 
@@ -646,7 +646,7 @@ ppc64_linux_convert_from_func_ptr_addr (struct gdbarch *gdbarch,
   /* Check if ADDR points to a function descriptor.  */
   if (s && strcmp (s->the_bfd_section->name, ".opd") == 0)
     {
-      /* There may be relocations that need to be applied to the .opd 
+      /* There may be relocations that need to be applied to the .opd
 	 section.  Unfortunately, this function may be called at a time
 	 where these relocations have not yet been performed -- this can
 	 happen for example shortly after a library has been loaded with
@@ -975,7 +975,7 @@ ppc64_linux_sighandler_cache_init (const struct tramp_frame *self,
 static struct tramp_frame ppc32_linux_sigaction_tramp_frame = {
   SIGTRAMP_FRAME,
   4,
-  { 
+  {
     { 0x380000ac, -1 }, /* li r0, 172 */
     { 0x44000002, -1 }, /* sc */
     { TRAMP_SENTINEL_INSN },
@@ -996,7 +996,7 @@ static struct tramp_frame ppc64_linux_sigaction_tramp_frame = {
 static struct tramp_frame ppc32_linux_sighandler_tramp_frame = {
   SIGTRAMP_FRAME,
   4,
-  { 
+  {
     { 0x38000077, -1 }, /* li r0,119 */
     { 0x44000002, -1 }, /* sc */
     { TRAMP_SENTINEL_INSN },
@@ -1006,7 +1006,7 @@ static struct tramp_frame ppc32_linux_sighandler_tramp_frame = {
 static struct tramp_frame ppc64_linux_sighandler_tramp_frame = {
   SIGTRAMP_FRAME,
   4,
-  { 
+  {
     { 0x38210080, -1 }, /* addi r1,r1,128 */
     { 0x38000077, -1 }, /* li r0,119 */
     { 0x44000002, -1 }, /* sc */
@@ -1507,7 +1507,7 @@ ppc_linux_init_abi (struct gdbarch_info info,
       else
 	set_gdbarch_gcore_bfd_target (gdbarch, "elf32-powerpc");
     }
-  
+
   if (tdep->wordsize == 8)
     {
       /* Handle PPC GNU/Linux 64-bit function pointers (which are really

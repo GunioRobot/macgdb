@@ -90,7 +90,7 @@ const struct floatformat *floatformats_ibm_long_double[BFD_ENDIAN_UNKNOWN] = {
 int opaque_type_resolution = 1;
 static void
 show_opaque_type_resolution (struct ui_file *file, int from_tty,
-			     struct cmd_list_element *c, 
+			     struct cmd_list_element *c,
 			     const char *value)
 {
   fprintf_filtered (file, _("\
@@ -103,7 +103,7 @@ static void
 show_overload_debug (struct ui_file *file, int from_tty,
 		     struct cmd_list_element *c, const char *value)
 {
-  fprintf_filtered (file, _("Debugging of C++ overloading is %s.\n"), 
+  fprintf_filtered (file, _("Debugging of C++ overloading is %s.\n"),
 		    value);
 }
 
@@ -262,7 +262,7 @@ make_pointer_type (struct type *type, struct type **typeptr)
   if (ntype)
     {
       if (typeptr == 0)
-	return ntype;		/* Don't care about alloc, 
+	return ntype;		/* Don't care about alloc,
 				   and have new type.  */
       else if (*typeptr == 0)
 	{
@@ -339,7 +339,7 @@ make_reference_type (struct type *type, struct type **typeptr)
   if (ntype)
     {
       if (typeptr == 0)
-	return ntype;		/* Don't care about alloc, 
+	return ntype;		/* Don't care about alloc,
 				   and have new type.  */
       else if (*typeptr == 0)
 	{
@@ -456,7 +456,7 @@ address_space_name_to_int (struct gdbarch *gdbarch, char *space_identifier)
     error (_("Unknown address space specifier: \"%s\""), space_identifier);
 }
 
-/* Identify address space identifier by integer flag as defined in 
+/* Identify address space identifier by integer flag as defined in
    gdbtypes.h -- return the string version of the adress space name.  */
 
 const char *
@@ -561,8 +561,8 @@ make_type_with_address_space (struct type *type, int space_flag)
    type whereever TYPE lives.  If TYPEPTR is non-zero, set it to the
    new type we construct.  */
 struct type *
-make_cv_type (int cnst, int voltl, 
-	      struct type *type, 
+make_cv_type (int cnst, int voltl,
+	      struct type *type,
 	      struct type **typeptr)
 {
   struct type *ntype;	/* New type */
@@ -594,8 +594,8 @@ make_cv_type (int cnst, int voltl,
 	 name each time you encounter them.  */
       gdb_assert (TYPE_OBJFILE (*typeptr) == TYPE_OBJFILE (type));
     }
-  
-  ntype = make_qualified_type (type, new_flags, 
+
+  ntype = make_qualified_type (type, new_flags,
 			       typeptr ? *typeptr : NULL);
 
   if (typeptr != NULL)
@@ -815,7 +815,7 @@ get_discrete_bounds (struct type *type, LONGEST *lowp, LONGEST *highp)
    type?  */
 
 struct type *
-create_array_type (struct type *result_type, 
+create_array_type (struct type *result_type,
 		   struct type *element_type,
 		   struct type *range_type)
 {
@@ -1128,7 +1128,7 @@ lookup_union (char *name, struct block *block)
       return t;
 
   /* If we get here, it's not a union.  */
-  error (_("This context has class, struct or enum %s, not a union."), 
+  error (_("This context has class, struct or enum %s, not a union."),
 	 name);
 }
 
@@ -1148,7 +1148,7 @@ lookup_enum (char *name, struct block *block)
     }
   if (TYPE_CODE (SYMBOL_TYPE (sym)) != TYPE_CODE_ENUM)
     {
-      error (_("This context has class, struct or union %s, not an enum."), 
+      error (_("This context has class, struct or union %s, not an enum."),
 	     name);
     }
   return (SYMBOL_TYPE (sym));
@@ -1158,11 +1158,11 @@ lookup_enum (char *name, struct block *block)
    visible in lexical block BLOCK.  */
 
 struct type *
-lookup_template_type (char *name, struct type *type, 
+lookup_template_type (char *name, struct type *type,
 		      struct block *block)
 {
   struct symbol *sym;
-  char *nam = (char *) 
+  char *nam = (char *)
     alloca (strlen (name) + strlen (TYPE_NAME (type)) + 4);
   strcpy (nam, name);
   strcat (nam, "<");
@@ -1209,7 +1209,7 @@ lookup_struct_elt_type (struct type *type, char *name, int noerr)
       type = TYPE_TARGET_TYPE (type);
     }
 
-  if (TYPE_CODE (type) != TYPE_CODE_STRUCT 
+  if (TYPE_CODE (type) != TYPE_CODE_STRUCT
       && TYPE_CODE (type) != TYPE_CODE_UNION)
     {
       target_terminal_ours ();
@@ -1341,7 +1341,7 @@ stub_noname_complaint (void)
    type.  That would be a mistake, though--we might load in more
    symbols which contain a full definition for the type.
 
-   This used to be coded as a macro, but I don't think it is called 
+   This used to be coded as a macro, but I don't think it is called
    often enough to merit such treatment.  */
 
 /* Find the real type of TYPE.  This function returns the real type,
@@ -1397,8 +1397,8 @@ check_typedef (struct type *type)
      types, instead of identifying them as stub types in the first
      place.  */
 
-  if (TYPE_IS_OPAQUE (type) 
-      && opaque_type_resolution 
+  if (TYPE_IS_OPAQUE (type)
+      && opaque_type_resolution
       && !currently_reading_symtab)
     {
       char *name = type_name_no_tag (type);
@@ -1450,7 +1450,7 @@ check_typedef (struct type *type)
              with the complete type only if they are int the same
              objfile.  */
 	  if (TYPE_OBJFILE (SYMBOL_TYPE(sym)) == TYPE_OBJFILE (type))
-            make_cv_type (is_const, is_volatile, 
+            make_cv_type (is_const, is_volatile,
 			  SYMBOL_TYPE (sym), &type);
 	  else
 	    type = SYMBOL_TYPE (sym);
@@ -1478,12 +1478,12 @@ check_typedef (struct type *type)
 	  const int low_bound = TYPE_LOW_BOUND (range_type);
 	  const int high_bound = TYPE_HIGH_BOUND (range_type);
 	  int nb_elements;
-	
+
 	  if (high_bound < low_bound)
 	    nb_elements = 0;
 	  else
 	    nb_elements = high_bound - low_bound + 1;
-	
+
 	  TYPE_LENGTH (type) = nb_elements * TYPE_LENGTH (target_type);
 	  TYPE_TARGET_STUB (type) = 0;
 	}
@@ -1552,7 +1552,7 @@ check_stub_method (struct type *type, int method_id, int signature_id)
     p = NULL;
 
   if (demangled_name == NULL || p == NULL)
-    error (_("Internal: Cannot demangle mangled name `%s'."), 
+    error (_("Internal: Cannot demangle mangled name `%s'."),
 	   mangled_name);
 
   /* Now, read in the parameters that define this type.  */
@@ -1678,11 +1678,11 @@ check_stub_method_group (struct type *type, int method_id)
       int ret;
       char dem_opname[256];
 
-      ret = cplus_demangle_opname (TYPE_FN_FIELDLIST_NAME (type, 
+      ret = cplus_demangle_opname (TYPE_FN_FIELDLIST_NAME (type,
 							   method_id),
 				   dem_opname, DMGL_ANSI);
       if (!ret)
-	ret = cplus_demangle_opname (TYPE_FN_FIELDLIST_NAME (type, 
+	ret = cplus_demangle_opname (TYPE_FN_FIELDLIST_NAME (type,
 							     method_id),
 				     dem_opname, 0);
       if (ret)
@@ -1789,7 +1789,7 @@ is_integral_type (struct type *t)
 	 || (TYPE_CODE (t) == TYPE_CODE_BOOL)));
 }
 
-/* Check whether BASE is an ancestor or base class or DCLASS 
+/* Check whether BASE is an ancestor or base class or DCLASS
    Return 1 if so, and 0 if not.
    Note: callers may want to check for identity of the types before
    calling this function -- identical types are considered to satisfy
@@ -1805,7 +1805,7 @@ is_ancestor (struct type *base, struct type *dclass)
 
   if (base == dclass)
     return 1;
-  if (TYPE_NAME (base) && TYPE_NAME (dclass) 
+  if (TYPE_NAME (base) && TYPE_NAME (dclass)
       && !strcmp (TYPE_NAME (base), TYPE_NAME (dclass)))
     return 1;
 
@@ -1871,7 +1871,7 @@ compare_badness (struct badness_vector *a, struct badness_vector *b)
    entries.  */
 
 struct badness_vector *
-rank_function (struct type **parms, int nparms, 
+rank_function (struct type **parms, int nparms,
 	       struct type **args, int nargs)
 {
   int i;
@@ -1973,7 +1973,7 @@ rank_one_type (struct type *parm, struct type *arg)
      really are the same.
   */
 
-  if (TYPE_NAME (parm) && TYPE_NAME (arg) 
+  if (TYPE_NAME (parm) && TYPE_NAME (arg)
       && !strcmp (TYPE_NAME (parm), TYPE_NAME (arg)))
     return 0;
 
@@ -1991,9 +1991,9 @@ rank_one_type (struct type *parm, struct type *arg)
 	    + REFERENCE_CONVERSION_BADNESS);
   if (overload_debug)
   /* Debugging only.  */
-    fprintf_filtered (gdb_stderr, 
+    fprintf_filtered (gdb_stderr,
 		      "------ Arg is %s [%d], parm is %s [%d]\n",
-		      TYPE_NAME (arg), TYPE_CODE (arg), 
+		      TYPE_NAME (arg), TYPE_CODE (arg),
 		      TYPE_NAME (parm), TYPE_CODE (parm));
 
   /* x -> y means arg of type x being supplied for parameter of type y */
@@ -2007,10 +2007,10 @@ rank_one_type (struct type *parm, struct type *arg)
 	  if (TYPE_CODE (TYPE_TARGET_TYPE (parm)) == TYPE_CODE_VOID)
 	    return VOID_PTR_CONVERSION_BADNESS;
 	  else
-	    return rank_one_type (TYPE_TARGET_TYPE (parm), 
+	    return rank_one_type (TYPE_TARGET_TYPE (parm),
 				  TYPE_TARGET_TYPE (arg));
 	case TYPE_CODE_ARRAY:
-	  return rank_one_type (TYPE_TARGET_TYPE (parm), 
+	  return rank_one_type (TYPE_TARGET_TYPE (parm),
 				TYPE_TARGET_TYPE (arg));
 	case TYPE_CODE_FUNC:
 	  return rank_one_type (TYPE_TARGET_TYPE (parm), arg);
@@ -2029,7 +2029,7 @@ rank_one_type (struct type *parm, struct type *arg)
 	{
 	case TYPE_CODE_PTR:
 	case TYPE_CODE_ARRAY:
-	  return rank_one_type (TYPE_TARGET_TYPE (parm), 
+	  return rank_one_type (TYPE_TARGET_TYPE (parm),
 				TYPE_TARGET_TYPE (arg));
 	default:
 	  return INCOMPATIBLE_TYPE_BADNESS;
@@ -2062,12 +2062,12 @@ rank_one_type (struct type *parm, struct type *arg)
 		{
 		  if (TYPE_UNSIGNED (arg))
 		    {
-		      /* unsigned int -> unsigned int, or 
+		      /* unsigned int -> unsigned int, or
 			 unsigned long -> unsigned long */
-		      if (integer_types_same_name_p (TYPE_NAME (parm), 
+		      if (integer_types_same_name_p (TYPE_NAME (parm),
 						     TYPE_NAME (arg)))
 			return 0;
-		      else if (integer_types_same_name_p (TYPE_NAME (arg), 
+		      else if (integer_types_same_name_p (TYPE_NAME (arg),
 							  "int")
 			       && integer_types_same_name_p (TYPE_NAME (parm),
 							     "long"))
@@ -2077,9 +2077,9 @@ rank_one_type (struct type *parm, struct type *arg)
 		    }
 		  else
 		    {
-		      if (integer_types_same_name_p (TYPE_NAME (arg), 
+		      if (integer_types_same_name_p (TYPE_NAME (arg),
 						     "long")
-			  && integer_types_same_name_p (TYPE_NAME (parm), 
+			  && integer_types_same_name_p (TYPE_NAME (parm),
 							"int"))
 			return INTEGER_CONVERSION_BADNESS;	/* signed long -> unsigned int */
 		      else
@@ -2088,12 +2088,12 @@ rank_one_type (struct type *parm, struct type *arg)
 		}
 	      else if (!TYPE_NOSIGN (arg) && !TYPE_UNSIGNED (arg))
 		{
-		  if (integer_types_same_name_p (TYPE_NAME (parm), 
+		  if (integer_types_same_name_p (TYPE_NAME (parm),
 						 TYPE_NAME (arg)))
 		    return 0;
-		  else if (integer_types_same_name_p (TYPE_NAME (arg), 
+		  else if (integer_types_same_name_p (TYPE_NAME (arg),
 						      "int")
-			   && integer_types_same_name_p (TYPE_NAME (parm), 
+			   && integer_types_same_name_p (TYPE_NAME (parm),
 							 "long"))
 		    return INTEGER_PROMOTION_BADNESS;
 		  else
@@ -2287,7 +2287,7 @@ rank_one_type (struct type *parm, struct type *arg)
 	{
 	  /* Not in C++ */
 	case TYPE_CODE_SET:
-	  return rank_one_type (TYPE_FIELD_TYPE (parm, 0), 
+	  return rank_one_type (TYPE_FIELD_TYPE (parm, 0),
 				TYPE_FIELD_TYPE (arg, 0));
 	default:
 	  return INCOMPATIBLE_TYPE_BADNESS;
@@ -2381,7 +2381,7 @@ dump_fn_fieldlists (struct type *type, int spaces)
 				  gdb_stdout);
 	  printf_filtered (")\n");
 	  printfi_filtered (spaces + 8, "type ");
-	  gdb_print_host_address (TYPE_FN_FIELD_TYPE (f, overload_idx), 
+	  gdb_print_host_address (TYPE_FN_FIELD_TYPE (f, overload_idx),
 				  gdb_stdout);
 	  printf_filtered ("\n");
 
@@ -2389,12 +2389,12 @@ dump_fn_fieldlists (struct type *type, int spaces)
 			       spaces + 8 + 2);
 
 	  printfi_filtered (spaces + 8, "args ");
-	  gdb_print_host_address (TYPE_FN_FIELD_ARGS (f, overload_idx), 
+	  gdb_print_host_address (TYPE_FN_FIELD_ARGS (f, overload_idx),
 				  gdb_stdout);
 	  printf_filtered ("\n");
 
 	  print_arg_types (TYPE_FN_FIELD_ARGS (f, overload_idx),
-			   TYPE_NFIELDS (TYPE_FN_FIELD_TYPE (f, 
+			   TYPE_NFIELDS (TYPE_FN_FIELD_TYPE (f,
 							     overload_idx)),
 			   spaces);
 	  printfi_filtered (spaces + 8, "fcontext ");
@@ -2431,7 +2431,7 @@ print_cplus_stuff (struct type *type, int spaces)
     {
       printfi_filtered (spaces, "virtual_field_bits (%d bits at *",
 			TYPE_N_BASECLASSES (type));
-      gdb_print_host_address (TYPE_FIELD_VIRTUAL_BITS (type), 
+      gdb_print_host_address (TYPE_FIELD_VIRTUAL_BITS (type),
 			      gdb_stdout);
       printf_filtered (")");
 
@@ -2443,10 +2443,10 @@ print_cplus_stuff (struct type *type, int spaces)
     {
       if (TYPE_FIELD_PRIVATE_BITS (type) != NULL)
 	{
-	  printfi_filtered (spaces, 
+	  printfi_filtered (spaces,
 			    "private_field_bits (%d bits at *",
 			    TYPE_NFIELDS (type));
-	  gdb_print_host_address (TYPE_FIELD_PRIVATE_BITS (type), 
+	  gdb_print_host_address (TYPE_FIELD_PRIVATE_BITS (type),
 				  gdb_stdout);
 	  printf_filtered (")");
 	  print_bit_vector (TYPE_FIELD_PRIVATE_BITS (type),
@@ -2455,10 +2455,10 @@ print_cplus_stuff (struct type *type, int spaces)
 	}
       if (TYPE_FIELD_PROTECTED_BITS (type) != NULL)
 	{
-	  printfi_filtered (spaces, 
+	  printfi_filtered (spaces,
 			    "protected_field_bits (%d bits at *",
 			    TYPE_NFIELDS (type));
-	  gdb_print_host_address (TYPE_FIELD_PROTECTED_BITS (type), 
+	  gdb_print_host_address (TYPE_FIELD_PROTECTED_BITS (type),
 				  gdb_stdout);
 	  printf_filtered (")");
 	  print_bit_vector (TYPE_FIELD_PROTECTED_BITS (type),
@@ -2488,7 +2488,7 @@ recursive_dump_type (struct type *type, int spaces)
       struct type **first_dont_print
 	= (struct type **) obstack_base (&dont_print_type_obstack);
 
-      int i = (struct type **) 
+      int i = (struct type **)
 	obstack_next_free (&dont_print_type_obstack) - first_dont_print;
 
       while (--i >= 0)
@@ -2633,7 +2633,7 @@ recursive_dump_type (struct type *type, int spaces)
   printfi_filtered (spaces, "type_chain ");
   gdb_print_host_address (TYPE_CHAIN (type), gdb_stdout);
   printf_filtered ("\n");
-  printfi_filtered (spaces, "instance_flags 0x%x", 
+  printfi_filtered (spaces, "instance_flags 0x%x",
 		    TYPE_INSTANCE_FLAGS (type));
   if (TYPE_CONST (type))
     {
@@ -2742,13 +2742,13 @@ recursive_dump_type (struct type *type, int spaces)
     {
       recursive_dump_type (TYPE_VPTR_BASETYPE (type), spaces + 2);
     }
-  printfi_filtered (spaces, "vptr_fieldno %d\n", 
+  printfi_filtered (spaces, "vptr_fieldno %d\n",
 		    TYPE_VPTR_FIELDNO (type));
   switch (TYPE_CODE (type))
     {
     case TYPE_CODE_STRUCT:
       printfi_filtered (spaces, "cplus_stuff ");
-      gdb_print_host_address (TYPE_CPLUS_SPECIFIC (type), 
+      gdb_print_host_address (TYPE_CPLUS_SPECIFIC (type),
 			      gdb_stdout);
       puts_filtered ("\n");
       print_cplus_stuff (type, spaces);
@@ -2838,7 +2838,7 @@ create_copied_types_hash (struct objfile *objfile)
    not associated with OBJFILE.  */
 
 struct type *
-copy_type_recursive (struct objfile *objfile, 
+copy_type_recursive (struct objfile *objfile,
 		     struct type *type,
 		     htab_t copied_types)
 {
@@ -2890,7 +2890,7 @@ copy_type_recursive (struct objfile *objfile,
       TYPE_FIELDS (new_type) = XCALLOC (nfields, struct field);
       for (i = 0; i < nfields; i++)
 	{
-	  TYPE_FIELD_ARTIFICIAL (new_type, i) = 
+	  TYPE_FIELD_ARTIFICIAL (new_type, i) =
 	    TYPE_FIELD_ARTIFICIAL (type, i);
 	  TYPE_FIELD_BITSIZE (new_type, i) = TYPE_FIELD_BITSIZE (type, i);
 	  if (TYPE_FIELD_TYPE (type, i))
@@ -2898,7 +2898,7 @@ copy_type_recursive (struct objfile *objfile,
 	      = copy_type_recursive (objfile, TYPE_FIELD_TYPE (type, i),
 				     copied_types);
 	  if (TYPE_FIELD_NAME (type, i))
-	    TYPE_FIELD_NAME (new_type, i) = 
+	    TYPE_FIELD_NAME (new_type, i) =
 	      xstrdup (TYPE_FIELD_NAME (type, i));
 	  switch (TYPE_FIELD_LOC_KIND (type, i))
 	    {
@@ -2925,12 +2925,12 @@ copy_type_recursive (struct objfile *objfile,
 
   /* Copy pointers to other types.  */
   if (TYPE_TARGET_TYPE (type))
-    TYPE_TARGET_TYPE (new_type) = 
-      copy_type_recursive (objfile, 
+    TYPE_TARGET_TYPE (new_type) =
+      copy_type_recursive (objfile,
 			   TYPE_TARGET_TYPE (type),
 			   copied_types);
   if (TYPE_VPTR_BASETYPE (type))
-    TYPE_VPTR_BASETYPE (new_type) = 
+    TYPE_VPTR_BASETYPE (new_type) =
       copy_type_recursive (objfile,
 			   TYPE_VPTR_BASETYPE (type),
 			   copied_types);
@@ -2953,7 +2953,7 @@ copy_type_recursive (struct objfile *objfile,
 
 /* Make a copy of the given TYPE, except that the pointer & reference
    types are not preserved.
-   
+
    This function assumes that the given type has an associated objfile.
    This objfile is used to allocate the new type.  */
 

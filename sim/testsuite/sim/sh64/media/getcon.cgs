@@ -9,7 +9,7 @@
 init:
 	pta wrong, tr0
 
-getcon1:	
+getcon1:
 	movi 22, r0
 	putcon r0, cr0
 	getcon cr0, r1

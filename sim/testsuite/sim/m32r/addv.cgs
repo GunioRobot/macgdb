@@ -15,7 +15,7 @@ addv:
 
 	bnc not_ok
 	test_h_gr r4, 0
-	
+
 	pass
 not_ok:
 	fail

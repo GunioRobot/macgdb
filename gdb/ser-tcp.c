@@ -87,8 +87,8 @@ wait_for_connect (struct serial *scb, int *polls)
   struct timeval t;
   int n;
 
-  /* While we wait for the connect to complete, 
-     poll the UI so it can update or the user can 
+  /* While we wait for the connect to complete,
+     poll the UI so it can update or the user can
      interrupt.  */
   if (deprecated_ui_loop_hook && deprecated_ui_loop_hook (0))
     {
@@ -123,11 +123,11 @@ wait_for_connect (struct serial *scb, int *polls)
       FD_SET (scb->fd, &rset);
       wset = rset;
       eset = rset;
-	  
+
       /* POSIX systems return connection success or failure by signalling
 	 wset.  Windows systems return success in wset and failure in
 	 eset.
-     
+
 	 We must call select here, rather than gdb_select, because
 	 the serial structure has not yet been initialized - the
 	 MinGW select wrapper will not know that this FD refers
@@ -210,7 +210,7 @@ net_open (struct serial *scb, const char *name)
 
   if (scb->fd < 0)
     return -1;
-  
+
   /* set socket nonblocking */
   ioarg = 1;
   ioctl (scb->fd, FIONBIO, &ioarg);
@@ -256,10 +256,10 @@ net_open (struct serial *scb, const char *name)
 	}
 
       /* looks like we need to wait for the connect */
-      do 
+      do
 	{
 	  n = wait_for_connect (scb, &polls);
-	} 
+	}
       while (n == 0);
       if (n < 0)
 	{
@@ -297,7 +297,7 @@ net_open (struct serial *scb, const char *name)
 	net_close (scb);
 	return -1;
       }
-  } 
+  }
 
   /* turn off nonblocking */
   ioarg = 0;
@@ -411,7 +411,7 @@ Configure variables specific to remote TCP connections"),
   add_setshow_boolean_cmd ("auto-retry", class_obscure,
 			   &tcp_auto_retry, _("\
 Set auto-retry on socket connect"), _("\
-Show auto-retry on socket connect"), 
+Show auto-retry on socket connect"),
 			   NULL, NULL, NULL,
 			   &tcp_set_cmdlist, &tcp_show_cmdlist);
 

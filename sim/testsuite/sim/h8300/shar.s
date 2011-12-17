@@ -716,7 +716,7 @@ shar_w_ind_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwind1
 	fail
@@ -746,7 +746,7 @@ shar_w_postinc_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwpostinc1
 	fail
@@ -776,7 +776,7 @@ shar_w_postdec_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwpostdec1
 	fail
@@ -806,7 +806,7 @@ shar_w_preinc_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwpreinc1
 	fail
@@ -836,7 +836,7 @@ shar_w_predec_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwpredec1
 	fail
@@ -866,7 +866,7 @@ shar_w_disp2_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwdisp21
 	fail
@@ -897,7 +897,7 @@ shar_w_disp16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwdisp161
 	fail
@@ -928,7 +928,7 @@ shar_w_disp32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwdisp321
 	fail
@@ -957,7 +957,7 @@ shar_w_abs16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwabs161
 	fail
@@ -986,14 +986,14 @@ shar_w_abs32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1101 0010 1101 0010 
+	; 1010 0101 1010 0101 -> 1101 0010 1101 0010
 	cmp.w	#0xd2d2, @word_dest
 	beq	.Lwabs321
 	fail
 .Lwabs321:
 	mov.w	#0xa5a5, @word_dest
 .endif
-	
+
 shar_w_reg16_2:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	set_ccr_zero
@@ -1039,7 +1039,7 @@ shar_w_ind_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwind2
 	fail
@@ -1069,7 +1069,7 @@ shar_w_postinc_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwpostinc2
 	fail
@@ -1099,7 +1099,7 @@ shar_w_postdec_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwpostdec2
 	fail
@@ -1129,7 +1129,7 @@ shar_w_preinc_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwpreinc2
 	fail
@@ -1159,7 +1159,7 @@ shar_w_predec_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwpredec2
 	fail
@@ -1189,7 +1189,7 @@ shar_w_disp2_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwdisp22
 	fail
@@ -1220,7 +1220,7 @@ shar_w_disp16_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwdisp162
 	fail
@@ -1251,7 +1251,7 @@ shar_w_disp32_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwdisp322
 	fail
@@ -1280,7 +1280,7 @@ shar_w_abs16_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwabs162
 	fail
@@ -1309,7 +1309,7 @@ shar_w_abs32_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 -> 1110 1001 0110 1001  
+	; 1010 0101 1010 0101 -> 1110 1001 0110 1001
 	cmp.w	#0xe969, @word_dest
 	beq	.Lwabs322
 	fail
@@ -1329,7 +1329,7 @@ shar_l_reg32_1:
 	test_ovf_clear
 	test_neg_set
 
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1101 0010 1101 0010 1101 0010 1101 0010
 	test_h_gr32  0xd2d2d2d2 er0
 
@@ -1991,7 +1991,7 @@ shar_l_abs32_2:
 	fail
 .Llabs322:
 	mov	#0xa5a5a5a5, @long_dest
-	
+
 .endif
 .endif
 	pass

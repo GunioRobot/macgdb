@@ -456,13 +456,13 @@ find_toplevel_char (char *s, char c)
    representation, such as -[Foo bar:] or +[Foo bar]. Objective-C symbols
    are allowed to have spaces and parentheses in them.  */
 
-static int 
+static int
 is_objc_method_format (const char *s)
 {
   if (s == NULL || *s == '\0')
     return 0;
   /* Handle arguments with the format FILENAME:SYMBOL.  */
-  if ((s[0] == ':') && (strchr ("+-", s[1]) != NULL) 
+  if ((s[0] == ':') && (strchr ("+-", s[1]) != NULL)
       && (s[2] == '[') && strchr(s, ']'))
     return 1;
   /* Handle arguments that are just SYMBOL.  */
@@ -493,7 +493,7 @@ decode_line_2 (struct symbol *sym_arr[], int nelts, int funfirstline,
     error (_("\
 canceled because the command is ambiguous\n\
 See set/show multiple-symbol."));
-  
+
   values.sals = (struct symtab_and_line *)
     alloca (nelts * sizeof (struct symtab_and_line));
   return_values.sals = (struct symtab_and_line *)
@@ -665,8 +665,8 @@ See set/show multiple-symbol."));
 
    Note that it is possible to return zero for the symtab
    if no file is validly specified.  Callers must check that.
-   Also, the line number returned may be invalid.  
- 
+   Also, the line number returned may be invalid.
+
    If NOT_FOUND_PTR is not null, store a boolean true/false value at the location, based
    on whether or not failure occurs due to an unknown function or file.  In the case
    where failure does occur due to an unknown function or file, do not issue an error
@@ -704,7 +704,7 @@ decode_line_1 (char **argptr, int funfirstline, struct symtab *default_symtab,
   /* Defaults have defaults.  */
 
   initialize_defaults (&default_symtab, &default_line);
-  
+
   /* See if arg is *PC.  */
 
   if (**argptr == '*')
@@ -752,14 +752,14 @@ decode_line_1 (char **argptr, int funfirstline, struct symtab *default_symtab,
     {
       if (is_quoted)
 	*argptr = *argptr + 1;
-      
+
       /* Is it a C++ or Java compound data structure?
 	 The check on p[1] == ':' is capturing the case of "::",
-	 since p[0]==':' was checked above.  
+	 since p[0]==':' was checked above.
 	 Note that the call to decode_compound does everything
 	 for us, including the lookup on the symbol table, so we
 	 can return now. */
-	
+
       if (p[0] == '.' || p[1] == ':')
 	return decode_compound (argptr, funfirstline, canonical,
 				saved_arg, p, not_found_ptr);
@@ -767,7 +767,7 @@ decode_line_1 (char **argptr, int funfirstline, struct symtab *default_symtab,
       /* No, the first part is a filename; set file_symtab to be that file's
 	 symtab.  Also, move argptr past the filename.  */
 
-      file_symtab = symtab_from_filename (argptr, p, is_quote_enclosed, 
+      file_symtab = symtab_from_filename (argptr, p, is_quote_enclosed,
 		      			  not_found_ptr);
     }
 #if 0
@@ -917,9 +917,9 @@ initialize_defaults (struct symtab **default_symtab, int *default_line)
       /* Use whatever we have for the default source line.  We don't use
          get_current_or_default_symtab_and_line as it can recurse and call
 	 us back! */
-      struct symtab_and_line cursal = 
+      struct symtab_and_line cursal =
 	get_current_source_symtab_and_line ();
-      
+
       *default_symtab = cursal.symtab;
       *default_line = cursal.line;
     }
@@ -972,7 +972,7 @@ decode_indirect (char **argptr)
 {
   struct symtabs_and_lines values;
   CORE_ADDR pc;
-  
+
   (*argptr)++;
   pc = parse_and_eval_address_1 (argptr);
 
@@ -1127,14 +1127,14 @@ decode_objc (char **argptr, int funfirstline, struct symtab *file_symtab,
       set_language (save_language);
     }
 
-  copy = find_imps (file_symtab, block, *argptr, NULL, &i1, &i2); 
-    
+  copy = find_imps (file_symtab, block, *argptr, NULL, &i1, &i2);
+
   if (i1 > 0)
     {
       sym_arr = (struct symbol **) alloca ((i1 + 1) * sizeof (struct symbol *));
       sym_arr[i1] = NULL;
 
-      copy = find_imps (file_symtab, block, *argptr, sym_arr, &i1, &i2); 
+      copy = find_imps (file_symtab, block, *argptr, sym_arr, &i1, &i2);
       *argptr = copy;
     }
 
@@ -1142,7 +1142,7 @@ decode_objc (char **argptr, int funfirstline, struct symtab *file_symtab,
      i2 represents how many HIGH-LEVEL (struct symbol) matches,
      which will come first in the sym_arr array.  Any low-level
      (minimal_symbol) matches will follow those.  */
-      
+
   if (i1 == 1)
     {
       if (i2 > 0)
@@ -1159,10 +1159,10 @@ decode_objc (char **argptr, int funfirstline, struct symtab *file_symtab,
 	      sym = NULL;
 	    }
 	}
-	      
+
       values.sals = (struct symtab_and_line *) xmalloc (sizeof (struct symtab_and_line));
       values.nelts = 1;
-	      
+
       if (sym && SYMBOL_CLASS (sym) == LOC_BLOCK)
 	{
 	  /* Canonicalize this, so it remains resolved for dylib loads.  */
@@ -1212,7 +1212,7 @@ decode_compound (char **argptr, int funfirstline, char ***canonical,
      "::foo".  If found, skip over the colons and jump to normal
      symbol processing.  I.e. the whole line specification starts with
      "::" (note the condition that *argptr == p). */
-  if (p[0] == ':' 
+  if (p[0] == ':'
       && ((*argptr == p) || (p[-1] == ' ') || (p[-1] == '\t')))
     saved_arg2 += 2;
 
@@ -1506,13 +1506,13 @@ find_method (int funfirstline, char ***canonical, char *saved_arg,
    error message.  */
 
 static struct symtab *
-symtab_from_filename (char **argptr, char *p, int is_quote_enclosed, 
+symtab_from_filename (char **argptr, char *p, int is_quote_enclosed,
 		      int *not_found_ptr)
 {
   char *p1;
   char *copy;
   struct symtab *file_symtab;
-  
+
   p1 = p;
   while (p != *argptr && p[-1] == ' ')
     --p;
@@ -1617,7 +1617,7 @@ decode_all_digits (char **argptr, struct symtab *default_symtab,
   if (file_symtab == 0)
     file_symtab = default_symtab;
 
-  /* It is possible that this source file has more than one symtab, 
+  /* It is possible that this source file has more than one symtab,
      and that the new line number specification has moved us from the
      default (in file_symtab) to a new one.  */
   val.symtab = find_line_symtab (file_symtab, val.line, NULL, NULL);
@@ -1711,7 +1711,7 @@ decode_dollar (char *copy, int funfirstline, struct symtab *default_symtab,
 /* Decode a linespec that's a variable.  If FILE_SYMTAB is non-NULL,
    look in that symtab's static variables first.  If NOT_FOUND_PTR is not NULL and
    the function cannot be found, store boolean true in the location pointed to
-   and do not issue an error message.  */ 
+   and do not issue an error message.  */
 
 static struct symtabs_and_lines
 decode_variable (char *copy, int funfirstline, char ***canonical,
@@ -1761,7 +1761,7 @@ symbol_found (int funfirstline, char ***canonical, char *copy,
 	      struct symbol *sym, struct symtab *file_symtab)
 {
   struct symtabs_and_lines values;
-  
+
   if (SYMBOL_CLASS (sym) == LOC_BLOCK)
     {
       /* Arg is the name of a function */

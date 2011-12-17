@@ -1,5 +1,5 @@
 # cr16 testcase for mulsw reg, (regp)
-# mach(): cr16 
+# mach(): cr16
 
 	.include "testutils.inc"
 

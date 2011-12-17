@@ -96,7 +96,7 @@ _rl_find_next_mbchar_internal (string, seed, count, find_non_zero)
   if (seed < point)
     count--;
 
-  while (count > 0)  
+  while (count > 0)
     {
       tmp = mbrtowc (&wc, string+point, strlen(string + point), &ps);
       if (MB_INVALIDCH ((size_t)tmp))
@@ -152,7 +152,7 @@ _rl_find_prev_mbchar_internal (string, seed, find_non_zero)
 
   memset(&ps, 0, sizeof(mbstate_t));
   length = strlen(string);
-  
+
   if (seed < 0)
     return 0;
   else if (length < seed)
@@ -186,7 +186,7 @@ _rl_find_prev_mbchar_internal (string, seed, find_non_zero)
 		prev = point;
 	    }
 	  else
-	    prev = point;  
+	    prev = point;
 	}
 
       point += tmp;
@@ -196,9 +196,9 @@ _rl_find_prev_mbchar_internal (string, seed, find_non_zero)
 }
 
 /* return the number of bytes parsed from the multibyte sequence starting
-   at src, if a non-L'\0' wide character was recognized. It returns 0, 
-   if a L'\0' wide character was recognized. It  returns (size_t)(-1), 
-   if an invalid multibyte sequence was encountered. It returns (size_t)(-2) 
+   at src, if a non-L'\0' wide character was recognized. It returns 0,
+   if a L'\0' wide character was recognized. It  returns (size_t)(-1),
+   if an invalid multibyte sequence was encountered. It returns (size_t)(-2)
    if it couldn't parse a complete  multibyte character.  */
 int
 _rl_get_char_len (src, ps)
@@ -242,7 +242,7 @@ _rl_compare_chars (buf1, pos1, ps1, buf2, pos2, ps2)
 {
   int i, w1, w2;
 
-  if ((w1 = _rl_get_char_len (&buf1[pos1], ps1)) <= 0 || 
+  if ((w1 = _rl_get_char_len (&buf1[pos1], ps1)) <= 0 ||
 	(w2 = _rl_get_char_len (&buf2[pos2], ps2)) <= 0 ||
 	(w1 != w2) ||
 	(buf1[pos1] != buf2[pos2]))
@@ -275,7 +275,7 @@ _rl_adjust_point(string, point, ps)
     return -1;
   if (length < point)
     return -1;
-  
+
   while (pos < point)
     {
       tmp = mbrlen (string + pos, length - pos, ps);
@@ -334,7 +334,7 @@ _rl_char_value (buf, ind)
     return ((wchar_t) buf[ind]);
   memset (&ps, 0, sizeof (mbstate_t));
   tmp = mbrtowc (&wc, buf + ind, l - ind, &ps);
-  if (MB_INVALIDCH (tmp) || MB_NULLWCH (tmp))  
+  if (MB_INVALIDCH (tmp) || MB_NULLWCH (tmp))
     return ((wchar_t) buf[ind]);
   return wc;
 }

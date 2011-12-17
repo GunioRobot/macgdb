@@ -72,7 +72,7 @@
   but it is too late to change it now, instead
   the flags field of the internal_f structure
   is used as shown above.
- 
+
   XXX - NC 5/6/97.  */
 
 #define	ARMMAGIC	0xa00  /* I just made this up */
@@ -93,7 +93,7 @@
 /* define some NT default values */
 /*  #define NT_IMAGE_BASE        0x400000 moved to internal.h */
 #define NT_SECTION_ALIGNMENT 0x1000
-#define NT_FILE_ALIGNMENT    0x200  
+#define NT_FILE_ALIGNMENT    0x200
 #define NT_DEF_RESERVE       0x100000
 #define NT_DEF_COMMIT        0x1000
 

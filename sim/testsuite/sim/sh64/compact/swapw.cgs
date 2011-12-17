@@ -19,7 +19,7 @@ swapw:
 	# Preserve for later.
 	mov r0, r8
 
-test:	
+test:
 	swap.w r0, r1
 	mov #64, r0
 	shll8 r0

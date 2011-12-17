@@ -31,7 +31,7 @@
    the interaction with include files (<malloc.h> and <stdlib.h> for
    example) just became too messy, particularly when such includes can
    be inserted at random times by the parser generator.  */
-   
+
 %{
 
 #include "defs.h"
@@ -69,13 +69,13 @@
 #define	yylval		objc_lval
 #define	yychar		objc_char
 #define	yydebug		objc_debug
-#define	yypact		objc_pact	
-#define	yyr1		objc_r1			
-#define	yyr2		objc_r2			
-#define	yydef		objc_def		
-#define	yychk		objc_chk		
-#define	yypgo		objc_pgo		
-#define	yyact		objc_act		
+#define	yypact		objc_pact
+#define	yyr1		objc_r1
+#define	yyr2		objc_r2
+#define	yydef		objc_def
+#define	yychk		objc_chk
+#define	yypgo		objc_pgo
+#define	yyact		objc_act
 #define	yyexca		objc_exca
 #define yyerrflag	objc_errflag
 #define yynerrs		objc_nerrs
@@ -190,9 +190,9 @@ parse_number (char *, int, int, YYSTYPE *);
    E.g. "c" when input_radix==16.  Depending on the parse, it will be
    turned into a name or into a number.  */
 
-%token <ssym> NAME_OR_INT 
+%token <ssym> NAME_OR_INT
 
-%token STRUCT CLASS UNION ENUM SIZEOF UNSIGNED COLONCOLON 
+%token STRUCT CLASS UNION ENUM SIZEOF UNSIGNED COLONCOLON
 %token TEMPLATE
 %token ERROR
 
@@ -221,7 +221,7 @@ parse_number (char *, int, int, YYSTYPE *);
 %left '*' '/' '%'
 %right UNARY INCREMENT DECREMENT
 %right ARROW '.' '[' '('
-%token <ssym> BLOCKNAME 
+%token <ssym> BLOCKNAME
 %type <bval> block
 %left COLONCOLON
 
@@ -336,7 +336,7 @@ exp	: 	'[' TYPENAME
 			  class = lookup_objc_class (parse_gdbarch,
 						     copy_name ($2.stoken));
 			  if (class == 0)
-			    error ("%s is not an ObjC Class", 
+			    error ("%s is not an ObjC Class",
 				   copy_name ($2.stoken));
 			  write_exp_elt_opcode (OP_LONG);
 			  write_exp_elt_type (parse_type->builtin_int);
@@ -347,7 +347,7 @@ exp	: 	'[' TYPENAME
 		msglist ']'
 			{ write_exp_elt_opcode (OP_OBJC_MSGCALL);
 			  end_msglist();
-			  write_exp_elt_opcode (OP_OBJC_MSGCALL); 
+			  write_exp_elt_opcode (OP_OBJC_MSGCALL);
 			}
 	;
 
@@ -362,7 +362,7 @@ exp	:	'[' CLASSNAME
 		msglist ']'
 			{ write_exp_elt_opcode (OP_OBJC_MSGCALL);
 			  end_msglist();
-			  write_exp_elt_opcode (OP_OBJC_MSGCALL); 
+			  write_exp_elt_opcode (OP_OBJC_MSGCALL);
 			}
 	;
 
@@ -371,7 +371,7 @@ exp	:	'[' exp
 		msglist ']'
 			{ write_exp_elt_opcode (OP_OBJC_MSGCALL);
 			  end_msglist();
-			  write_exp_elt_opcode (OP_OBJC_MSGCALL); 
+			  write_exp_elt_opcode (OP_OBJC_MSGCALL);
 			}
 	;
 
@@ -392,7 +392,7 @@ msgarg	:	name ':' exp
 			{ add_msglist(0, 0);   }
 	;
 
-exp	:	exp '(' 
+exp	:	exp '('
 			/* This is to save the value of arglist_len
 			   being accumulated by an outer function call.  */
 			{ start_arglist (); }
@@ -524,7 +524,7 @@ exp	:	exp OROR exp
 exp	:	exp '?' exp ':' exp	%prec '?'
 			{ write_exp_elt_opcode (TERNOP_COND); }
 	;
-			  
+
 exp	:	exp '=' exp
 			{ write_exp_elt_opcode (BINOP_ASSIGN); }
 	;
@@ -567,7 +567,7 @@ exp	:	VARIABLE
 			/* Already written by write_dollar_variable.  */
 	;
 
-exp	:	SELECTOR 
+exp	:	SELECTOR
 			{
 			  write_exp_elt_opcode (OP_OBJC_SELECTOR);
 			  write_exp_string ($1);
@@ -732,7 +732,7 @@ variable:	name_not_typename
 			      if (symbol_read_needs_frame (sym))
 				{
 				  if (innermost_block == 0 ||
-				      contained_in (block_found, 
+				      contained_in (block_found,
 						    innermost_block))
 				    innermost_block = block_found;
 				}
@@ -747,10 +747,10 @@ variable:	name_not_typename
 			    }
 			  else if ($1.is_a_field_of_this)
 			    {
-			      /* C++/ObjC: it hangs off of `this'/'self'.  
-				 Must not inadvertently convert from a 
+			      /* C++/ObjC: it hangs off of `this'/'self'.
+				 Must not inadvertently convert from a
 				 method call to data ref.  */
-			      if (innermost_block == 0 || 
+			      if (innermost_block == 0 ||
 				  contained_in (block_found, innermost_block))
 				innermost_block = block_found;
 			      write_exp_elt_opcode (OP_OBJC_SELF);
@@ -768,7 +768,7 @@ variable:	name_not_typename
 				lookup_minimal_symbol (arg, NULL, NULL);
 			      if (msymbol != NULL)
 				write_exp_msymbol (msymbol);
-			      else if (!have_full_symbols () && 
+			      else if (!have_full_symbols () &&
 				       !have_partial_symbols ())
 				error ("No symbol table is loaded.  Use the \"file\" command.");
 			      else
@@ -855,7 +855,7 @@ typebase  /* Implements (approximately): (type-qualifier)* type-specifier.  */
 	|	CLASSNAME
 			{
 			  if ($1.type == NULL)
-			    error ("No symbol \"%s\" in current context.", 
+			    error ("No symbol \"%s\" in current context.",
 				   copy_name($1.stoken));
 			  else
 			    $$ = $1.type;
@@ -1110,10 +1110,10 @@ parse_number (p, len, parsed_float, putithere)
 	unsigned_p = 1;		/* Try something unsigned.  */
 
       /* Portably test for unsigned overflow.
-	 FIXME: This check is wrong; for example it doesn't find 
+	 FIXME: This check is wrong; for example it doesn't find
 	 overflow on 0x123456789 when LONGEST is 32 bits.  */
       if (c != 'l' && c != 'u' && n != 0)
-	{	
+	{
 	  if ((unsigned_p && (unsigned LONGEST) prevn >= (unsigned LONGEST) n))
 	    error ("Numeric constant too large.");
 	}
@@ -1173,11 +1173,11 @@ parse_number (p, len, parsed_float, putithere)
    /* If the high bit of the worked out type is set then this number
       has to be unsigned.  */
 
-   if (unsigned_p || (n & high_bit)) 
+   if (unsigned_p || (n & high_bit))
      {
        putithere->typed_val_int.type = unsigned_type;
      }
-   else 
+   else
      {
        putithere->typed_val_int.type = signed_type;
      }
@@ -1235,7 +1235,7 @@ yylex ()
   int tempbufindex;
   static char *tempbuf;
   static int tempbufsize;
-  
+
  retry:
 
   tokstart = lexptr;
@@ -1385,12 +1385,12 @@ yylex ()
 	    /* We will take letters only if hex is true, and only up
 	       to what the input radix would permit.  FSF was content
 	       to rely on parse_number to validate; but it leaks.  */
-	    else if (*p >= 'a' && *p <= 'z') 
+	    else if (*p >= 'a' && *p <= 'z')
 	      {
 		if (!hex || *p >= ('a' + local_radix - 10))
 		  toktype = ERROR;
 	      }
-	    else if (*p >= 'A' && *p <= 'Z') 
+	    else if (*p >= 'A' && *p <= 'Z')
 	      {
 		if (!hex || *p >= ('A' + local_radix - 10))
 		  toktype = ERROR;
@@ -1398,7 +1398,7 @@ yylex ()
 	    else break;
 	  }
 	if (toktype != ERROR)
-	  toktype = parse_number (tokstart, p - tokstart, 
+	  toktype = parse_number (tokstart, p - tokstart,
 				  got_dot | got_e, &yylval);
         if (toktype == ERROR)
 	  {
@@ -1529,7 +1529,7 @@ yylex ()
       return (tokchr == '@' ? NSSTRING : STRING);
     }
 
-  if (!(tokchr == '_' || tokchr == '$' || 
+  if (!(tokchr == '_' || tokchr == '$' ||
        (tokchr >= 'a' && tokchr <= 'z') || (tokchr >= 'A' && tokchr <= 'Z')))
     /* We must have come across a bad character (e.g. ';').  */
     error ("Invalid character '%c' in expression.", c);
@@ -1550,7 +1550,7 @@ yylex ()
        c = tokstart[++namelen];
      }
 
-  /* The token "if" terminates the expression and is NOT 
+  /* The token "if" terminates the expression and is NOT
      removed from the input stream.  */
   if (namelen == 2 && tokstart[0] == 'i' && tokstart[1] == 'f')
     {
@@ -1580,7 +1580,7 @@ yylex ()
 	return SIGNED_KEYWORD;
       if (strncmp (tokstart, "sizeof", 6) == 0)
 	return SIZEOF;
-      if (strncmp (tokstart, "double", 6) == 0) 
+      if (strncmp (tokstart, "double", 6) == 0)
 	return DOUBLE_KEYWORD;
       break;
     case 5:
@@ -1711,7 +1711,7 @@ yylex ()
 		      tmp1 += 2;
 		      memcpy (tmp1, namestart, p - namestart);
 		      tmp1[p - namestart] = '\0';
-		      cur_sym = lookup_symbol (ncopy, 
+		      cur_sym = lookup_symbol (ncopy,
 					       expression_context_block,
 					       VAR_DOMAIN, (int *) NULL);
 		      if (cur_sym)
@@ -1753,8 +1753,8 @@ yylex ()
 	if (Class)
 	  {
 	    yylval.class.class = Class;
-	    if ((sym = lookup_struct_typedef (tmp, 
-					      expression_context_block, 
+	    if ((sym = lookup_struct_typedef (tmp,
+					      expression_context_block,
 					      1)))
 	      yylval.class.type = SYMBOL_TYPE (sym);
 	    return CLASSNAME;
@@ -1764,7 +1764,7 @@ yylex ()
     /* Input names that aren't symbols but ARE valid hex numbers,
        when the input radix permits them, can be names or numbers
        depending on the parse.  Note we support radixes > 16 here.  */
-    if (!sym && 
+    if (!sym &&
         ((tokstart[0] >= 'a' && tokstart[0] < 'a' + input_radix - 10) ||
          (tokstart[0] >= 'A' && tokstart[0] < 'A' + input_radix - 10)))
       {
@@ -1792,6 +1792,6 @@ yyerror (msg)
   if (*lexptr == '\0')
     error("A %s near end of expression.",  (msg ? msg : "error"));
   else
-    error ("A %s in expression, near `%s'.", (msg ? msg : "error"), 
+    error ("A %s in expression, near `%s'.", (msg ? msg : "error"),
 	   lexptr);
 }

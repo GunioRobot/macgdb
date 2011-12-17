@@ -7,7 +7,7 @@
 int main (void)
 {
   struct stat buf;
-  
+
   if (stat (".", &buf) != 0
       || !S_ISDIR (buf.st_mode))
     abort ();

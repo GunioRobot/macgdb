@@ -51,7 +51,7 @@
 
 wrong:
 	fail
-	
+
 	.macro dinit
 	fldi0 fr0
 	fldi1 fr2
@@ -65,7 +65,7 @@ wrong:
 	_s2d fr8, dr8
 	_s2d fr10, dr10
 	.endm
-	
+
 double:
 	# 0.0 * 0.0 = 0.0.
 	dinit
@@ -117,5 +117,5 @@ next:
 okay:
 	pass
 
-wrong3:	
+wrong3:
 	fail

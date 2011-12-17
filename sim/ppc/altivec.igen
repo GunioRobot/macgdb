@@ -593,7 +593,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	  (*vS).w[i] = f;
 	}
 	PPC_INSN_VR(VS_BITMASK, VA_BITMASK | VB_BITMASK);
-	
+
 0.4,6.VS,11.VA,16.VB,21.768:VX:av:vaddsbs %VD, %VA, %VB:Vector Add Signed Byte Saturate
 	int i, sat, tempsat;
 	signed16 temp;
@@ -1333,7 +1333,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	int i;
 	for (i = 0; i < 16; i += 2) {
 	  (*vS).b[AV_BINDEX(i)] = (*vA).b[AV_BINDEX(i/2)];
-	  (*vS).b[AV_BINDEX(i+1)] = (*vB).b[AV_BINDEX(i/2)]; 
+	  (*vS).b[AV_BINDEX(i+1)] = (*vB).b[AV_BINDEX(i/2)];
 	}
 	PPC_INSN_VR(VS_BITMASK, VA_BITMASK | VB_BITMASK);
 
@@ -1341,7 +1341,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	int i;
 	for (i = 0; i < 8; i += 2) {
 	  (*vS).h[AV_HINDEX(i)] = (*vA).h[AV_HINDEX(i/2)];
-	  (*vS).h[AV_HINDEX(i+1)] = (*vB).h[AV_HINDEX(i/2)]; 
+	  (*vS).h[AV_HINDEX(i+1)] = (*vB).h[AV_HINDEX(i/2)];
 	}
 	PPC_INSN_VR(VS_BITMASK, VA_BITMASK | VB_BITMASK);
 
@@ -1349,7 +1349,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	int i;
 	for (i = 0; i < 4; i += 2) {
 	  (*vS).w[i] = (*vA).w[i/2];
-	  (*vS).w[i+1] = (*vB).w[i/2]; 
+	  (*vS).w[i+1] = (*vB).w[i/2];
 	}
 	PPC_INSN_VR(VS_BITMASK, VA_BITMASK | VB_BITMASK);
 
@@ -1357,7 +1357,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	int i;
 	for (i = 0; i < 16; i += 2) {
 	  (*vS).b[AV_BINDEX(i)] = (*vA).b[AV_BINDEX((i/2) + 8)];
-	  (*vS).b[AV_BINDEX(i+1)] = (*vB).b[AV_BINDEX((i/2) + 8)]; 
+	  (*vS).b[AV_BINDEX(i+1)] = (*vB).b[AV_BINDEX((i/2) + 8)];
 	}
 	PPC_INSN_VR(VS_BITMASK, VA_BITMASK | VB_BITMASK);
 
@@ -1365,7 +1365,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	int i;
 	for (i = 0; i < 8; i += 2) {
 	  (*vS).h[AV_HINDEX(i)] = (*vA).h[AV_HINDEX((i/2) + 4)];
-	  (*vS).h[AV_HINDEX(i+1)] = (*vB).h[AV_HINDEX((i/2) + 4)]; 
+	  (*vS).h[AV_HINDEX(i+1)] = (*vB).h[AV_HINDEX((i/2) + 4)];
 	}
 	PPC_INSN_VR(VS_BITMASK, VA_BITMASK | VB_BITMASK);
 
@@ -1373,7 +1373,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	int i;
 	for (i = 0; i < 4; i += 2) {
 	  (*vS).w[i] = (*vA).w[(i/2) + 2];
-	  (*vS).w[i+1] = (*vB).w[(i/2) + 2]; 
+	  (*vS).w[i+1] = (*vB).w[(i/2) + 2];
 	}
 	PPC_INSN_VR(VS_BITMASK, VA_BITMASK | VB_BITMASK);
 
@@ -1390,7 +1390,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	for (i = 0; i < 4; i++) {
 	  temp = (*vC).w[i];
 	  for (j = 0; j < 4; j++) {
-	    a = (signed16)(signed8)(*vA).b[i*4+j]; 
+	    a = (signed16)(signed8)(*vA).b[i*4+j];
 	    b = (*vB).b[i*4+j];
 	    prod = a * b;
 	    temp += (signed32)prod;
@@ -1405,7 +1405,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	for (i = 0; i < 4; i++) {
 	  temp = (*vC).w[i];
 	  for (j = 0; j < 2; j++) {
-	    a = (signed32)(signed16)(*vA).h[i*2+j]; 
+	    a = (signed32)(signed16)(*vA).h[i*2+j];
 	    b = (signed32)(signed16)(*vB).h[i*2+j];
 	    prod = a * b;
 	    temp += prod;
@@ -1422,7 +1422,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	for (i = 0; i < 4; i++) {
 	  temp = (signed64)(signed32)(*vC).w[i];
 	  for (j = 0; j < 2; j++) {
-	    a = (signed32)(signed16)(*vA).h[i*2+j]; 
+	    a = (signed32)(signed16)(*vA).h[i*2+j];
 	    b = (signed32)(signed16)(*vB).h[i*2+j];
 	    prod = a * b;
 	    temp += (signed64)prod;
@@ -1440,7 +1440,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	for (i = 0; i < 4; i++) {
 	  temp = (*vC).w[i];
 	  for (j = 0; j < 4; j++) {
-	    a = (*vA).b[i*4+j]; 
+	    a = (*vA).b[i*4+j];
 	    b = (*vB).b[i*4+j];
 	    prod = a * b;
 	    temp += prod;
@@ -1455,7 +1455,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	for (i = 0; i < 4; i++) {
 	  temp = (*vC).w[i];
 	  for (j = 0; j < 2; j++) {
-	    a = (*vA).h[i*2+j]; 
+	    a = (*vA).h[i*2+j];
 	    b = (*vB).h[i*2+j];
 	    prod = a * b;
 	    temp += prod;
@@ -1471,7 +1471,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	for (i = 0; i < 4; i++) {
 	  temp = (*vC).w[i];
 	  for (j = 0; j < 2; j++) {
-	    a = (*vA).h[i*2+j]; 
+	    a = (*vA).h[i*2+j];
 	    b = (*vB).h[i*2+j];
 	    prod = a * b;
 	    temp += prod;
@@ -1492,7 +1492,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	signed8 a, b;
 	signed16 prod;
 	for (i = 0; i < 8; i++) {
-	  a = (*vA).b[AV_BINDEX(i*2)]; 
+	  a = (*vA).b[AV_BINDEX(i*2)];
 	  b = (*vB).b[AV_BINDEX(i*2)];
 	  prod = a * b;
 	  (*vS).h[AV_HINDEX(i)] = prod;
@@ -1504,7 +1504,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	signed16 a, b;
 	signed32 prod;
 	for (i = 0; i < 4; i++) {
-	  a = (*vA).h[AV_HINDEX(i*2)]; 
+	  a = (*vA).h[AV_HINDEX(i*2)];
 	  b = (*vB).h[AV_HINDEX(i*2)];
 	  prod = a * b;
 	  (*vS).w[i] = prod;
@@ -1516,7 +1516,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	unsigned8 a, b;
 	unsigned16 prod;
 	for (i = 0; i < 8; i++) {
-	  a = (*vA).b[AV_BINDEX(i*2)]; 
+	  a = (*vA).b[AV_BINDEX(i*2)];
 	  b = (*vB).b[AV_BINDEX(i*2)];
 	  prod = a * b;
 	  (*vS).h[AV_HINDEX(i)] = prod;
@@ -1528,7 +1528,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	unsigned16 a, b;
 	unsigned32 prod;
 	for (i = 0; i < 4; i++) {
-	  a = (*vA).h[AV_HINDEX(i*2)]; 
+	  a = (*vA).h[AV_HINDEX(i*2)];
 	  b = (*vB).h[AV_HINDEX(i*2)];
 	  prod = a * b;
 	  (*vS).w[i] = prod;
@@ -1540,7 +1540,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	signed8 a, b;
 	signed16 prod;
 	for (i = 0; i < 8; i++) {
-	  a = (*vA).b[AV_BINDEX((i*2)+1)]; 
+	  a = (*vA).b[AV_BINDEX((i*2)+1)];
 	  b = (*vB).b[AV_BINDEX((i*2)+1)];
 	  prod = a * b;
 	  (*vS).h[AV_HINDEX(i)] = prod;
@@ -1552,7 +1552,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	signed16 a, b;
 	signed32 prod;
 	for (i = 0; i < 4; i++) {
-	  a = (*vA).h[AV_HINDEX((i*2)+1)]; 
+	  a = (*vA).h[AV_HINDEX((i*2)+1)];
 	  b = (*vB).h[AV_HINDEX((i*2)+1)];
 	  prod = a * b;
 	  (*vS).w[i] = prod;
@@ -1564,7 +1564,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	unsigned8 a, b;
 	unsigned16 prod;
 	for (i = 0; i < 8; i++) {
-	  a = (*vA).b[AV_BINDEX((i*2)+1)]; 
+	  a = (*vA).b[AV_BINDEX((i*2)+1)];
 	  b = (*vB).b[AV_BINDEX((i*2)+1)];
 	  prod = a * b;
 	  (*vS).h[AV_HINDEX(i)] = prod;
@@ -1576,7 +1576,7 @@ unsigned32::model-function::altivec_unsigned_saturate_32:signed64 val, int *sat
 	unsigned16 a, b;
 	unsigned32 prod;
 	for (i = 0; i < 4; i++) {
-	  a = (*vA).h[AV_HINDEX((i*2)+1)]; 
+	  a = (*vA).h[AV_HINDEX((i*2)+1)];
 	  b = (*vB).h[AV_HINDEX((i*2)+1)];
 	  prod = a * b;
 	  (*vS).w[i] = prod;

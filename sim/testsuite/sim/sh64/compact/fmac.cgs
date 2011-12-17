@@ -31,7 +31,7 @@
 	fadd fr0, fr0
 	fcmp/eq fr0, fr2
 	bf wrong
-	
+
 	# x * 0.0 + y = y.
 
 	fldi1 fr0

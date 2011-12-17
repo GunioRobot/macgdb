@@ -38,45 +38,45 @@ typedef struct ui_out_data tui_out_data;
 
 /* These are the CLI output functions.  */
 
-static void tui_table_begin (struct ui_out *uiout, 
-			     int nbrofcols, int nr_rows, 
+static void tui_table_begin (struct ui_out *uiout,
+			     int nbrofcols, int nr_rows,
 			     const char *tblid);
 static void tui_table_body (struct ui_out *uiout);
 static void tui_table_end (struct ui_out *uiout);
-static void tui_table_header (struct ui_out *uiout, 
-			      int width, enum ui_align alig, 
+static void tui_table_header (struct ui_out *uiout,
+			      int width, enum ui_align alig,
 			      const char *col_name,
 			      const char *colhdr);
-static void tui_begin (struct ui_out *uiout, 
+static void tui_begin (struct ui_out *uiout,
 		       enum ui_out_type type,
 		       int level, const char *lstid);
-static void tui_end (struct ui_out *uiout, 
+static void tui_end (struct ui_out *uiout,
 		     enum ui_out_type type, int level);
-static void tui_field_int (struct ui_out *uiout, 
+static void tui_field_int (struct ui_out *uiout,
 			   int fldno, int width,
-			   enum ui_align alig, 
+			   enum ui_align alig,
 			   const char *fldname, int value);
-static void tui_field_skip (struct ui_out *uiout, 
+static void tui_field_skip (struct ui_out *uiout,
 			    int fldno, int width,
-			    enum ui_align alig, 
+			    enum ui_align alig,
 			    const char *fldname);
-static void tui_field_string (struct ui_out *uiout, 
+static void tui_field_string (struct ui_out *uiout,
 			      int fldno, int width,
-			      enum ui_align alig, 
+			      enum ui_align alig,
 			      const char *fldname,
 			      const char *string);
 static void tui_field_fmt (struct ui_out *uiout, int fldno,
 			   int width, enum ui_align align,
-			   const char *fldname, 
+			   const char *fldname,
 			   const char *format,
-			   va_list args) 
+			   va_list args)
      ATTR_FORMAT (printf, 6, 0);
 static void tui_spaces (struct ui_out *uiout, int numspaces);
 static void tui_text (struct ui_out *uiout, const char *string);
 static void tui_message (struct ui_out *uiout, int verbosity,
 			 const char *format, va_list args)
      ATTR_FORMAT (printf, 3, 0);
-static void tui_wrap_hint (struct ui_out *uiout, 
+static void tui_wrap_hint (struct ui_out *uiout,
 			   char *identstring);
 static void tui_flush (struct ui_out *uiout);
 
@@ -111,10 +111,10 @@ extern void _initialize_tui_out (void);
 
 static void field_separator (void);
 
-static void out_field_fmt (struct ui_out *uiout, 
+static void out_field_fmt (struct ui_out *uiout,
 			   int fldno,
 			   const char *fldname,
-			   const char *format,...) 
+			   const char *format,...)
      ATTR_FORMAT (printf, 4, 5);
 
 /* local variables */
@@ -124,7 +124,7 @@ static void out_field_fmt (struct ui_out *uiout,
 /* Mark beginning of a table.  */
 
 void
-tui_table_begin (struct ui_out *uiout, 
+tui_table_begin (struct ui_out *uiout,
 		 int nbrofcols,
 		 int nr_rows,
 		 const char *tblid)
@@ -162,8 +162,8 @@ tui_table_end (struct ui_out *uiout)
 /* Specify table header.  */
 
 void
-tui_table_header (struct ui_out *uiout, 
-		  int width, 
+tui_table_header (struct ui_out *uiout,
+		  int width,
 		  enum ui_align alignment,
 		  const char *col_name,
 		  const char *colhdr)
@@ -202,10 +202,10 @@ tui_end (struct ui_out *uiout,
 /* Output an int field.  */
 
 void
-tui_field_int (struct ui_out *uiout, 
+tui_field_int (struct ui_out *uiout,
 	       int fldno, int width,
 	       enum ui_align alignment,
-	       const char *fldname, 
+	       const char *fldname,
 	       int value)
 {
   char buffer[20];	/* FIXME: how many chars long a %d can become?  */
@@ -229,7 +229,7 @@ tui_field_int (struct ui_out *uiout,
 /* Used to ommit a field.  */
 
 void
-tui_field_skip (struct ui_out *uiout, 
+tui_field_skip (struct ui_out *uiout,
 		int fldno, int width,
 		enum ui_align alignment,
 		const char *fldname)
@@ -266,7 +266,7 @@ tui_field_string (struct ui_out *uiout,
         }
       return;
     }
-  
+
   data->start_of_line ++;
   if ((align != ui_noalign) && string)
     {
@@ -353,9 +353,9 @@ tui_text (struct ui_out *uiout, const char *string)
 }
 
 void
-tui_message (struct ui_out *uiout, 
+tui_message (struct ui_out *uiout,
 	     int verbosity,
-	     const char *format, 
+	     const char *format,
 	     va_list args)
 {
   tui_out_data *data = ui_out_data (uiout);
@@ -388,7 +388,7 @@ tui_flush (struct ui_out *uiout)
 
 /* VARARGS */
 static void
-out_field_fmt (struct ui_out *uiout, 
+out_field_fmt (struct ui_out *uiout,
 	       int fldno,
 	       const char *fldname,
 	       const char *format,...)

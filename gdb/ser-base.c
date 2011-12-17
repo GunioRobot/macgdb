@@ -257,7 +257,7 @@ do_ser_base_readchar (struct serial *scb, int timeout)
       if (timeout > 0)
         timeout -= delta;
 
-      /* If we got a character or an error back from wait_for, then we can 
+      /* If we got a character or an error back from wait_for, then we can
          break from the loop before the timeout is completed. */
       if (status != SERIAL_TIMEOUT)
 	break;
@@ -282,7 +282,7 @@ do_ser_base_readchar (struct serial *scb, int timeout)
         return SERIAL_EOF;
       else
 	/* Got an error from read.  */
-	return SERIAL_ERROR;	
+	return SERIAL_ERROR;
     }
 
   scb->bufcnt = status;
@@ -398,7 +398,7 @@ ser_base_write (struct serial *scb, const char *str, int len)
 
   while (len > 0)
     {
-      cc = scb->ops->write_prim (scb, str, len); 
+      cc = scb->ops->write_prim (scb, str, len);
 
       if (cc < 0)
 	return 1;
@@ -467,7 +467,7 @@ ser_base_noflush_set_tty_state (struct serial *scb,
 }
 
 void
-ser_base_print_tty_state (struct serial *scb, 
+ser_base_print_tty_state (struct serial *scb,
 			  serial_ttystate ttystate,
 			  struct ui_file *stream)
 {

@@ -8,7 +8,7 @@
 
 	mvtacg	r0, a0
 	checkacc2 2 a0 0x00 0xffff 0xbeef
-	
+
 	ldi r8, 0xdead
 	mvtachi	r8, a0
 	checkacc2 3 a0 0xff 0xdead 0xbeef

@@ -1,5 +1,5 @@
 /* Xilinx MicroBlaze support for BFD.
- 
+
    Copyright 2009 Free Software Foundation, Inc.
 
    This file is part of BFD, the Binary File Descriptor library.
@@ -8,7 +8,7 @@
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -16,7 +16,7 @@
 
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 
+   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
    02110-1301, USA.  */
 
 
@@ -50,7 +50,7 @@ START_RELOC_NUMBERS (elf_microblaze_reloc_type)
   RELOC_NUMBER (R_MICROBLAZE_GOTOFF_64, 19) /* Offset relative to GOT.  */
   RELOC_NUMBER (R_MICROBLAZE_GOTOFF_32, 20) /* Offset relative to GOT.  */
   RELOC_NUMBER (R_MICROBLAZE_COPY, 21)      /* Runtime copy.  */
-   
+
 END_RELOC_NUMBERS (R_MICROBLAZE_max)
 
 /* Global base address names.  */

@@ -14,7 +14,7 @@
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
 
-   You should have received a copy of the GNU General Public License 
+   You should have received a copy of the GNU General Public License
    along with this program; if not, see <http://www.gnu.org/licenses/>.  */
 
 #if !defined (SIM_CR16_H)
@@ -89,7 +89,7 @@ enum sim_cr16_regs
   SIM_CR16_CAR0_REGNUM,
   SIM_CR16_CAR1_REGNUM
 };
-  
+
 enum
 {
   SIM_CR16_NR_R_REGS = 16,

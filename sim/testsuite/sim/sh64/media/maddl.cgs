@@ -15,7 +15,7 @@ maddl:
 	_packl 1, 2, r0
 	# Load { 3 4 } into r1.
 	_packl 3, 4, r1
-	
+
 	# Add slices to produce { 4 6 }.
 	madd.l r0, r1, r2
 

@@ -41,7 +41,7 @@
 
 /* Prototypes for local functions.  */
 static
-char *line_completion_function (const char *text, int matches, 
+char *line_completion_function (const char *text, int matches,
 				char *line_buffer,
 				int point);
 
@@ -280,7 +280,7 @@ location_completer (struct cmd_list_element *ignore, char *text, char *word)
       list = make_symbol_completion_list (symbol_start, word);
       /* If text includes characters which cannot appear in a file
 	 name, they cannot be asking for completion on files.  */
-      if (strcspn (text, 
+      if (strcspn (text,
 		   gdb_completer_file_name_break_characters) == text_len)
 	fn_list = make_source_files_completion_list (text, text);
     }
@@ -815,7 +815,7 @@ gdb_completion_word_break_characters (void)
    free the string.  */
 
 static char *
-line_completion_function (const char *text, int matches, 
+line_completion_function (const char *text, int matches,
 			  char *line_buffer, int point)
 {
   static char **list = (char **) NULL;	/* Cache of completions.  */

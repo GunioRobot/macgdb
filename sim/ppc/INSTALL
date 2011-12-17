@@ -35,7 +35,7 @@ following:
 				arrithemetic which PSIM uses.  Hence
 				it is recommended that you build PSIM
 				using GCC.
-				
+
 Method:
 
 	1.	Unpack gdb
@@ -141,7 +141,7 @@ At the time of writing the following were outstanding:
 
 		ftp://ftp.ci.com.au/pub/psim/gdb-4.15+attach.diff.gz
 	or	ftp://cambridge.cygnus.com/pub/psim/gdb-4.15+attach.diff.gz
-	
+
 	PSIM, unlike the other simulators found in GDB, is able to load
 	the description of a target machine (including the initial
 	state of all processor registers) from a file.
@@ -612,7 +612,7 @@ The PowerPC architecture defines three different levels of compliance to its
 architectural specification.  These environments are discussed in detail in
 PowerPC publications.
 
-	user - normal user programs 
+	user - normal user programs
 	virtual - an extension of the user environment (includes timers)
 	operating - kernel code
 

@@ -12,13 +12,13 @@ reti:
 	mvr_h_gr	sp,r8		; Save stack pointer
 	set_s_system
 	set_i		1
-	set_ilm		15		; attempt reset of low range	 
+	set_ilm		15		; attempt reset of low range
 	set_cc          0x0f		; Condition codes should not change
 	save_ps
 	inci_h_gr	-4,sp
 	mvi_h_mem	ret1,sp
 	set_i		0		; Set opposite of expected
-	set_ilm		0 		; attempt reset of low range	 
+	set_ilm		0 		; attempt reset of low range
 	set_cc          0x00		; Set opposite of expected
 
 	reti
@@ -35,7 +35,7 @@ ret1:
 	mvr_h_gr	sp,r8		; Save stack pointer
 	set_s_system
 	set_i		0
-	set_ilm		15		; attempt reset of low range	 
+	set_ilm		15		; attempt reset of low range
 	set_cc          0x0f		; Condition codes should not change
 	save_ps
 	inci_h_gr	-4,sp

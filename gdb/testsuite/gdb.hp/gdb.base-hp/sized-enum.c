@@ -31,13 +31,13 @@ main()
       small[i] = (short enum Small) i;
       tiny[i] = (char enum Tiny) i;
     }
-  normal[0] = 0; /* place to hang a breakpoint */ 
+  normal[0] = 0; /* place to hang a breakpoint */
 }
 
-    
-  
-
-  
 
 
-  
+
+
+
+
+

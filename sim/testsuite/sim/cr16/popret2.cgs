@@ -21,7 +21,7 @@ popret2:
 
 	popret $3,r5
 
-ok:	
+ok:
 	cmpw $0x2f50,r5
 	beq ok1
 	br not_ok

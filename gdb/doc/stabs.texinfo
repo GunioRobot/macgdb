@@ -7,7 +7,7 @@
 @c manuals to an info tree.
 @dircategory Software development
 @direntry
-* Stabs: (stabs).                 The "stabs" debugging information format.   
+* Stabs: (stabs).                 The "stabs" debugging information format.
 @end direntry
 
 @copying
@@ -276,7 +276,7 @@ data being represented, but does enable the debugger to know which type
 it is.
 
 @item V
-Indicate that this type is a vector instead of an array.  The only 
+Indicate that this type is a vector instead of an array.  The only
 major difference between vectors and arrays is that vectors are
 passed by value instead of by reference (vector coprocessor extension).
 
@@ -1257,12 +1257,12 @@ variables for that function, not relative to the arguments; on some
 machines those are the same thing, but not on all.
 
 @c This is mostly just background info; the part that logically belongs
-@c here is the last sentence.  
+@c here is the last sentence.
 On the VAX or on other machines in which the calling convention includes
 the number of words of arguments actually passed, the debugger (GDB at
 least) uses the parameter symbols to keep track of whether it needs to
 print nameless arguments in addition to the formal parameters which it
-has printed because each one has a stab.  For example, in 
+has printed because each one has a stab.  For example, in
 
 @example
 extern int fprintf (FILE *stream, char *format, @dots{});
@@ -4060,7 +4060,7 @@ arranges for all the @code{n_strx} fields to be relative to the start of
 the @code{.stabstr} section.
 
 @node ELF Linker Relocation
-@appendixsec Having the Linker Relocate Stabs in ELF 
+@appendixsec Having the Linker Relocate Stabs in ELF
 
 This section describes some Sun hacks for Stabs in ELF; it does not
 apply to COFF or SOM.

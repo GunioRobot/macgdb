@@ -113,7 +113,7 @@ static const char arm_linux_thumb_le_breakpoint[] = {0x01, 0xde};
    with the real function address.  Subsequent calls go through steps
    1, 2 and 3 and end up calling the real code.
 
-   1) In the code: 
+   1) In the code:
 
    b    function_call
    bl   function_call

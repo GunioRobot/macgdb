@@ -41,7 +41,7 @@ START_RELOC_NUMBERS (elf_vax_reloc_type)
   /* These are GNU extensions to enable C++ vtable garbage collection.  */
   RELOC_NUMBER (R_VAX_GNU_VTINHERIT, 23)
   RELOC_NUMBER (R_VAX_GNU_VTENTRY, 24)
-END_RELOC_NUMBERS (R_VAX_max)   
+END_RELOC_NUMBERS (R_VAX_max)
 
 /* Processor specific flags for the ELF header e_flags field.  */
 #define EF_VAX_NONPIC		0x0001	/* Object contains non-PIC code */

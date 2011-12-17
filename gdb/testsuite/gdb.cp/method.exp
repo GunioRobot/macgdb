@@ -81,7 +81,7 @@ gdb_test "print x" \
    "\\$\[0-9\]* = 20" \
    "print x in A::foo"
 
-# Check access to this pointer       
+# Check access to this pointer
 
 gdb_test "print this" \
    "\\$\[0-9\]* = \\((class |)A *\\* *(const|)\\) $hex" \
@@ -103,7 +103,7 @@ gdb_test "print x" \
   "\\$\[0-9\]* = 33" \
   "print x in A::bar"
 
-# Check access to this pointer       
+# Check access to this pointer
 
 get_debug_format
 
@@ -146,7 +146,7 @@ gdb_test "print data_" \
   "\\$\[0-9\]* = 33" \
   "print data_ in funk::getFunky"
 
-# Check access to this pointer       
+# Check access to this pointer
 
 gdb_test "print this" \
   "\\$\[0-9\]* = \\((class |)funk *\\* *(const|)\\) $hex" \
@@ -187,7 +187,7 @@ gdb_expect {
 	pass "finish program"
     }
     -re "Continuing.* EXIT code 0.*Program exited normally.*$gdb_prompt $" {
-	pass "finish program (exit wrapper)" 
+	pass "finish program (exit wrapper)"
     }
     -re ".*$gdb_prompt $" { fail "finish program" }
     default:{               fail "finish program (timeout)" }

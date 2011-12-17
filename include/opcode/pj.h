@@ -35,7 +35,7 @@ Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA. 
 #define PCREL(x)  (!!((x) & (1<<6)))
 #define UNS(x)    (!!((x) & (1<<3)))
 
-                  
+
 typedef struct pj_opc_info_t
 {
   short opcode;

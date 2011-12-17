@@ -201,7 +201,7 @@ do
 	. $srcdir/../bfd/config.bfd
 	selarchs="$selarchs $targ_archs"
     fi
-done	
+done
 
 # Utility var, documents generic cgen support files.
 

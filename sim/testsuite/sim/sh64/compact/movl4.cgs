@@ -31,7 +31,7 @@ check:
 	cmp/eq r0, r7
 	bf wrong
 
-okay:	
+okay:
 	pass
 wrong:
 	fail

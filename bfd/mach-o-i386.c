@@ -179,7 +179,7 @@ bfd_mach_o_i386_swap_reloc_out (arelent *rel, bfd_mach_o_reloc_info *rinfo)
       rinfo->r_pcrel = 0;
       rinfo->r_length = 2;
       rinfo->r_extern = 0;
-      rinfo->r_value = (*rel->sym_ptr_ptr)->value 
+      rinfo->r_value = (*rel->sym_ptr_ptr)->value
         + (*rel->sym_ptr_ptr)->section->vma;
       break;
     case BFD_RELOC_MACH_O_PAIR:
@@ -189,7 +189,7 @@ bfd_mach_o_i386_swap_reloc_out (arelent *rel, bfd_mach_o_reloc_info *rinfo)
       rinfo->r_pcrel = 0;
       rinfo->r_length = 2;
       rinfo->r_extern = 0;
-      rinfo->r_value = (*rel->sym_ptr_ptr)->value 
+      rinfo->r_value = (*rel->sym_ptr_ptr)->value
         + (*rel->sym_ptr_ptr)->section->vma;
       break;
     default:
@@ -283,7 +283,7 @@ bfd_mach_o_i386_print_thread (bfd *abfd, bfd_mach_o_thread_flavour *thread,
 #define bfd_mach_o_swap_reloc_out bfd_mach_o_i386_swap_reloc_out
 #define bfd_mach_o_print_thread bfd_mach_o_i386_print_thread
 
-#define bfd_mach_o_bfd_reloc_type_lookup bfd_mach_o_i386_bfd_reloc_type_lookup 
+#define bfd_mach_o_bfd_reloc_type_lookup bfd_mach_o_i386_bfd_reloc_type_lookup
 #define bfd_mach_o_bfd_reloc_name_lookup bfd_mach_o_i386_bfd_reloc_name_lookup
 
 #define TARGET_NAME 		mach_o_i386_vec

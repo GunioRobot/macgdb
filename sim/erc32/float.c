@@ -20,10 +20,10 @@
  *
  *
  * This file implements the interface between the host and the simulated
- * FPU. IEEE trap handling is done as follows: 
+ * FPU. IEEE trap handling is done as follows:
  * 1. In the host, all IEEE traps are masked
- * 2. After each simulated FPU instruction, check if any exception occured 
- *    by reading the exception bits from the host FPU status register 
+ * 2. After each simulated FPU instruction, check if any exception occured
+ *    by reading the exception bits from the host FPU status register
  *    (get_accex()).
  * 3. Propagate any exceptions to the simulated FSR.
  * 4. Clear host exception bits
@@ -90,7 +90,7 @@ uint32 fsr;
 
      fsr >>= 30;
      switch (fsr) {
-	case 0: 
+	case 0:
 	case 2: break;
 	case 1: fsr = 3;
 	case 3: fsr = 1;
@@ -184,7 +184,7 @@ uint32 fsr;
      - rounding to nearest
      - exceptions on overflow, zero divide and NaN
 */
-#define _FPU_DEFAULT  0x1372 
+#define _FPU_DEFAULT  0x1372
 #define _FPU_RESERVED 0xF0C0  /* Reserved bits in cw */
 
 static void
@@ -194,13 +194,13 @@ __setfpucw(unsigned short fpu_control)
 
   /* If user supplied _fpu_control, use it ! */
   if (!fpu_control)
-  { 
+  {
     /* use defaults */
     fpu_control = _FPU_DEFAULT;
   }
   /* Get Control Word */
   __asm__ volatile ("fnstcw %0" : "=m" (cw) : );
-  
+
   /* mask in */
   cw &= _FPU_RESERVED;
   cw = cw | (fpu_control & ~_FPU_RESERVED);

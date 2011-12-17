@@ -40,11 +40,11 @@ SECTIONS
     PROVIDE (etext = .);
   } >INSN =0
   .rodata    : {
-    *(.rodata) 
+    *(.rodata)
     *(.gnu.linkonce.r*)
-    *(.rodata.*) 
+    *(.rodata.*)
   } >DATA
-  .rodata1   : { 
+  .rodata1   : {
     *(.rodata1)
     *(.rodata1.*)
   } >DATA
@@ -54,7 +54,7 @@ SECTIONS
     *(.data)
     *(.data.*)
     *(.gnu.linkonce.d*)
-    _ovly_table = .; 
+    _ovly_table = .;
 	LONG(ABSOLUTE(ADDR(.ovly0)));
 	LONG(SIZEOF(.ovly0));
 	LONG(LOADADDR(.ovly0));

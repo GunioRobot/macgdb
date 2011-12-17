@@ -242,7 +242,7 @@ fill_section_ptr (struct bfd_hash_entry *entry, void *sections)
     }
   else if (sec == (unsigned long)-1)
     sym->section = &bfd_und_section;
-    
+
   return TRUE;
 }
 
@@ -595,11 +595,11 @@ vms_convert_to_var (char *vms_filename)
   fab.fab$b_fac = FAB$M_PUT;
   fab.fab$l_fop = FAB$M_ESC;
   fab.fab$l_ctx = RME$C_SETRFM;
-  
+
   sys$open (&fab);
-  
+
   fab.fab$b_rfm = FAB$C_VAR;
-  
+
   sys$modify (&fab);
   sys$close (&fab);
 }
@@ -1427,7 +1427,7 @@ vms_slurp_reloc_table (bfd *abfd, asection *section, asymbol **symbols)
 static long
 vms_get_reloc_upper_bound (bfd *abfd ATTRIBUTE_UNUSED, asection *section)
 {
-  return (section->reloc_count + 1) * sizeof (arelent *);  
+  return (section->reloc_count + 1) * sizeof (arelent *);
 }
 
 /* Convert relocations from VMS (external) form into BFD internal

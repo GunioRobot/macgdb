@@ -73,7 +73,7 @@ pipe_open (struct serial *scb, const char *name)
      fork() due to the fact that autoconf will ``#define vfork fork''
      on certain platforms.  */
   pid = vfork ();
-  
+
   /* Error. */
   if (pid == -1)
     {
@@ -112,7 +112,7 @@ pipe_open (struct serial *scb, const char *name)
 #if 0
       /* close any stray FD's - FIXME - how? */
       /* POSIX.2 B.3.2.2 "popen() shall ensure that any streams
-         from previous popen() calls that remain open in the 
+         from previous popen() calls that remain open in the
          parent process are closed in the new child process. */
       for (old = pidlist; old; old = old->next)
 	close (fileno (old->fp));	/* don't allow a flush */

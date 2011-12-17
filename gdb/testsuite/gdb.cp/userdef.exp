@@ -85,7 +85,7 @@ gdb_test_multiple "frame" "re-selected 'main' frame after inferior call" {
         pass "re-selected 'main' frame after inferior call"
     }
 }
-        
+
 gdb_test "print one - two" "\\\$\[0-9\]* = {x = -2, y = -2}"
 
 gdb_test "print one * two" "\\\$\[0-9\]* = {x = 8, y = 15}"

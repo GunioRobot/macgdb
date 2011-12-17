@@ -373,7 +373,7 @@ noninc_search (dir, pchar)
       if (r < 0)
         return 1;
       else if (r == 0)
-	break;        
+	break;
     }
 
   r = _rl_nsearch_dosearch (cxt);
@@ -448,7 +448,7 @@ _rl_nsearch_callback (cxt)
   return ((r >= 0) ? _rl_nsearch_cleanup (cxt, r) : (r != 1));
 }
 #endif
-  
+
 static int
 rl_history_search_internal (count, dir)
      int count, dir;

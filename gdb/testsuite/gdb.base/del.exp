@@ -53,18 +53,18 @@ proc test_delete_alias { alias } {
              "No breakpoints or watchpoints." \
              "info break after removing break on main"
 
-    
+
     # Now, insert a breakpoint at an easy location, and then remove it
     # using $alias. We verified that the removal worked by checking
     # the list of breakpoints.
     gdb_test "break main" \
              "Breakpoint.*at.* file .*$srcfile, line.*" \
              "breakpoint insertion ($alias)"
-    
+
     gdb_test "$alias \$bpnum" \
              "" \
              "Remove last breakpoint ($alias)"
-    
+
     gdb_test "info break" \
              "No breakpoints or watchpoints." \
              "info break after removing break on main ($alias)"

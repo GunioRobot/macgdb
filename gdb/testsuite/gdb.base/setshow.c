@@ -7,7 +7,7 @@
 int
 main(int argc, char **argv)
 #else
-int 
+int
 main(argc, argv)
      int argc;
      char **argv;

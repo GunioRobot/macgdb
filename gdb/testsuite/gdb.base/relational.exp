@@ -19,7 +19,7 @@
 #
 # tests for correctenss of relational operators, associativity and precedence
 # with integer type variables
-# 
+#
 
 if $tracelevel then {
 	strace $tracelevel
@@ -63,7 +63,7 @@ gdb_expect {
         pass "print value of x"
       }
     -re ".*$gdb_prompt $" { fail "print value of x" }
-    timeout           { fail "(timeout) print value of x" }    
+    timeout           { fail "(timeout) print value of x" }
   }
 
 
@@ -73,7 +73,7 @@ gdb_expect {
         pass "print value of y"
       }
     -re ".*$gdb_prompt $" { fail "print value of y" }
-    timeout           { fail "(timeout) print value of y" }    
+    timeout           { fail "(timeout) print value of y" }
   }
 
 send_gdb "print z\n"
@@ -82,7 +82,7 @@ gdb_expect {
         pass "print value of z"
       }
     -re ".*$gdb_prompt $" { fail "print value of z" }
-    timeout           { fail "(timeout) print value of z" }    
+    timeout           { fail "(timeout) print value of z" }
   }
 
 send_gdb "print w\n"
@@ -91,7 +91,7 @@ gdb_expect {
         pass "print value of w"
       }
     -re ".*$gdb_prompt $" { fail "print value of w" }
-    timeout           { fail "(timeout) print value of w" }    
+    timeout           { fail "(timeout) print value of w" }
   }
 
 
@@ -102,7 +102,7 @@ gdb_expect {
         pass "print value of x<y"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<y" }
-    timeout           { fail "(timeout) print value of x<y" }    
+    timeout           { fail "(timeout) print value of x<y" }
   }
 
 send_gdb "print x <= y\n"
@@ -111,7 +111,7 @@ gdb_expect {
         pass "print value of x<=y"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<=y" }
-    timeout           { fail "(timeout) print value of x<=y" }    
+    timeout           { fail "(timeout) print value of x<=y" }
   }
 
 send_gdb "print x > y\n"
@@ -120,7 +120,7 @@ gdb_expect {
         pass "print value of x>y"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>y" }
-    timeout           { fail "(timeout) print value of x>y" }    
+    timeout           { fail "(timeout) print value of x>y" }
   }
 
 send_gdb "print x >= y\n"
@@ -129,7 +129,7 @@ gdb_expect {
         pass "print value of x>=y"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>=y" }
-    timeout           { fail "(timeout) print value of x>=y" }    
+    timeout           { fail "(timeout) print value of x>=y" }
   }
 
 send_gdb "print x == y\n"
@@ -138,7 +138,7 @@ gdb_expect {
         pass "print value of x==y"
       }
     -re ".*$gdb_prompt $" { fail "print value of x==y" }
-    timeout           { fail "(timeout) print value of x==y" }    
+    timeout           { fail "(timeout) print value of x==y" }
   }
 
 send_gdb "print x != y\n"
@@ -147,7 +147,7 @@ gdb_expect {
         pass "print value of x!=y"
       }
     -re ".*$gdb_prompt $" { fail "print value of x!=y" }
-    timeout           { fail "(timeout) print value of x!=y" }    
+    timeout           { fail "(timeout) print value of x!=y" }
   }
 
 
@@ -166,7 +166,7 @@ gdb_expect {
         pass "print value of x<y<z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<y<z" }
-    timeout           { fail "(timeout) print value of x<y<z" }    
+    timeout           { fail "(timeout) print value of x<y<z" }
   }
 
 send_gdb "print x <= y <= z\n"
@@ -175,7 +175,7 @@ gdb_expect {
         pass "print value of x<=y<=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<=y<=z" }
-    timeout           { fail "(timeout) print value of x<=y<=z" }    
+    timeout           { fail "(timeout) print value of x<=y<=z" }
   }
 
 send_gdb "print x > y > z\n"
@@ -184,7 +184,7 @@ gdb_expect {
         pass "print value of x>y>z"
       }
     -re 8".*$gdb_prompt $" { fail "print value of x>y>z" }
-    timeout           { fail "(timeout) print value of x>y>z" }    
+    timeout           { fail "(timeout) print value of x>y>z" }
   }
 
 send_gdb "print x >= y >= z\n"
@@ -193,7 +193,7 @@ gdb_expect {
         pass "print value of x>=y>=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>=y>=z" }
-    timeout           { fail "(timeout) print value of x>=y>=z" }    
+    timeout           { fail "(timeout) print value of x>=y>=z" }
   }
 
 gdb_test "set variable x=2" "" "set variable x"
@@ -207,7 +207,7 @@ gdb_expect {
         pass "print value of x==y==z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x==y==z" }
-    timeout           { fail "(timeout) print value of x==y==z" }    
+    timeout           { fail "(timeout) print value of x==y==z" }
   }
 
 gdb_test "set variable z=0" ""  "set variable z"
@@ -219,7 +219,7 @@ gdb_expect {
         pass "print value of x!=y!=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x!=y!=z" }
-    timeout           { fail "(timeout) print value of x!=y!=z" }    
+    timeout           { fail "(timeout) print value of x!=y!=z" }
   }
 
 
@@ -236,7 +236,7 @@ gdb_expect {
         pass "print value of x<y==z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<y==z" }
-    timeout           { fail "(timeout) print value of x<y==z" }    
+    timeout           { fail "(timeout) print value of x<y==z" }
   }
 
 # 0  2  2
@@ -246,7 +246,7 @@ gdb_expect {
         pass "print value of x<y!=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<y!=z" }
-    timeout           { fail "(timeout) print value of x<y!=z" }    
+    timeout           { fail "(timeout) print value of x<y!=z" }
   }
 
 gdb_test "set variable x=2" "" "set variable x"
@@ -261,7 +261,7 @@ gdb_expect {
         pass "print value of x<y<=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<y<=z" }
-    timeout           { fail "(timeout) print value of x<y<=z" }    
+    timeout           { fail "(timeout) print value of x<y<=z" }
   }
 
 
@@ -272,7 +272,7 @@ gdb_expect {
         pass "print value of x<y>=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<y>=z" }
-    timeout           { fail "(timeout) print value of x<y>=z" }    
+    timeout           { fail "(timeout) print value of x<y>=z" }
   }
 
 
@@ -286,7 +286,7 @@ gdb_expect {
         pass "print value of x<y>z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<y>z" }
-    timeout           { fail "(timeout) print value of x<y>z" }    
+    timeout           { fail "(timeout) print value of x<y>z" }
   }
 
 
@@ -299,7 +299,7 @@ gdb_expect {
         pass "print value of x>y>=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>y>=z" }
-    timeout           { fail "(timeout) print value of x>y>=z" }    
+    timeout           { fail "(timeout) print value of x>y>=z" }
   }
 
 
@@ -312,7 +312,7 @@ gdb_expect {
         pass "print value of x>y==z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>y==z" }
-    timeout           { fail "(timeout) print value of x>y==z" }    
+    timeout           { fail "(timeout) print value of x>y==z" }
   }
 
 
@@ -326,7 +326,7 @@ gdb_expect {
         pass "print value of x>y!=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>y!=z" }
-    timeout           { fail "(timeout) print value of x>y!=z" }    
+    timeout           { fail "(timeout) print value of x>y!=z" }
   }
 
 
@@ -339,7 +339,7 @@ gdb_expect {
         pass "print value of x>y<=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>y<=z" }
-    timeout           { fail "(timeout) print value of x>y<=z" }    
+    timeout           { fail "(timeout) print value of x>y<=z" }
   }
 
 # 4 3 0
@@ -349,7 +349,7 @@ gdb_expect {
         pass "print value of x>=y==z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>=y==z" }
-    timeout           { fail "(timeout) print value of x>=y==z" }    
+    timeout           { fail "(timeout) print value of x>=y==z" }
   }
 
 
@@ -362,21 +362,21 @@ gdb_expect {
         pass "print value of x>=y!=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>=y!=z" }
-    timeout           { fail "(timeout) print value of x>=y!=z" }    
+    timeout           { fail "(timeout) print value of x>=y!=z" }
   }
 
 
 gdb_test "set variable x=0" "" " set variable x"
 gdb_test "set variable z=4" "" " set variable z"
 
-# 0 3 4 
+# 0 3 4
 send_gdb "print x >= y <= z\n"
 gdb_expect {
     -re ".*$true\r\n$gdb_prompt $" {
         pass "print value of x>=y<=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>=y<=z" }
-    timeout           { fail "(timeout) print value of x>=y<=z" }    
+    timeout           { fail "(timeout) print value of x>=y<=z" }
   }
 
 # 0 3 4
@@ -386,7 +386,7 @@ gdb_expect {
         pass "print value of x<=y==z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<=y==z" }
-    timeout           { fail "(timeout) print value of x<=y==z" }    
+    timeout           { fail "(timeout) print value of x<=y==z" }
   }
 
 gdb_test "set variable x=2" "" " set variable x"
@@ -398,7 +398,7 @@ gdb_expect {
         pass "print value of x<=y!=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x<=y!=z" }
-    timeout           { fail "(timeout) print value of x<=y!=z" }    
+    timeout           { fail "(timeout) print value of x<=y!=z" }
   }
 
 
@@ -409,10 +409,10 @@ gdb_expect {
         pass "print value of x==y!=z"
       }
     -re ".*$gdb_prompt $" { fail "print value of x==y!=z" }
-    timeout           { fail "(timeout) print value of x==y!=z" }    
+    timeout           { fail "(timeout) print value of x==y!=z" }
   }
 
-        
+
 
 # test use of parenthesis to enforce different order of evaluation
 
@@ -426,7 +426,7 @@ gdb_expect {
         pass "print value of x>=(y<z)"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>=(y<z)" }
-    timeout           { fail "(timeout) print value of x>=(y<z)" }    
+    timeout           { fail "(timeout) print value of x>=(y<z)" }
   }
 
 
@@ -437,7 +437,7 @@ gdb_expect {
         pass "print value of x>=(y!=z)"
       }
     -re ".*$gdb_prompt $" { fail "print value of x>=(y*!=z)" }
-    timeout           { fail "(timeout) print value of x>=(y!=z)" }    
+    timeout           { fail "(timeout) print value of x>=(y!=z)" }
   }
 
 # 2 3 0
@@ -447,7 +447,7 @@ gdb_expect {
         pass "print value of x==(y==z)"
       }
     -re ".*$gdb_prompt $" { fail "print value of x==(y==z)" }
-    timeout           { fail "(timeout) print value of x==(y==z)" }    
+    timeout           { fail "(timeout) print value of x==(y==z)" }
   }
 
 
@@ -461,7 +461,7 @@ gdb_expect {
         pass "print value of (x==y)<z"
       }
     -re ".*$gdb_prompt $" { fail "print value of (x==y)<z" }
-    timeout           { fail "(timeout) print value of (x==y)<z" }    
+    timeout           { fail "(timeout) print value of (x==y)<z" }
   }
 
 

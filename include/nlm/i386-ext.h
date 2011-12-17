@@ -83,7 +83,7 @@ typedef struct nlm32_i386_external_fixed_header
   unsigned char numberOfModuleDependencies[4];
 
   /* The byte offset of the relocation fixup data from the start of the file */
-     
+
   unsigned char relocationFixupOffset[4];
 
   unsigned char numberOfRelocationFixups[4];

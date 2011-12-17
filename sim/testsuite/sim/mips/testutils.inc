@@ -91,7 +91,7 @@ _dowrite:
 	.set push
 	.set noreorder
 	j	_pass
-	nop	
+	nop
 	.set pop
 	.endm
 
@@ -100,7 +100,7 @@ _dowrite:
 	.set push
 	.set noreorder
 	j	_fail
-	nop	
+	nop
 	.set pop
 	.endm
 

@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -63,7 +63,7 @@
 
 
    ranges = <my-phys-addr> <parent-phys-addr> <my-size> ...  (required)
-   
+
    Define a number of mappings from the parent bus to one of this
    devices PCI busses.  The exact format of the <<parent-phys-addr>>
    is parent bus dependant.  The format of <<my-phys-addr>> is
@@ -84,7 +84,7 @@
 
 
    EXAMPLES
-   
+
 
    Enable tracing:
 
@@ -102,7 +102,7 @@
 
 
    Create the PHB remembering to include the cell size properties:
-   
+
    |    -o '/phb@0x80000000/#address-cells 3' \
    |    -o '/phb@0x80000000/#size-cells 2' \
 
@@ -142,7 +142,7 @@
 
 
    BUGS
-   
+
 
    The implementation of the PCI configuration space is left as an
    exercise for the reader.  Such a restriction should only impact on
@@ -155,7 +155,7 @@
    The Open Firmware PCI bus bindings document (rev 1.6 and 2.0) is
    unclear on the value of the "ss" bits for a 64bit memory address.
    The correct value, as used by this module, is 0b11.
-   
+
    The Open Firmware PCI bus bindings document (rev 1.6) suggests that
    the register field of non-relocatable PCI address should be zero.
    Unfortunatly, PCI addresses specified in the <<assigned-addresses>>
@@ -177,7 +177,7 @@
    Children of this node can only use the client callback interface
    when attaching themselves to the <<phb>>.
 
-   
+
    REFERENCES
 
 
@@ -186,7 +186,7 @@
 
    */
 
-   
+
 typedef struct _phb_space {
   core *map;
   core_map *readable;
@@ -195,7 +195,7 @@ typedef struct _phb_space {
   int parent_space;
   unsigned_word my_base;
   int my_space;
-  unsigned size;	
+  unsigned size;
   const char *name;
 } phb_space;
 
@@ -220,7 +220,7 @@ static void
 hw_phb_init_address(device *me)
 {
   hw_phb_device *phb = device_data(me);
- 
+
   /* check some basic properties */
   if (device_nr_address_cells(me) != 3)
     device_error(me, "incorrect #address-cells");
@@ -242,7 +242,7 @@ hw_phb_init_address(device *me)
   {
     range_property_spec range;
     int ranges_entry;
-    
+
     for (ranges_entry = 0;
 	 device_find_range_array_property(me, "ranges", ranges_entry,
 					  &range);
@@ -287,13 +287,13 @@ hw_phb_init_address(device *me)
 		   (unsigned long)my_attach_address,
 		   (unsigned long)size));
     }
-    
+
     if (ranges_entry == 0) {
       device_error(me, "Missing or empty ranges property");
     }
 
   }
-  
+
 }
 
 static void
@@ -857,7 +857,7 @@ hw_phb_address_to_attach_address(device *me,
 		 device_path(client),
 		 (unsigned long)extract_rrrrrrrr(address));
   }
-  
+
   return 0;
 }
 

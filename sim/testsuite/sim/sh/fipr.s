@@ -28,7 +28,7 @@ initv8:
 	fldi0	fr11
 
 	fipr	fv0, fv8
-test1:	
+test1:
 	# Result will be in fr11.
 	assert_fpreg_i	1, fr0
 	assert_fpreg_i	2, fr1
@@ -123,7 +123,7 @@ test_snanm:
 	cmp/ge	r1, r0
 	bt	.L3
 	fail
-.L3:	
+.L3:
 .endif
 	pass
 	exit 0

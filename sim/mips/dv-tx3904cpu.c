@@ -1,8 +1,8 @@
 /*  This file is part of the program GDB, the GNU debugger.
-    
+
     Copyright (C) 1998, 2007, 2008, 2009 Free Software Foundation, Inc.
     Contributed by Cygnus Solutions.
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -15,7 +15,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -24,20 +24,20 @@
 
 /* DEVICE
 
-   
+
    tx3904cpu - tx3904 cpu virtual device
 
-   
+
    DESCRIPTION
 
-   
+
    Implements the external tx3904 functionality.  This includes the
    delivery of of interrupts generated from other devices and the
    handling of device specific registers.
 
 
    PROPERTIES
-   
+
    none
 
 
@@ -86,7 +86,7 @@ struct tx3904cpu {
 
 
 
-/* input port ID's */ 
+/* input port ID's */
 
 enum {
   RESET_PORT,
@@ -205,17 +205,17 @@ tx3904cpu_port_event (struct hw *me,
   struct tx3904cpu *controller = hw_data (me);
 
   switch (my_port)
-    {      
+    {
     case RESET_PORT:
       controller->pending_reset = 1;
       HW_TRACE ((me, "port-in reset"));
       break;
-      
+
     case NMI_PORT:
       controller->pending_nmi = 1;
       HW_TRACE ((me, "port-in nmi"));
       break;
-      
+
     case LEVEL_PORT:
       /* level == 0 means that the interrupt was cleared */
       if(level == 0)
@@ -224,7 +224,7 @@ tx3904cpu_port_event (struct hw *me,
 	controller->pending_level = level;
       HW_TRACE ((me, "port-in level=%d", level));
       break;
-      
+
     default:
       hw_abort (me, "bad switch");
       break;

@@ -1,16 +1,16 @@
 /*  armcopro.c -- co-processor interface:  ARM6 Instruction Emulator.
     Copyright (C) 1994, 2000 Advanced RISC Machines Ltd.
- 
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
- 
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -113,7 +113,7 @@ check_cp15_access (ARMul_State * state,
       /* CRm must be 0.  Opcode_2 can be anything.  */
       if (CRm != 0)
 	return ARMul_CANT;
-      break;      
+      break;
     case 2:
     case 3:
       /* CRm must be 0.  Opcode_2 must be zero.  */
@@ -376,7 +376,7 @@ XScale_cp15_LDC (ARMul_State * state, unsigned type, ARMword instr, ARMword data
 {
   unsigned reg = BITS (12, 15);
   unsigned result;
-  
+
   result = check_cp15_access (state, reg, 0, 0, 0);
 
   if (result == ARMul_DONE && type == ARMul_DATA)
@@ -556,7 +556,7 @@ XScale_debug_moe (ARMul_State * state, int moe)
 	{
           value &= ~0x1c;
           value |= moe;
-	
+
           write_cp14_reg (10, value);
 	}
       return 1;
@@ -1116,7 +1116,7 @@ MMUWrite (ARMul_State * state, unsigned reg, ARMword value)
 	  || d != state->data32Sig
 	  || l != state->lateabtSig
 	  || b != state->bigendSig)
-	/* Force ARMulator to notice these now.  */	
+	/* Force ARMulator to notice these now.  */
 	state->Emulate = CHANGEMODE;
     }
 

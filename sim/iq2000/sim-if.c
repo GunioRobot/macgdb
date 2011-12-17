@@ -104,8 +104,8 @@ sim_open (kind, callback, abfd, argv)
     }
 
   /* Allocate core managed memory.  */
-  sim_do_commandf (sd, "memory region 0x%lx,0x%lx", IQ2000_INSN_VALUE, IQ2000_INSN_MEM_SIZE); 
-  sim_do_commandf (sd, "memory region 0x%lx,0x%lx", IQ2000_DATA_VALUE, IQ2000_DATA_MEM_SIZE); 
+  sim_do_commandf (sd, "memory region 0x%lx,0x%lx", IQ2000_INSN_VALUE, IQ2000_INSN_MEM_SIZE);
+  sim_do_commandf (sd, "memory region 0x%lx,0x%lx", IQ2000_DATA_VALUE, IQ2000_DATA_MEM_SIZE);
 
   /* check for/establish the reference program image */
   if (sim_analyze_program (sd,
@@ -193,7 +193,7 @@ void
 sim_do_command (sd, cmd)
      SIM_DESC sd;
      char *cmd;
-{ 
+{
   if (sim_args_command (sd, cmd) != SIM_RC_OK)
     sim_io_eprintf (sd, "Unknown command `%s'\n", cmd);
 }

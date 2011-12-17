@@ -2186,7 +2186,7 @@ som_object_p (bfd *abfd)
      a non-existant auxiliary header.  */
   if (file_hdr.aux_header_size != 0)
     {
-      aux_hdr_ptr = bfd_zalloc (abfd, 
+      aux_hdr_ptr = bfd_zalloc (abfd,
 				(bfd_size_type) sizeof (*aux_hdr_ptr));
       if (aux_hdr_ptr == NULL)
 	return NULL;
@@ -5387,9 +5387,9 @@ som_find_nearest_line (bfd *abfd,
   low_func = 0;
 
   for (p = symbols; *p != NULL; p++)
-    { 
+    {
       som_symbol_type *q = (som_symbol_type *) *p;
-  
+
       if (q->som_type == SYMBOL_TYPE_ENTRY
 	  && q->symbol.section == section
 	  && q->symbol.value >= low_func

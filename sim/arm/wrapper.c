@@ -73,7 +73,7 @@ struct maverick_regs
     int i;
     float f;
   } upper;
-  
+
   union
   {
     int i;
@@ -191,7 +191,7 @@ sim_read (sd, addr, buffer, size)
 int
 sim_trace (sd)
      SIM_DESC sd ATTRIBUTE_UNUSED;
-{  
+{
   (*sim_callback->printf_filtered)
     (sim_callback,
      "This simulator does not support tracing\n");
@@ -342,7 +342,7 @@ sim_create_inferior (sd, abfd, argv, env)
 	 executed in THUMB mode.  */
       ARMul_SetCPSR (state, SVC32MODE);
     }
-  
+
   if (argv != NULL)
     {
       /* Set up the command line by laboriously stringing together
@@ -662,7 +662,7 @@ sim_fetch_register (sd, rn, memory, length)
       length -= 4;
       memory += 4;
       regval = 0;
-    }  
+    }
 
   return -1;
 }
@@ -718,14 +718,14 @@ sim_target_parse_command_line (argc, argv)
 	  for (arg = i; arg < argc; arg ++)
 	    argv[arg] = argv[arg + 1];
 	  argc --;
-	  
+
 	  ptr = argv[i];
 	}
       else
 	ptr += sizeof SWI_SWITCH;
 
       swi_mask = 0;
-      
+
       while (* ptr)
 	{
 	  int i;
@@ -749,7 +749,7 @@ sim_target_parse_command_line (argc, argv)
 
       if (* ptr != 0)
 	fprintf (stderr, "Ignoring swi options: %s\n", ptr);
-      
+
       /* Remove this option from the argv array.  */
       for (arg = i; arg < argc; arg ++)
 	argv[arg] = argv[arg + 1];
@@ -798,7 +798,7 @@ sim_open (kind, ptr, abfd, argv)
 #ifdef SIM_TARGET_SWITCHES
   sim_target_parse_arg_array (argv);
 #endif
-  
+
   /* Decide upon the endian-ness of the processor.
      If we can, get the information from the bfd itself.
      Otherwise look to see if we have been given a command
@@ -859,7 +859,7 @@ sim_open (kind, ptr, abfd, argv)
 					       "Missing argument to -m option\n");
 		return NULL;
 	      }
-	      
+
 	  }
     }
 
@@ -928,7 +928,7 @@ void
 sim_do_command (sd, cmd)
      SIM_DESC sd ATTRIBUTE_UNUSED;
      char *cmd ATTRIBUTE_UNUSED;
-{  
+{
   (*sim_callback->printf_filtered)
     (sim_callback,
      "This simulator does not accept any commands.\n");

@@ -12,7 +12,7 @@ extern float sg;
 int eglob;
 
 struct {
- int a;  
+ int a;
  int b;
 } s;
 

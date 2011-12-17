@@ -79,7 +79,7 @@ int while3(int a)
   return a ;
 }
 
-void done (int x) { } 
+void done (int x) { }
 
 int main()
 {
@@ -98,10 +98,10 @@ int main()
   done(3) ;
   while3(3) ;
   done(6) ;
-#endif  
-  neqtest(a,b) ; 
-  neqtest(a,b) ; 
-  neqtest(a,c) ; 
+#endif
+  neqtest(a,b) ;
+  neqtest(a,b) ;
+  neqtest(a,c) ;
   zerotest(d) ;
   zerotest(a) ;
   done(5) ;

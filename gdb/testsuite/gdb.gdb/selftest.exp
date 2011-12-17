@@ -36,7 +36,7 @@ if { [is_remote target] || ![isnative] } then {
 proc do_steps_and_nexts {} {
     global gdb_prompt
     global srcdir
- 
+
     gdb_reinitialize_dir $srcdir/..
 
     set unlikely_line 0
@@ -441,7 +441,7 @@ GDB.*Copyright \[0-9\]+ Free Software Foundation, Inc..*$gdb_prompt $"\
 	-re ".*$gdb_prompt $"       { fail "xgdb is at prompt" }
 	timeout	            { fail "(timeout) xgdb is at prompt" }
     }
-    
+
     # set xgdb prompt so we can tell which is which
     send_gdb "set prompt (xgdb) \n"
     gdb_expect {
@@ -449,7 +449,7 @@ GDB.*Copyright \[0-9\]+ Free Software Foundation, Inc..*$gdb_prompt $"\
 	-re ".*$gdb_prompt $"		{ fail "Set xgdb prompt" }
 	default				{ fail "(timeout) Set xgdb prompt" }
     }
-    
+
     # kill the xgdb process
     set description "send ^C to child process"
     send_gdb "\003"
@@ -464,7 +464,7 @@ GDB.*Copyright \[0-9\]+ Free Software Foundation, Inc..*$gdb_prompt $"\
 	    fail "$description (timeout)"
 	}
     }
-    
+
     set description "send SIGINT signal to child process"
     send_gdb "signal SIGINT\n"
     gdb_expect {
@@ -478,7 +478,7 @@ GDB.*Copyright \[0-9\]+ Free Software Foundation, Inc..*$gdb_prompt $"\
 	    fail "$description (timeout)"
 	}
     }
-    
+
     # get a stack trace
     #
     # This fails on some linux systems for unknown reasons.  On the

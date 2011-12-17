@@ -12,7 +12,7 @@
 
 	start
 .if (sim_cpu == h8sx)		; 3-bit immediate mode only for h8sx
-sub_w_imm3:			; sub.w immediate not available in h8300 mode. 
+sub_w_imm3:			; sub.w immediate not available in h8300 mode.
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
 
@@ -30,9 +30,9 @@ sub_w_imm3:			; sub.w immediate not available in h8300 mode.
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 .endif
-	
+
 .if (sim_cpu)			; non-zero means h8300h, s, or sx
-sub_w_imm16:			; sub.w immediate not available in h8300 mode. 
+sub_w_imm16:			; sub.w immediate not available in h8300 mode.
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
 
@@ -50,7 +50,7 @@ sub_w_imm16:			; sub.w immediate not available in h8300 mode.
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 .endif
-	
+
 sub.w.reg:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
@@ -72,7 +72,7 @@ sub.w.reg:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 	pass
 
 	exit 0

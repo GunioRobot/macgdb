@@ -97,7 +97,7 @@ gdb_test "whatis v_signed_short" \
 
 gdb_test "whatis v_unsigned_short" \
     "type = (unsigned short|short unsigned int)" \
-    "whatis unsigned short" 
+    "whatis unsigned short"
 
 gdb_test "whatis v_int" \
     "type = int" \

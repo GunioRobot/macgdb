@@ -40,12 +40,12 @@ extern int find_objc_msgcall (CORE_ADDR pc, CORE_ADDR *new_pc);
 
 extern char *parse_selector (char *method, char **selector);
 
-extern char *parse_method (char *method, char *type, 
-			   char **class, char **category, 
+extern char *parse_method (char *method, char *type,
+			   char **class, char **category,
 			   char **selector);
 
 extern char *find_imps (struct symtab *symtab, struct block *block,
-			char *method, struct symbol **syms, 
+			char *method, struct symbol **syms,
 			unsigned int *nsym, unsigned int *ndebug);
 
 extern struct value *value_nsstring (struct gdbarch *gdbarch,

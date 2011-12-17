@@ -14,11 +14,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
 
     ----------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ contributed in their own unique way:
 
 
 	SMP
-		
+
 		The PowerPC ISA defines SMP synchronizing instructions.
 		This simulator implements a limited, but functional,
 		subset of the PowerPC synchronization instructions
@@ -106,7 +106,7 @@ contributed in their own unique way:
 
 		People intending to use this system should study
 		the code implementing the lwarx instruction.
-		
+
 	ENDIAN SUPPORT
 
 		PSIM implements the PowerPC's big and little (xor
@@ -205,7 +205,7 @@ contributed in their own unique way:
 	Here is the current output generated with the -I switch on a P90
 	(the compiler used is the development version of GCC with a new
 	scheduler replacing the old one):
-	
+
 	CPU #1 executed     41,994 AND instructions.
 	CPU #1 executed    519,785 AND Immediate instructions.
 	.
@@ -213,7 +213,7 @@ contributed in their own unique way:
 	.
 	CPU #1 executed          1 System Call instruction.
 	CPU #1 executed    207,746 XOR instructions.
-	
+
 	CPU #1 executed 23,740,856 cycles.
 	CPU #1 executed 10,242,780 stalls waiting for data.
 	CPU #1 executed          1 stall waiting for a function unit.
@@ -226,7 +226,7 @@ contributed in their own unique way:
 	CPU #1 executed    971,926 data writes.
 	CPU #1 executed        221 icache misses.
 	CPU #1 executed 16,949,396 instructions in total.
-	
+
 	Simulator speed was 250,731 instructions/second
 
 

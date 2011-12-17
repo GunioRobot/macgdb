@@ -4,9 +4,9 @@
 # as(h8300h):	--defsym sim_cpu=1
 # as(h8300s):	--defsym sim_cpu=2
 # as(h8sx):	--defsym sim_cpu=3
-# ld(h8300h):	-m h8300helf	
-# ld(h8300s):	-m h8300self	
-# ld(h8sx):	-m h8300sxelf	
+# ld(h8300h):	-m h8300helf
+# ld(h8300s):	-m h8300self
+# ld(h8sx):	-m h8300sxelf
 
 	.include "testutils.inc"
 
@@ -26,7 +26,7 @@
 	#
 	# orc  #xx:8, ccr
 	# orc  #xx:8, exr
-	
+
 
 	# Coming soon:
 	# ...
@@ -37,7 +37,7 @@ byte_dest:	.byte 0xa5
 post_byte:	.byte 0
 
 	start
-	
+
 or_b_imm8_reg8:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
@@ -57,7 +57,7 @@ or_b_imm8_reg8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .if (sim_cpu == h8sx)
 or_b_imm8_rdind:
 	mov	#byte_dest, er0
@@ -77,7 +77,7 @@ or_b_imm8_rdind:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_set
-	
+
 	test_h_gr32 byte_dest, er0	; er0 still contains address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -114,7 +114,7 @@ or_b_imm8_rdpostinc:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_set
-	
+
 	test_h_gr32 post_byte, er0	; er0 contains address plus one
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -151,7 +151,7 @@ or_b_imm8_rdpostdec:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_set
-	
+
 	test_h_gr32 pre_byte, er0	; er0 contains address minus one
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -188,7 +188,7 @@ or_b_imm8_rdpreinc:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_set
-	
+
 	test_h_gr32 byte_dest, er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -225,7 +225,7 @@ or_b_imm8_rdpredec:
 	test_ovf_clear
 	test_zero_clear
 	test_neg_set
-	
+
 	test_h_gr32 byte_dest, er0	; er0 contains destination address
 	test_gr_a5a5 1		; Make sure other general regs not disturbed
 	test_gr_a5a5 2
@@ -266,7 +266,7 @@ or_b_reg8_reg8:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .if (sim_cpu == h8sx)
 or_b_reg8_rdind:
 	mov	#byte_dest, er0
@@ -490,7 +490,7 @@ orc_imm8_ccr:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 .if (sim_cpu == h8300s || sim_cpu == h8sx)	; Earlier versions, no exr
 orc_imm8_exr:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -498,7 +498,7 @@ orc_imm8_exr:
 	ldc	#0, exr
 	stc	exr, r0l
 	test_h_gr8 0, r0l
-	
+
 	;;  orc #xx:8,exr
 
 	orc	#0x1, exr
@@ -526,7 +526,7 @@ orc_imm8_exr:
 	test_gr_a5a5 6
 	test_gr_a5a5 7
 .endif				; not h8300 or h8300h
-	
+
 	pass
 
 	exit 0

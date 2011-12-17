@@ -46,9 +46,9 @@ xor5:
 	andi r2, 255, r2
 	bnei r2, 2, tr0
 
-okay:	
+okay:
 	pass
 
 wrong:
 	fail
-	
+

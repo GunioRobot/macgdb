@@ -306,7 +306,7 @@ cs_section_address (struct coff_symbol *cs, bfd *abfd)
 
 /* Look up a coff type-number index.  Return the address of the slot
    where the type for that index is stored.
-   The type-number is in INDEX. 
+   The type-number is in INDEX.
 
    This can be used for finding the type associated with that index
    or for associating a new type with the index.  */
@@ -411,7 +411,7 @@ coff_end_symtab (struct objfile *objfile)
 
 static struct minimal_symbol *
 record_minimal_symbol (struct coff_symbol *cs, CORE_ADDR address,
-		       enum minimal_symbol_type type, int section, 
+		       enum minimal_symbol_type type, int section,
 		       struct objfile *objfile)
 {
   struct bfd_section *bfd_section;
@@ -516,7 +516,7 @@ coff_symfile_read (struct objfile *objfile, int mainline)
   int stabstrsize;
   int len;
   char * target;
-  
+
   info = (struct coff_symfile_info *) objfile->deprecated_sym_private;
   dbxinfo = objfile->deprecated_sym_stab_info;
   symfile_bfd = abfd;		/* Kludge for swap routines */

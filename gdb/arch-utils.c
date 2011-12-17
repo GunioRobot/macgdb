@@ -190,7 +190,7 @@ cannot_register_not (struct gdbarch *gdbarch, int regnum)
    raw.  */
 
 void
-legacy_virtual_frame_pointer (struct gdbarch *gdbarch, 
+legacy_virtual_frame_pointer (struct gdbarch *gdbarch,
 			      CORE_ADDR pc,
 			      int *frame_regnum,
 			      LONGEST *frame_offset)
@@ -584,7 +584,7 @@ initialize_current_architecture (void)
   /* determine a default architecture and byte order. */
   struct gdbarch_info info;
   gdbarch_info_init (&info);
-  
+
   /* Find a default architecture. */
   if (default_bfd_arch == NULL)
     {

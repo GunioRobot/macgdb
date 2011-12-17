@@ -13,7 +13,7 @@ test_mulxu1:
 	MULXU a1, r9, r8
 	checkacc2 1 a1 0x00 0x8000 0x7FFF
 
-	
+
 	;; set FX
 	ldi r2, #0x8085
 	mvtc r2, cr0

@@ -80,7 +80,7 @@
 
  move.d 0x85649282,r3
  sub.b 0x82,r3
- test_cc 0 1 0 0 
+ test_cc 0 1 0 0
  dumpr3 ; 85649200
 
  quit

@@ -39,8 +39,8 @@ if ![isnative] then {
 
 if { [istarget "*-*-*bsd*"]
      || [istarget "*-*-hpux*"]
-     || [istarget "*-*-solaris*"] 
-     || [istarget "*-*-darwin*"] 
+     || [istarget "*-*-solaris*"]
+     || [istarget "*-*-darwin*"]
      || [istarget "*-*-cygwin*"] } {
     untested "Kernel lacks sparse corefile support (PR gdb/1551)"
     return
@@ -183,7 +183,7 @@ if {[catch {file size $corefile} core_size] == 0} {
 	    set core_ok 0
 	}
     }
-} { 
+} {
     # Probably failed due to the TCL build having problems with very
     # large values.  Since GDB uses a 64-bit off_t (when possible) it
     # shouldn't have this problem.  Assume that things are going to

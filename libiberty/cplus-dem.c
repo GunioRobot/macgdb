@@ -463,7 +463,7 @@ static const char* qualifier_string (int);
 
 static const char* demangle_qualifier (int);
 
-static int demangle_expression (struct work_stuff *, const char **, string *, 
+static int demangle_expression (struct work_stuff *, const char **, string *,
                                 type_kind_t);
 
 static int
@@ -788,7 +788,7 @@ cplus_mangle_opname (const char *opname, int options)
 enum demangling_styles
 cplus_demangle_set_style (enum demangling_styles style)
 {
-  const struct demangler_engine *demangler = libiberty_demanglers; 
+  const struct demangler_engine *demangler = libiberty_demanglers;
 
   for (; demangler->demangling_style != unknown_demangling; ++demangler)
     if (style == demangler->demangling_style)
@@ -805,7 +805,7 @@ cplus_demangle_set_style (enum demangling_styles style)
 enum demangling_styles
 cplus_demangle_name_to_style (const char *name)
 {
-  const struct demangler_engine *demangler = libiberty_demanglers; 
+  const struct demangler_engine *demangler = libiberty_demanglers;
 
   for (; demangler->demangling_style != unknown_demangling; ++demangler)
     if (strcmp (name, demangler->demangling_style_name) == 0)
@@ -913,7 +913,7 @@ ada_demangle (const char *mangled, int option ATTRIBUTE_UNUSED)
   char *demangled = NULL;
   int changed;
   size_t demangled_size = 0;
-  
+
   changed = 0;
 
   if (strncmp (mangled, "_ada_", 5) == 0)
@@ -921,10 +921,10 @@ ada_demangle (const char *mangled, int option ATTRIBUTE_UNUSED)
       mangled += 5;
       changed = 1;
     }
-  
+
   if (mangled[0] == '_' || mangled[0] == '<')
     goto Suppress;
-  
+
   p = strstr (mangled, "___");
   if (p == NULL)
     len0 = strlen (mangled);
@@ -938,12 +938,12 @@ ada_demangle (const char *mangled, int option ATTRIBUTE_UNUSED)
       else
 	goto Suppress;
     }
-  
+
   /* Make demangled big enough for possible expansion by operator name.  */
   grow_vect (&demangled,
 	     &demangled_size,  2 * len0 + 1,
 	     sizeof (char));
-  
+
   if (ISDIGIT ((unsigned char) mangled[len0 - 1])) {
     for (i = len0 - 2; i >= 0 && ISDIGIT ((unsigned char) mangled[i]); i -= 1)
       ;
@@ -958,11 +958,11 @@ ada_demangle (const char *mangled, int option ATTRIBUTE_UNUSED)
 	changed = 1;
       }
   }
-  
+
   for (i = 0, j = 0; i < len0 && ! ISALPHA ((unsigned char)mangled[i]);
        i += 1, j += 1)
     demangled[j] = mangled[i];
-  
+
   while (i < len0)
     {
       if (i < len0 - 2 && mangled[i] == '_' && mangled[i + 1] == '_')
@@ -978,7 +978,7 @@ ada_demangle (const char *mangled, int option ATTRIBUTE_UNUSED)
 	}
     }
   demangled[j] = '\000';
-  
+
   for (i = 0; demangled[i] != '\0'; i += 1)
     if (ISUPPER ((unsigned char)demangled[i]) || demangled[i] == ' ')
       goto Suppress;
@@ -987,7 +987,7 @@ ada_demangle (const char *mangled, int option ATTRIBUTE_UNUSED)
     return NULL;
   else
     return demangled;
-  
+
  Suppress:
   grow_vect (&demangled,
 	     &demangled_size,  strlen (mangled) + 3,
@@ -1880,7 +1880,7 @@ demangle_template_value_parm (struct work_stuff *work, const char **mangled,
     {
       if (**mangled == 'Q')
 	success = demangle_qualified (work, mangled, s,
-				      /*isfuncname=*/0, 
+				      /*isfuncname=*/0,
 				      /*append=*/1);
       else
 	{
@@ -3524,7 +3524,7 @@ do_type (struct work_stuff *work, const char **mangled, string *result)
 	    else if (**mangled == 'Q')
 	      {
 		success = demangle_qualified (work, mangled, &decl,
-					      /*isfuncnam=*/0, 
+					      /*isfuncnam=*/0,
 					      /*append=*/0);
 		if (!success)
 		  break;
@@ -4422,7 +4422,7 @@ demangle_nested_args (struct work_stuff *work, const char **mangled,
 
 /* Returns 1 if a valid function name was found or 0 otherwise.  */
 
-static int 
+static int
 demangle_function_name (struct work_stuff *work, const char **mangled,
                         string *declp, const char *scan)
 {

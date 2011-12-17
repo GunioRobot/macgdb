@@ -28,7 +28,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(m2-exp.tab.c): Ditto.
 
 	* configure.in (ENABLE_CFLAGS): Define and export BUILD_TUI.
-	
+
 	* configure: Regenerated.
 
 	* c-typeprint.c (c_type_print_base): Get to the method name by
@@ -44,7 +44,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(wait_for_inferior): Only call SOLIB_IN_DYNAMIC_LINKER if we have
 	shared libraries; restore test of IN_SOLIB_DYNSYM_RESOLVE_CODE
 	removed by HP.
-	
+
 	* Makefile.in (ALLDEPFILES): Add somread.c, hp-psymtab-read.c,
 	hp-symtab-read.c.
 	(SFILES): Remove the above files
@@ -87,7 +87,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	../bfd/aclocal.m4, since we only want bfd's local macros.
 
 	* aclocal.m4: Now automagically generated.  Just run aclocal!
-	
+
 	* annotate.c (annotate_catchpoint): New function.
 
 	* annotate.h: Taking the new includes (symtab.h and gdbtypes.h).
@@ -124,7 +124,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
  	selected_frame points to a frame before using it. Fix string
  	termination error.
 	(break_at_finish_at_depth_command_1): Ditto.
-	
+
 	(can_use_hw_watchpoints): New static variable.
 	(read_memory_nobpt): Test for breakpoint type bp_none.
 	(insert_breakpoints): Test for breakpoint type bp_catch_exec;
@@ -144,9 +144,9 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	user settable debugger variables.
 
 	(clear_command): When there is no argument
-	to the clear command, delete all breakpoints that are hit at 
+	to the clear command, delete all breakpoints that are hit at
 	default line. This will include a breakpoint whose line number
-	does not correspond to the default line, but has been set at 
+	does not correspond to the default line, but has been set at
 	the default address.
 
 	(delete_breakpoint): Don't call bpstat_clear_actions, instead
@@ -175,7 +175,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
  	section parameter.
 	(delete_command): Fixed syntax error in conditional
 	(breakpoint_re_set): Fixed some typos.
-	
+
 	(args_for_catchpoint_enable): New type for handling exceptions.
 	(current_exception_event): New variable for handling exceptions.
 	(insert_breakpoints): Check for additional breakpoint types --
@@ -250,15 +250,15 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	way b->inserted is set.
 	(ep_is_catchpoint): New function.
 	(ep_is_shlib_catchpoint): New function.
-	(print_it_normal): Check for bp_catch_load, bp_catch_unload, 
-	bp_catch_fork, bp_catch_vfork, bp_catch_exec. Also new code 
+	(print_it_normal): Check for bp_catch_load, bp_catch_unload,
+	bp_catch_fork, bp_catch_vfork, bp_catch_exec. Also new code
 	to print out catchpoints properly.
 	(bpstat_stop_status): Check for bp_catch_fork, bp_catch_vfork,
-	and bp_catch_exec. Also, some code to check for catching a 
+	and bp_catch_exec. Also, some code to check for catching a
 	shared library load/unload.
 	(bpstat_what): Added catch_shlib_event to class enumeration.
 	Defined new macro, shlr. Expanded the bpstat_what_main_action
-	table. Add cases for bp_catch_load, bp_catch_unload, 
+	table. Add cases for bp_catch_load, bp_catch_unload,
 	bp_catch_fork, bp_catch_vfork, and bp_catch_exec.
 	(bpstat_get_triggered_catchpoints): New function.
 	(breakpoint_1): Changes to bptypes definition. Also check for
@@ -273,7 +273,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(create_fork_vfork_event_catchpoint): New function.
 	(create_fork_event_catchpoint): New function.
 	(create_vfork_event_catchpoint): New function.
-	(mention): New cases for bp_catch_load, bp_catch_unload, 
+	(mention): New cases for bp_catch_load, bp_catch_unload,
 	bp_catch_fork, bp_catch_vfork, bp_catch_exec.
 	(ep_skip_leading_whitespace): New function.
 	(ep_find_event_name_end): New function.
@@ -410,10 +410,10 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
   	(_initialize_command): Install new alias if xdb_commands is set.
 
 	* complaints.h: Add ifdef...endif pair at beginning and end of file.
-	
+
 	* config.in, configure: Regenerated.
 
-	* config/pa/hppabsd.mh (NATDEPFILES): Added new files 
+	* config/pa/hppabsd.mh (NATDEPFILES): Added new files
 	hp-psymtab-read.o and hp-symtab-read.o.
 	* config/pa/hppahpux.mh (NATDEPFILES): Ditto.
 
@@ -445,13 +445,13 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* config/pa/nm-hppah.h (CHILD_HAS_SYSCALL_EVENT): New macro
 	(CHILD_THREAD_ALIVE): New macro
-	(STOPPED_BY_WATCHPOINT): Add a condition to the macro, 
+	(STOPPED_BY_WATCHPOINT): Add a condition to the macro,
 	! stepped_after_stopped_by_watchpoint
 	(TARGET_ENABLE_HW_WATCHPOINTS): New macro
 	(hppa_enable_hw_watchpoints): New funct decl
 	(TARGET_DISABLE_HW_WATCHPOINTS): New macro
 	( hppa_disable_hw_watchpoints): New funct decl
-	     these are for HP's implementation of fast 
+	     these are for HP's implementation of fast
 	watchpoints (via page protection).
 	(target_pid_to_str): New macro, calls hppa_pid_to_str
 	(target_tid_to_str): New macro, calls hppa_tid_to_str
@@ -475,7 +475,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	deleted define.
 
 	* config/pa/nm-hppah.h:
-	(PREPARE_TO_PROCEED): Defined macro to use 
+	(PREPARE_TO_PROCEED): Defined macro to use
 	hppa_prepare_to_proceed.
 	(hppa_pid_to_str): Extern decl.
 	(hppa_tid_to_str): Extern decl.
@@ -494,7 +494,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
  	PT_RDUAREA to PT_RUAREA.
 
 	* config/pa/nm-hppah.h: Introduced an HPUXHPPA define.
-	A bit of a hack so that I can ifdef some code that 
+	A bit of a hack so that I can ifdef some code that
 	only works for the HP wildebeest debugger.
 
 	* config/pa/nm-hppah.h: Lots of new CHILD_ defines;
@@ -505,12 +505,12 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* config/pa/tm-hppa.h (STACK_ALIGN): New macro.
 	(NO_EXTRA_ALIGNMENT_NEEDED): New macro.
-	(PC_REQUIRES_RUN_BEFORE_USE): New macro. 
+	(PC_REQUIRES_RUN_BEFORE_USE): New macro.
 	(REGISTER_NAMES): Formatting in file changed.
-	(CR27_REGNUM): Base register for thread local storage. 
+	(CR27_REGNUM): Base register for thread local storage.
 	(USE_STRUCT_CONVENTION): New macro used to decide whether
 	a function returning a value of type type will
-	put it on the stack or into registers (based on the 
+	put it on the stack or into registers (based on the
 	PA risc calling conventions).
 	(EXTRACT_RETURN_VALUE): Fixed calculation for extracting return value.
 	(VALUE_RETURNED_FROM_STACK): New macro.
@@ -519,7 +519,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(TARGET_WRITE_PC): Declared the function used in the definition.
 	(TARGET_READ_FP): Declared the function used in the definition.
 
-	* config/pa/tm-hppa.h (STRCAT_REGISTER): Define macro for 
+	* config/pa/tm-hppa.h (STRCAT_REGISTER): Define macro for
 	future use.
 	(pa_do_strcat_registers_info): Moved function decl from
 	defs.h to this HPUX specific .h file.
@@ -527,7 +527,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* config/pa/tm-hppa.h (USE_STRUCT_CONVENTION): Type_LENGTH returns
 	bytes, not bits; fix off by 8 error.
 
-	* config/pa/tm-hppa.h: 
+	* config/pa/tm-hppa.h:
 	New comment for obj_unwind_info definition
 	New typedef, obj_private_struct
 
@@ -536,32 +536,32 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* config/pa/tm-hppa.h: Get rid of macro HP_COMPILED_TARGET.
 
-	* config/pa/tm-hppa.h: Removed redefinitions of 
+	* config/pa/tm-hppa.h: Removed redefinitions of
 	USE_STRUCT_CONVENTION and STACK_ALIGN macros.
-	
+
 	* config/pa/tm-hppa.h: Some new definitions
 	  New macros: Arg0_REGNUM, ARG1_REGNUM, ARG2_REGNUM, ARG3_REGNUM.
 	    target_pid_to_exec_file, target_acknowledge_forked_child,
 	    target_create_catch_fork_hook, target_create_catch_vfork_hook,
-	    target_has_forked, target_has_vforked, require_attach, 
+	    target_has_forked, target_has_vforked, require_attach,
 	    require_detach, proc_wait
 	  New funct decls: Hppa_pid_to_exec_file,
 	    hppa_acknowledge_forked_child, hppa_create_catch_fork_hook,
-	    hppa_create_catch_vfork_hook, hppa_target_has_forked, 
-	    hppa_target_has_vforked, hppa_require_attach, 
+	    hppa_create_catch_vfork_hook, hppa_target_has_forked,
+	    hppa_target_has_vforked, hppa_require_attach,
 	    hppa_require_detach, process_wait
 	  (unwind_table_entry): Added comments to describe struct fields.
 
 	* config/pa/tm-hppah.h (somsolib.h): Include it.
 
-	* config/pa/tm-hppah.h: 
+	* config/pa/tm-hppah.h:
 	(CHILD_ENABLE_EXCEPTION_CALLBACK): New define
 	(CHILD_GET_CURRENT_EXCEPTION_EVENT): New define
 
 	* configure.host (hppa-*-hpux10.20, hppa-*-hpux11.0*): New configs.
 
 	* configure.in (AC_CHECK_HEADERS): Add check for term.h.
-	
+
 	* configure.in: Add an --enable-tui argument.
 
 	* configure.in: Construct tui/Makefile from tui/Makefile.in.
@@ -575,7 +575,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(core_file_command): Attempt to determine the name of the symbol
 	file from the core file.
 	(read_memory_string): New function.
-	
+
 	* corefile.c (core_file_command): Temporary hack to make non-hpux
  	work. For, non-hpux, t->to_core_file_to_sym_file does not have a
  	reasonable value. No target_ops vector on the stack gives it a
@@ -589,7 +589,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	this file
 
 	* corelow.c: Include unistd.h
-	(core_file_to_sym_file): New function 
+	(core_file_to_sym_file): New function
 	(core_file_thread_alive): New function
 	(core_ops): Added new target ops vector fields. see below. And
 	  yes we definitiely need to initialize them here, as long as
@@ -620,7 +620,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* defs.h (gdb_file_deallocate): New function declaration
 
-	* defs.h: 
+	* defs.h:
 	(streamtype): New enumerated type to distinguish between
 	output to a FILE and output to a buffer.
 	(tui_stream): New struct type, named GDB_FILE. Contains,
@@ -632,7 +632,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(fputs_unfiltered_hook): Change stream parameter from FILE to
 	GDB_FILE
 	(flush_hook): Change stream parameter from FILE to GDB_FILE
-	(gdb_fclose): Fix declaration for gdb_fclose; parameter is now of 
+	(gdb_fclose): Fix declaration for gdb_fclose; parameter is now of
 	type GDB_FILE **
 	(gdb_file_adjust_strbuf): New function declaration. function lives in
 	utils.c.
@@ -640,7 +640,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	in utils.c
 	(gdb_file_get_strbuf): New function declaration. function lives
 	in utils.c
-	
+
 	* defs.h: Additional include files included when TUI is defined.
 
 	* defs.h: Funct decl source_full_path_of.
@@ -648,7 +648,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* demangle.c: Add HP_DEMANGLING_STYLE_STRING.
 
 	* demangle.c: Added new demangling style, EDG_DEMANGLING_STYLE_STRING,
-	  to the demanglers structure. This is for support of 
+	  to the demanglers structure. This is for support of
 	  Kuck & Assoc.'s changes for demangling.
 
 	* eval.c (evaluate_subexp_standard): C++ member function changes.
@@ -667,7 +667,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(emit_char): Ditto.
 
 	* f-lang.c (f_printstr): Change stdout to gdb_stdout.
-	
+
 	* f-typeprint.c (f_print_type): Change FILE to GDB_FILE.
 	(f_type_print_varspec_prefix): Ditto.
 	(f_type_print_args): Ditto.
@@ -698,46 +698,46 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	function returning void.
 
 	* fork-child.c (fork_inferior): Delete unused variable f.
-	
-	* fork-child.c: 
+
+	* fork-child.c:
 	(Startup_WITH_SHELL): New macro -- interim fix for a bug
 	(breakup_args): New function -- breaks up an argument string into
 	  an argument suitable for passing into execvp().
 	(fork_inferior): Handling problems with starting up gdb with a shell.
 	  -- again, this appears to be an interim fix.
 
-	* fork-child.c: 
+	* fork-child.c:
 	(fork_inferior): Added a comment
-	(clone_and_follow_inferior): New function. 
+	(clone_and_follow_inferior): New function.
 	(startup_inferior): Minor formatting changes.
-	
-	* fork-child.c: 
-	(fork_inferior): Hp change is problematic. The -f option has 
-	different meanings for different shells. It is particularly 
+
+	* fork-child.c:
+	(fork_inferior): Hp change is problematic. The -f option has
+	different meanings for different shells. It is particularly
 	inappropriate for bourne shells.
 
-	* fork-child.c: 
+	* fork-child.c:
 	(fork_inferior): Added new parameter, pre_trace_fun.
 	pre_trace_fun is a function pointer. For some targets,
 	like HPUX, this function gets called to prepare for forking
 	a child.
 
-	* fork-child.c: 
+	* fork-child.c:
 	(fork_inferior): Fixed call to init_trace_fun
 
-	* fork-child.c: 
+	* fork-child.c:
 	Moved definition of STARTUP_WITH_SHELL to inferior.h
 	Added a DEBUGGING macro. Currently set to 0. May remove
 	later.
-	breakup_args: Add DEBUGGING ifdefs. more sophisticated 
+	breakup_args: Add DEBUGGING ifdefs. more sophisticated
 	parsing to break up args.
 	(fork_inferior): Rename kshell variable to shell. new local
-	variable, tryname. Make use of STARTUP_WITH_SHELL macro. 
+	variable, tryname. Make use of STARTUP_WITH_SHELL macro.
 	More error processing if starting up with a shell.
-	(startup_inferior): Distinguish between starting up with a shell 
-	and not doing so. 
+	(startup_inferior): Distinguish between starting up with a shell
+	and not doing so.
 
-	* gdbthread.h: 
+	* gdbthread.h:
 	Declarations for load_infrun_state and save_infrun_state take
 	an additional parameter.
 
@@ -745,14 +745,14 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	    thread.h was renamed gdbthread.h
 	  (load_infrun_state): Additional parameters
 	  (store_infrun_state): Additional parameters
-	
+
 	* gdbthread.h: Include breakpoint.h
-	
+
 	* hp-psymtab-read.c (QUICK_LOOK_UP): Redefine to be 0.
 	(hpread_build_psymtabs): Deal with enums.
 	(hpread_start_psymtab): Include section offset.
 	(hpread_end_psymtab): Take care of offset.
-	
+
 	* hp-psymtab-read.c (TRUE): Define.
 	(FALSE): Define.
 	(file_exists): New function. Checks for existance of file.
@@ -769,9 +769,9 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* hp-psymtab-read.c (hpread_quick_traverse): Compare CORE_ADDR
 	variable end_addr to 0 instaed of NULL to get rif of gcc warning.
 
-	* hp-psymtab-read.c: 
-	(Hpread_get_textlow): Added param to function 
-	Defined convennience macros and some datatypes and variables for 
+	* hp-psymtab-read.c:
+	(Hpread_get_textlow): Added param to function
+	Defined convennience macros and some datatypes and variables for
 	processing the quick lookup-tables. Looks like the code existed
 	before, but has been munged.
 	(hpread_pxdb_needed): Major rearrangements of code. Additional local
@@ -806,29 +806,29 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	table (LNTT) indices of psymtabs created so far.
 	(pst_syms_count): New variable
 	(pst_syms_size): New variable
-	(told_objfile): New variable 
+	(told_objfile): New variable
 	(init_pst_syms): New function. sets up psymtab symbol index stuff.
 	(clear_pst_syms): New function. clean up psymtab symbol index stuff.
-	(record_pst_syms): New function. add info about newest psymtab to symbol 
+	(record_pst_syms): New function. add info about newest psymtab to symbol
 	index table.
 	(find_next_pst_start): New function. Find a suitable symbol table index.
 	(find_next_file_isym): New function
 	(find_next_proc_isym): New function
 	(find_next_module_isym): New function
-	(scan_procs): New function. Scan and record partial symbols for all 
+	(scan_procs): New function. Scan and record partial symbols for all
 	functions starting from specified index and in a specified code range.
 	(hpread_quick_traverse: Major rearrangement of code. The function
 	now uses all the nifty macros. There are some new local variables.
 	Check for EDG_DEMANGLING style. ifdef out some code for handling F77.
 	Previously, the function looped over all the modules in the table.
 	Now, the function loops over all the files, modules, and procedures.
-	With HP aCC and CTTI, it is possible for a compiled object to have a 
+	With HP aCC and CTTI, it is possible for a compiled object to have a
 	file and no module.
-	(hpread_build_psymtabs): Added a section of code ifdefed by 
-	QUICK_LOOK_UP. It check to see whether or not there are any globals 
+	(hpread_build_psymtabs): Added a section of code ifdefed by
+	QUICK_LOOK_UP. It check to see whether or not there are any globals
 	in the executable. Fix number of params to hpread_start_psymtab call.
 	Some changes to the way DNTT_TYPE_MODULE is handled.
-	(hpread_get_textlow): Change in signature, minor code changes. The 
+	(hpread_get_textlow): Change in signature, minor code changes. The
 	function finds the low address associated with a specified symbol.
 	In looking for the address for the symbol avoid going of the end of
 	the LNTT file.
@@ -839,16 +839,16 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* hp-psymtab-read.c: Include demangle.h
 	(trans_lang): New function to let gdb know the correct language.
 	(hpread_quick_traverse): Use ARM style demangling.
-	Demangle procedures names. 
+	Demangle procedures names.
 	Use gdb language names instead of hp language names.
 	Add symbol to list using its demangled name.
 
 	* hp-psymtab-read.c: New file.
 	(hpread_call_pxdb): New function. Call PXDB to process our file.
-	(hpread_pxdb_check): New function. Return TRUE if the file needs 
-	pre-processing by PXDB and we have thus called PXDB to do this 
+	(hpread_pxdb_check): New function. Return TRUE if the file needs
+	pre-processing by PXDB and we have thus called PXDB to do this
 	processing and the file needs to be re-loaded.
-	(hpread_quick_traverse): New function. Traverse the quick look-up 
+	(hpread_quick_traverse): New function. Traverse the quick look-up
 	tables, building a set of psymtabs.
 	(hpread_get_header): New function. Get appropriate header from obj
 	file, based on pxdb type
@@ -873,7 +873,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(hpread_type_translate): Distinguish between signed and unsigned char
 	types.
 	(hpread_psymtab_to_symtab): Set flag for hp compilation.
-	(hpread_read_function_type): Append symbols for parameters to local 
+	(hpread_read_function_type): Append symbols for parameters to local
 	list as well as	to the global list. Get the parameters types from the
 	local list instead of the global list.
 	(hpread_read_struct_type): Add new field num_fn_fields to next_fn_field
@@ -881,18 +881,18 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(hpread_type_lookup): Change handling of dntt_type_modifier.
 	(hpread_process_one_debug_symbol): Call hpread_get_scope_start instea
 	of hpread_get_depth. Handle enum as well.
-	(hpread_get_scope_depth): New function. Get nesting depth for a 
+	(hpread_get_scope_depth): New function. Get nesting depth for a
 	DNTT entry.
 
-	* hp-symtab-read.c (hpread_psymtab_to_symtab): Set 
+	* hp-symtab-read.c (hpread_psymtab_to_symtab): Set
 	processing_gcc_compilation to 0.
-	
+
 	* hp-symtab-read.c (hpread_psymtab_to_symtab_1): Change stdout to
  	gdb_stdout; change fflush to gdb_flush.
 	(hpread_psymtab_to_symtab): Change fflush to gdb_flush.
 
 	* hp-symtab-read.c (hpread_read_enum_type): Declare variable.
-	(hpread_read_struct_type): Eliminate references 
+	(hpread_read_struct_type): Eliminate references
 	to 'args' member of fn_field.
 
 	* hp-symtab-read.c (hpread_read_struct_type): A static member
@@ -908,33 +908,33 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	obsolete field fn_field.args.
 	Add struct complaint definitions for complaints.
 	(hpread_read_struct_type): Change call to complain.
-	(hpread_read_array_type): Change call to complain. 
+	(hpread_read_array_type): Change call to complain.
 	(hpread_type_lookup): Change call to complain.
 	(hpread_process_one_debug_symbol): Change calls to complain.
 	(hpread_type_translate): Change calls to complain.
-	
+
 	* hp-symtab-read.c (hpread_read_struct_type): Make sure bitvector
 	has been allocated before calling has_vtable.
 
-	* hp-symtab-read.c (hpread_read_struct_type): Revert change, 
+	* hp-symtab-read.c (hpread_read_struct_type): Revert change,
 	just check for vtable without checking for bitvectors too.
 
-	* hp-symtab-read.c: 
+	* hp-symtab-read.c:
 	(Hpread_expand_symtab): Change name of local variable from
-	at_end_of_module to at_module_boundary. 
-	Also, if demangling style is already EDG, do not reset it 
+	at_end_of_module to at_module_boundary.
+	Also, if demangling style is already EDG, do not reset it
 	to the HP demangling style.
 	Change at_end_of_module param to hpread_process_one_debug_symbol
 	call to at_module_boundary.
 	No longer break out of loop when reach end of module. With CTTI,
-	the compiler can generate function symbols which are not in 
+	the compiler can generate function symbols which are not in
 	any module. Typically they show up after the end of one
 	module and before the start of the next module.
-	(hpread_read_struct_type): Check that the debug info for 
+	(hpread_read_struct_type): Check that the debug info for
 	a TEMPLATE_ARG is correct.
 	(hpread_process_one_debug_symbol): Change name of at_end_of_module_p
-	param to at_module_boundary_p. 
-	Also set *at_module_boundary_p = -1 if missing a module end and set 
+	param to at_module_boundary_p.
+	Also set *at_module_boundary_p = -1 if missing a module end and set
 	it to 1 when finished expanding the debug info.
 	Handle TLS variable.
 
@@ -942,9 +942,9 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(fixup_class): New static variable.
 	(fixup_method): New static variable.
 	(hpread_get_location): Rewrite.
-	(hpread_has_name): Add cases for DNTT_TYPE_DOC_FUNCTION and 
+	(hpread_has_name): Add cases for DNTT_TYPE_DOC_FUNCTION and
 	DNTT_TYPE_DOC_MEMFUNC
-	(hpread_expand_symtab): Use HP demangling style. 
+	(hpread_expand_symtab): Use HP demangling style.
 	Set hp_som_som_object_present to 1.
 	(hpread_type_translate): Error out if not immediate. Issue warning
 	if there is an unhandled type code.
@@ -956,17 +956,17 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	If we are creating a new block, set the local symbol list to be the
 	param list.
 	Need to mark this type as preprocessed.
-	(hpread_read_doc_function_type): New function. Read and internalize 
+	(hpread_read_doc_function_type): New function. Read and internalize
 	a native DOC function debug symbol.
 	(hpread_read_struct_type): A method can be of type doc_function and
 	doc_memfunc too.
-	Handle case in which a method is read before its class. Deal with 
+	Handle case in which a method is read before its class. Deal with
 	incomplete method types.
 	Handle cases in which HP/aCC compiler creates operator names w/o
 	the 'operator' keyword. Rewrite the loop over the fileds.
-	(fix_static_member_physnames): New function. Adjust the physnames for 
+	(fix_static_member_physnames): New function. Adjust the physnames for
 	each static member.
-	(fixup_class_method_type): New function. Fix-up the type structure for a 
+	(fixup_class_method_type): New function. Fix-up the type structure for a
 	class.
 	(hpread_read_array_type): Change complaint to warning.
 	(hpread_type_lookup): Add case for DNTT_TYPE_DOC_FUNCTION.
@@ -982,16 +982,16 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	Add support for DOC functions.
 	For function types, add parameters to local list.
 	(hpread_get_scope_depth): Make this function a no-op.
-	(hpread_adjust_bitoffsets): New function. Adjust the bitoffsets for all 
+	(hpread_adjust_bitoffsets): New function. Adjust the bitoffsets for all
 	fields of an anonymous union.
-	(hpread_get_next_skip_over_anon_unions): New function. Skip over anonymous 
+	(hpread_get_next_skip_over_anon_unions): New function. Skip over anonymous
 	unions.
 
 	* hp-symtab-read.c: Include demangle.h
 	(hpread_expand_symtab): Ensure we are using ARM-style demangling.
-	(hpread_process_one_debug_symbol): Set the mangled and demangled 
+	(hpread_process_one_debug_symbol): Set the mangled and demangled
 	names for functions.
-	Record the class name to generate the demangled names of member 
+	Record the class name to generate the demangled names of member
 	functions.
 
 	* hp-symtab-read.c: New file.
@@ -1000,23 +1000,23 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(hpread_get_location): No change from hpread.c
 	(hpread_has_name): Make it not static. Return 1 for DNTT_TYPE_BLOCKDATA
 	and DNTT_TYPE_MEMFUNC. Return 0 for CLASS_SCOPE, REFERENCE,PTRMEM,
- 	PTRMEMFUNC, CLASS, GENFIELD, VFUNC, MEMACCESS, INHERITANCE, 
+ 	PTRMEMFUNC, CLASS, GENFIELD, VFUNC, MEMACCESS, INHERITANCE,
 	FRIEND_CLASS, FRIEND_FUNC, MODIFIER, OBJECT_ID, TEMPLATE, TEMPLATE_ARG,
  	FUNC_TEMPLATE, LINK.
 	(hpread_psymtab_to_symtab_1): No changes from hpread.c
 	(hpread_psymtab_to_symtab): Make it a static function
 	(hpread_expand_symtab): Modified
-	(hpread_type_translate): If not typep.dntti.immediate do not abort, 
+	(hpread_type_translate): If not typep.dntti.immediate do not abort,
 	but complain and return. Same for default action. Handle more HP_TYPEs.
 	(hpread_lookup_type): Initially allocate a correct-size type-vector.
 	(hpread_alloc_type): Reset type_addr only if a type was allocated.
 	(hpread_read_enum_type): If this has already a type associated, return.
-	(hpread_read_function_type): Do different things depending on whether 
+	(hpread_read_function_type): Do different things depending on whether
 	function is a MEMFUNC, a TEMPLATE, a FUNCTION som record.
 	Do not use the LOC_REGPARM_ADDR symbol class.
-	(hpread_read_struct_type): Handle classes and templates too. Major 
+	(hpread_read_struct_type): Handle classes and templates too. Major
 	rewrite.
-	(hpread_get_nth_template_arg): New function. 
+	(hpread_get_nth_template_arg): New function.
 	(hpread_read_templ_arg_type): New function.
 	(hpread_read_set_type): No change from hpread.c
 	(hpread_read_array_type): Modified
@@ -1024,14 +1024,14 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	added support for templates, classes, references, virtual functions.
 	(hpread_type_lookup): Handle DNNT_TYPE_MODULE.
 	(hpread_record_lines): No changes from hpread.c
-	(hpread_process_one_debug_symbol): Handle WITH, COMMON, 
+	(hpread_process_one_debug_symbol): Handle WITH, COMMON,
 	CLASS_SCOPE. Expand TAGDEF case to handle classes and templates.
 
 	* hppa-tdep.c (pa_do_strcat_registers_info): Has a new parameter,
  	precision, which is passed into the call to pa_strcat_fp_reg to
  	indicate whether to display the floating point registers using
  	single or double preceision.
-	(pa_strcat_registers): Introduce local variable, precision, and 
+	(pa_strcat_registers): Introduce local variable, precision, and
 	pass it into call to pa_strcat_fp_reg.
 	(pa_strcat_fp_reg): Modified function. New parameter, precision,
 	used by function to decide whether to use single or double
@@ -1074,27 +1074,27 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(initialize_hp_cxx_exception_support): Fix location of end.o.
 	(child_enable_exception_callback): Purecov comments.
 
-	* hppa-tdep.c: 
-	(Pa_do_strcat_registers_info): New routine. called by 
-	tui/tuiRegs.c:_tuiRegisterFormat to place a register name 
+	* hppa-tdep.c:
+	(Pa_do_strcat_registers_info): New routine. called by
+	tui/tuiRegs.c:_tuiRegisterFormat to place a register name
 	and value into a string buffer. Interface may change in
-	future. Checking this in so that we have something 
+	future. Checking this in so that we have something
 	functional for HP.
-	(pa_strcat_registers): New routine, called by 
-	pa_do_strcat_registers_info. Does same thing as 
-	pa_print_registers except it takes a stream parameter. 
+	(pa_strcat_registers): New routine, called by
+	pa_do_strcat_registers_info. Does same thing as
+	pa_print_registers except it takes a stream parameter.
 	This routine should disappear in future. Checking in
 	so that we have something functional to give HP
-	(pa_strcat_fp_reg): New routine, called by 
+	(pa_strcat_fp_reg): New routine, called by
 	pa_do_strcat_registers_info and pa_strvat_registers
 	to place a floating point register name and value into
-	a buffer. This interface may change in future. 
+	a buffer. This interface may change in future.
 	Checking in so that we have something functional to give HP.
 
 	* hppa-tdep.c: (Pa_print_fp_reg): Change prototype to match def'n.
 	(pa_register_look_aside): Fix comment immediately before function.
 
-	* hppa-tdep.c: Changes to better support stack unwinding, 
+	* hppa-tdep.c: Changes to better support stack unwinding,
 	    reading and writing registers for HPUX. The HP folks had
 	    an advantage ... access to a runtime architecture spec ;-}.
 	  New includes: Ptrace.h
@@ -1120,9 +1120,9 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  (hppa_pid_to_exec_file): New funct. FOr HPUX 10.0 and beyond there
 	     is an explicit ptrace request for getting the pathname associated
 	     with a process id (pid).
-	
+
 	* hppa-tdep.c: Fix for gcc compile on HPUX
-	  (hppa_pid_to_exec_file): Remove unwanted param from 
+	  (hppa_pid_to_exec_file): Remove unwanted param from
 	     call to call_ptrace. Note, hppa_pid_to_exec_file goes
 	     away in subsequent hp snapshots.
 
@@ -1141,7 +1141,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(hppa_value_returned_from_stack): New function. Handles returning a value
 	larger that 64 bits, stored on the stack.
 	(find_stub_with_shl_get): New function. To look up symbols in shlibs.
-	(cover_find_stub_with_shl_get): New function. Cover routine for 
+	(cover_find_stub_with_shl_get): New function. Cover routine for
 	find_stub_with_shl_get to pass to catch_errors.
 	(hppa_fix_call_dummy): Comment out old stub mechanism. Rewrite using dyncall.
 	(target_read_fp): New function.
@@ -1159,7 +1159,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* hppah-nat.c (child_xfer_memory): Make sure the call to ptrace really
 	fails before we give up.
 	(hppa_pid_to_str): New function. Format a process id.
-	(hppa_tid_to_str): New function. Format a thread id. 
+	(hppa_tid_to_str): New function. Format a thread id.
 
 	* hppah-nat.c (child_xfer_memory): Use xmalloc, not alloca.
 	(child_post_wait): Delete.
@@ -1173,7 +1173,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(child_acknowledge_created_inferior): Call new function
 	require_notification_of_exec_events instead of
 	require_notification_of_events.
-	
+
 	* hppah-nat.c [!GDB_NATIVE_HPUX_11]: Move HPUX 10.x-specific
  	support code here from infptrace.c.
 
@@ -1184,11 +1184,11 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* hpread.c (hpread_psymtab_to_symtab_1): Change fflush to
 	gdb_flush; change stdout to gdb_stdout.
 	(hpread_psymtab_to_symtab): Change fflush to gdb_flush.
-	
-	* hpread.h: New file. Includes all includes, struct defs, defines
- 	from hpread.c. 
 
-	* infcmd.c 
+	* hpread.h: New file. Includes all includes, struct defs, defines
+ 	from hpread.c.
+
+	* infcmd.c
 	(attach_command): New local variable, exec_file, added code to
  	  determine exec_file from pid if exec_file is not already known,
 	  call new target operation, target_post_attach -- a no-op unless
@@ -1201,21 +1201,21 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	defined.
 	(detach_command): Ditto.
 
-	* infcmd.c: 
-	(run_stack_dummy): Add calls to 
+	* infcmd.c:
+	(run_stack_dummy): Add calls to
 	disable_watchpoints_before_interactive_call_start and
 	enable_watchpoints_after_interactive_call_stops
 	(finish_command): Alter code handling the evaluation and printing
 	of the target function's return value.
 	(attach_command): When given a pid, but no exec file, try to determine
-	the exec file from the process. If the process does not record a 
+	the exec file from the process. If the process does not record a
 	full path name, try to qualify the filename against the source path.
 	(_initialize_infcmd): Add some verbiage about how to use the attach command
 
-	* infcmd.c: 
+	* infcmd.c:
 	Include objfiles.h
 	(run_command): If program has already been started, and decide
-	to restart it, then kill the target, flush the caches, 
+	to restart it, then kill the target, flush the caches,
 	call init_wait_for_inferior. Also purge old solib objfiles.
 
 	* infcmd.c: Changed calls to val_print, using a new macro,
@@ -1223,8 +1223,8 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  (run_command): Calls SOLIB_RESTART
 	  (do_registers_info): Changed calls to val_print
 
-	* infcmd.c: Made the symfile.h include preceed the 
-	objfiles.h include. The other ordering caused a 
+	* infcmd.c: Made the symfile.h include preceed the
+	objfiles.h include. The other ordering caused a
 	compile problem (incompletely defined types).
 
 	* inferior.h (REQUIRE_DETACH): Fix default definition.
@@ -1235,43 +1235,43 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* inferior.h (STARTUP_WITH_SHELL): New define.
 	(START_INFERIOR_TRAPS_EXPECTED): New define
 
-	* inferior.h (fork_inferior): Change fifth parameter to be a function 
-	returning void. 
+	* inferior.h (fork_inferior): Change fifth parameter to be a function
+	returning void.
 
 	* inferior.h (proc_wait): Declare.
 
-	* inferior.h: 
+	* inferior.h:
 	  (Require_ATTACH): New macro
 	  (REQUIRE_DETACH): New macro
 	  (detach): Definition is now an extern
 	  (clone_and_follow_inferior): New definition, it's also an extern
 
-	* inferior.h: 
+	* inferior.h:
 	  (Require_attach): Default definition for require_attach funct
 	  (require_detach): Default definition for require_detach funct
 	  (pre_fork_inferior): New funct decl for function defined in
 	   infptrace.c
 	  (fork_inferior): New parameter in funct decl.
 
-	* inferior.h: 
+	* inferior.h:
 	  New variable decls: Inferior_ignoring_startup_exec_events,
-	    inferior_ignoring_leading_exec_events -- these variables 
+	    inferior_ignoring_leading_exec_events -- these variables
 	    are used when processing an exec call.
 	  (CALL_DUMMY_HAS_COMPLETED): New default macro -- for targets
-	    where PC in call dummy implies that call dummy has 
+	    where PC in call dummy implies that call dummy has
 	    completed. Note, that on HPUX this inference does not hold.
 
 	* infptrace.c
 	  (require_notification_of_events): New function
 	  (child_acknowledge_created_inferior): Previously named
-	     hppa_acknowledge_forked_child. Also calling 
- 	     require_notification_of_events and clearing some semaphore 
+	     hppa_acknowledge_forked_child. Also calling
+ 	     require_notification_of_events and clearing some semaphore
 	     variables
 	  (child_post_startup_inferior): New function
 	  (child_create_catch_fork_hook): Previously named
 	     hppa_create_catch_fork_hook
 	  (child_create_catch_vfork_hook): Previously named
-	     hppa_create_catch_vfork_hook 
+	     hppa_create_catch_vfork_hook
 	  (child_has_forked): Previously named hppa_target_has_forked
 	  (child_has_vforked): Previously named hppa_target_has_vforked
 	  (process_wait): Changed to call target_post_wait
@@ -1289,11 +1289,11 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* infptrace.c (kill_inferior): Clean up call to proc_wait.
 
-	* infptrace.c: 
+	* infptrace.c:
 	(Call_ptrace): When the ptrace request is PT_SETTRC,
 	call ptrace and then call parent_attach_all.
 
-	* infptrace.c: 
+	* infptrace.c:
 	(Child_has_syscall_event): New function. only applicable
 	(for now) on HPUX 10.30 and beyond via the ttrace call.
 	In infptrace.c there is a default operation.
@@ -1316,34 +1316,34 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* infptrace.c: Most of the changes found in infptrace.c should
 	    be moved to hppah-nat.c
 	  (PT_VERSION): A new define
-	  (startup_semaphore_t): A new struct type. it is used to 
-	    coordinate the parent and child processes after a fork and 
+	  (startup_semaphore_t): A new struct type. it is used to
+	    coordinate the parent and child processes after a fork and
 	    before an exec on HPUX.
 	  (call_ptrace): Changes to determine whether the ptrace
 	    request is for starting the tracing of the target process.
 	  (parent_attach_all): New funct. used on HPUX for coordinating
 	    the parent and child processes after a fork and before and exec.
-	  (hppa_acknowledge_forked_child): New funct. prabably belongs 
+	  (hppa_acknowledge_forked_child): New funct. prabably belongs
 	    in hppah-nat.c
-	  (hppa_enable_catch_fork): New funct. probably belongs in 
+	  (hppa_enable_catch_fork): New funct. probably belongs in
 	    hppah-nat.c
 	  (hppa_disable_catch_fork): New funct. probably belongs in
 	    hppah-nat.c
-	  (hppa_create_catch_fork_hook): New funct. probably belongs in 
+	  (hppa_create_catch_fork_hook): New funct. probably belongs in
 	    hppah-nat.c
-	  (hppa_enable_catch_vfork): New funct. probably belongs in 
+	  (hppa_enable_catch_vfork): New funct. probably belongs in
 	    hppah-nat.c
 	  (hppa_disable_catch_vfork): New funct. probably belongs in
 	    hppah-nat.c
 	  (hppa_create_catch_vfork_hook): New funct. probably belongs to
 	    hppah-nat.c
-	  (hppa_target_has_forked): New funct. probably belongs in 
+	  (hppa_target_has_forked): New funct. probably belongs in
 	    hppah-nat.c
 	  (hppa_target_has_vforked): New funct. probably belongs in
 	    hppah-nat.c
 	  (process_wait): New funct. also ifdefed for proc_wait.
-	  (kill_inferior):  Call proc_wait rather than wait. this is 
-	    pretty hacky. 
+	  (kill_inferior):  Call proc_wait rather than wait. this is
+	    pretty hacky.
 	  (pre_fork_inferior): New function. used only by HPUX.
 	    probably should be defined elsewhere.
 
@@ -1352,7 +1352,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	shared libraries; restore test of IN_SOLIB_DYNSYM_RESOLVE_CODE
 	removed by HP.
 
-	* infrun.c (normal_stop): Add a call to the TUIDO 
+	* infrun.c (normal_stop): Add a call to the TUIDO
 	macro just before the annotate_stopped label. This
 	updates the windows after each program stop.
 
@@ -1383,13 +1383,13 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
  	compiled. Change local validFlag to be an 'int' rather than a
  	'bool' and fixed the corresponding assignment statements.
 
-	* infrun.c: 
+	* infrun.c:
 	Two new global variables: Inferior_ignoring_startup_exec_events and
 	inferior_ignoring_leading_exec_events.
 	New static variables: Parent_of_vfork_trap_expected_and_ignorable,
 	step_resume_breakpoint, through_sigtramp_breakpoint, pending_follow,
 	follow_vfork_when_exec
-	(follow_inferior_fork): Does what follow_fork did! 
+	(follow_inferior_fork): Does what follow_fork did!
 	(follow_fork): Is now a wrapper function for follow_inferior_fork
 	(follow_vfork): Is now a wrapper function for follow_inferior_fork
 	(follow_exec): New function, handles an exec event.
@@ -1397,18 +1397,18 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	move and expand code that tries to follow a fork (i.e. also check
  	for vfork and exec
 	(init_wait_for_inferior): Initialize the new structure, pending_follow
-	(delete_breakpoint_current_contents): When deleting all the breakpoints also 
+	(delete_breakpoint_current_contents): When deleting all the breakpoints also
 	set the breakpoint struct pointer to NULL.
 	(wait_for_inferior): A number of changes.
- 	The step_resume_breakpoint and through_sigtramp_breakpoint local 
-	variables are now visible in entire module. 
+ 	The step_resume_breakpoint and through_sigtramp_breakpoint local
+	variables are now visible in entire module.
 	Changed name of variable from child_inferior_pid to saved_inferior_pid.
-	Added several cases to the event processing switch statement: 
+	Added several cases to the event processing switch statement:
 	Target_WAITKIND_FORKED, TARGET_WAITKIND_VFORKED, TARGET_WAITKIND_EXECD.
 	Also, for TARGET_WAITKIND_STOPPED, check to see if expecting a trap
 	from the parent of a vfork (ignorable) otherwise break as usual.
-	When determining the value of 'random_signal' (0 or 1), no longer check for 
-	catchpoints. 
+	When determining the value of 'random_signal' (0 or 1), no longer check for
+	catchpoints.
 	When determining how to handle unexpected signals, must now take into
 	account fork, vfork, and exec.
 	Change call to PC_IN_CALL_DUMMY to a call to CALL_DUMMY_HAS_COMPLETED
@@ -1420,11 +1420,11 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	Deleted static variable: Parent_of_vfork_trap_expected_and_ignorable
 	Altered the pending_follow and fork_event structs
 	(follow_inferior_fork): Before detaching from child and removing
-	all breakpoints form it -- but only if forking or following 
+	all breakpoints form it -- but only if forking or following
  	vforks as soon as they happen. Also reset the solib inferior hook.
 	The same kind of logic applies to hitting step_resume_breakpoints
-	(calling breakpoint_re_set_thread) and to resetting and inserting 
-	breakpoints. 
+	(calling breakpoint_re_set_thread) and to resetting and inserting
+	breakpoints.
 	(follow_exec): Forward decl
 	(follow_vfork): Check to see if gdb followed the child. If
 	the child exec'd before gdb saw the parent's vfork event
@@ -1432,13 +1432,13 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(follow_exec): If the exec occured after a vfork, then follow
 	the vfork as well. Do it before following the exec.
 	Make sure to update breakpoints after and exec
-	(resume): New local variable, should_resume. 
-	Change parameters in calls to follow_fork, follow_vfork, and 
+	(resume): New local variable, should_resume.
+	Change parameters in calls to follow_fork, follow_vfork, and
 	follow_exec. Some changes to the way various pending_follow.kind
-	situations are handled (there's TARGET_WAITKIND_FORKED, 
+	situations are handled (there's TARGET_WAITKIND_FORKED,
 	TARGET_WAITKIND_VFORKED, ARGET_WAITKIND_EXECD. Some additional
 	conditions to check before deciding to resume the target (i.e.
-	should_resume=1, stepping?, thread_step_needed?i, regular 
+	should_resume=1, stepping?, thread_step_needed?i, regular
 	resume?)
 	(proceed): When proceeded at location that does not have a breakpoint
 	set thread_step_needed=0 to indicate that it is not necessary to
@@ -1448,16 +1448,16 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(init_wait_for_inferior): Initialize new fields in fork_event
 	structure and add a call to clear_proceed_status.
 	(wait_for_inferior): New local variable: New_thread_event.
-	Initialize thread_step_needed = 0. 
-	Minor massaging of conditions for adding a new thread to the thread list. 
+	Initialize thread_step_needed = 0.
+	Minor massaging of conditions for adding a new thread to the thread list.
 	No longer resuming execution after adding a new thread. Let user play with thread first.
 	Some changes in the way TARGET_WAITKIND_FORKED, ARGET_WAITKIND_VFORKED,
-	TARGET_WAITKIND_EXECD are handled -- this is all HPUX related. 
+	TARGET_WAITKIND_EXECD are handled -- this is all HPUX related.
 	Simplified TARGET_WAITKIND_STOPPED -- HP previously had some
-	more complicated code in here. 
+	more complicated code in here.
 	Moved the code to resume threads to after the large case statement that processes the events.
-	Additional processing for stop_signal=TARGET_SIGNAL_TRAP. 
-	Cleanup code at process_event_stop_test label. 
+	Additional processing for stop_signal=TARGET_SIGNAL_TRAP.
+	Cleanup code at process_event_stop_test label.
 	Set thread_step_needed when processing a BPSTAT_WHAT_SINGLE.
 	Minor massaging of fork/vfork/exec part of stop_stepping code.
 	(normal_stop): Minor changes. calling show_and_print_stack_frame.
@@ -1469,23 +1469,23 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  (follow_fork_mode_kind_names): New array
 	  (follow_fork): New function. implements the follow parent,
 	    or child functionality.
- 	  (resume): Additions to check whether the target process 
+ 	  (resume): Additions to check whether the target process
 	    just forked and decide which process to follow.
 	  (wait_for_inferior): Additional variables (child_inferior_pid,
-	      stepping_through_solib_after_catch, 
+	      stepping_through_solib_after_catch,
 	    -  stepping_through_solib_catchpoints.
 	    -  Altered CURRENTLY_STEPPING macro to check for stepping through
 	       a shared library after hitting a catchpoint.
 	    - Add parameters to save_infrun_state call
 	    - Check for fork and vfork when deciding if event is a random
 	       signal
-	    - When considering stops due to breakpoints, check for 
+	    - When considering stops due to breakpoints, check for
 	      BPSTAT_WHAT_CHECK_SHLIBS_RESUME_FROM_HOOK
 	    - Check for stop due to an explicit catchpoint
 	    - When checking for single stepping event, also check for
 	      stepping to get out of dynamic linker's hook after catching
 	      a shlib event
-	  (is_internal_shlib_eventpoint): New funct. check to see if 
+	  (is_internal_shlib_eventpoint): New funct. check to see if
 	      event type is bp_shlib_event.
 	  (stopped_for_internal_shlib_event): New funct. check for shlib
 	      events
@@ -1495,28 +1495,28 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	      fork command.
 	  (_initialize_infrun): Additions for follow-fork-mode command.
 
-	* infrun.c: Ifdefing references to 
-	switched_from_inferior_pid for HPUXHPPA. They don't seem 
+	* infrun.c: Ifdefing references to
+	switched_from_inferior_pid for HPUXHPPA. They don't seem
 	useful for Solaris (i.e. non-HPUX)
 
 	* infrun.c: Included tuiData.h and tuiDataWin.h, ifdefed for TUI.
-	Included top.h. New static variables: Switched_from_inferior_pid, 
-	number_of_threads_in_syscalls. 
+	Included top.h. New static variables: Switched_from_inferior_pid,
+	number_of_threads_in_syscalls.
 	(follow_inferior_fork): If there is a step_resume breakpoint
-	explicitly reset the thread number. 
-	(resume): For TARGET_WAITKIND_VFORKED, removed a check for getting 
+	explicitly reset the thread number.
+	(resume): For TARGET_WAITKIND_VFORKED, removed a check for getting
 	the vfork event to soon.
-	(init_wait_for_inferior): Added parameter to call to 
+	(init_wait_for_inferior): Added parameter to call to
 	breakpoint_init_inferior. Initialize number_of_threads_in_syscalls.
 	(wait_for_inferior): New local variables: Prev_sal,
 	enable_hw_watchpoints_after_wait, stepping_through_sigtramp,
 	stepped_after_stopped_by_watchpoint. Enable watchpoints after a wait.
-	Added cases for TARGET_WAITKIND_SYSCALL_ENTRY and 
+	Added cases for TARGET_WAITKIND_SYSCALL_ENTRY and
 	TARGET_WAITKIND_SYSCALL_RETURN.
 	Do additional processing if stop due to breakpoint, but breakpoint is
 	only valid for a thread other than the one currently running. Additional
 	parameters to save_infrun_state and load_infrun_state. Some additional
-	processing for BPSTAT_WHAT_STEP_RESUME. Some additional processing to 
+	processing for BPSTAT_WHAT_STEP_RESUME. Some additional processing to
 	handle stepping over a function.
 	(normal_stop): Added notification of switching threads. ifdefing some
 	TUI changes and leaving out non-essential TUI changes.
@@ -1530,30 +1530,30 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(child_attach_to_process): Declare.
 	(child_stop): Make static to match declaration.
 
-	* inftarg.c (ptrace_him): Change prototype back to return int. 
+	* inftarg.c (ptrace_him): Change prototype back to return int.
 
 	* inftarg.c (ptrace_me): Remove debug output, pass NULL to
 	fork_inferior if not HPUX.
 
-	* inftarg.c: 
+	* inftarg.c:
 	  (child_require_attach): New funct prototype and definition
 	  (child_require_detach): New funct prototype and definition
 	  (proc_wait): Funct prototype and definition are enclosed by
 	    proc_wait ifndef
-	  (child_attach_to_process): New function, does most of the 
-	    work that child_attach used to do and some additional 
+	  (child_attach_to_process): New function, does most of the
+	    work that child_attach used to do and some additional
 	    work to determine whether gdb is already attached to the
 	    target how to react.
 	  (child_attach): Altered. It's now a wrapper for
 	    child_attach_to_process.
 	  (child_require_attach): New function, called if should attach
 	    even when gdb is already attached to target.
-	  (child_detach_from_process): New function, does most of the 
+	  (child_detach_from_process): New function, does most of the
 	    work that child_detach used to do and some additional work
 	    to determine whether gdb is currently attached to the target.
-	  (child_detach): Altered. It's now a wrapper for 
+	  (child_detach): Altered. It's now a wrapper for
 	    child_detach_from_process.
-	  (child_require_detach): New function, called if should try to 
+	  (child_require_detach): New function, called if should try to
 	    detach even when gdb is not attached to target.
 	  (ptrace_him): Calls a new function, target_acknowledge_forked_child.
  	    Currently, target_acknowledge_forked_child, is only defined to
@@ -1562,12 +1562,12 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  (child_ops): Added to_require_attach and to_require_detach fields
 	    to the child_ops target ops vector.
 
-	* inftarg.c: 
-	  Some hacks for ttrace work 
+	* inftarg.c:
+	  Some hacks for ttrace work
 	  (child_wait): Additional local variables, additional code in
-	    while loop to check for: Process exited, process forked, 
+	    while loop to check for: Process exited, process forked,
 	    process vforked, process execd
-	  (child_thread_alive): John B. seems to think that the kill 
+	  (child_thread_alive): John B. seems to think that the kill
 	    call is inapproapriate for HPUX.
 	  (child_attach_to_process): Using strtol rather than atoi.
 	    no longer check for case where there is no known exec file.
@@ -1578,22 +1578,22 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  (child_create_catch_vfork_hook): Deleted
 	  (child_insert_vfork_catchpoint): New function, a default, a no-op
 	  (child_remove_vfork_catchpoint): New function, a default, a no-op
-	  (child_can_follow_vfork_prior_to_exec ):new function, a default, 
+	  (child_can_follow_vfork_prior_to_exec ):new function, a default,
  	     a no-op
 	  (child_insert_exec_catchpoint): New function, a default, a no-op
 	  (child_remove_exec_catchpoint): New function, a default, a no-op
 	  (child_has_execd): New function, a default, returns 0
-	  (child_reported_exec_events_per_exec_call): New function, a 
+	  (child_reported_exec_events_per_exec_call): New function, a
  	     default, returns 1
 	  (child_has_exited): New function, a default.
 	  (child_core_file_to_sym_file): New function, a default, returns NULL.
-	  (child_ops): Initialize new target_ops vector fields to the 
+	  (child_ops): Initialize new target_ops vector fields to the
 	     child* functions.
-	* infptrace.c: 
+	* infptrace.c:
 	(Call_ptrace): For HPUX, handle additional requests: Pt_CONTIN1,
 	  PT_STEP1.
 	(require_notification_of_events): Add several signals to the
-	  set of events requiring notification: Ptrace_SIGNAL, 
+	  set of events requiring notification: Ptrace_SIGNAL,
 	  PTRACE_EXEC, PTRACE_FORK, PTRACE_VFORK
 	(child_acknowledge_created_inferior): This function is only
 	  defined if CHILD_ACKNOWLEDGE_CREATED_INFERIOR is defined.
@@ -1610,28 +1610,28 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(child_has_vforked): Now enclosed by CHILD_HAS_VFORKED ifdef
 	(child_can_follow_vfork_prior_to_exec): New function
 	(child_insert_exec_catchpoint): New function
-	(attach): Removed call to require_notification_of_events 
-	(child_post_attach): New function, call to 
+	(attach): Removed call to require_notification_of_events
+	(child_post_attach): New function, call to
 	  require_notification_of_events moved here.
-	(child_pid_to_exec_file): New enclosed by CHILD_PID_TO_EXEC_FILE ifdef 
+	(child_pid_to_exec_file): New enclosed by CHILD_PID_TO_EXEC_FILE ifdef
 	  introduced the concept of a saved_inferior_pid
-	(hppa_require_attach): Add some code to decide if gdb is already 
+	(hppa_require_attach): Add some code to decide if gdb is already
 	  attached to process. Can not figure this out via a ptrace call.
 	(hppa_insert_hw_watchpoint): New function
 	(hppa_remove_hw_watchpoint): New function
 
-	* inftarg.c: 
+	* inftarg.c:
 	(child_attach_to_process): Change position in file
 	(child_detach_from_process): Change position in file
 
-	* inftarg.c: 
+	* inftarg.c:
 	(child_attach_to_process): Changed parameter to child_wait call
 
-	* inftarg.c: 
+	* inftarg.c:
 	(child_post_wait): New function declaration and definition
 	(ptrace_him):
  	   - change return value to a void.
-	   - change target_acknowledge_forked_child call to 
+	   - change target_acknowledge_forked_child call to
 	     target_acknowledge_created_inferior
 	   - call target_post_startup_inferior rather than returning pid.
 	(child_attach_to_process): Change param name, fail_if_already_attached
@@ -1640,7 +1640,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  Use REQUIRE_ATTACH macro
 	  (child_attach): Change params in child_attach_to_process call
 	  (child_require_attach): Change params in child_attach_to_process call
-	  (child_detach_to_process): Change param name, 
+	  (child_detach_to_process): Change param name,
 	    fail_if_already_attached -> after_fork.
 	  Invert a couple of if-then-else statments.
 	  Use REQUIRE_DETACH macro
@@ -1659,20 +1659,20 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  (child_stop): No longer a static function
 	  (child_pid_to_exec_file): New function
 
-	* inftarg.c: 
+	* inftarg.c:
 	(child_wait): Child_pid becomes related pid. return pid
 	rather than inferior_pid. Changes are in code handling fork
 	and vfork
 
-	* inftarg.c: 
+	* inftarg.c:
 	Include gdb_stat.h and sys/unistd.h
 	(child_wait): New local variables. Check for live threads.
 	Check for syscall events
-	(child_thread_alive): No longer a static funct. 
+	(child_thread_alive): No longer a static funct.
 	(ptrace_him): Remove some code inserted in snap3
-	(child_create_inferior): Added a bunch of code to handle a 
+	(child_create_inferior): Added a bunch of code to handle a
 	bad interaction between start-up-with-shell and the HP
-	catch-fork/catch-exec logic. I am ifdefing this for 
+	catch-fork/catch-exec logic. I am ifdefing this for
 	HPUXHPPA for now.
 	(child_has_syscall_event): New default target_ops function
 	(child_enable_exception_callback): New default target_ops function
@@ -1682,7 +1682,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* inftarg.c: Remove HPUX_SNAP1 and HPUX_SNAP2 ifdefs
 
 	* inftarg.c: Reverted previous change.
-	
+
 	* infttrace.c (hppa_remove_hw_watchpoint): Fix check for write
 	access hardware watchpoint.
 
@@ -1710,7 +1710,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
  	tuiTermSetup are called
 
 	* main.c (fputs_unfiltered): Changed function so that it
-	checks to see if output is to a string buffer or to a 
+	checks to see if output is to a string buffer or to a
 	FILE stream and does the correct action (i.e. strcat or
 	fputs). Fixed params for fputs call.
 
@@ -1734,37 +1734,37 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* objfiles.c (find_pc_sect_section): Make end condition be less
 	than s->endaddr, not less than or equal to s->endaddr.
 
-	* objfiles.c: 
+	* objfiles.c:
 	(allocate_objfile): 2 new parameters: User_loaded and is_solib.
 	When appropriate, record in the object file that it is user loaded.
  	The run command can use this information to purge object file
-	entries associated with the old inferior and keep user loaded 
+	entries associated with the old inferior and keep user loaded
 	object files loaded via the add-symbol-file command.
 	(objfile_purge_solibs): New function. deletes all objectfile entries
 	that are not explicitly loaded by the user.
-	
-	* objfiles.c: 
+
+	* objfiles.c:
 	(objfile_relocate): Check for LOC_INDIRECT
-	(find_pc_sect_section): Change condition from 
+	(find_pc_sect_section): Change condition from
 	pc < s->endaddr to pc <= s->endaddr
 
-	* objfiles.h: 
+	* objfiles.h:
 	New variables: User_loaded and is_solib
 	(OBJF_SHARED): New macro. used to distinguish objfile for
 	shared library from "vanilla" objfile.
 	(allocate_objfile): Add new parameters to function decl.
 	(objfile_purge_solibs): New function decl.
-	
+
 	* objfiles.h: Add some typedefs: Importentry, ExportEntry.
 	Add some new variables: Import_list, import_list_size,
 	export_list, export_list_size
-	
-	* osfsolib.c: 
+
+	* osfsolib.c:
 	(symbol_add_stub): Added params to call to symbol_file_add
 
 	* pa/hpux1020.mh (NATDEPFILES): Add corelow.o, symbol table and
 	solib files.
-	
+
 	* pa/hpux1100.mh (NAT_FILE): Use nm-hppah11.h.
 	(NATDEPFILES): Add symbol table and solib files.
 
@@ -1774,20 +1774,20 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* parse.c (write_dollar_variable): Handle cases in which variables
 	besides the debugger ones start with $ and $$.
-	(parse_nested_classes_for_hpacc): New function.  Parse a string that 
+	(parse_nested_classes_for_hpacc): New function.  Parse a string that
 	is possibly a namespace / nested class specification.
-	(find_template_name_end): New function. 
+	(find_template_name_end): New function.
 
-	* procfs.c: 
+	* procfs.c:
 	(procfs_init_inferior): Return value is now a void.
 
 	* procfs.c (procfs_ops): Initializing new target ops vector fields. see list below.
-	
-	* procfs.c: 
+
+	* procfs.c:
 	(procfs_ops): Adding new target_ops vector fields and
 	  removing a few. see list below
 
-	* procfs.c: Added new fields to procfs_ops. 
+	* procfs.c: Added new fields to procfs_ops.
 	Necessary since we still have oldstyle initialization in
 	this file
 
@@ -1803,22 +1803,22 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* serial.c (serial_logchar): Change chtype to ch_type.  sigh.
 
-	* solib.c (look_for_base): The parameter to file must be 
+	* solib.c (look_for_base): The parameter to file must be
 	of type FILE *. So cast exec_bfd -> iostream in the call
 	to fileno as a FILE *, not a GDB_FILE *. This will work because
-	exec_bfd -> iostream is declared and given a value in bdf and 
+	exec_bfd -> iostream is declared and given a value in bdf and
 	bfd will continue to use FILE rather than GDB_FILE.
 
-	* solib.c: 
+	* solib.c:
 	(solib_add): Remove references to exec_ops.
 
-	* solib.c: 
+	* solib.c:
 	(solib_add): Update exec_ops.to_sections
 
-	* solib.c: 
+	* solib.c:
 	(symbol_add_stub): Added params to call to symbol_file_add
 
-	* solib.h: 
+	* solib.h:
 	(SOLIB_REMOVE_INFERIOR_HOOK): New macro. defined to 0.
 	functionality not implemented for this target.
 
@@ -1841,32 +1841,32 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(som_symtab_read): Change test for dynamic executable.
 	(is_in_import_list): New function. Check if a given symbol name
  	is in the import list.
-	(init_import_symbols): New function. Read in and initialize the 
+	(init_import_symbols): New function. Read in and initialize the
 	som import list.
-	(init_export_symbols): New function. Read in and initialize the 
+	(init_export_symbols): New function. Read in and initialize the
 	som export list.
 
-	* somread.c: 
+	* somread.c:
 	(som_symfile_read): Fix missing comment delimiters
 
-	* somsolib.c (DLD_FLAGS_MAPPRIVATE): New macro. 
+	* somsolib.c (DLD_FLAGS_MAPPRIVATE): New macro.
 	Define bit of __dld_flags in HP-UX a.out files.
 	(DLD_FLAGS_HOOKVALID): Ditto.
 	(DLD_FLAGS_LISTVALID): Ditto.
 	(DLD_FLAGS_BOR_ENABLE): Ditto.
-	(som_solib_total_st_size): Cumulative size in bytes of the 
+	(som_solib_total_st_size): Cumulative size in bytes of the
 	symbol tables of all shared objects on the so_list_head list.
 	(som_solib_st_size_threshhold_exceeded): Threshold for adding symbols
 	for shlibs.
-	(som_solib_sizeof_symbol_table): New function. Computes size of 
+	(som_solib_sizeof_symbol_table): New function. Computes size of
 	symbol table for a shlib.
 	(som_solib_load_symbols): New function. Load symbols from shlib.
-	(som_solib_add): Detect if __dld_list is not valid. 
+	(som_solib_add): Detect if __dld_list is not valid.
 	Record main program's symbol table size.
 	Load symbols if called from command line.
 	Keep threshold into account when loading shlib symbols.
 	(som_solib_create_inferior_hook): Use dld_flags macros.
-	(som_sharedlibrary_info_command): Let user know if symbols were 
+	(som_sharedlibrary_info_command): Let user know if symbols were
 	not loaded.
 	(som_solib_restart): Discard all the shlibs descriptors.
 	(_initialize_som_solib): Chenge help message for auto-solib-add
@@ -1894,24 +1894,24 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
  	msymbol, passing a NULL to lookup_minimal_symbol_solib_trampoline,
 	and ultimately core dumping with a SEGV.
 
-	* somsolib.c: 
+	* somsolib.c:
 	Include assert.h
-	(som_solib_mapped_entry): Additional comments for text_addr, 
+	(som_solib_mapped_entry): Additional comments for text_addr,
 	text_link_addr, text_end, and tsd_start_addr fields. Commenting
-	out 2 tsd fields, __data_start and __data_end. 
+	out 2 tsd fields, __data_start and __data_end.
 	(som_solib_add_solib_objfile): Add params to calls to symbol_file_add.
-	Add some code for distinguishing between a shared library and other 
-	objfiles. This appears to be a prelude to thread local storage.	
-	(som_solib_load_symbols): Changes to printf statement 
+	Add some code for distinguishing between a shared library and other
+	objfiles. This appears to be a prelude to thread local storage.
+	(som_solib_load_symbols): Changes to printf statement
 	enclosed by SOLIB_DEBUG ifdef.
 	(som_solib_add): Change comment to correctly specify path
 	to end.o -- /opt/langtools/lib/end.o. changes to printf statement
  	enclosed by SOLIB_DEBUG ifdef.
 	Removed several SOLIB_DEBUG ifdefs and the associated printfs.
-	Add code to find the start address for the object file's thread 
+	Add code to find the start address for the object file's thread
 	local storage
 	(som_solib_create_inferior_hook): Fix warning messages use correct
-	path to end.o -- /opt/langtools/lib/end.o. Change control flow. 
+	path to end.o -- /opt/langtools/lib/end.o. Change control flow.
 	No longer user early returns from function is cases of error.
 	(reset_inferior_pid): New function
 	(som_solib_remove_inferior_hook): New function
@@ -1922,9 +1922,9 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* somsolib.c: Add debugging macro.
 	(struct som_solib_mapped_entry): Add new field tsd_start_addr.
 	(struct so_list): Added new field solib_addr.
-	(som_solib_add_solib_objfile): New function. 
+	(som_solib_add_solib_objfile): New function.
 	(som_solib_load_symbols): Rewritten.
-	(som_solib_add): Make sure we don't load the symbols in if the 
+	(som_solib_add): Make sure we don't load the symbols in if the
 	threshold was exceeded.
 	(som_solib_get_solib_by_pc): New function. Return the address of
  	handle of the shared library.
@@ -1936,7 +1936,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* somsolib.h (DISABLE_UNSETTABLE_BREAK): New macro.
 	(PC_SOLIB): New macro.
 
-	* somsolib.h: 
+	* somsolib.h:
 	(SOLIB_CREATE_CATCH_LOAD_HOOK): Define
 	(SOLIB_CREATE_CATCH_UNLOAD_HOOK): Define
 	(SOLIB_HAVE_LOAD_EVENT): Define
@@ -1946,12 +1946,12 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(SOLIB_IN_DYNAMIC_LINKER): Define
 	(SOLIB_RESTART): Define
 
-	* somsolib.h: 
-	(SOLIB_REMOVE_INFERIOR_HOOK): New macro. defined to use 
+	* somsolib.h:
+	(SOLIB_REMOVE_INFERIOR_HOOK): New macro. defined to use
 	som_solib_remove_inferior_hook.
 
-	* somsolib.h: 
-	(som_solib_create_catch_load_hook) 
+	* somsolib.h:
+	(som_solib_create_catch_load_hook)
 	(som_solib_create_catch_unload_hook)
 	(som_solib_have_load_event)
 	(som_solib_loaded_library_pathname)
@@ -1970,23 +1970,23 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(reverse_search_command): Tui changes.
 	(_initialize_source): Add xdb and dbx compatibility commands.
 
-	* source.c (list_command): Handle case of odd number of source 
+	* source.c (list_command): Handle case of odd number of source
 	lines to display.
 
-	* source.c: 
+	* source.c:
 	(source_full_path_of): New function. file was overlooked
 	in merge ;-/.
-	
+
 	* stack.c (func_command): Make high bound be <, not <=.
 
 	* stack.c (_initialize_stack): For the backtrace command, delete
 	the help line about usage, since this has to be a valid help
 	message for the 'where' command too.
-	
-	* stack.c (current_frame_command): Add a check for the 
+
+	* stack.c (current_frame_command): Add a check for the
 	existance of a stack. If there is no stack produce an
 	error message and exit.
-	
+
 	* stack.c (down_silently_base, up_silently_base,
  	args_plus_locals_info, print_frame_info_base,
  	print_stack_frame_base, print_stack_frame_base_stub): Declare.
@@ -2009,40 +2009,40 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	down_silently_base.
 	(_initialize_stack): Register new commands based on values of
 	xdb_commands and dbx_commands variables.
-	
+
 	* stack.c (func_command): Make high bound be <, not <=.
-	
+
 	* stack.c (parse_frame_specification): Fix prototype to match
 	function definition.
 	(show_and_print_stack_frame_stub): Fix name.
 	(select_and_print_frame): Change uncaught tuiDO call.
-	
+
 	* stack.c (up_silent_base): Rename from up_silently_command_base.
-	
+
 	* symfile.c (symbol_file_command): Only call SOLIB_RESTART if it's
 	defined.
 
 	* symfile.c (add_psymbol_with_dem_name_to_list): New function.
-	Adds a symbol with a long value to a psymtab. Differs from 
+	Adds a symbol with a long value to a psymtab. Differs from
 	add_psymbol_to_list in taking both a mangled and a demangled name.
-	
+
 	* symfile.c (compare_psymbols): Call strcmp directly, instead of
 	using macro.
-	
+
 	* symfile.c (symbol_file_add): Reindent portions.
 	(symbol_file_command): Add call to tuiDo.
-	
+
 	* symfile.c (symbol_file_command): Only call SOLIB_RESTART if it's
 	defined.
 
 	* symfile.c (symfile_bfd_open): Add code to call PXDB on hpux, if
 	the file has not already been processed by pxdb.
 	Added define USE_PXDB.
-	
+
 	* symfile.c (symfile_bfd_open): Change parenthesis positioning
 	around call to hpread_pxdb_check.
-	
-	* symfile.c (symfile_bfd_open): Make not static. 
+
+	* symfile.c (symfile_bfd_open): Make not static.
 	(RESET_HP_UX_GLOBALS): New macro. Resets globals when new symbol
 	file loaded.
 	(USE_PXDB): Not needed. Removed.
@@ -2051,52 +2051,52 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	loaded.
 	(symfile_bfd_open): Comment out checking for pxdb.
 	(reread_symbols): Reset HP specific globals.
-	
+
 	* symfile.c (symfile_bfd_open): Uncomment hpus specific code.
-	
-	* symfile.c: 
+
+	* symfile.c:
 	(symbol_file_add): Add user_loaded and is_solib parameters.
 	fixed number of parameters in call to allocate_objfile
 	(symbol_file_command): Added call to SOLIB_RESTART macro.
 	fixed number of parameters in calls to symbol_file_add.
-	(add_symbol_file_command): Fixed number of parameters in calls to 
+	(add_symbol_file_command): Fixed number of parameters in calls to
 	symbol_file_add.
-	
+
 	* symfile.c: Added prototype for hpread_pxdb_check.
-	
-	* symfile.c: Changed HPUX_SNAP1 ifdef to HPUXHPPA. enclosed calls to 
+
+	* symfile.c: Changed HPUX_SNAP1 ifdef to HPUXHPPA. enclosed calls to
 	  RESET_HP_UX_GLOBALS with an HPUXHPPA ifdef
-	
+
 	* symfile.h (symfile_bfd_open): Add protptype.
-	
+
 	* symfile.h: Add prototype for add_psymbol_with_dem_name_to_list.
-	
+
 	* symfile.h: Clarify purpose of auto_solib_add.
-	
+
 	* symmisc.c (maintenance_print_symbols): Call gdb_fclose, not
 	fclose on a GDB_FILE* during cleanup.
 	(maintenance_print_psymbols): Call gdb_fclose, not fclose on a
 	GDB_FILE* during cleanup.
 	(maintenance_print_msymbols): Call gdb_fclose, not fclose on a
 	GDB_FILE* during cleanup.
-	
+
 	* symmisc.c (maintenance_print_symbols): Gdb_fclose now takes a
-	GDB_FILE ** parameter. Fix the local GDB_FILE variables and the 
+	GDB_FILE ** parameter. Fix the local GDB_FILE variables and the
 	call to make_cleanup.
 	(maintenance_print_psymbols): Ditto
 	(maintenance_print_msymbols): Ditto
-	
-	* symmisc.c (print_objfile_statistics): Close quotes in 
+
+	* symmisc.c (print_objfile_statistics): Close quotes in
 	output strings.
 
-	* symmisc.c: 
+	* symmisc.c:
 	(Print_symbol): Add LOC_INDIRECT to switch statement
 	(print_partial_symbols): Add LOC_INDIRECT to switch statement
 
 	* symtab.c (find_pc_sect_psymtab): High bounds should be <, not <=.
 	(find_pc_sect_symtab): Ditto.
 
-	* symtab.c (hp_som_som_object_present): New flag to indicate HP 
+	* symtab.c (hp_som_som_object_present): New flag to indicate HP
 	compiled code.
 	(find_pc_sect_psymtab): Change tests to make sure we are checking
 	the texthigh adress as well.
@@ -2109,11 +2109,11 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(find_pc_sect_line): Return correct information if pc is in import
 	or export stub (trampoline).
 	(decode_line_1): Skip two chars, if they are '$$'. Like for HP's
-	$$dyncall. Handle cases in which varaible and function names can start 
+	$$dyncall. Handle cases in which varaible and function names can start
 	with $.
 	(overload_list_add_symbol): If cannot demangle name, use it as is.
 	Free string after use.
-	(make_symbol_overload_list): Initialize oload_name to NULL and 
+	(make_symbol_overload_list): Initialize oload_name to NULL and
 	oload_name_len to 0. If demangle not successful, use name as it is.
 	Free string after use.
 
@@ -2122,11 +2122,11 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* symtab.c (lookup_symbol): Change HPUX_SNAP1 ifdef to a HPUXHPPA ifdef
 
-	* symtab.c (lookup_symbol): Ifdef the searching of symbol in the 
-	minimal symbol tables, for hpux we move this check at the end 
+	* symtab.c (lookup_symbol): Ifdef the searching of symbol in the
+	minimal symbol tables, for hpux we move this check at the end
 	of the function.
-	Before we error out if symbol is not found in the symtab, look 
-	in the statics. 
+	Before we error out if symbol is not found in the symtab, look
+	in the statics.
 	Before erroring out if static symbol not found look in the globals.
 
 	* symtab.c (lookup_symbol): Return symbol as soon as found.
@@ -2136,41 +2136,41 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(overload_list_add_symbol): New function. Overload
 	resolution support.
 	(make_symbol_overload_list): Ditto.
-	
-	* symtab.c: 
+
+	* symtab.c:
 	(find_template_name_end): New prototype decl.
-	(lookup_symbol):  When a global or static symbol shows up in the 
+	(lookup_symbol):  When a global or static symbol shows up in the
 	psymtab table, but not the symtab table, tell the user that
 	the symbol may be an inlined function or a template function and
-	provide some guidance to the user about how to more fully 
+	provide some guidance to the user about how to more fully
 	specify the symbol.
-	(lookup_transparent_type):  When a global or static symbol shows up 
+	(lookup_transparent_type):  When a global or static symbol shows up
 	in the psymtab table, but not the symtab table, tell the user that
 	the symbol may be an inlined function or a template function and
-	provide some guidance to the user about how to more fully 
-	specify the symbol. 
+	provide some guidance to the user about how to more fully
+	specify the symbol.
 	(decode_line_1): Handle template function specification when decoding a
 	line. May need to be ifdefed for HP's aCC?
 	(_initialize_symtab): Handle dbx commands.
 
-	* symtab.h (address_class): Add new address calss for 
+	* symtab.h (address_class): Add new address calss for
 	LOC_THREAD_LOCAL_STATIC and LOC_INDIRECT.
 	(lookup_transparent_type): Add prototype.
 	(exception_event_kind): New enum for exception catchpoints.
 	(exception_event_record): New structure for exception catchpoints.
 	(CURRENT_EXCEPTION_KIND): New macro.
-	(CURRENT_EXCEPTION_CATCH_SAL): New macro. 
-	(CURRENT_EXCEPTION_CATCH_LINE): New macro. 
-	(CURRENT_EXCEPTION_CATCH_FILE): New macro. 
-	(CURRENT_EXCEPTION_CATCH_PC): New macro. 
-	(CURRENT_EXCEPTION_THROW_SAL): New macro. 
-	(CURRENT_EXCEPTION_THROW_LINE): New macro. 
-	(CURRENT_EXCEPTION_THROW_FILE) new macro.: 
-	(Current_EXCEPTION_THROW_PC): New macro. 
+	(CURRENT_EXCEPTION_CATCH_SAL): New macro.
+	(CURRENT_EXCEPTION_CATCH_LINE): New macro.
+	(CURRENT_EXCEPTION_CATCH_FILE): New macro.
+	(CURRENT_EXCEPTION_CATCH_PC): New macro.
+	(CURRENT_EXCEPTION_THROW_SAL): New macro.
+	(CURRENT_EXCEPTION_THROW_LINE): New macro.
+	(CURRENT_EXCEPTION_THROW_FILE) new macro.:
+	(Current_EXCEPTION_THROW_PC): New macro.
 
 	* symtab.h(make_symbol_overload_list): Add prototype.
 
-	* symtab.h: 
+	* symtab.h:
 	(symbol_file_add): Add new params to function decl.
 
 	* target.c (cleanup_target): Changed casting of default functions for
@@ -2184,7 +2184,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* target.c (cleanup_target): Syntax error, mismatched paranthesis.
 
-	* target.c: 
+	* target.c:
 	  (Default_clone_and_follow_inferior): New funct prototype declaration
 	    and function definition
 	  (dummy_target): More target_ops vector changes for HPUX
@@ -2211,19 +2211,19 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  (debug_to_post_follow_vfork): New funct
 	  (setup_target_debug): Initialize new target_ops vector fields.
 
-	* target.c: 
-	(Cleanup_target): Fixed the return type on a few of the 
+	* target.c:
+	(Cleanup_target): Fixed the return type on a few of the
 	  default function values.
 
-	* target.c: 
+	* target.c:
 	(Dummy_target): Add 3 new fields
 	(nosupport_runtime): New function, used in cleanup_target
 	(cleanup_target): Changes in the de_fault macro, both to
 	accomodate the new target_ops vector fields and to use
 	more accurate default functions.
-	(update_current_target): Add new target_ops vector fields to the 
+	(update_current_target): Add new target_ops vector fields to the
 	INHERIT macro
-	(generic_mourn_inferior): The call to breakpoint_init_inferior now takes a 
+	(generic_mourn_inferior): The call to breakpoint_init_inferior now takes a
 	parameter
 	(normal_pid_to_str): Adding a \0 to the end of buf.
 	(debug_to_has_syscall_event): New func
@@ -2231,21 +2231,21 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(debug_to_get_current_exception_event): New func
 	(setup_target_debug): Initialize the 3 new target_ops vector fields
 
-	* target.c: 
+	* target.c:
 	(Struct signals): Fix message associated with SIGRETRACT.
 
-	* target.c: 
+	* target.c:
 	  (Dummy_target): Fix syntax error
-	  (cleanup_target): Changed the default values for the new 
+	  (cleanup_target): Changed the default values for the new
 	     target_ops vector fields. HP folks inappropriately set
 	     most of them to noprocess(). They should be a mixture
 	     of ignore() and return_zero().
 
-	* target.c: 
+	* target.c:
 	(Dummy_target): Add new target_ops vector fields and their initializations
-	(cleanup_target): Added new new target_ops vector fields to the de_fault 
+	(cleanup_target): Added new new target_ops vector fields to the de_fault
 	  macro definition.
-	(update_current_target): Added new new target_ops vector fields to the INHERIT 
+	(update_current_target): Added new new target_ops vector fields to the INHERIT
 	  macro definition
 	(return_one): New function, used by the de_fault macro
 	(debug_to_post_attach): New function
@@ -2253,10 +2253,10 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  TARGET_WAITKIND_EXECD
 	(debug_to_insert_fork_catchpoint): New function
 	(debug_to_remove_fork_catchpoint): New function
-	(debug_to_insert_vfork_catchpoint): New function 
+	(debug_to_insert_vfork_catchpoint): New function
 	(debug_to_remove_vfork_catchpoint): New function
 	(debug_to_can_follow_vfork_prior_to_exec): New function
-	(debug_to_insert_exec_catchpoint): New function 
+	(debug_to_insert_exec_catchpoint): New function
 	(debug_to_remove_exec_catchpoint): New function
 	(debug_to_core_file_to_sym_file): New function
 	(setup_target_debug): Give new fields in current_target target_ops vector values.
@@ -2279,18 +2279,18 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(info_threads_commands): Don't lose the users position within the
 	current thread -- remember it and then restore it.
 
-	* thread.c: 
+	* thread.c:
 	(struct thread_info): Add stepping_through_sigtramp field
 	(add_thread): Initialize stepping_through_sigtramp field
 	(load_infrun_state): Add stepping_through_sigtramp param and
 	make sure it gets assigned a value.
 	(save_infrun_state): Add stepping_through_sigtramp param and
 	make sure that the value gets saved.
-	(info_threads_command): Ifdefing some local variables and 
+	(info_threads_command): Ifdefing some local variables and
 	code for HPUXHPPA. HP folks want print the tid rather than pid?
 	Also, looks like the HP folks solved the same thread switching
 	problem that 4.17 solves. Taking 4.17.
-	(restore_current_thread): Print out the current frame after 
+	(restore_current_thread): Print out the current frame after
 	switching threads.
 	(thread_apply_all_command): Ifdefing a print statement for
 	HPUXHPPA. The HP folks want to print out a tid rather than pid?
@@ -2303,9 +2303,9 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	    (add_thread): Remove call to bpstat_clear, initialize
 	      tp->stepping_through_solib_catchpoints = NULL;
 
-	* thread.c: Changes for catchpoints, shared libaries, 
+	* thread.c: Changes for catchpoints, shared libaries,
 	  (thread_info): Additional fields in the thread_info struct
-	     for stepping_through_solib_after_catch and 
+	     for stepping_through_solib_after_catch and
 	     stepping_through_solib_catchpoints.
 	  (add_thread): Initialize the new thread_info fields.
 	  (load_infrun_state): Additional parameters for handling
@@ -2321,25 +2321,25 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(quit_force): Clean up tui on exit.
 	(init_main): Make definition of info status command dependent upon
 	dbx mode not being set.
-	(fputs_unfiltered_hook): Changed stream parameter from FILE 
+	(fputs_unfiltered_hook): Changed stream parameter from FILE
 	to GDB_FILE
 	(flush_hook): Changed stream parameter from FILE to GDB_FILE
 
 	* top.h (set_prompt): Declare.
-	
+
 	* typeprint.c (whatis_exp): Decide real runtime type. For the vtable
 	case.
 
 	* utils.c (query): Changes to prevent cursor from jumping around in the
-	TUI. Call tuiBufferGetc explicitly, rather than passing it 
+	TUI. Call tuiBufferGetc explicitly, rather than passing it
 	into tuiDo. The tuiDo function does some additional work
-	that is inappropriate when handling queries. 
-	(GDB_FILE_ISATTY): New macro that takes a GDB_FILE param and 
+	that is inappropriate when handling queries.
+	(GDB_FILE_ISATTY): New macro that takes a GDB_FILE param and
 	determines whether or not it's using a tty.
 	(gdb_file_isatty); called by the GDB_FILE_ISATTY macro. Does
 	the actual work
 	(init_page_info): Call GDB_FILE_ISATTY rather than ISATTY
-	(print_spaces): Fix parameter to fputc. fix call to 
+	(print_spaces): Fix parameter to fputc. fix call to
 	gdb_file_adjust_strbuf.
 	(gdb_file_init_astring): Fix parameter to xmalloc
 	(gdb_file_deallocate): New function to deallocate
@@ -2348,7 +2348,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	string.  Indent GNU style.
 	(gdb_fopen): Gdb_fopen is called if the GDB_FILE object is
 	actually afile rather than astring. The routine now allocates space
-	for a GDB_FILE object and initializes its fields in addition to 
+	for a GDB_FILE object and initializes its fields in addition to
 	performing an fopen.
 	(gdb_flush): Fix the parameter passed into fflush. It's now
  	stream->ts_filestream.
@@ -2396,7 +2396,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	HP_COMPILED_TARGET stuff.
 	(value_arg_coerce): Ditto.
 
-	* valops.c (call_function_by_hand): Make sure param_type is 
+	* valops.c (call_function_by_hand): Make sure param_type is
 	initialized to NULL.
 
 	* valops.c (find_rt_vbase_offset): Add parameter to value_at.
@@ -2406,11 +2406,11 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* valops.c (search_struct_field_aux): Fixed mismatching parenths
 
 	* valops.c (search_struct_field_aux): Make sure TYPE_TAG_NAME
-	is not null before copying it. 
-	
+	is not null before copying it.
+
 
 	* valops.c (search_struct_field_aux): Set found_class_name to null
-	if class has no name (anon unions case). Adjust base_addr 
+	if class has no name (anon unions case). Adjust base_addr
 	computation.
 
 	* valops.c (value_arg_coerce): Change final arg to int.
@@ -2421,15 +2421,15 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(call_function_by_hand): Do not use HP_COMPILED_TARGET, just
 	use the gcc_compiled variable.
 
-	* valops.c (value_cast): Take case of the enclosing_type and 
+	* valops.c (value_cast): Take case of the enclosing_type and
 	pointer_to_offset fields.
 	(value_at): Use VALUE_CONTENTS_ALL_RAW
 	(value_fetch_lazy): Ditto
-	(value_assign): Handle enclosing_type, embedded_offset and 
+	(value_assign): Handle enclosing_type, embedded_offset and
 	pointed_to_offset fields.
 	(value_repeat): Use VALUE_CONTENTS_ALL_RAW and VALUE_ENCLOSING_TYPE.
 	(value_ind): Set enclosing_type and embedded_offset correctly,
-	for a pointer value being dereferenced. Target memory bytes 
+	for a pointer value being dereferenced. Target memory bytes
 	corresponding to the size of the enclosing type are retreived.
 	(value_addr): Handle enclosing_type and pointed_to_offset.
 	(value_push): Use VALUE_CONTENTS_ALL and VALUE_ENCLOSING_TYPE.
@@ -2439,15 +2439,15 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(value_array): Use VALUE_CONTENTS_ALL and VALUE_ENCLOSING_TYPE.
 	(search_struct_method): Produce more informative error message.
 	(find_rt_vbase_offset): Deal with negative offsets.
-	(value_find_oload_method_list): New function. Return the list of 
+	(value_find_oload_method_list): New function. Return the list of
 	overloaded methods of a specified name.
-	(find_method_list): New function. Search through the methods of an 
+	(find_method_list): New function. Search through the methods of an
 	object (and its bases) to find a specified method.
-	(value_full_object): New function. Given a value, check its real 
+	(value_full_object): New function. Given a value, check its real
 	run-time type.
-	(value_rtti_target_type): New function. Given a pointer value V, find 
+	(value_rtti_target_type): New function. Given a pointer value V, find
 	the real (RTTI) type of the object it points to.
-	(value_rtti_type): New function. Find the real run-time type of a 
+	(value_rtti_type): New function. Find the real run-time type of a
 	value using RTTI.
 
 	* valops.c: Include gdbcmd.h
@@ -2459,18 +2459,18 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	(value_addr): Modify address value by adding the embedded offset.
 	(value_ind): Modify the address of the object by the pointed_to_offset.
 	(call_function_by_hand): Do not do any extra alignment if not needed.
-	Fetch the return value from the stack rather then from the register, 
+	Fetch the return value from the stack rather then from the register,
 	for the hppa architecture.
-	(search_struct_field): Rewritten. Now this function uses 
+	(search_struct_field): Rewritten. Now this function uses
 	search_struct_field_aux to do all the work.
-	(search_struct_field_aux): New function. This is the old 
+	(search_struct_field_aux): New function. This is the old
 	search_struct_field rewritten.
 	(find_rt_vbase_offset): Give error if virtual table pointer is not good.
 	(find_overload_match): New function. Find the best function that
 	matches on the argument types according to the overload resolution
 	rules.
 	(_initialize_valops): Add new set/show command for overload-resolution.
-	
+
 	* value.h (VALUE_POINTED_TO_OFFSET): New macro.
 	Add field pointed_to_offset to value structure.
 	Add prototypes for new functions in valops.c.
@@ -2483,8 +2483,8 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	  Added new macro, VALUE_EMBEDDED_OFFSET, and
 	  new func decl, find_rt_vbase_offset, for C++
 	  support.
-	
-	* values.c (allocate_value): Allocate also for value_embedded_offset 
+
+	* values.c (allocate_value): Allocate also for value_embedded_offset
 	and value_enclosing_type.
 	(value_copy): Copy value_embedded_offset and value_enclosing_type too.
 	Use all_raw in copying the value itself.
@@ -2497,7 +2497,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 	* values.c (value_primitive_field): Adjust embedded offset and
 	offset calculation.
 
-	* values.c (value_static_field): Take into consideration that static 
+	* values.c (value_static_field): Take into consideration that static
 	data members can be minimal symbols too.
 
 	* values.c (value_virtual_fn_field): Fix call to value_at.
@@ -2515,7 +2515,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	infcmd.c (_initialize_infcmd): If xdb_commands is set, make S an
 	alias for next and define R, lr, g.  Define go.
-	 
+
 	pyr-tdep.c (pyr_print_insn): Change FILE to GDB_FILE.
 
 
@@ -2537,7 +2537,7 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
  	catchpoints unless CHILD_INSERT_EXEC_CATCHPOINT is defined
 
 	  There are new target_ops vector fields that pertain
-	  only to HPUX. Added the to_require_attach and 
+	  only to HPUX. Added the to_require_attach and
 	  to_require_detach fields to exec_ops. These new
  	  fields are ifdef'ed for HPUX_SNAP1.
 
@@ -2546,25 +2546,25 @@ Thu Dec 31 16:54:30 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* coff-solib.h:
 	    Fixed a number of macro definitions. SOLIB_LOADED_LIBRARY_PATHNAME,
-	    SOLIB_HAVE_LOAD_EVENT, SOLIB_HAVE_UNLOAD_EVENT, 
+	    SOLIB_HAVE_LOAD_EVENT, SOLIB_HAVE_UNLOAD_EVENT,
 	    SOLIB_UNLOADED_LIBRARY_PATHNAME, SOLIB_IN_DYNAMIC_LINKER. These
-	    macros are only meaningful (for now) for SOM. So, all 
+	    macros are only meaningful (for now) for SOM. So, all
 	    the macros were defined as error(...), but were used in
-	    conditions. This caused the compile to crap out. I redefined 
-	    these (for now) to be 0. 
+	    conditions. This caused the compile to crap out. I redefined
+	    these (for now) to be 0.
 
 	* procfs.c:
 	    (procfs_create_inferior): Fix call to fork_inferior -- need another
-	       parameter. 
-	
+	       parameter.
+
 	* solib.h:
 	    Fixed a number of macro definitions. SOLIB_LOADED_LIBRARY_PATHNAME,
-	    SOLIB_HAVE_LOAD_EVENT, SOLIB_HAVE_UNLOAD_EVENT, 
+	    SOLIB_HAVE_LOAD_EVENT, SOLIB_HAVE_UNLOAD_EVENT,
 	    SOLIB_UNLOADED_LIBRARY_PATHNAME, SOLIB_IN_DYNAMIC_LINKER. These
-	    macros are only meaningful (for now) for SOM. So, all 
+	    macros are only meaningful (for now) for SOM. So, all
 	    the macros were defined as error(...), but were used in
-	    conditions. This caused the compile to crap out. I redefined 
-	    these (for now) to be 0. 
+	    conditions. This caused the compile to crap out. I redefined
+	    these (for now) to be 0.
 
 	* valops.c:
 	    (search_struct_field): Undeclared local variable, "assigned".
@@ -2620,7 +2620,7 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
  	pointer to class case.  Ensure that const char *, const unsigned
  	char * come out without the type but the volatile variants and the
  	signed variants don't.
-	
+
 	* ch-lang.h (chill_val_print): Add parameter to decl.
 
 	* ch-valprint.c: The various print routines have an additional
@@ -2729,30 +2729,30 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(setup_d_pid_in_inferior): Fix location of end.o.
 	(initialize_hp_cxx_exception_support): Fix location of end.o.
 	(child_enable_exception_callback): Purecov comments.
-	(pa_do_strcat_registers_info): Has a new parameter, precision, 
+	(pa_do_strcat_registers_info): Has a new parameter, precision,
 	which is passed into the call to pa_strcat_fp_reg to indicate
-	whether to display the floating point registers using 
+	whether to display the floating point registers using
 	single or double preceision.
-	(pa_strcat_registers): Introduce local variable, precision, and 
+	(pa_strcat_registers): Introduce local variable, precision, and
 	pass it into call to pa_strcat_fp_reg.
 	(pa_strcat_fp_reg): Modified function. New parameter, precision,
 	used by function to decide whether to use single or double
 	precision. Also add the code to put a double precision value
 	into a buffer.
-	(pa_do_strcat_registers_info): New routine. called by 
-	tui/tuiRegs.c:_tuiRegisterFormat to place a register name 
+	(pa_do_strcat_registers_info): New routine. called by
+	tui/tuiRegs.c:_tuiRegisterFormat to place a register name
 	and value into a string buffer. Interface may change in
-	future. Checking this in so that we have something 
+	future. Checking this in so that we have something
 	functional for HP.
-	(pa_strcat_registers): New routine, called by 
-	pa_do_strcat_registers_info. Does same thing as 
-	pa_print_registers except it takes a stream parameter. 
+	(pa_strcat_registers): New routine, called by
+	pa_do_strcat_registers_info. Does same thing as
+	pa_print_registers except it takes a stream parameter.
 	This routine should disappear in future. Checking in
 	so that we have something functional to give HP
-	(pa_strcat_fp_reg): New routine, called by 
+	(pa_strcat_fp_reg): New routine, called by
 	pa_do_strcat_registers_info and pa_strvat_registers
 	to place a floating point register name and value into
-	a buffer. This interface may change in future. 
+	a buffer. This interface may change in future.
 	Checking in so that we have something functional to give HP.
 	(pa_print_fp_reg): Change prototype to match def'n.
 	(pa_register_look_aside): Fix comment immediately before function.
@@ -2798,7 +2798,7 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(hppa_value_returned_from_stack): New function. Handles returning
  	a value larger than 64 bits, stored on the stack.
 	(find_stub_with_shl_get): New function. To look up symbols in shlibs.
-	(cover_find_stub_with_shl_get): New function. Cover routine for 
+	(cover_find_stub_with_shl_get): New function. Cover routine for
 	find_stub_with_shl_get to pass to catch_errors.
 	(hppa_fix_call_dummy): Comment out old stub mechanism.
 	Rewrite using dyncall.
@@ -2823,7 +2823,7 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(run_command): Only call SOLIB_RESTART if it's defined.
 	(detach_command): Ditto.
 	(run_command): If program has already been started, and decide
-	to restart it, the kill the target, flush the caches, 
+	to restart it, the kill the target, flush the caches,
 	call init_wait_for_inferior. Also purge old solib objfiles.
 	(run_stack_dummy): Add calls to
  	disable_watchpoints_before_interactive_call_start and
@@ -2837,8 +2837,8 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(_initialize_infcmd): Add some verbiage about how to use the
  	attach command.
 	(do_registers_info): Changed calls to val_print
-	made the symfile.h include preceed the 
-	objfiles.h include. The other ordering caused a 
+	made the symfile.h include preceed the
+	objfiles.h include. The other ordering caused a
 	compile problem (incompletely defined types).
 
 	* inftarg.c (child_post_attach): Fix decl, make static.
@@ -2847,7 +2847,7 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(child_detach_from_process): Declare.
 	(child_attach_to_process): Declare.
 	(child_stop): Make static to match decl.
-	(ptrace_him): Change prototype back to return int. 
+	(ptrace_him): Change prototype back to return int.
 	(ptrace_me): Remove debug output, pass NULL to fork_inferior if
  	not HPUX.
 	(proc_wait): function prototype and definition are enclosed by
@@ -2875,9 +2875,9 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
  	to the child_ops target ops vector.
 	Some hacks for ttrace work:
 	(child_wait): Additional local variables, additional code in
-	while loop to check for process exited, process forked, 
+	while loop to check for process exited, process forked,
 	process vforked, process execd.
-	(child_thread_alive): John B. seems to think that the kill 
+	(child_thread_alive): John B. seems to think that the kill
 	call is inapproapriate for HPUX.
 	(child_attach_to_process): Using strtol rather than atoi.
 	no longer check for case where there is no known exec file.
@@ -2886,12 +2886,12 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(child_remove_fork_catchpoint): New function, a default, a no-op.
 	(child_insert_vfork_catchpoint): New function, a default, a no-op.
 	(child_remove_vfork_catchpoint): New function, a default, a no-op.
-	(child_can_follow_vfork_prior_to_exec ):new function, a default, 
+	(child_can_follow_vfork_prior_to_exec ):new function, a default,
  	a no-op.
 	(child_insert_exec_catchpoint): New function, a default, a no-op.
 	(child_remove_exec_catchpoint): New function, a default, a no-op.
 	(child_has_execd): New function, a default, returns 0.
-	(child_reported_exec_events_per_exec_call): New function, a 
+	(child_reported_exec_events_per_exec_call): New function, a
  	default, returns 1.
 	(child_has_exited): New function, a default.
 	(child_core_file_to_sym_file): New function, a default, returns NULL.
@@ -2904,18 +2904,18 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(java_value_print): Add embedded_offset param to val_print call
 	(java_print_value_fields): Add embedded_offset param to val_print
 	call.
-	(java_val_print): Add embedded_offset param. alter call to 
+	(java_val_print): Add embedded_offset param. alter call to
 	c_val_print to accomodate embedded_offset param.
 
 	* language.c (lang_bool_type): Return builtin_type_bool in c++
 	case.
-	(unk_lang_val_print): Add embedded_offset param to 
+	(unk_lang_val_print): Add embedded_offset param to
 	prototype decl and definition.
 
 	* language.h (LA_VAL_PRINT macro, la_val_print function decl):
  	altered to accomodate the new parameter to the various print
  	functions.
-	
+
 	* m2-lang.h (m2_val_print): Add a parameter to the function decl.
 
 	* m2-valprint.c (m2_val_print): Add a parameter.
@@ -2937,7 +2937,7 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(init_base_monitor_ops): Add new target vector fields.
 
 	* ppc-bdm.c (init_bdm_ppc_ops): Add new target vector fields.
-	
+
 	* printcmd.c (do_examine): When saving a value_ptr, remove it from
  	the list of value_ptr's to be freed automatically; when discarding
  	a previously saved value_ptr, free it.
@@ -2959,7 +2959,7 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	* procfs.c: (Procfs_init_inferior): Return value is now a void.
 	(procfs_ops): Add new target vector fields.
 	(procfs_create_inferior): Fix call to fork_inferior -- need another
-	parameter. 
+	parameter.
 
 	* remote-adapt.c (adapt_open): Change stderr to gdb_stderr.
 	(adpat_insert_breakpoint): Ditto.
@@ -3033,25 +3033,25 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* sol-thread.c (sol_core_ops): Add new target vector fields.
 	(sol_thread_ops): Ditto.
-	
-	* somsolib.c (DLD_FLAGS_MAPPRIVATE): New macro. 
+
+	* somsolib.c (DLD_FLAGS_MAPPRIVATE): New macro.
 	Define bit of __dld_flags in HP-UX a.out files.
 	(DLD_FLAGS_HOOKVALID): Ditto.
 	(DLD_FLAGS_LISTVALID): Ditto.
 	(DLD_FLAGS_BOR_ENABLE): Ditto.
-	(som_solib_total_st_size): Cumulative size in bytes of the 
+	(som_solib_total_st_size): Cumulative size in bytes of the
 	symbol tables of all shared objects on the so_list_head list.
 	(som_solib_st_size_threshhold_exceeded): Threshold for adding symbols
 	for shlibs.
-	(som_solib_sizeof_symbol_table): New function. Computes size of 
+	(som_solib_sizeof_symbol_table): New function. Computes size of
 	symbol table for a shlib.
 	(som_solib_load_symbols): New function. Load symbols from shlib.
-	(som_solib_add): Detect if __dld_list is not valid. 
+	(som_solib_add): Detect if __dld_list is not valid.
 	Record main program's symbol table size.
 	Load symbols if called from command line.
 	Keep threshold into account when loading shlib symbols.
 	(som_solib_create_inferior_hook): Use dld_flags macros.
-	(som_sharedlibrary_info_command): Let user know if symbols were 
+	(som_sharedlibrary_info_command): Let user know if symbols were
 	not loaded.
 	(som_solib_restart): Discard all the shlibs descriptors.
 	(_initialize_som_solib): Chenge help message for auto-solib-add
@@ -3078,31 +3078,31 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
  	msymbol2 and change some msymbol's to msymbol2's -- was clobbering
  	msymbol, passing a NULL to lookup_minimal_symbol_solib_trampoline,
 	and ultimately core dumping with a SEGV.
-	(som_solib_mapped_entry): Additional comments for text_addr, 
+	(som_solib_mapped_entry): Additional comments for text_addr,
 	text_link_addr, text_end, and tsd_start_addr fields. Commenting
-	out 2 tsd fields, __data_start and __data_end. 
+	out 2 tsd fields, __data_start and __data_end.
 	(som_solib_add_solib_objfile): Add params to calls to symbol_file_add.
-	Add some code for distinguishing between a shared library and other 
-	objfiles. This appears to be a prelude to thread local storage.	
-	(som_solib_load_symbols): Changes to printf statement 
+	Add some code for distinguishing between a shared library and other
+	objfiles. This appears to be a prelude to thread local storage.
+	(som_solib_load_symbols): Changes to printf statement
 	enclosed by SOLIB_DEBUG ifdef.
 	(som_solib_add): Change comment to correctly specify path
 	to end.o -- /opt/langtools/lib/end.o. changes to printf statement
  	enclosed by SOLIB_DEBUG ifdef.
 	Removed several SOLIB_DEBUG ifdefs and the associated printfs.
-	Add code to find the start address for the object file's thread 
+	Add code to find the start address for the object file's thread
 	local storage
 	(som_solib_create_inferior_hook): Fix warning messages use correct
-	path to end.o -- /opt/langtools/lib/end.o. Change control flow. 
+	path to end.o -- /opt/langtools/lib/end.o. Change control flow.
 	No longer user early returns from function is cases of error.
 	(reset_inferior_pid): New function
 	(som_solib_remove_inferior_hook): New function
 	(so_lib_thread_start_addr): New function. used for tsd.
 	(struct som_solib_mapped_entry): Add new field tsd_start_addr.
 	(struct so_list): Add new field solib_addr.
-	(som_solib_add_solib_objfile): New function. 
+	(som_solib_add_solib_objfile): New function.
 	(som_solib_load_symbols): Rewritten.
-	(som_solib_add): Make sure we don't load the symbols in if the 
+	(som_solib_add): Make sure we don't load the symbols in if the
 	threshold was exceeded.
 	(som_solib_get_solib_by_pc): New function. Return the address of
  	handle of the shared library.
@@ -3218,15 +3218,15 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	* target.h: Include symtab.h.
 	(target_waitkind): New enumerated values
 	TARGET_WAITKIND_SYSCALL_ENTRY, TARGET_WAITKIND_SYSCALL_RETURN,
-	TARGET_WAITKIND_FORKED, TARGET_WAITKIND_VFORKED, 
+	TARGET_WAITKIND_FORKED, TARGET_WAITKIND_VFORKED,
 	TARGET_WAITKIND_EXECD.
 	(target_waitstatus): Add a syscall_id field to structure.
 	(child_has_syscall_event): New decl.
 	(child_thread_alive): New decl.
 	(target_ops): Add 3 new fields: To_has_syscall_event,
-	to_enable_exception_callback, to_get_current_exception_event 
+	to_enable_exception_callback, to_get_current_exception_event
 	(target_enable_exception_callback): New macro.
-	(target_has_syscall_event): New macro. 
+	(target_has_syscall_event): New macro.
 	(target_get_current_exception_event): New macro.
 	(TARGET_DISABLE_HW_WATCHPOINTS): New macro.
 	(TARGET_ENABLE_HW_WATCHPOINTS): New macro.
@@ -3244,7 +3244,7 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(RESUME_EXECD_VFORKING_CHILD_TO_GET_PARENT_VFORK): Define default
 	macro.
 	There are new function decls for to_require_attach
-	and to_require_detach. There are also new macros, 
+	and to_require_detach. There are also new macros,
 	target_require_attach and target_require_detach. There are
 	also new function decls for find_default_require_detach
 	and find_default_require_attach.
@@ -3278,8 +3278,8 @@ Mon Dec 28 17:43:36 1998  David Taylor  <taylor@texas.cygnus.com>
 	(strcat_longest): Define it.
 	* valprint.c: Hp merge, 4/15/98 snapshot
 	Add parameter to val_print. This is used for
-	evaluating C++ expressions. 
-	
+	evaluating C++ expressions.
+
 	* value.h (VALUE_POINTED_TO_OFFSET): New macro.
 	Add field pointed_to_offset to value structure.
 	Add prototypes for new functions in valops.c.
@@ -3358,7 +3358,7 @@ Fri Dec 18 14:23:34 1998  Andrew Cagney  <cagney@chook>
  	processor.
 	(_initialize_mips_tdep): Only define ``set processor'' command
  	when not multi-sim.
-	
+
 Fri Dec 18 12:56:56 1998  Andrew Cagney  <cagney@chook>
 
 	* gdbarch.h (gdbarch_init_ftype): Pass struct gdbarch_info
@@ -3368,14 +3368,14 @@ Fri Dec 18 12:56:56 1998  Andrew Cagney  <cagney@chook>
 	* mips-tdep.c: (mips_gdbarch_init): Update
 
 	* gdbarch.c (gdbarch_update): Add more tracing.
-	
+
 Thu Dec 17 02:15:40 1998  Andrew Cagney  <cagney@chook.cygnus.com>
 
 	* configure.tgt (gdb_target): Identify mips64*vr4100*-*-elf* as
  	vr4100.
 	* config/mips/vr4100.mt, config/mips/tm-vr4100.h: Replace
  	vr4xxx.mt and tm-vr4xxx.h.
-	
+
 Thu Dec 17 02:06:17 1998  Andrew Cagney  <cagney@chook.cygnus.com>
 
 	* mips-tdep.c (mips_gdbarch_init): New function. Initialize a MIPS
@@ -3415,18 +3415,18 @@ Thu Dec 17 01:58:16 1998  Andrew Cagney  <cagney@chook>
  	(register_gdbarch_data, gdbarch_data): Mechanism for maintaining
  	per-architecture pointers.
 	(init_gdbarch_data): Support functions.
-	
+
 	* gdbarch.h (gdbarch_swap_ftype), gdbarch.c
  	(register_gdbarch_swap): Ditto for swapped memory regions.
 	(init_gdbarch_swap, swapout_gdbarch_swap, swapin_gdbarch_swap):
  	Support functions.
-	
+
 	* gdbarch.c (set_endian_big, set_endian_little, set_architecture,
  	info_architecture, set_gdbarch_from_file): Hook in multi-arch
  	code by calling gdbarch_update.
 	(default_gdbarch): Default multi-arch vector.  Use host's type
  	system for values.
-	
+
 Thu Dec 17 01:34:36 1998  Andrew Cagney  <cagney@chook>
 
 	* gdbtypes.c (build_gdbtypes): New function.
@@ -3445,7 +3445,7 @@ Tue Dec 15 23:46:40 1998  Andrew Cagney  <cagney@chook>
 	* config/mips/tm-*.h: (TARGET_BYTE_ORDER_DEFAULT,
  	TARGET_BYTE_ORDER_SELECTABLE_P): Replace TARGET_BYTE_ORDER and
  	TARGET_BYTE_ORDER_SELECTABLE.
-	
+
 1998-12-14  Anthony Thompson   (athompso@cambridge.arm.com)
 
 	* remote-rdp.c (rdp_init): Don't discard first character on reset.
@@ -3502,11 +3502,11 @@ Sun Dec 13 09:52:51 1998  Andrew Cagney  <cagney@b1.cygnus.com>
  	TARGET_BYTE_ORDER_SELECTABLE. Handle compat issues.
 	(BITS_BIG_ENDIAN): Simplify.
 	(TARGET_FLOAT_FORMAT): Ditto.
-	(TARGET_DOUBLE_FORMAT): 
+	(TARGET_DOUBLE_FORMAT):
 
 	* remote-e7000.c, sh-tdep.c, printcmd.c, remote-sim.c,
  	remote-rdi.c, sparc-tdep.c: Update.
-	
+
 	* config/powerpc/tm-ppcle-eabi.h, config/rs6000/tm-rs6000.h,
  	config/powerpc/tm-ppc-eabi.h, config/mn10300/tm-mn10300.h:
  	Convert.
@@ -3520,7 +3520,7 @@ Sat Dec 12 09:28:13 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 	(FRAME_INIT_SAVED_REGS): Provide default.
 	(struct frame_saved_regs): Deprecate.
 	(EXTRA_FRAME_INFO): Deprecate.
-	
+
 	* blockframe.c (frame_obstack_alloc, frame_saved_regs_zalloc): New
  	function.
 	(generic_get_saved_register): Use FRAME_INIT_SAVED_REGS and
@@ -3539,7 +3539,7 @@ Sat Dec 12 09:28:13 1998  Andrew Cagney  <cagney@b1.cygnus.com>
  	(analyze_dummy_frame): New function.
 	(struct frame_extra_info): Define.
 	(mn10300_init_extra_frame_info): Update.
-	
+
 	* config/rs6000/tm-rs6000.h: (EXTRA_FRAME_INFO): Delete.
  	(FRAME_FIND_SAVED_REGS): Replace with FRAME_INIT_SAVED_REGS.
 	(FRAME_ARGS_ADDRESS): Replace with function.
@@ -3551,7 +3551,7 @@ Sat Dec 12 09:28:13 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 	(FUNCTION_START_OFFSET): Delete references, was ZERO.
 	(rs6000_frame_args_address): New function.
 	(frame_initial_stack_address): Update
-	
+
 	* config/mips/tm-mips.h (EXTRA_FRAME_INFO): Remove saved_regs.
 	(FRAME_INIT_SAVED_REGS): Rename FRAME_FIND_SAVED_REGS, update.
 	* mips-tdep.c (mips_find_saved_regs, read_next_frame_reg,
@@ -3559,7 +3559,7 @@ Sat Dec 12 09:28:13 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 	* config/alpha/tm-alpha.h (FRAME_INIT_SAVED_REGS,
  	EXTRA_FRAME_INFO), alpha-tdep.c (alpha_find_saved_regs,
  	alpha_pop_frame, init_extra_frame_info): Ditto.
-	
+
 	* i960-tdep.c, m88k-tdep.c, h8300-tdep.c: Update.
 	* config/sparc/tm-sparc.h, config/a29k/tm-a29k.h: Define
  	FRAME_INIT_SAVED_REGS as no-op.
@@ -3580,7 +3580,7 @@ Fri Dec 11 09:07:05 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 	* i386b-nat.c: Include "expression.h".
 
 	* symtab.h: Don't include "gnu-regex.h".
-	
+
 	* solib.c (solib_add_common_symbols): Cast parameters passed to
  	make_cleanup to use the new make_cleanup_func typedef.
 
@@ -3603,7 +3603,7 @@ Thu Dec 10 15:19:40 1998  David Taylor  <taylor@texas.cygnus.com>
  	Taylor <taylor@cygnus.com>, as part of the project to merge in
  	changes originally made by HP; HP did not create ChangeLog
  	entries.
-	
+
 	* annotate.c (annotate_catchpoint): New function.
 
 	* annotate.h (annotate_catchpoint): declare it; add new includes
@@ -3611,7 +3611,7 @@ Thu Dec 10 15:19:40 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	* buildsym.h: add external var processing_hp_compilation.
 
-	* coff-solib.h: 
+	* coff-solib.h:
 	(SOLIB_REMOVE_INFERIOR_HOOK): new macro. defined to 0.
 	functionality not implemented for coff.
 	(SOLIB_CREATE_CATCH_LOAD_HOOK): New macro; generate error msg for coff.
@@ -3626,17 +3626,17 @@ Thu Dec 10 15:19:40 1998  David Taylor  <taylor@texas.cygnus.com>
 	* complaints.h: add ifdef...endif pair at beginning and end of file.
 
 	* dstread.c (dst_symfile_read): the parameter to fileno
-	must be of type FILE *. So cast abfd->iostream in the 
+	must be of type FILE *. So cast abfd->iostream in the
 	call to fileno must be cast as a FILE *, not a GDB_FILE *.
-	This will work because abfd->iostream is declared and 
-	given a value in bdf and bfd will continue to use FILE 
+	This will work because abfd->iostream is declared and
+	given a value in bdf and bfd will continue to use FILE
 	rather than GDB_FILE.
 
 	* dwarf2read.c (dwarf_bool_name): change parameter from bool
 	to mybool.  sigh.
 
 	* expression.h: include symtab.h
-	
+
 	* frame.h (print_only_stack_frame, show_stack_frame,
 	show_frame_info): add prototypes.
 
@@ -3655,7 +3655,7 @@ Thu Dec 10 15:19:40 1998  David Taylor  <taylor@texas.cygnus.com>
 	* scm-lang.c (scm_unpack): cast svalue to (int).
 
 	* top.h: declare it.
-	
+
 	* valprint.h (print_binary_chars): new prototype definition.
 	(print_octal_chars): new prototype definition.
 	(print_decimal_chars): new prototype definition.
@@ -3669,7 +3669,7 @@ Thu Dec 10 07:14:56 1998  Andrew Cagney  <cagney@chook>
 
 	* defs.h (REGISTER_NAME): Provide default for old targets.
 	* defs.h, infcmd.c: Rename reg_names to gdb_register_names.
-	
+
 	* tracepoint.c, target.c, parse.c, infcmd.c, remote-udi.c,
  	expprint.c, infcmd.c, printcmd.c, eval.c, stack.c, findvar.c,
  	remote-udi.c, config/alpha/tm-alpha.h, remote-sim.c, d30v-tdep.c,
@@ -3695,14 +3695,14 @@ Tue Dec  8 16:49:24 1998  Stan Shebs  <shebs@andros.cygnus.com>
         * findvar.c (register_valid): Ditto.
 
         * defs.h (make_cleanup_func): Protect parameter list by `PARAMS'.
-        * gdbthread.h (unbind_target_thread_vector): Likewise. 
+        * gdbthread.h (unbind_target_thread_vector): Likewise.
 
 Tue Dec  8 15:09:44 1998  Edith Epstein  <eepstein@sophia.cygnus.com>
 
         Merged in m68k-linux patch from Andreas Schwab
- 
+
         1998-12-01  Andreas Schwab  <schwab@issan.cs.uni-dortmund.de>
- 
+
         * Makefile.in, configure.host, configure.tgt: Add support for
         m68k-linux.
         * config/m68k/linux.mh: New file.
@@ -3739,7 +3739,7 @@ Thu Dec  3 10:37:22 EST 1998  Zdenek Radouch   (radouch@cygnus.com)
 	* configure.tgt
 	* fr30-tdep.c
 	* config/fr30/tm-fr30.h
-	
+
 Thu Dec  3 16:30:35 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* ax-gdb.c: Include target.h.
@@ -3760,30 +3760,30 @@ Tue Dec  3 10:59:00 1998  Andrew Cagney  <cagney@b1.cygnus.com>
  	function.
 	* jv-valprint.c (java_val_print): From Stu Grossman. Return 0 by
  	default.
-	
+
 Wed Dec  2 15:11:38 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* tracepoint.c: Move default definition of 
+	* tracepoint.c: Move default definition of
 	TARGET_VIRTUAL_FRAME_POINTER from here to target.h.
 	* target.h: Add default definition of TARGET_VIRTUAL_FRAME_POINTER.
 	* ax-gdb.c (gen_frame_args_address, gen_frame_locals_address):
 	use TARGET_VIRTUAL_FRAME_POINTER to determine frame pointer.
-	(gen_trace_for_expr): new argument, address of tracepoint, 
+	(gen_trace_for_expr): new argument, address of tracepoint,
 	gets passed to new_agent_expr and added to struct agent_expr.
 	(is_nontrivial_conversion): call to new_agent_expr now requires
 	a dummy argument.  (agent_command): use get_current_frame() to
 	get current PC scope; pass it to gen_trace_for_expr.
-	* ax-general.c (new_agent_expr): new argument, address of 
+	* ax-general.c (new_agent_expr): new argument, address of
 	tracepoint; store it in new field of struct agent_expr.
 	* ax.h (struct agent_expr): add new field for tracepoint address.
 	* ax-gdb.h: change prototypes to match above changes.
 
 	* m32r-tdep.c (decode_prologue): If no branch or push fp is found,
 	but there's a stack adjust, then use that as the end of prologue.
-	(m32r_skip_prologue): don't skip past the first line if there is 
+	(m32r_skip_prologue): don't skip past the first line if there is
 	line info.  (m32r_virtual_frame_pointer): new function.
 	(m32r_fix_call_dummy): no return value needed.
-	
+
 Tue Dec  1 10:59:00 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 
 	* ocd.c (remote_timeout), (BDM_BREAKPOINT), monitor.c (readchar),
@@ -3798,7 +3798,7 @@ Mon Nov 30 11:18:48 1998  Andrew Cagney  <cagney@chook>
 	* frame.h (FRAME_CHAIN_VALID): Default to
  	default_frame_chain_valid.
 	* blockframe.c (default_frame_chain_valid): New function.
-	
+
 	* frame.h (FRAME_CHAIN_VALID_ALTERNATIVE): Delete references
 	* blockframe.c (alternate_frame_chain_valid): New function.
 	* config/mips/tm-mipsv4.h, config/m88k/tm-delta88v4.h,
@@ -3817,7 +3817,7 @@ Mon Nov 30 11:18:48 1998  Andrew Cagney  <cagney@chook>
  	functions so that they are name space clean.
 	* config/pa/tm-hppa.h, config/a29k/tm-vx29k.h,
  	config/arm/tm-arm.h: Update FRAME_CHAIN_VALID.
-	
+
 	* gould-tdep.c (gould_frame_chain_valid), d30v-tdep.c
  	(d30v_frame_chain_valid), d10v-tdep.c (d10v_frame_chain_valid):
  	New functions.
@@ -3867,7 +3867,7 @@ Fri Nov 27 11:00:25 1998  Andrew Cagney  <cagney@chook>
   	Make static.
 	(wait_for_inferior): Update.
 	(resume): Update. Set variable after call to SOFTWARE_SINGLE_STEP.
-	
+
 	* target.h (NO_SINGLE_STEP): Replace with SOFTWARE_SINGLE_STEP_P
  	and SOFTWARE_SINGLE_STEP.
 	* config/sparc/tm-sparc.h, config/rs6000/tm-rs6000.h,
@@ -3875,7 +3875,7 @@ Fri Nov 27 11:00:25 1998  Andrew Cagney  <cagney@chook>
 	* rs6000-tdep.c (rs6000_software_single_step), sparc-tdep.c
  	(sparc_software_single_step), arc-tdep.c (arc_single_step): New
  	functions. Replace function single_step.
-	
+
 	* config/mips/tm-mips.h (STEP_SKIPS_DELAY_P): Define.
 	* infrun.c (proceed): Cleanup.
 
@@ -3961,13 +3961,13 @@ Tue Nov 24 15:46:33 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 1998-11-24  Felix Lee  <flee@cygnus.com>
 
 	* procfs.c (procfs_wait): handle syscall events first.
-	
+
 	* procfs.c (GDB_GREGSET_TYPE, GDB_FPREGSET_TYPE): new macros.
 	* config/sparc/xm-sun4sol2.h: use them.
 	* core-sol2.c: don't #undef gregset_t and fpregset_t.
 	* sol-thread.c: ditto.
 	* sparc-tdep.c: ditto.
-	
+
 Tue Nov 24 14:13:10 1998  Andrew Cagney  <cagney@chook>
 
 	* breakpoint.c (memory_breakpoint_size): Delete global.
@@ -4002,7 +4002,7 @@ Tue Nov 24 14:13:10 1998  Andrew Cagney  <cagney@chook>
 	* config/arm/tm-arm.h ({BIG,LITTLE}_BREAKPOINT): Delete macros.
  	({ARM,THUMB}_{BE,LE}_BREAKPOINT): Move macros from here.
 	* arm-tdep.c: To here.
-	
+
 	* remote-array.c (memory_breakpoint_size): Delete variable.
 	(array_insert_breakpoint): Obtain breakpoint size using
  	BREAKPOINT_FROM_PC.
@@ -4014,7 +4014,7 @@ Tue Nov 24 14:13:10 1998  Andrew Cagney  <cagney@chook>
 
 Mon Nov 23 11:38:40 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* symfile.c (deduce_language_from_filename): rewrite so as to 
+	* symfile.c (deduce_language_from_filename): rewrite so as to
 	work from a table of filename extensions, modifiable by the user.
 	(filename_language_table): new data structure.
 	(set_ext_lang_command): new function for new command, "set
@@ -4032,7 +4032,7 @@ Mon Nov 23 10:47:54 1998  Andrew Cagney  <cagney@chook.cygnus.com>
  	config/v850/tm-v850.h, config/pa/tm-hppa.h, config/a29k/tm-a29k.h,
  	config/mn10300/tm-mn10300.h, config/mips/tm-mips.h
  	(USE_STRUCT_CONVENTION): Cleanup, define macro as function.
-	
+
 	* sh-tdep.c (sh_use_struct_convention), mn10200-tdep.c
  	(mn10200_use_struct_convention), i960-tdep.c
  	(i960_use_struct_convention), gould-tdep.c
@@ -4054,7 +4054,7 @@ Mon Nov 23 10:47:54 1998  Andrew Cagney  <cagney@chook.cygnus.com>
 Sat Nov 21 17:15:40 1998  Philippe De Muyter  <phdm@macqel.be>
 
 	* breakpoint.c (bpstat_stop_status): Do not increment hit_count
-	of breakpoint if condition is not true. 
+	of breakpoint if condition is not true.
 
 	* coffread.c (coff_symtab_read): Discard C_LABEL's that are not
 	function entry points, to avoid getting them in the stack dump
@@ -4113,7 +4113,7 @@ Fri Nov 13 00:15:08 1998  Geoffrey Noer  <noer@cygnus.com>
 
 	Changes to account for name change from cygwin32 to cygwin and
 	clean up Win32-related ifdefs.
-	
+
 	* configure.tgt: check for cygwin* instead of cygwin32.
 	New cygwin gdb_target variable loses the "32".
 	* configure.host: check for cygwin* instead of cygwin32.
@@ -4130,7 +4130,7 @@ Fri Nov 13 00:15:08 1998  Geoffrey Noer  <noer@cygnus.com>
         * {main.c, ser-tcp.c, ser-unix.c, top.c}: check __CYGWIN__
 	instead of __CYGWIN32__.
 	* source.c: thoughout, check _WIN32 instead of WIN32.
-	
+
 	* config/i386/cygwin32.mh: delete.
 	* config/i386/cygwin.mh: new file, was cygwin32.mh.
 	* config/i386/cygwin32.mt: delete.
@@ -4163,7 +4163,7 @@ Thu Nov 12 17:19:43 1998  John Metzler  <jmetzler@cygnus.com>
         (init_remote_threadtests): Optional builtin unit test commands.
 
         * thread.c (bind_target_thread_vector): Implementa a more dynamic
-        way of accessing target specific thread info functions than 
+        way of accessing target specific thread info functions than
         FIND_NEW_THREADS.
         (target_thread_info): Function to get extended thread information.
 
@@ -4175,7 +4175,7 @@ Thu Nov 12 17:19:43 1998  John Metzler  <jmetzler@cygnus.com>
 Wed Nov 11 15:47:00 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* procfs.c (proc_set_exec_trap): don't set PR_ASYNC or PR_FORK
-        in the child process for UnixWare (causes processes forked by 
+        in the child process for UnixWare (causes processes forked by
         the debuggee to hang).
 
 Mon Nov  9 12:00:36 1998  Dave Brolley  <brolley@cygnus.com>
@@ -4185,8 +4185,8 @@ Mon Nov  9 12:00:36 1998  Dave Brolley  <brolley@cygnus.com>
 
 1998-11-05  Jim Wilson  <wilson@cygnus.com>
 
-	* remote-vx.c (net_read_registers, net_write_registers, 
-	vx_xver_memory, vx_resume, vx_attach, vx_detach, vx_kill): 
+	* remote-vx.c (net_read_registers, net_write_registers,
+	vx_xver_memory, vx_resume, vx_attach, vx_detach, vx_kill):
 	Change errno to errno_num.
 	* vx-share/xdr_ptrace.c (xdr_ptrace_return): Likewise.
 	* vx-share/xdr_ptrace.h (struct ptrace_return): Likewise.
@@ -4252,11 +4252,11 @@ Thu Oct 29 10:04:20 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	packet, with the meaning "register value is not available".
 	Set register_valid to -1, which will connote "no value available".
 	* findvar.c (read_relative_register_raw_bytes): return failure if
-	register_valid == -1.  (value_of_register): return failure if 
-	register_valid == -1.  (read_var_value): return error if 
+	register_valid == -1.  (value_of_register): return failure if
+	register_valid == -1.  (read_var_value): return error if
 	value_of_register fails for a register variable.
 	(value_from_register): return failure if register_valid == -1.
-	* eval.c (evaluate_subexp_standard): return error if 
+	* eval.c (evaluate_subexp_standard): return error if
 	value_of_register fails for a register used in an expression.
 	* infcmd.c (do_registers_info): display "value not available"
 	for registers for which register_valid == -1.
@@ -4307,7 +4307,7 @@ Sat Oct 17 17:39:23 1998  Felix Lee  <flee@cygnus.com>
 
 Fri Oct 16 15:31:38 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* m32r-tdep.c (decode_prologue): Return failure if we reach 
+	* m32r-tdep.c (decode_prologue): Return failure if we reach
 	the end of the function without finding the end of the prologue.
 
 1998-10-16  Jason Molenda  (jsm@bugshack.cygnus.com)
@@ -4323,7 +4323,7 @@ Fri Oct 16 15:31:38 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	(make_pointer_type): Add braces to remove nested if-else ambiguity.
 	(make_reference_type): Ditto.
 
-	* printcmd.c (printf_command): Initialize 'f' and 'string' at 
+	* printcmd.c (printf_command): Initialize 'f' and 'string' at
 	function startup to suppress possibly-used-before-initialized warning.
 
 	* remote-utils.c: Add prototypes.
@@ -4375,9 +4375,9 @@ Thu Oct 15 16:55:00 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 	* source.c, symtab.h: Move _initialize_source prototype to the .c
 	file.
 	* values.c, value.h: Move _initialize_values prototype to the .c file.
-	* gdbthread.h, thread.c: Move _initialize_thread prototype to the .c 
+	* gdbthread.h, thread.c: Move _initialize_thread prototype to the .c
 	file.
-	* breakpoint.c, breakpoint.h: Move _initialize_breakpoint prototype 
+	* breakpoint.c, breakpoint.h: Move _initialize_breakpoint prototype
         to the .c file.
 
 	* abug-rom.c alpha-nat.c alpha-tdep.c annotate.c ax-gdb.c bcache.c:
@@ -4402,14 +4402,14 @@ Tue Oct 13 18:56:51 1998  Felix Lee  <flee@cygnus.com>
 	(breakpoint_thread_match): Ditto.
 
 	* gnu-regex.c: Define _REGEX_RE_COMP only if it isn't already defined.
-	* gnu-regex.h: Define _REGEX_RE_COMP to pick up old compatability 
+	* gnu-regex.h: Define _REGEX_RE_COMP to pick up old compatability
 	prototypes.
 
 	* symtab.h: Add prototype for _initialize_source.
 	* value.h: Add prototype for _initialize_value.
 
 	* defs.h: Include sys/types.h or stddef.h to get size_t.
-	(make_cleanup): Add make_cleanup_func typedef and switch to using 
+	(make_cleanup): Add make_cleanup_func typedef and switch to using
         a prototype for this function.
 	(mfree): Add prototypes for mmalloc, mrealloc, mfree if we aren't
 	using mmalloc.
@@ -4504,16 +4504,16 @@ Fri Oct  2 19:42:31 1998  Stu Grossman  <grossman@babylon-5.cygnus.com>
 	* c-lang.c (emit_char c_printchar c_printstr), c-lang.h (c_printstr)
 	ch-lang.c (chill_printstr chill_printchar) c-valprint.c (c_val_print)
 	ch-valprint.c (chill_val_print) expprint.c (print_subexp) f-lang.c
-	(f_printstr f_printchar emit_char) f-valprint.c (f_val_print) 
-	jv-lang.c (java_printchar java_emit_char) jv-valprint.c 
-	(java_value_print java_val_print) language.c (unk_lang_printchar 
-	unk_lang_printstr unk_lang_emit_char) language.h (struct 
-	language_defn LA_PRINT_STRING LA_EMIT_CHAR) m2-lang.c (m2_printstr 
-	m2_printchar emit_char) printcmd.c (print_formatted) scm-lang.c 
-	(scm_printstr) valprint.c (val_print_string) value.h 
-	(val_print_string):  Add emit_char routines to language_desc struct 
+	(f_printstr f_printchar emit_char) f-valprint.c (f_val_print)
+	jv-lang.c (java_printchar java_emit_char) jv-valprint.c
+	(java_value_print java_val_print) language.c (unk_lang_printchar
+	unk_lang_printstr unk_lang_emit_char) language.h (struct
+	language_defn LA_PRINT_STRING LA_EMIT_CHAR) m2-lang.c (m2_printstr
+	m2_printchar emit_char) printcmd.c (print_formatted) scm-lang.c
+	(scm_printstr) valprint.c (val_print_string) value.h
+	(val_print_string):  Add emit_char routines to language_desc struct
 	to allow finer control over language specific character output issues.
-  	Add character width arg to printstr routines to allow handling of 
+  	Add character width arg to printstr routines to allow handling of
 	wchar_t/Unicode strings.  Fix c_printstr to handle wide characters.
   	Supply width argument to LA_PRINT_STRING and val_print_string.
 
@@ -4589,7 +4589,7 @@ Thu Oct  1 20:52:39 1998  Andrew Cagney  <cagney@b1.cygnus.com>
         start with "com", not "/dev/tty".
         (Unix_OpenSerial): Do not use O_NONBLOCK on cygwin32.
 
-        * rdi-share/devsw.c (DevSW_Close): Free the device's state 
+        * rdi-share/devsw.c (DevSW_Close): Free the device's state
         (SwitcherState) so that the device may be reopened.
 
         * remote-rdi.c (mywritec): Send all output through gdb's *_unfiltered
@@ -4705,7 +4705,7 @@ Tue Sep 15 15:24:16 1998  Stu Grossman  <grossman@fencer.cygnus.com>
 Tue Sep 15 14:02:01 1998  Nick Clifton  <nickc@cygnus.com>
 
 	* remote-rdi.c: Prevent multiple attempts to close the remote
-	connection. 
+	connection.
 
 Tue Sep 15 10:24:17 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 
@@ -4719,7 +4719,7 @@ Tue Sep 15 10:24:17 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 
 Sun Sep 13 01:34:59 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
- 	* blockframe.c (find_pc_sect_partial_function): use bfd section 
+ 	* blockframe.c (find_pc_sect_partial_function): use bfd section
 	  of msymbol for end of section comparison.
 
 Fri Sep 11 14:02:49 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
@@ -4873,8 +4873,8 @@ Tue Aug 18 18:03:42 1998  Stan Shebs  <shebs@andros.cygnus.com>
 
 	* expprint.c: Include ctype.h for isprint prototype.
 	* i386aix-nat.c: Include sys/reg.h if autoconf says it is present.
-	* i386v-nat.c: Include ptrace.h, sys/ptrace.h, and sys/reg.h if 
-	present, based on autoconf test.  
+	* i386v-nat.c: Include ptrace.h, sys/ptrace.h, and sys/reg.h if
+	present, based on autoconf test.
 
 	* utils.c: Include curses.h and term.h if present.
 	(puts_debug): Change 'carriage_return' local variable to return_p
@@ -4884,7 +4884,7 @@ Tue Aug 18 18:03:42 1998  Stan Shebs  <shebs@andros.cygnus.com>
 	determine it with autoconf.
         * config/i386/nm-linux.h: Don't define NO_SYS_REG_H, determine it
         with autoconf.
-	* config/i386/nm-i386sco.h: Don't define NO_PTRACE_H, determine it 
+	* config/i386/nm-i386sco.h: Don't define NO_PTRACE_H, determine it
 	with autoconf.
 	* config/i386/nm-i386v.h: Ditto.
 	* config/i386/nm-symmetry.h: Ditto.
@@ -4908,7 +4908,7 @@ Fri Aug 14 04:18:23 1998  Peter Schauer  <pes@regent.e-technik.tu-muenchen.de>
 	with selector.
 
 Wed Aug 12 16:30:01 1998  Frank Ch. Eigler  <fche@cygnus.com>
- 
+
 	* remote-sim.c (simulator_command): Reset register cache after
 	simulator command.
 
@@ -4921,7 +4921,7 @@ Tue Aug 11 11:33:25 1998  Stu Grossman  <grossman@babylon-5.cygnus.com>
 
 	* c-typeprint.c (c_print_type):  Don't crash if varstring is null.
 	* expprint.c expression.h (dump_expression):  Rename to
-	dump_prefix_expression. 
+	dump_prefix_expression.
 	* Print out the expression in normal form.  Call print_longest
 	instead of trying to do it ourselves.
 	* (dump_postfix_expression):  New function, prints out the expression
@@ -4931,7 +4931,7 @@ Tue Aug 11 11:33:25 1998  Stu Grossman  <grossman@babylon-5.cygnus.com>
 
 Thu Aug 6 13:20:02 1998  Ron Unrau  <runrau@cygnus.com>
 
-	* infrun.c (wait_for_inferior): use stop_func_name instead of 
+	* infrun.c (wait_for_inferior): use stop_func_name instead of
 	  stop_func_start to decide that no debug info exists.
 
 Thu Jul 30 13:53:50 1998  Mark Alexander  <marka@cygnus.com>
@@ -4971,8 +4971,8 @@ Mon Jul 27 15:38:07 1998  Mark Alexander  <marka@cygnus.com>
 
 Mon Jul 27 10:45:56 1998  Martin M. Hunt  <hunt@cygnus.com>
 
-	* symtab.c (decode_line_1): For minimal symbol, call 
-	find_pc_sect_line() to make sure the line number gets set 
+	* symtab.c (decode_line_1): For minimal symbol, call
+	find_pc_sect_line() to make sure the line number gets set
 	properly.
 	(print_symbol_info): Redeclare function void.
 
@@ -4992,7 +4992,7 @@ Fri Jul 24 14:41:19 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* tracepoint.c (encode_actions): Treat register names and simple
 	variable names as special cases and don't convert them to byte-
-	codes: these things can be collected far more efficiently 
+	codes: these things can be collected far more efficiently
 	without invoking the bytecode interpreter.
 
 Fri Jul 24 13:32:46 1998  Mark Alexander  <marka@cygnus.com>
@@ -5055,7 +5055,7 @@ Fri Jul 17 9:26:50 1998  Ron Unrau  <runrau@cygnus.com>
 	  fails, try getting the section from the minimal symbol table.
 	* parse.c (write_exp_msymbol): use symbol_overlayed_address to get
 	  the LMA of a minimal symbol if unmapped.
-	* symtab.c (find_line_symtab): change interface to return symtab 
+	* symtab.c (find_line_symtab): change interface to return symtab
 	  containing the best linetable found.
 	  (decode_line_1): use find_line_symtab to set val.symtab. This should
 	  improve support for source files with multiple symtabs.
@@ -5107,7 +5107,7 @@ Thu Jul  2 15:57:58 1998  Frank Ch. Eigler  <fche@cygnus.com>
 Thu Jul 2 10:22:00 1998  Dawn Perchik  <dawn@cygnus.com>
 
 	* mdebugread.c (parse_partial_symbols): Go ahead and read the .mdebug
-	section, but just don't add a 2nd minimal symbol if this is an .mdebug 
+	section, but just don't add a 2nd minimal symbol if this is an .mdebug
 	section in an ELF file.
 
 1998-07-01  Jim Blandy  <jimb@zwingli.cygnus.com>
@@ -5167,7 +5167,7 @@ Tue Jun 23 19:37:46 1998  Mark Alexander  <marka@cygnus.com>
 
 Tue Jun 23 17:32:26 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
-	* rs6000-tdep.c (pop_dummy_frame): use memcpy. 
+	* rs6000-tdep.c (pop_dummy_frame): use memcpy.
 	(push_arguments): use memset.
 	(various other places): fix up indentation and long lines.
 
@@ -5184,7 +5184,7 @@ Tue Jun 23 11:14:04 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	REGISTER_BYTES: redefine.  REGISTER_BYTE(): redefine.
 	REGISTER_VIRTUAL_TYPE: redefine.  MIPS_LAST_ARG_REGNUM: redefine.
 	* irix5-nat.c (fetch_core_registers): read 8 bytes per FP register.
-	* mips-tdep.c (FP_REGISTER_DOUBLE): new macro to distinguish 
+	* mips-tdep.c (FP_REGISTER_DOUBLE): new macro to distinguish
 	targets with 8-byte FP registers (don't use TARGET_MIPS64).
 	(STACK_ARGSIZE): new macro, how much space is taken up on the
 	stack for each function argument (don't use TARGET_MIPS64).
@@ -5195,7 +5195,7 @@ Tue Jun 23 12:29:53 1998  Jillian Ye  <jillian@cygnus.com>
 
         * configure.in: Add -lXext to mips_extra_libs
 	* configure: Regenerated.
-   
+
 Sun Jun 21 09:31:12 1998  Ron Unrau  (runrau@cygnus.com)
 
 	* symtab.c (find_line_pc): assumed that a PC of 0 is illegal.
@@ -5206,7 +5206,7 @@ Sun Jun 21 09:31:12 1998  Ron Unrau  (runrau@cygnus.com)
 
 Wed Jun 17 15:50:00 1998  Ron Unrau  (runrau@cygnus.com)
 
-	* parse.c (target_map_name_to_register): Check target specific 
+	* parse.c (target_map_name_to_register): Check target specific
 	  aliases *first* so that it can over-ride architectural names
 
 Wed Jun 17 17:13:38 1998  Said Ziouani  (saidz@park-street.cygnus.com)
@@ -5220,7 +5220,7 @@ Tue Jun 16 16:32:08 1998  Mark Alexander  <marka@cygnus.com>
 
 Tue Jun 16 14:38:40 1998  Ron Unrau  (runrau@cygnus.com)
 
-	* dbxread.c: reset function_start_offset after a finishing N_FUN 
+	* dbxread.c: reset function_start_offset after a finishing N_FUN
 	  is seen.
 	* remote-sim.c: allow TARGET_REDEFINE_DEFAULT_OPS to override
 	  target vectors as needed.
@@ -5250,7 +5250,7 @@ Thu Jun 11 15:05:10 1998  Jason Molenda  (crash@bugshack.cygnus.com)
 
 Wed Jun 10 15:39:14 1998  Stu Grossman  <grossman@babylon-5.cygnus.com>
 
-	* c-exp.y:  Fix problems with parsing "'foo.bar'::func".  
+	* c-exp.y:  Fix problems with parsing "'foo.bar'::func".
 	Some languages allow symbols with dots.
 
 	* gdbtypes.c (check_stub_method):  Cosmetic.  Use more descriptive
@@ -5263,7 +5263,7 @@ Wed Jun 10 15:39:14 1998  Stu Grossman  <grossman@babylon-5.cygnus.com>
 	* language.c language.h (set_language):  Now returns previous language.
 
 	* symtab.c (find_methods):  Make static.  Cosmetic changes, including
-	indentation, and adding descriptive comments.  Move local variable 
+	indentation, and adding descriptive comments.  Move local variable
 	defs into the block they are used in.
 	* Don't call check_stub_method any more.  Use gdb_mangle_name to
 	generate the full method name.  find_method doesn't need all the other
@@ -5276,7 +5276,7 @@ Wed Jun 10 15:39:14 1998  Stu Grossman  <grossman@babylon-5.cygnus.com>
 	used in.  (Improves code readability.)
 
 Wed Jun 10 18:04:35 1998  Frank Ch. Eigler  <fche@cygnus.com>
- 
+
 	* gdbtypes.c (get_discrete_bounds): Assign unsigned type flag for
 	all-positive enum.
 	(create_set_type): Ditto for all-positive set values.
@@ -5354,7 +5354,7 @@ Thu Jun  4 10:15:03 1998  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
         - Jim Blandy  <jimb@zwingli.cygnus.com>
 	(print_packet, remote_packet_command): New functions.
         (_initialize_remote): Register the remote-packet command.
-        - David Taylor  <taylor@texas.cygnus.com> 
+        - David Taylor  <taylor@texas.cygnus.com>
         (_initialize_remote): remote-compare is now
         compare-sections.
         - Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
@@ -5418,7 +5418,7 @@ Wed May 27 14:22:31 1998  Keith Seitz  <keiths@cygnus.com>
 
 Mon May 25 13:31:27 1998  Keith Seitz  <keiths@cygnus.com>
 
-	* remote.c (remote_open_1): If an error occurs starting the remote, 
+	* remote.c (remote_open_1): If an error occurs starting the remote,
 	pop the target AND return.
 
 Sat May 23 02:23:09 1998  Peter Schauer  <pes@regent.e-technik.tu-muenchen.de>
@@ -5528,7 +5528,7 @@ Wed May 20 10:12:11 1998  John Metzler  <jmetzler@cygnus.com>
 Tue May 19 17:23:54 1998  John Metzler  <jmetzler@cygnus.com>
 
 	* w89k-rom.c (_initialize_w89k): Call new init function
-	(init_w89k_cmds): Convert to dynamic initialization of monitor_ops 
+	(init_w89k_cmds): Convert to dynamic initialization of monitor_ops
         data structure for forward compatability with additions to the
         data structure.
 	* dbug-rom.c (_initialize_dbug_rom): ditto
@@ -5552,7 +5552,7 @@ Tue May 19 14:54:11 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	(validate_actionline, encode_actions, trace_dump_command): Remove
 	clauses for the $(...) syntax.
 	(parse_and_eval_memrange): Function deleted.
-	(_initialize_tracepoint): Update function description. 
+	(_initialize_tracepoint): Update function description.
 
 	* ax-gdb.c (_initialize_ax_gdb): Make the "agent" command a
  	subcommand of "maintenance", as it should have been from the
@@ -5582,10 +5582,10 @@ Mon May 18 13:04:27 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 	(map_args_over_tracepoints (and other places)): add QUIT; call
 	to loop, to allow breakout using control-C.  Not all loops were
 	analyzed to make sure they could terminate cleanly, but even
-	terminating with a messed-up tracepoint list would be better 
+	terminating with a messed-up tracepoint list would be better
 	than not terminating at all!
 	(tdump_command): check to see if we're connected to a trace-
-	capable target (currently only "remote") before doing anything 
+	capable target (currently only "remote") before doing anything
 	else.
 
 Sat May 16 22:21:48 1998  Frank Ch. Eigler  <fche@cygnus.com>
@@ -5760,7 +5760,7 @@ Mon May  4 07:08:25 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 Sat May  2 09:35:07 1998  Stu Grossman  <grossman@babylon-5.cygnus.com>
 
-	* ocd.h:  Add new flags, function codes, and processor types to 
+	* ocd.h:  Add new flags, function codes, and processor types to
 	support new Wiggler capabilities.
 	* (ocd_write_bytes_size):  New function to allow atomic writes of
  	memory in sizes larger than a byte.
@@ -5772,7 +5772,7 @@ Fri May  1 19:51:32 1998  Frank Ch. Eigler  <fche@cygnus.com>
 	* stabsread.c (read_one_struct_field): Do not override supplied
  	bitfield size for a range type value.
 
-	* gdbtypes.c (create_range_type): For a range with positive 
+	* gdbtypes.c (create_range_type): For a range with positive
 	lower limit, declare range type as unsigned.
 
 Fri May  1 10:58:34 1998  John Metzler  <jmetzler@cygnus.com>
@@ -5811,7 +5811,7 @@ Wed Apr 29 10:20:40 1998  John Metzler  <jmetzler@cygnus.com>
         required extensions to the monitor_ops structure, hooks for wait
         filter, new flags. This version does not support more than one
         breakpoint and resuming after a breakpoint in 16 bit mode is
-        completely disfunctional.  
+        completely disfunctional.
 
 	* monitor.h: Defined additional hooks for dmpregs, configure_hooks
 	and wait_filter. These additions require that all ROM monitor
@@ -5845,7 +5845,7 @@ Wed Apr 29 10:20:40 1998  John Metzler  <jmetzler@cygnus.com>
         using command to enter a long long.
         (monitor_write-memory_block): new Function figures out which block
         mod to use.
-        (monitor_read_memory): Can now handle dump formats in which the bytes 
+        (monitor_read_memory): Can now handle dump formats in which the bytes
         preceeding the requested data is not printed.
 
 Tue Apr 28 19:41:33 1998  Tom Tromey  <tromey@cygnus.com>
@@ -5885,11 +5885,11 @@ Mon Apr 27 13:46:40 1998  John Metzler  <jmetzler@cygnus.com>
         Convert all static initializations of monitor ops structures to
         executable initializations in order that additions to the data
         structure definition can me made without repeating this editing
-        exercise.                                            
+        exercise.
         * abug-rom.c (_initialize_abug_rom, init_abug-cmds): Ditto.
         * cpu32bug-rom.c (_initialize_cpu32bug_rom, init_cpu32bug_cmds): Ditto.
         * mon960-rom.c (initialize_mon960, init_mon960_cmds): Ditto.
-        * op50-rom.c (initialize_op50n, init_op50n_cmds): Ditto.       
+        * op50-rom.c (initialize_op50n, init_op50n_cmds): Ditto.
         * ppcbug-rom.c (_initialize_ppcbug_rom, init_ppc_cmds): Ditto.
         * sh3-rom.c (_initialize_sh3_rom, init_sh3_cmds): Ditto.
         * sparclet-rom.c (_initialize_sparclet, init_sparclet_cmds): Ditto.
@@ -6007,7 +6007,7 @@ Mon Apr 20 15:32:21 1998   Mark Kettenis  <kettenis@phys.uva.nl>
 
 Mon Apr 20 14:18:45 1998  J. Kean Johnston  <jkj@sco.com>
 
-        * procfs.c: Added replacement macros for LWP stuff.  Fixed support 
+        * procfs.c: Added replacement macros for LWP stuff.  Fixed support
         for UnixWare / SVR4.2MP targets and any targets which use
         multi-file /proc entries.  Fixed support for hardware watchpoints.
         * solib.c: SCO needs some of the same code as SunOS. Change
@@ -6016,8 +6016,8 @@ Mon Apr 20 14:18:45 1998  J. Kean Johnston  <jkj@sco.com>
         * config/i386/i386sco5.mt: New file.
         * config/i386/tm-i386sco5.h: New file.
         * config/i386/i386sco5.mh (NATDEPFILES): add i386v-nat.o.
-        * config/i386/nm-i386v42mp.h 
-        (TARGET_HAS_HARDWARE_WATCHPOINTS): define.  
+        * config/i386/nm-i386v42mp.h
+        (TARGET_HAS_HARDWARE_WATCHPOINTS): define.
         Add other macros for hardware assisted watchpoints.
         * config/i386/nm-i386sco5.h: Correct attributions.
         (TARGET_HAS_HARDWARE_WATCHPOINTS): define.
@@ -6101,27 +6101,27 @@ Fri Apr 10 22:36:28 1998  Peter Schauer (pes@regent.e-technik.tu-muenchen.de)
 
         Update support for x86 Solaris 2.
         * config/i386/tm-i386sol2.h, nm-i386sol2.h:  New configuration
-        files for x86 Solaris 2.                                              
-        * config/i386/i386sol2.mt, i386sol2.mh:  Use them.                    
-        * config/sparc/tm-sun4sol2.h (PROCFS_GET_CARRY):  New macro, extract  
-        carry flag from a given regset.                                     
-        (IS_STATIC_TRANSFORM_NAME):  New macro, check if a symbol name      
-        is a SunPro transformed name.                                 
+        files for x86 Solaris 2.
+        * config/i386/i386sol2.mt, i386sol2.mh:  Use them.
+        * config/sparc/tm-sun4sol2.h (PROCFS_GET_CARRY):  New macro, extract
+        carry flag from a given regset.
+        (IS_STATIC_TRANSFORM_NAME):  New macro, check if a symbol name
+        is a SunPro transformed name.
         * i386-tdep.c (sunpro_static_transform_name):  New function to
-        extract the source name from a SunPro transformed name.           
-        * inferior.h (procfs_first_available, procfs_get_pid_fd):        
-        Add prototypes.                                          
+        extract the source name from a SunPro transformed name.
+        * inferior.h (procfs_first_available, procfs_get_pid_fd):
+        Add prototypes.
         * infrun.c (wait_for_inferior):  Handle breakpoint hit in
-        signal handler without intervening stop in sigtramp.     
+        signal handler without intervening stop in sigtramp.
         * procfs.c (procfs_lwp_creation_handler):  Use PROCFS_GET_CARRY
-        instead of direct access to the status register.               
+        instead of direct access to the status register.
         (procfs_get_pid_fd):  New function, returns procfs fd for a given pid.
-        * sol-thread.c (ps_lgetLDT):  New function, returns LDT for a given   
-        lwpid.                                                                
-        (sol_find_new_threads):  Handle failed libthread_db initialization 
-        gracefully.                                                       
-        * stabsread.c (define_symbol):  Use IS_STATIC_TRANSFORM_NAME      
-        to check for a SunPro transformed symbol name.              
+        * sol-thread.c (ps_lgetLDT):  New function, returns LDT for a given
+        lwpid.
+        (sol_find_new_threads):  Handle failed libthread_db initialization
+        gracefully.
+        * stabsread.c (define_symbol):  Use IS_STATIC_TRANSFORM_NAME
+        to check for a SunPro transformed symbol name.
 
 Fri Apr 10 10:35:35 1998  John Metzler  <jmetzler@cygnus.com>
 
@@ -6167,9 +6167,9 @@ Wed Apr  8 16:47:33 1998  Jason Molenda  (crash@bugshack.cygnus.com)
 
 Sat Apr  4 10:05:00 1998  Dawn Perchik  <dawn@cygnus.com>
 
-	* mdebugread.c (parse_partial_symbols): If this is an .mdebug 
-	section in an ELF file, override a symbol's ECOFF section with its 
-	ELF section.  Also, fix stabs continuation where a stabs string 
+	* mdebugread.c (parse_partial_symbols): If this is an .mdebug
+	section in an ELF file, override a symbol's ECOFF section with its
+	ELF section.  Also, fix stabs continuation where a stabs string
 	continues for more than one continuation.
 
 Mon Apr  6 09:17:48 1998  Andrew Cagney  <cagney@b1.cygnus.com>
@@ -6231,13 +6231,13 @@ Tue Mar 31 21:30:39 1998  Nick Clifton  <nickc@cygnus.com>
 
 	* arm-tdep.c (gdb_print_insn_arm): Attach a fake Thumb symbol
 	vector to the info structure when disassembling thumb
-	instructions. 
+	instructions.
 
 	* coffread.c (coff_symtab_read, read_one_sym,
-	process_coff_symbol):  Support Thumb symbol types. 
+	process_coff_symbol):  Support Thumb symbol types.
 
 	* dbxread.c (process_one_symbol): Call SMASH_TEXT_ADDRESS (if it
-	is defined) for function symbols.  
+	is defined) for function symbols.
 
 Tue Mar 31 16:39:28 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
@@ -6257,7 +6257,7 @@ Mon Mar 30 16:42:12 1998  Jason Molenda  (crash@bugshack.cygnus.com)
 	* rdi-share/Makefile.am, rdi-share/aclocal.m4,
 	rdi-share/configure: New files.
 	* rdi-share/configure.in:  Rewritten to be an autoconf input file.
-	* rdi-share/Makefile.in, rdi-share/configure: Generated by 
+	* rdi-share/Makefile.in, rdi-share/configure: Generated by
 	automake/autoconf.
 	* rdi-share/dbg_hif.h, etherdrv.c, hostchan.c: Use autoconf tests
 	to check environment.
@@ -6371,8 +6371,8 @@ Mon Mar 23 18:10:57 1998  Ulrich Drepper  (drepper@cygnus.com)
 	* solib.c (solib_create_inferior_hook):  Rewrite previous
 	change to check the type of file via BFD.
 
-Mon Mar 23 13:52:28 1998  Ulrich Drepper  (drepper@cygnus.com) 
- 
+Mon Mar 23 13:52:28 1998  Ulrich Drepper  (drepper@cygnus.com)
+
 	* breakpoint.c (breakpoint_re_set_one): Treat bp_shlib_events
 	like bp_breakpoints.
 	* solib.c (solib_create_inferior_hook): Relocate section addresses
@@ -6454,7 +6454,7 @@ Sat Mar 21 19:34:49 1998  Elena Zannoni  <ezannoni@kwikemart.cygnus.com>
         * annotate.h
 	- Keith Seitz  <keiths@onions.cygnus.com>
         Add declarations for annotation hooks.
- 
+
         * annotate.c
 	- Keith Seitz  <keiths@onions.cygnus.com>
         Add hooks: annotate_starting_hook, annotate_stopped_hook,
@@ -6468,15 +6468,15 @@ Fri Mar 20 14:45:36 1998  Michael Snyder  <msnyder@cleaver.cygnus.com>
 
 	* gdbserver/Makefile.in: add dependency on XM_CLIBS.
 	* gdbserver/low-sim.c (registers) force into alignment.
-	(create_inferior): Fix typo on new_argv; add abfd arg to 
-	sim_open, sim_create_inferior.  Add reg_size arg to 
+	(create_inferior): Fix typo on new_argv; add abfd arg to
+	sim_open, sim_create_inferior.  Add reg_size arg to
 	sim_fetch_register, sim_store_register.  Make simulator
 	take a single-step to get into a known running state.
 	* gdbserver/gdbreplay.c: include fcntl.h for def'n of F_SETFL.
-	* gdbserver/server.c: Add remote_debug variable to control 
+	* gdbserver/server.c: Add remote_debug variable to control
 	debug output.
 	* gdbserver/server.h: Add prototypes for enable/disable_async_io.
-	* gdbserver/remote-utils.c: add verbose debugging output controlled 
+	* gdbserver/remote-utils.c: add verbose debugging output controlled
 	by "remote_debug" variable.  Add call to "disable_async_io()"
 	to avoid being killed by async SIGIO signals.
 	* config/m32r/m32r.mt: define GDBSERVER_(LIBS and DEPFILES),
@@ -6498,7 +6498,7 @@ Fri Mar 20 09:04:06 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 Thu Mar 19 11:32:15 1998  Michael Snyder  (msnyder@cleaver.cygnus.com)
 
 	* minsyms.c (compare_minimal_symbols): If addresses are identical,
-	then compare on names.  Sorted list should have symbols with 
+	then compare on names.  Sorted list should have symbols with
 	identical addresses AND names adjacent, so dups can be discarded.
 
 Wed Mar 18 12:50:17 1998  Jeff Law  (law@cygnus.com)
@@ -6562,7 +6562,7 @@ Thu Mar  5 14:42:41 1998  Keith Seitz  <keiths@onions.cygnus.com>
 
 Wed Mar  4 16:53:52 1998  Martin M. Hunt  <hunt@cygnus.com>
 
-	* serial.c (_initialize_serial): Add a description of 
+	* serial.c (_initialize_serial): Add a description of
 	"set remotelogbase".
 
 	* command.c (do_setshow_command): If no arguments are supplied,
@@ -6615,11 +6615,11 @@ Mon Mar  2 16:45:48 1998  Philippe De Muyter  <phdm@macqel.be>
 	* coffread.c (coff_read_enum_type): Set TYPE_FLAG_UNSIGNED if enum
 	is unsigned.
 
-Sun Mar  2 15:16:13 1998 Richard Henderson  <rth@cygnus.com>         
+Sun Mar  2 15:16:13 1998 Richard Henderson  <rth@cygnus.com>
 
-        * configure.host, configure.tgt: Add sparc-linux.               
+        * configure.host, configure.tgt: Add sparc-linux.
         * sparc-nat.c: Include <asm/reg.h> not <machine/reg.h> for Linux.
-        * config/sparc/*linux*: New files.                         
+        * config/sparc/*linux*: New files.
 
 Mon Mar  2 12:12:41 1998  Anthony Thompson   (athompso@cambridge.arm.com)
 
@@ -6663,7 +6663,7 @@ Tue Feb 17 14:28:33 1998  Peter Schauer <pes@regent.e-technik.tu-muenchen.de>
 
 Tue Feb 17 14:07:34 1998  Peter Schauer <pes@regent.e-technik.tu-muenchen.de>
 
-        * gdbtypes.c (check_typedef): Do not try to resolve the length of      
+        * gdbtypes.c (check_typedef): Do not try to resolve the length of
         a type which has TYPE_FLAG_TARGET_STUB set, if the target type has
         set TYPE_FLAG_TARGET_STUB as well.
 
@@ -6702,8 +6702,8 @@ Mon Feb 16 14:05:54 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 
 Sun Feb 15 16:10:50 1998  Ron Unrau   <runrau@cygnus.com>
 
-	* parse.c (write_dollar_variable): call new function 
-	  target_map_name_to_register to allow targets to define their own 
+	* parse.c (write_dollar_variable): call new function
+	  target_map_name_to_register to allow targets to define their own
 	  register name aliases.
 	* infcmd.c (registers_info): use target_map_name_to_register so that
 	  "print $reg" and "info reg $reg" use the same register name aliases.
@@ -6759,7 +6759,7 @@ Tue Feb 10 17:50:37 1998  Keith Seitz  <keiths@onions.cygnus.com>
 	Remove static declaration of free_actions.
 
 	* tracepoint.h: Add declaration of free_actions.
-		
+
 Tue Feb 10 12:17:13 1998  Fred Fish  <fnf@cygnus.com>
 
 	* symtab.c (decode_line_1): Revert change that mistakenly
@@ -6868,7 +6868,7 @@ Thu Feb  5 13:16:36 1998  Andrew Cagney  <cagney@b1.cygnus.com>
 	(value_at): Ditto. Also ensure data pointers are mapped to data
  	segment.
 
-	* config/d10v/tm-d10v.h (D10V_DADDR_P, D10V_IADDR_P): 
+	* config/d10v/tm-d10v.h (D10V_DADDR_P, D10V_IADDR_P):
 
 	* d10v-tdep.c: Replace 2 with REGISTER_RAW_SIZE.
 	(d10v_pop_frame): Replace R13 with LR_REGNUM.
@@ -6903,10 +6903,10 @@ Thu Feb  5 11:57:06 1998  Michael Snyder  (msnyder@cleaver.cygnus.com)
 
 	* tracepoint.c (tracepoint_operation): call free_actions instead
 	of free.  (free_actions): eliminate some memory leaks for actions.
-	(validate_actionline): pass string arg by reference, so we can 
+	(validate_actionline): pass string arg by reference, so we can
 	change the pointer.  Change all memrange collection arguments to
 	canonical form (literal address and size), to enforce early
-	evaluation.  Accept UNOP_MEMVAL (assembly variables) for 
+	evaluation.  Accept UNOP_MEMVAL (assembly variables) for
 	trace collection.  (parse_and_eval_memrange): accept expressions
 	for the address and size fields of a memrange (and evaluate
 	them immediately).  (several places): use -1 instead of zero
@@ -6923,7 +6923,7 @@ Wed Feb  4 17:40:21 1998  Jason Molenda  (crash@bugshack.cygnus.com)
 
 Tue Feb  3 16:12:32 1998  Gordon W. Ross (gwr@mc.com)
 
-	* infptrace.c (child_resume): Don't try to step if 
+	* infptrace.c (child_resume): Don't try to step if
 	NO_SINGLE_STEP is defined.
 
 Mon Feb  2 19:06:13 1998  Jason Molenda  (crash@bugshack.cygnus.com)
@@ -6958,7 +6958,7 @@ Fri Jan 30 15:11:38 1998  David Taylor  <taylor@texas.cygnus.com>
 
 	Changes by <Peter.Schauer@Regent.E-Technik.TU-Muenchen.DE>
 	* infrun.c (IN_SOLIB_DYNSYM_RESOLVE_CODE): new macro for detecting
- 	whether we are in the dynamic symbol resolution code 
+ 	whether we are in the dynamic symbol resolution code
 	(wait_for_inferior): invoke it.
 	* solib.c (in_svr4_dynsym_resolve_code): new function
 	(enable_break): record start and end of the dynamic linker
@@ -6991,11 +6991,11 @@ Wed Jan 28 14:46:52 1998  Stan Shebs  <shebs@andros.cygnus.com>
 	(read_array_type): Fix language test.
 
 Wed Jan 28 12:51:08 1998  Michael Snyder  (msnyder@cleaver.cygnus.com)
- 
+
         * blockframe.c (generic_frame_chain_valid): A frame pointer may
         be valid if it is equal to the frame pointer of its caller (ie.
         not necessarily strictly INNER_THAN).  Allows frameless functions.
- 
+
 Wed Jan 28 11:23:25 1998  Mark Alexander  <marka@cygnus.com>
 
 	* monitor.c (monitor_vsprintf): New function to handle
@@ -7206,7 +7206,7 @@ Fri Jan  2 17:06:05 1998  Michael Snyder  (msnyder@cleaver.cygnus.com)
 
         * tracepoint.c (finish_tfind_command): improved algorithm for
         deciding when we've "stepped" into a new stack frame.
-        (map_args_over_tracepoints): loop over tracepoint list "safely", 
+        (map_args_over_tracepoints): loop over tracepoint list "safely",
 	since list elements may be deleted during loop.
 	(read_actions): add actions to history list.
 

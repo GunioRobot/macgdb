@@ -91,7 +91,7 @@ if ![runto_main] then {
 }
 
 
-# The commands we test here produce many lines of output; disable "press 
+# The commands we test here produce many lines of output; disable "press
 # <return> to continue" prompts.
 send_gdb "set height 0\n"
 gdb_expect -re "$gdb_prompt $"
@@ -198,9 +198,9 @@ if [istarget "*-*-cygwin*"] {
 send_gdb "maint print statistics\n"
 gdb_expect  {
         -re "Statistics for.*break.*Number of \"minimal\" symbols read.*Number of \"partial\" symbols read.*Number of \"types\" defined.*Number of psym tables \\(not yet expanded\\).*Number of symbol tables.*Number of symbol tables with line tables.*Number of symbol tables with blockvectors.*Total memory used for psymbol obstack.*Total memory used for psymbol cache.*Total memory used for symbol obstack.*Total memory used for type obstack.*$gdb_prompt $"\
-                        { 
+                        {
 			    # Old output for gdb 6.0 and earlier
-			    pass "maint print statistics" 
+			    pass "maint print statistics"
 			}
         -re "Statistics for.*break.*Number of \"minimal\" symbols read.*Number of \"partial\" symbols read.*Number of \"types\" defined.*Number of psym tables \\(not yet expanded\\).*Number of symbol tables.*Number of symbol tables with line tables.*Number of symbol tables with blockvectors.*Total memory used for objfile obstack.*Total memory used for psymbol cache.*Total memory used for macro cache.*$gdb_prompt $"\
                         { pass "maint print statistics" }
@@ -229,11 +229,11 @@ while {$keep_looking} {
 	-re ".*Psymtabs:\[\r\t \]+\n" { set psymtabs 1 }
 	-re ".*Symtabs:\[\r\t \]+\n" { set symtabs 1 }
 
-	-re ".*$gdb_prompt $" { 
+	-re ".*$gdb_prompt $" {
 	    set keep_looking 0
 	}
-	timeout { 
-	    fail "(timeout) maint print objfiles" 
+	timeout {
+	    fail "(timeout) maint print objfiles"
 	    set keep_looking 0
 	}
     }
@@ -278,7 +278,7 @@ gdb_expect  {
                          timeout         { fail "(timeout) maint print psymbols" }
                          }
                   gdb_test "shell rm -f psymbols_output" ""
-                   
+
                   }
                  -re ".*$gdb_prompt $"       { fail "maint print psymbols" }
                   timeout         { fail "(timeout) maint print psymbols" }

@@ -90,7 +90,7 @@ x:
 
  move.d 0x85649222,r3
  sub.b [r5],r3
- test_cc 0 1 0 0 
+ test_cc 0 1 0 0
  dumpr3 ; 85649200
 
  quit

@@ -25,14 +25,14 @@ reset:
 ;	set_mem_immed	0x2,gr10	; cause hardware reset
 ;	dcf		@(gr10,gr0)	; Wait for store to happen
 ;	fail
-;	
+;
 ok2:	; reset should branch to reset address which should then branch here
 ;	test_mem_immed	0x00000200,gr10
 	set_spr_addr	ok3,lr
 	set_mem_immed	0x1,gr10	; cause software reset
 	dcf		@(gr10,gr0)	; Wait for store to happen
 	fail
-	
+
 ok3:	; reset should branch to reset address which should then branch here
 	test_mem_immed	0x00000100,gr10
 	test_spr_bits	0x4,2,1,psr	; psr.s is set
@@ -59,14 +59,14 @@ ok3:	; reset should branch to reset address which should then branch here
 ;	set_mem_immed	0x2,gr10	; cause hardware reset
 ;	dcf		@(gr10,gr0)	; Wait for store to happen
 ;	fail
-;	
+;
 ok5:	; reset should branch to reset address which should then branch here
 ;	test_mem_immed	0x00000200,gr10
 	set_spr_addr	ok6,lr
 	set_mem_immed	0x1,gr10	; cause software reset
 	dcf		@(gr10,gr0)	; Wait for store to happen
 	fail
-	
+
 ok6:	; reset should branch to reset address which should then branch here
 	test_mem_immed	0x00000100,gr10
 	test_spr_bits	0x4,2,1,psr	; psr.s is set

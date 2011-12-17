@@ -21,7 +21,7 @@ if {![istarget *-*-linux*]
     && ![istarget *-*-openbsd*]
     && ![istarget arm-*-eabi*]
     && ![istarget powerpc-*-eabi*]} {
-    return 0  
+    return 0
 }
 
 if { [prepare_for_testing dw2-noloc.exp "dw2-noloc" {dw2-noloc-main.c dw2-noloc.S} {nodebug}] } {

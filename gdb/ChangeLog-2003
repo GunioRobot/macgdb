@@ -155,8 +155,8 @@
 	(decode_variable): Add new not_found_ptr parameter.  Throw exception
 	rather than failing if the not_found_ptr is non-null and the
 	function is not found.
-	(symtab_from_filename): Add new not_found_ptr parametr.   Throw 
-	exception rather than failing if the not_found_ptr is non-null and 
+	(symtab_from_filename): Add new not_found_ptr parametr.   Throw
+	exception rather than failing if the not_found_ptr is non-null and
 	the source file is not found.
 	* breakpoint.c: Change all callers of decode_line_1 to add default
 	extra parameter for decode_line_1 calls.
@@ -310,7 +310,7 @@
 
 	* ia64-tdep.c (ia64_gdbarch_init): Set up the gdbarch long double
 	format to be the i387 extended float format which is used for
-	long doubles stored in memory. 
+	long doubles stored in memory.
 
 2003-12-05  Mark Kettenis  <kettenis@gnu.org>
 

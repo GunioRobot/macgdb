@@ -24,13 +24,13 @@ init:
 	ori r0, 80, r0
 
 	# Set up two address operands.
-	
+
 	movi 40, r1
 	shlli r1, 8, r1
 	movi 8, r2
-	
+
 swapq:
 	swap.q r1, r2, r0
 
-okay:	
+okay:
 	pass

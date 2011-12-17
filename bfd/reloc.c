@@ -3992,7 +3992,7 @@ ENUMDOC
 ENUM
   BFD_RELOC_AVR_LO8_LDI_GS
 ENUMDOC
-  This is a 16 bit reloc for the AVR that stores 8 bit value 
+  This is a 16 bit reloc for the AVR that stores 8 bit value
   (command address) into 8 bit immediate value of LDI insn. If the address
   is beyond the 128k boundary, the linker inserts a jump stub for this reloc
   in the lower 128k.
@@ -4214,7 +4214,7 @@ ENUM
   BFD_RELOC_SCORE_GPREL15
 ENUMDOC
   Score relocations
-  Low 16 bit for load/store  
+  Low 16 bit for load/store
 ENUM
   BFD_RELOC_SCORE_DUMMY2
 ENUMX
@@ -4255,7 +4255,7 @@ ENUMX
   BFD_RELOC_SCORE_DUMMY_HI16
 ENUMDOC
   Undocumented Score relocs
-  
+
 ENUM
   BFD_RELOC_IP2K_FR9
 ENUMDOC
@@ -5196,63 +5196,63 @@ ENUMDOC
 ENUM
   BFD_RELOC_MICROBLAZE_32_LO
 ENUMDOC
-  This is a 32 bit reloc for the microblaze that stores the 
+  This is a 32 bit reloc for the microblaze that stores the
   low 16 bits of a value
 ENUM
   BFD_RELOC_MICROBLAZE_32_LO_PCREL
 ENUMDOC
-  This is a 32 bit pc-relative reloc for the microblaze that 
+  This is a 32 bit pc-relative reloc for the microblaze that
   stores the low 16 bits of a value
 ENUM
   BFD_RELOC_MICROBLAZE_32_ROSDA
 ENUMDOC
-  This is a 32 bit reloc for the microblaze that stores a 
+  This is a 32 bit reloc for the microblaze that stores a
   value relative to the read-only small data area anchor
 ENUM
   BFD_RELOC_MICROBLAZE_32_RWSDA
 ENUMDOC
-  This is a 32 bit reloc for the microblaze that stores a 
+  This is a 32 bit reloc for the microblaze that stores a
   value relative to the read-write small data area anchor
 ENUM
   BFD_RELOC_MICROBLAZE_32_SYM_OP_SYM
 ENUMDOC
-  This is a 32 bit reloc for the microblaze to handle 
+  This is a 32 bit reloc for the microblaze to handle
   expressions of the form "Symbol Op Symbol"
 ENUM
   BFD_RELOC_MICROBLAZE_64_NONE
 ENUMDOC
-  This is a 64 bit reloc that stores the 32 bit pc relative 
-  value in two words (with an imm instruction).  No relocation is 
+  This is a 64 bit reloc that stores the 32 bit pc relative
+  value in two words (with an imm instruction).  No relocation is
   done here - only used for relaxing
 ENUM
   BFD_RELOC_MICROBLAZE_64_GOTPC
 ENUMDOC
-  This is a 64 bit reloc that stores the 32 bit pc relative 
+  This is a 64 bit reloc that stores the 32 bit pc relative
   value in two words (with an imm instruction).  The relocation is
   PC-relative GOT offset
 ENUM
   BFD_RELOC_MICROBLAZE_64_GOT
 ENUMDOC
-  This is a 64 bit reloc that stores the 32 bit pc relative 
+  This is a 64 bit reloc that stores the 32 bit pc relative
   value in two words (with an imm instruction).  The relocation is
   GOT offset
 ENUM
   BFD_RELOC_MICROBLAZE_64_PLT
 ENUMDOC
-  This is a 64 bit reloc that stores the 32 bit pc relative 
+  This is a 64 bit reloc that stores the 32 bit pc relative
   value in two words (with an imm instruction).  The relocation is
   PC-relative offset into PLT
 ENUM
   BFD_RELOC_MICROBLAZE_64_GOTOFF
 ENUMDOC
-  This is a 64 bit reloc that stores the 32 bit GOT relative 
+  This is a 64 bit reloc that stores the 32 bit GOT relative
   value in two words (with an imm instruction).  The relocation is
   relative offset from _GLOBAL_OFFSET_TABLE_
 ENUM
   BFD_RELOC_MICROBLAZE_32_GOTOFF
 ENUMDOC
-  This is a 32 bit reloc that stores the 32 bit GOT relative 
-  value in a word.  The relocation is relative offset from 
+  This is a 32 bit reloc that stores the 32 bit GOT relative
+  value in a word.  The relocation is relative offset from
   _GLOBAL_OFFSET_TABLE_
 ENUM
   BFD_RELOC_MICROBLAZE_COPY

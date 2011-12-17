@@ -31,7 +31,7 @@ if $tracelevel then {
 #
 # This test is meant to verify that, even with lazy partial symtab
 # reading in effect, GDB can set breakpoints by line number
-# successfully in either compilation unit.  
+# successfully in either compilation unit.
 
 set testfile expand-psymtabs
 set srcfile ${testfile}.c

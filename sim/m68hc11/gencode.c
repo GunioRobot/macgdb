@@ -73,7 +73,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 static int cpu_type;
 
-struct m6811_opcode_pattern 
+struct m6811_opcode_pattern
 {
   const char *name;
   const char *pattern;
@@ -127,7 +127,7 @@ struct m6811_opcode_pattern m6811_opcode_patterns[] = {
     "if ((src8 & dst8) == 0)\n@	 cpu_set_pc (proc, addr)" },
   { "brset8",
     "if (((~src8) & dst8) == 0)\n@  cpu_set_pc (proc, addr)" },
-  
+
 
   { "rts11",  "addr = cpu_m68hc11_pop_uint16 (proc); cpu_set_pc (proc, addr); cpu_return(proc)" },
   { "rts12",  "addr = cpu_m68hc12_pop_uint16 (proc); cpu_set_pc (proc, addr); cpu_return(proc)" },
@@ -211,7 +211,7 @@ dst16 = dst16 + src16", 0 },
      flags are not changed.  */
   { "ins16", "dst16 = src16 + 1" },
   { "des16", "dst16 = src16 - 1" },
-  
+
   { "jsr_11_16", "cpu_m68hc11_push_uint16 (proc, cpu_get_pc (proc)); cpu_call (proc, addr)"},
   { "jsr_12_16", "cpu_m68hc12_push_uint16 (proc, cpu_get_pc (proc)); cpu_call (proc, addr)"},
 
@@ -784,7 +784,7 @@ struct m6811_opcode_def m6812_page1_opcodes[] = {
 
   { "bgt",  "r",         0,          2, 0x2e,  1,  3, CHG_NONE },
   { "bhi",  "r",         0,          2, 0x22,  1,  3, CHG_NONE },
-  
+
   { "bita", "#,a",       "and8",     2, 0x85,  1,  1, CLR_V_CHG_NZ },
   { "bita", "*,a",       "and8",     2, 0x95,  3,  3, CLR_V_CHG_NZ },
   { "bita", "(),a",      "and8",     3, 0xb5,  3,  3, CLR_V_CHG_NZ },
@@ -1239,14 +1239,14 @@ print (FILE *fp, int col, const char *msg, ...)
    instruction.	 Operands are copied in local variables.  This allows to
    have the same instruction pattern and different operand formats.
    There is a maximum of 3 variables:
- 
+
 		       8-bits	       16-bits
    1st operand:		src8		src16
    2nd operand:		dst8		dst16
    alt operand:		addr		addr
-  
+
    The operand string is interpreted as follows:
- 
+
    a	Copy A register in the local 8-bits variable.
    b	"    B "
    ccr	"    ccr "
@@ -1280,7 +1280,7 @@ print (FILE *fp, int col, const char *msg, ...)
    &[]  Similar to [] but don't read the value pointed to by the address.
    ,	Operand separator.
    -	End of input operands.
-  
+
    Example:
        (x),a->a	      addr = x + (uint16) (fetch8 (proc));
 		      src8 = a
@@ -1288,7 +1288,7 @@ print (FILE *fp, int col, const char *msg, ...)
 		      src8 = read_mem8 (proc, addr)
 		      dst8 = fetch8 (proc)
 		      addr = fetch_relbranch (proc)    <- Final 'addr'
-  
+
    Returns 1 if the 'addr' operand is set, 0 otherwise.	 */
 int
 gen_fetch_operands (FILE *fp, int col,
@@ -1303,7 +1303,7 @@ gen_fetch_operands (FILE *fp, int col,
   int addr_set = 0;
   int cur_var = 0;
   const char *operands = opcode->operands;
-  
+
   if (operands == 0)
     operands = "";
 
@@ -1314,7 +1314,7 @@ gen_fetch_operands (FILE *fp, int col,
 	case 'a':
 	  if (cur_var >= 2)
 	    fatal_error (opcode, "Too many locals");
-	  
+
 	  print (fp, col, "%s8 = cpu_get_a (proc);", vars[cur_var]);
 	  break;
 
@@ -1352,7 +1352,7 @@ gen_fetch_operands (FILE *fp, int col,
 
 	  if (addr_set)
 	    fatal_error (opcode, "Wrong use of '*', 'addr' already used");
-	  
+
 	  addr_set = 1;
 	  current_insn_size += 1;
 	  print (fp, col, "addr = (uint16) cpu_fetch8 (proc);");
@@ -1363,7 +1363,7 @@ gen_fetch_operands (FILE *fp, int col,
 	case '&':
 	  if (addr_set)
 	    fatal_error (opcode, "Wrong use of '&', 'addr' already used");
-	  
+
 	  addr_set = 1;
 	  if (strncmp (operands, "(x)", 3) == 0)
 	    {
@@ -1394,14 +1394,14 @@ gen_fetch_operands (FILE *fp, int col,
 	      fatal_error (opcode, "Unknown operand");
 	    }
 	  break;
-	  
+
 	case '(':
 	  if (cur_var >= 2)
 	    fatal_error (opcode, "Too many locals");
-	  
+
 	  if (addr_set)
 	    fatal_error (opcode, "Wrong use of '(', 'addr' already used");
-	  
+
 	  if (strncmp (operands, "x)", 2) == 0)
 	    {
 	      addr_set = 1;
@@ -1454,10 +1454,10 @@ gen_fetch_operands (FILE *fp, int col,
 	case '[':
 	  if (cur_var >= 2)
 	    fatal_error (opcode, "Too many locals");
-	  
+
 	  if (addr_set)
 	    fatal_error (opcode, "Wrong use of '[', 'addr' already used");
-	  
+
 	  if (strncmp (operands, "]", 1) == 0)
 	    {
 	      addr_set = 1;
@@ -1483,10 +1483,10 @@ gen_fetch_operands (FILE *fp, int col,
 	case '{':
 	  if (cur_var >= 2)
 	    fatal_error (opcode, "Too many locals");
-	  
+
 	  if (addr_set)
 	    fatal_error (opcode, "Wrong use of '{', 'addr' already used");
-	  
+
 	  if (strncmp (operands, "}", 1) == 0)
 	    {
 	      current_insn_size += 1;
@@ -1503,7 +1503,7 @@ gen_fetch_operands (FILE *fp, int col,
 	case 's':
 	  if (cur_var >= 2)
 	    fatal_error (opcode, "Too many locals");
-	  
+
 	  if (strncmp (operands, "p", 1) == 0)
 	    {
 	      print (fp, col, "%s16 = cpu_get_sp (proc);", vars[cur_var]);
@@ -1526,7 +1526,7 @@ gen_fetch_operands (FILE *fp, int col,
 	      fatal_error (opcode, "Unknown operands");
 	    }
 	  break;
-	  
+
 	case 'r':
 	  if (addr_set && cur_var != 2)
 	    fatal_error (opcode, "Wrong use of 'r'");
@@ -1557,7 +1557,7 @@ gen_fetch_operands (FILE *fp, int col,
 	  print (fp, col, "%s%s = cpu_fetch%s (proc);", vars[cur_var],
 		 operand_size, operand_size);
 	  break;
-	  
+
 	case ',':
 	  cur_var ++;
 	  break;
@@ -1578,12 +1578,12 @@ gen_fetch_operands (FILE *fp, int col,
    a local variable: either 'dst8' or 'dst16'.
    There may be only one result.  Instructions with 2 results (ie idiv
    and fdiv), take care of saving the first value.
-  
+
    The operand string is the same as for 'gen_fetch_operands'.
    Everything before '->' is ignored.  If the '->' is not found, it
    is assumed that there is nothing to save.  After '->', the operand
    string is interpreted as follows:
-  
+
    a	Save 'dst8' in A register
    b	"	       B "
    ccr	"	       CCR "
@@ -1617,7 +1617,7 @@ gen_save_result (FILE *fp, int col,
      is a sanity check with 'operand_size' to detect inconsistencies
      in the different tables.  */
   const char *result_size = 0;
-  
+
   if (operands == 0)
     operands = "";
 
@@ -1739,7 +1739,7 @@ gen_save_result (FILE *fp, int col,
 	  fatal_error (opcode, "Invalid operand");
 	}
       break;
-      
+
     case '{':
       if (strncmp (operands, "}", 1) == 0)
 	{
@@ -1755,7 +1755,7 @@ gen_save_result (FILE *fp, int col,
 	  fatal_error (opcode, "Invalid operand");
 	}
       break;
-      
+
     case 's':
       if (strncmp (operands, "p", 1) == 0)
 	{
@@ -1781,7 +1781,7 @@ gen_save_result (FILE *fp, int col,
 	  fatal_error (opcode, "Invalid operand");
 	}
       break;
-	  
+
     default:
       fatal_error (opcode, "Invalid operand");
       break;
@@ -1789,7 +1789,7 @@ gen_save_result (FILE *fp, int col,
 
   if (*operands != 0)
     fatal_error (opcode, "Garbage at end of operand");
-  
+
   if (result_size == 0)
     fatal_error (opcode, "? No result seems to be saved");
 
@@ -1804,7 +1804,7 @@ find_opcode_pattern (const struct m6811_opcode_def *opcode)
 {
   int i;
   const char *pattern = opcode->insn_pattern;
-  
+
   if (pattern == 0)
     {
       pattern = opcode->name;
@@ -1829,7 +1829,7 @@ gen_interp (FILE *fp, int col, const struct m6811_opcode_def *opcode)
   const char *pattern = opcode->insn_pattern;
   const struct m6811_opcode_pattern *op;
   const char *operand_size;
-  
+
   if (pattern == 0)
     {
       pattern = opcode->name;
@@ -1848,7 +1848,7 @@ gen_interp (FILE *fp, int col, const struct m6811_opcode_def *opcode)
     {
       operand_size = "";
     }
-  
+
   if (operands == 0)
     operands = "";
 
@@ -1891,15 +1891,15 @@ gen_interpreter_for_table (FILE *fp, int col,
 
   init_size = table == m6811_page1_opcodes
     || table == m6812_page1_opcodes? 1 : 2;
-  
+
   /* Get the opcode and dispatch directly.  */
   print (fp, col, "op = cpu_fetch8 (proc);");
   print (fp, col, "cpu_add_cycles (proc, %s[op]);", cycles_table_name);
-  
+
   print (fp, col, "switch (op)\n");
   col += indent_level;
   print (fp, col, "{\n");
-  
+
   for (i = 0; i < size; i++)
     {
       /* The table contains duplicate entries (ie, instruction aliases).  */
@@ -2009,7 +2009,7 @@ cmp_opcode (void* e1, void* e2)
 {
   struct m6811_opcode_def* op1 = (struct m6811_opcode_def*) e1;
   struct m6811_opcode_def* op2 = (struct m6811_opcode_def*) e2;
-  
+
   return (int) (op1->insn_code) - (int) (op2->insn_code);
 }
 
@@ -2017,7 +2017,7 @@ void
 prepare_table (struct m6811_opcode_def* table, int size)
 {
   int i;
-  
+
   qsort (table, size, sizeof (table[0]), cmp_opcode);
   for (i = 1; i < size; i++)
     {
@@ -2063,7 +2063,7 @@ gen_interpreter (FILE *fp)
 				 TABLE_SIZE(m6811_page3_opcodes),
 				 "cycles_page3");
       gen_function_close (fp);
-  
+
       gen_function_entry (fp, "static void\ncpu_page4_interp", 0);
       gen_interpreter_for_table (fp, indent_level,
 				 m6811_page4_opcodes,
@@ -2140,7 +2140,7 @@ main (int argc, char *argv[])
     }
   if (cpu_type == 0)
     usage (argv[0]);
-  
+
   gen_interpreter (stdout);
   if (fclose (stdout) != 0)
     {

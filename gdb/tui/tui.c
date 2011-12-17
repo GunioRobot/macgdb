@@ -159,7 +159,7 @@ tui_rl_change_windows (int notused1, int notused2)
 	case SRC_DISASSEM_COMMAND:
 	  new_layout = DISASSEM_DATA_COMMAND;
 	  break;
-	  
+
 	case DISASSEM_DATA_COMMAND:
 	  new_layout = SRC_DATA_COMMAND;
 	  break;
@@ -375,7 +375,7 @@ tui_enable (void)
       WINDOW *w;
 
       w = initscr ();
-  
+
       cbreak ();
       noecho ();
       /* timeout (1); */
@@ -407,7 +407,7 @@ tui_enable (void)
   rl_startup_hook = tui_rl_startup_hook;
 
   tui_update_variables ();
-  
+
   tui_setup_io (1);
 
   tui_active = 1;
@@ -456,7 +456,7 @@ tui_disable (void)
 }
 
 void
-strcat_to_buf (char *buf, int buflen, 
+strcat_to_buf (char *buf, int buflen,
 	       const char *item_to_add)
 {
   if (item_to_add != (char *) NULL && buf != (char *) NULL)
@@ -549,19 +549,19 @@ tui_is_window_visible (enum tui_win_type type)
 
   if (tui_win_list[type] == 0)
     return 0;
-  
+
   return tui_win_list[type]->generic.is_visible;
 }
 
 int
-tui_get_command_dimension (unsigned int *width, 
+tui_get_command_dimension (unsigned int *width,
 			   unsigned int *height)
 {
   if (!tui_active || (TUI_CMD_WIN == NULL))
     {
       return 0;
     }
-  
+
   *width = TUI_CMD_WIN->generic.width;
   *height = TUI_CMD_WIN->generic.height;
   return 1;

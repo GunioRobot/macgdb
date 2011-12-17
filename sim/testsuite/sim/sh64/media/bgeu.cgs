@@ -10,7 +10,7 @@
 	.global bgeu
 init:
 	movi 0, r0
-	
+
 bgeu1:
 	# Compare r0 with itself.
 	pta bgeu2, tr0

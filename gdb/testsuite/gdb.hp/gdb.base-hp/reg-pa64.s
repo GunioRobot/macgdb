@@ -23,7 +23,7 @@ main
 
         ;; Test we have right register numbers
         ;;
-        ADD             %r0,%r0,%r1             ;    0 
+        ADD             %r0,%r0,%r1             ;    0
         LDI             1,%r1                   ;    1
         ;;
         ;; Don't put anything into r2 or r3--they are special registers.
@@ -67,7 +67,7 @@ main
         DEPD,Z          %r19,55,56,%r19         ; "deadbeefbadcad00"
         LDI             0xee,%r18               ; "ee"
         ADD             %r18,%r19,%r19          ; "deadbeefbadcadee"
-        
+
 lab1    ;; Test floating point registers
         ;;
         ;; LDIL            LR'one,%r22             ;
@@ -86,13 +86,13 @@ here	DEPDI		0x0,63,2,%r2
         FMPY,DBL        %fr6,%fr7,%fr8          ;   8.0
         FMPY,DBL        %fr7,%fr8,%fr9          ;  32.0
         FMPY,DBL        %fr8,%fr9,%fr10         ; 256.0
-        
+
         ;; The NOP prevents anything from end.o or crt0.o from
         ;; being appended immediately after "mainend".  If that
         ;; happens, then we may have other labels that have the
         ;; same address as "mainend", and thus the debugger
         ;; may symbolize this PC to something other than "mainend".
-mainend                
+mainend
         NOP
         .exit
         .procend

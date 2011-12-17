@@ -134,7 +134,7 @@ decimal128.o:  $(srcdir)/$(enable_decimal_float)/decimal128.c \
    $(srcdir)/$(enable_decimal_float)/decimal128.h \
    $(srcdir)/$(enable_decimal_float)/decimal128Symbols.h\
    $(srcdir)/$(enable_decimal_float)/decimal128Local.h\
-   decNumber.h decContext.h decNumberLocal.h 
+   decNumber.h decContext.h decNumberLocal.h
 	$(COMPILE) $(srcdir)/$(enable_decimal_float)/decimal128.c
 bid2dpd_dpd2bid.o : $(srcdir)/bid/bid2dpd_dpd2bid.c $(srcdir)/bid/bid2dpd_dpd2bid.h
 	$(COMPILE) $(srcdir)/bid/bid2dpd_dpd2bid.c

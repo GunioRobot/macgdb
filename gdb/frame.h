@@ -120,8 +120,8 @@ struct frame_id
 
   /* The frame's special address.  This shall be constant through out the
      lifetime of the frame.  This is used for architectures that may have
-     frames that do not change the stack but are still distinct and have 
-     some form of distinct identifier (e.g. the ia64 which uses a 2nd 
+     frames that do not change the stack but are still distinct and have
+     some form of distinct identifier (e.g. the ia64 which uses a 2nd
      stack for registers).  This field is treated as unordered - i.e. will
      not be used in frame ordering comparisons.
 
@@ -564,16 +564,16 @@ extern struct gdbarch *frame_unwind_caller_arch (struct frame_info *frame);
 
 /* Values for the source flag to be used in print_frame_info_base().  */
 enum print_what
-  { 
+  {
     /* Print only the source line, like in stepi. */
-    SRC_LINE = -1, 
+    SRC_LINE = -1,
     /* Print only the location, i.e. level, address (sometimes)
        function, args, file, line, line num. */
     LOCATION,
     /* Print both of the above. */
-    SRC_AND_LOC, 
+    SRC_AND_LOC,
     /* Print location only, but always include the address. */
-    LOC_AND_ADDRESS 
+    LOC_AND_ADDRESS
   };
 
 /* Allocate zero initialized memory from the frame cache obstack.

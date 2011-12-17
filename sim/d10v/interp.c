@@ -73,7 +73,7 @@ struct hash_entry
 
 struct hash_entry hash_table[MAX_HASH+1];
 
-INLINE static long 
+INLINE static long
 hash(insn, format)
      long insn;
      int format;
@@ -285,7 +285,7 @@ do_parallel (ins1, ins2)
 	}
     }
 }
- 
+
 static char *
 add_commas(buf, sizeof_buf, value)
      char *buf;
@@ -650,24 +650,24 @@ map_memory (unsigned phys_addr)
   uint8 *raw;
   unsigned offset;
   int segment = ((phys_addr >> 24) & 0xff);
-  
+
   switch (segment)
     {
-      
+
     case 0x00: /* Unified memory */
       {
 	memory = &State.mem.unif[(phys_addr / SEGMENT_SIZE) % UMEM_SEGMENTS];
 	last_segname = "umem";
 	break;
       }
-    
+
     case 0x01: /* On-chip insn memory */
       {
 	memory = &State.mem.insn[(phys_addr / SEGMENT_SIZE) % IMEM_SEGMENTS];
 	last_segname = "imem";
 	break;
       }
-    
+
     case 0x02: /* On-chip data memory */
       {
 	if ((phys_addr & 0xff00) == 0xff00)
@@ -686,13 +686,13 @@ map_memory (unsigned phys_addr)
 	memory = &State.mem.data[(phys_addr / SEGMENT_SIZE) % DMEM_SEGMENTS];
 	break;
       }
-    
+
     default:
       /* OOPS! */
       last_segname = "scrap";
       return State.mem.fault;
     }
-  
+
   if (*memory == NULL)
     {
       *memory = calloc (1, SEGMENT_SIZE);
@@ -702,12 +702,12 @@ map_memory (unsigned phys_addr)
 	  return State.mem.fault;
 	}
     }
-  
+
   offset = (phys_addr % SEGMENT_SIZE);
   raw = *memory + offset;
   return raw;
 }
-  
+
 /* Transfer data to/from simulated memory.  Since a bug in either the
    simulated program or in gdb or the simulator itself may cause a
    bogus address to be passed in, we need to do some sanity checking
@@ -752,7 +752,7 @@ xfer_mem (SIM_ADDR virt,
     {
       memcpy (buffer, memory, phys_size);
     }
-  
+
   return phys_size;
 }
 
@@ -813,14 +813,14 @@ sim_open (kind, callback, abfd, argv)
       else
 	(*d10v_callback->printf_filtered) (d10v_callback, "ERROR: unsupported option(s): %s\n",*p);
     }
-  
+
   /* put all the opcodes in the hash table */
   if (!init_p++)
     {
       for (s = Simops; s->func; s++)
 	{
 	  h = &hash_table[hash(s->opcode,s->format)];
-      
+
 	  /* go to the last entry in the chain */
 	  while (h->next)
 	    h = h->next;
@@ -921,7 +921,7 @@ imem_addr (uint32 offset)
     {
       return State.mem.fault;
     }
-  mem = map_memory (phys); 
+  mem = map_memory (phys);
 #ifdef DEBUG
   if ((d10v_debug & DEBUG_MEMORY))
     {
@@ -995,12 +995,12 @@ sim_resume (sd, step, siggnal)
  	  State.exception = SIGBUS;
  	  break;
  	}
- 
-      inst = get_longword( iaddr ); 
- 
+
+      inst = get_longword( iaddr );
+
       State.pc_changed = 0;
       ins_type_counters[ (int)INS_CYCLES ]++;
-      
+
       switch (inst & 0xC0000000)
 	{
 	case 0xC0000000:
@@ -1019,7 +1019,7 @@ sim_resume (sd, step, siggnal)
 	  do_parallel ((inst & 0x3FFF8000) >> 15, inst & 0x7FFF);
 	  break;
 	}
-      
+
       /* If the PC of the current instruction matches RPT_E then
 	 schedule a branch to the loop start.  If one of those
 	 instructions happens to be a branch, than that instruction
@@ -1046,8 +1046,8 @@ sim_resume (sd, step, siggnal)
 	    }
 	  else
 	    SET_PC (PC + 1);
-	}	  
-      
+	}
+
       /* Check for a breakpoint trap on this instruction.  This
 	 overrides any pending branches or loops */
       if (PSW_DB && PC == IBA)
@@ -1070,7 +1070,7 @@ sim_resume (sd, step, siggnal)
 #endif /* NEED_UI_LOOP_HOOK */
     }
   while ( !State.exception && !stop_simulator);
-  
+
   if (step && !State.exception)
     State.exception = SIGTRAP;
 }
@@ -1379,7 +1379,7 @@ sim_fetch_register (sd, rn, memory, length)
     }
   return size;
 }
- 
+
 int
 sim_store_register (sd, rn, memory, length)
      SIM_DESC sd;
@@ -1471,7 +1471,7 @@ void
 sim_do_command (sd, cmd)
      SIM_DESC sd;
      char *cmd;
-{ 
+{
   (*d10v_callback->printf_filtered) (d10v_callback, "sim_do_command: %s\n",cmd);
 }
 
@@ -1496,4 +1496,4 @@ sim_load (sd, prog, abfd, from_tty)
     return SIM_RC_FAIL;
   prog_bfd_was_opened_p = abfd == NULL;
   return SIM_RC_OK;
-} 
+}

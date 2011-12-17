@@ -1,7 +1,7 @@
 	.global _start
 _start:
 	setlo	0x0400,gr10
-loop:	
+loop:
 	addicc	gr10,-1,gr10,icc0
 	bne	icc0,0,loop
 ; exit (0)

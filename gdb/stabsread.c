@@ -57,7 +57,7 @@
 
 extern void _initialize_stabsread (void);
 
-/* The routines that read and process a complete stabs for a C struct or 
+/* The routines that read and process a complete stabs for a C struct or
    C++ class pass lists of data member fields and lists of member function
    fields in an instance of a field_info structure, as defined below.
    This is part of some reorganization of low level C++ support and is
@@ -338,7 +338,7 @@ dbx_alloc_type (int typenums[2], struct objfile *objfile)
   return (*type_addr);
 }
 
-/* for all the stabs in a given stab vector, build appropriate types 
+/* for all the stabs in a given stab vector, build appropriate types
    and fix their symbols in given symbol vector. */
 
 static void
@@ -353,7 +353,7 @@ patch_block_stabs (struct pending *symbols, struct pending_stabs *stabs,
   if (stabs)
     {
 
-      /* for all the stab entries, find their corresponding symbols and 
+      /* for all the stab entries, find their corresponding symbols and
          patch their types! */
 
       for (ii = 0; ii < stabs->count; ++ii)
@@ -461,7 +461,7 @@ read_type_number (char **pp, int *typenums)
 #define VISIBILITY_PUBLIC	'2'	/* Stabs character for public field */
 #define VISIBILITY_IGNORE	'9'	/* Optimized out or zero length */
 
-/* Structure for storing pointers to reference definitions for fast lookup 
+/* Structure for storing pointers to reference definitions for fast lookup
    during "process_later". */
 
 struct ref_map
@@ -494,8 +494,8 @@ stabsread_clear_cache (void)
 }
 
 /* Create array of pointers mapping refids to symbols and stab strings.
-   Add pointers to reference definition symbols and/or their values as we 
-   find them, using their reference numbers as our index. 
+   Add pointers to reference definition symbols and/or their values as we
+   find them, using their reference numbers as our index.
    These will be used later when we resolve references. */
 void
 ref_add (int refnum, struct symbol *sym, char *stabs, CORE_ADDR value)
@@ -552,7 +552,7 @@ process_reference (char **string)
   return refnum;
 }
 
-/* If STRING defines a reference, store away a pointer to the reference 
+/* If STRING defines a reference, store away a pointer to the reference
    definition for later use.  Return the reference number.  */
 
 int
@@ -1106,7 +1106,7 @@ define_symbol (CORE_ADDR valu, char *string, int desc, int type,
     case 't':
       /* In Ada, there is no distinction between typedef and non-typedef;
          any type declaration implicitly has the equivalent of a typedef,
-         and thus 't' is in fact equivalent to 'Tt'. 
+         and thus 't' is in fact equivalent to 'Tt'.
 
          Therefore, for Ada units, we check the character immediately
          before the 't', and if we do not find a 'T', then make sure to
@@ -1114,7 +1114,7 @@ define_symbol (CORE_ADDR valu, char *string, int desc, int type,
          will be stored in the VAR_DOMAIN).  If the symbol was indeed
          defined as 'Tt' then the STRUCT_DOMAIN symbol will be created
          elsewhere, so we don't need to take care of that.
-         
+
          This is important to do, because of forward references:
          The cleanup of undefined types stored in undef_types only uses
          STRUCT_DOMAIN symbols to perform the replacement.  */
@@ -1220,7 +1220,7 @@ define_symbol (CORE_ADDR valu, char *string, int desc, int type,
                           SYMBOL_LINKAGE_NAME (sym));
           add_symbol_to_list (struct_sym, &file_symbols);
         }
-      
+
       break;
 
     case 'T':
@@ -1232,7 +1232,7 @@ define_symbol (CORE_ADDR valu, char *string, int desc, int type,
 	p++;
 
       SYMBOL_TYPE (sym) = read_type (&p, objfile);
- 
+
       /* For a nameless type, we don't want a create a symbol, thus we
          did not use `sym'. Return without further processing. */
       if (nameless)
@@ -2563,7 +2563,7 @@ read_member_functions (struct field_info *fip, char **pp, struct type *type,
 		      tmp_sublist = tmp_sublist->next;
 		      continue;
 		    }
-		  
+
 		  destr_fnlist->fn_fieldlist.fn_fields[i++]
 		    = tmp_sublist->fn_field;
 		  if (last_sublist)
@@ -3296,7 +3296,7 @@ attach_fields_to_type (struct field_info *fip, struct type *type,
 
 /* Complain that the compiler has emitted more than one definition for the
    structure type TYPE.  */
-static void 
+static void
 complain_about_struct_wipeout (struct type *type)
 {
   char *name = "";
@@ -3340,7 +3340,7 @@ complain_about_struct_wipeout (struct type *type)
 
    OBJFILE points to the current objfile from which the stabs information is
    being read.  (Note that it is redundant in that TYPE also contains a pointer
-   to this same objfile, so it might be a good idea to eliminate it.  FIXME). 
+   to this same objfile, so it might be a good idea to eliminate it.  FIXME).
  */
 
 static struct type *
@@ -3991,7 +3991,7 @@ read_range_type (char **pp, int typenums[2], int type_size,
 
       if (self_subrange)
 	{
-	  struct type *complex_type = 
+	  struct type *complex_type =
 	    init_type (TYPE_CODE_COMPLEX, 2 * n2, 0, NULL, objfile);
 	  TYPE_TARGET_TYPE (complex_type) = float_type;
 	  return complex_type;
@@ -4283,7 +4283,7 @@ add_undefined_type_1 (struct type *type)
    scope?  */
 /* Add a type to the list of undefined types to be checked through
    once this file has been read in.
-   
+
    In practice, we actually maintain two such lists: The first list
    (UNDEF_TYPES) is used for types whose name has been provided, and
    concerns forward references (eg 'xs' or 'xu' forward references);
@@ -4348,7 +4348,7 @@ cleanup_undefined_types_1 (void)
        1. It is a typedef in the STRUCT domain;
        2. It has the same name, and same type code;
        3. The instance flags are identical.
-     
+
      It is important to check the instance flags, because we have seen
      examples where the debug info contained definitions such as:
 

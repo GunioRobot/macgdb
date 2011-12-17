@@ -253,7 +253,7 @@ elf_symtab_read (struct objfile *objfile, int type,
 	{
 	  struct minimal_symbol *msym;
 	  bfd *abfd = objfile->obfd;
-	  asection *sect; 
+	  asection *sect;
 
 	  /* Symbol is a reference to a function defined in
 	     a shared library.
@@ -342,7 +342,7 @@ elf_symtab_read (struct objfile *objfile, int type,
 
 		 NOTE: uweigand-20071112: Synthetic symbols do not
 		 have an ELF-private part, so do not touch those.  */
-	      unsigned int shndx = type == ST_SYNTHETIC ? 0 : 
+	      unsigned int shndx = type == ST_SYNTHETIC ? 0 :
 		((elf_symbol_type *) sym)->internal_elf_sym.st_shndx;
 
 	      switch (shndx)
@@ -440,7 +440,7 @@ elf_symtab_read (struct objfile *objfile, int type,
 			     already includes one element, so we
 			     need to allocate max_index aadditional
 			     elements.  */
-			  size = (sizeof (struct stab_section_info) 
+			  size = (sizeof (struct stab_section_info)
 				  + (sizeof (CORE_ADDR)
 				     * max_index));
 			  sectinfo = (struct stab_section_info *)
@@ -493,7 +493,7 @@ elf_symtab_read (struct objfile *objfile, int type,
 	  else
 	    {
 	      /* FIXME:  Solaris2 shared libraries include lots of
-		 odd "absolute" and "undefined" symbols, that play 
+		 odd "absolute" and "undefined" symbols, that play
 		 hob with actions like finding what function the PC
 		 is in.  Ignore them if they aren't text, data, or bss.  */
 	      /* ms_type = mst_unknown; */
@@ -512,7 +512,7 @@ elf_symtab_read (struct objfile *objfile, int type,
 		 ELF-private part.  However, in some cases (e.g. synthetic
 		 'dot' symbols on ppc64) the udata.p entry is set to point back
 		 to the original ELF symbol it was derived from.  Get the size
-		 from that symbol.  */ 
+		 from that symbol.  */
 	      if (type != ST_SYNTHETIC)
 		elf_sym = (elf_symbol_type *) sym;
 	      else
@@ -557,7 +557,7 @@ elf_symtab_read (struct objfile *objfile, int type,
 }
 
 /* Scan and build partial symbols for a symbol file.
-   We have been initialized by a call to elf_symfile_init, which 
+   We have been initialized by a call to elf_symfile_init, which
    currently does nothing.
 
    SECTION_OFFSETS is a set of offsets to apply to relocate the symbols
@@ -609,7 +609,7 @@ elf_symfile_read (struct objfile *objfile, int mainline)
   memset ((char *) objfile->deprecated_sym_stab_info, 0, sizeof (struct dbx_symfile_info));
   make_cleanup (free_elfinfo, (void *) objfile);
 
-  /* Process the normal ELF symbol table first.  This may write some 
+  /* Process the normal ELF symbol table first.  This may write some
      chain of info into the dbx_symfile_info in objfile->deprecated_sym_stab_info,
      which can later be used by elfstab_offset_sections.  */
 
@@ -861,7 +861,7 @@ elfstab_offset_sections (struct objfile *objfile, struct partial_symtab *pst)
       /* Found it!  Allocate a new psymtab struct, and fill it in.  */
       maybe->found++;
       pst->section_offsets = (struct section_offsets *)
-	obstack_alloc (&objfile->objfile_obstack, 
+	obstack_alloc (&objfile->objfile_obstack,
 		       SIZEOF_N_SECTION_OFFSETS (objfile->num_sections));
       for (i = 0; i < maybe->num_sections; i++)
 	(pst->section_offsets)->offsets[i] = maybe->sections[i];

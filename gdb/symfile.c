@@ -1447,7 +1447,7 @@ find_separate_debug_file (struct objfile *objfile)
 	  return xstrdup (debugfile);
 	}
     }
-  
+
   if (canon_name)
     xfree (canon_name);
 
@@ -1555,7 +1555,7 @@ symfile_bfd_open (char *name)
   bfd *sym_bfd;
   int desc;
   char *absolute_name;
-  
+
   /* APPLE LOCAL: This will probably be turned to an additional argument, but
   for now we'll just assume we're always opening the "mainline" executable. */
   int mainline = 1;
@@ -1635,7 +1635,7 @@ symfile_bfd_open (char *name)
         bfd_errmsg (bfd_get_error ()));
     }
   bfd_set_cacheable (sym_bfd, 1);
-  
+
   /* APPLE LOCAL: If the file is an archive file (i.e. fat
      binary), look for sub-files that match the current osabi. */
 
@@ -2377,7 +2377,7 @@ reread_symbols (void)
 	      /* Nuke all the state that we will re-read.  Much of the following
 	         code which sets things to NULL really is necessary to tell
 	         other parts of GDB that there is nothing currently there.
-		 
+
 		 Try to keep the freeing order compatible with free_objfile.  */
 
 	      if (objfile->sf != NULL)
@@ -3094,7 +3094,7 @@ start_psymtab_common (struct objfile *objfile,
   return (psymtab);
 }
 
-/* Helper function, initialises partial symbol structure and stashes 
+/* Helper function, initialises partial symbol structure and stashes
    it into objfile's bcache.  Note that our caching mechanism will
    use all fields of struct partial_symbol to determine hash value of the
    structure.  In other words, having two symbols with the same name but
@@ -3108,12 +3108,12 @@ add_psymbol_to_bcache (char *name, int namelength, domain_enum domain,
 		       enum language language, struct objfile *objfile,
 		       int *added)
 {
-  char *buf = name;  
+  char *buf = name;
   /* psymbol is static so that there will be no uninitialized gaps in the
      structure which might contain random data, causing cache misses in
      bcache. */
   static struct partial_symbol psymbol;
-  
+
   if (name[namelength] != '\0')
     {
       buf = alloca (namelength + 1);
@@ -3174,7 +3174,7 @@ append_psymbol_to_list (struct psymbol_allocation_list *list,
 const struct partial_symbol *
 add_psymbol_to_list (char *name, int namelength, domain_enum domain,
 		     enum address_class class,
-		     struct psymbol_allocation_list *list, 
+		     struct psymbol_allocation_list *list,
 		     long val,	/* Value as a long */
 		     CORE_ADDR coreaddr,	/* Value as a CORE_ADDR */
 		     enum language language, struct objfile *objfile)
@@ -3301,7 +3301,7 @@ section_is_overlay (struct obj_section *section)
     {
       bfd *abfd = section->objfile->obfd;
       asection *bfd_section = section->the_bfd_section;
-  
+
       if (bfd_section_lma (abfd, bfd_section) != 0
 	  && bfd_section_lma (abfd, bfd_section)
 	     != bfd_section_vma (abfd, bfd_section))

@@ -140,7 +140,7 @@ for {set i 0} {$i < 5} {incr i} {
     } else {
 	fail "create philosopher: $i"
     }
-    
+
     send_gdb "info threads\n"
     set threads_after {}
     gdb_expect {
@@ -184,7 +184,7 @@ for {set i 0} {$i < 5} {incr i} {
 	    fail "(timeout) info threads after: $i"
 	}
     }
-    
+
 }
 
 set nthreads 6
@@ -267,7 +267,7 @@ for {set i 0} {$only_five > 0 && $i < 10} {incr i} {
 	-re ".*$gdb_prompt $" {
 	    set only_five 0
 	}
-	timeout { 
+	timeout {
 	    set only_five -1
 	}
     }
@@ -362,7 +362,7 @@ proc check_philosopher_stack {thread seen_name} {
 	    fail $name
 	}
 	timeout {
-	    fail "$name (timeout)" 
+	    fail "$name (timeout)"
 	}
     }
 

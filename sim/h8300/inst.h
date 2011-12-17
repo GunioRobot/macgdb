@@ -16,11 +16,11 @@
    to catch overlapping addresses, wrapped addresses, etc etc.  */
 #define H8300_MSIZE (1 << 16)
 
-/* avolkov: 
+/* avolkov:
    Next 2 macros are ugly for any workstation, but while they're work.
    Memory size MUST be configurable.  */
-#define H8300H_MSIZE (1 << 18) 
-#define H8300S_MSIZE (1 << 24) 
+#define H8300H_MSIZE (1 << 18)
+#define H8300S_MSIZE (1 << 24)
 
 #define CSIZE 1000
 
@@ -29,10 +29,10 @@ typedef enum
 {
   R0, R1, R2, R3, R4, R5, R6, R7,
   R_ZERO,
-  R_PC,				
+  R_PC,
   R_CCR,
   R_EXR,
-  R_HARD_0,			
+  R_HARD_0,
   R_LAST,
 } reg_type;
 
@@ -85,7 +85,7 @@ typedef struct
   int maximum;
   int csize;
   int mask;
-  
+
   decoded_inst *cache;
   int cycles;
   int insts;

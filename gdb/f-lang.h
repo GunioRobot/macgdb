@@ -38,7 +38,7 @@ extern int f_val_print (struct type *, const gdb_byte *, int, CORE_ADDR,
    its value is by default that of the corresponding bound of the array or
    string.  So we have four sorts of subrange in F90.  This enumeration type
    is to identify this.  */
-   
+
 enum f90_range_type
   {
     BOTH_BOUND_DEFAULT,		/* "(:)"  */
@@ -59,7 +59,7 @@ struct saved_f77_common
     char *name;			/* Name of COMMON */
     char *owning_function;	/* Name of parent function */
     int secnum;			/* Section # of .bss */
-    CORE_ADDR offset;		/* Offset from .bss for 
+    CORE_ADDR offset;		/* Offset from .bss for
 				   this block */
     struct common_entry *entries;	/* List of block's components */
     struct common_entry *end_of_entries;	/* ptr. to end of components */
@@ -83,9 +83,9 @@ extern SAVED_F77_COMMON_PTR find_common_for_function (char *, char *);
 #define BLANK_COMMON_NAME_MF77     "__BLNK__"	/* MF77 assigned  */
 #define BLANK_COMMON_NAME_LOCAL    "__BLANK"	/* Local GDB */
 
-/* When reasonable array bounds cannot be fetched, such as when 
-   you ask to 'mt print symbols' and there is no stack frame and 
-   therefore no way of knowing the bounds of stack-based arrays, 
+/* When reasonable array bounds cannot be fetched, such as when
+   you ask to 'mt print symbols' and there is no stack frame and
+   therefore no way of knowing the bounds of stack-based arrays,
    we have to assign default bounds, these are as good as any... */
 
 #define DEFAULT_UPPER_BOUND 999999

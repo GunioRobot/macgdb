@@ -1,4 +1,4 @@
-# sh testcase for ftrc 
+# sh testcase for ftrc
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 
@@ -88,7 +88,7 @@ ftrc_double:
 	_s2d	fr2, dr2
 	_s2d	fr4, dr4
 	ftrc	dr0, fpul
-	
+
 	# check results.
 	mov	#1, r0
 	sts	fpul, r1
@@ -116,7 +116,7 @@ ftrc_double:
 	_s2d	fr2, dr2
 	_s2d	fr4, dr4
 	ftrc	dr0, fpul
-	
+
 	# check results.
 	mov	#1, r0
 	neg	r0, r0

@@ -61,7 +61,7 @@ rc=0
 # Loop through pids
 for pid in $*
 do
-	# Write gdb script for pid $pid.  
+	# Write gdb script for pid $pid.
 	cat >>$tmpfile <<EOF
 attach $pid
 gcore $name.$pid
@@ -71,7 +71,7 @@ EOF
 
 	gdb -x $tmpfile -batch
 
-	if [ -r $name.$pid ] ; then 
+	if [ -r $name.$pid ] ; then
 	    rc=0
 	else
 	    echo gcore: failed to create $name.$pid

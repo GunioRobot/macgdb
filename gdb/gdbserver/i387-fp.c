@@ -85,7 +85,7 @@ i387_cache_to_fsave (void *buf)
 
   collect_register_by_name ("fioff", &fp->fioff);
   collect_register_by_name ("fooff", &fp->fooff);
-  
+
   /* This one's 11 bits... */
   collect_register_by_name ("fop", &val2);
   fp->fop = (val2 & 0x7FF) | (fp->fop & 0xF800);

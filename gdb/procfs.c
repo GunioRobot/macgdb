@@ -126,7 +126,7 @@ static void procfs_store_registers (struct target_ops *,
 static void procfs_notice_signals (ptid_t);
 static void procfs_kill_inferior (struct target_ops *ops);
 static void procfs_mourn_inferior (struct target_ops *ops);
-static void procfs_create_inferior (struct target_ops *, char *, 
+static void procfs_create_inferior (struct target_ops *, char *,
 				    char *, char **, int);
 static ptid_t procfs_wait (struct target_ops *,
 			   ptid_t, struct target_waitstatus *, int);
@@ -156,7 +156,7 @@ static int procfs_can_use_hw_breakpoint (int, int, int);
 
 #if defined (PR_MODEL_NATIVE) && (PR_MODEL_NATIVE == PR_MODEL_LP64)
 /* When GDB is built as 64-bit application on Solaris, the auxv data is
-   presented in 64-bit format.  We need to provide a custom parser to handle 
+   presented in 64-bit format.  We need to provide a custom parser to handle
    that.  */
 static int
 procfs_auxv_parse (struct target_ops *ops, gdb_byte **readptr,
@@ -167,7 +167,7 @@ procfs_auxv_parse (struct target_ops *ops, gdb_byte **readptr,
 
   if (endptr == ptr)
     return 0;
-  
+
   if (endptr - ptr < 8 * 2)
     return -1;
 
@@ -3823,7 +3823,7 @@ procfs_fetch_registers (struct target_ops *ops,
    NOTE: Since the /proc interface will not read individual registers,
    we will cache these requests until the process is resumed, and only
    then write them back to the inferior process.
- 
+
    FIXME: is that a really bad idea?  Have to think about cases where
    writing one register might affect the value of others, etc.  */
 
@@ -4917,7 +4917,7 @@ procfs_init_inferior (struct target_ops *ops, int pid)
      the -init code is executed. Unfortuantely, this is not straightforward,
      as rld is not part of the executable we are running, and thus we need
      the inferior to run until rld itself has been mapped in memory.
-     
+
      For this, we trace all syssgi() syscall exit events.  Each time
      we detect such an event, we iterate over each text memory maps,
      get its associated fd, and scan the symbol table for __dbx_link().
@@ -5138,7 +5138,7 @@ procfs_create_inferior (struct target_ops *ops, char *exec_file,
   procfs_init_inferior (ops, pid);
 
 #ifdef SYS_syssgi
-  /* Make sure to cancel the syssgi() syscall-exit notifications.  
+  /* Make sure to cancel the syssgi() syscall-exit notifications.
      They should normally have been removed by now, but they may still
      be activated if the inferior doesn't use shared libraries, or if
      we didn't locate __dbx_link, or if we never stopped in __dbx_link.
@@ -5679,7 +5679,7 @@ insert_dbx_link_bpt_in_file (int fd, CORE_ADDR ignored)
 
   bfd_close (abfd);
   return 0;
-} 
+}
 
 /* If the given memory region MAP contains a symbol named __dbx_link,
    insert a breakpoint at this location and return nonzero.  Return
@@ -5689,16 +5689,16 @@ static int
 insert_dbx_link_bpt_in_region (struct prmap *map,
                                int (*child_func) (),
                                void *data)
-{     
+{
   procinfo *pi = (procinfo *) data;
-        
+
   /* We know the symbol we're looking for is in a text region, so
      only look for it if the region is a text one.  */
   if (map->pr_mflags & MA_EXEC)
     return solib_mappings_callback (map, insert_dbx_link_bpt_in_file, pi);
- 
+
   return 0;
-}           
+}
 
 /* Search all memory regions for a symbol named __dbx_link.  If found,
    insert a breakpoint at its location, and return nonzero.  Return zero
@@ -5916,7 +5916,7 @@ proc_trace_syscalls_1 (procinfo *pi, int syscallnum, int entry_or_exit,
                       int mode, int from_tty)
 {
   sysset_t *sysset;
-  
+
   if (entry_or_exit == PR_SYSENTRY)
     sysset = proc_get_traced_sysentry (pi, NULL);
   else

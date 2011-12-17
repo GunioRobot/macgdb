@@ -215,7 +215,7 @@ Tue Dec 21 13:32:02 1993  Per Bothner  (bothner@kalessin.cygnus.com)
 	Print TYPE_DUMMY_RANGE by printing its TYPE_TARGET_TYPE.
 	Handle TYPE_CODE_ENUM.
 	* ch-valprint.c (chill_val_print):  Handle TYPE_CODE_BITSTRING.
-	For TYPE_CODE_STRING, never print address.  Handle VARYING strings. 
+	For TYPE_CODE_STRING, never print address.  Handle VARYING strings.
 	* gdbtypes.c (force_to_range_type):  New.
 	* gdbtypes.c (create_set_type):  Make work, following Chill layout.
 	* gdbtypes.h (TYPE_LOW_BOUND, TYPE_HIGH_BOUND, TYPE_DUMMY_RANGE): New.
@@ -280,7 +280,7 @@ Tue Nov 23 17:29:28 1993  Steve Chamberlain  (sac@jonny.cygnus.com)
 	REGISTER_NAMES): update to new view.  (INIT_EXTRA_FRAME_INFO): No
 	extra frame info now.
 	* config/sh/sh.h (NOP): Define NOP insn.
-	* config/z8k/tm-z8k.h (BIG): is now sim_z8001_mode.  
+	* config/z8k/tm-z8k.h (BIG): is now sim_z8001_mode.
 	* config/z8k/z8ksim.mt (TDEPFILES): Add remote-sim.o to list.
 	* ser-go32.c: Lint. (strncasecmp): Removed, now in libiberty.
 	(go32_readchar): Special handling for faster polling. (async
@@ -449,7 +449,7 @@ Thu Nov 18 08:25:50 1993  Fred Fish  (fnf@cygnus.com)
 
 Wed Nov 17 18:23:09 1993  Kung Hsu  (kung@cirdan.cygnus.com)
 
-	* eval.c(evaluate_subexp): to use unified search so type conversion 
+	* eval.c(evaluate_subexp): to use unified search so type conversion
 	operator works in calling method.
 	* valarith.c(value_x_binop, value_x_unop): same as above.
 	* valops.c(search_struct_method): same as above.
@@ -635,7 +635,7 @@ Thu Nov 11 15:22:20 1993  Jeffrey A. Law  (law@snake.cs.utah.edu)
 	* printcmd.c (address_info): Use fprintf_symbol_filtered
 	to print the symbol name.
 
-	* stabsread.c (define_symbol): Handle cfront lossage for 
+	* stabsread.c (define_symbol): Handle cfront lossage for
 	struct/union/enums and typedefs.
 
 	* partial-stab.h (case N_BINCL): Update psymtab_language
@@ -819,7 +819,7 @@ Wed Nov  3 09:20:18 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
 	* Makefile.in (udi2go32.o): add rule to build this file
 	* 29k-share/udi/udi2go32.c: new file
 	* config/a29k/a29k-udi.mt: add udi2go32.o
-	* 29k-share/udi/{udr.c, udip2soc.c}: #ifdef out the entire file 
+	* 29k-share/udi/{udr.c, udip2soc.c}: #ifdef out the entire file
 	  if __GO32__ is defined.  What a hack.
 
 Wed Nov  3 09:20:18 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
@@ -862,8 +862,8 @@ Tue Nov  2 13:42:30 1993  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* config/m68k/tm-m68k.h, config/i960/tm-i960.h (REGISTER_CONVERT_*):
 	Pass length of desired type to store/extract_floating.
-	* config/i386/tm-arm.h, config/i386/tm-i386aix.h, 
-	config/i386/tm-sun386.h, config/i386/tm-symmetry.h, 
+	* config/i386/tm-arm.h, config/i386/tm-i386aix.h,
+	config/i386/tm-sun386.h, config/i386/tm-symmetry.h,
 	config/m88k/tm-m88k.h config/rs6000/tm-rs6000.h (REGISTER_CONVERT_*):
 	Use extract_floating and store_floating with length of desired type.
 	* config/m68k/tm-news.h (STORE,EXTRACT_RETURN_VALUE):  Add type
@@ -900,7 +900,7 @@ Tue Nov  2 03:01:01 1993  Jeff Law  (law@snake.cs.utah.edu)
 	 of "libhppa.h" to "som.h".
 	 (BYTES_IN_WORD): Define.
 	 (hppa_sym_fns): "hppa" is 4 characters, not 5.
-	
+
 Mon Nov  1 09:40:21 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
 
 	* symtab.c, symtab.h, source.c: Change find_line_pc_range to take
@@ -1136,19 +1136,19 @@ Sun Oct 24 18:29:32 1993  Tom Lord  (lord@rtl.cygnus.com)
 	  Replaced calls to fopen for output to gdb_fopen.
 	  Added sufficient goo to utils.c and defs.h to make the above
 	  work.
-	  
+
 	  The net effect is that stdio output functions are only directly
-	  used in utils.c.  Elsewhere, the _unfiltered and _filtered 
+	  used in utils.c.  Elsewhere, the _unfiltered and _filtered
 	  functions and GDB_FILE type are used.
 
-	  In the near future, GDB_FILE will stop being equivalant to 
+	  In the near future, GDB_FILE will stop being equivalant to
 	  FILE.
 
 	  The semantics of some commands has changed in a very subtle way:
-	  called in the right context, they may cause new occurences of 
+	  called in the right context, they may cause new occurences of
 	  prompt_for_continue() behavior.
 
-	  Please respect this change by not reintroducing stdio output 
+	  Please respect this change by not reintroducing stdio output
 	  dependencies in the main body of gdb code.  All output from
 	  commands should go to a GDB_FILE.
 
@@ -1164,7 +1164,7 @@ Sun Oct 24 09:31:05 1993  Fred Fish  (fnf@lisa.cygnus.com)
 	* elfread.c (elf_symtab_read):  Use bfd convention that both
 	initialized and uninitialized data sections have the SEC_ALLOC
 	flag bit set, but only initialized sections have SEC_LOAD set.
-	SEC_DATA is ignored since it only gets set for initialized 
+	SEC_DATA is ignored since it only gets set for initialized
 	data.
 
 Sat Oct 23 14:48:18 1993  Doug Evans  (dje@canuck.cygnus.com)
@@ -1491,7 +1491,7 @@ Fri Oct 15 21:29:40 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
 Fri Oct 15 12:57:30 1993  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 	* mipsread.c (upgrade_type):  Replace bitsize sanity checks and
-	complaint by a comment explaining why they were useless. 
+	complaint by a comment explaining why they were useless.
 
 Fri Oct 15 14:30:30 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
 
@@ -1627,7 +1627,7 @@ Mon Oct 11 02:48:57 1993  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
 Fri Oct  8 15:54:06 1993  Fred Fish  (fnf@deneb.cygnus.com)
 
-	* osfsolib.c, remote-sim.c, remote.c, solib.c, xcoffexec.c, 
+	* osfsolib.c, remote-sim.c, remote.c, solib.c, xcoffexec.c,
 	xcoffsolib.h:  Use 'abfd' for bfd variables instead of 'bfd'.
 	Sun cc doesn't like variable names that match their typedef'd type.
 
@@ -2828,7 +2828,7 @@ Mon Aug 23 1993  Sean Fagan  (sef@cygnus.com)
 Sun Aug 22 22:50:32 1993  Jeff Law  (law@snake.cs.utah.edu)
 
 	* hpread.c (get_textlow): Don't go past a K_END when looking for a
-	K_FUNCTION.  Avoids losing on source files with no functions. 
+	K_FUNCTION.  Avoids losing on source files with no functions.
 
 Fri Aug 20 14:01:39 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
 
@@ -2877,7 +2877,7 @@ Thu Aug 19 17:58:39 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
 	* delta68-nat.c: Add "[0]" in offsetof argument.
 	* delta68-nat.c (_initialize_kernel_u_addr): Don't try to set up
 	nl with initializer, just assign to it.  Check n_scnum field on
-	return. 
+	return.
 
 Wed Aug 18 21:42:52 1993  Jeff Law  (law@snake.cs.utah.edu)
 
@@ -2923,7 +2923,7 @@ Tue Aug 17 15:10:04 1993  K. Richard Pixley  (rich@sendai.cygnus.com)
 	  (examine_prologue): removed unused variabel insn2, rename insn1
 	  to insn, rewrote comment about finding fp, sp, etc. set frame_fp
 	  based on ACTUAL_FP_REGNUM rather than FP_REGNUM which is
-	  actually a scammed alias for SP_REGNUM on m88k. 
+	  actually a scammed alias for SP_REGNUM on m88k.
 
 	* frame.h: fixed typo in comment.
 
@@ -3711,9 +3711,9 @@ Wed Jul 14 17:37:03 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
 	alignment restrictions.
 	* config/pa/xm-pa.h (MAKEVA_EXTRA_INFO): Define.
 	(MAKEVA_START): Initialize arglist_address field.
-	(MAKEVA_ARG): Always store arguments on natural alignment 
+	(MAKEVA_ARG): Always store arguments on natural alignment
 	boundaries.  Set arglist_address to the address right after
-	the args.  
+	the args.
 	(MAKEVA_END): Simply return the value stored in arglist_address.
 
 Wed Jul 14 13:51:54 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
@@ -4159,7 +4159,7 @@ Fri Jun 25 17:02:45 1993  Stu Grossman  (grossman at cygnus.com)
 	* gdbserver/remote-gutils.c:  Remove lots of unused functions and
 	variables.
 	* gdbserver/remote-inflow.c:  Remove lots of unused variables and
-	#includes.  Also, use PTRACE_* symbols instead of constants. 
+	#includes.  Also, use PTRACE_* symbols instead of constants.
 	(mywait):  Surround calls to wait() with enable/disable_async_io()
 	so that we can be interrupted from GDB while waiting for the
 	child.  Also, handle child exit more gracefully.
@@ -4431,7 +4431,7 @@ Mon Jun 21 10:13:42 1993  Jeff Law  (law@snake.cs.utah.edu)
 	SYMBOL_INIT_DEMANGLED_NAME for the current symbol.  Adjust
 	SYMBOL_VALUE for local variables in the stack by the size of the
 	current function's stack (found in unwind descriptor).  Keep
-	better track of the current unwind descriptor. 
+	better track of the current unwind descriptor.
 
 Sun Jun 20 13:11:11 1993  Jim Kingdon  (kingdon@cygnus.com)
 
@@ -4475,7 +4475,7 @@ Thu Jun 17 17:29:30 1993  Jim Kingdon  (kingdon@lisa.cygnus.com)
 	the delta88 with svr3).
 
 Thu Jun 17 16:53:56 1993  david d `zoo' zuhn (zoo@cygnus.com)
-	
+
 	* Makefile.in: canonicalize install.sh; for use within
 	this directory (and subdirs)
 
@@ -4711,7 +4711,7 @@ Tue Jun  8 14:42:10 1993  Jim Kingdon  (kingdon@rtl.cygnus.com)
 Tue Jun  8 17:54:09 1993  Rob Savoye  (rob@rtl.cygnus.com)
 
 	* serial.c (serial_close): If scb is NULL, don't try to close
-	it. 
+	it.
 	* configure.in: Add support for rom68k and bug boot monitors.
 
 Tue Jun  8 17:39:12 1993  Steve Chamberlain  (sac@phydeaux.cygnus.com)
@@ -4902,7 +4902,7 @@ Fri May 28 17:24:51 1993  david d `zoo' zuhn  (zoo at cirdan.cygnus.com)
 
 	* printcmd.c (print_address_symbolic): turn this into an assigment
 	instead of an initialization (many compilers don't accept
-	structure initialization). 
+	structure initialization).
 
 Thu May 27 16:56:25 1993  Jim Kingdon  (kingdon@lioth.cygnus.com)
 
@@ -5292,7 +5292,7 @@ Wed May  5 15:16:33 1993  Stu Grossman  (grossman@cygnus.com)
         * Patches from Jeffrey Law <law@cs.utah.edu>.
 	* gdb/hppa-tdep.c: Declare frame_saved_pc.
 	(frameless_function_invocation): New function.
-	(frame_saved_pc, init_extra_frame_info): Use 
+	(frame_saved_pc, init_extra_frame_info): Use
 	frameless_function_invocation.
 	* gdb/config/pa/tm-hppa.h (SAVED_PC_AFTER_CALL): Use saved_pc_after
 	call instead of just grabbing the value currently in %r2.
@@ -5387,7 +5387,7 @@ Sat May  1 16:05:24 1993  Fred Fish  (fnf@cygnus.com)
 	current coding style, where we mix prototypes with pre-ANSI
 	style declarations.
 	* value.h (print_longest):  Change format parameter in prototype
-	from a 'char' to an 'int'.	
+	from a 'char' to an 'int'.
 
 Sat May  1 02:47:20 1993  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
 
@@ -5523,7 +5523,7 @@ Wed Apr 28 06:11:38 1993  Jim Kingdon  (kingdon@cygnus.com)
 Wed Apr 28 11:39:18 1993  Roland H. Pesch  (pesch@fowanton.cygnus.com)
 
 	* doc/gdb.texinfo: make node "Shell Commands" unconditional;
-	describe `set demangle-style arm' (not cfront); 
+	describe `set demangle-style arm' (not cfront);
 	mention can type `q' to discard output, when gdb pages
 
 Wed Apr 28 11:32:39 1993  Peter Schauer  (pes@regent.e-technik.tu-muenchen.de)
@@ -5658,7 +5658,7 @@ Thu Apr 22 16:24:36 1993  K. Richard Pixley  (rich@rtl.cygnus.com)
 	* mips-tdep.c (heuristic_fence_post): new static variable.
 	  (heuristic_proc_start): use heuristic_fence_post, print better
 	  warnings, but only if not stop_soon_quietly.
-	  (_initialize_mips_tdep): add_set_cmd for heuristic-fence-post. 
+	  (_initialize_mips_tdep): add_set_cmd for heuristic-fence-post.
 
 Thu Apr 22 14:50:05 1993  Jim Kingdon  (kingdon@cygnus.com)
 
@@ -6417,7 +6417,7 @@ Thu Mar 18 14:26:57 1993  Per Bothner  (bothner@rtl.cygnus.com)
 	* mips-tdep.c (mips_skip_prologue):  Try to skip more of the
 	prologue (some callers _do_ care).
 	* mips-pinsn.c (print_insn), z8k-tdep.c (print_insn):  Convert to
-	new interface of ../opcodes/*-dis.c. 
+	new interface of ../opcodes/*-dis.c.
 	* ch-exp.y:  Add #include <ctype.h>.
 
 Thu Mar 18 11:57:49 1993  Jim Kingdon  (kingdon@cygnus.com)
@@ -6434,7 +6434,7 @@ Wed Mar 17 11:28:11 1993  Steve Chamberlain  (sac@thepub.cygnus.com)
 
 	* z8k-tdep.c (extract_return_value, write_return_value,
 	store_struct_return): New functions from macros in tm-z8k.h.
-	
+
 Wed Mar 17 11:23:06 1993  Fred Fish  (fnf@cygnus.com)
 
 	* valops.c (value_arg_coerce):  Apply temporary patch to
@@ -6538,7 +6538,7 @@ Thu Mar 11 09:33:01 1993  Fred Fish  (fnf@cygnus.com)
 	* utils.c (fputs_demangled, fprint_symbol):  Remove.
 	* utils.c (fprintf_symbol_filtered):  New function which combines
 	the functionality of fputs_demangled and fprint_symbol.  Uses a
-	caller provided language parameter to select the appropriate 
+	caller provided language parameter to select the appropriate
 	demangler, and caller provided args to pass to the demangler.
 	* defs.h (enum language):  Move further up in file so enum can
 	be used in prototypes.
@@ -6630,14 +6630,14 @@ Thu Mar  4 17:42:03 1993  John Gilmore  (gnu@cygnus.com)
 	Lint fixes from Paul Eggert (eggert@twinsun.com):
 
 	* command.c (do_setshow_command):  var_uintegers are unsigned.
-	* sparc-tdep.c (save_insn_opcodes, restore_insn_opcodes): 
+	* sparc-tdep.c (save_insn_opcodes, restore_insn_opcodes):
 	unsigned, since they use hex values with the high bit set.
 
 Thu Mar  4 08:22:55 1993  Fred Fish  (fnf@cygnus.com)
 
 	Fixes submitted by Karl Berry (karl@nermal.hq.ileaf.com):
 	* m88k-pinsn.c (sprint_address):  Use SYMBOL_NAME macro to
-	access symbol name.  
+	access symbol name.
 	* m88k-nat-c (SXIP_OFFSET, SNIP_OFFSET, SFIP_OFFSET):  Enclose
 	macro definitions in parenthesis.
 
@@ -6686,7 +6686,7 @@ Tue Mar  2 17:57:56 1993  Fred Fish  (fnf@cygnus.com)
 	* gdbtypes.c (lookup_struct_elt_type):  Expand comments.  Fix
 	NULL dereferencing bug for unnamed structs, comment out
 	questionable code.
-	
+
 Mon Mar  1 17:54:41 1993  John Gilmore  (gnu@cygnus.com)
 
 	* coffread.c (process_coff_symbol):  Change PCC argument correction
@@ -6832,7 +6832,7 @@ Thu Feb 18 22:38:03 1993  John Gilmore  (gnu@cygnus.com)
 	* main.c (print_gdb_version):  Update copyright year to 1993.
 	* nm-hp300bsd.h:  Decide whether this is BSD 4.3 or 4.4,
 	conditionalize this file on it.  FIXME, right way is to split
-	these into two config files.  
+	these into two config files.
 	(ATTACH_DETACH):  Define for BSD 4.4
 	(PTRACE_ARG_TYPE):  caddr_t for BSD 4.4, unset for 4.3.
 	(U_REGS_OFFSET):  Revise for 4.4.
@@ -6871,7 +6871,7 @@ Wed Feb 17 19:24:40 1993  John Gilmore  (gnu@cygnus.com)
 	* xm-hp300bsd.h:  Define PSIGNAL_IN_SIGNAL_H and put a compatible
 	definition here, to handle both BSD 4.3 and 4.4 systems.
 	* mipsread.c (ZMAGIC):  #undef to avoid duplicate define.
-	* remote.c (alarm):  Move declaration to global level, before 
+	* remote.c (alarm):  Move declaration to global level, before
 	first reference to it.
 	* tm-i386bsd.h (NUM_REGS):  There are only eleven, not twelve.
 	* dbxread.c (process_one_symbol):  Cast to unsigned char, not int.
@@ -7012,7 +7012,7 @@ Fri Feb  5 14:01:22 1993  John Gilmore  (gnu@cygnus.com)
 
 	Fix long file name bug reported on SCO Open Desktop 2.0 by Ulf Lunde
 	<Ulf.Lunde@kvatro.no> and Dag H. Wanvik <Dag.H.Wanvik@kvatro.no>:
-	  
+
 	* coffread.c (getfilename):  Eliminate COFF_NO_LONG_FILE_NAMES
 	test, which is apparently left over from when we used native
 	include files and couldn't depend on the member names being there.
@@ -7056,7 +7056,7 @@ Tue Feb  2 16:10:31 1993  Fred Fish  (fnf@cygnus.com)
 	made function static.
 	* parse.c (struct funcall):  Moved struct def from parser-defs.h.
 	* parse.c (funcall_chain):  Moved from parser-defs.h, made static.
-	* parse.c (start_arglist):  
+	* parse.c (start_arglist):
 	* parser-defs.h (free_funcalls):  Moved prototype to parse.c.
 	* parser-defs.h (struct funcall):  Moved struct def to parse.c.
 	* parser-defs.h (funcall_chain):  Moved to parse.c.
@@ -7066,7 +7066,7 @@ Tue Feb  2 16:10:31 1993  Fred Fish  (fnf@cygnus.com)
 	* valops.c (typecmp):  Moved prototype from values.h.
 	* value.h (typecmp):  Moved prototype to valops.c, made static.
 	* ch-exp.y (yylex):  Change way control sequences are disabled.
-	
+
 Tue Feb  2 16:11:43 1993  John Gilmore  (gnu@cygnus.com)
 
 	* tm-mips.h, tm-sparc.h:  Fix thinko in SETUP_ARBITRARY_FRAME.
@@ -7090,7 +7090,7 @@ Tue Feb  2 00:19:08 1993  John Gilmore  (gnu@cygnus.com)
 	* printcmd.c (print_frame_args, print_frame_nameless_args):
 	Let print_frame_nameless_args decide whether there are any,
 	laying groundwork for possibly later printing 29K args for
-	functions where we have tag words but no symbols.	
+	functions where we have tag words but no symbols.
 
 Mon Feb  1 18:09:58 1993  Roland H. Pesch  (pesch@fowanton.cygnus.com)
 
@@ -7236,7 +7236,7 @@ Fri Jan 15 20:26:50 1993  Fred Fish  (fnf@cygnus.com)
 	now used for real string types.
 	* c-lang.c (builtin_type_*):  Move declarations to lang.c since
 	they are used by all languages.
-	* c-lang.c (_initialize_c_language):  Move initializations of 
+	* c-lang.c (_initialize_c_language):  Move initializations of
 	builtin_type_* to lang.c.
 	* c-typeprint.c (c_type_print_varspec_prefix,
 	c_type_print_varspec_suffix):  TYPE_CODE_PASCAL_ARRAY renamed
@@ -7278,12 +7278,12 @@ Fri Jan 15 20:26:50 1993  Fred Fish  (fnf@cygnus.com)
 	allocate_space_in_inferior, but temporarily disabled until some
 	other support is in place.
 	* valops.c (value_array):  New function to create array constants.
-	* valprint.c (val_print_string):  Add comment to document use, 
+	* valprint.c (val_print_string):  Add comment to document use,
 	complete rewrite to fix several small buglets.
 	* value.h (value_array):  Add prototype.
 	* value.h (val_print_string):  Change prototype to match rewrite.
 	* ch-valprint.c (chill_val_print):  Add case for TYPE_CODE_STRING.
-	* ch-exp.y (match_character_literal):  Disable recognition of 
+	* ch-exp.y (match_character_literal):  Disable recognition of
 	control sequence form of character literals and document why.
 
 Thu Jan 14 15:48:12 1993  Stu Grossman  (grossman at cygnus.com)
@@ -7438,7 +7438,7 @@ Wed Jan  6 08:19:11 1993  Fred Fish  (fnf@cygnus.com)
 	* ch-exp.y (BIT_STRING_LITERAL):  Change token type to sval.
 	* ch-exp.y (NUM, PRED, SUCC, ABS, CARD, MAX, MIN, SIZE, UPPER,
 	LOWER, LENGTH):  New tokens for keywords.
-	* ch-exp.y (chill_value_built_in_routine_call, mode_argument, 
+	* ch-exp.y (chill_value_built_in_routine_call, mode_argument,
 	upper_lower_argument, length_argument, array_mode_name,
 	string_mode_name, variant_structure_mode_name):  New non-terminals
 	and productions.
@@ -7585,7 +7585,7 @@ Fri Jan  1 11:56:23 1993  Fred Fish  (fnf@cygnus.com)
 	portion of a symbol.
 	* ch-lang.c (chill_demangle):  New function, simple demangler.
 	* defs.h (chill_demangle):  Add prototype.
-	* symtab.h (language_dependent_info):  Add struct for Chill.	
+	* symtab.h (language_dependent_info):  Add struct for Chill.
 
 For older changes see ChangeLog-1992
 

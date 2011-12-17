@@ -20,8 +20,8 @@ ldsl_fpul:
 	cmp/eq r0, r1
 	bf wrong
 
-okay:	
+okay:
 	pass
 wrong:
 	fail
-	
+

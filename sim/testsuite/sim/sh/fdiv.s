@@ -1,4 +1,4 @@
-# sh testcase for fdiv 
+# sh testcase for fdiv
 # mach: sh
 # as(sh):	-defsym sim_cpu=0
 
@@ -54,7 +54,7 @@ fdiv_single:
 	test_fpr_a5a5	fr14
 	test_fpr_a5a5	fr15
 
-fdiv_double:	
+fdiv_double:
 	# Double test
 	set_grs_a5a5
 	set_fprs_a5a5

@@ -201,7 +201,7 @@ dummy_frame_sniffer (const struct frame_unwind *self,
      entry point, or some random address on the stack.  Trying to use
      that PC to apply standard frame ID unwind techniques is just
      asking for trouble.  */
-  
+
   /* Don't bother unless there is at least one dummy frame.  */
   if (dummy_frame_stack != NULL)
     {
@@ -310,7 +310,7 @@ maintenance_print_dummy_frames (char *args, int from_tty)
       if (file == NULL)
 	perror_with_name (_("maintenance print dummy-frames"));
       cleanups = make_cleanup_ui_file_delete (file);
-      fprint_dummy_frames (file);    
+      fprint_dummy_frames (file);
       do_cleanups (cleanups);
     }
 }

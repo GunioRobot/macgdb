@@ -32,7 +32,7 @@ mov:
 
 	cmp/eq r0, r15
 	bf wrong
-	
+
 okay:
 	pass
 

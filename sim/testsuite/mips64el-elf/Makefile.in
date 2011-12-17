@@ -78,7 +78,7 @@ RUN_FOR_TARGET = `\
     echo $(target_alias)-run ; \
   fi`
 
-TESTS = 
+TESTS =
 
 check: sanity $(TESTS)
 sanity:

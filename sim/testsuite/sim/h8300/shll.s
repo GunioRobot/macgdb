@@ -238,7 +238,7 @@ shll_l_reg32_1:
 	test_zero_clear
 	test_ovf_clear
 	test_neg_clear
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1010
 	test_h_gr32 0x4b4b4b4a er0
 
@@ -308,7 +308,7 @@ shll_l_reg32_8:
 	test_zero_clear
 	test_ovf_clear
 	test_neg_set
-	test_h_gr16 0xa500 r0	
+	test_h_gr16 0xa500 r0
 	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1010 0101 1010 0101 1010 0101 0000 0000
 	test_h_gr32 0xa5a5a500 er0

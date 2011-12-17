@@ -151,7 +151,7 @@
 	PR 3134
 	* h8300.h (h8_opcodes): Add an encoding for a mov.l instruction
 	with a 32-bit displacement but without the top bit of the 4th byte
-	set.	
+	set.
 
 2008-02-18  M R Swami Reddy <MR.Swami.Reddy@nsc.com>
 
@@ -301,10 +301,10 @@
 2006-10-24  Andrew Pinski  <andrew_pinski@playstation.sony.com>
 
 	* ppc.h (PPC_OPCODE_CELL): Define.
- 
+
 2006-10-23  Dwarakanath Rajagopal  <dwarak.rajagopal@amd.com>
 
-	* i386.h :  Modify opcode to support for the change in POPCNT opcode 
+	* i386.h :  Modify opcode to support for the change in POPCNT opcode
 	in amdfam10 architecture.
 
 2006-09-28  H.J. Lu  <hongjiu.lu@intel.com>
@@ -350,7 +350,7 @@
 
 2006-06-05  Thiemo Seufer  <ths@mips.com>
 
-	* mips.h: Improve description of MT flags.	
+	* mips.h: Improve description of MT flags.
 
 2006-05-25  Richard Sandiford  <richard@codesourcery.com>
 

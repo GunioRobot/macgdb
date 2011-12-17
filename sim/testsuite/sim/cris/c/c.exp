@@ -43,7 +43,7 @@ if { [target_compile $srcdir/$subdir/hello.c compilercheck.x \
 		 "executable" \
 		 "ldflags=-print-file-name=libc.so -Wl,-Bdynamic"] \
 	    xxx libcsodir]  {
-	file delete lib 
+	file delete lib
 	verbose -log "Creating link to $libcsodir in [pwd]"
 	file link lib $libcsodir
     }

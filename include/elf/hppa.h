@@ -242,9 +242,9 @@ RELOC_NUMBER (R_PARISC_SEGBASE,       	48)
 
 RELOC_NUMBER (R_PARISC_SEGREL32,      	49)
 /*		32-bit word                symbol - SB + addend 	  */
-  
 
-/* Offsets from the PLT.  */  
+
+/* Offsets from the PLT.  */
 RELOC_NUMBER (R_PARISC_PLTOFF21L,     	50)
 /*		long immediate (7)         LR(pltoff(symbol), addend) 	  */
 
@@ -269,7 +269,7 @@ RELOC_NUMBER (R_PARISC_FPTR64,        	64)
 /*		64-bit doubleword          fptr(symbol+addend) 		  */
 
 
-/* Plabel relocation types.  */	 
+/* Plabel relocation types.  */
 RELOC_NUMBER (R_PARISC_PLABEL32,      	65)
 /*		32-bit word	  	   fptr(symbol) 		  */
 
@@ -279,8 +279,8 @@ RELOC_NUMBER (R_PARISC_PLABEL21L,     	66)
 RELOC_NUMBER (R_PARISC_PLABEL14R,     	70)
 /*		load/store (1)             R(fptr(symbol))		  */
 
-  
-/* PCREL relocations.  */  
+
+/* PCREL relocations.  */
 RELOC_NUMBER (R_PARISC_PCREL64,       	72)
 /*		64-bit doubleword          symbol - PC - 8 + addend       */
 
@@ -323,10 +323,10 @@ RELOC_NUMBER (R_PARISC_DIR16WF,       	86)
 
 RELOC_NUMBER (R_PARISC_DIR16DF,       	87)
 /*		load/store doubleword (3)  symbol + addend    		  */
-  
+
 RELOC_NUMBER (R_PARISC_GPREL64,       	88)
 /*		64-bit doubleword          symbol - GP + addend 	  */
-  
+
 RELOC_NUMBER (R_PARISC_DLTREL14WR,    	91)
 /*		load/store mod. comp. (2)  RR(symbol - GP, addend) 	  */
 
@@ -374,20 +374,20 @@ RELOC_NUMBER (R_PARISC_BASEREL14DR,    108)
 
 RELOC_NUMBER (R_PARISC_SEGREL64,       112)
 /*		64-bit doubleword          symbol - SB + addend 	  */
-  
+
 RELOC_NUMBER (R_PARISC_PLTOFF14WR,     115)
 /*		load/store mod. comp. (2)  RR(pltoff(symbol), addend) 	  */
 
-RELOC_NUMBER (R_PARISC_PLTOFF14DR,     116)    
+RELOC_NUMBER (R_PARISC_PLTOFF14DR,     116)
 /*		load/store doubleword (3)  RR(pltoff(symbol), addend) 	  */
 
-RELOC_NUMBER (R_PARISC_PLTOFF16F,      117)    
+RELOC_NUMBER (R_PARISC_PLTOFF16F,      117)
 /*		load/store (1)             pltoff(symbol) + addend    	  */
 
-RELOC_NUMBER (R_PARISC_PLTOFF16WF,     118)    
+RELOC_NUMBER (R_PARISC_PLTOFF16WF,     118)
 /*		load/store mod. comp. (2)  pltoff(symbol) + addend    	  */
 
-RELOC_NUMBER (R_PARISC_PLTOFF16DF,     119)    
+RELOC_NUMBER (R_PARISC_PLTOFF16DF,     119)
 /*		load/store doubleword (3)  pltoff(symbol) + addend    	  */
 
 
@@ -443,19 +443,19 @@ RELOC_NUMBER (R_PARISC_LTOFF_TP14F,    167)
 RELOC_NUMBER (R_PARISC_TPREL64,        216)
 /*		64-bit word                symbol - TP + addend        	  */
 
-RELOC_NUMBER (R_PARISC_TPREL14WR,      219)    	  
+RELOC_NUMBER (R_PARISC_TPREL14WR,      219)
 /*		load/store mod. comp. (2)  RR(symbol - TP, addend)     	  */
 
-RELOC_NUMBER (R_PARISC_TPREL14DR,      220)    	  
+RELOC_NUMBER (R_PARISC_TPREL14DR,      220)
 /*		load/store doubleword (3)  RR(symbol - TP, addend)     	  */
 
-RELOC_NUMBER (R_PARISC_TPREL16F,       221)    	  
+RELOC_NUMBER (R_PARISC_TPREL16F,       221)
 /*		load/store (1)             symbol - TP + addend        	  */
 
-RELOC_NUMBER (R_PARISC_TPREL16WF,      222)    	  
+RELOC_NUMBER (R_PARISC_TPREL16WF,      222)
 /*		load/store mod. comp. (2)  symbol - TP + addend        	  */
 
-RELOC_NUMBER (R_PARISC_TPREL16DF,      223)    	  
+RELOC_NUMBER (R_PARISC_TPREL16DF,      223)
 /*		load/store doubleword (3)  symbol - TP + addend        	  */
 
 

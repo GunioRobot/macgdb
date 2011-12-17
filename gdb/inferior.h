@@ -313,14 +313,14 @@ enum step_over_calls_kind
    the handling of SIGSTOP for a ptraced process has changed. Earlier
    versions of the kernel would ignore these SIGSTOPs, while now
    SIGSTOP is treated like any other signal, i.e. it is not muffled.
-   
+
    If the gdb user does a 'continue' after the 'attach', gdb passes
    the global variable stop_signal (which stores the signal from the
    attach, SIGSTOP) to the ptrace(PTRACE_CONT,...)  call.  This is
    problematic, because the kernel doesn't ignore such SIGSTOP
    now. I.e. it is reported back to gdb, which in turn presents it
    back to the user.
- 
+
    To avoid the problem, we use STOP_QUIETLY_NO_SIGSTOP, which allows
    gdb to clear the value of stop_signal after the attach, so that it
    is not passed back down to the kernel.  */

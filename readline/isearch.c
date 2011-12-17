@@ -327,7 +327,7 @@ _rl_isearch_dispatch (cxt, c)
   rl_command_func_t *f;
 
   f = (rl_command_func_t *)NULL;
- 
+
  /* Translate the keys we do something with to opcodes. */
   if (c >= 0 && _rl_keymap[c].type == ISFUNC)
     {

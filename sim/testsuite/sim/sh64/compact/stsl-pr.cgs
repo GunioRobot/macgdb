@@ -17,7 +17,7 @@ stsl_pr:
 	add #85, r0
 	shll8 r0
 	add #170, r0
-	
+
 	lds r0, pr
 	mov #40, r2
 	shll8 r2
@@ -39,4 +39,4 @@ okay:
 	pass
 wrong:
 	fail
-	
+

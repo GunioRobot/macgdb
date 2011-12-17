@@ -239,7 +239,7 @@ gdb_test "xbreak print_average if (1)" "Note: breakpoint.*also set at pc.*Breakp
 }
 
 #
-# test_signals 
+# test_signals
 #
 proc test_signals { } {
     gdb_test "handle SIGTERM nostop noprint" ""

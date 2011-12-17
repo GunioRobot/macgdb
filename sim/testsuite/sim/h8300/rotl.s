@@ -29,7 +29,7 @@ rotl_b_reg8_1:
 
 	test_carry_set		; H=0 N=0 Z=0 V=0 C=1
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_clear
 	test_h_gr16 0xa54b r0	; 1010 0101 -> 0100 1011
 .if (sim_cpu)
@@ -243,7 +243,7 @@ rotl_b_reg8_2:
 
 	test_carry_clear	; H=0 N=1 Z=0 V=0 C=0
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_set
 
 	test_h_gr16 0xa596 r0	; 1010 0101 -> 1001 0110
@@ -459,7 +459,7 @@ rotl_w_reg16_1:
 
 	test_carry_set		; H=0 N=0 Z=0 V=0 C=1
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_clear
 	test_h_gr16 0x4b4b r0	; 1010 0101 1010 0101 -> 0100 1011 0100 1011
 	test_h_gr32 0xa5a54b4b er0
@@ -644,7 +644,7 @@ rotl_w_reg16_2:
 
 	test_carry_clear	; H=0 N=1 Z=0 V=0 C=0
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_set
 	test_h_gr16 0x9696 r0	; 1010 0101 1010 0101 -> 1001 0110 1001 0110
 	test_h_gr32 0xa5a59696 er0
@@ -829,9 +829,9 @@ rotl_l_reg32_1:
 
 	test_carry_set		; H=0 N=0 Z=0 V=0 C=1
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_clear
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1011
 	test_h_gr32 0x4b4b4b4b er0
 
@@ -864,7 +864,7 @@ rotl_l_indexb16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1011
 	cmp.l	#0x4b4b4b4b, @long_dest
 	beq	.Llindexb161
@@ -892,7 +892,7 @@ rotl_l_indexw16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1011
 	cmp.l	#0x4b4b4b4b, @long_dest
 	beq	.Llindexw161
@@ -920,7 +920,7 @@ rotl_l_indexl16_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1011
 	cmp.l	#0x4b4b4b4b, @long_dest
 	beq	.Llindexl161
@@ -948,7 +948,7 @@ rotl_l_indexb32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1011
 	cmp.l	#0x4b4b4b4b, @long_dest
 	beq	.Llindexb321
@@ -976,7 +976,7 @@ rotl_l_indexw32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1011
 	cmp.l	#0x4b4b4b4b, @long_dest
 	beq	.Llindexw321
@@ -1004,7 +1004,7 @@ rotl_l_indexl32_1:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 0100 1011 0100 1011 0100 1011 0100 1011
 	cmp.l	#0x4b4b4b4b, @long_dest
 	beq	.Llindexl321
@@ -1021,7 +1021,7 @@ rotl_l_reg32_2:
 
 	test_carry_clear	; H=0 N=1 Z=0 V=0 C=0
 	test_zero_clear
-	test_ovf_clear		
+	test_ovf_clear
 	test_neg_set
 	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1001 0110 1001 0110 1001 0110 1001 0110
@@ -1056,7 +1056,7 @@ rotl_l_indexb16_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1001 0110 1001 0110 1001 0110 1001 0110
 	cmp.l	#0x96969696, @long_dest
 	beq	.Llindexb162
@@ -1084,7 +1084,7 @@ rotl_l_indexw16_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1001 0110 1001 0110 1001 0110 1001 0110
 	cmp.l	#0x96969696, @long_dest
 	beq	.Llindexw162
@@ -1112,7 +1112,7 @@ rotl_l_indexl16_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1001 0110 1001 0110 1001 0110 1001 0110
 	cmp.l	#0x96969696, @long_dest
 	beq	.Llindexl162
@@ -1140,7 +1140,7 @@ rotl_l_indexb32_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1001 0110 1001 0110 1001 0110 1001 0110
 	cmp.l	#0x96969696, @long_dest
 	beq	.Llindexb322
@@ -1168,7 +1168,7 @@ rotl_l_indexw32_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1001 0110 1001 0110 1001 0110 1001 0110
 	cmp.l	#0x96969696, @long_dest
 	beq	.Llindexw322
@@ -1196,7 +1196,7 @@ rotl_l_indexl32_2:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	; 1010 0101 1010 0101 1010 0101 1010 0101 
+	; 1010 0101 1010 0101 1010 0101 1010 0101
 	; -> 1001 0110 1001 0110 1001 0110 1001 0110
 	cmp.l	#0x96969696, @long_dest
 	beq	.Llindexl322

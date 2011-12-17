@@ -825,7 +825,7 @@ do_unix_gettimeofday(os_emul_data *emul,
       emul_write_buffer((void *) &target_timezone, tv, sizeof(target_timezone), processor, cia);
     }
   }
-    
+
   emul_write_status(processor, (int)status, errno);
 }
 #endif
@@ -912,7 +912,7 @@ do_unix_getrusage(os_emul_data *emul,
     target_rusage.ru_nivcsw = H2T_4(host_rusage2.ru_nivcsw);
     emul_write_buffer((void *) &target_rusage, usage, sizeof(target_rusage), processor, cia);
   }
-    
+
   emul_write_status(processor, status, errno);
 }
 #endif
@@ -1916,7 +1916,7 @@ emul_solaris_create(device *root,
 
   return emul_unix_create(root, image, "solaris", &emul_solaris_syscalls);
 }
-  
+
 static void
 emul_solaris_init(os_emul_data *emul_data,
 		  int nr_cpus)
@@ -2131,7 +2131,7 @@ do_linux_fstat(os_emul_data *emul,
 #if defined(HAVE_TERMIO_STRUCTURE) || defined(HAVE_TERMIOS_STRUCTURE)
 #define LINUX_NCC		10
 #define LINUX_NCCS		19
-	
+
 #define	LINUX_VINTR		 0
 #define	LINUX_VQUIT		 1
 #define	LINUX_VERASE		 2
@@ -2149,7 +2149,7 @@ do_linux_fstat(os_emul_data *emul,
 #define LINUX_VSTOP		14
 #define LINUX_VLNEXT		15
 #define LINUX_VDISCARD		16
-	
+
 #define LINUX_IOC_NRBITS	 8
 #define LINUX_IOC_TYPEBITS	 8
 #define LINUX_IOC_SIZEBITS	13

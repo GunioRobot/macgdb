@@ -2,7 +2,7 @@
 #    Copyright 1995, 1996, 1997, 2002, 2007, 2008, 2009
 #    Free Software Foundation, Inc.
 #    Written by Cygnus Support.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
@@ -23,7 +23,7 @@ SIM_EXTRA_CFLAGS = -DMODET -DNEED_UI_LOOP_HOOK -DSIM_TARGET_SWITCHES
 COPRO=@COPRO@
 
 SIM_OBJS = armemu26.o armemu32.o arminit.o armos.o armsupp.o \
-	armvirt.o bag.o thumbemu.o wrapper.o sim-load.o $(COPRO) 
+	armvirt.o bag.o thumbemu.o wrapper.o sim-load.o $(COPRO)
 
 ## COMMON_POST_CONFIG_FRAG
 
@@ -34,7 +34,7 @@ armcopro.o: armcopro.c armdefs.h
 maverick.o: maverick.c armdefs.h
 iwmmxt.o: iwmmxt.c iwmmxt.h armdefs.h
 
-armemu26.o: armemu.c armdefs.h armemu.h 
+armemu26.o: armemu.c armdefs.h armemu.h
 	$(CC) -c $(srcdir)/armemu.c -o armemu26.o $(ALL_CFLAGS)
 
 armemu32.o: armemu.c armdefs.h armemu.h

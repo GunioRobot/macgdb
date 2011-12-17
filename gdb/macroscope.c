@@ -105,7 +105,7 @@ default_macro_scope (void)
   frame = deprecated_safe_get_selected_frame ();
   if (frame)
     sal = find_pc_line (get_frame_pc (frame), 0);
-  
+
   /* Fall back to the current listing position.  */
   else
     {
@@ -120,9 +120,9 @@ default_macro_scope (void)
          symbol files loaded, then get_current_or_default would raise an
          error.  But `set width' shouldn't raise an error just because
          it can't decide which scope to macro-expand its argument in.  */
-      struct symtab_and_line cursal = 
+      struct symtab_and_line cursal =
       			get_current_source_symtab_and_line ();
-      
+
       sal.symtab = cursal.symtab;
       sal.line = cursal.line;
     }

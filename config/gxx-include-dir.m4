@@ -18,8 +18,8 @@ case "${with_gxx_include_dir}" in
       *)
 	libstdcxx_incdir='c++/$(gcc_version)'
 	gxx_include_dir='include/$(libstdcxx_incdir)'
-	if test -n "$with_cross_host" && 
-           test x"$with_cross_host" != x"no"; then	
+	if test -n "$with_cross_host" &&
+           test x"$with_cross_host" != x"no"; then
           gxx_include_dir='${prefix}/${target_alias}/'"$gxx_include_dir"
         else
           gxx_include_dir='${prefix}/'"$gxx_include_dir"

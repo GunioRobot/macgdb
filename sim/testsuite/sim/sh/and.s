@@ -1,14 +1,14 @@
 # sh testcase for and
 # mach:	 all
 # as(sh):	-defsym sim_cpu=0
-# as(shdsp):	-defsym sim_cpu=1 -dsp 
+# as(shdsp):	-defsym sim_cpu=1 -dsp
 
 	.include "testutils.inc"
 
 	.align 2
 _x:	.long	0xa5a5a5a5
 _y:	.long	0x55555555
-	
+
 	start
 
 and_reg_reg_direct:
@@ -60,7 +60,7 @@ and_imm_reg:
 and_b_imm_ind:
 	set_grs_a5a5
 	mov.l	x, r0
-	and.b	#0x55, @(r0, GBR)	
+	and.b	#0x55, @(r0, GBR)
 	mov.l	@r0, r0
 
 	assertreg 0xa5a5a505, r0
@@ -86,4 +86,4 @@ and_b_imm_ind:
 	.align 2
 x:	.long	_x
 y:	.long	_y
-	
+

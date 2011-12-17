@@ -1,14 +1,14 @@
 
 : SYNOPSIS
 	skip_past_newline
-	get_stuff_in_command	
+	get_stuff_in_command
 	paramstuff
 	indent
 	maybecatstr
 ;
 
 : ignore
-	skip_past_newline 
+	skip_past_newline
 	get_stuff_in_command
 	outputdots
 	maybecatstr
@@ -20,7 +20,7 @@
 : external
 	0 internalmode ignore ;
 
-: internal 
+: internal
 	1 internalmode ignore ;
 
 - input stack { a b } output b if internal, a if external

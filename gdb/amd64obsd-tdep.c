@@ -397,7 +397,7 @@ amd64obsd_trapframe_this_id (struct frame_info *this_frame,
 {
   struct trad_frame_cache *cache =
     amd64obsd_trapframe_cache (this_frame, this_cache);
-  
+
   trad_frame_get_id (cache, this_id);
 }
 

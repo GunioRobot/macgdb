@@ -186,11 +186,11 @@ print_objfile_statistics (void)
           blockvectors++;
       }
     printf_filtered (_("  Number of symbol tables: %d\n"), i);
-    printf_filtered (_("  Number of symbol tables with line tables: %d\n"), 
+    printf_filtered (_("  Number of symbol tables with line tables: %d\n"),
                      linetables);
-    printf_filtered (_("  Number of symbol tables with blockvectors: %d\n"), 
+    printf_filtered (_("  Number of symbol tables with blockvectors: %d\n"),
                      blockvectors);
-    
+
     if (OBJSTAT (objfile, sz_strtab) > 0)
       printf_filtered (_("  Space used by a.out string tables: %d\n"),
 		       OBJSTAT (objfile, sz_strtab));
@@ -956,7 +956,7 @@ maintenance_info_symtabs (char *regexp, int from_tty)
   ALL_OBJFILES (objfile)
     {
       struct symtab *symtab;
-      
+
       /* We don't want to print anything for this objfile until we
          actually find a symtab whose name matches.  */
       int printed_objfile_start = 0;
@@ -972,14 +972,14 @@ maintenance_info_symtabs (char *regexp, int from_tty)
 		{
 		  printf_filtered ("{ objfile %s ", objfile->name);
 		  wrap_here ("  ");
-		  printf_filtered ("((struct objfile *) %s)\n", 
+		  printf_filtered ("((struct objfile *) %s)\n",
 				   host_address_to_string (objfile));
 		  printed_objfile_start = 1;
 		}
 
 	      printf_filtered ("	{ symtab %s ", symtab->filename);
 	      wrap_here ("    ");
-	      printf_filtered ("((struct symtab *) %s)\n", 
+	      printf_filtered ("((struct symtab *) %s)\n",
 			       host_address_to_string (symtab));
 	      printf_filtered ("	  dirname %s\n",
 			       symtab->dirname ? symtab->dirname : "(null)");
@@ -1030,14 +1030,14 @@ maintenance_info_psymtabs (char *regexp, int from_tty)
 		{
 		  printf_filtered ("{ objfile %s ", objfile->name);
 		  wrap_here ("  ");
-		  printf_filtered ("((struct objfile *) %s)\n", 
+		  printf_filtered ("((struct objfile *) %s)\n",
 				   host_address_to_string (objfile));
 		  printed_objfile_start = 1;
 		}
 
 	      printf_filtered ("  { psymtab %s ", psymtab->filename);
 	      wrap_here ("    ");
-	      printf_filtered ("((struct partial_symtab *) %s)\n", 
+	      printf_filtered ("((struct partial_symtab *) %s)\n",
 			       host_address_to_string (psymtab));
 
 	      printf_filtered ("    readin %s\n",
@@ -1084,7 +1084,7 @@ maintenance_info_psymtabs (char *regexp, int from_tty)
 		      /* Note the string concatenation there --- no comma.  */
 		      printf_filtered ("      psymtab %s "
 				       "((struct partial_symtab *) %s)\n",
-				       dep->filename, 
+				       dep->filename,
 				       host_address_to_string (dep));
 		    }
 		  printf_filtered ("    }\n");

@@ -71,7 +71,7 @@ LIBOBJS = @LIBOBJS@
 
 # A configuration can specify extra .o files that should be included,
 # even if they are in libc. (Perhaps the libc version is buggy.)
-EXTRA_OFILES = 
+EXTRA_OFILES =
 
 # Flags to pass to a recursive make.
 FLAGS_TO_PASS = \
@@ -268,7 +268,7 @@ html: $(HTMLS)
 
 NORMAL_INSTALL = :
 mkdir_p = mkdir -p --
- 
+
 html__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 
 install-html: install-html-am

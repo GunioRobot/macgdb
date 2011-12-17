@@ -86,7 +86,7 @@ if test x"${gccfiles}" = xno -o x"${gcclibs}" = xno; then
     ac_cv_prog_cxx_works=no
     AC_MSG_ERROR(${CXX} is a non-working cross compiler)
 else
-   ac_cv_prog_cxx_works=yes 
+   ac_cv_prog_cxx_works=yes
 fi
 
 AC_LANG_RESTORE
@@ -180,7 +180,7 @@ fi
 dnl If everything is OK, then we can safely assume the compiler works.
 if test x"${gccfiles}" = xno -o x"${gcclibs}" = xno; then
     ac_cv_prog_cc_works=no
-    AC_MSG_ERROR(${CC} is a non-working cross compiler)    
+    AC_MSG_ERROR(${CC} is a non-working cross compiler)
 else
     ac_cv_prog_cc_works=yes
 fi
@@ -594,7 +594,7 @@ if test -f "$ac_cv_c_ilupath/runtime/kernel/Makefile" ; then
 else
     AC_MSG_RESULT(no)
 fi])
-   
+
 AC_MSG_CHECKING(for the ILU C++ bindings library in the build tree)
 AC_CACHE_VAL(ac_cv_c_ilulib2,[
 if test -f "$ac_cv_c_ilupath/runtime/cpp/Makefile" ; then
@@ -731,7 +731,7 @@ else
    ac_cv_prog_gcc=no
 fi
 
-dnl 
+dnl
 if test x"${ac_cv_prog_gcc}" = xyes ; then
    gccpath=`echo $libgccpath | sed -e 's:/libgcc.a::'`
    LIBGCC="-L${gccpath}"

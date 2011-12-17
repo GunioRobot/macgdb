@@ -106,7 +106,7 @@ static const struct hw_port_descriptor lm32cpu_ports[] = {
 
 /*
  * Finish off the partially created hw device.  Attach our local
- * callbacks.  Wire up our port names etc.  
+ * callbacks.  Wire up our port names etc.
  */
 static hw_port_event_method lm32cpu_port_event;
 
@@ -145,7 +145,7 @@ deliver_lm32cpu_interrupt (struct hw *me, void *data)
 
 
   /*
-   * Determine if an external interrupt is active 
+   * Determine if an external interrupt is active
    * and needs to cause an exception.
    */
   im = lm32bf_h_csr_get (cpu, LM32_CSR_IM);
@@ -199,7 +199,7 @@ lm32cpu_port_event (struct hw *me,
 
 
 
-  /* 
+  /*
    * Activate IP if the interrupt's activated; don't do anything if
    * the interrupt's deactivated.
    */
@@ -214,7 +214,7 @@ lm32cpu_port_event (struct hw *me,
       lm32bf_h_csr_set (cpu, LM32_CSR_IP,
 			lm32bf_h_csr_get (cpu, LM32_CSR_IP) | (1 << my_port));
 
-      /* 
+      /*
        * Since interrupt is activated, queue an immediate event
        * to check if this interrupt is serviceable.
        */
@@ -222,7 +222,7 @@ lm32cpu_port_event (struct hw *me,
 	hw_event_queue_deschedule (me, controller->event);
 
 
-      /* 
+      /*
        * Queue an immediate event to check if this interrupt must be serviced;
        * this will happen after the current instruction is complete.
        */

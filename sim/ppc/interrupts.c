@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -264,7 +264,7 @@ alignment_interrupt(cpu *processor,
   case USER_ENVIRONMENT:
   case VIRTUAL_ENVIRONMENT:
     cpu_error(processor, cia, "alignment interrupt - ra=0x%lx", ra);
-    
+
   case OPERATING_ENVIRONMENT:
     DAR = (spreg)ra;
     DSISR = 0; /* FIXME */
@@ -277,7 +277,7 @@ alignment_interrupt(cpu *processor,
 
   default:
     error("internal error - alignment_interrupt - bad switch");
-    
+
   }
 }
 
@@ -370,7 +370,7 @@ floating_point_unavailable_interrupt(cpu *processor,
 				     unsigned_word cia)
 {
   switch (CURRENT_ENVIRONMENT) {
-    
+
   case USER_ENVIRONMENT:
   case VIRTUAL_ENVIRONMENT:
     cpu_error(processor, cia, "floating-point unavailable interrupt");
@@ -481,7 +481,7 @@ deliver_hardware_interrupt(void *data)
 
 STATIC_INLINE_INTERRUPTS\
 (void)
-schedule_hardware_interrupt_delivery(cpu *processor) 
+schedule_hardware_interrupt_delivery(cpu *processor)
 {
   interrupts *ints = cpu_interrupts(processor);
   if (ints->delivery_scheduled == NULL) {

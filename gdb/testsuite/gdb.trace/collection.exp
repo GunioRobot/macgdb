@@ -37,7 +37,7 @@ if { [gdb_compile "$srcdir/$subdir/$srcfile" $binfile \
     return -1
 }
 
-# Tests: 
+# Tests:
 # 1) $args
 # 2) function args by name
 # 3) $locs
@@ -79,12 +79,12 @@ proc run_trace_experiment { msg test_func } {
     global gdb_prompt
     gdb_run_cmd
     gdb_expect {
-	-re ".*Breakpoint \[0-9\]+, begin .*$gdb_prompt $" { 
+	-re ".*Breakpoint \[0-9\]+, begin .*$gdb_prompt $" {
 	}
-	-re ".*$gdb_prompt $" { 
+	-re ".*$gdb_prompt $" {
 	    fail "collect $msg: advance to go"
 	}
-	timeout { 
+	timeout {
 	    fail "collect $msg: advance to go (timeout)"
 	}
     }
@@ -325,7 +325,7 @@ proc gdb_collect_locals_test { func mylocs msg } {
     gdb_test "print locar\[3\]" \
 	    "\\$\[0-9\]+ = 124$cr" \
 	    "collect $msg: collected locarray #3"
-	    
+
 
     gdb_test "tfind none" \
 	    "#0  end .*" \
@@ -496,9 +496,9 @@ proc gdb_trace_collection_test { } {
     gdb_test "set width 0" "" ""
     delete_breakpoints
 
-    # We generously give ourselves one "pass" if we successfully 
+    # We generously give ourselves one "pass" if we successfully
     # detect that this test cannot be run on this target!
-    if { ![gdb_target_supports_trace] } then { 
+    if { ![gdb_target_supports_trace] } then {
 	pass "Current target does not support trace"
 	return 1;
     }
@@ -532,11 +532,11 @@ proc gdb_trace_collection_test { } {
     gdb_collect_locals_test statlocal_test_func \
 	    "locc, loci, locf, locd, locst, locar" \
 	    "static locals individually"
-    
+
     gdb_collect_registers_test "\$regs"
     gdb_collect_registers_test "\$fp, \$sp, \$pc"
     gdb_collect_globals_test
-    
+
     #
     # Expression tests:
     #
@@ -582,7 +582,7 @@ proc gdb_trace_collection_test { } {
     # x[(y, z)] (tests comma expression) (ditto)
     # cast expr
     # stack data
-    
+
     gdb_collect_expression_test globals_test_func \
 	    "globalstruct.memberi"  "82"     "a.b"
     gdb_collect_expression_test globals_test_func \
@@ -611,16 +611,16 @@ proc gdb_trace_collection_test { } {
 }
 
 # Start with a fresh gdb.
- 
+
 gdb_exit
 gdb_start
 gdb_reinitialize_dir $srcdir/$subdir
 gdb_load $binfile
- 
+
 if [target_info exists gdb_stub] {
     gdb_step_for_stub;
 }
- 
+
 # Body of test encased in a proc so we can return prematurely.
 gdb_trace_collection_test
 

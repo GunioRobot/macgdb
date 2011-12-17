@@ -212,7 +212,7 @@ do_signal_test ()
 }
 
 int
-main (unsigned long long speid, unsigned long long argp, 
+main (unsigned long long speid, unsigned long long argp,
       unsigned long long envp)
 {
   int res;

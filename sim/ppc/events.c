@@ -11,11 +11,11 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- 
+
     */
 
 
@@ -35,7 +35,7 @@
 
 /* The event queue maintains a single absolute time using two
    variables.
-   
+
    TIME_OF_EVENT: this holds the time at which the next event is ment
    to occure.  If no next event it will hold the time of the last
    event.
@@ -55,7 +55,7 @@ typedef struct _event_entry event_entry;
 struct _event_entry {
   void *data;
   event_handler *handler;
-  signed64 time_of_event;  
+  signed64 time_of_event;
   event_entry *next;
 };
 
@@ -131,7 +131,7 @@ event_queue_init(event_queue *queue)
     zfree(dead);
   }
   queue->queue = NULL;
-    
+
   /* wind time back to one */
   queue->processing = 0;
   queue->time_of_event = 0;

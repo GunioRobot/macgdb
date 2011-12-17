@@ -40,7 +40,7 @@ set binfile ${objdir}/${subdir}/${testfile}
 # To build a pa 2.0 executable
 #
 #     as +DA2.0W -o reg-pa64 reg-pa64.s
-# or 
+# or
 #     cc +DA2.0W -g -o reg-pa64 reg-pa64.s
 #
 # Don't reject if there are warnings, as we expect this warning:
@@ -154,7 +154,7 @@ gdb_test "info reg r19" "r19 deadbeefbadcadee"
 #
 # Please note that this test will fail as long as we are running
 # in 32-bit mode: it will produce "$1 = 0xbadcadee".  To fix it
-# would require building a real 64-bit gdb (expression evaluation, 
+# would require building a real 64-bit gdb (expression evaluation,
 # in particular).
 #
 send_gdb "p/x \$r19\n"

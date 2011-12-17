@@ -53,12 +53,12 @@ strtod (char *str, char **ptr)
 
   if (ptr == (char **)0)
     return atof (str);
-  
+
   p = str;
-  
+
   while (ISSPACE (*p))
     ++p;
-  
+
   if (*p == '+' || *p == '-')
     ++p;
 

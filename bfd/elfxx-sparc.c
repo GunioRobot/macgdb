@@ -2738,7 +2738,7 @@ _bfd_sparc_elf_relocate_section (bfd *output_bfd,
 	      if (h == NULL)
 		break;
 	    }
-	  /* PR 7027: We need similar behaviour for 64-bit binaries.  */ 
+	  /* PR 7027: We need similar behaviour for 64-bit binaries.  */
 	  else if (r_type == R_SPARC_WPLT30 && h == NULL)
 	    break;
 	  else
@@ -3537,7 +3537,7 @@ _bfd_sparc_elf_relocate_section (bfd *output_bfd,
 	      {
 		const char *name;
 
-		/* The Solaris native linker silently disregards overflows. 
+		/* The Solaris native linker silently disregards overflows.
 		   We don't, but this breaks stabs debugging info, whose
 		   relocations are only 32-bits wide.  Ignore overflows in
 		   this case and also for discarded entries.  */

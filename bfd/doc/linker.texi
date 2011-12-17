@@ -396,7 +396,7 @@ Return TRUE on success and FALSE on failure.
 
 @end example
 
-@findex bfd_find_version_for_sym 
+@findex bfd_find_version_for_sym
 @subsubsection @code{bfd_find_version_for_sym }
 @strong{Synopsis}
 @example

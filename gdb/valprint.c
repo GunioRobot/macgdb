@@ -97,7 +97,7 @@ get_user_print_options (struct value_print_options *opts)
    pretty-printing disabled.  */
 void
 get_raw_print_options (struct value_print_options *opts)
-{  
+{
   *opts = user_print_options;
   opts->pretty = Val_no_prettyprint;
 }
@@ -453,15 +453,15 @@ val_print_type_code_flags (struct type *type, const gdb_byte *valaddr,
 }
 
 /* Print a number according to FORMAT which is one of d,u,x,o,b,h,w,g.
-   The raison d'etre of this function is to consolidate printing of 
-   LONG_LONG's into this one function. The format chars b,h,w,g are 
+   The raison d'etre of this function is to consolidate printing of
+   LONG_LONG's into this one function. The format chars b,h,w,g are
    from print_scalar_formatted().  Numbers are printed using C
-   format. 
+   format.
 
-   USE_C_FORMAT means to use C format in all cases.  Without it, 
+   USE_C_FORMAT means to use C format in all cases.  Without it,
    'o' and 'x' format do not include the standard C radix prefix
-   (leading 0 or 0x). 
-   
+   (leading 0 or 0x).
+
    Hilfinger/2004-09-09: USE_C_FORMAT was originally called USE_LOCAL
    and was intended to request formating according to the current
    language and would be used for most integers that GDB prints.  The
@@ -498,7 +498,7 @@ print_longest (struct ui_file *stream, int format, int use_c_format,
       val = int_string (val_long, 8, 0, 0, use_c_format); break;
     default:
       internal_error (__FILE__, __LINE__, _("failed internal consistency check"));
-    } 
+    }
   fputs_filtered (val, stream);
 }
 
@@ -860,7 +860,7 @@ print_decimal_chars (struct ui_file *stream, const gdb_byte *valaddr,
    * the nibbles by 16, add Y and re-decimalize.  Repeat with Z.
    *
    * The trick is that "digits" holds a base-10 number, but sometimes
-   * the individual digits are > 10. 
+   * the individual digits are > 10.
    *
    * Outer loop is per nibble (hex digit) of input, from MSD end to
    * LSD end.
@@ -982,7 +982,7 @@ print_hex_chars (struct ui_file *stream, const gdb_byte *valaddr,
     }
 }
 
-/* VALADDR points to a char integer of LEN bytes.  Print it out in appropriate language form on stream.  
+/* VALADDR points to a char integer of LEN bytes.  Print it out in appropriate language form on stream.
    Omit any leading zero chars.  */
 
 void
@@ -1024,7 +1024,7 @@ print_char_chars (struct ui_file *stream, struct type *type,
 
    Return 1 if the operation was successful. Return zero otherwise,
    in which case the values of LOW_BOUND and HIGH_BOUNDS are unmodified.
-   
+
    Computing the array upper and lower bounds is pretty easy, but this
    function does some additional verifications before returning them.
    If something incorrect is detected, it is better to return a status
@@ -1039,7 +1039,7 @@ get_array_bounds (struct type *type, long *low_bound, long *high_bound)
   struct type *index = TYPE_INDEX_TYPE (type);
   long low = 0;
   long high = 0;
-                                  
+
   if (index == NULL)
     return 0;
 
@@ -1075,8 +1075,8 @@ get_array_bounds (struct type *type, long *low_bound, long *high_bound)
 
 /* Print on STREAM using the given OPTIONS the index for the element
    at INDEX of an array whose index type is INDEX_TYPE.  */
-    
-void  
+
+void
 maybe_print_array_index (struct type *index_type, LONGEST index,
                          struct ui_file *stream,
 			 const struct value_print_options *options)
@@ -1084,8 +1084,8 @@ maybe_print_array_index (struct type *index_type, LONGEST index,
   struct value *index_value;
 
   if (!options->print_array_indexes)
-    return; 
-    
+    return;
+
   index_value = value_from_longest (index_type, index);
 
   LA_PRINT_ARRAY_INDEX (index_value, stream, options);

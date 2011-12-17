@@ -55,7 +55,7 @@ rotl:
 	rotl r1
 	assert r1, #8
 
-okay:	
+okay:
 	pass
 
 wrong:

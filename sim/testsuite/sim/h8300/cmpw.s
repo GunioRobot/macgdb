@@ -13,7 +13,7 @@
 	start
 
 .if (sim_cpu == h8sx)		; 3-bit immediate mode only for h8sx
-cmp_w_imm3:			; 
+cmp_w_imm3:			;
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
 
@@ -30,7 +30,7 @@ lt3:
 	cmp.w	#4, r0
 	bgt	gt3
 	fail
-gt3:	
+gt3:
 
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
 	test_h_gr32 0xa5a50005 er0	; er0 unchanged
@@ -58,7 +58,7 @@ eqi:	cmp.w	#0xa5a6, r0
 lti:	cmp.w	#0xa5a4, r0
 	bgt	gti
 	fail
-gti:	
+gti:
 	;; fixme test ccr	; H=0 N=1 Z=0 V=0 C=0
 	test_h_gr16 0xa5a5 r0	; r0 unchanged
 .if (sim_cpu)			; non-zero means h8300h, s, or sx
@@ -88,7 +88,7 @@ ltz:	test_gr_a5a5	1
 	test_gr_a5a5	7
 
 .endif
-	
+
 cmp_w_reg:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
 	;;  fixme set ccr
@@ -120,7 +120,7 @@ gtr:
 	test_gr_a5a5 5
 	test_gr_a5a5 6
 	test_gr_a5a5 7
-	
+
 	pass
 
 	exit 0

@@ -19,7 +19,7 @@
 	mov r0, r7
 	mov.w r0, @(12, gbr)
 
-check:	
+check:
 	# Load it back.
 	mov.w @(12, gbr), r0
 	shll16 r0

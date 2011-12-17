@@ -1,4 +1,4 @@
-/* SPARC-specific values for a.out files 
+/* SPARC-specific values for a.out files
 
    Copyright 2001 Free Software Foundation, Inc.
 
@@ -6,12 +6,12 @@
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -184,7 +184,7 @@ struct internal_sun4_dynamic_link
      for.  If not, use the chain field (the second four bytes of the
      hash table entry) to move on to the next entry in this bucket.
      If the chain field is zero you have reached the end of the
-     bucket, and the symbol is not in the hash table.  */ 
+     bucket, and the symbol is not in the hash table.  */
   unsigned long ld_hash;
 
   /* The address of the symbol table.  This is a list of

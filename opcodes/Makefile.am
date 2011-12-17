@@ -338,17 +338,17 @@ XC16X_DEPS = stamp-xc16x
 XSTORMY16_DEPS = stamp-xstormy16
 else
 IP2K_DEPS =
-LM32_DEPS = 
+LM32_DEPS =
 M32C_DEPS =
 M32R_DEPS =
 FR30_DEPS =
 FRV_DEPS =
 MEP_DEPS =
 MT_DEPS =
-OPENRISC_DEPS = 
-IQ2000_DEPS = 
-XC16X_DEPS = 
-XSTORMY16_DEPS = 
+OPENRISC_DEPS =
+IQ2000_DEPS =
+XC16X_DEPS =
+XSTORMY16_DEPS =
 endif
 
 run-cgen:
@@ -462,7 +462,7 @@ i386-gen.o: i386-gen.c i386-opc.h $(srcdir)/../include/opcode/i386.h \
 	config.h i386-opc.h sysdep.h
 	$(COMPILE_FOR_BUILD) -c $(srcdir)/i386-gen.c
 
-$(srcdir)/i386-tbl.h: $(srcdir)/i386-init.h 
+$(srcdir)/i386-tbl.h: $(srcdir)/i386-init.h
 	@echo $@
 
 $(srcdir)/i386-init.h: @MAINT@ i386-gen$(EXEEXT_FOR_BUILD) i386-opc.tbl i386-reg.tbl

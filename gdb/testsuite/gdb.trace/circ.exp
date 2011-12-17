@@ -46,13 +46,13 @@ if { [gdb_compile "$srcdir/$subdir/$srcfile" $binfile \
 #    experiment.  Confirm that the first several frames are collected,
 #    but that the last several are not.
 # 3) Set trace buffer to circular mode, still with the artificial limit
-#    of 512 bytes, and rerun the experiment.  Confirm that the last 
+#    of 512 bytes, and rerun the experiment.  Confirm that the last
 #    several frames are collected, but the first several are not.
 #
 
 # return 0 for success, 1 for failure
 proc run_trace_experiment { pass } {
-    gdb_run_cmd 
+    gdb_run_cmd
 
     if [gdb_test "tstart" \
 	    "\[\r\n\]*" \
@@ -100,12 +100,12 @@ proc setup_tracepoints { } {
 # return 0 for success, 1 for failure
 proc trace_buffer_normal { } {
     if [gdb_test "maint packet QTBuffer:size:ffffffff" \
-	    "received: .OK." ""] then { 
+	    "received: .OK." ""] then {
 	pass "This test cannot be run on this target"
 	return 1;
     }
     if [gdb_test "maint packet QTBuffer:circular:0" \
-	    "received: .OK." ""] then { 
+	    "received: .OK." ""] then {
 	pass "This test cannot be run on this target"
 	return 1;
     }
@@ -115,9 +115,9 @@ proc trace_buffer_normal { } {
 # return 0 for success, 1 for failure
 proc gdb_trace_circular_tests { } {
 
-    # We generously give ourselves one "pass" if we successfully 
+    # We generously give ourselves one "pass" if we successfully
     # detect that this test cannot be run on this target!
-    if { ![gdb_target_supports_trace] } then { 
+    if { ![gdb_target_supports_trace] } then {
 	pass "Current target does not support trace"
 	return 1;
     }
@@ -150,7 +150,7 @@ proc gdb_trace_circular_tests { } {
     # all ten trace frames.  Verify that frame zero is still
     # collected, but frame nine is not.
     if [gdb_test "maint packet QTBuffer:size:200" \
-	    "received: .OK." "shrink the target trace buffer"] then { 
+	    "received: .OK." "shrink the target trace buffer"] then {
 	return 1;
     }
     if [run_trace_experiment 2] then { return 1; }
@@ -173,7 +173,7 @@ proc gdb_trace_circular_tests { } {
     #   2) the earliest frame in the buffer will be other-than-zero
     #   3) frame nine will be available (unlike on pass 2).
     if [gdb_test "maint packet QTBuffer:circular:1" \
-	    "received: .OK." "make the target trace buffer circular"] then { 
+	    "received: .OK." "make the target trace buffer circular"] then {
 	return 1;
     }
     if [run_trace_experiment 3] then { return 1; }
@@ -198,7 +198,7 @@ gdb_exit
 gdb_start
 gdb_reinitialize_dir $srcdir/$subdir
 gdb_load $binfile
- 
+
 if [target_info exists gdb_stub] {
     gdb_step_for_stub;
 }

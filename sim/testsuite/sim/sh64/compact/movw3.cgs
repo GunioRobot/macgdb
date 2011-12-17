@@ -24,8 +24,8 @@ check:
 	cmp/eq r2, r3
 	bf wrong
 
-okay:	
+okay:
 	pass
 wrong:
 	fail
-	
+

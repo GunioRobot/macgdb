@@ -123,7 +123,7 @@ movmd_l:#
 	fail
 .L2:
 
-.endif	
+.endif
 	pass
 
 	exit 0

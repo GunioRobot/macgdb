@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
  * (c) Copyright 1990-1996 HEWLETT-PACKARD COMPANY
  * (c) Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
@@ -122,12 +122,12 @@ extern int	cma__g_nspm;
  */
 /*
  * If the file gets closed while waiting for the mutex cma__g_file[rfd]
- * gets set to null. This results in a crash if NDEBUG is set to 0 
- * since cma__int_lock tries to dereference it to set the mutex ownership 
+ * gets set to null. This results in a crash if NDEBUG is set to 0
+ * since cma__int_lock tries to dereference it to set the mutex ownership
  * after it gets the mutex. The following will still set the ownership
  * in cma__int_lock so we'll set it back to noone if cma__g_file is null
  * when we come back just in case it matters. It shouldn't since its no
- * longer in use but..... 
+ * longer in use but.....
  * Callers of this should recheck cma__g_file after the reservation to
  * make sure continueing makes sense.
  */
@@ -139,7 +139,7 @@ extern int	cma__g_nspm;
 		if(cma__g_file[rfd] == (cma__t_file_obj *)cma_c_null_ptr) \
 			cma__int_unlock(__mutex__); \
 		}
-		
+
 
 /*
  * Unreserve a file descriptor
@@ -165,8 +165,8 @@ extern int	cma__g_nspm;
 #define cma__fdm_clr_bit(n,p)	FD_CLR (n, p)
 
 /*
- * Copy the contents of one file descriptor mask into another.  If the 
- * destination operand is null, do nothing; if the source operand is null, 
+ * Copy the contents of one file descriptor mask into another.  If the
+ * destination operand is null, do nothing; if the source operand is null,
  * simply zero the destination.
  */
 #define cma__fdm_copy(src,dst,nfds) {					\
@@ -218,7 +218,7 @@ extern int	cma__g_nspm;
 
 /*
  * Set a bit in a select file descriptor mask
- * 
+ *
  * FD_SET(n,p)  :=  ((p)->fds_bits[(n)/NFDBITS] |= (1 << ((n) % NFDBITS)))
  */
 #define cma__fdm_set_bit(n,p)	FD_SET (n, p)
@@ -238,32 +238,32 @@ extern int	cma__g_nspm;
  */
 
     /*
-     * Since all CMA "thread-synchronous" I/O (read or write) operations on 
+     * Since all CMA "thread-synchronous" I/O (read or write) operations on
      * U*ix follow the exact same structure, the wrapper routines have been
      * condensed into a macro.
      *
      * The steps performed are as follows:
      *	1. Check that the file descriptor is a legitimate value.
-     *	2. Check that the entry in the CMA file "database" which corresponds to 
+     *	2. Check that the entry in the CMA file "database" which corresponds to
      *	    the file descriptor indicates that the "file" was "opened" by CMA.
-     *  3. Reserve the file, to serialized access to files.  This not only 
+     *  3. Reserve the file, to serialized access to files.  This not only
      *	    simplifies things, but also defends against non-reentrancy.
      *  4. If the "file" is "set" for non-blocking I/O, check if we
      *      have actually set the file non-blocking yet, and if not do so.
      *	    Then, issue the I/O operantion.
-     *	    Success or failure is returned immediately, after unreserving the 
+     *	    Success or failure is returned immediately, after unreserving the
      *	    file.  If the error indicates that the operation would have caused
      *	    the process to block, continue to the next step.
-     *	5. The I/O prolog adds this "file" to the global bit mask, which 
-     *	    represents all "files" which have threads waiting to perform I/O on 
+     *	5. The I/O prolog adds this "file" to the global bit mask, which
+     *	    represents all "files" which have threads waiting to perform I/O on
      *	    them, and causes the thread to block on the condition variable for
-     *	    this "file".  Periodically, a select is done on this global bit 
-     *	    mask, and the condition variables corresponding to "files" which 
+     *	    this "file".  Periodically, a select is done on this global bit
+     *	    mask, and the condition variables corresponding to "files" which
      *	    are ready for I/O are signaled, releasing those waiting threads to
      *	    perform their I/O.
-     *  6. When the thread returns from the I/O prolog, it can (hopefully) 
+     *  6. When the thread returns from the I/O prolog, it can (hopefully)
      *	    perform its operation without blocking the process.
-     *	7. The I/O epilog clears the bit in the global mask and/or signals the 
+     *	7. The I/O epilog clears the bit in the global mask and/or signals the
      *	    the next thread waiting for this "file", as appropriate.
      *  8. If the I/O failed, continue to loop.
      *	9. Finally, the "file" is unreserved, as we're done with it, and the
@@ -271,7 +271,7 @@ extern int	cma__g_nspm;
      *
      *
      * Note:  currently, we believe that timeslicing which is based on the
-     *	    virtual-time timer does not cause system calls to return EINTR.  
+     *	    virtual-time timer does not cause system calls to return EINTR.
      *	    Threfore, any EINTR returns are relayed directly to the caller.
      *	    On platforms which do not support a virtual-time timer, the code
      *	    should probably catch EINTR returns and restart the system call.
@@ -281,7 +281,7 @@ extern int	cma__g_nspm;
  * This macro is used for both read-type and write-type functions.
  *
  * Note:  the second call to "func" may require being bracketed in a
- *	  cma__interrupt_disable/cma__interrupt_enable pair, but we'll 
+ *	  cma__interrupt_disable/cma__interrupt_enable pair, but we'll
  *	  wait and see if this is necessary.
  */
 #define cma__ts_func(func,fd,arglist,type,post_process)	{ \
@@ -337,7 +337,7 @@ extern int	cma__g_nspm;
     }
 
     /*
-     * Since most CMA "thread-synchronous" I/O ("open"-type) operations on 
+     * Since most CMA "thread-synchronous" I/O ("open"-type) operations on
      * U*ix follow the exact same structure, the wrapper routines have been
      * condensed into a macro.
      *
@@ -349,8 +349,8 @@ extern int	cma__g_nspm;
      *  4. "Open" the "file" in the CMA file database.
      *	5. Return the file descriptor value to the caller.
      *
-     * FIX-ME: for the time being, if the I/O operation returns EINTR, we 
-     *	    simply return it to the caller; eventually, we should catch this 
+     * FIX-ME: for the time being, if the I/O operation returns EINTR, we
+     *	    simply return it to the caller; eventually, we should catch this
      *	    and "do the right thing" (if we can figure out what that is).
      */
 

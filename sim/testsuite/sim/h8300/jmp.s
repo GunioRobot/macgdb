@@ -15,7 +15,7 @@ vector_area:
 	.fill	0x400, 1, 0
 
 	start
-	
+
 .if (sim_cpu == h8sx)
 jmp_8:
 	set_grs_a5a5		; Fill all general regs with a fixed pattern
@@ -25,7 +25,7 @@ jmp_8:
 	jmp @@0x20
 	fail
 
-.Ltgt_8:	
+.Ltgt_8:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
@@ -50,7 +50,7 @@ jmp_7:				; vector jump
 	test_grs_a5a5
 	stc.l	vbr, er0
 	test_h_gr32 vector_area, er0
-	
+
 .endif				; h8sx
 
 jmp_24:
@@ -61,7 +61,7 @@ jmp_24:
 	jmp @.Ltgt_24:24
 	fail
 
-.Ltgt_24:	
+.Ltgt_24:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
@@ -81,7 +81,7 @@ jmp_reg:
 	mov.l	#.Ltgt_reg, er5
 	jmp	@er5
 	fail
-	
+
 .Ltgt_reg:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
@@ -105,7 +105,7 @@ jmp_32:
 	.long	.Ltgt_32
 	fail
 
-.Ltgt_32:	
+.Ltgt_32:
 	test_cc_clear
 	test_gr_a5a5 0		; Make sure other general regs not disturbed
 	test_gr_a5a5 1
@@ -120,4 +120,3 @@ jmp_32:
 	pass
 	exit 0
 
-	

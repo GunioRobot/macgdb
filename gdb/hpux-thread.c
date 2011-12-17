@@ -410,7 +410,7 @@ hpux_thread_xfer_memory (CORE_ADDR memaddr, char *myaddr, int len,
 
   inferior_ptid = main_ptid;
 
-  retval = 
+  retval =
     deprecated_child_ops.deprecated_xfer_memory (memaddr, myaddr, len, dowrite, attribs, target);
 
   do_cleanups (old_chain);
@@ -444,7 +444,7 @@ static void
 hpux_thread_create_inferior (struct target_ops *ops, char *exec_file,
 			     char *allargs, char **env, int from_tty)
 {
-  deprecated_child_ops.to_create_inferior (&deprecated_child_ops, 
+  deprecated_child_ops.to_create_inferior (&deprecated_child_ops,
 					   exec_file, allargs, env, from_tty);
 
   if (hpux_thread_active)

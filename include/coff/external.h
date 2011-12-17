@@ -1,17 +1,17 @@
 /* external.h  -- External COFF structures
-   
+
    Copyright 2001, 2006 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
@@ -146,7 +146,7 @@ struct external_lineno
 #endif
 #define E_DIMNUM	4	/* # array dimensions in auxiliary entry */
 
-struct external_syment 
+struct external_syment
 {
   union
   {
@@ -167,7 +167,7 @@ struct external_syment
 } ATTRIBUTE_PACKED ;
 
 #define	SYMENT	struct external_syment
-#define	SYMESZ	18	
+#define	SYMESZ	18
 
 #ifndef N_BTMASK
 #define N_BTMASK	0xf
@@ -194,7 +194,7 @@ union external_auxent
   struct
   {
     char x_tagndx[4];		/* str, un, or enum tag indx */
-    
+
     union
     {
       struct
@@ -202,11 +202,11 @@ union external_auxent
 	char  x_lnno[2]; /* declaration line number */
 	char  x_size[2]; /* str/union/array size */
       } x_lnsz;
-      
+
       char x_fsize[4];	/* size of function */
-      
+
     } x_misc;
-    
+
     union
     {
       struct 		/* if ISFCN, tag, or .bb */
@@ -214,30 +214,30 @@ union external_auxent
 	char x_lnnoptr[4];	/* ptr to fcn line # */
 	char x_endndx[4];	/* entry ndx past block end */
       } x_fcn;
-      
+
       struct 		/* if ISARY, up to 4 dimen. */
       {
 	char x_dimen[E_DIMNUM][2];
       } x_ary;
-      
+
     } x_fcnary;
-    
+
     char x_tvndx[2];	/* tv index */
-    
+
   } x_sym;
-  
+
   union
   {
     char x_fname[E_FILNMLEN];
-    
+
     struct
     {
       char x_zeroes[4];
       char x_offset[4];
     } x_n;
-    
+
   } x_file;
-  
+
   struct
   {
     char x_scnlen[4];	/* section length */
@@ -247,9 +247,9 @@ union external_auxent
     char x_checksum[4];		   /* section COMDAT checksum	      */
     char x_associated[2];	   /* COMDAT associated section index */
     char x_comdat[1];		   /* COMDAT selection number	      */
-#endif    
+#endif
   } x_scn;
-  
+
   struct
   {
     char x_tvfill[4];	/* tv fill value */

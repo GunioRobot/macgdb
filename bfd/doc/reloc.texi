@@ -1930,7 +1930,7 @@ This is a 16 bit reloc for the AVR that stores 8 bit value (usually
 command address) into 8 bit immediate value of LDI insn.
 @end deffn
 @deffn {} BFD_RELOC_AVR_LO8_LDI_GS
-This is a 16 bit reloc for the AVR that stores 8 bit value 
+This is a 16 bit reloc for the AVR that stores 8 bit value
 (command address) into 8 bit immediate value of LDI insn. If the address
 is beyond the 128k boundary, the linker inserts a jump stub for this reloc
 in the lower 128k.
@@ -2668,52 +2668,52 @@ BFD_RELOC_MACH_O_PAIR.
 Mach-O generic relocations.
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_32_LO
-This is a 32 bit reloc for the microblaze that stores the 
+This is a 32 bit reloc for the microblaze that stores the
 low 16 bits of a value
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_32_LO_PCREL
-This is a 32 bit pc-relative reloc for the microblaze that 
+This is a 32 bit pc-relative reloc for the microblaze that
 stores the low 16 bits of a value
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_32_ROSDA
-This is a 32 bit reloc for the microblaze that stores a 
+This is a 32 bit reloc for the microblaze that stores a
 value relative to the read-only small data area anchor
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_32_RWSDA
-This is a 32 bit reloc for the microblaze that stores a 
+This is a 32 bit reloc for the microblaze that stores a
 value relative to the read-write small data area anchor
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_32_SYM_OP_SYM
-This is a 32 bit reloc for the microblaze to handle 
+This is a 32 bit reloc for the microblaze to handle
 expressions of the form "Symbol Op Symbol"
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_64_NONE
-This is a 64 bit reloc that stores the 32 bit pc relative 
-value in two words (with an imm instruction).  No relocation is 
+This is a 64 bit reloc that stores the 32 bit pc relative
+value in two words (with an imm instruction).  No relocation is
 done here - only used for relaxing
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_64_GOTPC
-This is a 64 bit reloc that stores the 32 bit pc relative 
+This is a 64 bit reloc that stores the 32 bit pc relative
 value in two words (with an imm instruction).  The relocation is
 PC-relative GOT offset
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_64_GOT
-This is a 64 bit reloc that stores the 32 bit pc relative 
+This is a 64 bit reloc that stores the 32 bit pc relative
 value in two words (with an imm instruction).  The relocation is
 GOT offset
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_64_PLT
-This is a 64 bit reloc that stores the 32 bit pc relative 
+This is a 64 bit reloc that stores the 32 bit pc relative
 value in two words (with an imm instruction).  The relocation is
 PC-relative offset into PLT
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_64_GOTOFF
-This is a 64 bit reloc that stores the 32 bit GOT relative 
+This is a 64 bit reloc that stores the 32 bit GOT relative
 value in two words (with an imm instruction).  The relocation is
 relative offset from _GLOBAL_OFFSET_TABLE_
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_32_GOTOFF
-This is a 32 bit reloc that stores the 32 bit GOT relative 
+This is a 32 bit reloc that stores the 32 bit GOT relative
 value in a word.  The relocation is relative offset from
 @end deffn
 @deffn {} BFD_RELOC_MICROBLAZE_COPY

@@ -52,7 +52,7 @@ write_template ()
       if (opcode->format != OPCODE_FAKE)
 	{
 	  printf("/* %s */\nvoid\nOP_%X ()\n{\n",opcode->name,opcode->opcode);
-	  
+
 	  /* count operands */
 	  j = 0;
 	  for (i=0;i<6;i++)
@@ -102,20 +102,20 @@ write_opcodes ()
 {
   struct d10v_opcode *opcode;
   int i, j;
-  
+
   /* write out opcode table */
   printf ("#include \"d10v_sim.h\"\n");
   printf ("#include \"simops.h\"\n\n");
   printf ("struct simops Simops[] = {\n");
-  
+
   for (opcode = (struct d10v_opcode *)d10v_opcodes; opcode->name; opcode++)
     {
       if (opcode->format != OPCODE_FAKE)
 	{
-	  printf ("  { %ld,%d,%ld,%d,%d,%d,%d,OP_%X,", opcode->opcode, 
-		  (opcode->format & LONG_OPCODE) ? 1 : 0, opcode->mask, opcode->format, 
+	  printf ("  { %ld,%d,%ld,%d,%d,%d,%d,OP_%X,", opcode->opcode,
+		  (opcode->format & LONG_OPCODE) ? 1 : 0, opcode->mask, opcode->format,
 		  opcode->cycles, opcode->unit, opcode->exec_type, opcode->opcode);
-      
+
 	  /* REMOVE ME */
 	  check_opcodes (opcode->opcode);
 	  Opcodes[curop++] = opcode->opcode;
@@ -128,7 +128,7 @@ write_opcodes ()
 		j++;
 	    }
 	  printf ("%d,",j);
-	  
+
 	  j = 0;
 	  for (i=0;i<6;i++)
 	    {

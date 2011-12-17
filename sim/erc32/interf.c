@@ -1,23 +1,23 @@
 /*
  * This file is part of SIS.
- * 
+ *
  * SIS, SPARC instruction simulator V1.6 Copyright (C) 1995 Jiri Gaisler,
  * European Space Agency
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
  * more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; if not, write to the Free Software Foundation, Inc., 675
  * Mass Ave, Cambridge, MA 02139, USA.
- * 
+ *
  */
 
 #include <signal.h>
@@ -208,7 +208,7 @@ sim_open (kind, callback, abfd, argv)
 	    } else
 	    if (strcmp(argv[stat], "-sparclite-board") == 0) {
 		sparclite_board = 1;
-            } else 
+            } else
             if (strcmp(argv[stat], "-dumbio") == 0) {
 		dumbio = 1;
 	    } else
@@ -217,10 +217,10 @@ sim_open (kind, callback, abfd, argv)
 	    } else
             if (strcmp(argv[stat], "-rom8") == 0) {
                 rom8 = 1;
-	    } else 
+	    } else
             if (strcmp(argv[stat], "-uben") == 0) {
                 uben = 1;
-	    } else 
+	    } else
 	    if (strcmp(argv[stat], "-uart1") == 0) {
 		if ((stat + 1) < argc)
 		    strcpy(uart_dev1, argv[++stat]);

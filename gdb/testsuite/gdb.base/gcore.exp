@@ -135,12 +135,12 @@ gdb_expect {
     -re ".* is not a core dump:.*$gdb_prompt $" {
 	fail "re-load generated corefile (bad file format)"
 	# No use proceeding from here.
-	return;	
+	return;
     }
     -re ".*: No such file or directory.*$gdb_prompt $" {
 	fail "re-load generated corefile (file not found)"
 	# No use proceeding from here.
-	return;	
+	return;
     }
     -re ".*Couldn't find .* registers in core file.*$gdb_prompt $" {
 	fail "re-load generated corefile (incomplete note section)"

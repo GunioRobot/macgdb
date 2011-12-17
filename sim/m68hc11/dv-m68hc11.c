@@ -3,7 +3,7 @@
     Free Software Foundation, Inc.
     Written by Stephane Carrez (stcarrez@nerim.fr)
     (From a driver model Contributed by Cygnus Solutions.)
-    
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 3 of the License, or
@@ -16,7 +16,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     */
 
 
@@ -31,7 +31,7 @@
 
         m68hc11cpu - m68hc11 cpu virtual device
         m68hc12cpu - m68hc12 cpu virtual device
-   
+
    DESCRIPTION
 
         Implements the external m68hc11/68hc12 functionality.  This includes
@@ -114,7 +114,7 @@ static const OPTION m68hc11_options[] =
   { {"osc-info", no_argument, NULL, OPTION_OSC_INFO },
       '\0', NULL, "Print information about current input oscillators",
       m68hc11_option_handler },
-  
+
   { {NULL, no_argument, NULL, 0}, '\0', NULL, NULL, NULL }
 };
 
@@ -150,7 +150,7 @@ struct m68hc11cpu {
 
 
 
-/* input port ID's */ 
+/* input port ID's */
 
 enum {
   RESET_PORT,
@@ -267,7 +267,7 @@ static void
 m68hc11_delete (struct hw* me)
 {
   struct m68hc11cpu *controller;
-  
+
   controller = hw_data (me);
 
   reset_oscillators (me);
@@ -286,7 +286,7 @@ attach_m68hc11_regs (struct hw *me,
   sim_cpu *cpu;
   reg_property_spec reg;
   const char *cpu_mode;
-  
+
   if (hw_find_property (me, "reg") == NULL)
     hw_abort (me, "Missing \"reg\" property");
 
@@ -487,7 +487,7 @@ reset_oscillators (struct hw *me)
         }
     }
 }
-      
+
 static void
 m68hc11cpu_port_event (struct hw *me,
                        int my_port,
@@ -498,7 +498,7 @@ m68hc11cpu_port_event (struct hw *me,
   struct m68hc11cpu *controller = hw_data (me);
   SIM_DESC sd;
   sim_cpu* cpu;
-  
+
   sd  = hw_system (me);
   cpu = STATE_CPU (sd, 0);
   switch (my_port)
@@ -516,12 +516,12 @@ m68hc11cpu_port_event (struct hw *me,
       hw_port_event (me, CPU_RESET_PORT, 1);
       cpu_restart (cpu);
       break;
-      
+
     case NMI_PORT:
       controller->pending_nmi = 1;
       HW_TRACE ((me, "port-in nmi"));
       break;
-      
+
     case IRQ_PORT:
       /* level == 0 means that the interrupt was cleared.  */
       if(level == 0)
@@ -534,7 +534,7 @@ m68hc11cpu_port_event (struct hw *me,
     case SET_PORT_A:
       m68hc11cpu_set_port (me, cpu, M6811_PORTA, level);
       break;
-      
+
     case SET_PORT_C:
       m68hc11cpu_set_port (me, cpu, M6811_PORTC, level);
       break;
@@ -595,7 +595,7 @@ m68hc11_info (struct hw *me)
   sim_cpu *cpu;
   struct m68hc11sio *controller;
   uint8 val;
-  
+
   sd = hw_system (me);
   cpu = STATE_CPU (sd, 0);
   controller = hw_data (me);
@@ -719,7 +719,7 @@ static int
 get_frequency (const char *s, double *f)
 {
   char *p;
-  
+
   *f = strtod (s, &p);
   if (s == p)
     return -1;
@@ -745,7 +745,7 @@ m68hc11_option_handler (SIM_DESC sd, sim_cpu *cpu,
   char *p;
   int i;
   int title_printed = 0;
-  
+
   if (cpu == 0)
     cpu = STATE_CPU (sd, 0);
 
@@ -819,7 +819,7 @@ m68hc11_option_handler (SIM_DESC sd, sim_cpu *cpu,
                                                 PRINT_TIME | PRINT_CYCLE));
             }
         }
-      break;      
+      break;
     }
 
   return SIM_RC_OK;
@@ -839,7 +839,7 @@ m68hc11cpu_io_read_buffer (struct hw *me,
   sim_cpu *cpu;
   unsigned byte = 0;
   int result;
-  
+
   HW_TRACE ((me, "read 0x%08lx %d", (long) base, (int) nr_bytes));
 
   sd  = hw_system (me);
@@ -859,7 +859,7 @@ m68hc11cpu_io_read_buffer (struct hw *me,
 				 io_map, dest, base, nr_bytes);
   if (result > 0)
     return result;
-  
+
   while (nr_bytes)
     {
       if (base >= controller->attach_size)
@@ -872,7 +872,7 @@ m68hc11cpu_io_read_buffer (struct hw *me,
       nr_bytes--;
     }
   return byte;
-}     
+}
 
 void
 m68hc11cpu_set_port (struct hw *me, sim_cpu *cpu,
@@ -882,7 +882,7 @@ m68hc11cpu_set_port (struct hw *me, sim_cpu *cpu,
   uint8 delta;
   int check_interrupts = 0;
   int i;
-  
+
   switch (addr)
     {
     case M6811_PORTA:
@@ -924,7 +924,7 @@ m68hc11cpu_set_port (struct hw *me, sim_cpu *cpu,
       for (i = 0; i < 3; i++)
         {
           uint8 mask = (1 << i);
-          
+
           if (delta & mask)
             {
               uint8 edge;
@@ -1014,14 +1014,14 @@ m68hc11cpu_io_write (struct hw *me, sim_cpu *cpu,
       break;
 
     case M6811_TMSK2:
-      
+
       break;
-      
+
       /* Change the RAM and I/O mapping.  */
     case M6811_INIT:
       {
 	uint8 old_bank = cpu->ios[M6811_INIT];
-	
+
 	cpu->ios[M6811_INIT] = val;
 
 	/* Update IO mapping.  Detach from the old address
@@ -1057,7 +1057,7 @@ m68hc11cpu_io_write (struct hw *me, sim_cpu *cpu,
       {
         return;
       }
-      
+
 
       /* COP reset.  */
     case M6811_COPRST:
@@ -1067,7 +1067,7 @@ m68hc11cpu_io_write (struct hw *me, sim_cpu *cpu,
           /* COP reset here.  */
 	}
       break;
-      
+
     default:
       break;
 
@@ -1090,8 +1090,8 @@ m68hc11cpu_io_write_buffer (struct hw *me,
 
   HW_TRACE ((me, "write 0x%08lx %d", (long) base, (int) nr_bytes));
 
-  sd = hw_system (me); 
-  cpu = STATE_CPU (sd, 0);  
+  sd = hw_system (me);
+  cpu = STATE_CPU (sd, 0);
 
   if (base >= cpu->bank_start && base < cpu->bank_end)
     {

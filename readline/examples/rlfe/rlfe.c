@@ -1,7 +1,7 @@
 /* A front-end using readline to "cook" input lines.
  *
  * Copyright (C) 2004, 1999  Per Bothner
- * 
+ *
  * This front-end program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as published
  * by the Free Software Foundation; either version 2, or (at your option)
@@ -170,7 +170,7 @@ volatile int propagate_sigwinch = 0;
  * propagate window size changes from input file descriptor to
  * master side of pty.
  */
-void sigwinch_handler(int signal) { 
+void sigwinch_handler(int signal) {
    propagate_sigwinch = 1;
 }
 
@@ -180,7 +180,7 @@ void sigwinch_handler(int signal) {
  * Otherwise, it has returned the slave file descriptor.
  */
 
-int get_slave_pty(char *name) { 
+int get_slave_pty(char *name) {
    struct group *gptr;
    gid_t gid;
    int slave = -1;
@@ -417,7 +417,7 @@ main(int argc, char** argv)
   set_edit_mode ();
 
   rl_readline_name = APPLICATION_NAME;
-  
+
   if ((master = OpenPTY (&name)) < 0)
     {
       perror("ptypair: could not open master pty");
@@ -449,7 +449,7 @@ main(int argc, char** argv)
     }
 
   if (child == 0)
-    { 
+    {
       int slave;  /* file descriptor for slave pty */
 
       /* We are in the child process */
@@ -468,7 +468,7 @@ main(int argc, char** argv)
        * not work correctly unless there is a session group leader
        * and process group leader (which a session group leader
        * automatically is). This also disassociates us from our old
-       * controlling tty. 
+       * controlling tty.
        */
       if (setsid() < 0)
 	{
@@ -553,7 +553,7 @@ main(int argc, char** argv)
   rl_instream = fdopen (master, "r");
   rl_getc_function = my_rl_getc;
 
-  rl_prep_term_function = null_prep_terminal; 
+  rl_prep_term_function = null_prep_terminal;
   rl_deprep_term_function = null_deprep_terminal;
   rl_pre_input_hook = pre_input_change_mode;
   rl_callback_handler_install (prompt, line_handler);

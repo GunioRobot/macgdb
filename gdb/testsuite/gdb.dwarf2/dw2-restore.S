@@ -34,7 +34,7 @@ foo:	.cfi_startproc
 
 	.cfi_remember_state
 	jmp 2f
-	
+
 1:	mov %rbp,%rsp
 	.cfi_restore %rbp
 	pop %rbp

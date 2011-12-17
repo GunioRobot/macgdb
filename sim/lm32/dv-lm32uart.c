@@ -1,6 +1,6 @@
 /*  Lattice Mico32 UART model.
     Contributed by Jon Beniston <jon@beniston.com>
-    
+
    Copyright (C) 2009 Free Software Foundation, Inc.
 
    This file is part of GDB.

@@ -2,7 +2,7 @@
 
    Copyright (C) 1998, 1999, 2000, 2001, 2004, 2007, 2008, 2009
    Free Software Foundation, Inc.
-   
+
    Contributed by Hewlett-Packard Company.
 
    This file is part of GDB.
@@ -29,7 +29,7 @@
 extern enum tui_status tui_set_disassem_content (struct gdbarch *, CORE_ADDR);
 extern void tui_show_disassem (struct gdbarch *, CORE_ADDR);
 extern void tui_show_disassem_and_update_source (struct gdbarch *, CORE_ADDR);
-extern void tui_vertical_disassem_scroll (enum tui_scroll_direction, 
+extern void tui_vertical_disassem_scroll (enum tui_scroll_direction,
 					  int);
 extern void tui_get_begin_asm_address (struct gdbarch **, CORE_ADDR *);
 

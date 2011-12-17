@@ -125,12 +125,12 @@ proc test_with_self { executable } {
     gdb_test "print xfullpath (\"./a\")" \
              ".\[0-9\]+ =.*\".*/a\"" \
              "A one-char filename in the current directory"
-          
+
     # A file in the root directory
     gdb_test "print xfullpath (\"/root_file_which_should_exist\")" \
              ".\[0-9\]+ =.*\"/root_file_which_should_exist\"" \
              "A filename in the root directory"
-          
+
     # A file which does not have a directory prefix
     gdb_test "print xfullpath (\"xfullpath.exp\")" \
              ".\[0-9\]+ =.*\"xfullpath.exp\"" \

@@ -270,7 +270,7 @@ scutss:
 	scutss      	gr10,gr11
 	test_gr_immed	0,gr11
 
-	set_gr_immed	128,gr10	; same as 0 
+	set_gr_immed	128,gr10	; same as 0
 	scutss      	gr10,gr11
 	test_gr_limmed  0xffff,0xffe8,gr11
 
@@ -407,7 +407,7 @@ scutss2:
 	scutss      	gr10,gr11
 	test_gr_immed   0,gr11
 
-	set_gr_limmed	0,64,gr10	; same as -32 
+	set_gr_limmed	0,64,gr10	; same as -32
 	scutss      	gr10,gr11
 	test_gr_immed   0,gr11
 

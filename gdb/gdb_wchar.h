@@ -20,16 +20,16 @@
 #define GDB_WCHAR_H
 
 /* We handle three different modes here.
-   
+
    Capable systems have the full suite: wchar_t support and iconv
    (perhaps via GNU libiconv).  On these machines, full functionality
    is available.
-   
+
    DJGPP is known to have libiconv but not wchar_t support.  On
    systems like this, we use the narrow character functions.  The full
    functionality is available to the user, but many characters (those
    outside the narrow range) will be displayed as escapes.
-   
+
    Finally, some systems do not have iconv.  Here we provide a phony
    iconv which only handles a single character set, and we provide
    wrappers for the wchar_t functionality we use.  */

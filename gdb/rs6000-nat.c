@@ -731,8 +731,8 @@ add_vmap (LdInfo *ldi)
   int fd;
   ARCH64_DECL (arch64);
 
-  /* This ldi structure was allocated using alloca() in 
-     xcoff_relocate_symtab(). Now we need to have persistent object 
+  /* This ldi structure was allocated using alloca() in
+     xcoff_relocate_symtab(). Now we need to have persistent object
      and member names, so we should save them. */
 
   filename = LDI_FILENAME (ldi, arch64);
@@ -968,7 +968,7 @@ vmap_exec (void)
 /* Set the current architecture from the host running GDB.  Called when
    starting a child process. */
 
-static void (*super_create_inferior) (struct target_ops *,char *exec_file, 
+static void (*super_create_inferior) (struct target_ops *,char *exec_file,
 				      char *allargs, char **env, int from_tty);
 static void
 rs6000_create_inferior (struct target_ops * ops, char *exec_file,
@@ -1022,7 +1022,7 @@ rs6000_create_inferior (struct target_ops * ops, char *exec_file,
 
 
 /* xcoff_relocate_symtab -      hook for symbol table relocation.
-   
+
    This is only applicable to live processes, and is a no-op when
    debugging a core file.  */
 

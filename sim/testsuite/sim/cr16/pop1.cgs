@@ -38,5 +38,5 @@ ok3:
 	cmpd $0xabcd, (ra)
 	beq ok4
 	br not_ok
-ok4:	
+ok4:
 	pass
